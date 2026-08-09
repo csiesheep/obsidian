@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wrangler-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /mnt/c/Users/sheep/code/betrayal_sound_effect && npx wrangler dev"],
+      "port": 8787
+    }
+  ]
+}
