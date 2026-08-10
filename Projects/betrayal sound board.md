@@ -3,7 +3,7 @@ tags: [project]
 status: active
 started: 2026-08-08
 ---
-# betrayal_sound_effect
+# betrayal sound board
 
 ## Overview
 - Fan-made sound & music board for *Betrayal at House on the Hill*.

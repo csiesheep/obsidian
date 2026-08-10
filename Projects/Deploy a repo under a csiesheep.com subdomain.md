@@ -150,6 +150,6 @@ curl -s https://<category>.csiesheep.com/<name>/
   takes effect on the next deploy within ~30–60s.
 
 ## Related
-- [[betrayal_sound_effect]] design doc
+- [[betrayal sound board]] design doc
 - [Vault Setup Runbook](../Notes/Vault%20Setup%20Runbook.md) — same
   runbook format, different domain (this vault's own setup)
