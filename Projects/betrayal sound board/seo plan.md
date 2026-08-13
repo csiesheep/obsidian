@@ -5,7 +5,7 @@ Static site (HTML/CSS/vanilla JS + Web Audio), hosted on Cloudflare (Wrangler wo
 
 ## Current state (SEO audit)
 
-- **Single-page static soundboard.** Worker (`src/index.js`) strips a `/betrayal_sound_effect` path prefix; README targets `csiesheep.com/games/sound_effect/`. **These disagree — no single canonical URL yet.**
+- **Single-page static soundboard.** Worker (`src/index.js`) serves under a `/betrayal_sound_board` path prefix. **Canonical URL: `https://games.csiesheep.com/betrayal_sound_board/`** (settled 2026-08-13; old `/betrayal_sound_effect/` path retired → 404).
 - `<head>` has only: generic `<title>Betrayal Sound Board</title>`, viewport, Google Fonts, stylesheet. No description, no OG, no canonical, no favicon.
 - Entire board (categories, sounds, credits) is **rendered client-side by `js/app.js`** from JSON. Initial HTML `<main>` is empty → element names not in source HTML.
 - Baseline positives: `lang="en"` set; one `sr-only` `<h2>` describing the app.
@@ -13,7 +13,7 @@ Static site (HTML/CSS/vanilla JS + Web Audio), hosted on Cloudflare (Wrangler wo
 ## Gaps, ranked by impact
 
 ### Tier 1 — Foundation (do first, ~1h)
-1. **Settle the canonical URL.** Pick one (`csiesheep.com/games/sound_effect/` vs repo-name path); make worker + README + all tags agree. Blocks everything else.
+1. ~~**Settle the canonical URL.**~~ ✅ Done — `https://games.csiesheep.com/betrayal_sound_board/`. Worker + README aligned; use this in all tags/sitemap.
 2. **Rewrite `<title>`** with keywords, e.g. `Betrayal at House on the Hill Soundboard — Monster, Weapon & Room Sound Effects`.
 3. **Add `<meta name="description">`** — ~150 chars, this is the search snippet.
 4. **Add `<link rel="canonical">`.**
@@ -42,6 +42,6 @@ Static site (HTML/CSS/vanilla JS + Web Audio), hosted on Cloudflare (Wrangler wo
 3. **Search Console** to start measuring.
 4. Layer on Tier 3 (b/c) and Tier 4 links later — slower, higher ceiling.
 
-## Open decision (blocks Tier 1)
+## Resolved decisions
 
-**Which is the canonical production URL?** `https://csiesheep.com/games/sound_effect/` or the current `/betrayal_sound_effect` path? Determines the worker prefix and every tag/sitemap entry.
+- **Canonical production URL** (2026-08-13): `https://games.csiesheep.com/betrayal_sound_board/`. Worker `PREFIX` set accordingly; old `/betrayal_sound_effect/` path is a hard 404 (no redirect). Use this URL for `<link rel="canonical">`, OG tags, sitemap, and Search Console.

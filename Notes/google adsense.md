@@ -6,7 +6,7 @@ tags: [runbook, adsense, monetization, hosting]
 
 Reference project: [[betrayal sound board/design|betrayal sound board]] —
 first site monetized this way. Live at
-`games.csiesheep.com/betrayal_sound_effect/`.
+`games.csiesheep.com/betrayal_sound_board/`.
 
 ## Context
 `csiesheep.com` apex = WordPress.com (fronted by Cloudflare). Static
@@ -27,7 +27,7 @@ AdSense gives one account-wide script:
   nothing until approved + ads enabled.
 - For a single-page app, "every page" = just `index.html`.
 - Deploy = commit to `main` → Cloudflare redeploys (~30–60s). Verify:
-  `curl -s https://games.csiesheep.com/betrayal_sound_effect/ | grep ca-pub`
+  `curl -s https://games.csiesheep.com/betrayal_sound_board/ | grep ca-pub`
 
 ### 2. Verify site ownership — **watch which domain AdSense checks**
 - AdSense verifies the **exact site you registered**. We registered the
@@ -64,7 +64,7 @@ approval email arrives. Blank slots before approval are normal.
 
 ## Gotcha: Auto ads shows "0 in-page ads" on app-style pages
 **Confirmed on this project.** After approval + Auto ads on, AdSense
-reported `games.csiesheep.com/betrayal_sound_effect/ → 0 in-page ads`.
+reported `games.csiesheep.com/betrayal_sound_board/ → 0 in-page ads`.
 
 - **Why:** Auto ads places ads by analyzing page **content/structure**
   (paragraphs, article text, feeds). A compact soundboard has almost no

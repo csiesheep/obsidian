@@ -8,7 +8,7 @@ started: 2026-08-08
 ## Overview
 - Fan-made sound & music board for *Betrayal at House on the Hill*.
   Repo: [csiesheep/betrayal_sound_effect](https://github.com/csiesheep/betrayal_sound_effect),
-  live at [games.csiesheep.com/betrayal_sound_effect](https://games.csiesheep.com/betrayal_sound_effect/).
+  live at [games.csiesheep.com/betrayal_sound_board](https://games.csiesheep.com/betrayal_sound_board/).
 
 ## Events (43 total — 42 confirmed below, 1 still unknown)
 

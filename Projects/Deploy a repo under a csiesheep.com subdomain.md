@@ -25,10 +25,13 @@ different hosting approach.
   `winget install --id GitHub.cli -e` if missing).
 - Repo name doesn't already exist under the `csiesheep` GitHub account.
 - Access to the Cloudflare dashboard for the `csiesheep.com` zone.
-- Decide the URL up front: `<category>.csiesheep.com/<name>/`
-  (e.g. `games.csiesheep.com/betrayal_sound_effect/`). One subdomain per
+- Decide the URL up front: `<category>.csiesheep.com/<path>/`
+  (e.g. `games.csiesheep.com/betrayal_sound_board/`). One subdomain per
   category (`games`, `tools`, ...) so multiple projects can eventually
-  share it; one path segment per project.
+  share it; one path segment per project. The path segment is just the
+  `PREFIX` constant in `src/index.js` — it's **independent of the repo /
+  Worker name** and can be changed later on its own (the
+  `betrayal_sound_effect` repo serves at `/betrayal_sound_board/`).
 
 ## Steps
 1. Scaffold the local project and init git:
