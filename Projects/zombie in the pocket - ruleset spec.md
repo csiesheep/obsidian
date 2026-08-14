@@ -68,6 +68,23 @@ seam. Tiles occupy integer cells; each has a set of exits in
   back at the door/edge you just left**. ✅
 - Movement legality: cells orthogonally adjacent, `A.hasExit(dir) &&
   B.hasExit(opposite(dir))`. (implementation detail, consistent with rules)
+- **Rotation is the player's free choice**, constrained only by the entry
+  edge. ✅ designer: you avoid getting boxed in "with tile rotation
+  choices."
+- **Non-entry edges do not have to match.** A door may face a wall and a
+  wall may block a door, with no consequence. ✅ designer, on a jammed
+  layout: *"It makes a useless door in the living room, but that's fine…
+  I don't think I would have said that you couldn't block off a doorway,
+  as I didn't want a bunch of restrictions."* This matters — it means
+  placement can never fail for want of a match, so the only Zombie Door
+  trigger is *no usable exit*.
+- **The grid is unbounded.** ❓ No rule, no designer statement, no forum
+  thread constrains the footprint. The "4×4 house" idea circulating in
+  fan ports is an inference from the 16-tile count, not a rule. Let it
+  sprawl.
+- **Movement is mandatory** — you may not reveal a tile and stay put. ✅
+  designer: *"If you choose to go into a room, you're going in there."*
+  You may always move back into an already-explored room.
 - **Seam:** the Dining Room's **north door is also its exterior door**,
   marked with an arrow in the art — the only legal way outdoors. Taking
   it places the **Patio** tile against the Dining Room, arrows aligned;
@@ -79,8 +96,8 @@ seam. Tiles occupy integer cells; each has a set of exits in
 - **Zombie Door:** if a newly placed tile leaves you with no usable
   exit (classic case: Bathroom placed directly above the Foyer), or all
   exits are explored and you still need an unfound room, **3 zombies
-  bash through a wall of your choice in the current room**. Fight them
-  normally. You may **not** Cower before a Zombie Door attack. ✅
+  bash through a wall of your choice in the current room**. Fully
+  pinned down by designer rulings — see [§12](#12-designer-rulings-bgg).
 
 ### Indoor tiles (8) — exits ✅
 
@@ -193,13 +210,30 @@ Max **2 carried**. To pick up a third you must drop one; dropped items
 vanish the moment you leave that tile. Only **one weapon usable per
 combat**, though you may carry two.
 
+**Attack is not cumulative.** ✅ This is the single most important
+ruling for the combat code:
+
+```js
+attack = 1 + max(bonus of the one weapon you choose to use this combat)
+// NOT 1 + sum of held weapons. Drop the weapon, lose the score.
+```
+
+Designer, asked directly whether femur (+1) plus machete (+2) gives +3:
+*"You can only use one weapon at a time, so having the femur and the
+machete would still only be +2, as you'd use the better bonus."* The
+later v1.75 rules rewrote the numbers as absolutes precisely to kill this
+confusion — *"the femur is a 3 attack, not a 1+3."*
+
+**The totem does not occupy an item slot.** ✅ designer, asked directly:
+*"Nope!"* / *"The Totem does not count against your two item limit."*
+
 | Item | Effect |
 |---|---|
 | Board with Nails | +1 Attack |
 | Grisly Femur | +1 Attack |
 | Golf Club | +1 Attack |
 | Machete | +2 Attack |
-| Chainsaw | +3 Attack, fuel for **2 battles** only |
+| Chainsaw | +3 Attack, fuel for **2 battles**. When spent it is **not** discarded — it keeps occupying a slot and can be refuelled with Gasoline, unlimited times ✅ |
 | Can of Soda | +2 Health |
 | Oil | Throw while running away → take no damage. One use. **+ Candle** → kill all zombies on the tile, no damage |
 | Gasoline | **+ Candle** → kill all zombies on the tile, no damage. **+ Chainsaw** → 2 more chainsaw uses. One use |
@@ -207,16 +241,20 @@ combat**, though you may carry two.
 
 ## 5. Turn sequence ✅
 
+**Game start:** you begin in the Foyer and **do not draw a Dev card for
+it.** ✅ designer: *"You shouldn't be drawing a card for starting in the
+foyer. If you go back into the foyer, you would draw a card."* Play
+begins by moving out. Easy to get wrong; it's a free card if you do.
+
 ```
 turn():
   1. choose an exit (door indoors / grassy edge outdoors) from current tile
+     — movement is MANDATORY; you may not stay put
   2. if destination cell unexplored:
        draw tile from matching deck
-       rotate so ≥1 exit faces back at the edge you left
+       player freely rotates it, sole constraint: ≥1 exit faces back at
+       the edge you left. Other edges need not match anything.
        place it
-     if no legal placement, or the new tile leaves no usable exit:
-       → ZOMBIE_DOOR: player opens a wall of choice, fight 3 zombies
-                      (Cower is disallowed this turn)
   3. move player
   4. drawDevCard()            // even when re-entering an explored tile
        if deck empty → timePasses() first
@@ -228,9 +266,17 @@ turn():
        Storage      → may draw one more card, take its item
        Evil Temple  → resolve a SECOND card; survive & still here ⇒ gain totem
        Graveyard    → resolve a SECOND card; survive & still here ⇒ bury totem ⇒ WIN
-  7. end of turn: if on Kitchen or Garden and you did NOT run away → +1 Health
-  8. optional COWER: +3 Health, discard the top dev card unresolved
+  7. NOW check for a dead end. If the tile has no usable unexplored exit:
+       → ZOMBIE_DOOR (see §12) — this can be a SECOND fight in one turn
+  8. end of turn: if on Kitchen or Garden and you did NOT run away → +1 Health
+  9. optional COWER: +3 Health, discard the top dev card unresolved
 ```
+
+⚠️ **Step ordering matters.** The Zombie Door fires *after* the room's
+own card resolves, not instead of it — designer: *"You deal with the
+'normal' room first, then deal with the fact that it's a dead end."* So
+entering the Bathroom-above-the-Foyer can cost you two fights back to
+back, and you cannot cower between them.
 
 Note the cost model: an item pickup, a special room, and cowering all
 **consume extra dev cards**, i.e. they all spend clock. That tension is
@@ -265,8 +311,13 @@ a door / grassy edge into any **previously explored** tile. Cost: **−1
 Health**, and you do **not** draw a dev card for the tile you flee into.
 Holding **Oil**, you may throw it as you go and take no damage (one use).
 
-**Cowering** — only after a completed turn sequence: +3 Health, discard
-the top dev card unresolved. Not allowed against a Zombie Door.
+**Cowering** — after a completed turn sequence: +3 Health, discard the
+top dev card unresolved. Designer rulings: ✅ any tile counts as a
+"room", **including outdoors**; ✅ you may cower **after running away**
+(*"the turn has been resolved for that room, it just happened that the
+turn didn't include drawing a card"*); ✅ you may cower **between the two
+Temple/Graveyard cards** (*"it's basically like a fresh-normal-turn"*);
+✅ you may **not** cower before a Zombie Door attack, but may after.
 
 ## 8. Win / lose ✅
 
