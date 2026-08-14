@@ -71,6 +71,89 @@ attorney.*
       static HTML/CSS/vanilla JS, Cloudflare Worker, `games.csiesheep.com`)
 - [ ] SEO tiers + AdSense — reuse the [[google adsense]] playbook
 
+## Implementation plan
+
+Added 2026-08-14. Target: a static web game live at
+`games.csiesheep.com/zombie_in_the_pocket/`, same stack and deploy path as
+[[betrayal sound board]] (static HTML/CSS/vanilla JS + Cloudflare Worker,
+follow [[Deploy a repo under a csiesheep.com subdomain]]). Repo already
+created and cloned to `C:\Users\sheep\code\zombie_in_the_pocket`.
+
+The spec ([[zombie in the pocket - ruleset spec]]) is code-ready and
+first-party verified, so two independent workstreams: the **engine + UI**
+(theme-independent, buildable now) and the **deploy shell** (a documented
+recipe). The only content blocker is the still-open theme + title decision;
+it gates art and flavour text, not a single line of engine code.
+
+### Guiding decisions
+- **Mechanics-first, skin-last.** Build against the spec's placeholder
+  names; keep every display string + flavour line in one `data/theme.json`.
+  Re-theming becomes a data edit, not a refactor. Mechanics/numbers aren't
+  copyrightable and carry over untouched.
+- **Keep the URL slug `zombie_in_the_pocket` for now.** It's just the
+  `PREFIX` constant and is trivially changeable later. Revisit the
+  *public-facing title* before shipping (⚠️ rename — too close to the
+  commercial BGG 41372 edition); the slug never blocks engine work.
+- **Ship v1.5 as default**, wire v1.75 as a later hard-mode toggle
+  (pure constant/data changes, no new art).
+- **House rules baked in** per §13 of the spec: flee = adjacent explored
+  tile only; cower = once per turn; Temple/Graveyard second card = once,
+  consumed on success.
+
+### Target structure (mirrors the sibling repo)
+```
+index.html          single screen: board + status HUD + log + controls
+css/style.css       responsive dark-horror palette, theme tokens
+js/
+  engine.js         pure game state + rules, no DOM (the spec, in code)
+  board.js          tile placement, rotation, adjacency, seam, zombie doors
+  render.js         draws board / HUD / log from state
+  app.js            wires input → engine → render; RNG; save/restore
+data/
+  tiles.json        16 tiles (spec §2)
+  cards.json        9 dev cards (spec §3 matrix)
+  items.json        9 items (spec §4)
+  theme.json        all display names + flavour text — the swappable skin
+assets/             tile art + item icons (hand-authored SVG, house style)
+src/index.js        Cloudflare prefix router + ads.txt / robots / sitemap
+wrangler.jsonc  .assetsignore  favicon.svg  og-image.svg  README.md
+```
+
+### Phases
+1. **Engine core (headless, test-driven).** Pure functions over a state
+   object: setup (burn 2; no card for the starting Foyer), `turn()`
+   sequence, combat (`clamp(zombies − attack, 0, 4)`; **attack never
+   stacks** — one weapon, best bonus), item slots (2 + slotless totem;
+   spent-but-kept refuellable chainsaw), time track (empty deck → hour++
+   → reshuffle+burn; 11 PM empty = loss), win/lose. House rules baked in.
+   Cover with a small test harness so the rules are provably right before
+   any UI exists — this is the load-bearing part and it's fully specified.
+2. **Board model.** Unbounded dual grid (indoor/outdoor) joined at the
+   Dining Room → Patio seam; tile draw + free rotation with the single
+   entry-edge constraint; movement legality; dead-end detection → zombie
+   doors (persistent wall-to-wall holes; fire *after* the room card;
+   runnable-from).
+3. **UI.** Render the sprawling board (pan/zoom), status HUD
+   (Health / Attack / Hour / Items / Totem), an action log, and the
+   interaction flow (choose exit → rotate tile → resolve card → prompts
+   for item / flee / cower). Mobile-first, keyboard accessible.
+4. **Art + re-theme.** Hand-authored SVG tile/item icons in the house
+   style; fill `theme.json` once the setting is decided. **← needs the
+   theme/title decision.**
+5. **Deploy + SEO/AdSense.** Per the runbook: `wrangler.jsonc`,
+   `.assetsignore` (block `.git`, `src`, `.wrangler`, …), `src/index.js`
+   prefix router with `PREFIX = "/zombie_in_the_pocket"`, connect to
+   Cloudflare, attach `games.csiesheep.com` custom domain. Reuse the
+   AdSense `ads.txt` / `robots.txt` / `sitemap.xml` / site-verification
+   pattern from [[betrayal sound board]]. SEO meta + OG image + JSON-LD.
+6. **Polish (optional).** v1.75 hard-mode toggle, localStorage
+   save/resume, seeded runs for sharing.
+
+### Critical path
+Phases 1 → 2 → 3 and all of Phase 5's scaffolding run **without** the
+theme decision. Only Phase 4 (and the final public title) waits on it. So
+the decision can be made in parallel while the engine gets built.
+
 ## Log
 - 2026-08-13 — researched rules availability + licensing; confirmed
   CC BY-NC-SA 3.0 and the "non-paper versions" clause. See [[2026-08-13]].
@@ -98,6 +181,12 @@ attorney.*
   you'd actually look for them, plus the 3 🏠 house rules and a v1.75
   appendix. Paraphrased throughout, not transcribed — keeps the
   clean-room line clean.
+- 2026-08-14 — created + cloned the public repo
+  [csiesheep/zombie_in_the_pocket](https://github.com/csiesheep/zombie_in_the_pocket)
+  (`C:\Users\sheep\code\zombie_in_the_pocket`), and wrote the
+  [Implementation plan](#implementation-plan) above: mechanics-first /
+  skin-last, mirror the [[betrayal sound board]] stack, 6 phases, theme
+  decision is the only content blocker (gates Phase 4 only).
 
 ## Links
 - [[zombie in the pocket - rulebook]] — consolidated playable rules
