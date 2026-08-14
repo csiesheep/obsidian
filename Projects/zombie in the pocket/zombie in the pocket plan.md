@@ -100,15 +100,40 @@ it gates art and flavour text, not a single line of engine code.
   tile only; cower = once per turn; Temple/Graveyard second card = once,
   consumed on success.
 
+### Pages / navigation
+Multi-page static site (separate `.html` files, not a hash-routed SPA —
+real pages index better for SEO/AdSense and keep each screen dead simple).
+
+- **`index.html` — choice / main menu.** The landing page. Four options:
+  1. **Start** → `game.html`
+  2. **Rulebook** → `rulebook.html`
+  3. **Credits** → `credits.html`
+  4. **About me** → external link to `https://csiesheep.com`, opens in a
+     **new tab** (`target="_blank" rel="noopener"`) so a game in progress
+     isn't lost
+- **`game.html`** — the game itself (board + HUD + log + controls).
+- **`rulebook.html`** — the playable rules, built from
+  [[zombie in the pocket - rulebook]] (our paraphrased clean-room text, so
+  safe to publish). Doubles as a strong SEO/content page.
+- **`credits.html`** — credit to the original designer **Jeremiah Lee** and
+  the free PnP *Zombie in my Pocket*, plus the clean-room / CC BY-NC-SA
+  attribution note. (Matches the "credit the original openly" decision.)
+
+Every page shares `css/style.css` and a small nav back to the menu.
+
 ### Target structure (mirrors the sibling repo)
 ```
-index.html          single screen: board + status HUD + log + controls
+index.html          choice / main menu (Start · Rulebook · Credits · About)
+game.html           the game: board + status HUD + log + controls
+rulebook.html       playable rules (from the rulebook note; SEO content)
+credits.html        original-designer credit + license attribution
 css/style.css       responsive dark-horror palette, theme tokens
 js/
+  menu.js           menu page wiring (tiny)
   engine.js         pure game state + rules, no DOM (the spec, in code)
   board.js          tile placement, rotation, adjacency, seam, zombie doors
   render.js         draws board / HUD / log from state
-  app.js            wires input → engine → render; RNG; save/restore
+  app.js            game page: wires input → engine → render; RNG; save
 data/
   tiles.json        16 tiles (spec §2)
   cards.json        9 dev cards (spec §3 matrix)
@@ -133,7 +158,10 @@ wrangler.jsonc  .assetsignore  favicon.svg  og-image.svg  README.md
    entry-edge constraint; movement legality; dead-end detection → zombie
    doors (persistent wall-to-wall holes; fire *after* the room card;
    runnable-from).
-3. **UI.** Render the sprawling board (pan/zoom), status HUD
+3. **UI.** Build the four pages (see [Pages / navigation](#pages--navigation)):
+   the choice menu (`index.html`), the game (`game.html`), the rulebook,
+   and credits. Menu + rulebook + credits are static and cheap; the game
+   page is the work — render the sprawling board (pan/zoom), status HUD
    (Health / Attack / Hour / Items / Totem), an action log, and the
    interaction flow (choose exit → rotate tile → resolve card → prompts
    for item / flee / cower). Mobile-first, keyboard accessible.
