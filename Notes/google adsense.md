@@ -76,7 +76,7 @@ reported `games.csiesheep.com/betrayal_sound_board/ → 0 in-page ads`.
   tag sits, thin page or not.
 - **Fix B (slower, compounding):** add real text content (About /
   how-to-use / descriptions). Gives Auto ads structure to place into and
-  doubles as SEO work (see [[betrayal sound board/seo plan|SEO plan]]).
+  doubles as SEO work (see [[betrayal sound board/design#SEO Plan|SEO plan]]).
 
 ## Verifying ad serving
 - The in-app sandbox browser **blocks ad networks** — not a valid test
@@ -101,5 +101,5 @@ own ads.txt). Add the AdSense line there once approved.
 
 ## Related
 - [[Deploy a repo under a csiesheep.com subdomain]]
-- [[betrayal sound board/seo plan|Betrayal Sound Board — SEO plan]]
+- [[betrayal sound board/design#SEO Plan|Betrayal Sound Board — SEO plan]]
 - [[betrayal sound board/design|Betrayal Sound Board — design]]
