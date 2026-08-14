@@ -10,11 +10,18 @@ numbers, state transitions, data tables. **Names below are the
 originals and are placeholders**; per the clean-room decision in the
 project note they get renamed before shipping (see [Renaming](#renaming)).
 
-**Confidence key:** ✅ from the transcribed rulebook · ⚠️ from a
-third-party code implementation, verify against the PDF art · ❓ unknown
+**Confidence key:** ✅ verified against the official PDF art
+(2026-08-13) · ❓ genuinely ambiguous in the rulebook
 
-Primary rules source: [ZiMP Rules transcription (card-board.weebly.com)](http://card-board.weebly.com/zimp-rules.html)
-Data source for tiles/cards: [PatrickKennedy/zombies](https://github.com/PatrickKennedy/zombies) (`src/js/zombies.cards.js`)
+> **2026-08-13 — everything below is now first-party verified.** Read the
+> image-only PDF page by page in the browser and checked every tile edge
+> and all 9 dev cards against the art. Found **4 errors** in the
+> third-party JS port that the first draft of this spec inherited; all
+> are corrected below and listed in [Corrections](#corrections-made-after-reading-the-pdf).
+
+Rules text: [transcription (card-board.weebly.com)](http://card-board.weebly.com/zimp-rules.html), confirmed
+word-for-word against the PDF rulebook panels.
+Tile art + cards: [official PDF](http://funmines.com/wp-content/uploads/2014/12/zimp.pdf), pages 3 (cards) and 4 (tiles).
 
 ---
 
@@ -24,8 +31,12 @@ Data source for tiles/cards: [PatrickKennedy/zombies](https://github.com/Patrick
 const RULES = {
   START_HEALTH:      6,
   START_ATTACK:      1,
-  HEALTH_CAP:        null,  // rulebook: "No upper limit on either."
-                            // designer later suggested capping at 6 — make it config
+  HEALTH_CAP:        null,  // ✅ rulebook setup step 4, verbatim: "Record your
+                            // starting Attack (1) and Health (6) scores. These
+                            // numbers will change over the course of the game.
+                            // No upper limit on either."
+                            // The designer later suggested capping at 6 on the
+                            // forums — ship that as a difficulty toggle, not default
   START_HOUR:        21,    // 9 PM
   FINAL_HOUR:        23,    // 11 PM; needing a card with an empty deck here = loss
   DEV_DECK_SIZE:     9,
@@ -56,19 +67,25 @@ seam. Tiles occupy integer cells; each has a set of exits in
   the matching deck and rotate it so **at least one of its exits faces
   back at the door/edge you just left**. ✅
 - Movement legality: cells orthogonally adjacent, `A.hasExit(dir) &&
-  B.hasExit(opposite(dir))`. ⚠️ (implementation detail, consistent with rules)
-- **Seam:** the Dining Room has an extra *exterior door* marked with an
-  arrow — the only legal way outdoors. Taking it places the **Patio**
-  tile against the Dining Room, arrows aligned. ✅
-  Patio is forced to be the first outdoor tile drawn, as Foyer is
-  forced first indoors. ⚠️
+  B.hasExit(opposite(dir))`. (implementation detail, consistent with rules)
+- **Seam:** the Dining Room's **north door is also its exterior door**,
+  marked with an arrow in the art — the only legal way outdoors. Taking
+  it places the **Patio** tile against the Dining Room, arrows aligned;
+  the Patio's arrow is on *its* north edge. ✅ verified on the art:
+  the arrow sits in the margin directly above an ordinary door gap, so
+  it is **not a fifth exit** — it flags one of the four.
+- Foyer and Patio are both set aside at setup rather than shuffled, so
+  they are deterministically the first tile of their respective decks. ✅
 - **Zombie Door:** if a newly placed tile leaves you with no usable
   exit (classic case: Bathroom placed directly above the Foyer), or all
   exits are explored and you still need an unfound room, **3 zombies
   bash through a wall of your choice in the current room**. Fight them
   normally. You may **not** Cower before a Zombie Door attack. ✅
 
-### Indoor tiles (8) — exits ⚠️
+### Indoor tiles (8) — exits ✅
+
+Doors read off the art as light gaps in the black wall border. All eight
+verified.
 
 | Tile | Exits | Special |
 |---|---|---|
@@ -76,21 +93,25 @@ seam. Tiles occupy integer cells; each has a set of exits in
 | Bathroom | N | — |
 | Bedroom | N, W | — |
 | Family Room | N, E, W | — |
-| Dining Room | N, E, S, W | **+ exterior arrow door → outdoors** |
+| Dining Room | N, E, S, W | **The N door carries the arrow → outdoors** |
 | Storage | N | After resolving the dev card, you *may* draw another card and take the item on it |
 | Kitchen | N, E, W | +1 Health if you end your turn here |
 | Evil Temple | E, W | Resolve dev card, **then a second one**. Survive and still be here → you have the **totem** |
 
-### Outdoor tiles (8) — edges ⚠️
+### Outdoor tiles (8) — edges ✅
 
-| Tile | Grassy edges | Special |
-|---|---|---|
-| Patio | N | Placed at the Dining Room seam, forced first |
-| Garage | S, W | — |
-| Yard ×3 | E, S, W | Three identical copies |
-| Sitting Area | E, S, W | — |
-| Garden | E, S, W | +1 Health if you end your turn here |
-| Graveyard | E, S | Resolve dev card, **then a second one**. Survive with the totem → **WIN** |
+Open **grassy** edges are exits; **hedge** edges are walls. Every tile
+except the Patio and Graveyard is simply "hedge on one side, grass on the
+other three."
+
+| Tile | Grassy edges | Hedges | Special |
+|---|---|---|---|
+| Patio | **E, S** | W | N is the wooden-deck seam bearing the arrow → Dining Room. Set aside at setup |
+| Garage | S, W | N, E | Driveway runs off the S edge |
+| Yard ×3 | E, S, W | N | Three identical copies |
+| Sitting Area | E, S, W | N | — |
+| Garden | E, S, W | N | +1 Health if you end your turn here |
+| Graveyard | E, S | N, W | Resolve dev card, **then a second one**. Survive with the totem → **WIN** |
 
 ```json
 {
@@ -105,7 +126,7 @@ seam. Tiles occupy integer cells; each has a set of exits in
     {"id":"evil-temple", "name":"Evil Temple", "exits":["E","W"],          "onResolve":"SECOND_CARD_THEN_GAIN_TOTEM"}
   ],
   "outdoor": [
-    {"id":"patio",        "name":"Patio",        "exits":["N"],          "start":true},
+    {"id":"patio",        "name":"Patio",        "exits":["E","S"],      "seam":"N", "start":true},
     {"id":"garage",       "name":"Garage",       "exits":["S","W"]},
     {"id":"yard-1",       "name":"Yard",         "exits":["E","S","W"]},
     {"id":"yard-2",       "name":"Yard",         "exits":["E","S","W"]},
@@ -117,54 +138,56 @@ seam. Tiles occupy integer cells; each has a set of exits in
 }
 ```
 
-## 3. Development cards (9) ⚠️
+## 3. Development cards (9) ✅
 
 Every card carries one **item** plus **three outcomes**, one per hour
-band. You read only the row for the current hour.
+band. You read only the row for the current hour. All nine transcribed
+directly off the card art. **9 cards, 9 distinct items, no duplicates.**
 
 | # | Item on card | 9 PM | 10 PM | 11 PM |
 |---|---|---|---|---|
-| 1 | Grisly Femur | ITEM | 5 zombies | Event −1 HP |
-| 2 | Gasoline | 4 zombies | Event −1 HP | ITEM |
-| 3 | Chainsaw | 3 zombies | Event (flavour, no-op) | 5 zombies |
-| 4 | Board with Nails | ITEM | 4 zombies | Event −1 HP |
-| 5 | Board with Nails | Event −1 HP | 4 zombies | Event (no-op) |
-| 6 | Machete | 4 zombies | Event (no-op) | 6 zombies |
-| 7 | Can of Soda | Event +1 HP | ITEM | 4 zombies |
-| 8 | Candle | Event +1 HP | ITEM | 4 zombies |
-| 9 | Oil | Event (no-op) | ITEM | 6 zombies |
+| 1 | Oil | *"You try hard not to wet yourself."* (no-op) | ITEM | 6 zombies |
+| 2 | Gasoline | 4 zombies | *"You sense your impending doom."* −1 HP | ITEM |
+| 3 | Board with Nails | ITEM | 4 zombies | *"Something icky in your mouth."* −1 HP |
+| 4 | Machete | 4 zombies | *"A bat poops in your eye."* −1 HP | 6 zombies |
+| 5 | Grisly Femur | ITEM | 5 zombies | *"Your soul isn't wanted here."* −1 HP |
+| 6 | Golf Club | *"Slip on nasty goo."* −1 HP | 4 zombies | *"The smell of blood is in the air."* (no-op) |
+| 7 | Candle | *"Your body shivers involuntarily."* (no-op) | *"You feel a spark of hope."* +1 HP | 4 zombies |
+| 8 | Can of Soda | *"Candybar in your pocket."* +1 HP | ITEM | 4 zombies |
+| 9 | Chainsaw | 3 zombies | *"You hear terrible screams."* (no-op) | 5 zombies |
 
-**Difficulty curve** (this is the design, preserve it when re-theming):
+**Difficulty curve** — this is the load-bearing design, preserve the
+shape when re-theming:
 
-| Hour | Zombie cards | Zombie counts | Item cards | Net event HP |
-|---|---|---|---|---|
-| 9 PM | 3 | 3, 4, 4 | 2 | +1 |
-| 10 PM | 3 | 4, 4, 5 | 3 | −1 |
-| 11 PM | 4 | 4, 5, 6, 6 | 1 | −2 |
+| Hour | Zombie cards | Zombie counts | Item cards | Event cards | Net event HP |
+|---|---|---|---|---|---|
+| 9 PM | 3 | 3, 4, 4 | 2 | 4 | 0 |
+| 10 PM | 3 | 4, 4, 5 | 2 | 4 | −1 |
+| 11 PM | **5** | 4, 4, 5, 6, 6 | 1 | 3 | −2 |
+
+The squeeze is sharp and deliberate: at 11 PM more than half the deck is
+a fight, the fights are bigger, and items nearly dry up — one item card
+in nine. You are meant to arrive at midnight already armed.
 
 ```json
 [
-  {"id":1,"item":"grisly-femur","9":{"t":"ITEM"},           "10":{"t":"ZOMBIES","n":5},"11":{"t":"EVENT","hp":-1}},
-  {"id":2,"item":"gasoline",    "9":{"t":"ZOMBIES","n":4},  "10":{"t":"EVENT","hp":-1},"11":{"t":"ITEM"}},
-  {"id":3,"item":"chainsaw",    "9":{"t":"ZOMBIES","n":3},  "10":{"t":"EVENT","hp":0}, "11":{"t":"ZOMBIES","n":5}},
-  {"id":4,"item":"board-nails", "9":{"t":"ITEM"},           "10":{"t":"ZOMBIES","n":4},"11":{"t":"EVENT","hp":-1}},
-  {"id":5,"item":"board-nails", "9":{"t":"EVENT","hp":-1},  "10":{"t":"ZOMBIES","n":4},"11":{"t":"EVENT","hp":0}},
-  {"id":6,"item":"machete",     "9":{"t":"ZOMBIES","n":4},  "10":{"t":"EVENT","hp":0}, "11":{"t":"ZOMBIES","n":6}},
-  {"id":7,"item":"can-of-soda", "9":{"t":"EVENT","hp":1},   "10":{"t":"ITEM"},         "11":{"t":"ZOMBIES","n":4}},
-  {"id":8,"item":"candle",      "9":{"t":"EVENT","hp":1},   "10":{"t":"ITEM"},         "11":{"t":"ZOMBIES","n":4}},
-  {"id":9,"item":"oil",         "9":{"t":"EVENT","hp":0},   "10":{"t":"ITEM"},         "11":{"t":"ZOMBIES","n":6}}
+  {"id":1,"item":"oil",         "9":{"t":"EVENT","hp":0},  "10":{"t":"ITEM"},         "11":{"t":"ZOMBIES","n":6}},
+  {"id":2,"item":"gasoline",    "9":{"t":"ZOMBIES","n":4}, "10":{"t":"EVENT","hp":-1},"11":{"t":"ITEM"}},
+  {"id":3,"item":"board-nails", "9":{"t":"ITEM"},          "10":{"t":"ZOMBIES","n":4},"11":{"t":"EVENT","hp":-1}},
+  {"id":4,"item":"machete",     "9":{"t":"ZOMBIES","n":4}, "10":{"t":"EVENT","hp":-1},"11":{"t":"ZOMBIES","n":6}},
+  {"id":5,"item":"grisly-femur","9":{"t":"ITEM"},          "10":{"t":"ZOMBIES","n":5},"11":{"t":"EVENT","hp":-1}},
+  {"id":6,"item":"golf-club",   "9":{"t":"EVENT","hp":-1}, "10":{"t":"ZOMBIES","n":4},"11":{"t":"EVENT","hp":0}},
+  {"id":7,"item":"candle",      "9":{"t":"EVENT","hp":0},  "10":{"t":"EVENT","hp":1}, "11":{"t":"ZOMBIES","n":4}},
+  {"id":8,"item":"can-of-soda", "9":{"t":"EVENT","hp":1},  "10":{"t":"ITEM"},         "11":{"t":"ZOMBIES","n":4}},
+  {"id":9,"item":"chainsaw",    "9":{"t":"ZOMBIES","n":3}, "10":{"t":"EVENT","hp":0}, "11":{"t":"ZOMBIES","n":5}}
 ]
 ```
 
-⚠️ **Two known gaps in this transcription** — check the PDF before
-trusting it:
-1. **Golf Club is missing.** The rulebook lists it as an item; it
-   appears on no card here. Cards 7 and 8 are also mechanically
-   identical, which smells like a transcription slip.
-2. The component list says **10 item tiles**; the rulebook text
-   describes **9 items**; this deck yields **8 distinct**.
-
 ## 4. Items ✅
+
+**Exactly 9 items, one per dev card.** (The revised print package lists
+"10 item tiles" — that's a punch-out sheet count, 9 items plus a totem
+token, not a 10th item.)
 
 Max **2 carried**. To pick up a third you must drop one; dropped items
 vanish the moment you leave that tile. Only **one weapon usable per
@@ -258,27 +281,52 @@ Totem chain: reach **Evil Temple** (indoors) → survive its second card →
 carry totem → exit via **Dining Room** arrow → reach **Graveyard**
 (outdoors) → survive its second card → win.
 
-## 9. Open questions — verify against the PDF ❓
+## 9. Corrections made after reading the PDF
 
-1. **Exact exits on every tile.** Whole board topology rests on this and
-   it comes from a third-party port, not the art.
-2. **Golf Club** — present in the rulebook, absent from the card data.
-   10 item tiles vs 9 items vs 8 distinct.
-3. **The 4 "status tiles"** in the component list. Most likely just
-   Health / Attack / Time / Totem markers — irrelevant to a digital
-   build if so, but confirm nothing mechanical is hiding there.
-4. **Do weapon Attack bonuses persist after dropping the weapon?**
-   The rulebook phrasing "Add 1 to Attack score" reads as a permanent
-   bump to a tracked score, which would make dropping free and the
-   2-item limit toothless. Needs a ruling either way.
-5. **Health cap.** Rulebook says none; the designer later suggested 6.
-   Ship as a difficulty toggle.
-6. **Re-entering the Evil Temple** — can the totem be found twice, and
-   does the second card fire again on every revisit?
-7. **Zombie Door specifics** — can you open a wall that would face an
-   already-occupied, non-matching cell?
-8. Whether the Dining Room's exterior door counts as one of its four
-   exits or is a fifth.
+The first draft of this spec took tile exits and card contents from the
+[PatrickKennedy/zombies](https://github.com/PatrickKennedy/zombies) JS
+port. Four things were wrong. If you ever consult that repo again, know
+that its `zombies.cards.js` is not trustworthy:
+
+| # | Port said | Art actually says | Severity |
+|---|---|---|---|
+| 1 | **Patio** has one exit, N | Patio has **grassy edges E and S**; N is the house seam, W is hedge | **Fatal** — with one exit the Patio is a dead end and the entire outdoor half of the game, including the Graveyard, is unreachable |
+| 2 | Two cards both carry **Board with Nails**; no Golf Club anywhere | Card 6 is the **Golf Club**. Nine cards, nine distinct items | Moderate — loses an item |
+| 3 | **Machete** card, 10 PM = harmless flavour | Machete card, 10 PM = **−1 Health** | Moderate — silently easier |
+| 4 | **Candle** card = +1 HP / ITEM / 4 zombies | Candle card = no-op / **+1 HP** / 4 zombies | Minor — shifts an item out of the 10 PM band |
+
+Everything else in the port's tile data — all 8 indoor tiles, and 7 of 8
+outdoor tiles — checked out exactly.
+
+## 10. Resolved ✅
+
+- **Tile exits** — all 16 read off the art, tabulated above.
+- **Golf Club** — real, on card 6. 9 items, not 8 or 10.
+- **"4 status tiles"** — a print-sheet artefact of the revised package.
+  The original components list is only *8 indoor tiles, 8 outdoor tiles,
+  9 development cards*. Health / Attack / Time are just tracked numbers;
+  nothing mechanical is hiding there.
+- **Health cap** — none. Setup step 4 says so in as many words.
+- **The Dining Room arrow** — marks its north door, not a fifth exit.
+
+## 11. Still open ❓
+
+Genuinely ambiguous in the rulebook — these need a design ruling, not
+more research.
+
+1. **Do weapon Attack bonuses persist after dropping the weapon?** The
+   rulebook says "Add 1 to Attack score" and, separately, "You can only
+   use one weapon in combat, though you may carry two." Two readings:
+   (a) Attack is a running score and pickups permanently bump it — then
+   dropping is free and the 2-item limit means nothing; (b) Attack =
+   1 + the best held weapon's bonus, and the "one weapon" clause just
+   stops two bonuses stacking. **(b) is the only reading under which
+   inventory decisions matter — recommend it.**
+2. **Re-entering the Evil Temple** — can the totem be found twice, and
+   does the second card fire again on every revisit? Suggest: the
+   second-card draw is once per room, consumed on success.
+3. **Zombie Door geometry** — may you open a wall facing an already
+   occupied, non-matching cell?
 
 ## Renaming
 
@@ -289,7 +337,8 @@ The structural slots to fill:
 
 - 8 interior locations (1 start, 1 healing, 1 bonus-item, 1 goal-A, 1 with the exterior exit)
 - 8 exterior locations (1 seam, 1 healing, 1 goal-B, 3 identical filler)
-- 9 dual-purpose cards (item + three escalating outcome bands)
+- 9 dual-purpose cards (item + three escalating outcome bands), one
+  distinct item each
 - 5 weapons (+1 ×3, +2, +3-with-2-uses), 1 heal, 3 consumable/combo
 - A MacGuffin fetched at goal-A and delivered to goal-B
 
@@ -298,5 +347,5 @@ The structural slots to fill:
 - [ZiMP rules transcription](http://card-board.weebly.com/zimp-rules.html)
 - [BGG entry (33468)](https://boardgamegeek.com/boardgame/33468/zombie-in-my-pocket)
 - [Complete Game Package PDF — filepage 32541](https://boardgamegeek.com/filepage/32541/zombie-in-my-pocket-complete-game-package-revised)
-- [PatrickKennedy/zombies](https://github.com/PatrickKennedy/zombies) — JS port, source of the tile/card data
+- [PatrickKennedy/zombies](https://github.com/PatrickKennedy/zombies) — JS port. Useful starting point but **4 data errors**, see §9; don't copy from it
 - [chillNZ/zimp](https://github.com/chillNZ/zimp) — Python; stub data only, not a useful reference
