@@ -439,6 +439,7 @@ The structural slots to fill:
 
 ## Links
 - [[zombie in the pocket]] — project note
+- [[zombie in the pocket - rulebook]] — the same rules as readable prose, for playing rather than coding
 - [ZiMP rules transcription](http://card-board.weebly.com/zimp-rules.html) — matches the designer's own v1.5 text file (BGG filepage 31471)
 - [v1.5 changelog](https://boardgamegeek.com/thread/303923) · [v1.75 changelog](https://boardgamegeek.com/thread/334719) · [semi-official variants](https://boardgamegeek.com/thread/321832) — all designer-written
 - Key rulings: [attack doesn't stack](https://boardgamegeek.com/thread/330037) · [no Foyer card](https://boardgamegeek.com/thread/333121) · [zombie door persists](https://boardgamegeek.com/thread/418712) · [zombie door entry](https://boardgamegeek.com/thread/560176) · [totem is slotless](https://boardgamegeek.com/thread/584988) · [carry a spent chainsaw](https://boardgamegeek.com/thread/296027) · [movement mandatory](https://boardgamegeek.com/thread/804131) · [blocked doorways are fine](https://boardgamegeek.com/thread/900150)

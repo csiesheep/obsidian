@@ -93,8 +93,15 @@ attorney.*
   dropped) and **you draw no Dev card for the starting Foyer**. Also
   confirmed we're building **v1.5** — v1.75 is a forum-only hard variant
   the designer says most players should skip. Good hard-mode toggle.
+- 2026-08-13 — wrote [[zombie in the pocket - rulebook]], the playable
+  rules in one place with all 🗣️ designer rulings folded inline where
+  you'd actually look for them, plus the 3 🏠 house rules and a v1.75
+  appendix. Paraphrased throughout, not transcribed — keeps the
+  clean-room line clean.
 
 ## Links
+- [[zombie in the pocket - rulebook]] — consolidated playable rules
+- [[zombie in the pocket - ruleset spec]] — code-facing spec
 - [BGG entry](https://boardgamegeek.com/boardgame/33468/zombie-in-my-pocket)
 - [Fun Mines writeup](https://funmines.com/zimp/)
 - [PNP+ — verbatim license statement](https://pnpplus.wordpress.com/2014/05/15/zombie-in-my-pocket/)
