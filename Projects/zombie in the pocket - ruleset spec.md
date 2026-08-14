@@ -13,11 +13,13 @@ project note they get renamed before shipping (see [Renaming](#renaming)).
 **Confidence key:** ✅ verified against the official PDF art
 (2026-08-13) · ❓ genuinely ambiguous in the rulebook
 
-> **2026-08-13 — everything below is now first-party verified.** Read the
+> **2026-08-13 — verified, then completeness-audited.** Read the
 > image-only PDF page by page in the browser and checked every tile edge
-> and all 9 dev cards against the art. Found **4 errors** in the
-> third-party JS port that the first draft of this spec inherited; all
-> are corrected below and listed in [Corrections](#corrections-made-after-reading-the-pdf).
+> and all 9 dev cards against the art; found **4 errors** in the
+> third-party JS port that the first draft inherited (see §9). Then swept
+> the BGG forums for designer rulings on everything the terse rulebook
+> leaves unsaid (§12). **Verdict: sufficient to implement.** Three gaps
+> remain (§13); all three need a house rule, not more research.
 
 Rules text: [transcription (card-board.weebly.com)](http://card-board.weebly.com/zimp-rules.html), confirmed
 word-for-word against the PDF rulebook panels.
@@ -360,24 +362,66 @@ outdoor tiles — checked out exactly.
 - **Health cap** — none. Setup step 4 says so in as many words.
 - **The Dining Room arrow** — marks its north door, not a fifth exit.
 
-## 11. Still open ❓
+## 11. Version — build v1.5, not v1.75
 
-Genuinely ambiguous in the rulebook — these need a design ruling, not
-more research.
+**This spec is v1.5, the last officially typeset ruleset**, and that is
+the right target. The designer never updated the rulebook PDF past it.
 
-1. **Do weapon Attack bonuses persist after dropping the weapon?** The
-   rulebook says "Add 1 to Attack score" and, separately, "You can only
-   use one weapon in combat, though you may carry two." Two readings:
-   (a) Attack is a running score and pickups permanently bump it — then
-   dropping is free and the 2-item limit means nothing; (b) Attack =
-   1 + the best held weapon's bonus, and the "one weapon" clause just
-   stops two bonuses stacking. **(b) is the only reading under which
-   inventory decisions matter — recommend it.**
-2. **Re-entering the Evil Temple** — can the totem be found twice, and
-   does the second card fire again on every revisit? Suggest: the
-   second-card draw is once per room, consumed on success.
-3. **Zombie Door geometry** — may you open a wall facing an already
-   occupied, non-matching cell?
+- **v1.5** (what we have): attack starts at 1, zombie counts +2 over the
+  original. Our card data already reflects this — counts of 3/4/5/6 are
+  the post-1.5 numbers.
+- **v1.75** is a designer-written *harder variant* posted to the forums
+  and never typeset: cower heals 2 instead of 3, health capped at 6, the
+  Foyer gains a second door, and Femur/Candle/Machete are reworked.
+  His own advice: *"There's really very little reason for most players to
+  use the 1.75 rules. If you're looking for more of a challenge, step up
+  to 1.75, otherwise stick with 1.5."*
+
+Good shape for us: ship v1.5 as normal difficulty and v1.75 as a "hard
+mode" toggle later. No new art needed for either.
+
+## 12. Designer rulings (BGG) ✅
+
+Answers the rulebook doesn't give, sourced to the designer on the BGG
+forums. These close almost every gap the first draft left open.
+
+| Topic | Ruling |
+|---|---|
+| **Foyer, first turn** | No Dev card for starting in the Foyer. Re-entering it later *does* draw one |
+| **Attack stacking** | Never additive. One weapon per combat, best bonus only |
+| **Totem** | Does not count against the 2-item limit |
+| **Spent chainsaw** | Not discarded; keeps its slot; refuellable with Gasoline, no limit on refuels |
+| **Tile rotation** | Player's free choice, subject only to the entry edge |
+| **Non-entry edges** | Need not match. Doors may face walls; walls may block doors |
+| **Movement** | Mandatory each turn. You may re-enter explored rooms freely |
+| **Zombie Door — timing** | Fires *after* the room's own card resolves |
+| **Zombie Door — the hole** | Persists and is reusable. Placed wall-to-wall (it's a hole, not a matched door pair) |
+| **Zombie Door — entering** | You do *not* go through immediately. You may cower first, then enter on a later turn; entering draws a card as normal |
+| **Zombie Door — fleeing** | You may run from the three zombies. The door is made in **the room you end up in**, and it stays |
+| **Cowering** | Any tile including outdoors; allowed after running away; allowed between the two Temple/Graveyard cards; never before a Zombie Door, but allowed after |
+
+The designer's general adjudication principle, worth adopting for any
+case not covered: *"If there's not a rule against it, generally, it's not
+against the rules."*
+
+## 13. Still open ❓ — pick a house rule
+
+Three genuine gaps. All three were searched for on the BGG forums; none
+has a published answer. None blocks a build.
+
+1. **Flee adjacency.** The rulebook says you run *"through a door or
+   grassy edge into any previously explored tile"* — the first clause
+   implies one step, the second sounds unbounded. Never asked directly on
+   the forums. The one designer-blessed example is a single step
+   sideways. **Recommend: adjacent only, via a legal connection.**
+2. **Cower frequency.** Asked on BGG as "Cowering Quantity"; the designer
+   never replied. Community reading is once per turn, from the phrase
+   "after completion of a turn sequence". **Recommend: once per turn** —
+   otherwise infinite cowering trivialises health at the cost of a clock
+   that you'd happily spend.
+3. **Re-entering the Evil Temple.** Can the totem be found twice; does
+   the second card fire on every revisit? **Recommend: the second-card
+   draw is once per room, consumed on success.**
 
 ## Renaming
 
@@ -395,7 +439,9 @@ The structural slots to fill:
 
 ## Links
 - [[zombie in the pocket]] — project note
-- [ZiMP rules transcription](http://card-board.weebly.com/zimp-rules.html)
+- [ZiMP rules transcription](http://card-board.weebly.com/zimp-rules.html) — matches the designer's own v1.5 text file (BGG filepage 31471)
+- [v1.5 changelog](https://boardgamegeek.com/thread/303923) · [v1.75 changelog](https://boardgamegeek.com/thread/334719) · [semi-official variants](https://boardgamegeek.com/thread/321832) — all designer-written
+- Key rulings: [attack doesn't stack](https://boardgamegeek.com/thread/330037) · [no Foyer card](https://boardgamegeek.com/thread/333121) · [zombie door persists](https://boardgamegeek.com/thread/418712) · [zombie door entry](https://boardgamegeek.com/thread/560176) · [totem is slotless](https://boardgamegeek.com/thread/584988) · [carry a spent chainsaw](https://boardgamegeek.com/thread/296027) · [movement mandatory](https://boardgamegeek.com/thread/804131) · [blocked doorways are fine](https://boardgamegeek.com/thread/900150)
 - [BGG entry (33468)](https://boardgamegeek.com/boardgame/33468/zombie-in-my-pocket)
 - [Complete Game Package PDF — filepage 32541](https://boardgamegeek.com/filepage/32541/zombie-in-my-pocket-complete-game-package-revised)
 - [PatrickKennedy/zombies](https://github.com/PatrickKennedy/zombies) — JS port. Useful starting point but **4 data errors**, see §9; don't copy from it

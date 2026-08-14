@@ -57,6 +57,9 @@ attorney.*
   up front. Both, not either/or.
 
 ## Next steps
+- [x] Completeness audit — swept BGG for designer rulings on everything
+      the rulebook leaves unsaid. **Spec is sufficient to implement.**
+      3 house rules left to pick (all minor, none blocking).
 - [x] Pull the full ruleset into a structured spec to code against →
       [[zombie in the pocket - ruleset spec]]
 - [x] Verify the spec against the official PDF art — done 2026-08-13,
@@ -83,6 +86,13 @@ attorney.*
   with a single exit, which would have made the whole outdoor half of
   the map unreachable). Spec corrected and now first-party verified;
   only 3 genuine design rulings remain open.
+- 2026-08-13 — completeness audit against the BGG forums. The rulebook
+  is terse but the designer answered most edge cases there. Landed 12
+  rulings in §12 of the spec, incl. two the first draft had wrong:
+  **attack is never additive** (one weapon, best bonus, lost when
+  dropped) and **you draw no Dev card for the starting Foyer**. Also
+  confirmed we're building **v1.5** — v1.75 is a forum-only hard variant
+  the designer says most players should skip. Good hard-mode toggle.
 
 ## Links
 - [BGG entry](https://boardgamegeek.com/boardgame/33468/zombie-in-my-pocket)
