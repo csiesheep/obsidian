@@ -57,8 +57,9 @@ attorney.*
   up front. Both, not either/or.
 
 ## Next steps
-- [ ] Pull the full ruleset into a structured spec to code against —
-      tiles, development cards, turn sequence, combat, time track
+- [x] Pull the full ruleset into a structured spec to code against →
+      [[zombie in the pocket - ruleset spec]] (8 open questions still
+      need checking against the PDF art)
 - [ ] Decide replacement theme + title
 - [ ] Email Jeremiah Lee for permission / blessing
 - [ ] Scaffold repo (follow the [[betrayal sound board]] pattern:
@@ -68,6 +69,12 @@ attorney.*
 ## Log
 - 2026-08-13 — researched rules availability + licensing; confirmed
   CC BY-NC-SA 3.0 and the "non-paper versions" clause. See [[2026-08-13]].
+- 2026-08-13 — full mechanical spec written up in
+  [[zombie in the pocket - ruleset spec]]: constants, board/tile model,
+  9-card dev deck matrix, items, turn sequence, combat, time track,
+  win/lose. Rules text from a complete transcription; tile exits and
+  card contents reconstructed from the PatrickKennedy/zombies JS port
+  (flagged ⚠️ — the PDF is image-only, so those need eyeballing).
 
 ## Links
 - [BGG entry](https://boardgamegeek.com/boardgame/33468/zombie-in-my-pocket)
