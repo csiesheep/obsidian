@@ -12,11 +12,19 @@ Static site (HTML/CSS/vanilla JS + Web Audio), hosted on Cloudflare (Wrangler wo
 - ✅ **Tier 2** — Open Graph + Twitter tags, favicon.svg, robots.txt + sitemap.xml (served at host root by the Worker), JSON-LD (WebSite + WebApplication)
 - ✅ **Tier 3(a)** — `<noscript>` static catalog of all 158 elements (raw-HTML crawlable fallback)
 - ✅ **robots.txt** trimmed (Cloudflare Managed robots.txt supplies the UA group; we only add the Sitemap directive)
+- ✅ **Quick wins** — meta description trimmed to ~140 chars; "heroes" fixed → real categories (items, weapons, monsters, rooms, omens, events) across desc/OG/Twitter/JSON-LD; JSON-LD `SearchAction` + real `?q=` deep-linking in app.js; sitemap `<lastmod>`
+- ✅ **Body content** — About / "Great for more than Betrayal" uses list / 5-item FAQ (`<details>`) below the board. Targets adjacent long-tail (Halloween party, D&D / Call of Cthulhu, horror movie night, escape room, mobile) without diluting the title; also mitigates AdSense "0 in-page ads"
 - 🔜 **Tier 4** — Google Search Console (in progress — see below)
-- ⏳ OG PNG · Tier 3(b/c) · real body content · off-page links
+- ⏳ OG PNG · H1 keyword · Tier 3(b/c) · off-page links
 
-Shipped via PRs #7 (Tier 1+2), #8 (Tier 3a + robots). Built in the
-`feature/seo` worktree at `C:/Users/sheep/code/betrayal_sound_effect_seo`.
+Shipped via PRs #7 (Tier 1+2), #8 (Tier 3a + robots), #9 (quick wins),
+#10 (About/FAQ) — all merged & live. Built in the `feature/seo` worktree
+at `C:/Users/sheep/code/betrayal_sound_effect_seo`.
+
+**Concurrent session** also landed on `main` (not by the SEO worktree):
+a bottom **AdSense** display unit (`data-ad-slot=4929405343`), a **GSC
+URL-prefix** verification file handler in the Worker, and `/` now
+301-redirects to the app prefix (was 404).
 
 ## Tier 4 — Search Console (active)
 
@@ -34,24 +42,22 @@ Data (impressions/clicks/queries) populates over the following days.
 
 ## Further opportunities (from 2026-08-13 re-audit)
 
-### Quick wins (low effort, I can do in the seo worktree)
-1. **Trim meta description to ~155 chars** — currently 194 (Google truncates).
-2. **Fix "heroes" in copy** — description says "monsters, weapons, items,
-   rooms, and heroes" but the catalog has **no heroes**; real categories are
-   items, weapons, monsters, rooms, **omens, events**. Fix title/desc/OG copy
-   to match actual content (also better keyword alignment).
-3. **JSON-LD `SearchAction`** — add `potentialAction` (site-search target)
-   to the WebSite node → eligibility for a sitelinks search box.
-4. **Sitemap `<lastmod>`** — add a lastmod date to the URL entry.
+### Quick wins — ✅ DONE (PR #9)
+1. ✅ Meta description trimmed to ~140 chars (was 194).
+2. ✅ "heroes" removed → real categories (items, weapons, monsters, rooms,
+   omens, events) across description / OG / Twitter / JSON-LD.
+3. ✅ JSON-LD `SearchAction` added, backed by real `?q=` deep-linking in
+   `app.js` (pre-fills search on load; shareable filtered links).
+4. ✅ Sitemap `<lastmod>` added.
 
-### Medium (touches visible design — coordinate with `design/figma-horror-ui`)
-5. **Strengthen the H1.** Visible H1 is just "Sound Board" — no primary
-   keyword. Keep the visual, but make the H1 semantically carry
-   "Betrayal at House on the Hill" (e.g. accessible text / restructure) so
-   the single most-weighted heading targets the query.
-6. **Add real body copy** — a short intro / "How to use" / FAQ section.
-   Doubles as the fix for AdSense's "0 in-page ads" (thin page) — see
-   [[google adsense|AdSense note]]. Biggest overlap win.
+### Medium
+5. 🔜 **Strengthen the H1.** Visible H1 is still just "Sound Board" — no
+   primary keyword. Keep the visual, but make the H1 semantically carry
+   "Betrayal at House on the Hill" so the most-weighted heading targets the
+   query. Touches visible design — coordinate with `design/figma-horror-ui`.
+6. ✅ **Body copy DONE (PR #10)** — About / "Great for more than Betrayal" /
+   5-item FAQ below the board. Broader keywords without title dilution; also
+   the AdSense thin-page fix — see [[google adsense|AdSense note]].
 
 ### Higher effort (biggest ceiling)
 7. **Tier 3(b)** — server-render the board list in the Worker so the full
