@@ -5,7 +5,7 @@ started: 2026-08-13
 ---
 # zombie in the pocket — ruleset spec
 
-Implementation spec for [[zombie in the pocket]]. Mechanics only —
+Implementation spec for [[zombie in the pocket plan]]. Mechanics only —
 numbers, state transitions, data tables. **Names below are the
 originals and are placeholders**; per the clean-room decision in the
 project note they get renamed before shipping (see [Renaming](#renaming)).
@@ -438,7 +438,7 @@ The structural slots to fill:
 - A MacGuffin fetched at goal-A and delivered to goal-B
 
 ## Links
-- [[zombie in the pocket]] — project note
+- [[zombie in the pocket plan]] — project note
 - [[zombie in the pocket - rulebook]] — the same rules as readable prose, for playing rather than coding
 - [ZiMP rules transcription](http://card-board.weebly.com/zimp-rules.html) — matches the designer's own v1.5 text file (BGG filepage 31471)
 - [v1.5 changelog](https://boardgamegeek.com/thread/303923) · [v1.75 changelog](https://boardgamegeek.com/thread/334719) · [semi-official variants](https://boardgamegeek.com/thread/321832) — all designer-written

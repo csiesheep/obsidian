@@ -19,7 +19,7 @@ mid-game.
 
 > **Paraphrased, not transcribed.** Everything below is restated in our own
 > words. The original rulebook text is the designer's copyrighted
-> expression and we're building clean-room (see [[zombie in the pocket]]),
+> expression and we're building clean-room (see [[zombie in the pocket plan]]),
 > so nothing here is lifted verbatim. Rules, numbers and procedures aren't
 > copyrightable; the prose is.
 
@@ -267,7 +267,7 @@ that it's there for people who find the base game a touch easy. For us
 that makes it a **hard-mode toggle** — no new art required.
 
 ## Links
-- [[zombie in the pocket]] — project note
+- [[zombie in the pocket plan]] — project note
 - [[zombie in the pocket - ruleset spec]] — code-facing spec, data tables, pseudocode
 - [BGG entry (33468)](https://boardgamegeek.com/boardgame/33468/zombie-in-my-pocket)
 - [Official PDF](http://funmines.com/wp-content/uploads/2014/12/zimp.pdf) — rulebook on p2, cards p3, tiles p4
