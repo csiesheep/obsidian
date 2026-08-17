@@ -215,6 +215,19 @@ the decision can be made in parallel while the engine gets built.
   [Implementation plan](#implementation-plan) above: mechanics-first /
   skin-last, mirror the [[betrayal sound board]] stack, 6 phases, theme
   decision is the only content blocker (gates Phase 4 only).
+- 2026-08-14 — **Phases 1–3 built, committed, pushed.** The game is
+  playable end-to-end on `game.html` (placeholder theme).
+  - Phase 1 — headless engine (deck/clock/combat/items/combos/flee/cower/
+    win-lose, house rules baked in). 31 unit tests.
+  - Phase 2 — board model (dual grid, reveal+rotate placement, seam,
+    door-vs-wall adjacency, dead-end zombie doors). +10 tests (41 total).
+  - Phase 3 — playable UI: board/HUD render, full turn loop, flee/combo/
+    weapon-choice combat, specials, win/lose overlays. Verified with a
+    300-game headless fuzz (zero exceptions) + live DOM playthrough.
+  - No Node on this machine → tests run in-browser (`/tests/`); Cloudflare
+    builds `wrangler` in its own cloud, so that's unaffected.
+  - **Remaining: Phase 4 (art + re-theme, needs the theme/title decision),
+    Phase 5 (Cloudflare deploy — needs dashboard access), Phase 6 polish.**
 
 ## Links
 - [[zombie in the pocket - rulebook]] — consolidated playable rules
