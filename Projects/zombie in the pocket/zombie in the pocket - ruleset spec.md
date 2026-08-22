@@ -163,17 +163,17 @@ Every card carries one **item** plus **three outcomes**, one per hour
 band. You read only the row for the current hour. All nine transcribed
 directly off the card art. **9 cards, 9 distinct items, no duplicates.**
 
-| # | Item on card | 9 PM | 10 PM | 11 PM |
-|---|---|---|---|---|
-| 1 | Oil | *"You try hard not to wet yourself."* (no-op) | ITEM | 6 zombies |
-| 2 | Gasoline | 4 zombies | *"You sense your impending doom."* −1 HP | ITEM |
-| 3 | Board with Nails | ITEM | 4 zombies | *"Something icky in your mouth."* −1 HP |
-| 4 | Machete | 4 zombies | *"A bat poops in your eye."* −1 HP | 6 zombies |
-| 5 | Grisly Femur | ITEM | 5 zombies | *"Your soul isn't wanted here."* −1 HP |
-| 6 | Golf Club | *"Slip on nasty goo."* −1 HP | 4 zombies | *"The smell of blood is in the air."* (no-op) |
-| 7 | Candle | *"Your body shivers involuntarily."* (no-op) | *"You feel a spark of hope."* +1 HP | 4 zombies |
-| 8 | Can of Soda | *"Candybar in your pocket."* +1 HP | ITEM | 4 zombies |
-| 9 | Chainsaw | 3 zombies | *"You hear terrible screams."* (no-op) | 5 zombies |
+| #   | Item on card     | 9 PM                                          | 10 PM                                    | 11 PM                                         |
+| --- | ---------------- | --------------------------------------------- | ---------------------------------------- | --------------------------------------------- |
+| 1   | Oil              | *"You try hard not to wet yourself."* (no-op) | ITEM                                     | 6 zombies                                     |
+| 2   | Gasoline         | 4 zombies                                     | *"You sense your impending doom."* −1 HP | ITEM                                          |
+| 3   | Board with Nails | ITEM                                          | 4 zombies                                | *"Something icky in your mouth."* −1 HP       |
+| 4   | Machete          | 4 zombies                                     | *"A bat poops in your eye."* −1 HP       | 6 zombies                                     |
+| 5   | Grisly Femur     | ITEM                                          | 5 zombies                                | *"Your soul isn't wanted here."* −1 HP        |
+| 6   | Golf Club        | *"Slip on nasty goo."* −1 HP                  | 4 zombies                                | *"The smell of blood is in the air."* (no-op) |
+| 7   | Candle           | *"Your body shivers involuntarily."* (no-op)  | *"You feel a spark of hope."* +1 HP      | 4 zombies                                     |
+| 8   | Can of Soda      | *"Candybar in your pocket."* +1 HP            | ITEM                                     | 4 zombies                                     |
+| 9   | Chainsaw         | 3 zombies                                     | *"You hear terrible screams."* (no-op)   | 5 zombies                                     |
 
 **Difficulty curve** — this is the load-bearing design, preserve the
 shape when re-theming:
