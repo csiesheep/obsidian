@@ -73,14 +73,14 @@ engine, board, tests and tiles page need no change.
 | `evil-temple` | Reliquary | Sealed Crypt (停柩房) | second card → **the tablet** |
 
 ### Rooms — outdoor (the hillside)
-| id | Grave Errand | Jiangshi | Role |
-|---|---|---|---|
-| `patio` | Veranda | Back Steps (後門石階) | seam |
-| `garage` | Carriage House | Ox Shed (牛棚) | — |
-| `yard-1..3` | Lawn | Bamboo Grove (竹林) ×3 | filler |
-| `sitting-area` | Arbour | Pavilion (涼亭) | — |
-| `garden` | Herb Garden | Herb Terrace (藥圃) | +1 health at turn end |
-| `graveyard` | Family Plot | Ancestral Grave (祖墳) | second card → **bury the tablet → win 1** |
+| id             | Grave Errand   | Jiangshi             | Role                                      |
+| -------------- | -------------- | -------------------- | ----------------------------------------- |
+| `patio`        | Veranda        | Back Steps (後門石階)    | seam                                      |
+| `garage`       | Carriage House | Ox Shed (牛棚)         | —                                         |
+| `yard-1..3`    | Lawn           | Bamboo Grove (竹林) ×3 | filler                                    |
+| `sitting-area` | Arbour         | Pavilion (涼亭)        | —                                         |
+| `garden`       | Herb Garden    | Herb Terrace (藥圃)    | +1 health at turn end                     |
+| `graveyard`    | Family Plot    | Ancestral Grave (祖墳) | second card → **bury the tablet → win 1** |
 
 ### Items (9, one per card — mechanics identical)
 | id | Mechanic | Grave Errand | Jiangshi |
