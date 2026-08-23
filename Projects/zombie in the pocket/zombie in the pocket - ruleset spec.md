@@ -106,16 +106,16 @@ seam. Tiles occupy integer cells; each has a set of exits in
 Doors read off the art as light gaps in the black wall border. All eight
 verified.
 
-| Tile | Exits | Special |
-|---|---|---|
-| Foyer | N | Start tile, placed at origin, forced first |
-| Bathroom | N | — |
-| Bedroom | N, W | — |
-| Family Room | N, E, W | — |
-| Dining Room | N, E, S, W | **The N door carries the arrow → outdoors** |
-| Storage | N | After resolving the dev card, you *may* draw another card and take the item on it |
-| Kitchen | N, E, W | +1 Health if you end your turn here |
-| Evil Temple | E, W | Resolve dev card, **then a second one**. Survive and still be here → you have the **totem** |
+| Tile        | Exits      | Special                                                                                     |
+| ----------- | ---------- | ------------------------------------------------------------------------------------------- |
+| Foyer       | N          | Start tile, placed at origin, forced first                                                  |
+| Bathroom    | N          | —                                                                                           |
+| Bedroom     | N, W       | —                                                                                           |
+| Family Room | N, E, W    | —                                                                                           |
+| Dining Room | N, E, S, W | **The N door carries the arrow → outdoors**                                                 |
+| Storage     | N          | After resolving the dev card, you *may* draw another card and take the item on it           |
+| Kitchen     | N, E, W    | +1 Health if you end your turn here                                                         |
+| Evil Temple | E, W       | Resolve dev card, **then a second one**. Survive and still be here → you have the **totem** |
 
 ### Outdoor tiles (8) — edges ✅
 
@@ -123,14 +123,14 @@ Open **grassy** edges are exits; **hedge** edges are walls. Every tile
 except the Patio and Graveyard is simply "hedge on one side, grass on the
 other three."
 
-| Tile | Grassy edges | Hedges | Special |
-|---|---|---|---|
-| Patio | **E, S** | W | N is the wooden-deck seam bearing the arrow → Dining Room. Set aside at setup |
-| Garage | S, W | N, E | Driveway runs off the S edge |
-| Yard ×3 | E, S, W | N | Three identical copies |
-| Sitting Area | E, S, W | N | — |
-| Garden | E, S, W | N | +1 Health if you end your turn here |
-| Graveyard | E, S | N, W | Resolve dev card, **then a second one**. Survive with the totem → **WIN** |
+| Tile         | Grassy edges | Hedges | Special                                                                       |
+| ------------ | ------------ | ------ | ----------------------------------------------------------------------------- |
+| Patio        | **E, S**     | W      | N is the wooden-deck seam bearing the arrow → Dining Room. Set aside at setup |
+| Garage       | S, W         | N, E   | Driveway runs off the S edge                                                  |
+| Yard ×3      | E, S, W      | N      | Three identical copies                                                        |
+| Sitting Area | E, S, W      | N      | —                                                                             |
+| Garden       | E, S, W      | N      | +1 Health if you end your turn here                                           |
+| Graveyard    | E, S         | N, W   | Resolve dev card, **then a second one**. Survive with the totem → **WIN**     |
 
 ```json
 {
