@@ -478,30 +478,30 @@ Status column says so. Hooks are suggestions, not decisions.
 
 #### 室外 — the village and the hillside
 
-| 名稱 | What it is | Possible hook | Status |
-|---|---|---|---|
-| ★ **趕屍路** The Corpse Road | The 湘西 route corpse-drivers walk the dead home along, by night, with bells | Jiangshi events here are worse — but it leads somewhere. A fast lane with a toll | |
-| ★ **戲台** Opera Stage | Village theatre; operas performed *for the dead*, with no living audience | Something is being performed. Once per run the stage takes an event in your place | |
-| ★ **亂葬崗 / 義塚** Mass Grave | The unclaimed and unmourned dead | The most dangerous tile on the map, and the richest search | |
-| ★ **石敢當** Stone Ward | Inscribed stone set at a junction to block evil | A refuge that wards rather than blocks — no jiangshi event fires here, once | |
-| ★ **槐樹** Pagoda Tree | 鬼樹 — said to gather ghosts | Bad things concentrate. High event severity, no search | |
-| **城隍廟** City God Temple | The god who judges the dead | Big shrine: reveals the King's weakness, or restores cower charges | |
-| **山神廟** Mountain God Shrine | Smaller, rougher | Navigation, like the Earth God Shrine | |
-| **破廟** Ruined Temple | Roof gone, statue faceless | Shelter that isn't. 符咒 search, but the event fires twice | |
-| **石橋** Stone Bridge | Over the stream | Running water beneath — a second safe crossing, or the only way over | |
-| **水車** Waterwheel | Turning by itself | Running water, plus noise that covers your breath | |
-| **水塘** Pond | Still water, not running | Looks safe, isn't. The trap version of the Stream | |
-| **枯井** Dry Well | No water left in it | Something climbed out | |
-| **稻田 / 田埂** Rice Paddy | Flooded fields, narrow bunds | Slow going: costs the turn but moves you only one tile, ever | |
-| **菜園** Vegetable Garden | Household plot | 丹藥 filler | |
-| **柴垛** Woodpile | Stacked firewood | Cheap 武器 — poles and axes | |
-| **豬圈** Pigsty | Pigs that have gone quiet | The quiet is the tell | |
-| **牌坊** Memorial Arch | Stone arch at the village edge | A boundary — marks the far side of the map | |
-| **松柏林** Pine & Cypress Grove | Graveyard trees | Filler with the right mood; could replace a Bamboo Grove | |
-| **墳山** Grave Hill | The slope the graves are cut into | Approach to the Ancestral Grave — a foothill that signals you are close | |
-| **三岔路口** Crossroads | Where offerings are burned and spirits gather | Four exits — the outdoor hub, better themed than a threshing floor | |
-| **渡口** Ferry Landing | Where the river is crossed | Running water; a one-way crossing to the far bank | |
-| **曬穀場** Threshing Floor | Open drying ground | The outdoor hub | **in the 20** |
+| 名稱                           | What it is                                                                 | Possible hook                                                                     | Status        |
+| ---------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------- |
+| ★ **趕屍路** The Corpse Road    | The 湘西 route corpse-drivers walk the dead home along, by night, with bells | Jiangshi events here are worse — but it leads somewhere. A fast lane with a toll  |               |
+| ★ **戲台** Opera Stage         | Village theatre; operas performed *for the dead*, with no living audience  | Something is being performed. Once per run the stage takes an event in your place |               |
+| ★ **亂葬崗 / 義塚** Mass Grave    | The unclaimed and unmourned dead                                           | The most dangerous tile on the map, and the richest search                        |               |
+| ★ **石敢當** Stone Ward         | Inscribed stone set at a junction to block evil                            | A refuge that wards rather than blocks — no jiangshi event fires here, once       |               |
+| ★ **槐樹** Pagoda Tree         | 鬼樹 — said to gather ghosts                                                 | Bad things concentrate. High event severity, no search                            |               |
+| **城隍廟** City God Temple      | The god who judges the dead                                                | Big shrine: reveals the King's weakness, or restores cower charges                |               |
+| **山神廟** Mountain God Shrine  | Smaller, rougher                                                           | Navigation, like the Earth God Shrine                                             |               |
+| **破廟** Ruined Temple         | Roof gone, statue faceless                                                 | Shelter that isn't. 符咒 search, but the event fires twice                          |               |
+| **石橋** Stone Bridge          | Over the stream                                                            | Running water beneath — a second safe crossing, or the only way over              |               |
+| **水車** Waterwheel            | Turning by itself                                                          | Running water, plus noise that covers your breath                                 |               |
+| **水塘** Pond                  | Still water, not running                                                   | Looks safe, isn't. The trap version of the Stream                                 |               |
+| **枯井** Dry Well              | No water left in it                                                        | Something climbed out                                                             |               |
+| **稻田 / 田埂** Rice Paddy       | Flooded fields, narrow bunds                                               | Slow going: costs the turn but moves you only one tile, ever                      |               |
+| **菜園** Vegetable Garden      | Household plot                                                             | 丹藥 filler                                                                         |               |
+| **柴垛** Woodpile              | Stacked firewood                                                           | Cheap 武器 — poles and axes                                                         |               |
+| **豬圈** Pigsty                | Pigs that have gone quiet                                                  | The quiet is the tell                                                             |               |
+| **牌坊** Memorial Arch         | Stone arch at the village edge                                             | A boundary — marks the far side of the map                                        |               |
+| **松柏林** Pine & Cypress Grove | Graveyard trees                                                            | Filler with the right mood; could replace a Bamboo Grove                          |               |
+| **墳山** Grave Hill            | The slope the graves are cut into                                          | Approach to the Ancestral Grave — a foothill that signals you are close           |               |
+| **三岔路口** Crossroads          | Where offerings are burned and spirits gather                              | Four exits — the outdoor hub, better themed than a threshing floor                |               |
+| **渡口** Ferry Landing         | Where the river is crossed                                                 | Running water; a one-way crossing to the far bank                                 |               |
+| **曬穀場** Threshing Floor      | Open drying ground                                                         | The outdoor hub                                                                   | **in the 20** |
 
 #### Five swaps worth considering against the current 20
 1. **三岔路口 Crossroads** replaces **曬穀場 Threshing Floor** as the
