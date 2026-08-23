@@ -445,6 +445,80 @@ searchable because their *ritual* is their search.
   the Earth God Shrine softens it, but a second seam (or a one-way gate)
   is worth testing if the bots find the burial win too rare.
 
+### The full palette — options not yet chosen
+
+Kept so the unpicked ideas survive. Nothing here is in the 20 unless the
+Status column says so. Hooks are suggestions, not decisions.
+
+#### 室內 — the hostel and village buildings
+
+| 名稱                                   | What it is                                     | Possible hook                                                                                            | Status                  |
+| ------------------------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------- |
+| ★ **祠堂** Ancestral Hall              | Where a lineage's 神主牌 are kept, rows of them   | The tablet's *home*. Alternative Goal A, or: names the King → an edge in the duel                        |                         |
+| ★ **雞舍** Chicken Coop                | Hens and a rooster                             | 雞鳴 ends the night. 公雞血 as an item; or once per run force the cock to crow → one jiangshi event cancelled |                         |
+| ★ **紙紮舖** Paper Effigy Shop          | Paper horses, servants and houses, for burning | 替身 paper substitute: takes a hit for you, once                                                           |                         |
+| ★ **鐵匠鋪** Blacksmith                 | Forge, tools, iron                             | 武器 search, the best in the game. Iron is anti-yin                                                        |                         |
+| **木工房** Carpenter's Shop             | Saw, adze, 墨斗 ink line                         | 武器 + the ink line; peachwood offcuts                                                                     |                         |
+| **藥鋪** Apothecary                    | Drawers of herbs, scales                       | 丹藥 search, the best                                                                                      |                         |
+| **酒坊 / 酒窖** Distillery / Wine Cellar | Jars of rice wine                              | 雄黃酒 realgar wine — drink for HP, or splash it                                                            |                         |
+| **屠房** Slaughterhouse                | Blocks, hooks, blood                           | 黑狗血 / 公雞血 source. Grim                                                                                   |                         |
+| **豆腐坊** Tofu Workshop                | Stone mill, soaking tubs                       | Quiet and domestic, and wrong at night. 丹藥 or filler                                                     |                         |
+| **染坊** Dye House                     | Hanging cloth, vats                            | Cloth everywhere — you cannot see what moves                                                             |                         |
+| **穀倉** Granary                       | Sacks, rats                                    | 糯米 sticky rice in quantity                                                                               |                         |
+| **地窖** Cellar                        | Below ground, cold                             | Dead end; no exit but the one you came in by                                                             |                         |
+| **閣樓** Attic / Loft                  | Stored and forgotten things                    | Dead end, but a rich search                                                                              |                         |
+| **書房 / 經堂** Study / Sutra Hall       | Scrolls, scripture                             | 符咒 search                                                                                                |                         |
+| **私塾** Village School                | Desks, a slate                                 | Nothing useful in it — pure transit with atmosphere                                                      |                         |
+| **當鋪** Pawnshop                      | Whatever the village pawned                    | Mixed search — one item of any category                                                                  |                         |
+| **帳房** Counting Room                 | Ledgers of who is owed what                    | Information: reveals something about the map                                                             |                         |
+| **繡房** Embroidery Room               | A daughter's room                              | Classic ghost-story room. Event-heavy, no items                                                          |                         |
+| **馬廄 / 牛棚** Stable / Ox Shed         | Animals that will not settle                   | 武器 (farm tools)                                                                                          | **in the 20** (outdoor) |
+| **偏廳 / 廂房** Side Chamber             | A spare room                                   | Plain filler, 2–3 exits                                                                                  |                         |
+| **水井** The Well                      | The hostel's water, in the courtyard           | Something in it. High-risk event, unique reward                                                          |                         |
+
+#### 室外 — the village and the hillside
+
+| 名稱 | What it is | Possible hook | Status |
+|---|---|---|---|
+| ★ **趕屍路** The Corpse Road | The 湘西 route corpse-drivers walk the dead home along, by night, with bells | Jiangshi events here are worse — but it leads somewhere. A fast lane with a toll | |
+| ★ **戲台** Opera Stage | Village theatre; operas performed *for the dead*, with no living audience | Something is being performed. Once per run the stage takes an event in your place | |
+| ★ **亂葬崗 / 義塚** Mass Grave | The unclaimed and unmourned dead | The most dangerous tile on the map, and the richest search | |
+| ★ **石敢當** Stone Ward | Inscribed stone set at a junction to block evil | A refuge that wards rather than blocks — no jiangshi event fires here, once | |
+| ★ **槐樹** Pagoda Tree | 鬼樹 — said to gather ghosts | Bad things concentrate. High event severity, no search | |
+| **城隍廟** City God Temple | The god who judges the dead | Big shrine: reveals the King's weakness, or restores cower charges | |
+| **山神廟** Mountain God Shrine | Smaller, rougher | Navigation, like the Earth God Shrine | |
+| **破廟** Ruined Temple | Roof gone, statue faceless | Shelter that isn't. 符咒 search, but the event fires twice | |
+| **石橋** Stone Bridge | Over the stream | Running water beneath — a second safe crossing, or the only way over | |
+| **水車** Waterwheel | Turning by itself | Running water, plus noise that covers your breath | |
+| **水塘** Pond | Still water, not running | Looks safe, isn't. The trap version of the Stream | |
+| **枯井** Dry Well | No water left in it | Something climbed out | |
+| **稻田 / 田埂** Rice Paddy | Flooded fields, narrow bunds | Slow going: costs the turn but moves you only one tile, ever | |
+| **菜園** Vegetable Garden | Household plot | 丹藥 filler | |
+| **柴垛** Woodpile | Stacked firewood | Cheap 武器 — poles and axes | |
+| **豬圈** Pigsty | Pigs that have gone quiet | The quiet is the tell | |
+| **牌坊** Memorial Arch | Stone arch at the village edge | A boundary — marks the far side of the map | |
+| **松柏林** Pine & Cypress Grove | Graveyard trees | Filler with the right mood; could replace a Bamboo Grove | |
+| **墳山** Grave Hill | The slope the graves are cut into | Approach to the Ancestral Grave — a foothill that signals you are close | |
+| **三岔路口** Crossroads | Where offerings are burned and spirits gather | Four exits — the outdoor hub, better themed than a threshing floor | |
+| **渡口** Ferry Landing | Where the river is crossed | Running water; a one-way crossing to the far bank | |
+| **曬穀場** Threshing Floor | Open drying ground | The outdoor hub | **in the 20** |
+
+#### Five swaps worth considering against the current 20
+1. **三岔路口 Crossroads** replaces **曬穀場 Threshing Floor** as the
+   outdoor hub — same four exits, far better fiction. Burning offerings
+   at a crossroads is exactly where you would meet something.
+2. **雞舍 Chicken Coop** into the indoor set. Cockcrow is *the* thing
+   that ends a jiangshi night; a once-per-run "cancel one attack" is
+   thematically unbeatable and mechanically clean.
+3. **亂葬崗 Mass Grave** as an outdoor high-risk / high-reward tile. The
+   map currently has no place that is *frightening to enter on purpose*,
+   and a game about scarcity needs one.
+4. **祠堂 Ancestral Hall** as an indoor tile that names the King —
+   feeding whatever his abilities turn out to be, and giving the tablet
+   somewhere to belong.
+5. **趕屍路 Corpse Road** if a fast lane with a toll is wanted. The one
+   idea here that changes *routing* rather than decorating it.
+
 ---
 
 ## Cross-cutting
@@ -612,6 +686,12 @@ more redesign is coming. Reconcile once the systems settle.
   is the Grave). The shrine exists to fix a real asymmetry — **win 2 is
   passive, win 1 is a scavenger hunt across a seam** — and converts the
   back half of that hunt from draw luck into a route.
+- 2026-08-22 — **full tile palette recorded** at the end of §4: 21 indoor
+  and 22 outdoor candidates drawn from 義莊 architecture, village trades
+  and jiangshi folklore, each with a suggested hook, none chosen. Five
+  swaps flagged against the current 20 — Crossroads for Threshing Floor,
+  and Chicken Coop (cockcrow), Mass Grave, Ancestral Hall and Corpse
+  Road as additions.
 
 ## Links
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
