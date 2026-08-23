@@ -342,108 +342,143 @@ having:
   one big one, and a room's category is obvious from its fiction — you
   look for rice in a kitchen and talismans in a priest's room.
 
-**The resulting geography, which is the point:**
+**The resulting geography** — rewritten after the 2026-08-22 swaps, and
+it changed shape completely:
 
-| Category | Where it lives | Consequence |
+| Category | Where it lives | Count |
 |---|---|---|
-| **符咒 magic** | **indoors only** — Priest's Cell, Mourning Hall | The best gear and the tablet are both in the house. A duelist can't skip the interior |
-| **武器 weapons** | mostly **outdoors** — Ox Shed, Bamboo Grove ×2 (+ Woodshed, Coffin Store inside) | Common and plentiful, but the walk is long |
-| **丹藥 medicine** | **both** — Washing Room, Kitchen, Herb Terrace | Healing is never far, which is what makes the healing *tiles* not decisive |
+| **符咒 magic** | **indoors only** — Sutra Hall ★, Mourning Hall | 2 |
+| **武器 weapons** | Blacksmith ★, Woodshed (in) · Bamboo Grove (out) | 3 |
+| **丹藥 medicine** | **Apothecary ★ only** | **1** |
 
-### Indoor — 義莊, the corpse hostel (10)
+### Indoor — the village, and the 義莊 at the end of it (10)
 
 | # | id | Name | Exits | Search | Role |
 |---|---|---|---|---|---|
 | 1 | `gatehouse` | 門廳 Gatehouse | N | — | **Start.** Placed at origin |
-| 2 | `washing-room` | 淨身房 Washing Room | N | 丹藥 | dead end |
-| 3 | `woodshed` | 柴房 Woodshed | N, E | 武器 | **NEW** |
-| 4 | `priest-cell` | 道士房 Priest's Cell | N, W | 符咒 ★ | the richest magic in the game |
+| 2 | `apothecary` | 藥鋪 Apothecary | N | 丹藥 ★ | dead end. **The only medicine on the board** |
+| 3 | `woodshed` | 柴房 Woodshed | N, E | 武器 | cheap weapons near the start |
+| 4 | `sutra-hall` | 經堂 Sutra Hall | N, W | 符咒 ★ | the richest magic in the game |
 | 5 | `mourning-hall` | 靈堂 Mourning Hall | N, E, W | 符咒 | hub |
 | 6 | `courtyard` | 天井 Courtyard | N, E, S, W | — | crossroads; the **moon gate** is the way out |
-| 7 | `coffin-store` | 棺材房 Coffin Store | N | 武器 ★ | dead end, richest weapons |
-| 8 | `kitchen` | 灶房 Kitchen | N, E, W | 丹藥 | **+1 HP** at turn end |
-| 9 | `incense-hall` | 香堂 Incense Hall | N, E | — | **NEW — restores 1 cower charge, once per run** |
+| 7 | `blacksmith` | 鐵匠鋪 Blacksmith | N | 武器 ★ | dead end, best weapons. Iron is anti-yin |
+| 8 | `counting-room` | 帳房 Counting Room | N, E, W | — | **information** — see open question |
+| 9 | `incense-hall` | 香堂 Incense Hall | N, E | — | restores 1 cower charge, once per run |
 | 10 | `sealed-crypt` | 停柩房 Sealed Crypt | E, W | — | **GOAL A — the tablet** |
 
-*Exit density 21/10 = 2.1, matching the original's 17/8 = 2.13. Three
-one-exit rooms, one four-exit hub.*
+*Exit density 21/10 = 2.1, unchanged by the swaps.*
 
 ### Outdoor — the hillside (10)
 
 | # | id | Name | Edges | Search | Role |
 |---|---|---|---|---|---|
-| 1 | `back-steps` | 後門石階 Back Steps | E, S | — | **Seam** (N). Set aside at setup, like the Patio |
-| 2 | `ox-shed` | 牛棚 Ox Shed | S, W | 武器 | farm tools |
-| 3 | `bamboo-1` | 竹林 Bamboo Grove | E, S, W | 武器 (commons only) | filler |
-| 4 | `bamboo-2` | 竹林 Bamboo Grove | E, S, W | 武器 (commons only) | filler |
+| 1 | `back-steps` | 後門石階 Back Steps | E, S | — | **Seam** (N). Set aside at setup |
+| 2 | `dry-well` | 枯井 Dry Well | S, W | — | hazard — something climbed out |
+| 3 | `bamboo-1` | 竹林 Bamboo Grove | E, S, W | 武器 (commons) | **the only searchable tile outdoors** |
+| 4 | `memorial-arch` | 牌坊 Memorial Arch | E, S, W | — | boundary — the far edge of the map |
 | 5 | `pavilion` | 涼亭 Pavilion | E, S, W | — | filler |
-| 6 | `herb-terrace` | 藥圃 Herb Terrace | E, S, W | 丹藥 | **+1 HP** at turn end |
-| 7 | `threshing-floor` | 曬穀場 Threshing Floor | N, E, S, W | — | **NEW** — the outdoor hub |
-| 8 | `stream` | 溪澗 Stream | E, W | — | **NEW — running water** |
-| 9 | `earth-shrine` | 土地廟 Earth God Shrine | E, S | — | **NEW — pray, once per run** |
-| 10 | `ancestral-grave` | 祖墳 Ancestral Grave | E, S | — | **GOAL B — bury the tablet → win 1** |
+| 6 | `pagoda-tree` | 槐樹 Pagoda Tree | E, S, W | — | 鬼樹 — bad things concentrate. High event severity |
+| 7 | `stone-ward` | 石敢當 Stone Ward | N, E, S, W | — | **hub + ward.** Stands at the junction |
+| 8 | `stream` | 溪澗 Stream | E, W | — | **running water** |
+| 9 | `earth-shrine` | 土地廟 Earth God Shrine | E, S | — | pray, once per run |
+| 10 | `mass-grave` | 亂葬崗 Mass Grave | E, S | — | **GOAL B — bury the tablet → win 1** |
 
-*Exit density 26/10 = 2.6, matching the original's 21/8 = 2.6. Outdoors
-stays more open than indoors, as hedges-vs-walls implies. Bamboo Groves
-drop from ×3 to ×2 — with 20 tiles and typed search, identical filler
-earns less of the map.*
+*Exit density 26/10 = 2.6, unchanged by the swaps.*
 
-### The five new tiles, and what each is for
+### What the swaps did — three things to look at
 
-**柴房 Woodshed** (indoor, NEW) — a second cheap weapon source near the
-start, so an early run isn't bare-handed if the Coffin Store never turns
-up. Pure supply; no cleverness.
+**1. 石敢當 Stone Ward absorbed the hub cleanly.** A 石敢當 is *by
+definition* the stone set at a road junction, so keeping the Threshing
+Floor's four exits isn't a compromise — it's the correct reading. The
+tile is now hub **and** ward: the crossing every outdoor route uses, and
+a place where nothing can follow you in. Best of the nine swaps.
 
-**香堂 Incense Hall** (indoor, NEW) — **restores one cower charge, once
-per run.** With cowering capped at 3 (§1), a charge is the most precious
-thing on the board, and a tile that gives one back is a genuine
-destination worth a detour. Once per run, because the incense burns out —
-and because a repeatable charge fountain would undo the cap.
+**2. ⚠️ Healing has almost entirely left the game.** Kitchen and Herb
+Terrace were the only two **+1 HP** tiles, and both are gone. 丹藥 is
+down from three rooms to **one**. What remains:
 
-**曬穀場 Threshing Floor** (outdoor, NEW) — the outdoor half had no
-four-exit hub; the Courtyard has no counterpart across the seam. Open
-ground, nowhere to hide, and the place every outdoor route crosses.
+| Source | Amount |
+|---|---|
+| Cowering | 3 charges (+1 from the Incense Hall) × 3–5 HP |
+| 丹藥 items | whatever the Apothecary yields, one room, in the house |
+| **Healing tiles** | **none** |
 
-**溪澗 Stream** (outdoor, NEW) — **jiangshi cannot cross running water.**
-The single best piece of folklore available and it costs nothing to
-implement: on this tile, jiangshi events deal **no damage**. It is a real
-refuge — and a *sterile* one: no search, no heal, two exits, out at the
-edge of the map. Camping there buys safety and nothing else, so a player
-who hides at the stream arrives at midnight unhurt, unarmed and
-unequipped, which loses the duel. **Safety that doesn't win is exactly
-the right shape for a refuge**, and it needs no extra rule to hold.
+Consequences, all of which are fine *if intended*:
+- **Constraint P1 is void.** Nothing to camp; the whole healing-tile
+  camping question evaporates. One less thing to tune.
+- **Cower charges are now nearly the whole health economy**, which makes
+  the Incense Hall much more important than when it was designed, and
+  argues harder for raising `COWER_HEAL` to 4–5.
+- **The King duel's numbers are broken as written.** The plan assumed a
+  player could arrive near 10 HP. Under this map the realistic ceiling is
+  6 start + ~12 cowering − a night of events. Duel strength must come
+  down with it, or the duel becomes unwinnable and the game has one win.
+- **The night gets much meaner.** Possibly correct — this is a horror
+  game and the original is generous. But it should be a decision, not a
+  side effect of nine renames.
 
-**土地廟 Earth God Shrine** (outdoor, NEW) — **pray: the next unexplored
-outdoor tile you place is the Ancestral Grave.** Once per run.
+**3. ⚠️ The outdoor half is now pure gauntlet — and I think that's
+good.** Exactly **one** searchable tile outdoors (Bamboo Grove, commons
+only), against two dedicated hazards (Dry Well, Pagoda Tree) and two
+refuges (Stream, Stone Ward). That produces a clean two-act structure the
+earlier draft didn't have:
 
-That last one exists to fix a structural asymmetry, and it's the most
-load-bearing of the five: **win 2 is passive and win 1 is a scavenger
-hunt.** The duel comes to you at midnight no matter what; the burial
-requires finding *two specific tiles out of twenty*, in the right order,
-across a seam, inside 22 movement turns. Without help, path 1 is
-strictly harder in a way that isn't interesting — it's harder because of
-draw luck. The shrine converts the back half of that hunt from luck into
-a route you can choose to take. The land god knows where the dead are
-buried.
+> **The village is where you prepare. The hillside is where you deliver.**
+
+Everything you will ever carry is found in the house; crossing the moon
+gate is a commitment made with what you already have. That's a strong
+shape and worth keeping deliberately.
+
+The risk it introduces: with one seam and no resupply outside, a player
+who crosses under-equipped is dead and **won't find out for ten turns**.
+That's the "you lost long ago and didn't know" failure, which is the one
+kind of difficulty worth designing out. Mitigations, pick later: let the
+Mass Grave be searchable, let the Earth God Shrine also yield something,
+or make the moon gate two-way cheap enough that going back for gear is a
+real option.
+
+### Theme note — this is no longer one building
+
+Apothecary, Blacksmith, Counting Room and Sutra Hall are **village
+trades**, not rooms in a 義莊. The indoor half has quietly become *the
+village*, with the corpse hostel (Mourning Hall, Sealed Crypt, Incense
+Hall) as the part of it you end up in. That's a **richer setting** than a
+single hostel — a whole village that has locked its doors — but the
+premise in [[jiangshi in the pocket plan]] still says "a corpse hostel on
+the edge of a village" and now needs to say something closer to:
+
+> A village with its 義莊 at the far end, and one night to get there.
 
 ### What is deliberately *not* searchable
 
-Gatehouse (you just came through it), Courtyard, Back Steps, Threshing
-Floor, Pavilion (open ground — nothing to rummage), Stream, Earth Shrine
-and both goal rooms. **10 of 20 tiles are searchable**, so a search is
-never far away, but half the map is transit. The two goal rooms aren't
-searchable because their *ritual* is their search.
+Gatehouse, Courtyard, Counting Room, Back Steps, Dry Well, Memorial Arch,
+Pavilion, Pagoda Tree, Stone Ward, Stream, Earth Shrine, and both goal
+rooms. **6 of 20 tiles are searchable** — down from 10 — and 5 of those 6
+are indoors. The goal rooms aren't searchable because their *ritual* is
+their search.
 
-### Open, and deferred to the pool work
+### Open, and deferred
+- **帳房 Counting Room: what does it actually reveal?** It replaced the
+  Kitchen on the strength of "information", which is the one role on the
+  board with no defined mechanic. Candidates: reveal where the Sealed
+  Crypt is, reveal the next event, reveal what is left in a pool, or name
+  the King (the ledger records who was owed a burial and never got one).
+  **Needs deciding before it can be built.**
+- **Does 亂葬崗 as Goal B change the story?** Burying a tablet in an
+  *ancestral* grave lays a man to rest among his family. Burying it in a
+  mass grave — the pit for the unclaimed — is the opposite gesture, and
+  is arguably the better one: **he became what he is because nobody
+  claimed him**, and the tablet is the name being given back. Worth
+  writing to deliberately, because it changes what the win *means*.
+- **The Mass Grave was designed as the high-risk / high-reward tile.**
+  Promoting it to the goal leaves the map with no place that is
+  frightening to enter *on purpose*. The Pagoda Tree partly covers this,
+  but it has no reward attached.
 - **How many items a searchable room holds**, and whether ★ rooms
-  (Priest's Cell, Coffin Store) hold more or better — see §3.
-- **The two goal-room rituals.** The tablet and the burial were "resolve
-  a second card" each; in turn terms the natural translation is one extra
-  turn, or one extra event, apiece. Listed under *Open questions*.
-- **Whether one seam is still right.** The Courtyard's moon gate remains
-  the only crossing. With 20 tiles that is a hard bottleneck for path 1 —
-  the Earth God Shrine softens it, but a second seam (or a one-way gate)
-  is worth testing if the bots find the burial win too rare.
+  (Sutra Hall, Blacksmith, Apothecary) hold more or better — see §3.
+- **The two goal-room rituals** — one extra turn, or one extra event?
+- **Whether one seam is still right** — now sharper, since there is no
+  resupply on the far side.
 
 ### The full palette — options not yet chosen
 
@@ -457,9 +492,9 @@ Status column says so. Hooks are suggestions, not decisions.
 | ★ **祠堂** Ancestral Hall              | Where a lineage's 神主牌 are kept, rows of them   | The tablet's *home*. Alternative Goal A, or: names the King → an edge in the duel                        |                         |
 | ★ **雞舍** Chicken Coop                | Hens and a rooster                             | 雞鳴 ends the night. 公雞血 as an item; or once per run force the cock to crow → one jiangshi event cancelled |                         |
 | ★ **紙紮舖** Paper Effigy Shop          | Paper horses, servants and houses, for burning | 替身 paper substitute: takes a hit for you, once                                                           |                         |
-| ★ **鐵匠鋪** Blacksmith                 | Forge, tools, iron                             | 武器 search, the best in the game. Iron is anti-yin                                                        |                         |
+| ★ **鐵匠鋪** Blacksmith                 | Forge, tools, iron                             | 武器 search, the best in the game. Iron is anti-yin                                                        | **in the 20** |
 | **木工房** Carpenter's Shop             | Saw, adze, 墨斗 ink line                         | 武器 + the ink line; peachwood offcuts                                                                     |                         |
-| **藥鋪** Apothecary                    | Drawers of herbs, scales                       | 丹藥 search, the best                                                                                      |                         |
+| **藥鋪** Apothecary                    | Drawers of herbs, scales                       | 丹藥 search, the best                                                                                      | **in the 20** |
 | **酒坊 / 酒窖** Distillery / Wine Cellar | Jars of rice wine                              | 雄黃酒 realgar wine — drink for HP, or splash it                                                            |                         |
 | **屠房** Slaughterhouse                | Blocks, hooks, blood                           | 黑狗血 / 公雞血 source. Grim                                                                                   |                         |
 | **豆腐坊** Tofu Workshop                | Stone mill, soaking tubs                       | Quiet and domestic, and wrong at night. 丹藥 or filler                                                     |                         |
@@ -467,12 +502,12 @@ Status column says so. Hooks are suggestions, not decisions.
 | **穀倉** Granary                       | Sacks, rats                                    | 糯米 sticky rice in quantity                                                                               |                         |
 | **地窖** Cellar                        | Below ground, cold                             | Dead end; no exit but the one you came in by                                                             |                         |
 | **閣樓** Attic / Loft                  | Stored and forgotten things                    | Dead end, but a rich search                                                                              |                         |
-| **書房 / 經堂** Study / Sutra Hall       | Scrolls, scripture                             | 符咒 search                                                                                                |                         |
+| **書房 / 經堂** Study / Sutra Hall       | Scrolls, scripture                             | 符咒 search                                                                                                | **in the 20** |
 | **私塾** Village School                | Desks, a slate                                 | Nothing useful in it — pure transit with atmosphere                                                      |                         |
 | **當鋪** Pawnshop                      | Whatever the village pawned                    | Mixed search — one item of any category                                                                  |                         |
-| **帳房** Counting Room                 | Ledgers of who is owed what                    | Information: reveals something about the map                                                             |                         |
+| **帳房** Counting Room                 | Ledgers of who is owed what                    | Information: reveals something about the map                                                             | **in the 20** |
 | **繡房** Embroidery Room               | A daughter's room                              | Classic ghost-story room. Event-heavy, no items                                                          |                         |
-| **馬廄 / 牛棚** Stable / Ox Shed         | Animals that will not settle                   | 武器 (farm tools)                                                                                          | **in the 20** (outdoor) |
+| **馬廄 / 牛棚** Stable / Ox Shed         | Animals that will not settle                   | 武器 (farm tools)                                                                                          | *cut 2026-08-22* |
 | **偏廳 / 廂房** Side Chamber             | A spare room                                   | Plain filler, 2–3 exits                                                                                  |                         |
 | **水井** The Well                      | The hostel's water, in the courtyard           | Something in it. High-risk event, unique reward                                                          |                         |
 
@@ -482,26 +517,26 @@ Status column says so. Hooks are suggestions, not decisions.
 | ---------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------- |
 | ★ **趕屍路** The Corpse Road    | The 湘西 route corpse-drivers walk the dead home along, by night, with bells | Jiangshi events here are worse — but it leads somewhere. A fast lane with a toll  |               |
 | ★ **戲台** Opera Stage         | Village theatre; operas performed *for the dead*, with no living audience  | Something is being performed. Once per run the stage takes an event in your place |               |
-| ★ **亂葬崗 / 義塚** Mass Grave    | The unclaimed and unmourned dead                                           | The most dangerous tile on the map, and the richest search                        |               |
-| ★ **石敢當** Stone Ward         | Inscribed stone set at a junction to block evil                            | A refuge that wards rather than blocks — no jiangshi event fires here, once       |               |
-| ★ **槐樹** Pagoda Tree         | 鬼樹 — said to gather ghosts                                                 | Bad things concentrate. High event severity, no search                            |               |
+| ★ **亂葬崗 / 義塚** Mass Grave    | The unclaimed and unmourned dead                                           | The most dangerous tile on the map, and the richest search                        | **in the 20** |
+| ★ **石敢當** Stone Ward         | Inscribed stone set at a junction to block evil                            | A refuge that wards rather than blocks — no jiangshi event fires here, once       | **in the 20** |
+| ★ **槐樹** Pagoda Tree         | 鬼樹 — said to gather ghosts                                                 | Bad things concentrate. High event severity, no search                            | **in the 20** |
 | **城隍廟** City God Temple      | The god who judges the dead                                                | Big shrine: reveals the King's weakness, or restores cower charges                |               |
 | **山神廟** Mountain God Shrine  | Smaller, rougher                                                           | Navigation, like the Earth God Shrine                                             |               |
 | **破廟** Ruined Temple         | Roof gone, statue faceless                                                 | Shelter that isn't. 符咒 search, but the event fires twice                          |               |
 | **石橋** Stone Bridge          | Over the stream                                                            | Running water beneath — a second safe crossing, or the only way over              |               |
 | **水車** Waterwheel            | Turning by itself                                                          | Running water, plus noise that covers your breath                                 |               |
 | **水塘** Pond                  | Still water, not running                                                   | Looks safe, isn't. The trap version of the Stream                                 |               |
-| **枯井** Dry Well              | No water left in it                                                        | Something climbed out                                                             |               |
+| **枯井** Dry Well              | No water left in it                                                        | Something climbed out                                                             | **in the 20** |
 | **稻田 / 田埂** Rice Paddy       | Flooded fields, narrow bunds                                               | Slow going: costs the turn but moves you only one tile, ever                      |               |
 | **菜園** Vegetable Garden      | Household plot                                                             | 丹藥 filler                                                                         |               |
 | **柴垛** Woodpile              | Stacked firewood                                                           | Cheap 武器 — poles and axes                                                         |               |
 | **豬圈** Pigsty                | Pigs that have gone quiet                                                  | The quiet is the tell                                                             |               |
-| **牌坊** Memorial Arch         | Stone arch at the village edge                                             | A boundary — marks the far side of the map                                        |               |
+| **牌坊** Memorial Arch         | Stone arch at the village edge                                             | A boundary — marks the far side of the map                                        | **in the 20** |
 | **松柏林** Pine & Cypress Grove | Graveyard trees                                                            | Filler with the right mood; could replace a Bamboo Grove                          |               |
 | **墳山** Grave Hill            | The slope the graves are cut into                                          | Approach to the Ancestral Grave — a foothill that signals you are close           |               |
 | **三岔路口** Crossroads          | Where offerings are burned and spirits gather                              | Four exits — the outdoor hub, better themed than a threshing floor                |               |
 | **渡口** Ferry Landing         | Where the river is crossed                                                 | Running water; a one-way crossing to the far bank                                 |               |
-| **曬穀場** Threshing Floor      | Open drying ground                                                         | The outdoor hub                                                                   | **in the 20** |
+| **曬穀場** Threshing Floor      | Open drying ground                                                         | The outdoor hub                                                                   | *cut 2026-08-22* |
 
 #### Five swaps worth considering against the current 20
 1. **三岔路口 Crossroads** replaces **曬穀場 Threshing Floor** as the
@@ -692,6 +727,22 @@ more redesign is coming. Reconcile once the systems settle.
   swaps flagged against the current 20 — Crossroads for Threshing Floor,
   and Chicken Coop (cockcrow), Mass Grave, Ancestral Hall and Corpse
   Road as additions.
+- 2026-08-22 — **nine tile swaps applied to §4.** Indoor: Washing Room→
+  藥鋪 Apothecary, Priest's Cell→經堂 Sutra Hall, Coffin Store→鐵匠鋪
+  Blacksmith, Kitchen→帳房 Counting Room. Outdoor: Ancestral Grave→亂葬崗
+  Mass Grave (Goal B), Threshing Floor→石敢當 Stone Ward, Bamboo-2→牌坊
+  Memorial Arch, Ox Shed→枯井 Dry Well, Herb Terrace→槐樹 Pagoda Tree.
+  Three consequences worth naming: **both +1 HP tiles are gone and 丹藥 is
+  down to one room**, so healing is now almost entirely the cower charges
+  — constraint P1 is void, the Incense Hall matters much more, and the
+  King's numbers must come down or the duel is unwinnable. **Searchable
+  tiles drop 10 → 6, five of them indoors**, which produces a two-act
+  structure worth keeping on purpose: *the village is where you prepare,
+  the hillside is where you deliver.* And the indoor half is now **a
+  village, not a single 義莊** — the premise in the plan needs updating.
+  Open: what the Counting Room reveals; whether burying in a mass grave
+  is the better story (probably yes — he became this because nobody
+  claimed him).
 
 ## Links
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
