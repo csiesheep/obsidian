@@ -152,20 +152,26 @@ blunt instrument that also punishes legitimate play; a charge limit is
 precise. Two mechanisms are now doing one job, and the cap is the worse
 of the two. Re-check before keeping it.
 
-**⚠️ But the healing tiles are now the uncapped source — and optional
-movement makes it worse.** Kitchen and Herb Terrace give +1 for *ending a
-turn* there, with no limit. Under the original's mandatory movement, that
-meant bouncing on and off the tile for +1 every 2 turns. **With STAY
-legal, you just stand in the kitchen: +1 every single turn.** The only
-brake is that each of those turns still draws an event, so the camper
-trades event damage for healing at 1 HP a turn. Whether that trade is
-losing depends entirely on the event pool's average damage at 10–11 PM
-(§3). If mean event damage is under 1 HP/turn, **standing in the kitchen
-until midnight is the dominant strategy** and the game is broken. Fixes,
-if the bots confirm it: cap the tile heal per visit, make it fire only on
-*arrival* rather than on any turn end, or accept it and make the pool
-meaner. **Test this first — it is the most likely way this ruleset
-breaks.**
+**The healing tiles are the only uncapped source — but that's a
+constraint on the pool, not a hole in the rules.** With STAY legal you
+can stand in the Kitchen for +1 a turn, paid for with one event. Ruled
+2026-08-22 that this is **not a problem**: the turn budget is the real
+brake. Camping trades away the tablet win entirely, and a turn spent
+healing is a turn not spent exploring, so it is a *choice with a price*
+rather than a free lunch.
+
+What it does do is impose one number on the §3 pool design, and it should
+be written down before the pool is authored:
+
+> **Constraint P1.** Mean event damage per turn during the 10 PM and
+> 11 PM bands must exceed **+1 HP**. Otherwise standing on a healing tile
+> is net-positive health *and* net-positive clock toward the King duel,
+> and camping dominates.
+
+Not a big ask — the original's 11 PM band is more than half fights, at
+4–6 monsters each. It just has to stay true after the pool is rebuilt.
+The turtle/bouncer bots exist to check exactly this, so it costs nothing
+to verify later.
 
 **The emergent turn budget**, which is the number to design the map
 against:
@@ -180,23 +186,45 @@ So a full sweep of both grids is *just* out of reach, and only if you
 neither search nor cower. That is a good place to land — it makes §2's
 "can you even see the map?" answer itself: **no, and deliberately.**
 
-**What "a chance to find nothing" has to answer.** The failure roll is
-now the *only* brake on item supply, so its exact shape matters:
-- **Does the roll belong to the attempt or to the room?** If each attempt
-  is an independent roll, camping always wins eventually — you just pay
-  turns and events for it. If the room rolls *once* (it either has
-  something or it doesn't), a miss is permanent and staying is pointless.
-  **Recommend a middle path: independent rolls, but with odds that decay
-  per attempt on the same tile** (say 50 % → 25 % → 12 %). Camping then
-  self-limits without ever being forbidden, and the third search in the
-  same room feels like scraping the bottom of it — which is the truth of
-  the fiction.
-- **Do searchable rooms run dry?** A finite stock (1–2 items) that
-  visibly empties is stronger than an infinite one, and gives the map
-  memory.
-- **Is the whole item pool finite per run?** If a found Peachwood Sword
-  leaves the pool, late-game searches degrade naturally and the 11 PM
-  item drought (spec §3's deliberate shape) reappears for free.
+### The item pool — ✅ shape decided 2026-08-22
+
+**Rarity is expressed as multiplicity.** The pool holds *copies*: the
+good items appear **once**, common ones appear **several times**. Drawing
+is therefore weighted without any separate weight table — how many copies
+a thing has *is* its probability. Exact contents and counts to be
+designed later.
+
+```
+pool = [ 桃木劍 ×1, 五雷符 ×1, 銅錢劍 ×2, 糯米 ×3, … ]   # illustrative only
+```
+
+Why this is the right call, beyond being easy to author:
+- **Uniqueness makes a find an event.** Pulling the one Peachwood Sword
+  out of a coffin store at 10:30 is a story; pulling one of an infinite
+  supply is loot.
+- **The pool depletes, so the late game dries up on its own.** Spec §3's
+  deliberate 11 PM item drought — one item card in nine — comes back for
+  free, as a consequence of the structure rather than a rule anybody has
+  to write.
+- **It gives the player something to reason about.** "The sword is still
+  out there" is real information, and knowing the good stuff is finite
+  makes every search decision sharper. Whether to *show* a found-items
+  ledger is a UI question worth having later; the information exists
+  either way.
+- **Duplicated consumables are the right kind of common.** Sticky rice
+  and talisman paper get used up, so finding a second one has to be
+  possible or the item economy stalls.
+
+Still to settle when the pool is authored (not now):
+- Draw with or without replacement — **without** is implied by "good
+  items only appear once," and is what makes depletion work.
+- The **miss rate**: what fraction of searches find nothing, and whether
+  it is flat or decays per attempt on the same tile. A decaying rate
+  (50 % → 25 % → 12 %) makes camping a room self-limiting and makes the
+  third rummage feel like scraping the bottom — but flat is simpler and
+  the turn cost may already be brake enough.
+- Whether a **searchable room holds its own small stock** (1–2) and
+  visibly empties, versus every search drawing from one global pool.
 
 ---
 
@@ -340,17 +368,24 @@ undermine.
 - [x] **§1 — no search cap needed.** Re-searching is priced by the turn
       and the event that STAY costs.
 
+## Constraints for later tuning
+- **P1 — mean event damage at 10–11 PM must exceed +1 HP/turn**, or
+  camping a healing tile dominates. Checked by the turtle/bouncer bots.
+
 ## Open questions
-- [ ] **§1 — can you camp a healing tile?** ⭐⭐ The live one, and the
-      most likely way this ruleset breaks. STAY + a +1 tile = +1 HP every
-      turn against one event's average damage. If the pool averages under
-      1 HP/turn, standing in the kitchen wins the game. Bot it first.
+- [ ] **⚠️ The King duel's damage clamp flattens the weapon table.** With
+      `strength 7` and `clamp(7 − attack, 0, 4)`, attack **1, 2 and 3 all
+      take 4 a round** — so every +1 and +2 weapon is worth exactly
+      nothing in the duel, and only the +3 changes anything. That inverts
+      what the redesign wants: it makes campable **health** matter and
+      searchable **attack** not. **Recommend King strength 5**, which
+      gives a clean gradient (attack 1→4, 2→3, 3→2, 4→1, 5→0) where every
+      weapon point tells. Revisit when the duel is tuned.
 - [ ] **§1 — what happens to zombie doors** now that being boxed in is
       survivable (STAY is always legal)? Re-key them to the event pool,
       or to something other than "no usable exit".
-- [ ] **§3 — search failure: per attempt or per room?** Prefer per
-      attempt with decaying odds (50 / 25 / 12 %). Do searchable rooms
-      hold finite stock? Does the item pool deplete run-wide?
+- [ ] **§3 — item pool contents and probabilities.** Deferred by
+      decision; shape is settled (uniques ×1, commons ×N), numbers are not.
 - [ ] **§1 — is the cower limit per run or per hour?** Read as **per run**
       (3 total). Per hour would be 9 total and a very different game.
 - [ ] **§1 — does `COWER_HEAL` rise from 3?** A charge is worth more than
@@ -416,6 +451,17 @@ more redesign is coming. Reconcile once the systems settle.
   tile yields +1 HP/turn against one event — if mean event damage at
   10–11 PM is under 1 HP, standing in the kitchen is the dominant line.
   Bot that before anything else.
+- 2026-08-22 — **healing-tile camping ruled not a problem**: the limited
+  turn budget is the brake, and camping trades away the tablet win
+  outright. Downgraded from a risk to **constraint P1** on the event pool
+  (mean damage at 10–11 PM must beat +1 HP/turn), to be verified by bot
+  rather than designed around now. **Item pool shape settled: rarity is
+  multiplicity** — good items appear once, commons appear several times,
+  so the pool depletes and the late-game item drought reappears as a
+  consequence of the structure. Contents and probabilities deliberately
+  deferred. Separately, flagged that the King duel's `clamp(7 − attack,
+  0, 4)` makes attack 1/2/3 identical, which would make the searchable
+  half of the game irrelevant to win 2; strength 5 fixes the gradient.
 
 ## Links
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
