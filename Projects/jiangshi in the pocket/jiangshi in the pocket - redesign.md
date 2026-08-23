@@ -342,143 +342,134 @@ having:
   one big one, and a room's category is obvious from its fiction — you
   look for rice in a kitchen and talismans in a priest's room.
 
-**The resulting geography** — rewritten after the 2026-08-22 swaps, and
-it changed shape completely:
+**The resulting geography, which is the point:**
 
 | Category | Where it lives | Count |
 |---|---|---|
 | **符咒 magic** | **indoors only** — Sutra Hall ★, Mourning Hall | 2 |
-| **武器 weapons** | Blacksmith ★, Woodshed (in) · Bamboo Grove (out) | 3 |
-| **丹藥 medicine** | **Apothecary ★ only** | **1** |
+| **武器 weapons** | Blacksmith ★, Woodshed (in) · Dry Well, Bamboo Grove, Memorial Arch (out) | 5 |
+| **丹藥 medicine** | Apothecary ★, Counting Room (in) · Pagoda Tree (out) | 3 |
+
+Magic is indoors only: the best gear and the tablet are both in the
+house, so a duelist cannot skip the interior. Weapons skew outdoors —
+common and plentiful, but the walk is long. Medicine sits on both halves,
+which is what keeps the two healing tiles from being decisive.
 
 ### Indoor — the village, and the 義莊 at the end of it (10)
 
-| # | id | Name | Exits | Search | Role |
-|---|---|---|---|---|---|
-| 1 | `gatehouse` | 門廳 Gatehouse | N | — | **Start.** Placed at origin |
-| 2 | `apothecary` | 藥鋪 Apothecary | N | 丹藥 ★ | dead end. **The only medicine on the board** |
-| 3 | `woodshed` | 柴房 Woodshed | N, E | 武器 | cheap weapons near the start |
-| 4 | `sutra-hall` | 經堂 Sutra Hall | N, W | 符咒 ★ | the richest magic in the game |
-| 5 | `mourning-hall` | 靈堂 Mourning Hall | N, E, W | 符咒 | hub |
-| 6 | `courtyard` | 天井 Courtyard | N, E, S, W | — | crossroads; the **moon gate** is the way out |
-| 7 | `blacksmith` | 鐵匠鋪 Blacksmith | N | 武器 ★ | dead end, best weapons. Iron is anti-yin |
-| 8 | `counting-room` | 帳房 Counting Room | N, E, W | — | **information** — see open question |
-| 9 | `incense-hall` | 香堂 Incense Hall | N, E | — | restores 1 cower charge, once per run |
-| 10 | `sealed-crypt` | 停柩房 Sealed Crypt | E, W | — | **GOAL A — the tablet** |
+| #   | id              | Name             | Exits      | Search | Role                                         |
+| --- | --------------- | ---------------- | ---------- | ------ | -------------------------------------------- |
+| 1   | `gatehouse`     | 門廳 Gatehouse     | N          | —      | **Start.** Placed at origin                  |
+| 2   | `apothecary`    | 藥鋪 Apothecary    | N          | 丹藥     | dead end                                     |
+| 3   | `woodshed`      | 柴房 Woodshed      | N, E       | 武器     | cheap weapons near the start                 |
+| 4   | `sutra-hall`    | 經堂 Sutra Hall    | N, W       | 符咒 ★   | the richest magic in the game                |
+| 5   | `mourning-hall` | 靈堂 Mourning Hall | N, E, W    | 符咒     | hub                                          |
+| 6   | `courtyard`     | 天井 Courtyard     | N, E, S, W | —      | crossroads; the **moon gate** is the way out |
+| 7   | `blacksmith`    | 鐵匠鋪 Blacksmith   | N          | 武器 ★   | dead end, richest weapons. Iron is anti-yin  |
+| 8   | `counting-room` | 帳房 Counting Room | N, E, W    | 丹藥     | **+1 HP** at turn end                        |
+| 9   | `incense-hall`  | 香堂 Incense Hall  | N, E       | —      | restores 1 cower charge, once per run        |
+| 10  | `sealed-crypt`  | 停柩房 Sealed Crypt | E, W       | —      | **GOAL A — the tablet**                      |
 
-*Exit density 21/10 = 2.1, unchanged by the swaps.*
+*Exit density 21/10 = 2.1. Three one-exit rooms, one four-exit hub.*
 
 ### Outdoor — the hillside (10)
 
-| # | id | Name | Edges | Search | Role |
-|---|---|---|---|---|---|
-| 1 | `back-steps` | 後門石階 Back Steps | E, S | — | **Seam** (N). Set aside at setup |
-| 2 | `dry-well` | 枯井 Dry Well | S, W | — | hazard — something climbed out |
-| 3 | `bamboo-1` | 竹林 Bamboo Grove | E, S, W | 武器 (commons) | **the only searchable tile outdoors** |
-| 4 | `memorial-arch` | 牌坊 Memorial Arch | E, S, W | — | boundary — the far edge of the map |
-| 5 | `pavilion` | 涼亭 Pavilion | E, S, W | — | filler |
-| 6 | `pagoda-tree` | 槐樹 Pagoda Tree | E, S, W | — | 鬼樹 — bad things concentrate. High event severity |
-| 7 | `stone-ward` | 石敢當 Stone Ward | N, E, S, W | — | **hub + ward.** Stands at the junction |
-| 8 | `stream` | 溪澗 Stream | E, W | — | **running water** |
-| 9 | `earth-shrine` | 土地廟 Earth God Shrine | E, S | — | pray, once per run |
-| 10 | `mass-grave` | 亂葬崗 Mass Grave | E, S | — | **GOAL B — bury the tablet → win 1** |
+| #   | id              | Name                 | Edges      | Search       | Role                                    |
+| --- | --------------- | -------------------- | ---------- | ------------ | --------------------------------------- |
+| 1   | `back-steps`    | 後門石階 Back Steps      | E, S       | —            | **Seam** (N). Set aside at setup        |
+| 2   | `dry-well`      | 枯井 Dry Well          | S, W       | 武器           | things thrown down it                   |
+| 3   | `bamboo-1`      | 竹林 Bamboo Grove      | E, S, W    | 武器 (commons) | filler                                  |
+| 4   | `memorial-arch` | 牌坊 Memorial Arch     | E, S, W    | 武器 (commons) | filler                                  |
+| 5   | `pavilion`      | 涼亭 Pavilion          | E, S, W    | —            | filler                                  |
+| 6   | `pagoda-tree`   | 槐樹 Pagoda Tree       | E, S, W    | 丹藥           | **+1 HP** at turn end                   |
+| 7   | `stone-ward`    | 石敢當 Stone Ward       | N, E, S, W | —            | the outdoor hub. Stands at the junction |
+| 8   | `stream`        | 溪澗 Stream            | E, W       | —            | **running water**                       |
+| 9   | `earth-shrine`  | 土地廟 Earth God Shrine | E, S       | —            | pray, once per run                      |
+| 10  | `mass-grave`    | 亂葬崗 Mass Grave       | E, S       | —            | **GOAL B — bury the tablet → win 1**    |
 
-*Exit density 26/10 = 2.6, unchanged by the swaps.*
+*Exit density 26/10 = 2.6. Outdoors stays more open than indoors, as
+hedges-vs-walls implies.*
 
-### What the swaps did — three things to look at
+**The nine swaps of 2026-08-22 were renames.** Every slot kept its exits,
+its search category and its special. Search coverage is unchanged at
+**10 of 20 tiles**; both **+1 HP** tiles survive, one per half.
 
-**1. 石敢當 Stone Ward absorbed the hub cleanly.** A 石敢當 is *by
-definition* the stone set at a road junction, so keeping the Threshing
-Floor's four exits isn't a compromise — it's the correct reading. The
-tile is now hub **and** ward: the crossing every outdoor route uses, and
-a place where nothing can follow you in. Best of the nine swaps.
+### The special tiles, and what each is for
 
-**2. ⚠️ Healing has almost entirely left the game.** Kitchen and Herb
-Terrace were the only two **+1 HP** tiles, and both are gone. 丹藥 is
-down from three rooms to **one**. What remains:
+**香堂 Incense Hall** (indoor) — **restores one cower charge, once per
+run.** With cowering capped at 3 (§1), a charge is the most precious
+thing on the board, and a tile that gives one back is a genuine
+destination worth a detour. Once per run, because the incense burns out —
+a repeatable charge fountain would undo the cap.
 
-| Source | Amount |
-|---|---|
-| Cowering | 3 charges (+1 from the Incense Hall) × 3–5 HP |
-| 丹藥 items | whatever the Apothecary yields, one room, in the house |
-| **Healing tiles** | **none** |
+**石敢當 Stone Ward** (outdoor) — the outdoor half needed a four-exit hub
+to answer the Courtyard, and a 石敢當 is *by definition* the stone set at
+a road junction. The four exits are the correct reading of the fiction,
+not a compromise with it.
 
-Consequences, all of which are fine *if intended*:
-- **Constraint P1 is void.** Nothing to camp; the whole healing-tile
-  camping question evaporates. One less thing to tune.
-- **Cower charges are now nearly the whole health economy**, which makes
-  the Incense Hall much more important than when it was designed, and
-  argues harder for raising `COWER_HEAL` to 4–5.
-- **The King duel's numbers are broken as written.** The plan assumed a
-  player could arrive near 10 HP. Under this map the realistic ceiling is
-  6 start + ~12 cowering − a night of events. Duel strength must come
-  down with it, or the duel becomes unwinnable and the game has one win.
-- **The night gets much meaner.** Possibly correct — this is a horror
-  game and the original is generous. But it should be a decision, not a
-  side effect of nine renames.
+**溪澗 Stream** (outdoor) — **jiangshi cannot cross running water.** The
+single best piece of folklore available and it costs nothing to
+implement: on this tile, jiangshi events deal **no damage**. It is a real
+refuge — and a *sterile* one: no search, no heal, two exits, out at the
+edge of the map. Camping there buys safety and nothing else, so a player
+who hides at the stream arrives at midnight unhurt, unarmed and
+unequipped, which loses the duel. **Safety that doesn't win is exactly
+the right shape for a refuge**, and it needs no extra rule to hold.
 
-**3. ⚠️ The outdoor half is now pure gauntlet — and I think that's
-good.** Exactly **one** searchable tile outdoors (Bamboo Grove, commons
-only), against two dedicated hazards (Dry Well, Pagoda Tree) and two
-refuges (Stream, Stone Ward). That produces a clean two-act structure the
-earlier draft didn't have:
+**土地廟 Earth God Shrine** (outdoor) — **pray: the next unexplored
+outdoor tile you place is the Mass Grave.** Once per run.
 
-> **The village is where you prepare. The hillside is where you deliver.**
-
-Everything you will ever carry is found in the house; crossing the moon
-gate is a commitment made with what you already have. That's a strong
-shape and worth keeping deliberately.
-
-The risk it introduces: with one seam and no resupply outside, a player
-who crosses under-equipped is dead and **won't find out for ten turns**.
-That's the "you lost long ago and didn't know" failure, which is the one
-kind of difficulty worth designing out. Mitigations, pick later: let the
-Mass Grave be searchable, let the Earth God Shrine also yield something,
-or make the moon gate two-way cheap enough that going back for gear is a
-real option.
-
-### Theme note — this is no longer one building
-
-Apothecary, Blacksmith, Counting Room and Sutra Hall are **village
-trades**, not rooms in a 義莊. The indoor half has quietly become *the
-village*, with the corpse hostel (Mourning Hall, Sealed Crypt, Incense
-Hall) as the part of it you end up in. That's a **richer setting** than a
-single hostel — a whole village that has locked its doors — but the
-premise in [[jiangshi in the pocket plan]] still says "a corpse hostel on
-the edge of a village" and now needs to say something closer to:
-
-> A village with its 義莊 at the far end, and one night to get there.
+That last one exists to fix a structural asymmetry, and it is the most
+load-bearing tile on the board: **win 2 is passive and win 1 is a
+scavenger hunt.** The duel comes to you at midnight no matter what; the
+burial requires finding *two specific tiles out of twenty*, in the right
+order, across a seam, inside 22 movement turns. Without help, path 1 is
+strictly harder in a way that isn't interesting — it's harder because of
+draw luck. The shrine converts the back half of that hunt from luck into
+a route you can choose to take. The land god knows where the dead are
+buried.
 
 ### What is deliberately *not* searchable
 
-Gatehouse, Courtyard, Counting Room, Back Steps, Dry Well, Memorial Arch,
-Pavilion, Pagoda Tree, Stone Ward, Stream, Earth Shrine, and both goal
-rooms. **6 of 20 tiles are searchable** — down from 10 — and 5 of those 6
-are indoors. The goal rooms aren't searchable because their *ritual* is
-their search.
+Gatehouse (you just came through it), Courtyard, Incense Hall, Back
+Steps, Pavilion, Stone Ward, Stream, Earth Shrine, and both goal rooms.
+**10 of 20 tiles are searchable**, so a search is never far away, but
+half the map is transit. The goal rooms aren't searchable because their
+*ritual* is their search.
+
+### Flavour tensions left by the renames
+
+Mechanically nothing moved, but four slots now want a line of fiction to
+justify what they do. None is a design problem; each is one sentence of
+theme.text away from settled.
+
+| Tile | Does | Needs to explain |
+|---|---|---|
+| **帳房** Counting Room | 丹藥 search, **+1 HP** | The Kitchen healed you because it had food. A counting room needs a reason — the clerk's own medicine chest, or tea still warm on the desk |
+| **枯井** Dry Well | 武器 search | Fine, once said out loud: a dry well is where a village throws what it wants gone. Tools, blades, the ox's harness |
+| **牌坊** Memorial Arch | 武器 (commons) search | The weakest fit. An arch has nothing to rummage — unless offerings and tools are stacked at its foot, which is true of real 牌坊 |
+| **槐樹** Pagoda Tree | 丹藥 search, **+1 HP** | The best accident of the nine: 槐花 and 槐米 are genuine materia medica. It heals because it is *literally* a medicine tree |
+
+**One name to reconsider, not for mechanics but for meaning:** 亂葬崗 as
+Goal B. Burying a tablet in an *ancestral* grave lays a man to rest among
+his family; burying it in the pit for the unclaimed is the opposite
+gesture — and is arguably the better story. **He became what he is
+because nobody claimed him**, and the tablet is the name being given
+back. Worth writing to deliberately, since it changes what winning means.
 
 ### Open, and deferred
-- **帳房 Counting Room: what does it actually reveal?** It replaced the
-  Kitchen on the strength of "information", which is the one role on the
-  board with no defined mechanic. Candidates: reveal where the Sealed
-  Crypt is, reveal the next event, reveal what is left in a pool, or name
-  the King (the ledger records who was owed a burial and never got one).
-  **Needs deciding before it can be built.**
-- **Does 亂葬崗 as Goal B change the story?** Burying a tablet in an
-  *ancestral* grave lays a man to rest among his family. Burying it in a
-  mass grave — the pit for the unclaimed — is the opposite gesture, and
-  is arguably the better one: **he became what he is because nobody
-  claimed him**, and the tablet is the name being given back. Worth
-  writing to deliberately, because it changes what the win *means*.
-- **The Mass Grave was designed as the high-risk / high-reward tile.**
-  Promoting it to the goal leaves the map with no place that is
-  frightening to enter *on purpose*. The Pagoda Tree partly covers this,
-  but it has no reward attached.
 - **How many items a searchable room holds**, and whether ★ rooms
-  (Sutra Hall, Blacksmith, Apothecary) hold more or better — see §3.
-- **The two goal-room rituals** — one extra turn, or one extra event?
-- **Whether one seam is still right** — now sharper, since there is no
-  resupply on the far side.
+  (Sutra Hall, Blacksmith) hold more or better — see §3.
+- **The two goal-room rituals.** The tablet and the burial were "resolve
+  a second card" each; in turn terms the natural translation is one extra
+  turn, or one extra event, apiece.
+- **Whether one seam is still right.** The Courtyard's moon gate remains
+  the only crossing. With 20 tiles that is a hard bottleneck for path 1 —
+  the Earth God Shrine softens it, but a second seam (or a one-way gate)
+  is worth testing if the bots find the burial win too rare.
+- **The map has no tile that is frightening to enter on purpose.** The
+  Mass Grave was the palette's candidate for that and is now the goal.
+  Optional; the map works without one.
 
 ### The full palette — options not yet chosen
 
@@ -727,22 +718,21 @@ more redesign is coming. Reconcile once the systems settle.
   swaps flagged against the current 20 — Crossroads for Threshing Floor,
   and Chicken Coop (cockcrow), Mass Grave, Ancestral Hall and Corpse
   Road as additions.
-- 2026-08-22 — **nine tile swaps applied to §4.** Indoor: Washing Room→
-  藥鋪 Apothecary, Priest's Cell→經堂 Sutra Hall, Coffin Store→鐵匠鋪
-  Blacksmith, Kitchen→帳房 Counting Room. Outdoor: Ancestral Grave→亂葬崗
-  Mass Grave (Goal B), Threshing Floor→石敢當 Stone Ward, Bamboo-2→牌坊
-  Memorial Arch, Ox Shed→枯井 Dry Well, Herb Terrace→槐樹 Pagoda Tree.
-  Three consequences worth naming: **both +1 HP tiles are gone and 丹藥 is
-  down to one room**, so healing is now almost entirely the cower charges
-  — constraint P1 is void, the Incense Hall matters much more, and the
-  King's numbers must come down or the duel is unwinnable. **Searchable
-  tiles drop 10 → 6, five of them indoors**, which produces a two-act
-  structure worth keeping on purpose: *the village is where you prepare,
-  the hillside is where you deliver.* And the indoor half is now **a
-  village, not a single 義莊** — the premise in the plan needs updating.
-  Open: what the Counting Room reveals; whether burying in a mass grave
-  is the better story (probably yes — he became this because nobody
-  claimed him).
+- 2026-08-22 — **nine tile swaps applied to §4, as renames only.** Indoor:
+  Washing Room→藥鋪 Apothecary, Priest's Cell→經堂 Sutra Hall, Coffin
+  Store→鐵匠鋪 Blacksmith, Kitchen→帳房 Counting Room. Outdoor: Ancestral
+  Grave→亂葬崗 Mass Grave, Threshing Floor→石敢當 Stone Ward, Bamboo-2→
+  牌坊 Memorial Arch, Ox Shed→枯井 Dry Well, Herb Terrace→槐樹 Pagoda
+  Tree. **Every slot keeps its exits, search category and special** —
+  search coverage stays at 10 of 20, both +1 HP tiles survive, one per
+  half. (First pass wrongly imported the palette's suggested hooks and
+  rewrote four slots' mechanics; corrected same day.) Left behind: four
+  slots whose fiction now has to justify their function — the Counting
+  Room healing, the Dry Well and Memorial Arch holding weapons — and one
+  happy accident, 槐樹, which heals because 槐花/槐米 really are materia
+  medica. Also noted that 亂葬崗 as Goal B changes what the win *means*:
+  he became this because nobody claimed him, and the tablet is the name
+  given back.
 
 ## Links
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
