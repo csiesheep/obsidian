@@ -274,14 +274,24 @@ undermine.
 ## Decided
 - [x] **§1 — 30 turns of 6 minutes, 9 PM → midnight** (2026-08-22).
       10 turns per hour band.
+- [x] **§1 — move, search and cower each cost 1 turn** (2026-08-22).
+- [x] **§1 — cowering is limited to 3 per run**, default, to be tuned.
 
 ## Open questions
-- [ ] **§1 — what costs a turn?** ⭐ **Now the most important open
-      question in the design.** With a fixed 30-turn budget, the turn is
-      the *only* currency — so searching, cowering, the goal-room ritual
-      and any "large room" have to either cost one (or more) turns, or be
-      free and therefore unlimited. Every §3 scarcity knob routes through
-      this answer.
+- [ ] **§1 — does a search turn draw an event?** ⭐ The live one. "No"
+      makes searching a safe turn and forces a search-once-per-tile cap;
+      "yes" makes it self-limiting by risk and needs no cap. Prefer yes.
+- [ ] **§1 — is the cower limit per run or per hour?** Read as **per run**
+      (3 total). Per hour would be 9 total and a very different game.
+- [ ] **§1 — does `COWER_HEAL` rise from 3?** A charge is worth more than
+      a card of clock was. Candidate 4–5.
+- [ ] **§1 — is `healthCap: 10` still needed** now that the cower cap
+      kills the turtle? Probably not. Drop unless the bots disagree.
+- [ ] **§1 — do the +1 heal tiles need a brake?** They are now the only
+      uncapped healing. Test with a "bouncer" bot.
+- [ ] **§1 — do the goal-room rituals cost extra turns?** The Sealed
+      Crypt search and the Ancestral Grave burial were "a second card"
+      each; in turn terms that's most naturally 1 extra turn apiece.
 - [ ] **§2 — what are the 4 new tiles for?** Filler, or new roles?
 - [ ] **§3 — how is the 9→11 PM difficulty curve re-expressed?**
       Per-hour pools / hour-tagged events / weighted draws.
@@ -313,6 +323,17 @@ more redesign is coming. Reconcile once the systems settle.
   a budget 43 % larger than the original's 21 draws. "What costs a turn"
   is promoted to the design's central open question — with a fixed turn
   budget it is the only remaining currency.
+- 2026-08-22 — **turn costs settled: move / search / cower = 1 turn each,
+  cowering capped at 3 charges per run.** Cowering thereby changes
+  category — from an economic choice to a hoardable resource, which wants
+  HUD pips, a dread term, and probably a bigger heal. Two knock-ons
+  recorded: the cower cap **supersedes the King duel's `healthCap: 10`**
+  (both existed to kill the turtle; the cap is the blunter of the two),
+  and the **+1 heal tiles are now the only uncapped healing**, held in
+  check solely by the event-on-entry rule. Turn budget works out to ~22
+  movement turns against a 20-tile map — a full sweep is just out of
+  reach, which answers §2's "can you even see the map?" with a
+  deliberate no.
 
 ## Links
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
