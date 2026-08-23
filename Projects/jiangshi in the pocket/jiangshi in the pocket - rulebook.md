@@ -122,11 +122,11 @@ of the pool are not designed yet.**
 Ten of the twenty tiles can be searched, each for **one category** of
 thing:
 
-| | Where |
-|---|---|
-| **武器 weapons** | 鐵匠鋪 Blacksmith ★ · 柴房 Woodshed · 枯井 Dry Well · 竹林 Bamboo Grove · 牌坊 Memorial Arch |
-| **符咒 magic** | 經堂 Sutra Hall ★ · 靈堂 Mourning Hall |
-| **丹藥 medicine** | 藥鋪 Apothecary · 帳房 Counting Room · 槐樹 Pagoda Tree |
+|                 | Where                                                                             |
+| --------------- | --------------------------------------------------------------------------------- |
+| **武器 weapons**  | 鐵匠鋪 Blacksmith ★ · 柴房 Woodshed · 枯井 Dry Well · 竹林 Bamboo Grove · 牌坊 Memorial Arch |
+| **符咒 magic**    | 經堂 Sutra Hall ★ · 靈堂 Mourning Hall                                                |
+| **丹藥 medicine** | 藥鋪 Apothecary · 帳房 Counting Room · 槐樹 Pagoda Tree                                 |
 
 Searching is **free** — it costs no turn. It happens after the event, and
 **it may find nothing** ⏳. If it does, you can search the same room again
