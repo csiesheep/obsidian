@@ -359,7 +359,7 @@ which is what keeps the two healing tiles from being decisive.
 
 | #   | id              | Name             | Exits      | Search | Role                                         |
 | --- | --------------- | ---------------- | ---------- | ------ | -------------------------------------------- |
-| 1   | `gatehouse`     | 門廳 Gatehouse     | N          | —      | **Start.** Placed at origin                  |
+| 1   | `gatehouse`     | 門廳 Gatehouse     | N, E, W          | —      | **Start.** Placed at origin                  |
 | 2   | `apothecary`    | 藥鋪 Apothecary    | N          | 丹藥     | dead end                                     |
 | 3   | `woodshed`      | 柴房 Woodshed      | N, E       | 武器     | cheap weapons near the start                 |
 | 4   | `sutra-hall`    | 經堂 Sutra Hall    | N, W       | 符咒 ★   | the richest magic in the game                |
@@ -370,7 +370,8 @@ which is what keeps the two healing tiles from being decisive.
 | 9   | `incense-hall`  | 香堂 Incense Hall  | N, E       | —      | restores 1 cower charge, once per run        |
 | 10  | `sealed-crypt`  | 停柩房 Sealed Crypt | E, W       | —      | **GOAL A — the tablet**                      |
 
-*Exit density 21/10 = 2.1. Three one-exit rooms, one four-exit hub.*
+*Exit density 23/10 = 2.3. Two one-exit rooms (Apothecary, Blacksmith),
+one four-exit hub, and a start that branches three ways.*
 
 ### Outdoor — the hillside (10)
 
@@ -733,6 +734,15 @@ more redesign is coming. Reconcile once the systems settle.
   medica. Also noted that 亂葬崗 as Goal B changes what the win *means*:
   he became this because nobody claimed him, and the tablet is the name
   given back.
+- 2026-08-22 — **門廳 Gatehouse opened up: N → N, E, W.** The start is now
+  a three-way junction rather than the original Foyer's single stem.
+  Indoor exit density rises 2.1 → 2.3 and one-exit rooms drop from three
+  to two. Effects: the house **fans out from turn 1** instead of
+  threading, which helps path 1 against a 22-move budget; the classic
+  "one-exit room placed on top of the start" box-in disappears; and the
+  Gatehouse becomes a junction you pass back through rather than a
+  terminus. Runs with the grain of the source — the designer's own v1.75
+  hard-mode variant gives the Foyer a second door; this goes one further.
 
 ## Links
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
