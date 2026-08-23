@@ -743,8 +743,14 @@ more redesign is coming. Reconcile once the systems settle.
   Gatehouse becomes a junction you pass back through rather than a
   terminus. Runs with the grain of the source — the designer's own v1.75
   hard-mode variant gives the Foyer a second door; this goes one further.
+- 2026-08-22 — **[[jiangshi in the pocket - rulebook]] created**: the
+  playable rules as they stand, with the full 20-tile map written up as
+  two prose tables. Marked throughout — ✅ settled, ⏳ not yet designed,
+  📐 inherited — so the three undesigned pools (events, items, the King)
+  are visibly holes rather than silently thin.
 
 ## Links
+- [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
 - [[zombie in the pocket - ruleset spec]] — the baseline being departed from
 - [[zombie in the pocket - rulebook]] — prose rules, same baseline

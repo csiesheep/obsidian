@@ -1,0 +1,280 @@
+---
+tags: [project, rules]
+status: draft
+started: 2026-08-22
+version: pre-alpha — tiles and turn structure settled, pools and King open
+---
+# jiangshi in the pocket — rulebook
+
+The playable rules, in one place, as they stand. Human-facing companion to
+[[jiangshi in the pocket - redesign]] (which is the design record, with the
+reasoning and the arguments).
+
+> ⚠️ **This is a draft of a game that isn't finished being designed.**
+> The clock, the turn, the map and the two ways to win are settled. The
+> **event pool**, the **item pool** and **the King's abilities** are not,
+> and everything about them below is marked and provisional. Do not build
+> from the ⏳ sections.
+
+**Legend:** ✅ settled · ⏳ not yet designed · 📐 inherited unchanged from
+the *Zombie in my Pocket* skeleton (see
+[[zombie in the pocket - ruleset spec]])
+
+---
+
+## The night
+
+You are the caretaker. The village has locked its doors, and at the far
+end of it is the **義莊** — the corpse hostel, where coffins wait for the
+road home. One of them has waited too long.
+
+It is **9:00 PM**. At **midnight** the third watch sounds and the thing
+in that coffin comes for you. You have until then to do one of two
+things:
+
+1. **Lay him to rest.** Find his **神主牌** — the ancestral tablet — in
+   the Sealed Crypt, carry it out of the village, and bury it in the
+   Mass Grave.
+2. **Meet him.** Be standing, armed and whole, when he arrives.
+
+Either ends the night. So does dying.
+
+## Components
+
+- **10 indoor tiles, 10 outdoor tiles.**
+- An **event pool** ⏳ and an **item pool** ⏳ — separate, unlike the
+  source game's single deck.
+- Health, Attack, the turn number and your cower charges are numbers you
+  track.
+
+## Setup ✅
+
+1. Put the **門廳 Gatehouse** on the table. Set the **後門石階 Back
+   Steps** aside — it goes down later, the moment you first step outside.
+2. Shuffle the remaining indoor and outdoor tiles into two separate
+   face-down stacks.
+3. Start with **Attack 1**, **Health 6**, and **3 cower charges**.
+4. The clock reads **9:00 PM**. It is **turn 1 of 30**.
+
+You begin in the Gatehouse and **draw no event for it**. The night starts
+when you move.
+
+## The clock ✅
+
+**The turn is the clock.** There is no deck to run down.
+
+- The game is exactly **30 turns**.
+- Each turn is **6 minutes**. Turn 1 begins at 9:00 PM; turn 30 ends at
+  midnight.
+- The hour bands are exactly **10 turns** each:
+
+| Band | Turns | Clock |
+|---|---|---|
+| **9 PM** | 1–10 | 21:00 → 22:00 |
+| **10 PM** | 11–20 | 22:00 → 23:00 |
+| **11 PM** | 21–30 | 23:00 → 24:00 |
+
+Events get worse as the bands advance. When turn 30 ends, **the King
+arrives** — see [Midnight](#midnight-).
+
+## Taking a turn ✅
+
+Every turn is **one action**, then **an event**, then **an optional
+search**.
+
+### 1 — Choose one action
+
+**MOVE** — step into an adjacent room, explored or not. If it's
+unexplored, place a tile (below).
+
+**STAY** — remain where you are. Legal, and often correct: staying is how
+you search a room a second time.
+
+**COWER** — hide. Regain Health, spend one of your **3 charges**, and
+**end the turn immediately** — no event, no search. See
+[Cowering](#cowering-).
+
+> **Movement is optional**, unlike the source game. But standing still
+> costs a turn and draws an event exactly like walking does. There is no
+> free turn.
+
+### 2 — Place the tile, if the room is new 📐
+
+Draw the top tile of the matching stack. **Rotate it however you like**,
+with one constraint: one of its ways out must line up with the way you
+just came through. Its other edges don't have to match anything — a door
+may open onto a blank wall, and a wall may seal off a neighbour's door.
+
+There's no fixed footprint. The village sprawls as far as the tiles take
+it.
+
+### 3 — Draw an event ⏳
+
+One event from the pool, read for **the current hour band**. Always —
+including when you re-enter a room you already know, and including when
+you stayed put.
+
+Events are fights, harms, and things that merely happen. **The contents
+of the pool are not designed yet.**
+
+### 4 — Search, if the room offers it ✅
+
+Ten of the twenty tiles can be searched, each for **one category** of
+thing:
+
+| | Where |
+|---|---|
+| **武器 weapons** | 鐵匠鋪 Blacksmith ★ · 柴房 Woodshed · 枯井 Dry Well · 竹林 Bamboo Grove · 牌坊 Memorial Arch |
+| **符咒 magic** | 經堂 Sutra Hall ★ · 靈堂 Mourning Hall |
+| **丹藥 medicine** | 藥鋪 Apothecary · 帳房 Counting Room · 槐樹 Pagoda Tree |
+
+Searching is **free** — it costs no turn. It happens after the event, and
+**it may find nothing** ⏳. If it does, you can search the same room again
+by spending next turn on **STAY** — which means another event. That is
+the price of rummaging: not the search, the lingering.
+
+You may carry **2 items** 📐. The tablet doesn't count against that.
+
+### 5 — End of turn ✅
+
+**帳房 Counting Room** and **槐樹 Pagoda Tree** give **+1 Health** if you
+finish your turn standing in them.
+
+Advance the clock 6 minutes.
+
+## The map ✅
+
+### Indoors — the village, and the 義莊 at the end of it
+
+| Room | Ways out | Search | What it is |
+|---|---|---|---|
+| **門廳 Gatehouse** | N, E, W | — | Where you start. Three ways on |
+| **藥鋪 Apothecary** | N | 丹藥 | One door. Drawers of herbs and scales |
+| **柴房 Woodshed** | N, E | 武器 | Poles and axes, close to the start |
+| **經堂 Sutra Hall ★** | N, W | 符咒 | Scripture and talismans. The richest magic in the game |
+| **靈堂 Mourning Hall** | N, E, W | 符咒 | Where the coffins are laid out |
+| **天井 Courtyard** | N, E, S, W | — | The crossroads. Its **moon gate** is the only way outside |
+| **鐵匠鋪 Blacksmith ★** | N | 武器 | One door. The forge — iron is anti-yin, and the best weapons are here |
+| **帳房 Counting Room** | N, E, W | 丹藥 | **+1 Health** if you end your turn here |
+| **香堂 Incense Hall** | N, E | — | **Restores one cower charge. Once per night** |
+| **停柩房 Sealed Crypt** | E, W | — | **The tablet is here** |
+
+### Outdoors — the hillside
+
+Outdoors you leave across an **open edge**. **Hedges and walls are
+solid** — you can't push through them.
+
+| Place | Ways out | Search | What it is |
+|---|---|---|---|
+| **後門石階 Back Steps** | E, S | — | The landing outside the moon gate. Set aside at setup |
+| **枯井 Dry Well** | S, W | 武器 | Where the village threw what it wanted gone |
+| **竹林 Bamboo Grove** | E, S, W | 武器 | Poles, and not much else |
+| **牌坊 Memorial Arch** | E, S, W | 武器 | Offerings and tools stacked at its foot |
+| **涼亭 Pavilion** | E, S, W | — | Somewhere to sit, if this were a different night |
+| **槐樹 Pagoda Tree** | E, S, W | 丹藥 | 鬼樹. **+1 Health** if you end your turn here |
+| **石敢當 Stone Ward** | N, E, S, W | — | The stone at the junction. Every route outdoors crosses it |
+| **溪澗 Stream** | E, W | — | **Running water. Jiangshi cannot cross it** — their attacks do you no harm here |
+| **土地廟 Earth God Shrine** | E, S | — | **Pray: the next new place you step is the Mass Grave. Once per night** |
+| **亂葬崗 Mass Grave** | E, S | — | The pit for the unclaimed. **Bury the tablet here** |
+
+★ = the best of its category.
+
+## Going outdoors ✅
+
+The only way out of the village is the **Courtyard's moon gate**, one of
+its four ordinary ways out, not a fifth. Take it and the **Back Steps**
+goes down against the Courtyard, joined along that edge. Then the turn
+continues as normal.
+
+The gate works both ways. Going back in costs a turn, like any move.
+
+> Almost everything you will ever carry is found indoors. Crossing the
+> moon gate is a decision made with what you already have.
+
+## Special places ✅
+
+**停柩房 Sealed Crypt.** The tablet is here. Resolve the room's event,
+then perform the search of the crypt ⏳ — cost not yet fixed. Survive it
+and the tablet is yours. Carrying it does **not** use an item slot 📐.
+
+**亂葬崗 Mass Grave.** The same shape, for the burial ⏳. Survive it
+holding the tablet and **you have won**.
+
+**香堂 Incense Hall.** Light the incense: **one cower charge back**. Once
+per night — the incense burns out.
+
+**土地廟 Earth God Shrine.** Pray: the **next unexplored outdoor tile you
+place is the Mass Grave**. Once per night. The land god knows where the
+dead are buried.
+
+**溪澗 Stream.** Running water. Jiangshi cannot cross it, so their
+attacks deal **no damage** while you stand here. There is nothing to find
+and nothing to heal you — it is shelter and nothing more.
+
+**帳房 Counting Room** and **槐樹 Pagoda Tree.** +1 Health at end of turn.
+
+## Cowering ✅
+
+Cowering costs a **whole turn** and one of your **3 charges**, and it is
+the only turn in the game that **draws no event**.
+
+- You regain Health ⏳ (3, or possibly 4–5 — not yet tuned).
+- You may cower anywhere, indoors or out.
+- When the charges are gone, they are gone — except for the one the
+  Incense Hall gives back.
+
+> Cowering is not an economy in this game, it's an **inventory**. Three
+> charges is the whole supply of safety you will get.
+
+## Combat 📐 ⏳
+
+Inherited arithmetic, no dice:
+
+> **Health lost = (number of jiangshi) − (your Attack)**
+
+Never more than **4** from one fight, and never a gain. **Attack does not
+stack**: one weapon per fight, the best bonus only — carrying two doesn't
+add them together.
+
+The specific attacks, their sizes and how often they come are part of the
+**event pool** ⏳.
+
+## Midnight ⏳
+
+When turn 30 ends, the third watch sounds and **the King comes to
+whatever place you are standing in.**
+
+- You cannot flee him and you cannot cower.
+- Win, and the night is yours.
+- Lose, and it isn't.
+
+**His abilities are not designed yet.** What is settled is the shape: the
+duel is the second way to win, and it should only be winnable by someone
+who spent the night preparing for it.
+
+## Winning and losing
+
+| | |
+|---|---|
+| **Win — the burial** | Survive the rite at the Mass Grave while carrying the tablet |
+| **Win — the duel** | Beat the King at midnight ⏳ |
+| **Lose** | Health reaches 0, at any point |
+
+There is no losing to the clock. Midnight is not a deadline in this
+game — it's an appointment.
+
+## What isn't decided yet
+- **The event pool** — everything in it, and how the three bands differ.
+- **The item pool** — what's in it, which things are unique and which
+  are common, and how often a search finds nothing.
+- **The King** — his strength, what he does, how many rounds.
+- **How much cowering heals**, exactly.
+- **What the crypt rite and the burial rite cost** — a turn each, an
+  event each, or both.
+- **Whether one moon gate is enough**, given the round trip path 1 needs.
+
+## Links
+- [[jiangshi in the pocket - redesign]] — the design record and reasoning
+- [[jiangshi in the pocket plan]] — the project note
+- [[zombie in the pocket - rulebook]] — the source skeleton's rules
+- [[zombie in the pocket - ruleset spec]] — what 📐 refers to
