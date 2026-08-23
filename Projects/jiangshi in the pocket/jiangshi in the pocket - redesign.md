@@ -28,6 +28,20 @@ Baseline being changed: [[zombie in the pocket - ruleset spec]].
       gradient. See *Open questions*.
 - [ ] **Two wins** — how the tablet burial and the duel relate: relative
       difficulty, whether they interact, what the epilogue says about each.
+- [ ] **Bilingual — English + 繁體中文, both first-class.** Not a
+      translation bolted on: this is a Chinese-themed game, so the zh-TW
+      text is arguably the original and the English is the localisation.
+      Known work: the ~45 strings still hardcoded in `app.js` /
+      `render.js` have to move into the theme file (already a
+      precondition for anything else); a subsetted CJK display face
+      against IM Fell's 20 KB; `<html lang>`, a switch, and persistence;
+      and the one genuine technical wrinkle — **`epilogue.js` needs
+      per-language *assembly*, not per-language strings.** It composes a
+      single sentence from fragments with placeholders, and Chinese word
+      order, measure words and the lack of plurals break that structure,
+      not just its vocabulary. Tile and item names are already written
+      bilingually in §4. Upside: a zh-TW build is a second SEO surface —
+      殭屍 / 義莊 / 道士 searches the English page can never reach.
 
 ---
 
@@ -748,6 +762,12 @@ more redesign is coming. Reconcile once the systems settle.
   two prose tables. Marked throughout — ✅ settled, ⏳ not yet designed,
   📐 inherited — so the three undesigned pools (events, items, the King)
   are visibly holes rather than silently thin.
+- 2026-08-22 — **bilingual support added to the TODO**: English and
+  繁體中文 both first-class. Noted that the zh-TW text is arguably the
+  original here rather than a translation, and that `epilogue.js` is the
+  one place where the existing architecture actually resists it — it
+  assembles a sentence from fragments, so it needs per-language assembly
+  rather than a second string table.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
