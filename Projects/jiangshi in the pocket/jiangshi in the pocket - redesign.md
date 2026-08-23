@@ -78,13 +78,54 @@ hourBand       = 21 + floor((N - 1) / 10)   // 21 | 22 | 23
 - **`clockTime()` becomes trivial and more honest** — no more "empty deck
   reads 60 and that's deliberate" comment.
 
-### What costs a turn — ✅ decided 2026-08-22
+### Turn structure — ✅ decided 2026-08-22
 
-| Action | Cost | Limit |
-|---|---|---|
-| **Move** into a tile (explored or not) | 1 turn | — |
-| **Search** a searchable tile | **1 turn** | TBD — see below |
-| **Cower** | **1 turn** | **3 per run** (default, to be tuned) |
+A turn is one **action**, then an **event**, then an optional **search**.
+Search is *part of* the turn, not an action of its own.
+
+```
+turn(N):                       # N = 1..30, clock reads 21:00 + (N-1)*6 min
+  1. ACTION — the player picks one:
+       MOVE   → an adjacent tile; if unexplored, draw + rotate + place it
+       STAY   → remain on the current tile
+       COWER  → heal, spend a charge, END THE TURN HERE (no event)
+  2. EVENT — draw one from the event pool for this turn's hour band
+  3. SEARCH — if the tile offers one and the player wants it:
+       roll → an item from the item pool, or nothing
+  4. END OF TURN — tile effects (+1 on the healing tiles)
+  5. N += 1
+```
+
+| Action | Turn cost | Event? | Limit |
+|---|---|---|---|
+| **Move** to an adjacent tile | 1 | yes | — |
+| **Stay** on the current tile | 1 | yes | — |
+| **Cower** | 1 | **no** | **3 per run** (default, to be tuned) |
+| **Search** (rides on Move or Stay) | **0** | — | once per turn; may find nothing |
+
+**Two things this settles that were open an hour ago.**
+
+**Movement becomes optional.** The original is emphatic that it isn't
+(spec §12, designer ruling: *"If you choose to go into a room, you're
+going in there"*). Dropping that is correct here and costs nothing — but
+note the board consequence: **being boxed in stops being a crisis.** The
+zombie-door mechanic fires on "no usable exit"; with STAY legal, a player
+in a dead end has an ordinary option, so zombie doors need a re-think as
+either a scripted event-pool outcome or a rule keyed to something other
+than desperation.
+
+**STAY is the re-search loop, and it prices itself.** The reason to stay
+is to roll the search again after finding nothing — and each retry costs
+a turn *and* eats an event. That is exactly the self-limiting-by-risk
+shape I wanted from "does a search turn draw an event?", reached more
+elegantly: the risk isn't attached to searching, it's attached to
+*lingering*. Rummaging a dead house while something walks toward you.
+**No search cap is needed.** The cost is the clock and the event.
+
+**There is now no safe turn except cowering** — 3 of them, all run.
+Every other turn of the 30 draws from the event pool. That is a much
+harder night than the original, where cowering was unlimited *and*
+skipped a card, and it puts real weight on the event pool's tuning (§3).
 
 **Cower stops being an economy and becomes an inventory.** This is the
 change with the longest reach in the whole redesign. Today cowering is an
@@ -111,21 +152,27 @@ blunt instrument that also punishes legitimate play; a charge limit is
 precise. Two mechanisms are now doing one job, and the cap is the worse
 of the two. Re-check before keeping it.
 
-**⚠️ But the healing tiles are now the uncapped source.** Kitchen and
-Herb Terrace give +1 for *ending a turn* there, with no limit. With 30
-turns and mandatory movement, bouncing on and off a heal tile is +1 every
-2 turns — up to ~+15 across a night, which is more than cowering can ever
-give. The brake is that **every move fires an event** (§3), so the
-bouncer takes event damage the whole time. That works *if* the event pool
-is punishing enough at 10–11 PM. Worth explicitly testing with a
-"bouncer" bot alongside the turtle.
+**⚠️ But the healing tiles are now the uncapped source — and optional
+movement makes it worse.** Kitchen and Herb Terrace give +1 for *ending a
+turn* there, with no limit. Under the original's mandatory movement, that
+meant bouncing on and off the tile for +1 every 2 turns. **With STAY
+legal, you just stand in the kitchen: +1 every single turn.** The only
+brake is that each of those turns still draws an event, so the camper
+trades event damage for healing at 1 HP a turn. Whether that trade is
+losing depends entirely on the event pool's average damage at 10–11 PM
+(§3). If mean event damage is under 1 HP/turn, **standing in the kitchen
+until midnight is the dominant strategy** and the game is broken. Fixes,
+if the bots confirm it: cap the tile heal per visit, make it fire only on
+*arrival* rather than on any turn end, or accept it and make the pool
+meaner. **Test this first — it is the most likely way this ruleset
+breaks.**
 
 **The emergent turn budget**, which is the number to design the map
 against:
 ```
 30 turns
  −3   cowering (if all charges spent)
- −5   searching (guess: ~5 searches to kit out 2 slots)
+ −5   staying (guess: ~5 re-search / linger turns)
  ————
  22   turns of actual movement, against a 20-tile map
 ```
