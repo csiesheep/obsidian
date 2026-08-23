@@ -15,6 +15,20 @@ plan* at the bottom).
 
 Baseline being changed: [[zombie in the pocket - ruleset spec]].
 
+## TODO — the design still to do
+- [x] **New tile design** — 10 indoor + 10 outdoor, roles, exits, which
+      are searchable. **Done 2026-08-22 → §4**
+- [ ] **Event pool** — contents, hour-band weighting, and the jiangshi
+      attacks that live in it. Must satisfy constraint P1.
+- [ ] **Item pool** — weapons / magic / medicine, uniques vs commons,
+      miss rate. Shape settled (§3), contents not.
+- [ ] **King ability design** — what he actually does at midnight.
+      ⚠️ Open note: the proposed `clamp(7 − attack, 0, 4)` flattens the
+      weapon table (attack 1/2/3 all take 4). Strength 5 gives a clean
+      gradient. See *Open questions*.
+- [ ] **Two wins** — how the tablet burial and the duel relate: relative
+      difficulty, whether they interact, what the epilogue says about each.
+
 ---
 
 ## 1. Time system — a turn clock, not a deck clock
@@ -243,14 +257,7 @@ cheapest of the three changes *in code* and the most expensive *in art*.
 - Outdoor 8 — seam (Back Steps), plain ×1, **filler ×3 (identical Bamboo
   Grove)**, plain ×1, heal (Herb Terrace), goal B (Ancestral Grave).
 
-**So 4 new slots to fill: 2 in, 2 out.** Open question what they *do*.
-Cheapest is more filler; most interesting is new roles. Some candidates,
-none picked:
-- a second searchable room (couples directly to §3 — see below)
-- a room that costs a turn to cross (the well, the coffin stacks)
-- a shortcut / second seam between the two grids
-- a shrine that lets you re-read or re-draw
-- more one-exit dead ends, which is what actually generates zombie doors
+**So 4 new slots to fill: 2 in, 2 out.** → **Designed 2026-08-22, see §4.**
 
 **Things that need re-checking, not assuming:**
 - **Reachability.** There's a commit proving the Reliquary is always
@@ -318,6 +325,128 @@ project "a re-theme of a verified spec."
 
 ---
 
+## 4. The 20 tiles — ✅ designed 2026-08-22
+
+### The organising idea: search is *typed*
+
+The item list splits naturally into **武器 weapons / 符咒 magic / 丹藥
+medicine**. Tiles search into **one of those categories**, not into a
+single undifferentiated pool. This is what makes a 20-tile map worth
+having:
+
+- **Routing becomes a decision with a subject.** You don't wander looking
+  for "an item," you cross the house *for a weapon* or *for talismans*.
+- **It prices the two win paths differently.** The duel wants attack; the
+  tablet run wants survivability. Those live in different rooms.
+- **It authors itself.** Three small pools are far easier to balance than
+  one big one, and a room's category is obvious from its fiction — you
+  look for rice in a kitchen and talismans in a priest's room.
+
+**The resulting geography, which is the point:**
+
+| Category | Where it lives | Consequence |
+|---|---|---|
+| **符咒 magic** | **indoors only** — Priest's Cell, Mourning Hall | The best gear and the tablet are both in the house. A duelist can't skip the interior |
+| **武器 weapons** | mostly **outdoors** — Ox Shed, Bamboo Grove ×2 (+ Woodshed, Coffin Store inside) | Common and plentiful, but the walk is long |
+| **丹藥 medicine** | **both** — Washing Room, Kitchen, Herb Terrace | Healing is never far, which is what makes the healing *tiles* not decisive |
+
+### Indoor — 義莊, the corpse hostel (10)
+
+| # | id | Name | Exits | Search | Role |
+|---|---|---|---|---|---|
+| 1 | `gatehouse` | 門廳 Gatehouse | N | — | **Start.** Placed at origin |
+| 2 | `washing-room` | 淨身房 Washing Room | N | 丹藥 | dead end |
+| 3 | `woodshed` | 柴房 Woodshed | N, E | 武器 | **NEW** |
+| 4 | `priest-cell` | 道士房 Priest's Cell | N, W | 符咒 ★ | the richest magic in the game |
+| 5 | `mourning-hall` | 靈堂 Mourning Hall | N, E, W | 符咒 | hub |
+| 6 | `courtyard` | 天井 Courtyard | N, E, S, W | — | crossroads; the **moon gate** is the way out |
+| 7 | `coffin-store` | 棺材房 Coffin Store | N | 武器 ★ | dead end, richest weapons |
+| 8 | `kitchen` | 灶房 Kitchen | N, E, W | 丹藥 | **+1 HP** at turn end |
+| 9 | `incense-hall` | 香堂 Incense Hall | N, E | — | **NEW — restores 1 cower charge, once per run** |
+| 10 | `sealed-crypt` | 停柩房 Sealed Crypt | E, W | — | **GOAL A — the tablet** |
+
+*Exit density 21/10 = 2.1, matching the original's 17/8 = 2.13. Three
+one-exit rooms, one four-exit hub.*
+
+### Outdoor — the hillside (10)
+
+| # | id | Name | Edges | Search | Role |
+|---|---|---|---|---|---|
+| 1 | `back-steps` | 後門石階 Back Steps | E, S | — | **Seam** (N). Set aside at setup, like the Patio |
+| 2 | `ox-shed` | 牛棚 Ox Shed | S, W | 武器 | farm tools |
+| 3 | `bamboo-1` | 竹林 Bamboo Grove | E, S, W | 武器 (commons only) | filler |
+| 4 | `bamboo-2` | 竹林 Bamboo Grove | E, S, W | 武器 (commons only) | filler |
+| 5 | `pavilion` | 涼亭 Pavilion | E, S, W | — | filler |
+| 6 | `herb-terrace` | 藥圃 Herb Terrace | E, S, W | 丹藥 | **+1 HP** at turn end |
+| 7 | `threshing-floor` | 曬穀場 Threshing Floor | N, E, S, W | — | **NEW** — the outdoor hub |
+| 8 | `stream` | 溪澗 Stream | E, W | — | **NEW — running water** |
+| 9 | `earth-shrine` | 土地廟 Earth God Shrine | E, S | — | **NEW — pray, once per run** |
+| 10 | `ancestral-grave` | 祖墳 Ancestral Grave | E, S | — | **GOAL B — bury the tablet → win 1** |
+
+*Exit density 26/10 = 2.6, matching the original's 21/8 = 2.6. Outdoors
+stays more open than indoors, as hedges-vs-walls implies. Bamboo Groves
+drop from ×3 to ×2 — with 20 tiles and typed search, identical filler
+earns less of the map.*
+
+### The five new tiles, and what each is for
+
+**柴房 Woodshed** (indoor, NEW) — a second cheap weapon source near the
+start, so an early run isn't bare-handed if the Coffin Store never turns
+up. Pure supply; no cleverness.
+
+**香堂 Incense Hall** (indoor, NEW) — **restores one cower charge, once
+per run.** With cowering capped at 3 (§1), a charge is the most precious
+thing on the board, and a tile that gives one back is a genuine
+destination worth a detour. Once per run, because the incense burns out —
+and because a repeatable charge fountain would undo the cap.
+
+**曬穀場 Threshing Floor** (outdoor, NEW) — the outdoor half had no
+four-exit hub; the Courtyard has no counterpart across the seam. Open
+ground, nowhere to hide, and the place every outdoor route crosses.
+
+**溪澗 Stream** (outdoor, NEW) — **jiangshi cannot cross running water.**
+The single best piece of folklore available and it costs nothing to
+implement: on this tile, jiangshi events deal **no damage**. It is a real
+refuge — and a *sterile* one: no search, no heal, two exits, out at the
+edge of the map. Camping there buys safety and nothing else, so a player
+who hides at the stream arrives at midnight unhurt, unarmed and
+unequipped, which loses the duel. **Safety that doesn't win is exactly
+the right shape for a refuge**, and it needs no extra rule to hold.
+
+**土地廟 Earth God Shrine** (outdoor, NEW) — **pray: the next unexplored
+outdoor tile you place is the Ancestral Grave.** Once per run.
+
+That last one exists to fix a structural asymmetry, and it's the most
+load-bearing of the five: **win 2 is passive and win 1 is a scavenger
+hunt.** The duel comes to you at midnight no matter what; the burial
+requires finding *two specific tiles out of twenty*, in the right order,
+across a seam, inside 22 movement turns. Without help, path 1 is
+strictly harder in a way that isn't interesting — it's harder because of
+draw luck. The shrine converts the back half of that hunt from luck into
+a route you can choose to take. The land god knows where the dead are
+buried.
+
+### What is deliberately *not* searchable
+
+Gatehouse (you just came through it), Courtyard, Back Steps, Threshing
+Floor, Pavilion (open ground — nothing to rummage), Stream, Earth Shrine
+and both goal rooms. **10 of 20 tiles are searchable**, so a search is
+never far away, but half the map is transit. The two goal rooms aren't
+searchable because their *ritual* is their search.
+
+### Open, and deferred to the pool work
+- **How many items a searchable room holds**, and whether ★ rooms
+  (Priest's Cell, Coffin Store) hold more or better — see §3.
+- **The two goal-room rituals.** The tablet and the burial were "resolve
+  a second card" each; in turn terms the natural translation is one extra
+  turn, or one extra event, apiece. Listed under *Open questions*.
+- **Whether one seam is still right.** The Courtyard's moon gate remains
+  the only crossing. With 20 tiles that is a hard bottleneck for path 1 —
+  the Earth God Shrine softens it, but a second seam (or a one-way gate)
+  is worth testing if the bots find the burial win too rare.
+
+---
+
 ## Cross-cutting
 
 **These three changes are one change.** Turn clock (§1) decides what
@@ -367,6 +496,8 @@ undermine.
       is the only turn that skips the event.
 - [x] **§1 — no search cap needed.** Re-searching is priced by the turn
       and the event that STAY costs.
+- [x] **§4 — the 20 tiles**, their exits, and which 10 are searchable
+      (2026-08-22). Search is **typed** (weapon / magic / medicine).
 
 ## Constraints for later tuning
 - **P1 — mean event damage at 10–11 PM must exceed +1 HP/turn**, or
@@ -386,6 +517,11 @@ undermine.
       or to something other than "no usable exit".
 - [ ] **§3 — item pool contents and probabilities.** Deferred by
       decision; shape is settled (uniques ×1, commons ×N), numbers are not.
+- [ ] **§4 — do the goal-room rituals cost an extra turn or an extra
+      event?** The tablet and the burial were each "a second card".
+- [ ] **§4 — is one seam still right?** The moon gate is the only
+      crossing, and path 1 has to make the round trip. Test before adding
+      a second.
 - [ ] **§1 — is the cower limit per run or per hour?** Read as **per run**
       (3 total). Per hour would be 9 total and a very different game.
 - [ ] **§1 — does `COWER_HEAL` rise from 3?** A charge is worth more than
@@ -462,6 +598,20 @@ more redesign is coming. Reconcile once the systems settle.
   deferred. Separately, flagged that the King duel's `clamp(7 − attack,
   0, 4)` makes attack 1/2/3 identical, which would make the searchable
   half of the game irrelevant to win 2; strength 5 fixes the gradient.
+- 2026-08-22 — **§4: the 20 tiles designed.** Organising idea is that
+  **search is typed** — weapon / magic / medicine, matching the item
+  taxonomy — which gives the map a geography: magic is **indoors only**
+  (Priest's Cell, Mourning Hall), weapons skew outdoors, medicine is
+  everywhere. 10 of 20 tiles searchable; the rest is transit. Five new
+  tiles: Woodshed (weapon supply near the start), **Incense Hall**
+  (restores 1 cower charge, once — the scarcest resource in the game
+  gets exactly one refill), Threshing Floor (the outdoor hub the map
+  lacked), **Stream** (running water: jiangshi events deal no damage —
+  a refuge that is deliberately sterile, so hiding there loses the duel),
+  and **Earth God Shrine** (pray once: the next unexplored outdoor tile
+  is the Grave). The shrine exists to fix a real asymmetry — **win 2 is
+  passive, win 1 is a scavenger hunt across a seam** — and converts the
+  back half of that hunt from draw luck into a route.
 
 ## Links
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
