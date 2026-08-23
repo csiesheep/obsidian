@@ -78,6 +78,70 @@ hourBand       = 21 + floor((N - 1) / 10)   // 21 | 22 | 23
 - **`clockTime()` becomes trivial and more honest** — no more "empty deck
   reads 60 and that's deliberate" comment.
 
+### What costs a turn — ✅ decided 2026-08-22
+
+| Action | Cost | Limit |
+|---|---|---|
+| **Move** into a tile (explored or not) | 1 turn | — |
+| **Search** a searchable tile | **1 turn** | TBD — see below |
+| **Cower** | **1 turn** | **3 per run** (default, to be tuned) |
+
+**Cower stops being an economy and becomes an inventory.** This is the
+change with the longest reach in the whole redesign. Today cowering is an
+*economic* decision — unlimited, self-limiting only because each one
+spends a card of clock. Capping it at 3 makes it a **charge**, like a
+potion: something you hoard, agonise over, and can run out of. Design
+consequences:
+- It should be **on the HUD as three pips**, not a button that silently
+  stops working. Running dry is a state the player must feel arriving.
+- It should **feed the dread dial**. Being out of cowers at 11 PM is
+  exactly the kind of thing the dial exists to register, and `dread()` is
+  a pure function of state, so it's a one-line term.
+- **+3 HP may now be too small a payout.** A cower used to cost ~8.6
+  minutes of clock and nothing else; it now costs a turn *and* one of
+  only three charges. Candidate: raise `COWER_HEAL` to 4–5. Tune with
+  the bots, not by feel.
+
+**🎯 This probably retires the health cap.** The plan's King duel
+introduced `healthCap: 10` for exactly one reason: to kill the turtle who
+cowers every turn and arrives at midnight with ~20 HP. **The 3-cower cap
+kills that strategy at the source** — cowering can now contribute at most
++9 HP across an entire run (3 × 3), against a 6 HP start. A cap is a
+blunt instrument that also punishes legitimate play; a charge limit is
+precise. Two mechanisms are now doing one job, and the cap is the worse
+of the two. Re-check before keeping it.
+
+**⚠️ But the healing tiles are now the uncapped source.** Kitchen and
+Herb Terrace give +1 for *ending a turn* there, with no limit. With 30
+turns and mandatory movement, bouncing on and off a heal tile is +1 every
+2 turns — up to ~+15 across a night, which is more than cowering can ever
+give. The brake is that **every move fires an event** (§3), so the
+bouncer takes event damage the whole time. That works *if* the event pool
+is punishing enough at 10–11 PM. Worth explicitly testing with a
+"bouncer" bot alongside the turtle.
+
+**The emergent turn budget**, which is the number to design the map
+against:
+```
+30 turns
+ −3   cowering (if all charges spent)
+ −5   searching (guess: ~5 searches to kit out 2 slots)
+ ————
+ 22   turns of actual movement, against a 20-tile map
+```
+So a full sweep of both grids is *just* out of reach, and only if you
+neither search nor cower. That is a good place to land — it makes §2's
+"can you even see the map?" answer itself: **no, and deliberately.**
+
+**The open sub-question this creates → does a search turn draw an
+event?** If it doesn't, searching is a *safe* turn — and a safe turn that
+also hands out gear is strictly better than moving, which would make
+"search everything searchable" the dominant line and would need its own
+cap (search-once-per-tile) to hold. If it does draw an event, searching
+is self-limiting by risk and needs no cap at all. **The second is the
+better design**; it makes rummaging in a dead house feel like rummaging
+in a dead house. Not decided.
+
 ---
 
 ## 2. Tile system — 10 indoor, 10 outdoor
