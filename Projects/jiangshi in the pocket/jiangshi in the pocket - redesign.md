@@ -180,14 +180,23 @@ So a full sweep of both grids is *just* out of reach, and only if you
 neither search nor cower. That is a good place to land — it makes §2's
 "can you even see the map?" answer itself: **no, and deliberately.**
 
-**The open sub-question this creates → does a search turn draw an
-event?** If it doesn't, searching is a *safe* turn — and a safe turn that
-also hands out gear is strictly better than moving, which would make
-"search everything searchable" the dominant line and would need its own
-cap (search-once-per-tile) to hold. If it does draw an event, searching
-is self-limiting by risk and needs no cap at all. **The second is the
-better design**; it makes rummaging in a dead house feel like rummaging
-in a dead house. Not decided.
+**What "a chance to find nothing" has to answer.** The failure roll is
+now the *only* brake on item supply, so its exact shape matters:
+- **Does the roll belong to the attempt or to the room?** If each attempt
+  is an independent roll, camping always wins eventually — you just pay
+  turns and events for it. If the room rolls *once* (it either has
+  something or it doesn't), a miss is permanent and staying is pointless.
+  **Recommend a middle path: independent rolls, but with odds that decay
+  per attempt on the same tile** (say 50 % → 25 % → 12 %). Camping then
+  self-limits without ever being forbidden, and the third search in the
+  same room feels like scraping the bottom of it — which is the truth of
+  the fiction.
+- **Do searchable rooms run dry?** A finite stock (1–2 items) that
+  visibly empties is stronger than an infinite one, and gives the map
+  memory.
+- **Is the whole item pool finite per run?** If a found Peachwood Sword
+  leaves the pool, late-game searches degrade naturally and the 11 PM
+  item drought (spec §3's deliberate shape) reappears for free.
 
 ---
 
@@ -321,13 +330,27 @@ undermine.
 ## Decided
 - [x] **§1 — 30 turns of 6 minutes, 9 PM → midnight** (2026-08-22).
       10 turns per hour band.
-- [x] **§1 — move, search and cower each cost 1 turn** (2026-08-22).
-- [x] **§1 — cowering is limited to 3 per run**, default, to be tuned.
+- [x] **§1 — turn = one action (move / stay / cower), then an event, then
+      an optional search** (2026-08-22). Search is free; staying is what
+      costs.
+- [x] **§1 — movement is optional.** Overturns the source's mandatory-move
+      ruling, deliberately.
+- [x] **§1 — cowering is limited to 3 per run**, default, to be tuned; it
+      is the only turn that skips the event.
+- [x] **§1 — no search cap needed.** Re-searching is priced by the turn
+      and the event that STAY costs.
 
 ## Open questions
-- [ ] **§1 — does a search turn draw an event?** ⭐ The live one. "No"
-      makes searching a safe turn and forces a search-once-per-tile cap;
-      "yes" makes it self-limiting by risk and needs no cap. Prefer yes.
+- [ ] **§1 — can you camp a healing tile?** ⭐⭐ The live one, and the
+      most likely way this ruleset breaks. STAY + a +1 tile = +1 HP every
+      turn against one event's average damage. If the pool averages under
+      1 HP/turn, standing in the kitchen wins the game. Bot it first.
+- [ ] **§1 — what happens to zombie doors** now that being boxed in is
+      survivable (STAY is always legal)? Re-key them to the event pool,
+      or to something other than "no usable exit".
+- [ ] **§3 — search failure: per attempt or per room?** Prefer per
+      attempt with decaying odds (50 / 25 / 12 %). Do searchable rooms
+      hold finite stock? Does the item pool deplete run-wide?
 - [ ] **§1 — is the cower limit per run or per hour?** Read as **per run**
       (3 total). Per hour would be 9 total and a very different game.
 - [ ] **§1 — does `COWER_HEAL` rise from 3?** A charge is worth more than
@@ -381,6 +404,18 @@ more redesign is coming. Reconcile once the systems settle.
   movement turns against a 20-tile map — a full sweep is just out of
   reach, which answers §2's "can you even see the map?" with a
   deliberate no.
+- 2026-08-22 — **turn structure revised: search is free and rides on the
+  turn, not an action of its own.** A turn is one action (MOVE / STAY /
+  COWER) → an event → an optional search that may find nothing.
+  **Movement becomes optional**, overturning the source's mandatory-move
+  ruling. Consequences: STAY is the re-search loop and prices itself (a
+  turn plus an event per retry), so **no search cap is needed**; cowering
+  is now the only event-free turn, 3 per run; and being boxed in is no
+  longer a crisis, so **zombie doors lose their trigger** and need
+  re-keying. New top risk recorded: with STAY legal, camping a +1 healing
+  tile yields +1 HP/turn against one event — if mean event damage at
+  10–11 PM is under 1 HP, standing in the kitchen is the dominant line.
+  Bot that before anything else.
 
 ## Links
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
