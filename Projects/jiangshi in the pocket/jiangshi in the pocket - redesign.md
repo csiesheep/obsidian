@@ -1040,9 +1040,16 @@ breathe eventually.
 
 ### Weaknesses — the answers
 
+> **Corrected 2026-08-23.** 僵直 was first written as "you strike first on
+> beat one, free." That was wrong: if the seal only needs a beat where his
+> strike dealt zero damage, a free beat one *is* a seal window, and the
+> duel becomes "spend any talisman on turn 30 and win." Rigor is now a
+> **cushion, not a window** — beat one hits for 2 less, which buys you the
+> time to reach your banner beat without handing you the win.
+
 | Answer | Costs | Does |
 |---|---|---|
-| **僵直 Rigor** | — | He cannot turn quickly. **You strike first on beat one**, free, before he acts |
+| **僵直 Rigor** | — | He comes stiff out of the coffin: **beat one deals 2 less damage** |
 | **攝魂幡** | the banner | **Attack ×2** for one beat — the only thing that reaches the seal window |
 | **血符** | 1 HP | Attack 5 for one beat → 3 damage instead of 4 |
 | **黑狗血** | the blood | Breaks the working: **skip a beat entirely** |
@@ -1058,14 +1065,27 @@ You do not kill him, you **seal** him.
 > 鎮屍符** — press it to his forehead. The duel ends and the night is
 > yours.
 
-Zero damage needs **Attack ≥ 8**, which needs the banner:
+Zero damage needs **Attack ≥ 8**, and **攝魂幡 doubles a talisman's
+attack as well as a sword's** (confirmed 2026-08-23), which opens three
+lines:
 
-| Line | Attack | vs 8 |
-|---|---|---|
-| 血符 + 攝魂幡 | 5 × 2 = **10** | 0 — **seal window** |
-| 七星劍 + 真火符 + 攝魂幡 | (3+1) × 2 = **8** | 0 — **seal window** |
-| 七星劍 + 攝魂幡 | 3 × 2 = 6 | 2 |
-| anything without the banner | ≤ 5 | ≥ 3 |
+| Line | Attack | vs 8 | Availability |
+|---|---|---|---|
+| **攝魂幡 + 五雷符** | 4 × 2 = **8** | **0 — seal** | 20 %, unlimited supply. **The accessible line** |
+| **攝魂幡 + 血符** | 5 × 2 = **10** | **0 — seal** | 20 %, costs 1 HP |
+| **攝魂幡 + 七星劍 + 真火符** | 4 × 2 = **8** | **0 — seal** | needs the 10 % sword |
+| 攝魂幡 + 七星劍 | 3 × 2 = 6 | 2 | — |
+| anything without the banner | ≤ 5 | ≥ 3 | — |
+
+**This rehabilitates 五雷符**, which the strength-8 clamp had otherwise
+made worthless (see the warning at the top of this section). Doubled, it
+is the *cheapest* route to the seal — a common talisman from an unlimited
+supply. The rare sword turns out not to be required at all.
+
+So the duel has exactly **one real gate: the banner.** Everything else on
+the seal lines is readily found. That is a good place to land — a single
+clear condition, at 15 % from one tile behind the moon gate, rather than a
+compound stat check nobody can plan around.
 
 **This makes 攝魂幡 the key to the duel**, which justifies everything
 about it — 15 % odds, outdoors only, one place in the world, and "keep it
@@ -1075,6 +1095,28 @@ must cross the moon gate, which is the structural property we wanted.
 **The knob, if the gate is too tight:** allow the seal at **≤1 damage**
 instead of 0, which opens Attack 7 and takes the banner from mandatory to
 strongly preferred.
+
+### How it actually plays
+
+With 僵直 as a cushion, an ordinary duelist — Attack 2 from a 銅錢劍,
+10 HP, holding the banner and a 五雷符:
+
+| Beat | Play | Damage | HP |
+|---|---|---|---|
+| 1 | fight (rigor: −2) | 2 | 8 |
+| 2 | **攝魂幡 + 五雷符 → Attack 8** | **0** | 8 → **seal, win** |
+
+And the same player *without* a banner:
+
+| Beat | Play | Damage | HP |
+|---|---|---|---|
+| 1 | fight (rigor: −2) | 2 | 8 |
+| 2 | fight | 4 | 4 |
+| 3 | fight | 4 | **0 — dead** |
+
+Exactly lethal, which is the right feel: no banner, no night. 黑狗血 or a
+held breath buys one of those beats back and leaves you alive at 4 — but
+alive is not the same as won (see the open question below).
 
 ### 不渡活水 — the Stream, and declining the duel
 
@@ -1099,8 +1141,14 @@ dignified out: walk to the water and live.
 ### Open on the King
 - **Beat count: three?** It fixes 12 damage as the untanked worst case,
   which is exactly one more than the cap allows — a good number.
-- **Does the banner's ×2 apply to a talisman's attack**, as the seal
-  table assumes (血符 5 → 10)? Needs confirming; it is the linchpin.
+- **⭐ What happens if you survive all three beats without sealing?**
+  Now the live question. Three options: you **live but do not win** (he is
+  still loose — symmetrical with the Stream's decline), the beats
+  **continue** until seal or death (harsh, and makes 黑狗血 merely
+  delaying), or surviving *is* a win ("you lasted to cockcrow"), which
+  the source game's dawn ending would support. The skip items — 黑狗血 and
+  the held breath — only make sense once this is settled: right now they
+  buy beats without buying anything.
 - **What if the player has no answers left?** Beat three with nothing in
   hand is 4 damage and probably death. Fine, but the UI must have shown
   it coming.
@@ -1436,6 +1484,19 @@ more redesign is coming. Reconcile once the systems settle.
   which is the *decline* option — survive, but win only if the tablet is
   already buried, making where you stand on the last turn a planned
   decision.
+- 2026-08-23 — **攝魂幡's ×2 confirmed to apply to talismans**, which
+  improves §5 in a way the draft did not anticipate: **五雷符 ×2 = Attack
+  8 also seals**, so the cheapest route to the win is a common talisman
+  from an unlimited supply rather than the 10 % sword. That rehabilitates
+  五雷符, which strength 8 had otherwise made worthless, and leaves the
+  duel with **exactly one real gate — the banner.** Also corrected my own
+  僵直 rule: "you strike first on beat one, free" would have made beat one
+  an automatic seal window and the whole duel a one-item formality.
+  Rigor is now a **cushion** (beat one deals 2 less), which lets an
+  ordinary Attack-2 duelist survive to their banner beat while a
+  banner-less one dies on beat three at exactly 0 HP. New live question:
+  **what surviving three beats without sealing means** — the skip items
+  (黑狗血, held breath) have no purpose until that is answered.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose

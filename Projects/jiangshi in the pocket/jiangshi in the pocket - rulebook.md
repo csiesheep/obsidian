@@ -270,7 +270,7 @@ wasted — so a 糯米 at 9 Health is worth holding rather than eating.
 
 | | |
 |---|---|
-| **攝魂幡** Soul-Snatching Banner | Your **next attack counts double** |
+| **攝魂幡** Soul-Snatching Banner | Your **next attack counts double** — a sword's or a talisman's |
 
 There is exactly one place it is ever found: **土地廟 the Earth God
 Shrine**, and only sometimes, when you search there.
