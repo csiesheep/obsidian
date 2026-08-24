@@ -131,7 +131,7 @@ turn(N):                       # N = 1..30, clock reads 21:00 + (N-1)*6 min
 |---|---|---|---|
 | **Move** to an adjacent tile | 1 | yes | — |
 | **Stay** on the current tile | 1 | yes | — |
-| **Cower** | 1 | **no** | **3 per run** (default, to be tuned) |
+| **Cower** | 1 | **no** | **3 per run.** Heals nothing — its value *is* the skipped event |
 | **Search** (rides on Move or Stay) | **0** | — | once per turn; may find nothing |
 
 **Two things this settles that were open an hour ago.**
@@ -158,21 +158,32 @@ Every other turn of the 30 draws from the event pool. That is a much
 harder night than the original, where cowering was unlimited *and*
 skipped a card, and it puts real weight on the event pool's tuning (§3).
 
-**Cower stops being an economy and becomes an inventory.** This is the
-change with the longest reach in the whole redesign. Today cowering is an
-*economic* decision — unlimited, self-limiting only because each one
-spends a card of clock. Capping it at 3 makes it a **charge**, like a
-potion: something you hoard, agonise over, and can run out of. Design
-consequences:
-- It should be **on the HUD as three pips**, not a button that silently
+**Cower stops being an economy and becomes an inventory.** Today cowering
+is an *economic* decision — unlimited, self-limiting only because each one
+spends a card of clock. Capping it at 3 makes it a **charge**: something
+you hoard, agonise over, and can run out of.
+
+**And as of 2026-08-24 it heals nothing at all.** A charge buys exactly
+one thing: **the turn draws no event.** That is a bigger deal than a heal,
+because what it saves is the *expected damage of the draw you skipped* —
+which grows as the night does:
+
+| Band | A charge is worth (at Attack 2) |
+|---|---|
+| 9 PM | ~0.85 HP |
+| 10 PM | ~1.25 HP |
+| 11 PM | **~2.3 HP** |
+
+So charges are naturally **hoarded for late**, and the game never has to
+say so. Three design consequences:
+- They belong on the HUD as **three pips**, not a button that silently
   stops working. Running dry is a state the player must feel arriving.
-- It should **feed the dread dial**. Being out of cowers at 11 PM is
-  exactly the kind of thing the dial exists to register, and `dread()` is
-  a pure function of state, so it's a one-line term.
-- **+3 HP may now be too small a payout.** A cower used to cost ~8.6
-  minutes of clock and nothing else; it now costs a turn *and* one of
-  only three charges. Candidate: raise `COWER_HEAL` to 4–5. Tune with
-  the bots, not by feel.
+- They should **feed the dread dial** — being out of charges at eleven is
+  exactly what that dial exists to register, and `dread()` is a pure
+  function of state.
+- **Healing is now entirely items and tiles**: 糯米 +3, 金丹 +6/−2, the two
+  `HEAL_1` tiles, and `HP: +1` events. Cowering is evasion, not recovery,
+  and the two no longer compete for the same slot in the player's head.
 
 **🎯 This probably retires the health cap.** The plan's King duel
 introduced `healthCap: 10` for exactly one reason: to kill the turtle who
@@ -1732,8 +1743,6 @@ undermine.
       a second.
 - [ ] **§1 — is the cower limit per run or per hour?** Read as **per run**
       (3 total). Per hour would be 9 total and a very different game.
-- [ ] **§1 — does `COWER_HEAL` rise from 3?** A charge is worth more than
-      a card of clock was. Candidate 4–5.
 - [ ] **§1 — is `healthCap: 10` still needed** now that the cower cap
       kills the turtle? Probably not. Drop unless the bots disagree.
 - [ ] **§1 — do the +1 heal tiles need a brake?** They are now the only
@@ -2224,6 +2233,22 @@ more redesign is coming. Reconcile once the systems settle.
   figures, the Attack-4 ceiling against the 11 PM band, and the search
   expectations — because several of them are load-bearing and were worked
   out by hand rather than measured.
+- 2026-08-24 — **four rulings that close most of the spec's open list.**
+  **No `COWER_HEAL`: cowering heals nothing** — a charge buys exactly one
+  thing, that the turn draws no event. That is stronger than a heal and
+  more interesting: a charge is worth *the expected damage of the draw you
+  skipped*, which is ~0.85 HP at nine and **~2.3 at eleven**, so charges
+  are hoarded for late without a rule saying so. It also cleanly separates
+  the two ideas — **cowering is evasion, healing is items and tiles** (糯米,
+  金丹, the two HEAL_1 tiles, +1 HP events) — and they stop competing for
+  the same slot in the player's head. Also: **a talisman stack is one
+  slot** regardless of size, so inventory holds `{id: count}`; **one 真火符
+  per sword**, which fixes the sword ceiling at 4 and stops 硃砂 pumping a
+  blade past it; and **no `rich` flag** — 經堂 and 鐵匠鋪 roll the same
+  tables as their siblings, so the ★ in the notes is flavour and the field
+  comes out of `tiles.json`. Spec §12 is down to five open items, all of
+  them small: zombie doors, whether a generic flee exists, the two rites'
+  cost, 護身符 vs HP events, and whether tile actions are free.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec

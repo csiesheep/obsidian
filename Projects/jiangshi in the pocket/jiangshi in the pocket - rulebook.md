@@ -58,7 +58,7 @@ Either ends the night. So does dying.
 2. Shuffle the remaining indoor and outdoor tiles into two separate
    face-down stacks.
 3. Start with **Attack 0** — bare-handed — **Health 10**, **3 cower
-   charges**, and **three 糯米** in your pack. Health never rises above
+   charges** and **three 糯米** in your pack. Health never rises above
    **10**.
 4. The clock reads **9:00 PM**. It is **turn 1 of 30**.
 
@@ -316,11 +316,12 @@ once.**
 | **真火符** True Fire | Fight at **1** — *or* raise one sword's Attack by **+1**, and it stays raised |
 | **五雷符** Five Thunder | Fight at **4** |
 | **血符** Blood | Fight at **5**. Writing it costs you **1 Health** |
-| **硃砂** Cinnabar | Copy a talisman you already hold — **+2 more of it** |
+| **硃砂** Cinnabar | Copy a talisman you already hold — **+2 more of it.** However many you stack up, they take **one slot** |
 
-真火符 is the only one worth spending outside a fight: put it into a
-sword and the sword is better for the rest of the night. 七星劍 with a
-真火符 in it fights at **4**.
+真火符 is the only one worth spending outside a fight: put it into a sword
+and the sword is better for the rest of the night. 七星劍 with a 真火符 in
+it fights at **4** — and **a sword takes only one**, so 4 is as high as
+steel alone ever goes.
 
 ### 丹藥 Medicines — taken once
 
@@ -396,13 +397,16 @@ game cheating you.
 Cowering costs a **whole turn** and one of your **3 charges**, and it is
 the only turn in the game that **draws no event**.
 
-- You regain Health ⏳ (3, or possibly 4–5 — not yet tuned).
-- You may cower anywhere, indoors or out.
-- When the charges are gone, they are gone — except for the one the
-  Incense Hall gives back.
+**It does not heal you.** What it buys is the draw you didn't make — and
+late in the night, that is worth more than a bandage. At eleven o'clock
+roughly seven draws in ten are a fight.
 
-> Cowering is not an economy in this game, it's an **inventory**. Three
-> charges is the whole supply of safety you will get.
+- You may cower anywhere, indoors or out.
+- The **香堂 Incense Hall** gives one charge back, once a night.
+- When the charges are gone, they are gone.
+
+> Three charges is the whole supply of *not this time* you will get. Spend
+> them early and the last hour has nothing in it but you and the draw.
 
 ## Combat 📐 ⏳
 

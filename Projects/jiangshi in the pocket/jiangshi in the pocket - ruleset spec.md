@@ -41,9 +41,8 @@ export const RULES = {
   MAX_ITEMS:      6,       // the tablet is exempt
   START_ITEMS:    { "sticky-rice": 3 },
 
-  // cowering
+  // cowering — a charge SKIPS THE EVENT. It heals nothing.
   COWER_CHARGES:  3,
-  COWER_HEAL:     3,       // ❓ candidate 4–5, never settled
 
   // combat
   MAX_COMBAT_DAMAGE: 4,
@@ -93,8 +92,8 @@ Carried over verbatim — see the source spec §2 for the reasoning:
 
 ### Tiles — `data/tiles.json` ✅
 
-`search` names a table in §4. `rich: true` is the ★ marker (§4 does not
-yet use it — see ❓ in §4).
+`search` names a table in §4. There is no rarity flag: every room sharing
+a category rolls the identical table.
 
 ```json
 {
@@ -102,10 +101,10 @@ yet use it — see ❓ in §4).
     {"id":"gatehouse",     "exits":["N","E","W"],     "start":true},
     {"id":"apothecary",    "exits":["N"],             "search":"medicine"},
     {"id":"woodshed",      "exits":["N","E"],         "search":"weapon"},
-    {"id":"sutra-hall",    "exits":["N","W"],         "search":"magic",    "rich":true},
+    {"id":"sutra-hall",    "exits":["N","W"],         "search":"magic"},
     {"id":"mourning-hall", "exits":["N","E","W"],     "search":"magic"},
     {"id":"courtyard",     "exits":["N","E","S","W"], "exteriorDoor":true},
-    {"id":"blacksmith",    "exits":["N"],             "search":"weapon",   "rich":true},
+    {"id":"blacksmith",    "exits":["N"],             "search":"weapon"},
     {"id":"counting-room", "exits":["N","E","W"],     "search":"medicine", "onTurnEnd":"HEAL_1"},
     {"id":"incense-hall",  "exits":["N","E"],         "action":"RESTORE_COWER_ONCE"},
     {"id":"sealed-crypt",  "exits":["E","W"],         "goal":"TAKE_TABLET"}
@@ -241,20 +240,20 @@ search(state, table):
 searches self-limiting: effective miss climbs 10 % → 35 % → 60 % → 85 %
 as the swords accumulate.
 
-❓ **`rich: true` has no mechanical effect yet.** 經堂 and 鐵匠鋪 are
-marked ★ as "the best of their category", but both roll the same table as
-their siblings. Either give them a better table, more rolls, or drop the
-flag.
+✅ **No `rich` flag.** 經堂 and 鐵匠鋪 roll exactly the same table as
+their siblings (decided 2026-08-24) — the ★ in the design notes is
+flavour, not mechanics. **The field is removed from `tiles.json`.**
 
-❓ **Talisman stacks.** `cinnabar` gives `+2 quantity` of a held talisman
-— so inventory holds counts, not just ids. **Does a stack of 3 occupy one
-slot or three?** One is the intended reading (it mirrors the source's
-refuellable chainsaw) but it is not settled. Also: may 硃砂 target a
-talisman you hold **zero** of? Assume no.
+✅ **Talisman stacks occupy one slot.** `cinnabar` gives `+2 quantity` of a
+held talisman, so inventory holds `{id: count}` rather than a flat list. A
+stack of any size is **one slot** (decided 2026-08-24), mirroring the
+source's refuellable chainsaw. 硃砂 may only target a talisman you
+actually hold.
 
-❓ **Multiple 真火符 on one sword?** `buffSword: 1` is permanent and
-additive. If stacking is unlimited, 硃砂 + 真火符 ×3 reaches Attack 6 on a
-七星劍. Recommend capping at **one per sword**.
+✅ **One 真火符 per sword.** `buffSword: 1` is permanent, and a sword
+accepts **at most one** (decided 2026-08-24). So the sword ceiling is
+`七星劍 3 + 1 = 4`, and 硃砂 cannot be used to pump a blade past it.
+`sword.buffed: bool` is enough state.
 
 ## 5. The event pool ✅
 
@@ -399,12 +398,21 @@ second card" each in the source. In turn terms the natural translation is
 cower(state):
   if state.cowerCharges <= 0: return ILLEGAL
   state.cowerCharges--
-  heal(state, RULES.COWER_HEAL)
-  END TURN            # no event, no search
+  END TURN            # no event, no search, NO HEALING
 ```
 
-The **only** event-free turn in the game. 3 charges, +1 from
-`incense-hall` once per run.
+**Cowering heals nothing** (decided 2026-08-24). Its entire value is that
+it is the **only event-free turn in the game** — you spend a turn and a
+charge to not draw. 3 charges, +1 from `incense-hall` once per run.
+
+That makes a charge worth *the expected damage of the event you skipped*,
+so its value scales with the band: ~0.85 HP at nine o'clock, ~2.3 at
+eleven (at Attack 2). **Charges are therefore hoarded for late**, which is
+the right incentive and needs no rule to enforce.
+
+Consequence: **healing is now entirely items and tiles** — 糯米 +3,
+金丹 +6/−2, the two `HEAL_1` tiles, and `HP: +1` events. Nothing else
+restores health.
 
 ## 8. Turn sequence ✅
 
@@ -525,16 +533,16 @@ they read still exists.
 
 ## 12. Open — ❓, in rough priority
 
-1. **`COWER_HEAL`** — still 3, candidate 4–5. Cowering costs a turn *and*
-   one of three charges now, so 3 may be too little.
-2. **Zombie doors** — remove, or re-key (§2).
-3. **Generic flee** — exists or not (§6).
-4. **Talisman stacks and slots** — one slot or many (§4).
-5. **Multiple 真火符 per sword** — recommend capping at one (§4).
-6. **The two rites' cost** — an extra event each is the natural reading (§7).
-7. **`rich: true`** — give ★ rooms a real edge, or drop the flag (§4).
-8. **`護身符` vs `HP: -1` events** — assume it applies (§6).
-9. **Tile actions cost no turn** — assume free (§8).
+1. **Zombie doors** — remove, or re-key (§2).
+2. **Generic flee** — exists or not (§6). Blocks the `fled` flag the
+   inherited turn code reads.
+3. **The two rites' cost** — an extra event each is the natural reading (§7).
+4. **`護身符` vs `HP: -1` events** — assume it applies (§6).
+5. **Tile actions cost no turn** — assume free (§8).
+
+*Closed 2026-08-24: no `COWER_HEAL` (cowering skips the event and heals
+nothing); talisman stacks are one slot; one 真火符 per sword; no `rich`
+flag.*
 
 ## 13. Numbers worth re-deriving after any change
 
@@ -549,6 +557,7 @@ load-bearing and were arrived at by hand:
 | Sustained attack ceiling from swords alone | **4** (七星劍 + 真火符) |
 | 11 PM damage at the ceiling, over 10 turns | ~9 HP against a cap of 10 |
 | Camping a `HEAL_1` tile is losing | +1/turn vs 2.3–2.9 |
+| Value of a cower charge (damage avoided) | ~0.85 / ~1.25 / ~2.3 by band, at Attack 2 |
 | Expected searches for 七星劍 | ~7 (15 %) |
 | Expected searches for 攝魂幡 | ~7 (15 %) |
 | Winning kits at threshold 12 / 11 | 2 / 4 |
