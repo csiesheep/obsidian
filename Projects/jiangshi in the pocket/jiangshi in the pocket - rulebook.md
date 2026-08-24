@@ -42,8 +42,8 @@ Either ends the night. So does dying.
 ## Components
 
 - **10 indoor tiles, 10 outdoor tiles.**
-- An **event pool** ⏳ and an **item pool** ⏳ — separate, unlike the
-  source game's single deck.
+- An **event pool** ⏳ and an **item pool** — separate, unlike the source
+  game's single deck. **12 items**, in four kinds.
 - Health, Attack, the turn number and your cower charges are numbers you
   track.
 
@@ -53,11 +53,18 @@ Either ends the night. So does dying.
    Steps** aside — it goes down later, the moment you first step outside.
 2. Shuffle the remaining indoor and outdoor tiles into two separate
    face-down stacks.
-3. Start with **Attack 1**, **Health 6**, and **3 cower charges**.
+3. Start with **Attack 0** — bare-handed — plus **Health 6** and
+   **3 cower charges**.
 4. The clock reads **9:00 PM**. It is **turn 1 of 30**.
 
 You begin in the Gatehouse and **draw no event for it**. The night starts
 when you move.
+
+> **Why Attack 0 and not 1.** Weapons in this game *are* your Attack
+> rather than a bonus added to it (戒刀 is "Attack 1", not "+1"), so
+> bare-handed has to be 0 or the weakest weapon would do nothing. This
+> follows from the item table rather than having been decided on its own —
+> if the item numbers change, check this line.
 
 ## The clock ✅
 
@@ -214,6 +221,71 @@ and nothing to heal you — it is shelter and nothing more.
 
 **帳房 Counting Room** and **槐樹 Pagoda Tree.** +1 Health at end of turn.
 
+## Items ✅
+
+You can carry **6**. The 神主牌 tablet doesn't count against that.
+
+**Weapons stay with you. Everything else is used once and is gone.**
+
+### 武器 Weapons — kept
+
+A weapon *is* your Attack, not a bonus on top of it. Only the best one
+you're holding counts: carrying two doesn't add them together 📐.
+
+| Weapon | Attack |
+|---|---|
+| **戒刀** Precept Knife | 1 |
+| **桃木劍** Peachwood Sword | 1 |
+| **銅錢劍** Coin Sword | 2 |
+| **七星劍** Seven-Star Sword | 3 |
+
+### 符咒 Talismans — burned once
+
+A talisman **replaces** your Attack for one fight. It doesn't add to the
+weapon in your hand.
+
+| Talisman | What it does |
+|---|---|
+| **真火符** True Fire | Fight at **1** — *or* raise one sword's Attack by **+1**, and it stays raised |
+| **五雷符** Five Thunder | Fight at **4** |
+| **血符** Blood | Fight at **5**. Writing it costs you **1 Health** |
+| **硃砂** Cinnabar | Copy a talisman you already hold — **+2 more of it** |
+
+真火符 is the only one worth spending outside a fight: put it into a
+sword and the sword is better for the rest of the night. 七星劍 with a
+真火符 in it fights at **4**.
+
+### 丹藥 Medicines — taken once
+
+| Medicine | What it does |
+|---|---|
+| **糯米** Sticky Rice | **+3 Health** — *or* draw out **屍毒 corpse-poison** ⏳ |
+| **黑狗血** Black Dog Blood | **Get out of the fight**, unhurt |
+| **金丹** Golden Elixir | A gamble: **half the time +6 Health, half the time −2** |
+
+### 法器 The banner — used once
+
+| | |
+|---|---|
+| **攝魂幡** Soul-Snatching Banner | Your **next attack counts double** |
+
+There is exactly one place it is ever found: **土地廟 the Earth God
+Shrine**, and only sometimes, when you search there.
+
+Doubling is wasted on a small pack — you can only reduce damage to zero,
+and a sword often gets you there already. **Keep it for something big.**
+
+### What isn't settled about items ⏳
+- **Which are common and which are one-of-a-kind.** Rarity is how the
+  pool is weighted, and no item has a count yet.
+- **Whether a stack of talismans is one slot or several.** 硃砂 can leave
+  you holding 五雷符 ×3.
+- **屍毒 corpse-poison.** 糯米 cures it; nothing in the game inflicts it
+  yet. It will come from the event pool, and it needs rules of its own —
+  how long it lasts and what it costs you per turn.
+- **Whether one sword can take more than one 真火符.**
+- **Where 黑狗血 puts you** when you escape a fight.
+
 ## Cowering ✅
 
 Cowering costs a **whole turn** and one of your **3 charges**, and it is
@@ -234,8 +306,10 @@ Inherited arithmetic, no dice:
 > **Health lost = (number of jiangshi) − (your Attack)**
 
 Never more than **4** from one fight, and never a gain. **Attack does not
-stack**: one weapon per fight, the best bonus only — carrying two doesn't
-add them together.
+stack**: one weapon per fight, the best only — carrying two doesn't add
+them together. See [Items](#items-) for what your Attack can be, and note
+that the 4-damage ceiling is why a very high Attack stops helping against
+a very large pack.
 
 The specific attacks, their sizes and how often they come are part of the
 **event pool** ⏳.
@@ -266,8 +340,8 @@ game — it's an appointment.
 
 ## What isn't decided yet
 - **The event pool** — everything in it, and how the three bands differ.
-- **The item pool** — what's in it, which things are unique and which
-  are common, and how often a search finds nothing.
+- **The item pool's weighting** — the 12 items exist; which are unique,
+  which are common, and how often a search finds nothing do not.
 - **The King** — his strength, what he does, how many rounds.
 - **How much cowering heals**, exactly.
 - **What the crypt rite and the burial rite cost** — a turn each, an
