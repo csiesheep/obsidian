@@ -258,19 +258,25 @@ The gate works both ways. Going back in costs a turn, like any move.
 
 ## Special places ✅
 
-**停柩房 Sealed Crypt.** The tablet is here. Resolve the room's event,
-then perform the search of the crypt ⏳ — cost not yet fixed. Survive it
-and the tablet is yours. Carrying it does **not** use an item slot 📐.
+**停柩房 Sealed Crypt.** The tablet is here. Resolve the room's event as
+usual — then **draw one more**, which is the search of the crypt itself.
+Survive it and still be standing there, and the tablet is yours. Carrying
+it does **not** use an item slot 📐.
 
-**亂葬崗 Mass Grave.** The same shape, for the burial ⏳. Survive it
-holding the tablet and **you have won**.
+**亂葬崗 Mass Grave.** The same shape, for the burial: the room's event,
+then **one more** for the digging. Survive that holding the tablet and
+**you have won**.
+
+> Both goal rooms are two events in one turn, and the second comes at the
+> worst possible moment — standing over the hole with the tablet in your
+> hands. Neither win is free.
 
 **香堂 Incense Hall.** Light the incense: **one cower charge back**. Once
-per night — the incense burns out.
+per night — the incense burns out. Costs no turn.
 
 **土地廟 Earth God Shrine.** Pray: the **next unexplored outdoor tile you
-place is the Mass Grave**. Once per night. The land god knows where the
-dead are buried.
+place is the Mass Grave**. Once per night, and it costs no turn. The land
+god knows where the dead are buried.
 
 **溪澗 Stream.** Running water. Jiangshi cannot cross it, so their
 attacks deal **no damage** while you stand here. There is nothing to find

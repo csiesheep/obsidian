@@ -423,9 +423,24 @@ same reasoning as the `HP` events.
 - **Slotless** 📐 — never counts against `MAX_ITEMS`.
 - Carrying it at midnight lowers the seal threshold **12 → 11** (§8).
 
-❓ **What the two rites cost.** Taking the tablet and burying it were "a
-second card" each in the source. In turn terms the natural translation is
-**one extra event apiece**, resolved immediately. Not settled.
+✅ **Each rite draws an extra event** (2026-08-24).
+
+```
+rite(state, kind):              # kind = TAKE_TABLET | BURY_TABLET
+  resolve the room's own event first          # step 3 of the turn
+  then draw and resolve ONE MORE event        # the rite itself
+  if still alive and still here:
+     TAKE_TABLET  -> state.tablet = true
+     BURY_TABLET  -> if state.tablet: return "WIN_BURIAL"
+```
+
+So both goal rooms are **two events in one turn**, and the second one is
+drawn at the moment you least want it — standing over the grave with the
+tablet in your hands. Neither win is free.
+
+❓ Does fleeing the second event abort the rite? The source said the totem
+was only gained if you were *still standing there* after the card. Assume
+the same: **flee and the rite does not complete**, but you may return.
 
 ### Cowering
 
@@ -487,9 +502,12 @@ turn(N):                                  # N = 1..30
 still pays that turn's tick. Search *after* the event, so you rummage a
 room that has already shown you what is in it.
 
-**The tile actions** (`RESTORE_COWER_ONCE`, `PRAY_ONCE`) are offered while
-standing on the tile and consume no turn. ❓ Confirm — free is the
-assumption.
+✅ **Tile actions cost no turn** (2026-08-24). `RESTORE_COWER_ONCE` (香堂)
+and `PRAY_ONCE` (土地廟) are offered while standing on the tile and are
+free, like a search. Both are already gated twice over — once per run, and
+by the walk it took to get there — so charging a turn on top would tax the
+same thing twice and make a late detour to the Incense Hall never worth
+it.
 
 ## 9. Midnight — the King ✅
 
@@ -568,19 +586,19 @@ they read still exists.
 
 ## 12. Open — ❓, in rough priority
 
-1. **The two rites' cost** — does entering 停柩房 (taking the tablet) and
-   completing the burial at 亂葬崗 each cost an **extra event**, as the
-   source's "resolve a second card" did? An extra event apiece is the
-   natural translation and keeps the goal rooms dangerous. §7.
-2. **Do the tile actions cost a turn?** `RESTORE_COWER_ONCE` (香堂) and
-   `PRAY_ONCE` (土地廟) — free like a search, or a whole turn? Free is the
-   assumption: both are already gated once-per-run and by the walk. §8.
-3. **`ZOMBIE_DOOR_COUNT`** — 3 inherited, but 3 is the weakest jiangshi in
-   the game now. Scale 3/4/5 by band? §2.
+1. **`ZOMBIE_DOOR_COUNT`** — 3 is inherited, but 3 is now the *weakest*
+   jiangshi in the game (bands run 3–6), so a wall coming in at eleven
+   o'clock is milder than an ordinary draw. **Recommend scaling 3 / 4 / 5
+   by band.** §2.
+2. **Does fleeing a rite's second event abort it?** Assume yes, per the
+   source. §7.
+3. **A name for the breach in this theme.** "Zombie door" is the source's
+   term. 破牆 — *the wall gives* — is the obvious rendering. §2.
 
 *Closed 2026-08-24: no `COWER_HEAL`; talisman stacks are one slot; one
-真火符 per sword; no `rich` flag; **zombie doors kept unchanged**;
-**generic flee exists at −1 HP**; **護身符 is combat-only**.*
+真火符 per sword; no `rich` flag; breaches kept unchanged; generic flee at
+−1 HP; 護身符 is combat-only; **each rite draws an extra event**; **tile
+actions are free**.*
 
 ## 13. Numbers worth re-deriving after any change
 
