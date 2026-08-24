@@ -2359,6 +2359,16 @@ more redesign is coming. Reconcile once the systems settle.
   the hidden presentation unchanged, and the hunter-parity measurement
   stays unfiled. Bilingual becomes the first post-launch update rather
   than a launch blocker.
+- 2026-08-24 — **口袋裡的殭屍 is public.** The flip (`002b380`) — noindex
+  off all five pages and SHIPPED true in one commit — pushed on the
+  user's direct word after the FE session held through their silence,
+  which is the protocol working. Verified live end-to-end: five pages
+  200 with zero noindex and zero x-robots-tag, robots → prefix sitemap →
+  pages all walking, hub card with the zh title live, suite 197/0 in the
+  post-ship sense. From the fork to a shipped, tested, publicly indexable
+  game in one coordinated day: 27 issues, two implementation sessions,
+  every close independently verified. Bilingual (#16) begins as the first
+  post-launch update; Search Console submission rests with the user.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
