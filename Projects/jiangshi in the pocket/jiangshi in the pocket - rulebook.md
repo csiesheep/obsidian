@@ -124,9 +124,10 @@ thing:
 
 |                 | Where                                                                             |
 | --------------- | --------------------------------------------------------------------------------- |
-| **武器 weapons**  | 鐵匠鋪 Blacksmith ★ · 柴房 Woodshed · 枯井 Dry Well · 竹林 Bamboo Grove · 牌坊 Memorial Arch |
-| **符咒 magic**    | 經堂 Sutra Hall ★ · 靈堂 Mourning Hall                                                |
-| **丹藥 medicine** | 藥鋪 Apothecary · 帳房 Counting Room · 槐樹 Pagoda Tree                                 |
+| **武器 weapons** | 鐵匠鋪 Blacksmith ★ · 柴房 Woodshed · 牌坊 Memorial Arch |
+| **符咒 magic** | 經堂 Sutra Hall ★ · 靈堂 Mourning Hall · 竹林 Bamboo Grove |
+| **丹藥 medicine** | 藥鋪 Apothecary · 帳房 Counting Room · 槐樹 Pagoda Tree |
+| **法器 implement** | 土地廟 Earth God Shrine — the **攝魂幡** and nothing else |
 
 Searching is **free** — it costs no turn. It happens after the event, and
 **it may find nothing** ⏳. If it does, you can search the same room again
@@ -167,14 +168,14 @@ solid** — you can't push through them.
 | Place | Ways out | Search | What it is |
 |---|---|---|---|
 | **後門石階 Back Steps** | E, S | — | The landing outside the moon gate. Set aside at setup |
-| **枯井 Dry Well** | S, W | 武器 | Where the village threw what it wanted gone |
-| **竹林 Bamboo Grove** | E, S, W | 武器 | Poles, and not much else |
+| **枯井 Dry Well** | S, W | — | No water left in it. Something climbed out |
+| **竹林 Bamboo Grove** | E, S, W | 符咒 | Paper and ink among the stems |
 | **牌坊 Memorial Arch** | E, S, W | 武器 | Offerings and tools stacked at its foot |
 | **涼亭 Pavilion** | E, S, W | — | Somewhere to sit, if this were a different night |
 | **槐樹 Pagoda Tree** | E, S, W | 丹藥 | 鬼樹. **+1 Health** if you end your turn here |
 | **石敢當 Stone Ward** | N, E, S, W | — | The stone at the junction. Every route outdoors crosses it |
 | **溪澗 Stream** | E, W | — | **Running water. Jiangshi cannot cross it** — their attacks do you no harm here |
-| **土地廟 Earth God Shrine** | E, S | — | **Pray: the next new place you step is the Mass Grave. Once per night** |
+| **土地廟 Earth God Shrine** | E, S | 法器 | **Pray: the next new place you step is the Mass Grave. Once per night.** The only place the **攝魂幡** is ever found |
 | **亂葬崗 Mass Grave** | E, S | — | The pit for the unclaimed. **Bury the tablet here** |
 
 ★ = the best of its category.

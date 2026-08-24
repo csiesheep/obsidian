@@ -380,10 +380,15 @@ Two things follow:
   the other two. Worth keeping the duel multi-round for precisely this
   reason.
 
-**Where is it found?** It doesn't sit in 武器 / 符咒 / 丹藥 — it's a 法器.
-Cleanest answer: make it a **unique in 靈堂 Mourning Hall**, which is
-literally where a 引魂幡 stands. That gives the room a signature find and
-saves inventing a fourth search category for one object.
+**Where it is found — 土地廟 Earth God Shrine, and nowhere else**
+(decided 2026-08-23), on a chance when searched. Two things this buys:
+- **It is genuinely hard to get.** The shrine is outdoors, so the banner
+  is behind the moon gate, behind finding one tile in ten, behind a search
+  roll. For the item that decides the duel, that is the right amount of
+  work.
+- **It pulls the duelist outside.** The shrine also holds the prayer that
+  reveals the Mass Grave, so the burial player was always going there —
+  now the midnight player has to as well.
 
 **4. 🆕 屍毒 poison is a new status that does not exist yet.** 糯米's
 second mode cures "poisoned" — nothing in the design can currently
@@ -647,14 +652,31 @@ having:
 
 | Category | Where it lives | Count |
 |---|---|---|
-| **符咒 magic** | **indoors only** — Sutra Hall ★, Mourning Hall | 2 |
-| **武器 weapons** | Blacksmith ★, Woodshed (in) · Dry Well, Bamboo Grove, Memorial Arch (out) | 5 |
-| **丹藥 medicine** | Apothecary ★, Counting Room (in) · Pagoda Tree (out) | 3 |
+| **武器 weapons** | Blacksmith ★, Woodshed (in) · Memorial Arch (out) | 3 |
+| **符咒 magic** | Sutra Hall ★, Mourning Hall (in) · Bamboo Grove (out) | 3 |
+| **丹藥 medicine** | Apothecary, Counting Room (in) · Pagoda Tree (out) | 3 |
+| **法器 implement** | **Earth God Shrine (out) — 攝魂幡 only** | 1 |
 
-Magic is indoors only: the best gear and the tablet are both in the
-house, so a duelist cannot skip the interior. Weapons skew outdoors —
-common and plentiful, but the walk is long. Medicine sits on both halves,
-which is what keeps the two healing tiles from being decisive.
+**The counts came out perfectly symmetric**, which was not planned and
+is worth keeping:
+
+> Every category has **two rooms in the village and one place on the
+> hill.** 武器 — Blacksmith ★, Woodshed · Memorial Arch. 符咒 — Sutra
+> Hall ★, Mourning Hall · Bamboo Grove. 丹藥 — Apothecary, Counting Room
+> · Pagoda Tree. And 法器, the banner, exists **only** outside.
+
+That shape says the right thing. Outdoors you can **top up** any
+category, but from exactly one tile each — a top-up, not a supply line.
+Indoors is where you stock. So *the village is still where you prepare
+and the hillside is still where you deliver*, without the hillside being
+a barren corridor you can be stranded in.
+
+**The banner being outdoors-only does the real structural work here: it
+forces the duelist out of the house.** Before it, a player going for the
+midnight fight could arm up indoors and never cross the moon gate — the
+burial run was the only reason to go outside. Now the most powerful thing
+in the duel is outdoors-only while the swords are indoors, so **both win
+paths have to use both halves of the map.**
 
 ### Indoor — the village, and the 義莊 at the end of it (10)
 
@@ -679,14 +701,14 @@ one four-exit hub, and a start that branches three ways.*
 | #   | id              | Name                 | Edges      | Search       | Role                                    |
 | --- | --------------- | -------------------- | ---------- | ------------ | --------------------------------------- |
 | 1   | `back-steps`    | 後門石階 Back Steps      | E, S       | —            | **Seam** (N). Set aside at setup        |
-| 2   | `dry-well`      | 枯井 Dry Well          | S, W       | 武器           | things thrown down it                   |
-| 3   | `bamboo-1`      | 竹林 Bamboo Grove      | E, S, W    | 武器 (commons) | filler                                  |
+| 2   | `dry-well`      | 枯井 Dry Well          | S, W       | —           | hazard — something climbed out |
+| 3   | `bamboo-1`      | 竹林 Bamboo Grove      | E, S, W    | 符咒 (commons) | paper and ink among the stems                                  |
 | 4   | `memorial-arch` | 牌坊 Memorial Arch     | E, S, W    | 武器 (commons) | filler                                  |
 | 5   | `pavilion`      | 涼亭 Pavilion          | E, S, W    | —            | filler                                  |
 | 6   | `pagoda-tree`   | 槐樹 Pagoda Tree       | E, S, W    | 丹藥           | **+1 HP** at turn end                   |
 | 7   | `stone-ward`    | 石敢當 Stone Ward       | N, E, S, W | —            | the outdoor hub. Stands at the junction |
 | 8   | `stream`        | 溪澗 Stream            | E, W       | —            | **running water**                       |
-| 9   | `earth-shrine`  | 土地廟 Earth God Shrine | E, S       | —            | pray, once per run                      |
+| 9   | `earth-shrine`  | 土地廟 Earth God Shrine | E, S       | 法器            | pray once per run · **the only source of 攝魂幡**                      |
 | 10  | `mass-grave`    | 亂葬崗 Mass Grave       | E, S       | —            | **GOAL B — bury the tablet → win 1**    |
 
 *Exit density 26/10 = 2.6. Outdoors stays more open than indoors, as
@@ -734,10 +756,14 @@ buried.
 ### What is deliberately *not* searchable
 
 Gatehouse (you just came through it), Courtyard, Incense Hall, Back
-Steps, Pavilion, Stone Ward, Stream, Earth Shrine, and both goal rooms.
-**10 of 20 tiles are searchable**, so a search is never far away, but
-half the map is transit. The goal rooms aren't searchable because their
-*ritual* is their search.
+Steps, **Dry Well**, Pavilion, Stone Ward, Stream, and both goal rooms.
+**10 of 20 tiles are searchable** — 6 indoors, 4 outdoors — an even split
+between supply and transit. The goal rooms aren't searchable because
+their *ritual* is their search.
+
+The Dry Well is now pure hazard: two exits, nothing in it, and something
+that climbed out. The map wanted at least one place that is only bad to
+be in.
 
 ### Flavour tensions left by the renames
 
@@ -1107,6 +1133,23 @@ more redesign is coming. Reconcile once the systems settle.
   round**, which is an argument for keeping the duel multi-round.
   Suggested home: a unique find in 靈堂 Mourning Hall, where a 引魂幡
   would actually stand.
+- 2026-08-23 — **search types re-cut.** 枯井 Dry Well 武器 → 丹藥, 竹林
+  Bamboo Grove 武器 → 符咒, and 土地廟 Earth God Shrine becomes searchable
+  as the **sole source of 攝魂幡**. Counts are now 武器 3 / 符咒 3 / 丹藥 4
+  / 法器 1, and searchable tiles rise 10 → **11 (6 in, 5 out)**. This
+  fixes two things at once: the hillside is no longer a resupply-free
+  gauntlet, and — because the banner is outdoors-only while the swords are
+  indoors — **both win paths must now use both halves of the map.** Magic
+  is no longer indoors-exclusive, though the ★ (經堂) still is.
+- 2026-08-23 — **枯井 Dry Well reverted to no search**, leaving it a pure
+  hazard tile. Final counts 武器 3 / 符咒 3 / 丹藥 3 / 法器 1, and **10 of
+  20 searchable (6 in, 4 out)** — an even split with transit. The result
+  is unexpectedly symmetric and worth preserving: **every category has
+  two rooms in the village and one place on the hill**, with the 攝魂幡
+  the lone exception that exists only outside. Outdoors is therefore a
+  top-up rather than a supply line, which keeps "the village prepares,
+  the hillside delivers" true without making the hillside a corridor you
+  can strand yourself in.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
