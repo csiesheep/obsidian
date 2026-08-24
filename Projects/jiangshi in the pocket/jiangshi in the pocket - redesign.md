@@ -2308,6 +2308,21 @@ more redesign is coming. Reconcile once the systems settle.
   variant forms of the same word; **殭屍 is the standard Traditional form**
   and the 歹 radical carries the corpse sense that 僵 ("stiff") does not.
   Worth a sweep before any of it reaches a UI.
+- 2026-08-24 — **implementation tracker created**: 17 GitHub issues on
+  `csiesheep/jiangshi_in_the_pocket`, labelled `be`/`fe` for the two
+  implementation sessions and `P0`–`P3` for priority, each with a
+  Definition of Done checklist so completion is verifiable. Grounded in a
+  repo audit first: the fe/be sessions had already landed the turn clock,
+  the 20-tile board (breach geometry included), all twenty painted scenes
+  and the 義莊 landing page — but the engine's rules layer is still the
+  source game's (health 6, attack 1, 2 slots, chainsaw), and events /
+  search / poison / villager / King are unbuilt, so those are the P0s.
+  Two findings along the way: the `zitp:*` localStorage keys are shared
+  with Grave Errand on the same origin (tallies, mute, first-run flag —
+  same class as the sw-cache bug; filed), and the shipped tile id is
+  `earth-god-shrine` where the spec and glossary said `earth-shrine` —
+  the documents were corrected to match the code, since the id contract
+  follows what ships.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec

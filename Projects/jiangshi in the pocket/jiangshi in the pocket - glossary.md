@@ -63,7 +63,7 @@ project name and the URL slug.
 | `pagoda-tree` | 槐樹 | Pagoda Tree | 丹藥 search, +1 HP |
 | `stone-ward` | 石敢當 | Stone Ward | The outdoor hub |
 | `stream` | 溪澗 | Stream | Running water |
-| `earth-shrine` | 土地廟 | Earth God Shrine | The banner; the prayer |
+| `earth-god-shrine` | 土地廟 | Earth God Shrine | The banner; the prayer |
 | `mass-grave` | 亂葬崗 | Mass Grave | The burial |
 
 ## Items

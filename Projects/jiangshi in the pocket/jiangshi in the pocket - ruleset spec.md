@@ -150,7 +150,7 @@ a category rolls the identical table.
     {"id":"pagoda-tree",   "exits":["E","S","W"],     "search":"medicine", "onTurnEnd":"HEAL_1"},
     {"id":"stone-ward",    "exits":["N","E","S","W"]},
     {"id":"stream",        "exits":["E","W"],         "flags":["RUNNING_WATER"]},
-    {"id":"earth-shrine",  "exits":["E","S"],         "search":"relic",    "action":"PRAY_ONCE"},
+    {"id":"earth-god-shrine",  "exits":["E","S"],         "search":"relic",    "action":"PRAY_ONCE"},
     {"id":"mass-grave",    "exits":["E","S"],         "goal":"BURY_TABLET"}
   ]
 }
