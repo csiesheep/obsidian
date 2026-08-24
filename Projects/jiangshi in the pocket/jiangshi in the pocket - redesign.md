@@ -2337,6 +2337,13 @@ more redesign is coming. Reconcile once the systems settle.
   undecided 殭屍在口袋 the pages had been carrying. Recorded in the
   glossary; sweep filed as a tracked issue, including the social card
   image if the old title is baked into the PNG.
+- 2026-08-24 — **user ruling on the bots' finding: the seal is lifted to a
+  ~2 % duelist-bot target** (from the measured 0.4 %). The lever is banner
+  supply in the relic table, data only; the burial (~30 % hunter), the
+  zero-win camper/turtle, and banner-compulsory all stand as constraints.
+  Tuned empirically against the bot harness rather than by arithmetic;
+  spec §4's relic table to be amended to the shipped numbers once the
+  tuning lands.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
