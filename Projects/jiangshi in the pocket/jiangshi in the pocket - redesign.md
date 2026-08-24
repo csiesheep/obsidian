@@ -261,7 +261,7 @@ Still to settle when the pool is authored (not now):
 
 ### The items — ✅ designed 2026-08-23
 
-Twelve items in four categories. Weapons persist; talismans and
+Thirteen items in four categories. Weapons persist; talismans and
 medicines are **consumed on use**. The backpack holds **6 items**
 (2026-08-23, up from the source's 2). The 神主牌 tablet is slotless.
 
@@ -282,6 +282,7 @@ medicines are **consumed on use**. The backpack holds **6 items**
 | **五雷符** | Five Thunder Talisman | Attack **4** |
 | **血符** | Blood Talisman | Attack **5**, costs **1 HP** to use |
 | **硃砂** | Cinnabar | Add **+2 quantity** to any talisman in hand |
+| **鎮屍符** | Corpse-Stilling Talisman | **Unique.** The seal — the only thing that ends the duel (§5) |
 
 #### 法器 ritual implement — one use, then gone
 
@@ -304,10 +305,11 @@ carry and you find nothing.
 
 | 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 special | |
 |---|---|---|---|---|---|---|---|
-| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
+| 戒刀 | 30 % | 真火符 | 25 % | 糯米 | 40 % | 糯米 | 40 % |
 | 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | **15 %** |
 | 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
-| 七星劍 | **10 %** | 五雷符 | 20 % | nothing | 20 % | | |
+| 七星劍 | **10 %** | 五雷符 | 15 % | nothing | 20 % | | |
+| | | **鎮屍符** | **10 %** | | | | |
 | nothing | 10 % | nothing | 10 % | | | | |
 
 ### What the probabilities do
@@ -1023,7 +1025,7 @@ and it gives every folklore counter a job.
 
 ---
 
-## Variant A — 鎮屍, the seal (he has no health)
+## Variant A — 鎮屍, the seal ✅ **CHOSEN 2026-08-23** (he has no health)
 
 ### The three beats — 三更三響
 
@@ -1070,33 +1072,66 @@ You do not kill him, you **seal** him.
 > one talisman as a 鎮屍符** — press it to his forehead. The duel ends and
 > the night is yours.
 
-**The seal talisman is separate from whatever got you to Attack 8.** So
-the winning beat costs, typically, three things: the banner, a talisman
-spent for attack, and a talisman spent as the seal. With 6 slots and a
-90 % talisman hit rate that is affordable — but it has to be *carried*,
-and a player who arrives with the banner and one talisman cannot close.
+### 🔒 The seal needs 鎮屍符 specifically — not any talisman
 
-Zero damage needs **Attack ≥ 8**, and **攝魂幡 doubles a talisman's
-attack as well as a sword's** (confirmed 2026-08-23), which opens three
-lines:
+**Revised 2026-08-23: the first version's gate was too low.** Attack 8 was
+reachable with 攝魂幡 + 五雷符 or 攝魂幡 + 血符, and both of those
+talismans are 20 % draws from an *unlimited* supply across three rooms.
+The talisman half was effectively free, so the whole duel collapsed into
+"find the banner."
 
-| Line | Attack | vs 8 | Availability |
-|---|---|---|---|
-| **攝魂幡 + 五雷符** | 4 × 2 = **8** | **0 — seal** | 20 %, unlimited supply. **The accessible line** |
-| **攝魂幡 + 血符** | 5 × 2 = **10** | **0 — seal** | 20 %, costs 1 HP |
-| **攝魂幡 + 七星劍 + 真火符** | 4 × 2 = **8** | **0 — seal** | needs the 10 % sword |
-| 攝魂幡 + 七星劍 | 3 × 2 = 6 | 2 | — |
-| anything without the banner | ≤ 5 | ≥ 3 | — |
+**Raising the numbers cannot fix that** — any requirement phrased as
+"some talisman" stays cheap, because talismans are cheap. The fix has to
+be **scarcity**, so the seal gets its own item:
 
-**This rehabilitates 五雷符**, which the strength-8 clamp had otherwise
-made worthless (see the warning at the top of this section). Doubled, it
-is the *cheapest* route to the seal — a common talisman from an unlimited
-supply. The rare sword turns out not to be required at all.
+| New item | | |
+|---|---|---|
+| **鎮屍符** Corpse-Stilling Talisman | **unique** — one in the world | The one you press to his forehead. It, and nothing else, ends the duel |
 
-So the duel has exactly **one real gate: the banner.** Everything else on
-the seal lines is readily found. That is a good place to land — a single
-clear condition, at 15 % from one tile behind the moon gate, rather than a
-compound stat check nobody can plan around.
+It was also the most glaring omission in the item list: 鎮屍符 is *the*
+iconic object of the entire genre — the yellow paper on the forehead —
+and the game did not have it.
+
+**Where it comes from.** Folded into the 符咒 table as its rare prize,
+mirroring 七星劍 at 10 % in the weapon table, and **unique like the
+weapons** (roll it while carrying it and you find nothing):
+
+| 符咒 | was | now |
+|---|---|---|
+| 真火符 | 30 % | 25 % |
+| 血符 | 20 % | 20 % |
+| 硃砂 | 20 % | 20 % |
+| 五雷符 | 20 % | 15 % |
+| **鎮屍符** | — | **10 %** (unique) |
+| nothing | 10 % | 10 % |
+
+This also gives 經堂 Sutra Hall — labelled ★, the richest magic in the
+game — an actual rare prize to be richest *in*.
+
+### The gate, restated
+
+The duel now needs **two scarce things and one common one**:
+
+| | Source | Odds |
+|---|---|---|
+| **攝魂幡** | 土地廟 only, outdoors, past the moon gate | 15 %, unique |
+| **鎮屍符** | any 符咒 room | 10 %, unique |
+| An Attack ≥ 4 source | any talisman, or 七星劍 + 真火符 | easy |
+
+Both rare items are required, they come from **opposite halves of the
+map**, and neither substitutes for the other. Roughly 7 searches expected
+for the banner and 10 for the seal, inside a 30-turn night that also has
+to be explored. **That is a genuinely hard win**, which is the intent.
+
+⚠️ **For the bots to check:** the duel may now be *harder* than the
+burial rather than its equal. If it proves too rare, the knobs in order of
+preference are — raise 鎮屍符 to 15 %, let 硃砂 duplicate it, or let the
+Sealed Crypt yield it too.
+
+Any of those **opens the window** — his blow lands on nothing. What
+*closes* it is the 鎮屍符, and that is the scarce half. So the banner
+still rehabilitates 五雷符, which strength 8 had otherwise made
+worthless; it just no longer wins the night on its own.
 
 **This makes 攝魂幡 the key to the duel**, which justifies everything
 about it — 15 % odds, outdoors only, one place in the world, and "keep it
@@ -1115,7 +1150,11 @@ With 僵直 as a cushion, an ordinary duelist — Attack 2 from a 銅錢劍,
 | Beat | Play | Damage | HP |
 |---|---|---|---|
 | 1 | fight (rigor: −2) | 2 | 8 |
-| 2 | **攝魂幡 + 五雷符 → Attack 8** | **0** | 8 → **seal, win** |
+| 2 | **攝魂幡 + 五雷符 → Attack 8**, then press the **鎮屍符** | **0** | 8 → **sealed, win** |
+
+That beat spends three things — the banner, a talisman for the attack, and
+the 鎮屍符. Carrying all three at once is what the 6-slot backpack is
+for.
 
 And the same player *without* a banner:
 
@@ -1131,7 +1170,7 @@ alive is not the same as won (see the open question below).
 
 ---
 
-## Variant B — 血戰, he has health (alternative, 2026-08-23)
+## Variant B — 血戰, he has health (**not taken** — kept for reference)
 
 **The King gets a stat block: Attack 8, Health 10.** The duel stops being
 "can you survive him" and becomes "**who empties whom first**." Plus:
@@ -1217,6 +1256,7 @@ dignified out: walk to the water and live.
   damage rules — just answers that replace beats.
 
 ### A vs B, in one line each
+*(A is chosen; B is kept in case the bots prefer it.)*
 - **A (鎮屍)** — he is a **lock**. One gate (the banner), a puzzle to
   open it, and a dramatic finish. Cost: two talismans of the design's
   four do nothing in the fight, and 攝魂幡 must double talismans for any
@@ -1605,6 +1645,21 @@ more redesign is coming. Reconcile once the systems settle.
   also clarified: **the seal talisman is a separate item** from whatever
   produced Attack 8, so the winning beat costs the banner plus two
   talismans.
+- 2026-08-23 — **Variant A chosen, and its gate raised.** The objection was
+  right, and the diagnosis is the useful part: 攝魂幡 + 五雷符 (8) and
+  攝魂幡 + 血符 (10) both reached the seal, and both talismans are 20 %
+  draws from an **unlimited** supply in three rooms — so the talisman half
+  was free and the duel reduced to "find the banner". **Bigger numbers
+  cannot fix that**, because any condition phrased as "some talisman"
+  stays cheap. The fix is scarcity: the seal now requires **鎮屍符**, a
+  **unique** item folded into the 符咒 table at 10 % (真火符 30 → 25,
+  五雷符 20 → 15 to make room). It was also the genre's single most iconic
+  object and was missing from the game entirely. The duel now needs **two
+  unique items from opposite halves of the map** — 攝魂幡 (15 %, outdoors,
+  one tile) and 鎮屍符 (10 %, any magic room) — plus any Attack ≥ 4 source.
+  Flagged for the bots: the duel may now be *harder* than the burial
+  rather than its equal; knobs in order are raise 鎮屍符 to 15 %, let 硃砂
+  duplicate it, or let the Sealed Crypt also yield it.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose

@@ -43,7 +43,7 @@ Either ends the night. So does dying.
 
 - **10 indoor tiles, 10 outdoor tiles.**
 - An **event pool** ⏳ and an **item pool** — separate, unlike the source
-  game's single deck. **12 items**, in four kinds.
+  game's single deck. **13 items**, in four kinds.
 - Health, Attack, the turn number and your cower charges are numbers you
   track.
 
@@ -250,6 +250,7 @@ weapon in your hand.
 | **五雷符** Five Thunder | Fight at **4** |
 | **血符** Blood | Fight at **5**. Writing it costs you **1 Health** |
 | **硃砂** Cinnabar | Copy a talisman you already hold — **+2 more of it** |
+| **鎮屍符** Corpse-Stilling | **There is only one.** The seal you press to the King's forehead — see [Midnight](#midnight-) |
 
 真火符 is the only one worth spending outside a fight: put it into a
 sword and the sword is better for the rest of the night. 七星劍 with a
@@ -284,11 +285,15 @@ Each search rolls once on the table for that place's category.
 
 | 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 only | |
 |---|---|---|---|---|---|---|---|
-| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
+| 戒刀 | 30 % | 真火符 | 25 % | 糯米 | 40 % | 糯米 | 40 % |
 | 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | 15 % |
 | 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
-| 七星劍 | 10 % | 五雷符 | 20 % | nothing | 20 % | | |
+| 七星劍 | 10 % | 五雷符 | 15 % | nothing | 20 % | | |
+| | | **鎮屍符** | 10 % | | | | |
 | nothing | 10 % | nothing | 10 % | | | | |
+
+**鎮屍符 is one of a kind too**, like the weapons — once it is yours, a
+magic search that turns it up again finds nothing.
 
 **There is only one of each weapon in the village.** Turn up one you're
 already carrying and you find nothing — so the more blades you own, the
