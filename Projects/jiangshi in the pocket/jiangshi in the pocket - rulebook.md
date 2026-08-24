@@ -430,10 +430,13 @@ for free — which is what the blood is for. Neither works at midnight.
 **護身符** softens jiangshi wounds by 1 and nothing else — not the −1
 Health events, not the poison, not the cost of running.
 
-**Zombie doors.** If a room leaves you with no unexplored way out, **three
-of them come through the wall** once the room's own event has been dealt
-with — so a dead end can cost you two fights in one turn. The hole they
-make stays open, and you can use it afterwards.
+**破牆 — the wall gives.** If a room leaves you with no unexplored way
+out, they come through the wall once the room's own event has been dealt
+with — **three at nine o'clock, four at ten, five at eleven.** You choose
+which wall. So a dead end can cost you two fights in one turn, with no
+cowering between them, and late at night that is the worst thing that can
+happen to you in a single turn. The hole stays open afterwards, and you
+can use it.
 
 **Only one sword counts** — carrying two doesn't add them together, you
 use the better. **But a sword and a talisman do add**, and the 攝魂幡

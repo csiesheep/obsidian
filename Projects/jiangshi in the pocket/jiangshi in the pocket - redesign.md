@@ -2262,6 +2262,22 @@ more redesign is coming. Reconcile once the systems settle.
   **護身符 is combat-only**: it does not soften the `HP: -1` events, the
   poison, or the cost of running. That keeps its scope to one sentence —
   *the things that claw at you hit softer, and nothing else changes.*
+- 2026-08-24 — **rites draw an extra event, tile actions are free, and the
+  breach scales 3/4/5 by band.** The rites keep the source's shape: both
+  goal rooms are now **two events in one turn**, the second arriving at
+  the worst moment — standing over the hole with the tablet in hand — so
+  neither win is free. Tile actions (香堂's charge, 土地廟's prayer) cost
+  no turn, since both are already gated once-per-run *and* by the walk;
+  taxing a turn on top would make a late detour to the Incense Hall never
+  worth it. And the breach — the source's "zombie door", renamed **破牆**
+  — now scales with the band, because a flat 3 would have made a wall
+  coming in at eleven milder than an ordinary draw. That creates **the
+  worst single turn in the game**: a dead end at eleven fires the room's
+  own event *and then* the breach with no cowering between them, which at
+  Attack 2 is 僵屍 6 for 4 plus a 5-breach for 3 — **7 HP of a 10 HP cap in
+  one turn** — against 3 HP for a player at Attack 4. A sharp spike, and a
+  fair one: it is the clearest argument the game makes for being properly
+  armed by the last band.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec

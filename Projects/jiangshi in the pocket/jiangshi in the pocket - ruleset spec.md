@@ -48,7 +48,7 @@ export const RULES = {
   MAX_COMBAT_DAMAGE: 4,
   MIN_COMBAT_DAMAGE: 0,
   RUN_AWAY_DAMAGE:   1,    // generic flee, to an adjacent explored tile
-  ZOMBIE_DOOR_COUNT: 3,    // ❓ consider scaling 3/4/5 by band
+  BREACH_COUNT: { "9": 3, "10": 4, "11": 5 },   // 破牆, scales with the band
 
   // poison
   POISON_PER_TURN: 1,      // ticks at START of turn; does not stack
@@ -92,8 +92,9 @@ Carried over verbatim — see the source spec §2 for the reasoning:
    ```
    deadEndCheck(state):          # AFTER the room's own event resolves
      if currentTile has no usable UNEXPLORED exit:
-        3 jiangshi break through a wall of the player's choice
-        combat(state, ZOMBIE_DOOR_COUNT)
+        n = BREACH_COUNT[bandKey(N)]        # 3 / 4 / 5
+        jiangshi break through a wall of the player's choice
+        combat(state, n)                    # flee is allowed
         the hole PERSISTS and is usable in both directions thereafter
    ```
 
@@ -103,10 +104,23 @@ Carried over verbatim — see the source spec §2 for the reasoning:
    and the hole is then made in the room you *end up in*; you never enter
    it immediately.
 
-   ❓ **Count**: `ZOMBIE_DOOR_COUNT = 3` is inherited, and 3 is now the
-   *weakest* jiangshi in the game (bands run 3–6). Consider scaling it
-   with the band — 3 / 4 / 5 — so a wall coming in at eleven o'clock is
-   not milder than an ordinary draw. Left at 3 until ruled.
+   ✅ **The count scales with the band: 3 / 4 / 5** (2026-08-24). The
+   source's flat 3 would have made a wall coming in at eleven o'clock
+   *milder* than an ordinary draw, since the bands run 3–6.
+
+   **This creates the worst single turn in the game.** A dead end fires
+   the room's own event *and then* the breach, with no cowering between
+   them. At eleven, drawing 僵屍 6 into a 5-jiangshi breach costs:
+
+   | Attack | Room event | Breach | Turn total |
+   |---|---|---|---|
+   | 2 — 銅錢劍 | 4 | 3 | **7 HP** |
+   | 4 — 七星劍 + 真火符 | 2 | 1 | **3 HP** |
+
+   7 of a 10 HP cap in one turn, and it is the one turn you cannot cower
+   your way out of. That is a sharp spike, and a fair one: it is the
+   clearest argument in the game for being properly armed by the last
+   band.
 
 ### Tiles — `data/tiles.json` ✅
 
@@ -586,19 +600,17 @@ they read still exists.
 
 ## 12. Open — ❓, in rough priority
 
-1. **`ZOMBIE_DOOR_COUNT`** — 3 is inherited, but 3 is now the *weakest*
-   jiangshi in the game (bands run 3–6), so a wall coming in at eleven
-   o'clock is milder than an ordinary draw. **Recommend scaling 3 / 4 / 5
-   by band.** §2.
-2. **Does fleeing a rite's second event abort it?** Assume yes, per the
-   source. §7.
-3. **A name for the breach in this theme.** "Zombie door" is the source's
-   term. 破牆 — *the wall gives* — is the obvious rendering. §2.
+1. **Does fleeing a rite's second event abort it?** Assume **yes**, per
+   the source's "still standing there" ruling — you may return and try
+   again. §7.
+2. **A name for the breach in this theme.** "Zombie door" is the source's
+   term and a poor fit here. **破牆** — *the wall gives* — is the working
+   name in this spec. §2.
 
 *Closed 2026-08-24: no `COWER_HEAL`; talisman stacks are one slot; one
-真火符 per sword; no `rich` flag; breaches kept unchanged; generic flee at
-−1 HP; 護身符 is combat-only; **each rite draws an extra event**; **tile
-actions are free**.*
+真火符 per sword; no `rich` flag; breaches kept, **scaling 3/4/5**; generic
+flee at −1 HP; 護身符 is combat-only; each rite draws an extra event; tile
+actions are free.*
 
 ## 13. Numbers worth re-deriving after any change
 
@@ -613,6 +625,7 @@ load-bearing and were arrived at by hand:
 | Sustained attack ceiling from swords alone | **4** (七星劍 + 真火符) |
 | 11 PM damage at the ceiling, over 10 turns | ~9 HP against a cap of 10 |
 | Camping a `HEAL_1` tile is losing | +1/turn vs 2.3–2.9 |
+| Worst possible single turn (11 PM dead end, 僵屍 6 + breach 5) | 7 HP at Attack 2, 3 HP at Attack 4 |
 | Value of a cower charge (damage avoided) | ~0.85 / ~1.25 / ~2.3 by band, at Attack 2 |
 | Expected searches for 七星劍 | ~7 (15 %) |
 | Expected searches for 攝魂幡 | ~7 (15 %) |
