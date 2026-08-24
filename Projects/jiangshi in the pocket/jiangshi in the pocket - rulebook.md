@@ -338,7 +338,7 @@ wasted — so a 糯米 at 9 Health is worth holding rather than eating.
 
 | | |
 |---|---|
-| **護身符** Protective Charm | **Every wound you take is 1 less**, all night. It does nothing about 中毒 — poison is not a wound |
+| **護身符** Protective Charm | **Jiangshi wounds are 1 less**, all night. Nothing else — not the −1 Health events, not 中毒 |
 
 Not found by searching. The only way to get one is to **save the villager
 in the 9 PM band** — so it is the earliest opportunity in the game and
@@ -415,6 +415,19 @@ Inherited arithmetic, no dice:
 > **Health lost = (number of jiangshi) − (your Attack)**
 
 Never more than **4** from one fight, and never a gain.
+
+**Running.** On any jiangshi you may run instead of fighting: **−1 Health**,
+and you step into an **adjacent room you have already been in**. You draw
+no event for the room you run into. Spending **黑狗血** does the same thing
+for free — which is what the blood is for. Neither works at midnight.
+
+**護身符** softens jiangshi wounds by 1 and nothing else — not the −1
+Health events, not the poison, not the cost of running.
+
+**Zombie doors.** If a room leaves you with no unexplored way out, **three
+of them come through the wall** once the room's own event has been dealt
+with — so a dead end can cost you two fights in one turn. The hole they
+make stays open, and you can use it afterwards.
 
 **Only one sword counts** — carrying two doesn't add them together, you
 use the better. **But a sword and a talisman do add**, and the 攝魂幡

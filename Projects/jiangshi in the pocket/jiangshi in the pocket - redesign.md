@@ -2249,6 +2249,19 @@ more redesign is coming. Reconcile once the systems settle.
   comes out of `tiles.json`. Spec §12 is down to five open items, all of
   them small: zombie doors, whether a generic flee exists, the two rites'
   cost, 護身符 vs HP events, and whether tile actions are free.
+- 2026-08-24 — **three more rulings.** **Zombie doors are kept unchanged**
+  — `STAY` being legal does not retire them; the dead-end trigger, the
+  fire-after-the-room's-own-event ordering, the persistent re-usable hole
+  and the flee-makes-it-in-the-room-you-reach ruling all carry over 📐.
+  (Flagged: `ZOMBIE_DOOR_COUNT = 3` is inherited, but 3 is now the
+  *weakest* jiangshi in the game with bands running 3–6, so a wall coming
+  in at eleven is milder than an ordinary draw — worth scaling 3/4/5.)
+  **A generic flee exists at −1 HP**, one step into an adjacent explored
+  tile, no event drawn there — so there are two exits from a fight, and
+  黑狗血 is the free version, which is exactly what that item is for. And
+  **護身符 is combat-only**: it does not soften the `HP: -1` events, the
+  poison, or the cost of running. That keeps its scope to one sentence —
+  *the things that claw at you hit softer, and nothing else changes.*
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec

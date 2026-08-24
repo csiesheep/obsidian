@@ -47,6 +47,8 @@ export const RULES = {
   // combat
   MAX_COMBAT_DAMAGE: 4,
   MIN_COMBAT_DAMAGE: 0,
+  RUN_AWAY_DAMAGE:   1,    // generic flee, to an adjacent explored tile
+  ZOMBIE_DOOR_COUNT: 3,    // ❓ consider scaling 3/4/5 by band
 
   // poison
   POISON_PER_TURN: 1,      // ticks at START of turn; does not stack
@@ -83,12 +85,28 @@ Carried over verbatim — see the source spec §2 for the reasoning:
 
 1. **Movement is optional** (§5). The source made it mandatory. `STAY` is
    always a legal action, so a player can never be forced to move.
-2. **❓ Zombie doors have no trigger any more.** The source fired them on
-   *no usable exit*; with `STAY` legal, being boxed in is an ordinary
-   situation rather than a crisis. **Decide: remove the mechanic, or
-   re-key it to something else** (an event-pool outcome is the obvious
-   home). Until then the board code keeps the capability and nothing calls
-   it.
+2. **Zombie doors are kept, unchanged** ✅ (2026-08-24). `STAY` being
+   legal does not retire them — the trigger and the attack both carry over
+   from the source:
+
+   ```
+   deadEndCheck(state):          # AFTER the room's own event resolves
+     if currentTile has no usable UNEXPLORED exit:
+        3 jiangshi break through a wall of the player's choice
+        combat(state, ZOMBIE_DOOR_COUNT)
+        the hole PERSISTS and is usable in both directions thereafter
+   ```
+
+   Inherited rulings that still apply 📐: it fires **after** the room's
+   own event, never instead of it — so a bad room can cost two fights in
+   one turn; the hole is permanent and re-usable; you may flee from it,
+   and the hole is then made in the room you *end up in*; you never enter
+   it immediately.
+
+   ❓ **Count**: `ZOMBIE_DOOR_COUNT = 3` is inherited, and 3 is now the
+   *weakest* jiangshi in the game (bands run 3–6). Consider scaling it
+   with the band — 3 / 4 / 5 — so a wall coming in at eleven o'clock is
+   not milder than an ordinary draw. Left at 3 until ruled.
 
 ### Tiles — `data/tiles.json` ✅
 
@@ -350,26 +368,43 @@ Worked examples:
 ```js
 function damage(n, atk, hasCharm) {
   let d = Math.max(MIN_COMBAT_DAMAGE, Math.min(MAX_COMBAT_DAMAGE, n - atk));
-  if (hasCharm) d = Math.max(0, d - 1);     // 護身符, applied AFTER the clamp
+  if (hasCharm) d = Math.max(0, d - 1);     // 護身符 — combat only, after the clamp
   return d;
 }
 ```
 
-❓ **Does 護身符 also reduce `HP: -1` events?** "受到傷害 −1" reads as all
-damage, which would zero those events outright. Assume **yes** unless
-ruled otherwise. It explicitly does **not** touch poison — *poison is not
-damage* (§7).
+✅ **護身符 applies to combat only** (2026-08-24). It does **not** reduce
+`HP: -1` events, and it does **not** touch poison. Its `damageReduction`
+is read inside `damage()` and nowhere else — a wound from a jiangshi, and
+nothing more.
+
+That keeps the charm's scope narrow and easy to state: *the things that
+claw at you hit softer; nothing else changes.*
 
 ### Escaping a fight ✅
 
 `black-dog-blood` → `ESCAPE_FIGHT`: no damage, item consumed.
 **Barred against the King** (`notVsKing: true`).
 
-❓ **Is there a generic flee, as the source had** (−1 HP, step to an
-adjacent explored tile, draw no card)? The redesign never addressed it.
-With `STAY` legal and 黑狗血 covering escape, the simplest answer is
-**no generic flee** — but it needs saying, because `fled` is a flag the
-inherited turn code reads.
+✅ **Generic flee exists** (2026-08-24), inherited shape:
+
+```
+flee(state):                    # offered on any JIANGSHI event
+  health -= RUN_AWAY_DAMAGE     # 1
+  move to an ADJACENT, already-explored tile
+  draw NO event for the tile fled into
+  state.fled = true             # suppresses onTurnEnd HEAL_1 this turn
+```
+
+`RUN_AWAY_DAMAGE = 1`. Adjacency is the source's house rule 📐 — one step,
+through a legal connection, into somewhere already known.
+
+So there are **two ways out of a fight**: flee for 1 HP, or spend
+`black-dog-blood` and take nothing. The blood is strictly better, which is
+correct — that is what the item is for. Neither works against the King.
+
+❓ Assume the charm does **not** reduce flee damage either (§6), on the
+same reasoning as the `HP` events.
 
 ## 7. Poison, the tablet, cowering ✅
 
@@ -533,16 +568,19 @@ they read still exists.
 
 ## 12. Open — ❓, in rough priority
 
-1. **Zombie doors** — remove, or re-key (§2).
-2. **Generic flee** — exists or not (§6). Blocks the `fled` flag the
-   inherited turn code reads.
-3. **The two rites' cost** — an extra event each is the natural reading (§7).
-4. **`護身符` vs `HP: -1` events** — assume it applies (§6).
-5. **Tile actions cost no turn** — assume free (§8).
+1. **The two rites' cost** — does entering 停柩房 (taking the tablet) and
+   completing the burial at 亂葬崗 each cost an **extra event**, as the
+   source's "resolve a second card" did? An extra event apiece is the
+   natural translation and keeps the goal rooms dangerous. §7.
+2. **Do the tile actions cost a turn?** `RESTORE_COWER_ONCE` (香堂) and
+   `PRAY_ONCE` (土地廟) — free like a search, or a whole turn? Free is the
+   assumption: both are already gated once-per-run and by the walk. §8.
+3. **`ZOMBIE_DOOR_COUNT`** — 3 inherited, but 3 is the weakest jiangshi in
+   the game now. Scale 3/4/5 by band? §2.
 
-*Closed 2026-08-24: no `COWER_HEAL` (cowering skips the event and heals
-nothing); talisman stacks are one slot; one 真火符 per sword; no `rich`
-flag.*
+*Closed 2026-08-24: no `COWER_HEAL`; talisman stacks are one slot; one
+真火符 per sword; no `rich` flag; **zombie doors kept unchanged**;
+**generic flee exists at −1 HP**; **護身符 is combat-only**.*
 
 ## 13. Numbers worth re-deriving after any change
 
