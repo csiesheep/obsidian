@@ -18,9 +18,10 @@ Baseline being changed: [[zombie in the pocket - ruleset spec]].
 ## TODO — the design still to do
 - [x] **New tile design** — 10 indoor + 10 outdoor, roles, exits, which
       are searchable. **Done 2026-08-22 → §4**
-- [ ] **Event pool** — contents, hour-band weighting, and the jiangshi
-      attacks that live in it. Must satisfy constraint P1.
-- [x] **Item pool** — **12 items + search probabilities done 2026-08-23**
+- [x] **Event pool** — **done 2026-08-23 → §6**, including 中毒
+      (−1/turn until a 糯米 cures it). Residual: whether **護身符 cancels
+      poison** — the villager route hangs on it.
+- [x] **Item pool** — **13 items + search probabilities done 2026-08-23**
       (see §1). Residual: whether a talisman *stack* from 硃砂 occupies one
       slot or several.
 - [x] **King ability design** — **done 2026-08-23 → §5.** Strength 12 as
@@ -258,7 +259,8 @@ Still to settle when the pool is authored (not now):
 
 ### The items — ✅ designed 2026-08-23
 
-Twelve items in four categories. Weapons persist; talismans and
+Thirteen items in five categories. (The thirteenth, 護身符, is not
+searchable — it comes only from the 9 PM villager; see §6.) Weapons persist; talismans and
 medicines are **consumed on use**. The backpack holds **6 items**
 (2026-08-23, up from the source's 2). The 神主牌 tablet is slotless.
 
@@ -1197,6 +1199,218 @@ binary check turns out to feel flat as a finale.)*
   player who fails the check while carrying it loses both wins at once,
   which is dramatic enough without a rule.
 
+## 6. The event pool — ✅ designed 2026-08-23
+
+One draw per turn, from the band the turn falls in. Every entry totals
+100 %.
+
+| | 9 PM · turns 1–10 | 10 PM · turns 11–20 | 11 PM · turns 21–30 |
+|---|---|---|---|
+| **僵屍 3** | 15 % | — | — |
+| **僵屍 4** | 25 % | 25 % | 20 % |
+| **僵屍 5** | — | 15 % | 20 % |
+| **僵屍 6** | — | — | 20 % |
+| **−1 HP** | 10 % | 10 % | 10 % |
+| **+1 HP** | 10 % | 10 % | — |
+| **Nothing** | 20 % | 20 % | 10 % |
+| **中毒 poisoned** | 10 % | 10 % | 10 % |
+| **村民受傷 wounded villager** | 10 % | 10 % | 10 % |
+
+**村民受傷** — a villager is hurt. Spend a **糯米** to save them and take
+their gift; refuse, or have no rice, and they turn:
+
+| Band | Saved → you get | Refused → you fight |
+|---|---|---|
+| 9 PM | **護身符** — all damage you take −1 | 僵屍 4 |
+| 10 PM | **真火符** | 僵屍 5 |
+| 11 PM | **五雷符** | 僵屍 6 |
+
+### The villager is the best thing in this design
+
+It is the only event that is a **decision** rather than an outcome, and
+everything about it earns its place:
+
+- **The cost is real and it hurts.** 糯米 is the game's main heal (+3) and
+  the only cure for poison. Spending one on a stranger is a genuine
+  sacrifice, not a button.
+- **Refusing is not free.** The villager becomes the band's *worst*
+  jiangshi. So it is not "help or move on", it is "pay, or fight the
+  thing they turn into" — which is exactly the folk-horror bargain.
+- **🎯 The rewards are the duel components.** 真火符 and 五雷符 are two of
+  the four pieces the seal needs (§5). So **saving villagers late is a
+  route to the endgame kit**, parallel to searching for it. A player who
+  keeps rice in reserve for the 11 PM band is playing for the duel
+  whether they know it or not. That is a beautiful piece of accidental
+  structure — two systems designed separately that turn out to feed each
+  other.
+- **The escalation reads correctly**: a charm early, a talisman at ten, a
+  thunder talisman at eleven. Later villagers are worth more, and later
+  refusals cost more.
+
+### 糯米 now carries three jobs at once
+
+This is the item the whole economy pivots on:
+
+| Use | Worth |
+|---|---|
+| Eat it | **+3 HP**, capped at 10 |
+| Cure 中毒 | the only cure in the game |
+| Save a villager | a 護身符 / 真火符 / 五雷符, and avoids a fight |
+
+**Three good uses, one item, 40 % of a medicine search.** That is the
+strongest tension in the design so far, and it is created entirely by
+overlap rather than by a rule.
+
+### 🆕 護身符 — a thirteenth item, and a strange one
+
+**All damage you take −1**, presumably permanent and occupying a slot. It
+is not in any search table: **the only way to get it is the 9 PM
+villager**, which means the only window is turns 1–10, and you must
+already be holding rice.
+
+Two things follow:
+- **It is probably the strongest defensive item in the game.** In the
+  11 PM band, at Attack 2, roughly 70 % of draws are a fight — so −1 on
+  each is worth about 0.8 HP a turn, or ~8 HP across the last band, on a
+  10 HP cap. Plus it zeroes the −1 HP events outright.
+- **And it is only available before you are likely to have rice.**
+  Medicine searches are what produce 糯米, and turn 1–10 is when you are
+  still finding your feet. So it is a **prepared-early, paid-late**
+  reward, which is a good shape — but check with the bots that it is
+  reachable often enough to matter, and not so strong that the run
+  divides into "got the charm" and "didn't."
+
+### Danger by band — expected HP lost per turn
+
+Assuming the villager is always refused, ignoring poison (its effect is
+still undefined), damage = `clamp(N − Attack, 0, 4)`:
+
+| Sustained Attack | 9 PM | 10 PM | 11 PM |
+|---|---|---|---|
+| **0** — bare-handed | **1.85** | **2.00** | **2.90** |
+| 1 — 戒刀 / 桃木劍 | 1.35 | 1.60 | 2.60 |
+| 2 — 銅錢劍 | 0.85 | 1.25 | 2.30 |
+| 3 — 七星劍 | 0.35 | 0.75 | 1.60 |
+| **4** — 七星劍 + 真火符 | **0.00** | **0.25** | **0.90** |
+
+Four things this table says, all of them good:
+
+**1. Bare-handed is lethal, fast.** ~1.85 HP a turn against a 10 HP cap
+means about six turns to live. **Finding a weapon is not optional**, and
+the game says so in the first band without a single word of tutorial.
+
+**2. The sustained ceiling is Attack 4, and 11 PM is calibrated exactly
+against it.** 0.9 a turn over ten turns is ~9 HP against a cap of 10 —
+the best-equipped possible player *just* survives the last band on
+healing. That is a remarkably tight fit, and it means the 11 PM band is
+correctly lethal for everyone below the ceiling.
+
+**3. The escalation matches the source's shape.** Fights go 40 % → 40 %
+→ **60 %** (70 % counting refused villagers), sizes climb 3–4 → 4–5 →
+4–6, and the +1 HP relief **disappears entirely at eleven**. Spec §3's
+deliberate curve — more fights, bigger fights, comfort drying up — is
+preserved without copying a single number.
+
+**4. Constraint P1 is comfortably satisfied.** Camping a +1 HP tile
+yields +1 a turn against 2.3 (Attack 2) or 2.9 (bare) in the last band.
+Standing still to heal is clearly losing, so the healing tiles need no
+extra brake.
+
+### Where this leaves the sword-plus-talisman worry
+
+Adding a talisman on top of a sword lifts Attack well past the ceiling —
+but **only for one turn each**, and the table above is *sustained* attack.
+So the add rule buys **emergency coverage, not immunity**: you can blank
+the worst draw of a bad stretch, a handful of times a night. That is a
+much healthier read than the earlier concern that the 10 and 11 PM bands
+would be walked through, and it means the pack sizes above do not need
+re-scaling.
+
+### 中毒 corpse-poison — ✅ decided 2026-08-23
+
+> **−1 HP every turn, until a 糯米 draws it out.** Nothing else cures it.
+
+An open-ended bleed with a single, contested cure. Three things follow,
+and the third is the interesting one.
+
+**1. Poison is not survivable if ignored.** At 10 % a turn you are
+poisoned around turn 10 on average; left alone from there it costs
+**~20 HP** by midnight, against a cap of 10. There is no riding it out —
+it is a **forcing function**, and its whole job is to make you spend rice.
+
+**2. It roughly doubles the cost of a bad stretch.** On top of the band
+damage from §6:
+
+| At Attack 2 | clean | poisoned |
+|---|---|---|
+| 9 PM | 0.85 /turn | **1.85** |
+| 10 PM | 1.25 /turn | **2.25** |
+| 11 PM | 2.30 /turn | **3.30** |
+
+Poisoned and under-armed in the last band is ~3 turns of life. Being
+poisoned at 1 HP is death next turn unless you already hold rice.
+
+**3. ⚠️ Poison and the villager now fight over the same item — and
+poison has the louder claim.** This is the real consequence. 糯米 was
+already carrying three jobs; now one of them is *urgent* and the others
+are merely valuable:
+
+| Claim on your 糯米 | Urgency |
+|---|---|
+| Cure 中毒 | **immediate** — it bleeds until you do |
+| Save a villager (→ 真火符 / 五雷符) | can be declined, at the cost of a fight |
+| Eat it for +3 | whenever |
+
+So the "villagers are a second route to the duel kit" structure that §6
+looked so good for is **partly undercut**: a poisoned player cannot
+afford to give rice away, and by the 11 PM band — where the villager
+carries a 五雷符, an actual seal component — they will usually be
+poisoned. **Check this with the bots**; if the villager reward turns out
+to be almost never collected, the elegant part of §6 is decorative.
+
+### 🎯 Does 護身符 cancel poison? It should.
+
+**護身符 reduces all damage you take by 1. Poison deals exactly 1.** If
+the charm applies to it, the charm is **poison immunity**, and that turns
+a pile of separate mechanics into one clean chain:
+
+> Save the **9 PM villager** with a rice → take the **護身符** → you are
+> immune to the bleed for the rest of the night → every later rice is free
+> to spend on villagers → who hand you **真火符** at ten and **五雷符** at
+> eleven → which are two of the four pieces of the **seal**.
+
+**One early act of mercy unlocks the entire villager route**, and through
+it the duel. That is a chain worth building the game around: it is
+discoverable, it rewards being generous *early* when you can least afford
+it, and it makes the 9 PM villager the most consequential single draw in
+the game.
+
+**Strong recommendation: yes, 護身符 stops poison.** The alternative —
+a charm that reduces wounds but not the bleed — leaves the poison tax
+permanent, keeps rice permanently spoken for, and quietly kills the
+villager route. If that makes the charm too strong, tune it by making it
+rarer or by letting poison stack, not by exempting it.
+
+### Still open on events
+- **Does 中毒 stack?** Read as **no** — a state, not a counter, so a
+  second poison draw while already poisoned does nothing. Stacking would
+  make a bad run unrecoverable, and it is the natural reading of "中毒".
+- **Does 護身符 cancel it?** See above. Needs a ruling; the design leans
+  hard on the answer.
+- **Start or end of turn?** Start reads better: you wake worse than you
+  went to sleep, and it means being cured the same turn you are poisoned
+  costs you nothing, which rewards holding rice.
+- **Poison at midnight is now irrelevant** — the duel is a threshold on
+  Attack, not on health (§5). One fewer edge case.
+- **Can the villager be saved with anything but 糯米?** Rice is
+  thematically exact — it draws out corpse-poison, which is the same
+  thing it does for you — so probably not.
+- **Is the same event allowed twice a night?** Drawn with replacement,
+  presumably; the pool is a distribution, not a deck.
+- **Where the held breath goes** — proposed in §5 as an option on a
+  jiangshi draw: stand still, hold your breath, let it pass. Would give a
+  third answer alongside fight and flee.
+
 ## Cross-cutting
 
 **These three changes are one change.** Turn clock (§1) decides what
@@ -1612,6 +1826,53 @@ more redesign is coming. Reconcile once the systems settle.
   pool — hold still and let a jiangshi pass. Also: **Variant B's section
   had been lost to an accidental slice in an earlier edit; restored in
   brief under "Rejected alternatives".**
+- 2026-08-23 — **event pool designed → §6.** Three bands of exactly 100 %,
+  escalating 40 % → 40 % → 60 % fights with sizes 3–4 → 4–5 → 4–6 and the
+  +1 HP relief vanishing at eleven — spec §3's deliberate curve preserved
+  without reusing a number of it. Two things stand out. **村民受傷 is the
+  best event in the design**: the only one that is a *decision*, its cost
+  is the game's pivotal item, refusing means fighting the band's worst
+  jiangshi, and — the accidental beauty — **its rewards at 10 and 11 PM
+  are 真火符 and 五雷符, two of the four pieces the seal needs**, so saving
+  villagers late is a second route to the duel kit. And **糯米 now carries
+  three competing jobs** — heal +3, the only cure for 中毒, and the price
+  of saving a villager — which is the sharpest tension yet and comes
+  entirely from overlap rather than from a rule. Also introduces a
+  **thirteenth item, 護身符** (all damage −1), obtainable *only* from the
+  9 PM villager, so it is prepared-early and paid-late; worth ~8 HP across
+  the last band, which may be too strong for something that luck-gated.
+  Ran the expected-damage table: **bare-handed is ~1.85 HP/turn, about six
+  turns to live**, so finding a weapon teaches itself; and the sustained
+  ceiling of Attack 4 takes ~0.9/turn at eleven, i.e. ~9 HP against a cap
+  of 10 — **the 11 PM band is calibrated almost exactly against the
+  best-equipped possible player.** Constraint P1 is comfortably satisfied
+  (camping +1 against 2.3–2.9). Also resolves the earlier worry about the
+  sword-plus-talisman add rule: talismans are one-use, so they buy
+  **emergency coverage, not immunity**, and the pack sizes need no
+  rescaling. Open: 中毒's own rules — duration, cost per turn, stacking,
+  and what it means to be poisoned at midnight.
+- 2026-08-23 — **中毒 defined: −1 HP every turn until a 糯米 cures it.** An
+  open-ended bleed with one contested cure, and it is **not survivable if
+  ignored** — poisoned around turn 10 on average, that is ~20 HP by
+  midnight against a cap of 10. So it is a forcing function whose job is
+  to make you spend rice. It roughly doubles the cost of a bad stretch
+  (Attack 2 in the last band goes 2.3 → 3.3 a turn, i.e. about three turns
+  of life). ⚠️ **The real consequence is that poison and the wounded
+  villager now compete for the same item, and poison has the louder
+  claim** — which partly undercuts §6's lovely "villagers are a second
+  route to the duel kit", because by the 11 PM band, where the villager
+  carries a 五雷符, the player will usually be poisoned and unable to give
+  rice away. 🎯 **But there is a fix already sitting in the design:
+  護身符 reduces all damage by 1, and poison deals exactly 1** — so if the
+  charm applies, it is poison immunity, and the whole thing becomes one
+  chain: *save the 9 PM villager → get the charm → immune to the bleed →
+  every later rice is free for villagers → who hand you 真火符 and 五雷符,
+  two of the four seal components.* One early act of mercy unlocks the
+  entire villager route and through it the duel. **Strongly recommend
+  ruling that 護身符 stops poison**; without it the rice is permanently
+  spoken for and the villager route is decorative. Also read 中毒 as
+  non-stacking (a state, not a counter) and ticking at the *start* of a
+  turn, so curing on the turn you are poisoned costs nothing.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose

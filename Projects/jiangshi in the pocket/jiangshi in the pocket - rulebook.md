@@ -2,7 +2,7 @@
 tags: [project, rules]
 status: draft
 started: 2026-08-22
-version: pre-alpha — tiles, turn, items and King settled; event pool open
+version: pre-alpha — all systems drafted; charm-vs-poison ruling outstanding
 ---
 # jiangshi in the pocket — rulebook
 
@@ -10,10 +10,10 @@ The playable rules, in one place, as they stand. Human-facing companion to
 [[jiangshi in the pocket - redesign]] (which is the design record, with the
 reasoning and the arguments).
 
-> ⚠️ **This is a draft of a game that isn't finished being designed.**
-> The clock, the turn, the map, the items and the King are settled. The
-> **event pool** is not — and it is load-bearing, because every turn draws
-> from it. Sections marked ⏳ are provisional; don't build from them.
+> ⚠️ **A draft, but a whole game now.** The clock, the turn, the map, the
+> items, the event pool, the poison and the King are all settled. What
+> remains is marked ⏳ and small — chiefly whether the **護身符** cancels
+> **中毒**, which decides how much rice you ever have to spare.
 
 **Legend:** ✅ settled · ⏳ not yet designed · 📐 inherited unchanged from
 the *Zombie in my Pocket* skeleton (see
@@ -42,7 +42,7 @@ Either ends the night. So does dying.
 
 - **10 indoor tiles, 10 outdoor tiles.**
 - An **event pool** ⏳ and an **item pool** — separate, unlike the source
-  game's single deck. **12 items**, in four kinds.
+  game's single deck. **13 items**, in five kinds.
 - Health, Attack, the turn number and your cower charges are numbers you
   track.
 
@@ -114,14 +114,58 @@ may open onto a blank wall, and a wall may seal off a neighbour's door.
 There's no fixed footprint. The village sprawls as far as the tiles take
 it.
 
-### 3 — Draw an event ⏳
+### 3 — Draw an event ✅
 
-One event from the pool, read for **the current hour band**. Always —
-including when you re-enter a room you already know, and including when
-you stayed put.
+One event, read for **the current hour band**. Always — including when you
+re-enter a room you know, and including when you stayed put.
 
-Events are fights, harms, and things that merely happen. **The contents
-of the pool are not designed yet.**
+| | 9 PM | 10 PM | 11 PM |
+|---|---|---|---|
+| **僵屍 3** | 15 % | — | — |
+| **僵屍 4** | 25 % | 25 % | 20 % |
+| **僵屍 5** | — | 15 % | 20 % |
+| **僵屍 6** | — | — | 20 % |
+| **−1 Health** | 10 % | 10 % | 10 % |
+| **+1 Health** | 10 % | 10 % | — |
+| **Nothing happens** | 20 % | 20 % | 10 % |
+| **中毒 — poisoned** | 10 % | 10 % | 10 % |
+| **村民受傷 — a villager is hurt** | 10 % | 10 % | 10 % |
+
+The night gets worse in three ways at once: more fights, bigger ones, and
+at eleven o'clock the small mercies stop — there is no more +1 Health, and
+only one draw in ten is nothing at all.
+
+#### 中毒 — poisoned
+
+Corpse-poison gets into you, and it does not wear off.
+
+> **−1 Health at the start of every turn, until a 糯米 draws it out.**
+
+Nothing else cures it. Left alone it will kill you — being poisoned early
+and never treating it costs more Health than you can possibly hold. **The
+rice in your pack is the only answer**, which is exactly why you cannot
+comfortably spend it elsewhere.
+
+#### 村民受傷 — a villager is hurt
+
+Someone from the village is bitten and bleeding. **Spend a 糯米 to draw
+the poison out of them**, and they give you what they have. Refuse — or
+have no rice — and you watch them turn.
+
+| | Save them, and take | Refuse, and fight |
+|---|---|---|
+| **9 PM** | **護身符** — every wound you take is 1 less, all night | 僵屍 4 |
+| **10 PM** | **真火符** | 僵屍 5 |
+| **11 PM** | **五雷符** | 僵屍 6 |
+
+Two of those gifts are pieces of the kit you need at
+[midnight](#midnight-). **The rice you keep for yourself is rice you
+don't have when someone needs it** — and late in the night, the villagers
+are carrying exactly what you were searching for.
+
+And the rice is also the only thing that cures **中毒**. Poisoned, with
+one 糯米 left and a bleeding villager in front of you, is the hardest
+choice the game asks.
 
 ### 4 — Search, if the room offers it ✅
 
@@ -275,6 +319,16 @@ sword and the sword is better for the rest of the night. 七星劍 with a
 Health stops at **10**. Anything that would take you past it is
 wasted — so a 糯米 at 9 Health is worth holding rather than eating.
 
+### 護身符 The charm — kept
+
+| | |
+|---|---|
+| **護身符** Protective Charm | **Every wound you take is 1 less.** Lasts all night — and 中毒 deals exactly 1 ⏳ |
+
+Not found by searching. The only way to get one is to **save the villager
+in the 9 PM band** — so it is the earliest opportunity in the game and
+the one that pays off latest.
+
 ### 法器 The banner — used once
 
 | | |
@@ -422,8 +476,11 @@ game — it's an appointment.
 - **The event pool** — everything in it, and how the three bands differ.
 - **The item pool's weighting** — the 12 items exist; which are unique,
   which are common, and how often a search finds nothing do not.
-- **屍毒 corpse-poison** — 糯米 cures it, and nothing yet inflicts it. It
-  has to come from the event pool.
+- **Whether 護身符 cancels 中毒.** The charm takes 1 off every wound and
+  the poison deals exactly 1, so the charm may be outright immunity. The
+  design leans hard on the answer: with it, one early rescue frees every
+  later rice for the villagers.
+- **Whether 中毒 can stack**, if you are poisoned while already poisoned.
 - **How much cowering heals**, exactly.
 - **What the crypt rite and the burial rite cost** — a turn each, an
   event each, or both.
