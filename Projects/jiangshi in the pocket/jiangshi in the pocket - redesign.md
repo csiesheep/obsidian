@@ -295,6 +295,86 @@ medicines are **consumed on use**. The backpack holds **6 items**
 | **黑狗血** | Black Dog Blood | **Escape the fight** |
 | **金丹** | Golden Elixir | **50 %: +6 HP · 50 %: −2 HP** |
 
+### Search probabilities — ✅ decided 2026-08-23
+
+Rolled per search. **Weapons are one-of-a-kind**: roll one you already
+carry and you find nothing.
+
+| 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 special | |
+|---|---|---|---|---|---|---|---|
+| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 50 % | 糯米 | 40 % |
+| 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 30 % | **攝魂幡** | **20 %** |
+| 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 20 % | nothing | 40 % |
+| 七星劍 | **10 %** | 五雷符 | 20 % | *(never fails)* | | | |
+| nothing | 10 % | nothing | 10 % | | | | |
+
+### What the probabilities do
+
+**1. ✅ Weapons self-limit, elegantly.** Because a duplicate roll returns
+nothing, the effective miss rate *climbs as you collect*:
+
+| Already carrying | Effective "nothing" |
+|---|---|
+| — | 10 % |
+| 戒刀 | 40 % |
+| 戒刀 + 桃木劍 | 70 % |
+| + 銅錢劍 | 90 % |
+
+Diminishing returns with no extra rule written — the fourth weapon search
+in a night is nearly always wasted. This is the cleanest of the four
+tables.
+
+**2. 七星劍 at 10 % means most runs never see it.** It's geometric and the
+odds don't improve as you collect others, so it's ~10 searches expected;
+ten rolls give 65 %, twenty give 88 %. Each extra roll costs a **STAY** —
+a turn *and* an event. **So the realistic attack ceiling for a typical
+run is 2–3, not 3–4**, with 七星劍 as the lucky night. Worth holding on
+to when the King gets numbers: build him against the common case, not the
+best case.
+
+**3. ⚠️ 丹藥 never fails, and both healing tiles are also 丹藥 tiles.**
+帳房 Counting Room and 槐樹 Pagoda Tree each give **+1 HP at end of turn**
+*and* a guaranteed medicine. A single turn spent standing on 帳房 is
+worth, in expectation:
+
+```
++1.0   the tile
++1.5   50 % × 糯米 (+3)
++0.4   20 % × 金丹 (EV +2)
+────
++2.9 HP per turn, before event damage
+```
+
+plus a stockpile of 黑狗血 escapes on the side. That is a **healing
+engine**, and it moves the goalposts on the camping question:
+
+> **Constraint P1 is superseded.** It required mean event damage above
+> **+1 HP/turn**. To make standing on 帳房 unprofitable it now has to
+> exceed **~+3 HP/turn** — a very different, much crueller event pool.
+
+Two further points make this the sharpest open issue in the design:
+- **There is currently no health cap.** It was pencilled out when the
+  3-charge cower limit arrived, on the grounds that cowering could only
+  ever add +9. Guaranteed medicine changes that calculation completely:
+  health can now grow without bound. **The cap probably needs to come
+  back**, and it is the cheapest of the available fixes.
+- The other fixes, cheapest first: give 丹藥 a **nothing** slice (20 %
+  would match the other tables); or **decouple the heal tiles from the
+  medicine tiles** so no tile does both.
+
+**4. 真火符 is the most common talisman (30 %) and talismans are
+unlimited.** Nothing marks 符咒 as one-of-a-kind, so they're drawn with
+replacement — a 90 % hit rate, forever. That turns an academic question
+urgent: **can one sword take more than one 真火符?** If it can, camping
+經堂 / 靈堂 / 竹林 yields a 真火符 roughly every third search and Attack
+climbs without limit. Recommend **capping a sword at one**.
+
+**5. Is 攝魂幡 unique?** Unstated. At 20 % a search, camping 土地廟 yields
+a second banner in about five more turns, and two doublings against the
+King is a different fight from one. **Recommend making it unique like the
+weapons** — one banner a night, and the shrine returns nothing if you
+already hold it.
+
 ### What this design implies
 
 **1. Base attack is almost certainly 0, not 1.** Nothing else makes the
@@ -1150,6 +1230,21 @@ more redesign is coming. Reconcile once the systems settle.
   top-up rather than a supply line, which keeps "the village prepares,
   the hillside delivers" true without making the hillside a corridor you
   can strand yourself in.
+- 2026-08-23 — **search probabilities set** for all four tables. Three
+  findings. **Weapons self-limit beautifully**: the duplicate-returns-
+  nothing rule pushes the effective miss rate 10 % → 40 % → 70 % → 90 %
+  as you collect, so diminishing returns cost no extra rule. **七星劍 at
+  10 % means most runs never see it** (~10 searches expected, each
+  costing a STAY plus an event), so the realistic attack ceiling for a
+  typical night is 2–3 and the King should be built against that, not
+  against the best case. And the sharp one: **丹藥 never fails, while
+  both +1 HP tiles are also 丹藥 tiles** — a turn on 帳房 is worth ~+2.9
+  HP in expectation before event damage, which **supersedes constraint
+  P1** (mean event damage must now beat ~3 HP/turn, not 1) and argues for
+  **reinstating a health cap**, since nothing else bounds health growth
+  any more. Also flagged: talismans are unlimited at 90 % hit, so capping
+  a sword at one 真火符 matters now; and 攝魂幡 should probably be unique
+  like the weapons.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose

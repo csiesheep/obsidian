@@ -275,6 +275,31 @@ Shrine**, and only sometimes, when you search there.
 Doubling is wasted on a small pack — you can only reduce damage to zero,
 and a sword often gets you there already. **Keep it for something big.**
 
+### What a search turns up ✅
+
+Each search rolls once on the table for that place's category.
+
+| 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 only | |
+|---|---|---|---|---|---|---|---|
+| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 50 % | 糯米 | 40 % |
+| 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 30 % | **攝魂幡** | 20 % |
+| 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 20 % | nothing | 40 % |
+| 七星劍 | 10 % | 五雷符 | 20 % | | | | |
+| nothing | 10 % | nothing | 10 % | | | | |
+
+**There is only one of each weapon in the village.** Turn up one you're
+already carrying and you find nothing — so the more blades you own, the
+more often a weapon search comes up empty. Four searches in and it
+almost always will.
+
+**A medicine search never comes up empty.** Talismans almost never do,
+and there is no limit on them: the same talisman can be found again and
+again.
+
+**七星劍 is rare on purpose.** One search in ten. Most nights you will
+fight with something worse, and that is the game working, not the game
+cheating you.
+
 ### What isn't settled about items ⏳
 - **Which are common and which are one-of-a-kind.** Rarity is how the
   pool is weighted, and no item has a count yet.
