@@ -2353,6 +2353,12 @@ more redesign is coming. Reconcile once the systems settle.
   against the credible instrument. If the competent duelist clears ~2 %,
   the game stands as designed; if not, the remaining levers (survival,
   threshold, structure) come back re-priced against an honest number.
+- 2026-08-24 — **endgame order ruled by the user: item icons (#23) →
+  ship (#17) → bilingual (#16).** All engineering issues are closed at
+  197/0; the seal stands at its measured 22 % for a knowing player with
+  the hidden presentation unchanged, and the hunter-parity measurement
+  stays unfiled. Bilingual becomes the first post-launch update rather
+  than a launch blocker.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
