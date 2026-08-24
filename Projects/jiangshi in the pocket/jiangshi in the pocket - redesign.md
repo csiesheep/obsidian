@@ -259,7 +259,7 @@ Still to settle when the pool is authored (not now):
 
 ### The items — ✅ designed 2026-08-23
 
-Eleven items in three categories. Weapons persist; talismans and
+Twelve items in four categories. Weapons persist; talismans and
 medicines are **consumed on use**. The backpack holds **6 items**
 (2026-08-23, up from the source's 2). The 神主牌 tablet is slotless.
 
@@ -280,6 +280,12 @@ medicines are **consumed on use**. The backpack holds **6 items**
 | **五雷符** | Five Thunder Talisman | Attack **4** |
 | **血符** | Blood Talisman | Attack **5**, costs **1 HP** to use |
 | **硃砂** | Cinnabar | Add **+2 quantity** to any talisman in hand |
+
+#### 法器 ritual implement — one use, then gone
+
+| 物件 | Item | Effect |
+|---|---|---|
+| **攝魂幡** | Soul-Snatching Banner | Your **next attack ×2** |
 
 #### 丹藥 medicine — one use, then gone
 
@@ -344,6 +350,40 @@ button. The line is now gated by **finding** the pieces and nothing else.
 If attack 6 turns out to be too much, the brakes available are: cap a
 sword at **one** 真火符, stop 硃砂 from targeting 真火符, or make the
 buff last one fight instead of sticking.
+
+**4. 🎏 攝魂幡 is a boss item, whether or not that was intended.** It is
+the game's first **multiplicative** effect, and the damage clamp decides
+what that means. Damage is `count − attack`, so any attack at or above
+the pack size already deals 0 — and doubling past that is thrown away:
+
+| Holding | Attack | ×2 | vs a pack of 5 | vs a pack of 7 |
+|---|---|---|---|---|
+| 七星劍 | 3 | 6 | 2 → **0** | 4 → 1 |
+| 七星劍 + 真火符 | 4 | 8 | 1 → **0** | 3 → **0** |
+| 血符 | 5 | 10 | 0 → 0 | 2 → **0** |
+
+Against ordinary packs the banner mostly buys nothing a sword wasn't
+already buying. Against something **big** it is decisive. So it naturally
+becomes the thing you *save for midnight* — which is exactly right for a
+soul-banner, and gives the item a real decision attached to it ("is this
+the fight?") rather than a number.
+
+Two things follow:
+- **It sets the ceiling the King must be designed against.** A prepared
+  player can present **attack 10** (血符 ×2) or **12**
+  (七星劍 + 真火符 ×3, doubled). If the King's strength lands anywhere
+  near the earlier proposals of 5–7, a banner-holding player zeroes him
+  outright. Design him knowing this number exists.
+- **"Next attack" means exactly one attack**, so in a multi-round duel it
+  covers **one round**. That is a good fit with the planned three-round
+  structure: the banner answers one beat and you still need answers for
+  the other two. Worth keeping the duel multi-round for precisely this
+  reason.
+
+**Where is it found?** It doesn't sit in 武器 / 符咒 / 丹藥 — it's a 法器.
+Cleanest answer: make it a **unique in 靈堂 Mourning Hall**, which is
+literally where a 引魂幡 stands. That gives the room a signature find and
+saves inventing a fourth search category for one object.
 
 **4. 🆕 屍毒 poison is a new status that does not exist yet.** 糯米's
 second mode cures "poisoned" — nothing in the design can currently
@@ -1056,6 +1096,17 @@ more redesign is coming. Reconcile once the systems settle.
   not a player who had to choose. Whether 6 ever binds depends on the
   search miss rate; if a run only finds 4–5 items, 6 slots is effectively
   no limit.
+- 2026-08-23 — **攝魂幡 added** (one use: next attack ×2), the game's
+  first multiplicative effect and so far its only 法器. The damage clamp
+  makes it near-worthless in ordinary fights and decisive against
+  something large, so it is **naturally a boss item** — save it for
+  midnight — which is a good decision to hang on an object. It also sets
+  a hard constraint on the still-unwritten King: a prepared player can
+  present **attack 10–12**, so a strength anywhere near the earlier 5–7
+  proposals gets zeroed. Note that "next attack" covers exactly **one
+  round**, which is an argument for keeping the duel multi-round.
+  Suggested home: a unique find in 靈堂 Mourning Hall, where a 引魂幡
+  would actually stand.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
