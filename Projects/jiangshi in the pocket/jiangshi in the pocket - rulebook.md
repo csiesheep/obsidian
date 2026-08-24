@@ -12,8 +12,13 @@ reasoning and the arguments).
 
 > ⚠️ **A draft, but a whole game now.** The clock, the turn, the map, the
 > items, the event pool, the poison and the King are all settled. What is
-> left is small and marked ⏳ — and none of it stops you reading this as
-> the game.
+> left is small and marked ⏳.
+>
+> 🤫 **This document is not the player-facing rulebook.** 鎮屍 — beating
+> the King — is a **hidden ending**: the shipped `rulebook.html` describes
+> what happens at midnight but must not print the Attack-12 table or the
+> kit list. Everything below is the build reference, where all of it is
+> written down.
 
 **Legend:** ✅ settled · ⏳ not yet designed · 📐 inherited unchanged from
 the *Zombie in my Pocket* skeleton (see
@@ -484,6 +489,11 @@ things.
 **The burial ends the night the moment you finish it.** The seal cannot
 happen before turn 30. So the burial is the win you plan for, and the
 seal is the win the night hands you.
+
+🤫 **The burial is the only win the game tells you about.** The seal is a
+hidden ending — hard, luck-dependent, and never presented as the better
+one. Burying a man properly is the kinder act; sealing him is only the
+rarer. Neither verdict outranks the other.
 
 ### Carrying the tablet to midnight ⏳
 

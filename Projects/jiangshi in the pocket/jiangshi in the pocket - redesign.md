@@ -1563,16 +1563,68 @@ And two run facts worth composing in, because they are the ones a player
 would mention when describing the night: **whether a villager was saved**,
 and **whether the rice ran out.**
 
+### 🤫 鎮屍 is a hidden ending — ✅ decided 2026-08-23
+
+**The burial is the game's stated goal. The seal is not advertised
+anywhere, and it is not presented as the better ending.**
+
+Those are two separate rulings and both matter:
+
+- **Hidden** — nothing tells the player it exists. Not the letter, not the
+  menu, not the store copy. It takes commitment and luck to reach, and
+  finding out it was possible is part of what it is.
+- **Not ranked** — no "true ending", no extra tier, no grander verdict
+  card. It is simply another way the night ended. A game about a corpse
+  hostel can quite reasonably hold that **putting a man back in the ground
+  is the better act**, and the confrontation is just the rarer one.
+
+### What that constrains
+
+| Surface | Ruling |
+|---|---|
+| **The first-run letter** | Teaches the **burial only** — where the tablet is, where it goes, and that the night is short. No mention of the King as anything but a deadline |
+| **The player-facing rulebook** (`rulebook.html`) | Describes what happens at midnight — he comes, and he is beyond you — **without laying out the recipe.** No Attack-12 table, no kit list |
+| **This vault rulebook** | Keeps everything. It is the build document, not a player document — worth being explicit that the two now diverge |
+| **Epilogue lines** | **Same register, same length** for both wins. The seal's sentence must not be written grander than the burial's |
+| **Tally / "the house remembers you"** | Counts it once achieved; never displays it as a higher score, and shows nothing about it beforehand |
+| **SEO, OG copy, JSON-LD, landing page** | All describe the burial. A hidden ending in the marketing copy is not hidden |
+
+### ⚠️ But a hidden ending still has to be *findable*
+
+This is the real problem the ruling creates. To stumble into the seal a
+player must survive to turn 30 **and** happen to be holding Attack ≥ 11 —
+and turn 30 normally kills you. Left alone, almost nobody ever discovers
+it, and an ending nobody finds is the same as an ending that isn't there.
+
+**The fix is the death screen.** When he takes you at midnight, show the
+comparison:
+
+```
+        your attack   6
+        needed       12
+```
+
+No explanation, no hint text. A player who dies at midnight learns that
+**there was a number**, and that is enough — the next run they are
+looking. That is the whole of the discovery design: one honest line on the
+verdict card that reveals a mechanic without teaching it.
+
+Two softer routes toward it that already exist, and are worth leaving as
+the quiet trail:
+- **The villagers hand you 真火符 and 五雷符**, which are only really
+  *for* this. A player who collects them and never learns why has been
+  handed half the answer.
+- **The 攝魂幡** does nothing an ordinary fight needs — its whole
+  description is about doubling a blow, and it is hidden behind the moon
+  gate at one tile. Finding it invites the question.
+
 ### Open
-- **Should the seal's ending outrank the burial's** — a "better" win, in
-  the tally and in the writing? It is the harder one. But the burial is
-  the *merciful* one, and a game about a corpse hostel might reasonably
-  say the quiet ending is the better one. A writing decision, not a
-  mechanical one.
 - **Can you bury the tablet and then still be attacked at turn 30?** No —
   the burial ends the run immediately. Worth confirming that is wanted,
   since it means a turn-12 burial skips two thirds of the game.
-
+- **Does the hidden ending stay hidden across runs?** Once a player has
+  sealed him, showing the threshold openly afterwards would be kind.
+  Or not — leaving it unstated forever is also a choice.
 
 ## Cross-cutting
 
@@ -2091,6 +2143,26 @@ more redesign is coming. Reconcile once the systems settle.
   live second plan rather than a souvenir, so the burial and the seal
   stopped being alternatives and became a sequence you can fall back
   along.
+- 2026-08-23 — **鎮屍 ruled a hidden ending, and deliberately not a higher
+  tier.** Two separate calls: nothing advertises it (not the letter, not
+  the menu, not the store copy), and no verdict ranks it above the burial
+  — a game about a corpse hostel can hold that **putting a man back in the
+  ground is the better act** and the confrontation is merely the rarer
+  one. Constraints recorded per surface: the first-run letter teaches the
+  burial only; the **player-facing rulebook diverges from this vault one**
+  and must describe midnight without printing the recipe; the two wins'
+  epilogue lines have to match in register and length so neither reads as
+  the "real" ending; and the SEO/OG/landing copy all describe the burial,
+  since a hidden ending in the marketing is not hidden. ⚠️ The ruling
+  creates one real problem — **an ending nobody finds is the same as one
+  that isn't there**, and reaching the seal by accident needs surviving to
+  turn 30 while happening to hold Attack ≥ 11. The fix is the **death
+  screen**: when he takes you, print `your attack 6 / needed 12` with no
+  commentary. A player learns *there was a number* and goes looking, which
+  reveals a mechanic without teaching it. The quiet trail already exists
+  in two places worth preserving: the villagers hand over 真火符 and 五雷符,
+  which are really only *for* this, and the 攝魂幡 does nothing an ordinary
+  fight requires.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
