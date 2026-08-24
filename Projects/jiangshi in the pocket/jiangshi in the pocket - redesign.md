@@ -2344,6 +2344,15 @@ more redesign is coming. Reconcile once the systems settle.
   Tuned empirically against the bot harness rather than by arithmetic;
   spec §4's relic table to be amended to the shipped numbers once the
   tuning lands.
+- 2026-08-24 — **user ruling on the seal question: fix the instrument
+  first** (option C). The banner-odds sweep proved the chosen lever could
+  not reach 2 % — seal = P(reach midnight) × P(kitted | arrived) =
+  4.9 % × 7.4 %, and possession marked good nights rather than gating
+  them — so before any game change, the duelist bot is upgraded to
+  represent a player who knows the recipe, and the target is re-measured
+  against the credible instrument. If the competent duelist clears ~2 %,
+  the game stands as designed; if not, the remaining levers (survival,
+  threshold, structure) come back re-priced against an honest number.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
