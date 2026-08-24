@@ -431,6 +431,9 @@ night is decided.
 > **Attack 12 or more — you seal him, and you have won.**
 > **Anything less — he takes you.**
 
+Carrying the **神主牌** lowers that 12 to **11** ⏳ — see
+[Winning and losing](#winning-and-losing-).
+
 No fleeing, no cowering, no medicine, no second chance. **黑狗血 does not
 work on him** — there is nowhere he is not.
 
@@ -470,16 +473,31 @@ when turn 30 ends and **he does not come** — you live, and you cannot
 seal him, because nothing happens at all. If the tablet is already in the
 ground you have won anyway. If it isn't, you simply saw the night out.
 
-## Winning and losing
+## Winning and losing ✅
 
-| | |
-|---|---|
-| **Win — the burial** | Survive the rite at the Mass Grave while carrying the tablet |
-| **Win — the seal** | Meet one of the King's blows with Attack 12 and seal him |
-| **Lose** | Health reaches 0, at any point |
+There are two ways to end the night well, and they ask for different
+things.
 
-There is no losing to the clock. Midnight is not a deadline in this
-game — it's an appointment.
+| | How | What it costs you |
+|---|---|---|
+| **Win — 下葬 the burial** | Take the 神主牌 from the 停柩房, carry it out through the moon gate, and finish the rite at the 亂葬崗 | **Turns spent walking.** Three rooms have to turn up, and the 天井 is the only way outside |
+| **Win — 鎮屍 the seal** | Meet the King's one strike at midnight with **Attack 12** | **Turns spent standing still.** Four things have to be found |
+| **Survived** | Be standing on the **溪澗 Stream** when turn 30 ends | Nothing, and it wins you nothing. You live; he is still out there |
+| **Lost** | Health reaches 0 — or turn 30 finds you short of 12 | — |
+
+**The burial ends the night the moment you finish it.** The seal cannot
+happen before turn 30. So the burial is the win you plan for, and the
+seal is the win the night hands you.
+
+### Carrying the tablet to midnight ⏳
+
+If you have the tablet but never reached the grave, it is not dead weight:
+**holding his name lowers what you need to seal him from 12 to 11.** A
+jiangshi that hears its own name loses a moment, and a moment is exactly
+what the paper needs.
+
+So a burial that failed can still finish the night — which is why it is
+worth taking the tablet even when you doubt you can get it to the ground.
 
 ## What isn't decided yet
 - **The event pool** — everything in it, and how the three bands differ.

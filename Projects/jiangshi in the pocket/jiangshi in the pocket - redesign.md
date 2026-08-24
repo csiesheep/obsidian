@@ -27,8 +27,10 @@ Baseline being changed: [[zombie in the pocket - ruleset spec]].
 - [x] **King ability design** — **done 2026-08-23 → §5.** Strength 12 as
       a **threshold**: one strike, Attack ≥ 12 seals him, anything less
       kills you. No abilities by design; the drama is the build-up.
-- [ ] **Two wins** — how the tablet burial and the duel relate: relative
-      difficulty, whether they interact, what the epilogue says about each.
+- [x] **Two wins** — **done 2026-08-23 → §7.** They spend different
+      currencies (MOVE/tiles vs STAY/items). Recommendation on the table:
+      **carrying the tablet lowers the seal threshold 12 → 11**, so the
+      two paths converge and a failed burial still counts for something.
 - [ ] **Bilingual — English + 繁體中文, both first-class.** Not a
       translation bolted on: this is a Chinese-themed game, so the zh-TW
       text is arguably the original and the English is the localisation.
@@ -1436,6 +1438,141 @@ Two consequences to hold:
   jiangshi draw: stand still, hold your breath, let it pass. Would give a
   third answer alongside fight and flee.
 
+## 7. The two wins — how they relate ✅ designed 2026-08-23
+
+### They are not two routes to the same thing. They spend different currencies.
+
+| | **下葬 The burial** | **鎮屍 The seal** |
+|---|---|---|
+| You need | Three specific **tiles** — 停柩房, 天井, 亂葬崗 — and the turns to walk between them | Four specific **items** — 七星劍, 真火符, 攝魂幡, an attack talisman |
+| Paid in | **MOVE** turns — exploration and routing | **STAY** turns — searching and re-searching |
+| Luck is in | the tile stacks | the search rolls |
+| Health matters | throughout: you carry the tablet across the map | only to reach turn 30 |
+| Resolves | **whenever you get there** | **exactly at turn 30** |
+| Helped by | 土地廟's prayer reveals the grave | villagers hand you 真火符 and 五雷符 |
+
+That is the real distinction, and it is a good one: **one win is about
+knowing the map, the other about knowing the tables.** They compete for
+the same 30 turns, but through opposite verbs — every turn spent standing
+still to search is a turn not spent finding the grave.
+
+### ⚠️ The structural asymmetry: the burial can end the night early
+
+The burial wins **the moment you finish the rite**. The seal cannot happen
+before turn 30. So a player holding both options takes the burial, and
+that makes the seal — on paper — the fallback rather than the equal.
+
+**Framing that honestly, and correctly:** the burial is the win you
+**plan**, the seal is the win the night **gives** you. That is a fair
+division and it does not need fixing with a rule. What it does need is
+for the seal not to be *strictly* harder, which brings us to the numbers.
+
+### ⚠️ The seal is currently the much harder win
+
+Rough turn costs, and this is the part to check with bots:
+
+**Burial** — reveal indoor tiles until 停柩房 turns up (~6 tiles), walk
+back to 天井, cross, then find 亂葬崗 among the outdoor stack (~6 tiles,
+or immediately with the shrine's prayer). Call it **turn 20–25** on an
+ordinary night, tight but ordinary. Three tiles must appear, and the
+Courtyard is a hard dependency — **without 天井 there is no outdoors at
+all**, so a bad indoor stack can shut the burial down completely.
+
+**Seal** — the two uniques are the whole problem:
+
+| Piece | Expected searches | Where |
+|---|---|---|
+| 七星劍 at 10 % | **~10** | 鐵匠鋪 / 柴房 / 牌坊 |
+| 攝魂幡 at 15 % | **~7** | 土地廟 only, outdoors |
+
+**~17 searches**, most of them STAY turns, out of 30 — plus finding those
+tiles in the first place, plus travel, plus the event damage taken while
+standing around. The villagers hand over 真火符 and 五雷符 free, which is
+what keeps it possible at all.
+
+**So the seal is materially harder than the burial**, and both are
+gated on uniques appearing. Knobs if the bots agree, cheapest first:
+1. **七星劍 to 15 %** — the single biggest lever; the sword is the tighter
+   of the two gates.
+2. **攝魂幡 to 20–25 %.**
+3. Let 硃砂 duplicate a found 攝魂幡.
+
+### 🎯 The recommendation: let the tablet lower the threshold to 11
+
+Right now the tablet does nothing at midnight, and the two wins never
+touch. **Change that: carrying the 神主牌 when he comes drops the seal
+threshold from 12 to 11.**
+
+You are holding his **name**. A jiangshi that hears its own name loses a
+moment — that is the folklore, and it is exactly one moment's worth of
+advantage.
+
+Look at what it does to the near-miss table from §5:
+
+| Line | Attack | Without tablet | **With tablet** |
+|---|---|---|---|
+| 七星劍 + 攝魂幡 + 血符 — no 真火符 | 11 | ✗ | **✅ seals** |
+| 銅錢劍 + 真火符 + 攝魂幡 + 血符 — wrong sword | 11 | ✗ | **✅ seals** |
+| 七星劍 + 真火符 + 攝魂幡 + 五雷符 | 12 | ✅ | ✅ |
+
+**Both "short by exactly 1" lines become live** — including the one that
+does not need 七星劍 at all, which is the tighter gate. Three things this
+buys:
+
+- **A failed burial stops being wasted.** You found the tablet, you could
+  not reach the grave, and the thing in your hands turns out to be worth
+  something anyway. That is a far better story than carrying a useless
+  MacGuffin to your death.
+- **The two paths converge instead of merely competing.** Half a burial
+  plus most of a kit is a win, which is how a two-win game should behave.
+- **It quietly fixes the difficulty gap** without touching a probability:
+  the sword requirement can be dropped by the player who did the map work
+  instead.
+
+The cost is one line of engine code and one number. **Strongly
+recommended.**
+
+### The four outcomes
+
+| Outcome | How | Feels like |
+|---|---|---|
+| **Win — 下葬** | Finish the rite at 亂葬崗 holding the tablet | He was given a name and put back. Quiet, and nobody knows |
+| **Win — 鎮屍** | Meet his strike with Attack 12 (11 with the tablet) | You faced him and pinned him |
+| **Survived** | Standing on 溪澗 Stream at the end of turn 30 | You lived. He is still out there |
+| **Death** | Health 0 at any point, or turn 30 under the threshold | — |
+
+The third one matters: **"survived" is not a win and not a loss**, and it
+is the only outcome the player chooses deliberately. Walking to the water
+is admitting the night beat you and deciding to see morning anyway. Worth
+its own verdict card and its own line.
+
+### What the epilogue needs
+
+`epilogue.js` composes one sentence from fragments (§*Bilingual* note —
+this is also the file that resists translation). Four openings now:
+
+| | Fragment shape |
+|---|---|
+| 下葬 | *"…and the tablet back in the ground where it belongs"* |
+| 鎮屍 | *"…and the paper on his forehead before the drum stopped"* |
+| Survived | *"…standing in the water while the third watch passed"* |
+| Death | existing shapes carry over |
+
+And two run facts worth composing in, because they are the ones a player
+would mention when describing the night: **whether a villager was saved**,
+and **whether the rice ran out.**
+
+### Open
+- **Should the seal's ending outrank the burial's** — a "better" win, in
+  the tally and in the writing? It is the harder one. But the burial is
+  the *merciful* one, and a game about a corpse hostel might reasonably
+  say the quiet ending is the better one. A writing decision, not a
+  mechanical one.
+- **Can you bury the tablet and then still be attacked at turn 30?** No —
+  the burial ends the run immediately. Worth confirming that is wanted,
+  since it means a turn-12 burial skips two thirds of the game.
+
+
 ## Cross-cutting
 
 **These three changes are one change.** Turn clock (§1) decides what
@@ -1914,6 +2051,28 @@ more redesign is coming. Reconcile once the systems settle.
   indoors, so crossing the moon gate rice-less leaves one source on the far
   side; and 護身符 is weaker than it looked — still ~8 HP across the last
   band on wounds alone, a good reward rather than an era-defining one.
+- 2026-08-23 — **§7: the two wins.** The useful framing is that they spend
+  **different currencies** — the burial wants *tiles and MOVE turns*
+  (three specific rooms and the routing between them), the seal wants
+  *items and STAY turns* (four specific finds). One win is about knowing
+  the map, the other about knowing the tables, and they compete for the
+  same 30 turns through opposite verbs. Two problems named. **The burial
+  can end the night early and the seal cannot happen before turn 30**, so
+  a player holding both takes the burial — framed honestly, the burial is
+  the win you *plan* and the seal is the win the night *gives* you. And
+  **the seal is materially the harder one**: ~10 searches expected for
+  七星劍 plus ~7 for 攝魂幡 is ~17 STAY turns out of 30, before travel or
+  the damage taken standing still; the villagers' free 真火符 and 五雷符 are
+  what keep it possible. Knobs listed, 七星劍 to 15 % first. 🎯 **Main
+  recommendation: carrying the 神主牌 at midnight lowers the threshold
+  from 12 to 11** — you hold his name, and a jiangshi that hears its own
+  name loses a moment. It makes **both "short by exactly 1" lines live**,
+  including the one that needs no 七星劍, so it fixes the difficulty gap
+  without touching a probability; it means **a failed burial is no longer
+  wasted**; and it makes the two paths *converge* rather than merely
+  compete. Also settled the outcome space at **four**, with "survived" —
+  standing on 溪澗 when the drum sounds — as its own verdict: not a win,
+  not a loss, and the only ending the player deliberately chooses.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
