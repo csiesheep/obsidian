@@ -20,13 +20,12 @@ Baseline being changed: [[zombie in the pocket - ruleset spec]].
       are searchable. **Done 2026-08-22 → §4**
 - [ ] **Event pool** — contents, hour-band weighting, and the jiangshi
       attacks that live in it. Must satisfy constraint P1.
-- [~] **Item pool** — **11 items designed 2026-08-23** (see §1). Still
-      open: rarity counts, slot rules for talisman stacks, and the miss
-      rate on a search.
-- [~] **King ability design** — **strength 12, Variant A (鎮屍), the
-      attack-combination gate → §5.** Two winning kits exist and every
-      piece of them is load-bearing. Open: what surviving three beats
-      without sealing means.
+- [x] **Item pool** — **12 items + search probabilities done 2026-08-23**
+      (see §1). Residual: whether a talisman *stack* from 硃砂 occupies one
+      slot or several.
+- [x] **King ability design** — **done 2026-08-23 → §5.** Strength 12 as
+      a **threshold**: one strike, Attack ≥ 12 seals him, anything less
+      kills you. No abilities by design; the drama is the build-up.
 - [ ] **Two wins** — how the tablet burial and the duel relate: relative
       difficulty, whether they interact, what the epilogue says about each.
 - [ ] **Bilingual — English + 繁體中文, both first-class.** Not a
@@ -1056,99 +1055,42 @@ Status column says so. Hooks are suggestions, not decisions.
 
 ---
 
-## 5. 殭屍王 The King — strength 12 ✅ Variant A
+## 5. 殭屍王 The King — strength 12, one strike ✅ DECIDED 2026-08-23
 
-**Strength 12, and the combination rule above is what makes it
-reachable.** His damage is `clamp(12 − attack, 0, 4)`, so:
+**One attack. Win and the night is yours; lose and you are dead.**
 
-| Attack | Damage / beat | Over 3 beats |
-|---|---|---|
-| 0 – 8 | **4** (all clamped) | **12 → dead** |
-| 9 | 3 | 9 |
-| 10 | 2 | 6 |
-| 11 | 1 | 3 |
-| **12+** | **0** | **0 — sealed** |
+```
+if  Attack >= 12  ->  sealed, you win
+else              ->  he takes you, you lose
+```
 
-Anything below Attack 9 takes the identical full 4, and 12 damage against
-a 10 HP cap means **three beats of tanking is arithmetically
-impossible.** That is the premise, not a bug: *steel does not stop him.*
+No rounds, no beats, no damage number, no health arithmetic. Strength 12
+is a **threshold**, not a damage stat. Thirty turns of scavenging come
+down to one number and whether you got it to 12.
 
-**So he is not a stat check. He is a three-beat puzzle** answered with
-items rather than with a score — which turns the impossible arithmetic
-from a problem into the premise, and gives every folklore counter a job.
+### The two kits that reach 12
 
----
+Attack is `(sword × 2 if 攝魂幡) + talisman`, so:
 
-## Variant A — 鎮屍, the seal ✅ **CHOSEN 2026-08-23** (he has no health)
-
-### The three beats — 三更三響
-
-He arrives at the end of turn 30, in whatever place you are standing.
-**No fleeing, no cowering, no tile effects.** Three beats of the watch
-drum; answer each one.
-
-### Passives
-
-**屍毒 Corpse-poison.** Any beat where he lands damage also **poisons**
-you: −1 HP at the start of every later beat, and it persists past the
-duel. **糯米 draws it out.** — This is where 屍毒 comes from, closing the
-loop 糯米's cure mode opened with nothing to cure.
-
-**他聞你的呼吸 He hunts by breath.** He is blind and finds you by
-breathing. **Hold your breath** to answer a beat: he loses you and deals
-no damage, but you cannot act either. **Once per duel** — you have to
-breathe eventually.
-
-### Weaknesses — the answers
-
-> **Corrected 2026-08-23.** 僵直 was first written as "you strike first on
-> beat one, free." That was wrong: if the seal only needs a beat where his
-> strike dealt zero damage, a free beat one *is* a seal window, and the
-> duel becomes "spend any talisman on turn 30 and win." Rigor is now a
-> **cushion, not a window** — beat one hits for 2 less, which buys you the
-> time to reach your banner beat without handing you the win.
-
-| Answer | Costs | Does |
-|---|---|---|
-| **僵直 Rigor** | — | He comes stiff out of the coffin: **beat one deals 2 less damage** |
-| **攝魂幡** | the banner | **Attack ×2** for one beat — the only thing that reaches the seal window |
-| **血符** | 1 HP | Attack 5 for one beat → 3 damage instead of 4 |
-| **黑狗血** | the blood | Breaks the working: **skip a beat entirely** |
-| **糯米** | the rice | Clears 屍毒 |
-| **Hold breath** | once | Skip a beat |
-| **溪澗 Stream** | — | He **will not cross running water.** See below |
-
-### 鎮屍 — how you actually win
-
-You do not kill him, you **seal** him. There is no health bar to empty.
-
-> **Meet one of his blows with Attack 12 or more.** It lands on nothing,
-> he loses his footing, and in that opening you press the paper to his
-> forehead. The duel ends and the night is yours.
-
-Reaching 12 needs the whole kit at once, and there are **exactly two
-combinations** that get there:
-
-| The winning lines | Working | Attack |
+| The winning kits | Working | Attack |
 |---|---|---|
 | **七星劍 + 真火符 + 攝魂幡 + 五雷符** | (3+1) × 2 + 4 | **12** — exactly enough |
 | **七星劍 + 真火符 + 攝魂幡 + 血符** | (3+1) × 2 + 5 | **13** — one to spare |
 
-And the near misses, which are the useful part of the table:
+The near misses, which are the instructive half:
 
-| Falls short | Working | Attack | Damage |
+| Falls short | Working | Attack | Short by |
 |---|---|---|---|
-| 七星劍 + 攝魂幡 + 血符 (no 真火符) | 3 × 2 + 5 | 11 | 1 |
-| 七星劍 + 真火符 + 攝魂幡 (no talisman) | 4 × 2 | 8 | 4 |
-| 銅錢劍 + 真火符 + 攝魂幡 + 血符 | 3 × 2 + 5 | 11 | 1 |
-| 七星劍 + 真火符 + 五雷符 (no banner) | 4 + 4 | 8 | 4 |
+| 七星劍 + 攝魂幡 + 血符 — no 真火符 | 3 × 2 + 5 | 11 | **1** |
+| 銅錢劍 + 真火符 + 攝魂幡 + 血符 — wrong sword | 3 × 2 + 5 | 11 | **1** |
+| 七星劍 + 真火符 + 攝魂幡 — no talisman | 4 × 2 | 8 | 4 |
+| 七星劍 + 真火符 + 五雷符 — no banner | 4 + 4 | 8 | 4 |
 
-**Every single piece is load-bearing.** Drop the 真火符 and you are at
-11. Use the wrong sword and you are at 11. Forget the banner and you are
-at 8. That is a *configuration* the player builds toward and can see
-coming — not a key item that either drops or doesn't.
+**Every piece is load-bearing**, and two of the four misses are short by
+exactly 1 — so a player who has nearly built it can see precisely what is
+missing.
 
-### What the gate actually costs
+### What the gate costs
 
 | Piece | Source | Odds |
 |---|---|---|
@@ -1158,100 +1100,102 @@ coming — not a key item that either drops or doesn't.
 | 五雷符 / 血符 | any 符咒 room | 20 % each, unlimited |
 
 **Two unique items from opposite halves of the map**, plus two common
-talismans. The 10 % sword finally has a reason to be that rare: it is not
-merely the best weapon, it is the *only* weapon that can reach the seal.
+talismans. The 10 % sword finally earns its rarity: it is not merely the
+best weapon, it is the *only* one that reaches the seal.
 
-This is why the design wanted a 6-slot backpack. At the moment of the
-duel you are carrying 七星劍, 攝魂幡 and an attack talisman — the 真火符
-is already spent into the sword — plus whatever medicine kept you alive.
+### 鎮屍 — what the win looks like
 
-⚠️ **For the bots:** this is a demanding gate, and the duel may end up
-rarer than the burial rather than its equal. Knobs, in order of
-preference: let the seal fire at **11** (which opens two more lines), let
-硃砂 duplicate the banner, or nudge 七星劍 to 15 %.
+You do not kill him. His blow meets Attack 12 and lands on nothing; he
+loses his footing, and in that opening the paper goes on his forehead. He
+stops mid-hop. Nobody destroys a 殭屍王 — you put him back.
 
-### How it actually plays
+### 不渡活水 — the Stream, and declining
 
-The winning night — 七星劍 with a 真火符 already burned into it (Attack
-4), banner and 五雷符 in the pack, 10 HP:
+Standing on **溪澗 Stream** when turn 30 ends, **he does not come.**
+Running water; he will not cross it. You live, and you cannot seal him,
+because nothing happens at all. If the tablet is already buried you have
+won regardless — if it isn't, you merely saw the night out.
 
-| Beat | Play | Damage | HP |
-|---|---|---|---|
-| 1 | fight with the sword alone (4) — rigor takes 2 off | 2 | 8 |
-| 2 | **攝魂幡 on the sword + 五雷符 → Attack 12** | **0** | 8 → **sealed, win** |
-
-And a well-equipped player who is still one piece short — same sword and
-banner, but no talisman to add:
-
-| Beat | Play | Damage | HP |
-|---|---|---|---|
-| 1 | sword (4), rigor −2 | 2 | 8 |
-| 2 | 幡 → Attack 8 | 4 | 4 |
-| 3 | sword (4) | 4 | **0 — dead** |
-
-Exactly lethal, and instructive: he was carrying the rare sword *and* the
-rare banner and still lost for want of a 20 % talisman. **The kit is the
-puzzle.**
-
-## Shared by both variants
-
-### 不渡活水 — the Stream, and declining the duel
-
-Standing on **溪澗 Stream** at the end of turn 30, he will not come. You
-are safe and the duel never happens — so **you cannot win by duel
-there.** The Stream is the "decline" option: survive the night, win only
-if the tablet is already buried.
-
-That makes **where you stand on turn 30 a decision you plan for**, using
-a tile rule that already exists. And it gives a failed burial run a
+That makes **where you stand on the last turn a decision you plan for**,
+using a tile rule that already existed, and gives a failed burial run a
 dignified out: walk to the water and live.
 
-### Why this shape is worth having
-- **Every folklore counter gets a mechanical job** — rice, blood,
-  running water, the blind breath-hunter, rigor, the forehead seal.
-- **The 12-damage impossibility becomes the teaching moment.** A first
-  duel is meant to be lost; the player learns he isn't a bigger pack, he
-  is a lock.
-- **It reuses the combat formula without contradicting it.** No special
-  damage rules — just answers that replace beats.
+### What the simplification costs, and what it buys
 
-### A vs B, in one line each
-*(A is chosen; B is kept in case the bots prefer it.)*
-- **A (鎮屍) — chosen.** He is a **lock**. No health bar; you assemble
-  Attack 12 and seal him. Two winning kits, every piece load-bearing, one
-  attempt. Cost: it demands two unique items, so a bad night simply
-  cannot produce a duel win.
-- **B (血戰) — not taken.** He is an **opponent** with Attack 8 and
-  Health 10, and you empty him. Wider spread of viable kits. Cost: turn
-  order becomes load-bearing (exact-kill lines are common), and 鎮屍 —
-  the genre's signature image — has nothing to attach to.
+**He has no abilities, and that is now the design.** An earlier draft gave
+him three beats, **僵直** (a stiff first blow), **屍毒** on contact, and a
+once-per-night **held breath**. All of it is gone — a single binary
+exchange has nowhere to put a passive, a phase or a counter. **黑狗血 is
+explicitly barred** from the duel as well; there is no escaping him.
 
-Both reuse the existing damage formula; B additionally needs a health
-pool for one entity. **A is the design; B stays here in case the bots
-find A's gate too rare.**
+The trade is worth it:
+- **Zero ambiguity.** No turn order, no simultaneous-death edge case, and
+  the question that was blocking progress — *what if you survive all three
+  beats without sealing?* — becomes unaskable.
+- **The drama moves to the build-up, which is where the game lives.**
+  Thirty turns of assembling a kit; the exchange is the verdict, not the
+  contest. That suits a game whose whole texture is scarcity.
+- **One comparison to implement, one sentence to teach.**
+
+Three consequences to carry forward:
+
+**1. ⚠️ Health no longer affects the duel at all.** Cowering, medicine,
+the healing tiles — none of it touches the outcome. They matter only for
+*surviving to* turn 30. A duelist therefore optimises purely for four
+items and for staying alive on the way, which is a coherent but quite
+different build from the burial runner's.
+
+**2. ⚠️ 屍毒 is orphaned again.** It was to come from his touch; with no
+contact phase, 糯米's cure mode has nothing to cure. **The poison must now
+come from the event pool** — a jiangshi attack that poisons instead of
+wounding.
+
+**3. The outcome is knowable in advance.** By turn 20 a player without the
+sword *knows* the duel is closed. That is good clarity while the burial is
+still live, and dead air once it isn't. The burial fallback and the Stream
+decline both cover it, but **the UI should show whether the duel is still
+reachable** rather than letting someone discover their night ended ten
+turns ago.
+
+### The held breath — re-home it in the event pool
+
+Worth keeping as an idea even though the duel can't hold it. Jiangshi are
+blind and hunt by breath; **standing still and holding your breath to let
+one pass** is a real folk motif and a natural option to attach to an
+ordinary jiangshi event. Noted for the event-pool work.
+
+### Rejected alternatives, kept on the record
+
+**Variant A-with-beats** — three beats of the drum, each answered with an
+item; 僵直 softening the first; 屍毒 on contact; the seal fired by
+surviving a beat at zero damage. Superseded by the one-strike rule.
+
+**Variant B — 血戰, he has health.** The King as an *opponent* rather
+than a threshold: **Attack 8, Health 10**, no 僵直, and you win by
+emptying him over several rounds while he empties you. Its appeal was a
+much wider spread of viable kits — even 戒刀 + 五雷符 + 血符 totalled
+exactly 10 — and a clear "steel alone isn't enough" message. Its costs
+were that **turn order became load-bearing** (exact-kill lines are common,
+and simultaneous resolution kills both), and that **鎮屍 — the genre's
+signature image — has nothing to attach to** when there is a health bar to
+empty instead.
+
+*(Recording this properly because I dropped the original Variant B
+section by accident in an earlier edit. Kept in brief: it is the only
+version with an actual fight in it, and worth revisiting if a single
+binary check turns out to feel flat as a finale.)*
 
 ### Open on the King
-- **Beat count: three?** It fixes 12 damage as the untanked worst case,
-  which is exactly one more than the cap allows — a good number.
+- **Is one binary exchange satisfying as a finale?** It is clean, and it
+  suits the game — but it is the entire climax resolved in a single
+  comparison, with no play in it. Bots cannot answer this; only a person
+  can. Variant B is the fallback if it lands flat.
 - **Does the sword-plus-talisman rule apply to ordinary fights too?**
-  Read as **yes** — it is a general combat rule, not a duel exception.
-  That is the assumption the event pool must be built against.
-- **⭐ What happens if you survive all three beats without sealing?**
-  Now the live question. Three options: you **live but do not win** (he is
-  still loose — symmetrical with the Stream's decline), the beats
-  **continue** until seal or death (harsh, and makes 黑狗血 merely
-  delaying), or surviving *is* a win ("you lasted to cockcrow"), which
-  the source game's dawn ending would support. The skip items — 黑狗血 and
-  the held breath — only make sense once this is settled: right now they
-  buy beats without buying anything.
-- **What if the player has no answers left?** Beat three with nothing in
-  hand is 4 damage and probably death. Fine, but the UI must have shown
-  it coming.
-- **Does 屍毒 outlast the night** in the epilogue, if the duel is won
-  while poisoned?
-- **What does he *do* narratively on a beat he lands** — the staging is a
-  set-piece and the cue list already has a drum, a wall-break and a
-  scare to draw on.
+  Read as **yes** — a general combat rule, not a duel exception. That is
+  the assumption the event pool must be built against.
+- **Does carrying the tablet change anything at midnight?** Still no. A
+  player who fails the check while carrying it loses both wins at once,
+  which is dramatic enough without a rule.
 
 ## Cross-cutting
 
@@ -1649,6 +1593,25 @@ more redesign is coming. Reconcile once the systems settle.
   show what Attack each combination would produce and that the banner is
   one-use; and the bots should check whether holding the banner to beat 3
   is always correct, because if it is, the timing decision is illusory.
+- 2026-08-23 — **the duel collapses to a single strike.** No beats, no
+  rounds, no damage arithmetic: `Attack ≥ 12 → sealed and won, otherwise
+  dead`. Strength 12 becomes a **threshold**, not a damage stat.
+  Everything I had given him goes with it — three beats, 僵直, 屍毒 on
+  contact, the held breath — and 黑狗血 is explicitly barred from the duel.
+  **He now has no abilities, and that is the design**: the drama lives in
+  thirty turns of assembling a kit, and the exchange is the verdict rather
+  than the contest. It also dissolves the question that was blocking
+  progress ("what if you survive three beats without sealing") by making
+  it unaskable. Three consequences to carry: **health no longer affects
+  the duel at all**, so the duelist and the burial runner now optimise for
+  different things; **屍毒 is orphaned again** and must come from the event
+  pool, since there is no contact phase left to inflict it; and **the
+  outcome is knowable in advance**, so the UI has to show whether the duel
+  is still reachable rather than letting a player discover their night
+  ended ten turns ago. The held breath is worth re-homing in the event
+  pool — hold still and let a jiangshi pass. Also: **Variant B's section
+  had been lost to an accidental slice in an earlier edit; restored in
+  brief under "Rejected alternatives".**
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose

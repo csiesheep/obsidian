@@ -362,63 +362,50 @@ The specific attacks, their sizes and how often they come are part of the
 When turn 30 ends the third watch sounds, and **the King comes to
 whatever place you are standing in.**
 
-**No fleeing, no cowering, no help from the room.** Three beats of the
-watch drum, and you answer each one.
+**There is one exchange.** He strikes once, you meet it once, and the
+night is decided.
 
-### What he does
+> **Attack 12 or more — you seal him, and you have won.**
+> **Anything less — he takes you.**
 
-His strength is **12**. Each beat, he strikes:
+No fleeing, no cowering, no medicine, no second chance. **黑狗血 does not
+work on him** — there is nowhere he is not.
 
-> **Health lost = 12 − your Attack**, and never more than 4
+### Reaching 12
 
-So anything below Attack 9 takes the full **4** — and three beats is 12
-against your 10. **You cannot simply endure him.** That is the premise,
-not an oversight: steel does not stop him.
-
-**僵直 — he comes out of the coffin stiff.** The **first** beat deals 2
-less.
-
-**屍毒 — his touch poisons.** Any beat that wounds you also poisons you:
-−1 Health at the start of every beat after it, and it does not stop when
-the night does. **糯米** draws it out.
-
-**He is blind and hunts by breath.** **Hold your breath** to answer a
-beat — he loses you and does nothing at all. Once per night; you have to
-breathe eventually.
-
-### How you win — 鎮屍
-
-You cannot kill him. You **seal** him.
-
-> **Meet one of his blows with Attack 12 or more.** It lands on nothing,
-> he loses his footing, and in that opening you press the paper to his
-> forehead. The night is yours.
-
-There are exactly **two kits** that reach 12:
+Your Attack is the sword — doubled if you spend the **攝魂幡** — with a
+talisman added on top. Two kits get there:
 
 | | Working | Attack |
 |---|---|---|
 | **七星劍** (with a 真火符 in it) **+ 攝魂幡 + 五雷符** | (3+1) × 2 + 4 | **12** |
 | **七星劍** (with a 真火符 in it) **+ 攝魂幡 + 血符** | (3+1) × 2 + 5 | **13** |
 
-Drop any one piece and you land on 11, or 8. Close, and not enough.
+Drop any single piece and you fall short:
 
-**You get one attempt.** The sword keeps its number all night, but the
-banner and the talisman are gone the moment they are used. Spend the
-banner on a beat with no talisman in hand and you reach 8 — the blow
-lands, and the seal is out of reach for the rest of the night.
+| | Attack | |
+|---|---|---|
+| No 真火符 burned into the sword | 11 | one short |
+| 銅錢劍 instead of 七星劍 | 11 | one short |
+| No talisman to add | 8 | four short |
+| No banner to double with | 8 | four short |
 
-### The other ways through
-- **黑狗血** breaks the working: **skip a beat entirely.**
-- **溪澗 Stream.** Running water, and he will not cross it. Stand there
-  when turn 30 ends and **he does not come** — you are safe, and you
-  cannot seal him, because the duel never happens. If the tablet is
-  already in the ground you have won regardless. If it isn't, you simply
-  lived through the night.
+**The whole night is spent building one number.** 七星劍 is the only
+sword that reaches it, and the 攝魂幡 is found nowhere but the 土地廟,
+out past the moon gate.
 
-⏳ **Still open:** what it means to survive all three beats without
-sealing him — whether you live but do not win, whether the beats keep
-coming, or whether lasting to cockcrow is a win of its own.
+### 鎮屍 — what winning looks like
+
+You do not kill him. His blow meets your twelve and lands on nothing; he
+loses his footing, and in that opening the paper goes onto his forehead
+and he stops mid-hop. Nobody destroys a 殭屍王. You put him back.
+
+### Not being there
+
+**溪澗 Stream** is running water, and he will not cross it. Stand there
+when turn 30 ends and **he does not come** — you live, and you cannot
+seal him, because nothing happens at all. If the tablet is already in the
+ground you have won anyway. If it isn't, you simply saw the night out.
 
 ## Winning and losing
 
@@ -435,8 +422,8 @@ game — it's an appointment.
 - **The event pool** — everything in it, and how the three bands differ.
 - **The item pool's weighting** — the 12 items exist; which are unique,
   which are common, and how often a search finds nothing do not.
-- **The King** — strength 12 and the seal are settled; what surviving
-  three beats without sealing means is not.
+- **屍毒 corpse-poison** — 糯米 cures it, and nothing yet inflicts it. It
+  has to come from the event pool.
 - **How much cowering heals**, exactly.
 - **What the crypt rite and the burial rite cost** — a turn each, an
   event each, or both.
