@@ -83,7 +83,7 @@ Carried over verbatim — see the source spec §2 for the reasoning:
 
 ### Two departures ✅
 
-1. **Movement is optional** (§5). The source made it mandatory. `STAY` is
+1. **Movement is optional** (§8). The source made it mandatory. `STAY` is
    always a legal action, so a player can never be forced to move.
 2. **Zombie doors are kept, unchanged** ✅ (2026-08-24). `STAY` being
    legal does not retire them — the trigger and the attack both carry over
@@ -170,7 +170,7 @@ matched to the source's 2.13 / 2.6.
 | `onTurnEnd: HEAL_1` | +1 HP if the turn ends here (capped) |
 | `action: RESTORE_COWER_ONCE` | Standing here, may restore **1 cower charge. Once per run** |
 | `action: PRAY_ONCE` | **Once per run**: the next unexplored *outdoor* tile placed is `mass-grave` |
-| `flags: RUNNING_WATER` | The King will not come here (§8) |
+| `flags: RUNNING_WATER` | The King will not come here (§9) |
 | `goal: TAKE_TABLET` | The 神主牌 is here (§7) |
 | `goal: BURY_TABLET` | Burying it here wins (§7) |
 
@@ -281,6 +281,21 @@ held talisman, so inventory holds `{id: count}` rather than a flat list. A
 stack of any size is **one slot** (decided 2026-08-24), mirroring the
 source's refuellable chainsaw. 硃砂 may only target a talisman you
 actually hold.
+
+❓ **Do non-talisman consumables stack into one slot?** The stacking
+ruling came from 硃砂, which is the only thing that *creates* duplicates —
+so it was written about talismans. But the player starts with **three
+糯米**, and whether that is **3 slots or 1** changes the backpack economy
+completely:
+
+| Reading | Consequence |
+|---|---|
+| **Only talismans stack** | 3 rice = 3 of 6 slots. The pack starts half full, and every rice spent frees a slot for something found. Tight, and the arc from consumables to equipment works |
+| **Everything stacks** | 3 rice = 1 slot. The limit then binds on *variety*, not quantity, and 6 slots is roomy enough that dropping decisions nearly vanish |
+
+**Recommend: only talismans stack**, since that is where the rule came
+from and it preserves the pressure the 6-slot pack was sized for. Needs a
+ruling — several numbers in the redesign note assume 3 rice = 3 slots.
 
 ✅ **One 真火符 per sword.** `buffSword: 1` is permanent, and a sword
 accepts **at most one** (decided 2026-08-24). So the sword ceiling is
@@ -417,8 +432,9 @@ So there are **two ways out of a fight**: flee for 1 HP, or spend
 `black-dog-blood` and take nothing. The blood is strictly better, which is
 correct — that is what the item is for. Neither works against the King.
 
-❓ Assume the charm does **not** reduce flee damage either (§6), on the
-same reasoning as the `HP` events.
+❓ **Does 護身符 reduce the flee cost?** Assume **no**, on the same
+reasoning as the `HP` events — the charm is combat-only, and the 1 HP of
+running is a price, not a wound.
 
 ## 7. Poison, the tablet, cowering ✅
 
@@ -516,6 +532,16 @@ turn(N):                                  # N = 1..30
 still pays that turn's tick. Search *after* the event, so you rummage a
 room that has already shown you what is in it.
 
+### Edge cases the order creates ✅
+
+| Situation | Resolution |
+|---|---|
+| **You flee the room's own event** | You are no longer standing in the dead end, so **no breach fires**. You also draw no event where you land, and `fled` suppresses `HEAL_1` |
+| **Can you search after fleeing?** | **No.** You arrived without drawing an event; the turn is over |
+| **A dead-end goal room** | Room event → rite event → breach. **Three fights in one turn** is possible, and nothing about it is a bug |
+| **Standing on `mass-grave` without the tablet** | The rite does **not** fire. No extra event, nothing to bury |
+| **`golden-elixir`'s coin-flip** | Rolled from the **search RNG stream**, not the game stream, so a shared seed replays identically |
+
 ✅ **Tile actions cost no turn** (2026-08-24). `RESTORE_COWER_ONCE` (香堂)
 and `PRAY_ONCE` (土地廟) are offered while standing on the tile and are
 free, like a search. Both are already gated twice over — once per run, and
@@ -586,8 +612,8 @@ Mapping to the existing `zombie_in_the_pocket` code, which the fork at
 | File | Change |
 |---|---|
 | `js/engine.js` | **Heaviest.** Delete the deck, `timePasses()`, the hour reshuffle, `SETUP_BURN`, `bandKey`-from-deck. Add: turn counter, event-pool draw, poison state, cower charges, the additive attack formula, item categories, search rolls, the midnight threshold. `clockTime()` becomes pure arithmetic on `N` |
-| `js/board.js` | Data only — 20 tiles. `STAY` means movement is no longer mandatory. Zombie-door trigger goes unused (❓ §2) |
-| `js/app.js` | Turn loop restructured to action → event → search. New prompts: villager, search-accept, midnight kit choice. `fled` semantics (❓ §6) |
+| `js/board.js` | Data only — 20 tiles. `STAY` means movement is no longer mandatory. The dead-end/breach machinery is **kept**, with the count now per-band (§2) |
+| `js/app.js` | Turn loop restructured to action → event → search. New prompts: villager, search-accept, rite second-event, midnight kit choice. `fled` still gates the `HEAL_1` tiles (§6) |
 | `js/render.js` | Turn-based clock face (36° ticks), cower pips, poison indicator, 6-slot backpack, 20 tile scenes |
 | `js/epilogue.js` | Four outcomes; per-language *assembly* for zh-TW, not just strings |
 | `js/tally.js` | Record which of the two wins; **never rank them** (§9) |
@@ -600,10 +626,14 @@ they read still exists.
 
 ## 12. Open — ❓, in rough priority
 
-1. **Does fleeing a rite's second event abort it?** Assume **yes**, per
+1. **⭐ Do non-talisman consumables stack into one slot?** Whether the
+   three starting 糯米 occupy 3 slots or 1 changes the backpack economy
+   outright. Recommend **only talismans stack**. §4.
+2. **Does fleeing a rite's second event abort it?** Assume **yes**, per
    the source's "still standing there" ruling — you may return and try
    again. §7.
-2. **A name for the breach in this theme.** "Zombie door" is the source's
+3. **Does 護身符 reduce the 1 HP cost of fleeing?** Assume **no**. §6.
+4. **A name for the breach in this theme.** "Zombie door" is the source's
    term and a poor fit here. **破牆** — *the wall gives* — is the working
    name in this spec. §2.
 
@@ -616,6 +646,9 @@ actions are free.*
 
 Cheap invariants a bot suite should assert, because several of them are
 load-bearing and were arrived at by hand:
+
+All damage figures below assume **the villager is refused**, and **exclude
+poison** (which is a separate −1/turn on top).
 
 | Invariant | Value |
 |---|---|

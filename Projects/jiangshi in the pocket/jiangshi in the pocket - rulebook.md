@@ -11,8 +11,10 @@ The playable rules, in one place, as they stand. Human-facing companion to
 reasoning and the arguments).
 
 > ⚠️ **A draft, but a whole game now.** The clock, the turn, the map, the
-> items, the event pool, the poison and the King are all settled. What is
-> left is small and marked ⏳.
+> items, the event pool, the poison and the King are all settled. One
+> thing is genuinely unruled and marked ⭐ below: **whether ordinary
+> consumables stack into one slot the way talismans do**, which decides
+> how tight the six-slot pack is.
 >
 > 🤫 **This document is not the player-facing rulebook.** 鎮屍 — beating
 > the King — is a **hidden ending**: the shipped `rulebook.html` describes
@@ -39,14 +41,15 @@ things:
 1. **Lay him to rest.** Find his **神主牌** — the ancestral tablet — in
    the Sealed Crypt, carry it out of the village, and bury it in the
    Mass Grave.
-2. **Meet him.** Be standing, armed and whole, when he arrives.
+2. **Meet him.** Be standing there properly armed when he arrives —
+   and it is only what you are holding that decides it.
 
 Either ends the night. So does dying.
 
 ## Components
 
 - **10 indoor tiles, 10 outdoor tiles.**
-- An **event pool** ⏳ and an **item pool** — separate, unlike the source
+- An **event pool** and an **item pool** — separate, unlike the source
   game's single deck. **13 items**, in five kinds.
 - Health, Attack, the turn number and your cower charges are numbers you
   track.
@@ -108,9 +111,9 @@ unexplored, place a tile (below).
 **STAY** — remain where you are. Legal, and often correct: staying is how
 you search a room a second time.
 
-**COWER** — hide. Regain Health, spend one of your **3 charges**, and
-**end the turn immediately** — no event, no search. See
-[Cowering](#cowering-).
+**COWER** — hide. Spend one of your **3 charges** and **end the turn
+immediately** — no event, no search. It does **not** heal you; what it
+buys is the draw you didn't make. See [Cowering](#cowering-).
 
 > **Movement is optional**, unlike the source game. But standing still
 > costs a turn and draws an event exactly like walking does. There is no
@@ -155,10 +158,12 @@ Corpse-poison gets into you, and it does not wear off.
 
 Nothing else cures it, and **it does not stack** — poisoned is poisoned,
 however often it happens. **The 護身符 does not help**: poison is not a
-wound, and the charm only softens wounds. Left alone it will kill you — being poisoned early
-and never treating it costs more Health than you can possibly hold. **The
-rice in your pack is the only answer**, which is exactly why you cannot
-comfortably spend it elsewhere.
+wound, and the charm only softens wounds.
+
+Left alone it will kill you. Poisoned early and never treated costs more
+Health than you can possibly hold. **The rice in your pack is the only
+answer** — which is exactly why you can never comfortably spend it on
+anything else.
 
 #### 村民受傷 — a villager is hurt
 
@@ -181,6 +186,12 @@ And the rice is also the only thing that cures **中毒**. Poisoned, with
 one 糯米 left and a bleeding villager in front of you, is the hardest
 choice the game asks.
 
+> **Running.** On any jiangshi you may run instead of fighting: **−1
+> Health**, and you step into an adjacent room you have already been in.
+> You draw no event there and you do not search — the turn is over. And
+> because you are no longer standing in the room you fled, a dead end
+> there will not break its wall on you.
+
 ### 4 — Search, if the room offers it ✅
 
 Ten of the twenty tiles can be searched, each for **one category** of
@@ -188,13 +199,13 @@ thing:
 
 |                 | Where                                                                             |
 | --------------- | --------------------------------------------------------------------------------- |
-| **武器 weapons** | 鐵匠鋪 Blacksmith ★ · 柴房 Woodshed · 牌坊 Memorial Arch |
-| **符咒 magic** | 經堂 Sutra Hall ★ · 靈堂 Mourning Hall · 竹林 Bamboo Grove |
+| **武器 weapons** | 鐵匠鋪 Blacksmith · 柴房 Woodshed · 牌坊 Memorial Arch |
+| **符咒 magic** | 經堂 Sutra Hall · 靈堂 Mourning Hall · 竹林 Bamboo Grove |
 | **丹藥 medicine** | 藥鋪 Apothecary · 帳房 Counting Room · 槐樹 Pagoda Tree |
-| **法器 implement** | 土地廟 Earth God Shrine — the **攝魂幡** and nothing else |
+| **法器 implement** | 土地廟 Earth God Shrine — the only source of the **攝魂幡**, and it turns up 糯米 more often than the banner |
 
 Searching is **free** — it costs no turn. It happens after the event, and
-**it may find nothing** ⏳. If it does, you can search the same room again
+**it may find nothing**. If it does, you can search the same room again
 by spending next turn on **STAY** — which means another event. That is
 the price of rummaging: not the search, the lingering.
 
@@ -216,10 +227,10 @@ Advance the clock 6 minutes.
 | **門廳 Gatehouse** | N, E, W | — | Where you start. Three ways on |
 | **藥鋪 Apothecary** | N | 丹藥 | One door. Drawers of herbs and scales |
 | **柴房 Woodshed** | N, E | 武器 | Poles and axes, close to the start |
-| **經堂 Sutra Hall ★** | N, W | 符咒 | Scripture and talismans. The richest magic in the game |
+| **經堂 Sutra Hall** | N, W | 符咒 | Scripture and talismans |
 | **靈堂 Mourning Hall** | N, E, W | 符咒 | Where the coffins are laid out |
 | **天井 Courtyard** | N, E, S, W | — | The crossroads. Its **moon gate** is the only way outside |
-| **鐵匠鋪 Blacksmith ★** | N | 武器 | One door. The forge — iron is anti-yin, and the best weapons are here |
+| **鐵匠鋪 Blacksmith** | N | 武器 | One door. The forge — iron is anti-yin |
 | **帳房 Counting Room** | N, E, W | 丹藥 | **+1 Health** if you end your turn here |
 | **香堂 Incense Hall** | N, E | — | **Restores one cower charge. Once per night** |
 | **停柩房 Sealed Crypt** | E, W | — | **The tablet is here** |
@@ -242,7 +253,7 @@ solid** — you can't push through them.
 | **土地廟 Earth God Shrine** | E, S | 法器 | **Pray: the next new place you step is the Mass Grave. Once per night.** The only place the **攝魂幡** is ever found |
 | **亂葬崗 Mass Grave** | E, S | — | The pit for the unclaimed. **Bury the tablet here** |
 
-★ = the best of its category.
+Every room of a category rolls the same table; none is richer than another.
 
 ## Going outdoors ✅
 
@@ -333,7 +344,7 @@ steel alone ever goes.
 
 | Medicine | What it does |
 |---|---|
-| **糯米** Sticky Rice | **+3 Health** — *or* draw out **屍毒 corpse-poison** ⏳ |
+| **糯米** Sticky Rice | **+3 Health** — *or* draw out **中毒 corpse-poison** |
 | **黑狗血** Black Dog Blood | **Get out of the fight**, unhurt |
 | **金丹** Golden Elixir | A gamble: **half the time +6 Health, half the time −2** |
 
@@ -387,16 +398,15 @@ and a talisman search comes up empty only one time in ten.
 you will fight with something worse, and that is the game working, not the
 game cheating you.
 
-### What isn't settled about items ⏳
-- **Which are common and which are one-of-a-kind.** Rarity is how the
-  pool is weighted, and no item has a count yet.
-- **Whether a stack of talismans is one slot or several.** 硃砂 can leave
-  you holding 五雷符 ×3.
+### Still open about items ⏳
+- **⭐ Whether the three starting 糯米 take three slots or one.** A stack
+  of talismans is one slot; whether ordinary consumables stack the same way
+  is unruled, and it decides how tight the 6-slot pack really is.
 - **屍毒 corpse-poison.** 糯米 cures it; nothing in the game inflicts it
   yet. It will come from the event pool, and it needs rules of its own —
   how long it lasts and what it costs you per turn.
 - **Whether one sword can take more than one 真火符.**
-- **Where 黑狗血 puts you** when you escape a fight.
+- **Whether 護身符 softens the 1 Health that running costs.** Assume not.
 
 ## Cowering ✅
 
@@ -414,7 +424,7 @@ roughly seven draws in ten are a fight.
 > Three charges is the whole supply of *not this time* you will get. Spend
 > them early and the last hour has nothing in it but you and the draw.
 
-## Combat 📐 ⏳
+## Combat 📐
 
 Inherited arithmetic, no dice:
 
@@ -448,8 +458,8 @@ The 4-damage ceiling is why a very high Attack stops helping against an
 ordinary pack — you can only get the damage to zero. It is at
 [midnight](#midnight-) that the big numbers start to matter.
 
-The specific attacks, their sizes and how often they come are part of the
-**event pool** ⏳.
+The sizes and frequencies of the packs live in the
+[event pool](#3--draw-an-event-).
 
 ## Midnight — 三更 ✅
 
@@ -526,7 +536,7 @@ no text and no readout; the only place the number is ever shown is the
 verdict card of a player he killed at midnight, which prints their Attack
 beside what it needed and says nothing else.
 
-### Carrying the tablet to midnight ⏳
+### Carrying the tablet to midnight ✅
 
 If you have the tablet but never reached the grave, it is not dead weight:
 **holding his name lowers what you need to seal him from 12 to 11.** A
