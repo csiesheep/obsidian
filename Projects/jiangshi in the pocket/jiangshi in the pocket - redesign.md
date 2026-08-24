@@ -20,8 +20,9 @@ Baseline being changed: [[zombie in the pocket - ruleset spec]].
       are searchable. **Done 2026-08-22 → §4**
 - [ ] **Event pool** — contents, hour-band weighting, and the jiangshi
       attacks that live in it. Must satisfy constraint P1.
-- [ ] **Item pool** — weapons / magic / medicine, uniques vs commons,
-      miss rate. Shape settled (§3), contents not.
+- [~] **Item pool** — **11 items designed 2026-08-23** (see §1). Still
+      open: rarity counts, slot rules for talisman stacks, and the miss
+      rate on a search.
 - [ ] **King ability design** — what he actually does at midnight.
       ⚠️ Open note: the proposed `clamp(7 − attack, 0, 4)` flattens the
       weapon table (attack 1/2/3 all take 4). Strength 5 gives a clean
@@ -255,6 +256,110 @@ Still to settle when the pool is authored (not now):
   visibly empties, versus every search drawing from one global pool.
 
 ---
+
+### The items — ✅ designed 2026-08-23
+
+Eleven items in three categories. Weapons persist; talismans and
+medicines are **consumed on use**.
+
+#### 武器 weapons — persistent, carried
+
+| 物件 | Item | Attack |
+|---|---|---|
+| **戒刀** | Precept Knife | 1 |
+| **桃木劍** | Peachwood Sword | 1 |
+| **銅錢劍** | Coin Sword | 2 |
+| **七星劍** | Seven-Star Sword | 3 |
+
+#### 符咒 magic — one use, then gone
+
+| 物件 | Item | Effect |
+|---|---|---|
+| **真火符** | True Fire Talisman | Attack **1** — *or* give any sword **+1 attack** |
+| **五雷符** | Five Thunder Talisman | Attack **4** |
+| **血符** | Blood Talisman | Attack **5**, costs **2 HP** to use |
+| **硃砂** | Cinnabar | Add **+2 quantity** to any talisman in hand |
+
+#### 丹藥 medicine — one use, then gone
+
+| 物件 | Item | Effect |
+|---|---|---|
+| **糯米** | Sticky Rice | **+3 HP** — *or* cure **poisoned** |
+| **黑狗血** | Black Dog Blood | **Escape the fight** |
+| **金丹** | Golden Elixir | **50 %: +6 HP · 50 %: −2 HP** |
+
+### What this design implies — six things to confirm
+
+**1. Base attack is almost certainly 0, not 1.** Nothing else makes the
+table work: 戒刀 at "attack 1" would be identical to bare hands under the
+inherited `START_ATTACK = 1`, and 真火符's attack-1 mode would be worth
+nothing at all. Read as absolute values over a **bare-handed 0**, every
+entry earns its place. This also matches where the source game was
+heading — v1.75 rewrote bonuses as absolutes precisely to kill the
+`1 + n` confusion (*"the femur is a 3 attack, not a 1+3"*).
+
+**2. ⚠️ 血符 is never better than 七星劍 — the clamp eats it.** Damage is
+`count − attack`, so +2 attack removes exactly 2 damage; 血符 costs
+exactly 2 HP. It breaks even against the Seven-Star Sword in the open
+range and does *worse* wherever the 4-damage clamp binds:
+
+| vs pack of | 七星劍 (3) | 血符 (5) | 血符 net |
+|---|---|---|---|
+| 4 | 1 | 0 | **2** (worse) |
+| 6 | 3 | 1 | **3** (equal) |
+| 7 | 4 | 2 | **4** (equal) |
+
+It only pays when you have **no sword**: attack 0 → 5 for 2 HP is a
+clear win. So 血符 is an **emergency card for the unarmed**, not an
+upgrade for the armed — which is a fine role, but it should be a
+deliberate one. If it is meant to be the top of the ladder, it needs
+either a lower HP cost (1) or an effect the clamp can't flatten (ignores
+the cap, kills the pack outright, etc.).
+
+**3. 🆕 屍毒 poison is a new status that does not exist yet.** 糯米's
+second mode cures "poisoned" — nothing in the design can currently
+inflict it. That implies a jiangshi attack in the **event pool** that
+poisons rather than damages, and a status system to hold it: how long it
+lasts, what it does per turn, whether it stacks, whether cowering or the
+healing tiles clear it. **A whole small system, arriving via one item
+line.** Worth designing on purpose.
+
+**4. Talismans have *quantity*, which the slot rules don't cover.** 硃砂
+adds "+2 quantity to any talisman in hand", so you hold 五雷符 ×3 rather
+than 五雷符. Open: does a stack occupy **one** item slot or three? One is
+the natural reading and mirrors the source's refuellable chainsaw — and
+makes 硃砂 genuinely strong, since 硃砂 + 五雷符 is three attack-4 fights
+in a single slot. Also: can 硃砂 target a talisman you are holding **zero**
+of, or only one you actually have?
+
+**5. 長明燈 and the combo triangle are gone.** The previous design had
+lamp + blood / lamp + talisman / cinnabar + talisman as three combos.
+Only the last survives, as 硃砂. Simpler and easier to teach — but the
+altar lamp was also the game's light source in fiction, and its
+disappearance is worth being deliberate about rather than incidental.
+
+**6. 金丹 is the first random item in the game.** EV is +2, the same as
+the old soda, with a wide spread. Fits the folklore exactly — mercury
+elixirs killed emperors — and the engine already has seeded RNG streams
+to draw it from, so a shared seed still replays identically. Just note it
+is the only item whose outcome the player cannot plan around.
+
+### Still open on items
+- **Which are unique and which are common** — the pool's rarity is
+  multiplicity (§ above), and none of the eleven has a count yet.
+- **Do the three categories share the 2-item limit**, or does each have
+  its own slot? Three separate slots would let a player carry sword +
+  talisman + medicine, which reads right for a 道士 and changes the
+  economy a lot.
+- **真火符's sword buff: permanent, or one fight?** Permanent makes
+  七星劍 + 真火符 = attack 4 and is a real build; one fight makes it
+  marginal.
+- **Does using a talisman replace the weapon's attack or stack with it?**
+  Read as replace ("攻擊力 4" is your attack that fight), which is
+  consistent with *attack never stacks* 📐.
+- **黑狗血 escapes the fight** — to where? The source's flee rule moves
+  you to an adjacent explored tile at −1 HP. Here it costs the item
+  instead, but the destination question stands.
 
 ### 道士的行頭 — source material for the item pool
 
@@ -893,6 +998,17 @@ more redesign is coming. Reconcile once the systems settle.
   — a stack of talismans is natively "two uses, then redraw," which is
   what the fire-lance was awkwardly imitating. The remap's slots are
   obsolete under the open-sized pool, the item choices and combos are not.
+- 2026-08-23 — **11 items designed**: 4 swords (absolute attack 1/1/2/3),
+  4 talismans (one-use attack bursts + 硃砂 as the restock), 3 medicines.
+  Six knock-ons recorded, two of them real: **血符 is strictly worse than
+  七星劍 for an armed player** — its 2 HP cost cancels its +2 attack
+  exactly, and the damage clamp makes it worse still, so it is an
+  emergency card for the *unarmed* rather than the top of the ladder; and
+  **糯米's cure mode introduces 屍毒 poison**, a status nothing in the
+  design can currently inflict, which implies a poisoning attack in the
+  event pool and a small status system to hold it. Also inferred that
+  **base attack must now be 0**, since 戒刀 at 1 would otherwise equal
+  bare hands.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
