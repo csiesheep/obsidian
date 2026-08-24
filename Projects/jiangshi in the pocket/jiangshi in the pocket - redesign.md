@@ -302,10 +302,10 @@ carry and you find nothing.
 
 | 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 special | |
 |---|---|---|---|---|---|---|---|
-| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 50 % | 糯米 | 40 % |
-| 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 30 % | **攝魂幡** | **20 %** |
-| 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 20 % | nothing | 40 % |
-| 七星劍 | **10 %** | 五雷符 | 20 % | *(never fails)* | | | |
+| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
+| 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | **15 %** |
+| 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
+| 七星劍 | **10 %** | 五雷符 | 20 % | nothing | 20 % | | |
 | nothing | 10 % | nothing | 10 % | | | | |
 
 ### What the probabilities do
@@ -332,35 +332,36 @@ run is 2–3, not 3–4**, with 七星劍 as the lucky night. Worth holding on
 to when the King gets numbers: build him against the common case, not the
 best case.
 
-**3. ⚠️ 丹藥 never fails, and both healing tiles are also 丹藥 tiles.**
-帳房 Counting Room and 槐樹 Pagoda Tree each give **+1 HP at end of turn**
-*and* a guaranteed medicine. A single turn spent standing on 帳房 is
-worth, in expectation:
+**3. ✅ The health cap fixes the medicine engine.** 帳房 Counting Room and
+槐樹 Pagoda Tree each give **+1 HP at end of turn** *and* a 丹藥 search,
+which made them a healing engine. A turn standing on 帳房 is still worth
+a lot in expectation:
 
 ```
 +1.0   the tile
-+1.5   50 % × 糯米 (+3)
-+0.4   20 % × 金丹 (EV +2)
++1.2   40 % × 糯米 (+3)
++0.2   15 % × 金丹 (EV +2)
 ────
-+2.9 HP per turn, before event damage
++2.4 HP per turn, before event damage
 ```
 
-plus a stockpile of 黑狗血 escapes on the side. That is a **healing
-engine**, and it moves the goalposts on the camping question:
+— but **health is now capped at 10** (decided 2026-08-23), and that
+settles the whole question. Starting health is 6, so the entire headroom
+is **+4**. Camping can top you up and then does nothing at all: a turn
+spent healing at full health is a turn thrown away, and the clock does
+not stop. Healing becomes **recovery**, never accumulation.
 
-> **Constraint P1 is superseded.** It required mean event damage above
-> **+1 HP/turn**. To make standing on 帳房 unprofitable it now has to
-> exceed **~+3 HP/turn** — a very different, much crueller event pool.
+That is the right shape, and it is worth saying why the cap works where a
+constraint on the event pool would not have:
 
-Two further points make this the sharpest open issue in the design:
-- **There is currently no health cap.** It was pencilled out when the
-  3-charge cower limit arrived, on the grounds that cowering could only
-  ever add +9. Guaranteed medicine changes that calculation completely:
-  health can now grow without bound. **The cap probably needs to come
-  back**, and it is the cheapest of the available fixes.
-- The other fixes, cheapest first: give 丹藥 a **nothing** slice (20 %
-  would match the other tables); or **decouple the heal tiles from the
-  medicine tiles** so no tile does both.
+> **Constraint P1 is retired, not superseded.** It asked the event pool to
+> out-damage the healing tiles — which would have meant designing every
+> event around one tile's edge case. The cap does the same job at the
+> source and leaves the pool free to be whatever the night needs.
+
+The cap also brings back a small, good tension the source game had: at
+9 HP, a 糯米 (+3) is mostly wasted, so you hold it — and holding it costs
+a slot.
 
 **4. 真火符 is the most common talisman (30 %) and talismans are
 unlimited.** Nothing marks 符咒 as one-of-a-kind, so they're drawn with
@@ -369,11 +370,14 @@ urgent: **can one sword take more than one 真火符?** If it can, camping
 經堂 / 靈堂 / 竹林 yields a 真火符 roughly every third search and Attack
 climbs without limit. Recommend **capping a sword at one**.
 
-**5. Is 攝魂幡 unique?** Unstated. At 20 % a search, camping 土地廟 yields
-a second banner in about five more turns, and two doublings against the
-King is a different fight from one. **Recommend making it unique like the
-weapons** — one banner a night, and the shrine returns nothing if you
-already hold it.
+**5. Is 攝魂幡 unique?** Unstated, and at **15 %** it is now the rarest
+single outcome in the game — ~7 searches expected, all of them outdoors,
+all of them costing a STAY plus an event. That rarity does most of the
+work on its own: a second banner is another ~7 turns out of 30, which no
+run going for either win can spare. Still worth **declaring it unique
+like the weapons**, so the shrine returns nothing once you hold one —
+otherwise a duelist who reaches the shrine early has a reason to stand
+there for a third of the night.
 
 ### What this design implies
 
@@ -496,6 +500,36 @@ the old soda, with a wide spread. Fits the folklore exactly — mercury
 elixirs killed emperors — and the engine already has seeded RNG streams
 to draw it from, so a shared seed still replays identically. Just note it
 is the only item whose outcome the player cannot plan around.
+
+### What the cap tells us about the King ⏳
+
+With **cap 10** fixed and 七星劍 at only 10 %, the King's strength is now
+computable rather than a guess. Over the proposed **three rounds**, with
+`damage = clamp(strength − attack, 0, 4)` and a full 10 HP:
+
+| Attack | vs strength 5 | vs strength 6 | vs strength 7 |
+|---|---|---|---|
+| 0 — bare | 12 ✝ | 12 ✝ | 12 ✝ |
+| 1 — 戒刀 / 桃木劍 | 12 ✝ | 12 ✝ | 12 ✝ |
+| 2 — 銅錢劍 | **9** | 12 ✝ | 12 ✝ |
+| 3 — 七星劍 | **6** | **9** | 12 ✝ |
+| 4 — 七星劍 + 真火符 | **3** | **6** | **9** |
+| 5 — 血符 | **0** | **3** | **6** |
+
+✝ = more than 10, i.e. death.
+
+**Strength 7 requires Attack 4 to survive**, and Attack 4 needs the 10 %
+sword *plus* a talisman spent on it — so at strength 7 the duel is
+reachable only on a lucky night. **Strength 5 asks for Attack 2**
+(銅錽劍, or two or three weapon searches) and near-full health, which is
+demanding but ordinary. Given the weapon table, **5 is the number that
+matches the game that actually gets played** — 6 if the duel should be
+the harder of the two wins.
+
+Caveat for when this gets designed properly: a talisman covers **one
+round**, not the whole duel, so 五雷符 and 血符 in the table above are
+single-round substitutions, not a standing Attack. And 攝魂幡 doubles
+exactly one round.
 
 ### Still open on items
 - **Which are unique and which are common** — the pool's rarity is
@@ -1245,6 +1279,25 @@ more redesign is coming. Reconcile once the systems settle.
   any more. Also flagged: talismans are unlimited at 90 % hit, so capping
   a sword at one 真火符 matters now; and 攝魂幡 should probably be unique
   like the weapons.
+- 2026-08-23 — **丹藥 re-weighted** (糯米 40 / 黑狗血 25 / 金丹 15 /
+  nothing 20) and **health capped at 10**. The cap is the important half:
+  it retires constraint P1 outright rather than superseding it. P1 asked
+  the *event pool* to out-damage the healing tiles, which would have
+  meant tuning every event around one tile's edge case; the cap solves it
+  at the source and leaves the pool free. With start 6 and cap 10 the
+  entire healing headroom is +4, so camping tops you up and then does
+  nothing — healing is **recovery, never accumulation** — and it restores
+  the small good tension of holding a 糯米 you cannot afford to waste.
+  The cap also makes the King computable: over three rounds at 10 HP,
+  **strength 7 demands Attack 4** (the 10 % sword plus a talisman spent
+  on it, so a lucky night only), while **strength 5 demands Attack 2**,
+  which is ordinary. 5 looks like the number that matches the game that
+  actually gets played; 6 if the duel should be the harder win.
+- 2026-08-23 — **土地廟 re-weighted**: 攝魂幡 15 %, 糯米 40 %, nothing
+  45 %. The banner is now the rarest single outcome in the game — about
+  seven searches expected, every one of them outdoors and costing a STAY
+  plus an event, which is a serious share of a 30-turn night for the item
+  that decides the duel.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose

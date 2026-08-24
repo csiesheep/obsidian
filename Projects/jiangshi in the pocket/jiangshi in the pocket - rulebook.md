@@ -54,7 +54,7 @@ Either ends the night. So does dying.
 2. Shuffle the remaining indoor and outdoor tiles into two separate
    face-down stacks.
 3. Start with **Attack 0** — bare-handed — plus **Health 6** and
-   **3 cower charges**.
+   **3 cower charges**. **Health never rises above 10.**
 4. The clock reads **9:00 PM**. It is **turn 1 of 30**.
 
 You begin in the Gatehouse and **draw no event for it**. The night starts
@@ -263,6 +263,9 @@ sword and the sword is better for the rest of the night. 七星劍 with a
 | **黑狗血** Black Dog Blood | **Get out of the fight**, unhurt |
 | **金丹** Golden Elixir | A gamble: **half the time +6 Health, half the time −2** |
 
+Health stops at **10**. Anything that would take you past it is
+wasted — so a 糯米 at 9 Health is worth holding rather than eating.
+
 ### 法器 The banner — used once
 
 | | |
@@ -281,10 +284,10 @@ Each search rolls once on the table for that place's category.
 
 | 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 only | |
 |---|---|---|---|---|---|---|---|
-| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 50 % | 糯米 | 40 % |
-| 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 30 % | **攝魂幡** | 20 % |
-| 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 20 % | nothing | 40 % |
-| 七星劍 | 10 % | 五雷符 | 20 % | | | | |
+| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
+| 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | 15 % |
+| 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
+| 七星劍 | 10 % | 五雷符 | 20 % | nothing | 20 % | | |
 | nothing | 10 % | nothing | 10 % | | | | |
 
 **There is only one of each weapon in the village.** Turn up one you're
@@ -292,9 +295,8 @@ already carrying and you find nothing — so the more blades you own, the
 more often a weapon search comes up empty. Four searches in and it
 almost always will.
 
-**A medicine search never comes up empty.** Talismans almost never do,
-and there is no limit on them: the same talisman can be found again and
-again.
+**Talismans have no limit** — the same one can be found again and again,
+and a talisman search comes up empty only one time in ten.
 
 **七星劍 is rare on purpose.** One search in ten. Most nights you will
 fight with something worse, and that is the game working, not the game
