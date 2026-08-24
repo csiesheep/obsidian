@@ -135,7 +135,7 @@ a category rolls the identical table.
     {"id":"woodshed",      "exits":["N","E"],         "search":"weapon"},
     {"id":"sutra-hall",    "exits":["N","W"],         "search":"magic"},
     {"id":"mourning-hall", "exits":["N","E","W"],     "search":"magic"},
-    {"id":"courtyard",     "exits":["N","E","S","W"], "exteriorDoor":true},
+    {"id":"courtyard",     "exits":["N","E","S","W"], "exteriorDoor":"N"},
     {"id":"blacksmith",    "exits":["N"],             "search":"weapon"},
     {"id":"counting-room", "exits":["N","E","W"],     "search":"medicine", "onTurnEnd":"HEAL_1"},
     {"id":"incense-hall",  "exits":["N","E"],         "action":"RESTORE_COWER_ONCE"},
@@ -156,15 +156,17 @@ a category rolls the identical table.
 }
 ```
 
-Exit density 21/10 indoor (2.1), 26/10 outdoor (2.6) — deliberately
-matched to the source's 2.13 / 2.6.
+Exit density 23/10 indoor (2.3) and 26/10 outdoor (2.6). Outdoor matches
+the source's 2.6; indoor sits above its 2.13 because the Gatehouse opens
+three ways instead of the source Foyer's one. *(Corrected 2026-08-24 — an
+earlier annotation said 21/2.1 against a JSON block that sums to 23.)*
 
 ### Tile behaviours ✅
 
 | Field | Meaning |
 |---|---|
 | `start` | Placed at origin (indoor) / set aside for the seam (outdoor) |
-| `exteriorDoor` | One of its exits is the moon gate — the only crossing |
+| `exteriorDoor` | Names the edge that is the moon gate — the only crossing. An edge name, not a boolean: `rotateDir` must be able to turn it with the tile (amended 2026-08-24 to match the shipped, correct shape) |
 | `seam` | The edge that joins back to the Courtyard |
 | `search` | Which §4 table a search here rolls on |
 | `onTurnEnd: HEAL_1` | +1 HP if the turn ends here (capped) |

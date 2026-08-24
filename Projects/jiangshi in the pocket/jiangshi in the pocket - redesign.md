@@ -2323,6 +2323,16 @@ more redesign is coming. Reconcile once the systems settle.
   `earth-god-shrine` where the spec and glossary said `earth-shrine` —
   the documents were corrected to match the code, since the id contract
   follows what ships.
+- 2026-08-24 — **two spec §2 corrections from BE's implementation review.**
+  `exteriorDoor` is an **edge name** (`"N"`), not a boolean — the engine
+  rotates it with the tile via `rotateDir`, and a bare `true` would have
+  re-hardcoded the north-face assumption that was removed when the moon
+  gate became one of the Courtyard's four ordinary doors. The shipped
+  shape was right; the spec is amended to match. And the indoor
+  exit-density annotation said 21/10 (2.1) against a JSON block that sums
+  to **23** — a stale carry-over from before the Gatehouse opened three
+  ways; corrected to 23/10 (2.3). Deviations flagged rather than silently
+  taken, which is the review working as intended.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
