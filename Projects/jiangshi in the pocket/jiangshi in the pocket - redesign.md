@@ -256,6 +256,123 @@ Still to settle when the pool is authored (not now):
 
 ---
 
+### 道士的行頭 — source material for the item pool
+
+Folk-Taoist kit as it actually appears in the 茅山 / 湘西趕屍 / 民間道教
+tradition that jiangshi films draw on — not orthodox 全真 or 科儀 Taoism.
+Reference for authoring the item pool; nothing here is chosen yet.
+
+**The taxonomy already matches the map.** These four groups line up
+one-to-one with the search categories in §4 — 法器/武器 → **武器**,
+符咒 → **符咒**, 丹藥 → **丹藥**, and 法事用品 as enablers and quest
+objects. That wasn't planned; it's just what the tradition is shaped like.
+
+#### 一、法器與武器
+
+| 物件 | 民俗中的作用 |
+|---|---|
+| **桃木劍** | 最經典。桃木本身辟邪，斬妖不見血 |
+| **銅錢劍** | 銅錢（多用五帝錢）以紅線紮成劍形，鎮宅、斬煞 |
+| **七星劍** | 劍身嵌北斗七星，正式的法劍，比桃木劍位階高 |
+| **法印／天師印／雷印** | 木或玉的印，蓋在符上才生效，也可直接壓在屍額 |
+| **令牌（五雷號令）** | 雷擊棗木製，拍案調兵遣將、召雷 |
+| **拂塵** | 掃穢氣、拂開陰障，道士標準配件 |
+| **帝鐘（三清鈴）** | 手搖銅鈴，聲音通神、驚醒魂魄 |
+| **攝魂鈴／趕屍鈴** | 趕屍匠專用，鈴聲領著屍體走 |
+| **墨斗** | 木匠的墨線，彈出的線陰邪不敢過——魯班術，民間極常用 |
+| **八卦鏡／照妖鏡** | 照出原形、反彈煞氣 |
+| **招魂幡／引魂幡** | 長竿白幡，引魂、也標記屍體歸屬 |
+| **桃木釘／七寸釘** | 釘關節、釘棺，定住屍身 |
+| **硃砂筆** | 畫符的筆，急用時可直接在屍額點硃砂 |
+| **戒刀／柳葉刀** | 隨身短刃，切符紙也切東西 |
+| **羅盤** | 尋龍點穴、辨方位陰陽 |
+| **鎮屍石／鎮墓獸** | 壓在棺上或墓前，鎮住不讓起屍 |
+
+#### 二、符咒
+
+符是**黃紙＋硃砂**寫的，起首「敕令」，收尾「急急如律令」。
+
+| 符 | 用途 |
+|---|---|
+| **鎮屍符／定屍符** | 貼額頭那張。殭屍片的招牌，貼上就不動 |
+| **五雷符** | 召雷擊，最兇的攻擊符 |
+| **鎮宅符** | 貼門楣，一室之內邪不入 |
+| **護身符／平安符** | 隨身，擋一次災 |
+| **破煞符／驅邪符** | 解已中的煞 |
+| **引魂符／招魂符** | 招回離體之魂 |
+| **安魂符** | 安撫不肯走的魂 |
+| **火符** | 燃起真火，焚屍焚穢 |
+| **血符** | 沒硃砂時以指血代寫，效力強但傷身 |
+| **符水** | 符燒成灰化入水，喝下去去屍毒、解驚 |
+
+配套咒語（不是物件，寫文案會用到）：**淨心神咒、金光神咒、五雷咒、
+掌心雷**。
+
+#### 三、丹藥與藥材
+
+| 物件 | 作用 |
+|---|---|
+| **糯米** | 拔屍毒。被殭屍抓傷後敷或吃，殭屍片第一藥 |
+| **黑狗血** | 破一切邪法，潑上去屍體失效 |
+| **公雞血／雞冠血** | 至陽之物，點眼可見鬼、破陰 |
+| **童子尿** | 至陽，急用時的替代品 |
+| **硃砂** | 既是墨也是藥，鎮驚安神 |
+| **雄黃／雄黃酒** | 驅蛇蟲、辟邪，端午飲 |
+| **香灰** | 沖水服，止驚；也可撒地畫界 |
+| **艾草／菖蒲** | 掛門、燻屋、驅穢 |
+| **石灰** | 撒在屍身周圍防腐防走 |
+| **硫磺** | 燻、燒，逼退陰物 |
+| **金丹（外丹）** | 煉丹爐煉出的長生丹，含汞——吃了也可能出事 |
+| **柳枝** | 沾水灑淨，柳為陰木但可淨屋 |
+
+#### 四、法事用品
+
+香爐、三炷香、**長明燈（引路燈）**、七星燈（諸葛亮續命那套燈陣）、
+紙錢／冥紙、元寶、白蠟燭、米斗、紅線／紅繩、麻繩、白布（孝布）、
+**神主牌（靈牌）**、骨灰罈、棺材釘、**草人（替身）**、生辰八字、
+五帝錢、桃符、道袍／法衣、度牒。
+
+### The 9-slot remap — and why it still matters
+
+⚠️ **Written against the *old* structure** (9 dual-purpose cards, one
+item each, from [[jiangshi in the pocket plan]]). §3 replaced that with
+an open-sized pool, so the *slots* are obsolete — but the **item choices
+and the combo logic survive intact**, and they are the best part of it.
+
+The two weak points in the plan's original mapping:
+
+- **火銃 Fire Lance** (3 attack, 2 shots, refuellable) — a firearm is not
+  a 道士's tool at all, and was the one off-key note in the set. 七星劍 or
+  a 雷擊木令牌 fit better, but neither carries the "two uses then empty,
+  and refillable" feel. **The thing that natively has that structure is a
+  符**: a stack of **五雷符**, two of them, redrawn with **硃砂** when
+  spent. Far more natural than petrol and a lance.
+- **火藥 Gunpowder** likewise → **硃砂**, and the lamp combo becomes
+  *throw the talisman into the lamp flame → the room burns*. Burning a
+  talisman to light it is a standard folk action, not an invention.
+
+| Mechanic | Plan's version | Better |
+|---|---|---|
+| +1 attack | 竹竿 Bamboo Pole | **桃木橛** (peachwood nail) |
+| +1 attack | 鋤頭 Iron Hoe | **墨斗** (ink line — snaps a barrier, and doubles as a lash) |
+| +1 attack | 銅錢劍 Coin Sword | 銅錢劍 ✓ |
+| +2 attack | 桃木劍 Peachwood Sword | 桃木劍 ✓ |
+| +3, 2 uses, refillable | 火銃 Fire Lance | **五雷符** (two talismans) |
+| +2 health | 糯米 Sticky Rice | 糯米 ✓ |
+| flee unhurt / combo clear | 黑狗血 Black Dog Blood | 黑狗血 ✓ |
+| combo clear / refill the above | 火藥 Gunpowder | **硃砂** (draw another talisman) |
+| combo catalyst | 長明燈 Altar Lamp | 長明燈 ✓ |
+
+**The three combos become:**
+- **符 ＋ 長明燈** → 燒符引真火，滿室焚盡 — burn the talisman in the
+  flame, the room goes up
+- **黑狗血 ＋ 長明燈** → 血火破法 — blood and fire break the working
+- **硃砂 ＋ 符** → 再畫兩張 — redraw two more talismans
+
+All three are things a person in this tradition would actually do, which
+petrol-and-a-candle never was.
+
+
 ## 2. Tile system — 10 indoor, 10 outdoor
 
 **The ask:** extend from 8 + 8 to **10 + 10**.
@@ -768,6 +885,14 @@ more redesign is coming. Reconcile once the systems settle.
   one place where the existing architecture actually resists it — it
   assembles a sentence from fragments, so it needs per-language assembly
   rather than a second string table.
+- 2026-08-23 — **道士 kit research folded into §1's item-pool section**:
+  four reference tables (法器/武器, 符咒, 丹藥/藥材, 法事用品) plus the
+  9-slot remap. Two notes worth keeping: the tradition's own four
+  categories **already match the map's search types** one-to-one, and the
+  plan's 火銃/火藥 pairing should become **五雷符 ×2 refilled with 硃砂**
+  — a stack of talismans is natively "two uses, then redraw," which is
+  what the fire-lance was awkwardly imitating. The remap's slots are
+  obsolete under the open-sized pool, the item choices and combos are not.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
