@@ -43,7 +43,7 @@ Either ends the night. So does dying.
 
 - **10 indoor tiles, 10 outdoor tiles.**
 - An **event pool** ⏳ and an **item pool** — separate, unlike the source
-  game's single deck. **13 items**, in four kinds.
+  game's single deck. **12 items**, in four kinds.
 - Health, Attack, the turn number and your cower charges are numbers you
   track.
 
@@ -225,7 +225,8 @@ and nothing to heal you — it is shelter and nothing more.
 
 You can carry **6**. The 神主牌 tablet doesn't count against that.
 
-**Weapons stay with you. Everything else is used once and is gone.**
+**Weapons stay with you. Everything else — talismans, medicines, the
+banner — is used once and is gone.**
 
 ### 武器 Weapons — kept
 
@@ -241,8 +242,17 @@ you're holding counts: carrying two doesn't add them together 📐.
 
 ### 符咒 Talismans — burned once
 
-A talisman **replaces** your Attack for one fight. It doesn't add to the
-weapon in your hand.
+**A talisman adds to your sword.** Bring both to the same fight and the
+two stack:
+
+> **Attack = (sword, doubled if you spend the 攝魂幡) + talisman**
+
+So 七星劍 with a 真火符 burned into it (4), the banner, and a 五雷符 (4)
+comes to (4 × 2) + 4 = **12**.
+
+The sword keeps its number all night. The banner and the talisman are
+gone the moment you use them, so **that combination can be assembled
+once.**
 
 | Talisman | What it does |
 |---|---|
@@ -250,7 +260,6 @@ weapon in your hand.
 | **五雷符** Five Thunder | Fight at **4** |
 | **血符** Blood | Fight at **5**. Writing it costs you **1 Health** |
 | **硃砂** Cinnabar | Copy a talisman you already hold — **+2 more of it** |
-| **鎮屍符** Corpse-Stilling | **There is only one.** The seal you press to the King's forehead — see [Midnight](#midnight-) |
 
 真火符 is the only one worth spending outside a fight: put it into a
 sword and the sword is better for the rest of the night. 七星劍 with a
@@ -271,13 +280,14 @@ wasted — so a 糯米 at 9 Health is worth holding rather than eating.
 
 | | |
 |---|---|
-| **攝魂幡** Soul-Snatching Banner | Your **next attack counts double** — a sword's or a talisman's |
+| **攝魂幡** Soul-Snatching Banner | **Doubles your sword** for one fight. It does nothing for a talisman |
 
 There is exactly one place it is ever found: **土地廟 the Earth God
 Shrine**, and only sometimes, when you search there.
 
-Doubling is wasted on a small pack — you can only reduce damage to zero,
-and a sword often gets you there already. **Keep it for something big.**
+Doubling a sword is wasted on a small pack — damage only goes down to
+zero, and a sword and talisman together often get you there anyway.
+**Keep it for something big.** You will want it at midnight.
 
 ### What a search turns up ✅
 
@@ -285,15 +295,11 @@ Each search rolls once on the table for that place's category.
 
 | 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 only | |
 |---|---|---|---|---|---|---|---|
-| 戒刀 | 30 % | 真火符 | 25 % | 糯米 | 40 % | 糯米 | 40 % |
+| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
 | 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | 15 % |
 | 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
-| 七星劍 | 10 % | 五雷符 | 15 % | nothing | 20 % | | |
-| | | **鎮屍符** | 10 % | | | | |
+| 七星劍 | 10 % | 五雷符 | 20 % | nothing | 20 % | | |
 | nothing | 10 % | nothing | 10 % | | | | |
-
-**鎮屍符 is one of a kind too**, like the weapons — once it is yours, a
-magic search that turns it up again finds nothing.
 
 **There is only one of each weapon in the village.** Turn up one you're
 already carrying and you find nothing — so the more blades you own, the

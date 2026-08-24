@@ -23,12 +23,10 @@ Baseline being changed: [[zombie in the pocket - ruleset spec]].
 - [~] **Item pool** — **11 items designed 2026-08-23** (see §1). Still
       open: rarity counts, slot rules for talisman stacks, and the miss
       rate on a search.
-- [~] **King ability design** — strength 8 set; **two variants written
-      2026-08-23 → §5.** **A (鎮屍)**: no health, win by sealing him on a
-      zero-damage beat — the banner is the one gate. **B (血戰)**: Attack
-      8 / Health 10, win by emptying him — wider viable kits, but turn
-      order must be fixed and the banner loses its rarity's justification.
-      Bot both.
+- [~] **King ability design** — **strength 12, Variant A (鎮屍), the
+      attack-combination gate → §5.** Two winning kits exist and every
+      piece of them is load-bearing. Open: what surviving three beats
+      without sealing means.
 - [ ] **Two wins** — how the tablet burial and the duel relate: relative
       difficulty, whether they interact, what the epilogue says about each.
 - [ ] **Bilingual — English + 繁體中文, both first-class.** Not a
@@ -261,7 +259,7 @@ Still to settle when the pool is authored (not now):
 
 ### The items — ✅ designed 2026-08-23
 
-Thirteen items in four categories. Weapons persist; talismans and
+Twelve items in four categories. Weapons persist; talismans and
 medicines are **consumed on use**. The backpack holds **6 items**
 (2026-08-23, up from the source's 2). The 神主牌 tablet is slotless.
 
@@ -282,13 +280,12 @@ medicines are **consumed on use**. The backpack holds **6 items**
 | **五雷符** | Five Thunder Talisman | Attack **4** |
 | **血符** | Blood Talisman | Attack **5**, costs **1 HP** to use |
 | **硃砂** | Cinnabar | Add **+2 quantity** to any talisman in hand |
-| **鎮屍符** | Corpse-Stilling Talisman | **Unique.** The seal — the only thing that ends the duel (§5) |
 
 #### 法器 ritual implement — one use, then gone
 
 | 物件 | Item | Effect |
 |---|---|---|
-| **攝魂幡** | Soul-Snatching Banner | Your **next attack ×2** |
+| **攝魂幡** | Soul-Snatching Banner | **Doubles a sword's** Attack for one fight. Does *not* double a talisman |
 
 #### 丹藥 medicine — one use, then gone
 
@@ -305,11 +302,10 @@ carry and you find nothing.
 
 | 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 special | |
 |---|---|---|---|---|---|---|---|
-| 戒刀 | 30 % | 真火符 | 25 % | 糯米 | 40 % | 糯米 | 40 % |
+| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
 | 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | **15 %** |
 | 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
-| 七星劍 | **10 %** | 五雷符 | 15 % | nothing | 20 % | | |
-| | | **鎮屍符** | **10 %** | | | | |
+| 七星劍 | **10 %** | 五雷符 | 20 % | nothing | 20 % | | |
 | nothing | 10 % | nothing | 10 % | | | | |
 
 ### What the probabilities do
@@ -382,6 +378,73 @@ run going for either win can spare. Still worth **declaring it unique
 like the weapons**, so the shrine returns nothing once you hold one —
 otherwise a duelist who reaches the shrine early has a reason to stand
 there for a third of the night.
+
+### 🗡️ How Attack is put together — revised 2026-08-23
+
+**A sword and a talisman add.** They are not alternatives any more: you
+may bring both to the same fight, and the banner doubles the *sword* half
+only.
+
+```
+Attack  =  (sword  ×2 if 攝魂幡 spent)  +  talisman
+```
+
+| Example | Working | Attack |
+|---|---|---|
+| 七星劍 + 真火符 in it, 幡, 五雷符 | (3+1) × 2 + 4 | **12** |
+| 七星劍 + 真火符 in it, 幡, 血符 | (3+1) × 2 + 5 | **13** |
+| 七星劍, 幡, 五雷符 | 3 × 2 + 4 | 10 |
+| 銅錢劍, 幡, 血符 | 2 × 2 + 5 | 9 |
+| 七星劍 + 真火符, no banner, 五雷符 | 4 + 4 | 8 |
+
+**What survives the fight and what doesn't** — confirmed 2026-08-23:
+
+| | |
+|---|---|
+| **劍 swords** | **Persistent.** Never consumed. A 真火符 burned into one stays burned in |
+| **符 talismans** | **Consumed** on use, one fight each |
+| **攝魂幡** | **Consumed** — one use, one fight |
+
+**So the winning kit is spent in a single beat, and you get exactly one
+attempt.** The sword half is permanent and safe; the other half — banner
+plus talisman — is gone the moment you spend it.
+
+⚠️ **That makes mistiming the banner a way to lose outright.** Spend it on
+a beat when you have no attack talisman in hand and you reach 8, not 12 —
+the blow lands, and the only route to the seal is gone for the rest of
+the night. The duel is therefore not only a collection problem but a
+**sequencing** one, which is the good kind of difficulty: it is entirely
+visible in advance, and entirely the player's own call.
+
+Two implications for the build:
+- **The UI has to make this legible.** At the moment of choosing, the
+  player should be able to see what Attack each combination would produce
+  and that the banner is one-use. This is a set-piece; it can afford a
+  proper confirm.
+- **A cautious player will hold the banner to the last beat**, since
+  spending it early can only waste it. Worth checking with the bots that
+  beat 3 doesn't become the only sensible timing — if it does, the choice
+  is illusory.
+
+**This is a much bigger change than the duel it was written for.** It
+lifts the ceiling everywhere, and it changes what a talisman *is*:
+
+- **Talismans stop being a substitute and become an amplifier.** Before,
+  spending 五雷符 meant fighting at 4 *instead of* your sword. Now it
+  means +4 *on top*. A 銅錢劍 player facing five jiangshi went from 3
+  damage to **0**.
+- **Every weapon stays relevant.** Under the replace rule a 戒刀 was
+  strictly worse than any attack talisman, so it was dead weight the
+  moment you found one. Now it always contributes.
+- **⚠️ Ordinary combat gets much easier.** Sword + talisman routinely
+  covers a whole pack. The event pool has not been written yet, so this
+  is the right time to know it: **pack sizes should be scaled against
+  sword-plus-talisman, not sword alone**, or the 10 and 11 PM bands will
+  be walked through by anyone carrying two items.
+- 血符 and 五雷符 remain near-identical — +1 Attack for 1 HP is exactly
+  break-even under the clamp — so they still want separating by **rarity,
+  not effect**. 血符 does now carry a 1-point margin in the duel maths
+  below, which is a small real difference.
 
 ### What this design implies
 
@@ -993,30 +1056,22 @@ Status column says so. Hooks are suggestions, not decisions.
 
 ---
 
-## 5. 殭屍王 The King — strength 8 ⚠️ proposal
+## 5. 殭屍王 The King — strength 12 ✅ Variant A
 
-**Strength 8 is a statement, and it should be read as one.** With the
-inherited formula `damage = clamp(8 − attack, 0, 4)` and a 10 HP cap:
+**Strength 12, and the combination rule above is what makes it
+reachable.** His damage is `clamp(12 − attack, 0, 4)`, so:
 
 | Attack | Damage / beat | Over 3 beats |
 |---|---|---|
-| 0 – 4 | **4** (all clamped) | **12 → dead** |
-| 5 — 血符 | 3 | 9 |
-| 6 — 血符 ×攝魂幡 ÷2… | 2 | 6 |
-| 7 | 1 | 3 |
-| 8+ | **0** | 0 |
+| 0 – 8 | **4** (all clamped) | **12 → dead** |
+| 9 | 3 | 9 |
+| 10 | 2 | 6 |
+| 11 | 1 | 3 |
+| **12+** | **0** | **0 — sealed** |
 
-Two things fall straight out, and they define the design:
-
-1. **You cannot out-fight him.** Realistic Attack is 2–3 (七星劍 is a
-   10 % find), and everything from 0 to 4 takes the identical full 4 —
-   the clamp flattens the whole weapon table. 12 damage against a cap of
-   10 means **tanking three beats is arithmetically impossible.**
-2. **⚠️ It also kills two talismans at the exact moment they should
-   shine.** 真火符 (1) and 五雷符 (4) both leave you taking 4, i.e. they
-   do *nothing* in the duel. Only 血符 (5) and 攝魂幡 (doubling) move the
-   number at all. If that isn't intended, strength 8 is the wrong number;
-   if it is, the duel must not be a damage race.
+Anything below Attack 9 takes the identical full 4, and 12 damage against
+a 10 HP cap means **three beats of tanking is arithmetically
+impossible.** That is the premise, not a bug: *steel does not stop him.*
 
 **So: don't make him a stat check. Make him a three-beat puzzle** where
 each beat is answered with an item, not a score. That reading turns
@@ -1066,172 +1121,78 @@ breathe eventually.
 
 ### 鎮屍 — how you actually win
 
-You do not kill him, you **seal** him.
+You do not kill him, you **seal** him. There is no health bar to empty.
 
-> **On any beat where his strike deals you zero damage, you may spend
-> one talisman as a 鎮屍符** — press it to his forehead. The duel ends and
-> the night is yours.
+> **Meet one of his blows with Attack 12 or more.** It lands on nothing,
+> he loses his footing, and in that opening you press the paper to his
+> forehead. The duel ends and the night is yours.
 
-### 🔒 The seal needs 鎮屍符 specifically — not any talisman
+Reaching 12 needs the whole kit at once, and there are **exactly two
+combinations** that get there:
 
-**Revised 2026-08-23: the first version's gate was too low.** Attack 8 was
-reachable with 攝魂幡 + 五雷符 or 攝魂幡 + 血符, and both of those
-talismans are 20 % draws from an *unlimited* supply across three rooms.
-The talisman half was effectively free, so the whole duel collapsed into
-"find the banner."
-
-**Raising the numbers cannot fix that** — any requirement phrased as
-"some talisman" stays cheap, because talismans are cheap. The fix has to
-be **scarcity**, so the seal gets its own item:
-
-| New item | | |
+| The winning lines | Working | Attack |
 |---|---|---|
-| **鎮屍符** Corpse-Stilling Talisman | **unique** — one in the world | The one you press to his forehead. It, and nothing else, ends the duel |
+| **七星劍 + 真火符 + 攝魂幡 + 五雷符** | (3+1) × 2 + 4 | **12** — exactly enough |
+| **七星劍 + 真火符 + 攝魂幡 + 血符** | (3+1) × 2 + 5 | **13** — one to spare |
 
-It was also the most glaring omission in the item list: 鎮屍符 is *the*
-iconic object of the entire genre — the yellow paper on the forehead —
-and the game did not have it.
+And the near misses, which are the useful part of the table:
 
-**Where it comes from.** Folded into the 符咒 table as its rare prize,
-mirroring 七星劍 at 10 % in the weapon table, and **unique like the
-weapons** (roll it while carrying it and you find nothing):
+| Falls short | Working | Attack | Damage |
+|---|---|---|---|
+| 七星劍 + 攝魂幡 + 血符 (no 真火符) | 3 × 2 + 5 | 11 | 1 |
+| 七星劍 + 真火符 + 攝魂幡 (no talisman) | 4 × 2 | 8 | 4 |
+| 銅錢劍 + 真火符 + 攝魂幡 + 血符 | 3 × 2 + 5 | 11 | 1 |
+| 七星劍 + 真火符 + 五雷符 (no banner) | 4 + 4 | 8 | 4 |
 
-| 符咒 | was | now |
+**Every single piece is load-bearing.** Drop the 真火符 and you are at
+11. Use the wrong sword and you are at 11. Forget the banner and you are
+at 8. That is a *configuration* the player builds toward and can see
+coming — not a key item that either drops or doesn't.
+
+### What the gate actually costs
+
+| Piece | Source | Odds |
 |---|---|---|
-| 真火符 | 30 % | 25 % |
-| 血符 | 20 % | 20 % |
-| 硃砂 | 20 % | 20 % |
-| 五雷符 | 20 % | 15 % |
-| **鎮屍符** | — | **10 %** (unique) |
-| nothing | 10 % | 10 % |
+| **七星劍** | 武器 rooms — Blacksmith ★, Woodshed, Memorial Arch | **10 %, unique** |
+| **攝魂幡** | 土地廟 only, outdoors, past the moon gate | **15 %, unique** |
+| 真火符 | any 符咒 room | 30 %, unlimited |
+| 五雷符 / 血符 | any 符咒 room | 20 % each, unlimited |
 
-This also gives 經堂 Sutra Hall — labelled ★, the richest magic in the
-game — an actual rare prize to be richest *in*.
+**Two unique items from opposite halves of the map**, plus two common
+talismans. The 10 % sword finally has a reason to be that rare: it is not
+merely the best weapon, it is the *only* weapon that can reach the seal.
 
-### The gate, restated
+This is why the design wanted a 6-slot backpack. At the moment of the
+duel you are carrying 七星劍, 攝魂幡 and an attack talisman — the 真火符
+is already spent into the sword — plus whatever medicine kept you alive.
 
-The duel now needs **two scarce things and one common one**:
-
-| | Source | Odds |
-|---|---|---|
-| **攝魂幡** | 土地廟 only, outdoors, past the moon gate | 15 %, unique |
-| **鎮屍符** | any 符咒 room | 10 %, unique |
-| An Attack ≥ 4 source | any talisman, or 七星劍 + 真火符 | easy |
-
-Both rare items are required, they come from **opposite halves of the
-map**, and neither substitutes for the other. Roughly 7 searches expected
-for the banner and 10 for the seal, inside a 30-turn night that also has
-to be explored. **That is a genuinely hard win**, which is the intent.
-
-⚠️ **For the bots to check:** the duel may now be *harder* than the
-burial rather than its equal. If it proves too rare, the knobs in order of
-preference are — raise 鎮屍符 to 15 %, let 硃砂 duplicate it, or let the
-Sealed Crypt yield it too.
-
-Any of those **opens the window** — his blow lands on nothing. What
-*closes* it is the 鎮屍符, and that is the scarce half. So the banner
-still rehabilitates 五雷符, which strength 8 had otherwise made
-worthless; it just no longer wins the night on its own.
-
-**This makes 攝魂幡 the key to the duel**, which justifies everything
-about it — 15 % odds, outdoors only, one place in the world, and "keep it
-for something big" turning out to be literal. It also means the duelist
-must cross the moon gate, which is the structural property we wanted.
-
-**The knob, if the gate is too tight:** allow the seal at **≤1 damage**
-instead of 0, which opens Attack 7 and takes the banner from mandatory to
-strongly preferred.
+⚠️ **For the bots:** this is a demanding gate, and the duel may end up
+rarer than the burial rather than its equal. Knobs, in order of
+preference: let the seal fire at **11** (which opens two more lines), let
+硃砂 duplicate the banner, or nudge 七星劍 to 15 %.
 
 ### How it actually plays
 
-With 僵直 as a cushion, an ordinary duelist — Attack 2 from a 銅錢劍,
-10 HP, holding the banner and a 五雷符:
+The winning night — 七星劍 with a 真火符 already burned into it (Attack
+4), banner and 五雷符 in the pack, 10 HP:
 
 | Beat | Play | Damage | HP |
 |---|---|---|---|
-| 1 | fight (rigor: −2) | 2 | 8 |
-| 2 | **攝魂幡 + 五雷符 → Attack 8**, then press the **鎮屍符** | **0** | 8 → **sealed, win** |
+| 1 | fight with the sword alone (4) — rigor takes 2 off | 2 | 8 |
+| 2 | **攝魂幡 on the sword + 五雷符 → Attack 12** | **0** | 8 → **sealed, win** |
 
-That beat spends three things — the banner, a talisman for the attack, and
-the 鎮屍符. Carrying all three at once is what the 6-slot backpack is
-for.
-
-And the same player *without* a banner:
+And a well-equipped player who is still one piece short — same sword and
+banner, but no talisman to add:
 
 | Beat | Play | Damage | HP |
 |---|---|---|---|
-| 1 | fight (rigor: −2) | 2 | 8 |
-| 2 | fight | 4 | 4 |
-| 3 | fight | 4 | **0 — dead** |
+| 1 | sword (4), rigor −2 | 2 | 8 |
+| 2 | 幡 → Attack 8 | 4 | 4 |
+| 3 | sword (4) | 4 | **0 — dead** |
 
-Exactly lethal, which is the right feel: no banner, no night. 黑狗血 or a
-held breath buys one of those beats back and leaves you alive at 4 — but
-alive is not the same as won (see the open question below).
-
----
-
-## Variant B — 血戰, he has health (**not taken** — kept for reference)
-
-**The King gets a stat block: Attack 8, Health 10.** The duel stops being
-"can you survive him" and becomes "**who empties whom first**." Plus:
-**no 僵直**, and **攝魂幡 doubles swords only, not talismans.**
-
-### What this changes at the root
-
-**鎮屍 is gone.** With health to remove, winning means removing it — the
-zero-damage opening and the forehead talisman have nothing to attach to.
-The clean "the banner is the one gate" structure goes with it. Not a
-loss, but a real trade, and worth choosing deliberately rather than
-inheriting.
-
-### The numbers
-
-- **His damage to you** — keep the inherited clamp:
-  `clamp(8 − your attack, 0, 4)`. Capped at 4 against a 10 HP player,
-  that gives you **three beats** to work in. *(Unclamped, `8 − attack`,
-  a low-attack player dies in two — playable, but much harsher and it
-  needs a new formula for no gain.)*
-- **Your damage to him** — your Attack, **cumulative**. You need **10**.
-- **Talismans are burst** (they replace your attack for that beat);
-  **swords are sustained.**
-
-### Which lines actually win
-
-Ten cumulative damage inside three beats:
-
-| Carrying | Beat 1 · 2 · 3 | Total | |
-|---|---|---|---|
-| 七星劍 + 真火符 (4) | 4 · 4 · 4 | **12** | ✅ |
-| 七星劍 (3) + 幡 on any beat | 3 · 3 · 6 | **12** | ✅ |
-| 銅錢劍 (2) + 五雷符 + 血符 | 4 · 5 · 2 | **11** | ✅ |
-| **戒刀 (1) + 五雷符 + 血符** | 4 · 5 · 1 | **10** | ✅ *exactly* |
-| 七星劍 (3), sword alone | 3 · 3 · 3 | 9 | ❌ **one short** |
-| 銅錢劍 (2), sword alone | 2 · 2 · 2 | 6 | ❌ |
-
-**This is a healthy spread.** Even the worst sword plus two talismans
-gets there, so the duel is no longer chained to the 10 % 七星劍 — while a
-sword *alone* falls exactly one point short, which says the right thing:
-**steel is not enough, you need the craft too.**
-
-### ⚠️ Two things Variant B must answer
-
-**1. Turn order becomes load-bearing.** Look at the 戒刀 line: beat three
-lands the final single point. If **you strike first**, he dies before
-swinging and you win at 2 HP. If it resolves **simultaneously**, he hits
-you too and you both die. Exact-kill lines like that will be common once
-he has health, so the order must be stated. 僵直 used to answer this
-incidentally; without it, **recommend the player strikes first** — he is
-newly woken and stiff, which keeps the old flavour without the free-beat
-exploit.
-
-**2. The banner is demoted, and its rarity no longer fits.** Doubling
-swords only, its sole worthwhile use is 七星劍 ×2 = 6; on a 戒刀 it buys
-2 and is wasted. So it drops from *the key to the duel* to *an
-accelerator for players who already found the good sword* — while keeping
-15 % odds, a single tile, and a location behind the moon gate. **That
-combination is the worst of both**: hard to get and not decisive.
-**Recommend loosening it to 25–30 %** if Variant B is taken, or letting
-it double talismans after all.
+Exactly lethal, and instructive: he was carrying the rare sword *and* the
+rare banner and still lost for want of a 20 % talisman. **The kit is the
+puzzle.**
 
 ## Shared by both variants
 
@@ -1272,6 +1233,9 @@ concepts beyond, in B's case, a health pool for one entity. **Bot both.**
 ### Open on the King
 - **Beat count: three?** It fixes 12 damage as the untanked worst case,
   which is exactly one more than the cap allows — a good number.
+- **Does the sword-plus-talisman rule apply to ordinary fights too?**
+  Read as **yes** — it is a general combat rule, not a duel exception.
+  That is the assumption the event pool must be built against.
 - **⭐ What happens if you survive all three beats without sealing?**
   Now the live question. Three options: you **live but do not win** (he is
   still loose — symmetrical with the Stream's decline), the beats
@@ -1660,6 +1624,31 @@ more redesign is coming. Reconcile once the systems settle.
   Flagged for the bots: the duel may now be *harder* than the burial
   rather than its equal; knobs in order are raise 鎮屍符 to 15 %, let 硃砂
   duplicate it, or let the Sealed Crypt also yield it.
+- 2026-08-23 — **鎮屍符 dropped, and the gate rebuilt as a combination.**
+  A unique item whose only function is "you win" was a lottery ticket, not
+  a decision — reverted, and the 符咒 table restored to 30/20/20/20/10.
+  In its place: **攝魂幡 doubles swords only**, **a sword and a talisman
+  now ADD**, and the King goes to **strength 12**. That leaves exactly two
+  winning kits — 七星劍 + 真火符 + 幡 + 五雷符 (12) and the same with 血符
+  (13) — where **dropping any single piece lands you at 11 or 8**. Far
+  better than the item gate: it is a configuration the player builds
+  toward and can see coming, and it finally justifies 七星劍's 10 % — it
+  is not just the best sword, it is the only one that can reach the seal.
+  ⚠️ The add rule is much bigger than the duel it was written for: it
+  makes talismans **amplifiers rather than substitutes**, so ordinary
+  combat gets markedly easier and **the event pool's pack sizes must be
+  scaled against sword-plus-talisman, not sword alone.** It also rescues
+  the cheap swords, which were dead weight under the replace rule.
+- 2026-08-23 — confirmed **swords persist, talismans and 攝魂幡 are
+  one-use**. Already the design, but it bites much harder under the
+  combination rule: the winning kit is spent in **one beat**, so there is
+  exactly one attempt at the seal. **Mistiming the banner loses the night
+  outright** — spend it with no attack talisman in hand and you reach 8
+  instead of 12, and the route is gone. So the duel is a sequencing
+  puzzle as well as a collection one. Two build notes: the choice UI must
+  show what Attack each combination would produce and that the banner is
+  one-use; and the bots should check whether holding the banner to beat 3
+  is always correct, because if it is, the timing decision is illusory.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
