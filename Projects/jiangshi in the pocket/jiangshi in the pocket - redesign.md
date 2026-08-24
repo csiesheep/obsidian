@@ -23,10 +23,11 @@ Baseline being changed: [[zombie in the pocket - ruleset spec]].
 - [~] **Item pool** — **11 items designed 2026-08-23** (see §1). Still
       open: rarity counts, slot rules for talisman stacks, and the miss
       rate on a search.
-- [ ] **King ability design** — what he actually does at midnight.
-      ⚠️ Open note: the proposed `clamp(7 − attack, 0, 4)` flattens the
-      weapon table (attack 1/2/3 all take 4). Strength 5 gives a clean
-      gradient. See *Open questions*.
+- [~] **King ability design** — **strength 8 set; abilities proposed
+      2026-08-23 → §5.** Designed as a three-beat puzzle rather than a
+      damage race, because at strength 8 the clamp makes Attack 0–4
+      identical. Open: whether 攝魂幡 doubles a talisman's attack (the
+      seal line depends on it).
 - [ ] **Two wins** — how the tablet burial and the duel relate: relative
       difficulty, whether they interact, what the epilogue says about each.
 - [ ] **Bilingual — English + 繁體中文, both first-class.** Not a
@@ -989,6 +990,126 @@ Status column says so. Hooks are suggestions, not decisions.
 
 ---
 
+## 5. 殭屍王 The King — strength 8 ⚠️ proposal
+
+**Strength 8 is a statement, and it should be read as one.** With the
+inherited formula `damage = clamp(8 − attack, 0, 4)` and a 10 HP cap:
+
+| Attack | Damage / beat | Over 3 beats |
+|---|---|---|
+| 0 – 4 | **4** (all clamped) | **12 → dead** |
+| 5 — 血符 | 3 | 9 |
+| 6 — 血符 ×攝魂幡 ÷2… | 2 | 6 |
+| 7 | 1 | 3 |
+| 8+ | **0** | 0 |
+
+Two things fall straight out, and they define the design:
+
+1. **You cannot out-fight him.** Realistic Attack is 2–3 (七星劍 is a
+   10 % find), and everything from 0 to 4 takes the identical full 4 —
+   the clamp flattens the whole weapon table. 12 damage against a cap of
+   10 means **tanking three beats is arithmetically impossible.**
+2. **⚠️ It also kills two talismans at the exact moment they should
+   shine.** 真火符 (1) and 五雷符 (4) both leave you taking 4, i.e. they
+   do *nothing* in the duel. Only 血符 (5) and 攝魂幡 (doubling) move the
+   number at all. If that isn't intended, strength 8 is the wrong number;
+   if it is, the duel must not be a damage race.
+
+**So: don't make him a stat check. Make him a three-beat puzzle** where
+each beat is answered with an item, not a score. That reading turns
+strength 8 from a problem into the premise — *steel does not stop him* —
+and it gives every folklore counter a job.
+
+### The three beats — 三更三響
+
+He arrives at the end of turn 30, in whatever place you are standing.
+**No fleeing, no cowering, no tile effects.** Three beats of the watch
+drum; answer each one.
+
+### Passives
+
+**屍毒 Corpse-poison.** Any beat where he lands damage also **poisons**
+you: −1 HP at the start of every later beat, and it persists past the
+duel. **糯米 draws it out.** — This is where 屍毒 comes from, closing the
+loop 糯米's cure mode opened with nothing to cure.
+
+**他聞你的呼吸 He hunts by breath.** He is blind and finds you by
+breathing. **Hold your breath** to answer a beat: he loses you and deals
+no damage, but you cannot act either. **Once per duel** — you have to
+breathe eventually.
+
+### Weaknesses — the answers
+
+| Answer | Costs | Does |
+|---|---|---|
+| **僵直 Rigor** | — | He cannot turn quickly. **You strike first on beat one**, free, before he acts |
+| **攝魂幡** | the banner | **Attack ×2** for one beat — the only thing that reaches the seal window |
+| **血符** | 1 HP | Attack 5 for one beat → 3 damage instead of 4 |
+| **黑狗血** | the blood | Breaks the working: **skip a beat entirely** |
+| **糯米** | the rice | Clears 屍毒 |
+| **Hold breath** | once | Skip a beat |
+| **溪澗 Stream** | — | He **will not cross running water.** See below |
+
+### 鎮屍 — how you actually win
+
+You do not kill him, you **seal** him.
+
+> **Survive a beat taking zero damage, then spend any talisman as a
+> 鎮屍符** — press it to his forehead. The duel ends and the night is
+> yours.
+
+Zero damage needs **Attack ≥ 8**, which needs the banner:
+
+| Line | Attack | vs 8 |
+|---|---|---|
+| 血符 + 攝魂幡 | 5 × 2 = **10** | 0 — **seal window** |
+| 七星劍 + 真火符 + 攝魂幡 | (3+1) × 2 = **8** | 0 — **seal window** |
+| 七星劍 + 攝魂幡 | 3 × 2 = 6 | 2 |
+| anything without the banner | ≤ 5 | ≥ 3 |
+
+**This makes 攝魂幡 the key to the duel**, which justifies everything
+about it — 15 % odds, outdoors only, one place in the world, and "keep it
+for something big" turning out to be literal. It also means the duelist
+must cross the moon gate, which is the structural property we wanted.
+
+**The knob, if the gate is too tight:** allow the seal at **≤1 damage**
+instead of 0, which opens Attack 7 and takes the banner from mandatory to
+strongly preferred.
+
+### 不渡活水 — the Stream, and declining the duel
+
+Standing on **溪澗 Stream** at the end of turn 30, he will not come. You
+are safe and the duel never happens — so **you cannot win by duel
+there.** The Stream is the "decline" option: survive the night, win only
+if the tablet is already buried.
+
+That makes **where you stand on turn 30 a decision you plan for**, using
+a tile rule that already exists. And it gives a failed burial run a
+dignified out: walk to the water and live.
+
+### Why this shape is worth having
+- **Every folklore counter gets a mechanical job** — rice, blood,
+  running water, the blind breath-hunter, rigor, the forehead seal.
+- **The 12-damage impossibility becomes the teaching moment.** A first
+  duel is meant to be lost; the player learns he isn't a bigger pack, he
+  is a lock.
+- **It reuses the combat formula without contradicting it.** No special
+  damage rules — just answers that replace beats.
+
+### Open on the King
+- **Beat count: three?** It fixes 12 damage as the untanked worst case,
+  which is exactly one more than the cap allows — a good number.
+- **Does the banner's ×2 apply to a talisman's attack**, as the seal
+  table assumes (血符 5 → 10)? Needs confirming; it is the linchpin.
+- **What if the player has no answers left?** Beat three with nothing in
+  hand is 4 damage and probably death. Fine, but the UI must have shown
+  it coming.
+- **Does 屍毒 outlast the night** in the epilogue, if the duel is won
+  while poisoned?
+- **What does he *do* narratively on a beat he lands** — the staging is a
+  set-piece and the cue list already has a drum, a wall-break and a
+  scare to draw on.
+
 ## Cross-cutting
 
 **These three changes are one change.** Turn clock (§1) decides what
@@ -1298,6 +1419,23 @@ more redesign is coming. Reconcile once the systems settle.
   seven searches expected, every one of them outdoors and costing a STAY
   plus an event, which is a serious share of a 30-turn night for the item
   that decides the duel.
+- 2026-08-23 — **King strength set to 8; abilities proposed in §5.** The
+  number forces the design: with `clamp(8 − attack, 0, 4)` everything
+  from Attack 0 to 4 takes the full 4, so 12 damage over three beats
+  against a 10 cap makes **tanking him arithmetically impossible**, and
+  真火符 and 五雷符 do literally nothing in the duel. Rather than fight
+  that, the proposal leans into it: **he is a lock, not a bigger pack.**
+  Three beats, each answered by an item — 屍毒 poison (finally giving
+  糯米's cure mode a source), a once-per-duel **hold your breath** against
+  a blind breath-hunter, **僵直** giving the player a free first strike,
+  黑狗血 to skip a beat, and the win by **鎮屍**: survive a beat at zero
+  damage, then press any talisman to his forehead. Zero damage needs
+  Attack ≥8, which needs **攝魂幡** — so the banner becomes the key to the
+  duel, retroactively justifying its 15 % odds and outdoor-only home. Also
+  proposed: standing on **溪澗 Stream** at turn 30 means he will not come,
+  which is the *decline* option — survive, but win only if the tablet is
+  already buried, making where you stand on the last turn a planned
+  decision.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
