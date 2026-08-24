@@ -2333,6 +2333,10 @@ more redesign is coming. Reconcile once the systems settle.
   to **23** — a stale carry-over from before the Gatehouse opened three
   ways; corrected to 23/10 (2.3). Deviations flagged rather than silently
   taken, which is the review working as intended.
+- 2026-08-24 — **zh title decided: 口袋裡的殭屍** (user), replacing the
+  undecided 殭屍在口袋 the pages had been carrying. Recorded in the
+  glossary; sweep filed as a tracked issue, including the social card
+  image if the old title is baked into the PNG.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec

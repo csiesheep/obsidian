@@ -34,6 +34,12 @@ its own UI is a small, avoidable embarrassment.
 Romanisation stays **jiangshi** (no tone marks, no hyphen) — it is the
 project name and the URL slug.
 
+**The Chinese display title is 口袋裡的殭屍** — decided by the user
+2026-08-24, replacing the never-decided 殭屍在口袋 that had crept into the
+pages. Natural word order, and an echo of the community's name for the
+source game. English title stays *Jiangshi in the Pocket*; the slug stays
+`jiangshi_in_the_pocket`.
+
 ---
 
 ## Tiles — indoor 室內
