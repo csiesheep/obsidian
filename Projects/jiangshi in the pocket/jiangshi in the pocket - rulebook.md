@@ -2,7 +2,7 @@
 tags: [project, rules]
 status: draft
 started: 2026-08-22
-version: pre-alpha — all systems drafted; charm-vs-poison ruling outstanding
+version: pre-alpha — all systems drafted
 ---
 # jiangshi in the pocket — rulebook
 
@@ -11,9 +11,9 @@ The playable rules, in one place, as they stand. Human-facing companion to
 reasoning and the arguments).
 
 > ⚠️ **A draft, but a whole game now.** The clock, the turn, the map, the
-> items, the event pool, the poison and the King are all settled. What
-> remains is marked ⏳ and small — chiefly whether the **護身符** cancels
-> **中毒**, which decides how much rice you ever have to spare.
+> items, the event pool, the poison and the King are all settled. What is
+> left is small and marked ⏳ — and none of it stops you reading this as
+> the game.
 
 **Legend:** ✅ settled · ⏳ not yet designed · 📐 inherited unchanged from
 the *Zombie in my Pocket* skeleton (see
@@ -52,12 +52,19 @@ Either ends the night. So does dying.
    Steps** aside — it goes down later, the moment you first step outside.
 2. Shuffle the remaining indoor and outdoor tiles into two separate
    face-down stacks.
-3. Start with **Attack 0** — bare-handed — plus **Health 6** and
-   **3 cower charges**. **Health never rises above 10.**
+3. Start with **Attack 0** — bare-handed — **Health 10**, **3 cower
+   charges**, and **three 糯米** in your pack. Health never rises above
+   **10**.
 4. The clock reads **9:00 PM**. It is **turn 1 of 30**.
 
 You begin in the Gatehouse and **draw no event for it**. The night starts
 when you move.
+
+> **Three rice, three hours, three villagers.** One wounded villager turns
+> up in each hour of the night, and you begin with exactly enough rice to
+> save all three — if you spend none of it on yourself. You will want to.
+> Rice is also the only cure for corpse-poison, and the poison does not
+> care that you were being kind.
 
 > **Why Attack 0 and not 1.** Weapons in this game *are* your Attack
 > rather than a bonus added to it (戒刀 is "Attack 1", not "+1"), so
@@ -141,7 +148,9 @@ Corpse-poison gets into you, and it does not wear off.
 
 > **−1 Health at the start of every turn, until a 糯米 draws it out.**
 
-Nothing else cures it. Left alone it will kill you — being poisoned early
+Nothing else cures it, and **it does not stack** — poisoned is poisoned,
+however often it happens. **The 護身符 does not help**: poison is not a
+wound, and the charm only softens wounds. Left alone it will kill you — being poisoned early
 and never treating it costs more Health than you can possibly hold. **The
 rice in your pack is the only answer**, which is exactly why you cannot
 comfortably spend it elsewhere.
@@ -323,7 +332,7 @@ wasted — so a 糯米 at 9 Health is worth holding rather than eating.
 
 | | |
 |---|---|
-| **護身符** Protective Charm | **Every wound you take is 1 less.** Lasts all night — and 中毒 deals exactly 1 ⏳ |
+| **護身符** Protective Charm | **Every wound you take is 1 less**, all night. It does nothing about 中毒 — poison is not a wound |
 
 Not found by searching. The only way to get one is to **save the villager
 in the 9 PM band** — so it is the earliest opportunity in the game and
@@ -476,11 +485,6 @@ game — it's an appointment.
 - **The event pool** — everything in it, and how the three bands differ.
 - **The item pool's weighting** — the 12 items exist; which are unique,
   which are common, and how often a search finds nothing do not.
-- **Whether 護身符 cancels 中毒.** The charm takes 1 off every wound and
-  the poison deals exactly 1, so the charm may be outright immunity. The
-  design leans hard on the answer: with it, one early rescue frees every
-  later rice for the villagers.
-- **Whether 中毒 can stack**, if you are poisoned while already poisoned.
 - **How much cowering heals**, exactly.
 - **What the crypt rite and the burial rite cost** — a turn each, an
   event each, or both.

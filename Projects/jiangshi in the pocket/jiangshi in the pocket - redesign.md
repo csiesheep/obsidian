@@ -1368,35 +1368,60 @@ carries a 五雷符, an actual seal component — they will usually be
 poisoned. **Check this with the bots**; if the villager reward turns out
 to be almost never collected, the elegant part of §6 is decorative.
 
-### 🎯 Does 護身符 cancel poison? It should.
+### 毒不算傷害 — the charm does not stop it ✅ decided 2026-08-23
 
-**護身符 reduces all damage you take by 1. Poison deals exactly 1.** If
-the charm applies to it, the charm is **poison immunity**, and that turns
-a pile of separate mechanics into one clean chain:
+**Poison is not damage.** 護身符 takes 1 off every *wound*; the bleed goes
+right through it. Rice is the only answer, all night, every time.
 
-> Save the **9 PM villager** with a rice → take the **護身符** → you are
-> immune to the bleed for the rest of the night → every later rice is free
-> to spend on villagers → who hand you **真火符** at ten and **五雷符** at
-> eleven → which are two of the four pieces of the **seal**.
+I had argued the other way — that the charm should be immunity, because it
+chains beautifully: save the 9 PM villager, take the charm, never pay the
+poison tax again, spend every later rice on villagers. **The ruling is the
+better game, and it is worth saying why.**
 
-**One early act of mercy unlocks the entire villager route**, and through
-it the duel. That is a chain worth building the game around: it is
-discoverable, it rewards being generous *early* when you can least afford
-it, and it makes the 9 PM villager the most consequential single draw in
-the game.
+That chain was elegant, but it **resolved the tension on about turn five**.
+One good decision early and the rice question was answered for the rest of
+the night. With the poison tax permanent, **every villager is a fresh hard
+choice** — you are never done deciding, because the bleed can always come
+back and the rice is always the only cure. A dilemma you keep facing beats
+a puzzle you solve once.
 
-**Strong recommendation: yes, 護身符 stops poison.** The alternative —
-a charm that reduces wounds but not the bleed — leaves the poison tax
-permanent, keeps rice permanently spoken for, and quietly kills the
-villager route. If that makes the charm too strong, tune it by making it
-rarer or by letting poison stack, not by exempting it.
+### 🍚 So: what the rice economy actually looks like
+
+**Demand, across a night:**
+
+| Claim | Roughly |
+|---|---|
+| Curing 中毒 (10 % a turn, non-stacking) | **~3 rice** |
+| Saving all three villagers | **3 rice** |
+| Healing (+3, capped at 10) | whatever is left |
+
+**Supply:**
+
+| Source | Roughly |
+|---|---|
+| Starting pack | **3** |
+| 丹藥 searches — 40 % of a search, at 藥鋪 · 帳房 · 槐樹 | a few more |
+| Villager gifts | none (they give charms and talismans) |
+
+So the rice ledger is **contested but not hopeless**: demand ~6, supply 3
+plus whatever the medicine tiles give up. **You cannot do everything, and
+you can do a good deal**, which is where a resource economy wants to sit.
+
+Two consequences to hold:
+- **The 丹藥 tiles quietly become strategic.** They are the only tap, and
+  two of the three are indoors (藥鋪, 帳房) with 槐樹 the lone outdoor one.
+  A player who crosses the moon gate with no rice in hand has one source
+  on the far side.
+- **護身符 is weaker than it looked, and that is fine.** Still worth ~8 HP
+  across the last band on wounds alone. It is a good reward, no longer an
+  era-defining one.
 
 ### Still open on events
-- **Does 中毒 stack?** Read as **no** — a state, not a counter, so a
-  second poison draw while already poisoned does nothing. Stacking would
-  make a bad run unrecoverable, and it is the natural reading of "中毒".
-- **Does 護身符 cancel it?** See above. Needs a ruling; the design leans
-  hard on the answer.
+- [x] **中毒 does not stack** (decided 2026-08-23) — a state, not a
+  counter. A poison draw while already poisoned does nothing.
+- [x] **護身符 does not stop it** (decided 2026-08-23) — **poison is not
+  damage.** The charm reduces wounds only. The poison tax is permanent and
+  rice is the only answer to it.
 - **Start or end of turn?** Start reads better: you wake worse than you
   went to sleep, and it means being cured the same turn you are poisoned
   costs you nothing, which rewards holding rice.
@@ -1873,6 +1898,22 @@ more redesign is coming. Reconcile once the systems settle.
   spoken for and the villager route is decorative. Also read 中毒 as
   non-stacking (a state, not a counter) and ticking at the *start* of a
   turn, so curing on the turn you are poisoned costs nothing.
+- 2026-08-23 — **ruled: 毒不算傷害** — poison is not damage, so 護身符 does
+  not stop it. I had recommended the opposite; the ruling is the better
+  game and worth recording why. My version chained neatly (save the 9 PM
+  villager → charm → immunity → every later rice free for villagers) but it
+  **resolved the tension around turn five** — one early decision and the
+  rice question was settled for the night. With the tax permanent, **every
+  villager is a fresh hard choice**, because the bleed can always return
+  and rice is always the only cure. A dilemma you keep facing beats a
+  puzzle you solve once. The rice ledger now reads: demand ~6 (about 3
+  poisonings plus 3 villagers), supply 3 in the starting pack plus whatever
+  the three 丹藥 tiles give up at 40 % a search — contested but not
+  hopeless, which is where an economy should sit. Two knock-ons: the 丹藥
+  tiles become quietly strategic as the only tap, and two of the three are
+  indoors, so crossing the moon gate rice-less leaves one source on the far
+  side; and 護身符 is weaker than it looked — still ~8 HP across the last
+  band on wounds alone, a good reward rather than an era-defining one.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
