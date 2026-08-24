@@ -596,6 +596,15 @@ The kits that reach the threshold:
 **Every winning line spends the banner.** It is the only truly
 compulsory item.
 
+### Edge ruling — dying to pay for the blow ✅ 2026-08-24
+
+Presenting **血符** at 1 HP kills you before the strike: **`LOSS_HEALTH`,
+and the seal never lands.** No resurrection, no special case — the same
+`diedPaying` rule `resolveCombat` applies everywhere else. The spec's
+"poison is irrelevant at midnight" line is about the tick, not about
+being dead. (Ruled in implementation, #5; an earlier draft resurrected
+the player to let the seal land, and was rightly removed.)
+
 ### 🤫 Presentation rule — not a mechanic, but binding
 
 鎮屍 is a **hidden ending**. The threshold is **never displayed**, before
