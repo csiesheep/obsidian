@@ -1073,10 +1073,9 @@ Anything below Attack 9 takes the identical full 4, and 12 damage against
 a 10 HP cap means **three beats of tanking is arithmetically
 impossible.** That is the premise, not a bug: *steel does not stop him.*
 
-**So: don't make him a stat check. Make him a three-beat puzzle** where
-each beat is answered with an item, not a score. That reading turns
-strength 8 from a problem into the premise — *steel does not stop him* —
-and it gives every folklore counter a job.
+**So he is not a stat check. He is a three-beat puzzle** answered with
+items rather than with a score — which turns the impossible arithmetic
+from a problem into the premise, and gives every folklore counter a job.
 
 ---
 
@@ -1218,17 +1217,18 @@ dignified out: walk to the water and live.
 
 ### A vs B, in one line each
 *(A is chosen; B is kept in case the bots prefer it.)*
-- **A (鎮屍)** — he is a **lock**. One gate (the banner), a puzzle to
-  open it, and a dramatic finish. Cost: two talismans of the design's
-  four do nothing in the fight, and 攝魂幡 must double talismans for any
-  of it to work.
-- **B (血戰)** — he is an **opponent**. A race with a wide spread of
-  viable kits and a clear "steel alone isn't enough" message. Cost:
-  turn order has to be nailed down, and the banner loses its reason to
-  be rare.
+- **A (鎮屍) — chosen.** He is a **lock**. No health bar; you assemble
+  Attack 12 and seal him. Two winning kits, every piece load-bearing, one
+  attempt. Cost: it demands two unique items, so a bad night simply
+  cannot produce a duel win.
+- **B (血戰) — not taken.** He is an **opponent** with Attack 8 and
+  Health 10, and you empty him. Wider spread of viable kits. Cost: turn
+  order becomes load-bearing (exact-kill lines are common), and 鎮屍 —
+  the genre's signature image — has nothing to attach to.
 
-Both reuse the existing damage formula and neither needs new engine
-concepts beyond, in B's case, a health pool for one entity. **Bot both.**
+Both reuse the existing damage formula; B additionally needs a health
+pool for one entity. **A is the design; B stays here in case the bots
+find A's gate too rare.**
 
 ### Open on the King
 - **Beat count: three?** It fixes 12 damage as the untanked worst case,

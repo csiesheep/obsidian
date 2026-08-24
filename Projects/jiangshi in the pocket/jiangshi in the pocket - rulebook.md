@@ -2,7 +2,7 @@
 tags: [project, rules]
 status: draft
 started: 2026-08-22
-version: pre-alpha — tiles and turn structure settled, pools and King open
+version: pre-alpha — tiles, turn, items and King settled; event pool open
 ---
 # jiangshi in the pocket — rulebook
 
@@ -11,10 +11,9 @@ The playable rules, in one place, as they stand. Human-facing companion to
 reasoning and the arguments).
 
 > ⚠️ **This is a draft of a game that isn't finished being designed.**
-> The clock, the turn, the map and the two ways to win are settled. The
-> **event pool**, the **item pool** and **the King's abilities** are not,
-> and everything about them below is marked and provisional. Do not build
-> from the ⏳ sections.
+> The clock, the turn, the map, the items and the King are settled. The
+> **event pool** is not — and it is load-bearing, because every turn draws
+> from it. Sections marked ⏳ are provisional; don't build from them.
 
 **Legend:** ✅ settled · ⏳ not yet designed · 📐 inherited unchanged from
 the *Zombie in my Pocket* skeleton (see
@@ -343,34 +342,90 @@ Inherited arithmetic, no dice:
 
 > **Health lost = (number of jiangshi) − (your Attack)**
 
-Never more than **4** from one fight, and never a gain. **Attack does not
-stack**: one weapon per fight, the best only — carrying two doesn't add
-them together. See [Items](#items-) for what your Attack can be, and note
-that the 4-damage ceiling is why a very high Attack stops helping against
-a very large pack.
+Never more than **4** from one fight, and never a gain.
+
+**Only one sword counts** — carrying two doesn't add them together, you
+use the better. **But a sword and a talisman do add**, and the 攝魂幡
+doubles the sword before the talisman goes on top:
+
+> **Attack = (sword, doubled if you spend the 攝魂幡) + talisman**
+
+The 4-damage ceiling is why a very high Attack stops helping against an
+ordinary pack — you can only get the damage to zero. It is at
+[midnight](#midnight-) that the big numbers start to matter.
 
 The specific attacks, their sizes and how often they come are part of the
 **event pool** ⏳.
 
-## Midnight ⏳
+## Midnight — 三更 ✅
 
-When turn 30 ends, the third watch sounds and **the King comes to
+When turn 30 ends the third watch sounds, and **the King comes to
 whatever place you are standing in.**
 
-- You cannot flee him and you cannot cower.
-- Win, and the night is yours.
-- Lose, and it isn't.
+**No fleeing, no cowering, no help from the room.** Three beats of the
+watch drum, and you answer each one.
 
-**His abilities are not designed yet.** What is settled is the shape: the
-duel is the second way to win, and it should only be winnable by someone
-who spent the night preparing for it.
+### What he does
+
+His strength is **12**. Each beat, he strikes:
+
+> **Health lost = 12 − your Attack**, and never more than 4
+
+So anything below Attack 9 takes the full **4** — and three beats is 12
+against your 10. **You cannot simply endure him.** That is the premise,
+not an oversight: steel does not stop him.
+
+**僵直 — he comes out of the coffin stiff.** The **first** beat deals 2
+less.
+
+**屍毒 — his touch poisons.** Any beat that wounds you also poisons you:
+−1 Health at the start of every beat after it, and it does not stop when
+the night does. **糯米** draws it out.
+
+**He is blind and hunts by breath.** **Hold your breath** to answer a
+beat — he loses you and does nothing at all. Once per night; you have to
+breathe eventually.
+
+### How you win — 鎮屍
+
+You cannot kill him. You **seal** him.
+
+> **Meet one of his blows with Attack 12 or more.** It lands on nothing,
+> he loses his footing, and in that opening you press the paper to his
+> forehead. The night is yours.
+
+There are exactly **two kits** that reach 12:
+
+| | Working | Attack |
+|---|---|---|
+| **七星劍** (with a 真火符 in it) **+ 攝魂幡 + 五雷符** | (3+1) × 2 + 4 | **12** |
+| **七星劍** (with a 真火符 in it) **+ 攝魂幡 + 血符** | (3+1) × 2 + 5 | **13** |
+
+Drop any one piece and you land on 11, or 8. Close, and not enough.
+
+**You get one attempt.** The sword keeps its number all night, but the
+banner and the talisman are gone the moment they are used. Spend the
+banner on a beat with no talisman in hand and you reach 8 — the blow
+lands, and the seal is out of reach for the rest of the night.
+
+### The other ways through
+- **黑狗血** breaks the working: **skip a beat entirely.**
+- **溪澗 Stream.** Running water, and he will not cross it. Stand there
+  when turn 30 ends and **he does not come** — you are safe, and you
+  cannot seal him, because the duel never happens. If the tablet is
+  already in the ground you have won regardless. If it isn't, you simply
+  lived through the night.
+
+⏳ **Still open:** what it means to survive all three beats without
+sealing him — whether you live but do not win, whether the beats keep
+coming, or whether lasting to cockcrow is a win of its own.
 
 ## Winning and losing
 
 | | |
 |---|---|
 | **Win — the burial** | Survive the rite at the Mass Grave while carrying the tablet |
-| **Win — the duel** | Beat the King at midnight ⏳ |
+| **Win — the seal** | Meet one of the King's blows with Attack 12 and seal him |
 | **Lose** | Health reaches 0, at any point |
 
 There is no losing to the clock. Midnight is not a deadline in this
@@ -380,7 +435,8 @@ game — it's an appointment.
 - **The event pool** — everything in it, and how the three bands differ.
 - **The item pool's weighting** — the 12 items exist; which are unique,
   which are common, and how often a search finds nothing do not.
-- **The King** — his strength, what he does, how many rounds.
+- **The King** — strength 12 and the seal are settled; what surviving
+  three beats without sealing means is not.
 - **How much cowering heals**, exactly.
 - **What the crypt rite and the burial rite cost** — a turn each, an
   event each, or both.
