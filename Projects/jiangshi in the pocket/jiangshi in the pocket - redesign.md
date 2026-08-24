@@ -260,7 +260,8 @@ Still to settle when the pool is authored (not now):
 ### The items — ✅ designed 2026-08-23
 
 Eleven items in three categories. Weapons persist; talismans and
-medicines are **consumed on use**.
+medicines are **consumed on use**. The backpack holds **6 items**
+(2026-08-23, up from the source's 2). The 神主牌 tablet is slotless.
 
 #### 武器 weapons — persistent, carried
 
@@ -275,9 +276,9 @@ medicines are **consumed on use**.
 
 | 物件 | Item | Effect |
 |---|---|---|
-| **真火符** | True Fire Talisman | Attack **1** — *or* give any sword **+1 attack** |
+| **真火符** | True Fire Talisman | Attack **1** — *or* **+1 attack to a sword, permanently** (戒刀 1 → 2) |
 | **五雷符** | Five Thunder Talisman | Attack **4** |
-| **血符** | Blood Talisman | Attack **5**, costs **2 HP** to use |
+| **血符** | Blood Talisman | Attack **5**, costs **1 HP** to use |
 | **硃砂** | Cinnabar | Add **+2 quantity** to any talisman in hand |
 
 #### 丹藥 medicine — one use, then gone
@@ -288,7 +289,7 @@ medicines are **consumed on use**.
 | **黑狗血** | Black Dog Blood | **Escape the fight** |
 | **金丹** | Golden Elixir | **50 %: +6 HP · 50 %: −2 HP** |
 
-### What this design implies — six things to confirm
+### What this design implies
 
 **1. Base attack is almost certainly 0, not 1.** Nothing else makes the
 table work: 戒刀 at "attack 1" would be identical to bare hands under the
@@ -298,25 +299,53 @@ entry earns its place. This also matches where the source game was
 heading — v1.75 rewrote bonuses as absolutes precisely to kill the
 `1 + n` confusion (*"the femur is a 3 attack, not a 1+3"*).
 
-**2. ⚠️ 血符 is never better than 七星劍 — the clamp eats it.** Damage is
-`count − attack`, so +2 attack removes exactly 2 damage; 血符 costs
-exactly 2 HP. It breaks even against the Seven-Star Sword in the open
-range and does *worse* wherever the 4-damage clamp binds:
+**2. ✅ 血符 at 1 HP works.** At 2 HP its cost exactly cancelled its +2
+attack and it was strictly worse than 七星劍. At 1 HP it earns a real
+band:
 
-| vs pack of | 七星劍 (3) | 血符 (5) | 血符 net |
+| vs pack of | 七星劍 (3) | 血符 (5) | Verdict |
 |---|---|---|---|
-| 4 | 1 | 0 | **2** (worse) |
-| 6 | 3 | 1 | **3** (equal) |
-| 7 | 4 | 2 | **4** (equal) |
+| 4 | 1 | 0 (+1 HP) | break-even |
+| 5 – 7 | 2 / 3 / 4 | 0 / 1 / 2 (+1 HP) | **1 HP better** |
+| 8 | 4 | 3 (+1 HP) | break-even |
+| 9+ | 4 | 4 (+1 HP) | worse — both clamped |
 
-It only pays when you have **no sword**: attack 0 → 5 for 2 HP is a
-clear win. So 血符 is an **emergency card for the unarmed**, not an
-upgrade for the armed — which is a fine role, but it should be a
-deliberate one. If it is meant to be the top of the ladder, it needs
-either a lower HP cost (1) or an effect the clamp can't flatten (ignores
-the cap, kills the pack outright, etc.).
+Good shape: an upgrade against mid packs, wasted on the very largest
+(where the 4-damage clamp flattens everything), and an emergency win when
+unarmed — attack 0 against a pack of 4 saves 4 HP for 1.
 
-**3. 🆕 屍毒 poison is a new status that does not exist yet.** 糯米's
+**One consequence:** 血符 and 五雷符 are now nearly the same card. 血符
+saves exactly 1 more damage and costs exactly 1 HP, so they trade evenly
+everywhere the clamp isn't binding. **Differentiate them by rarity, not
+by effect** — 五雷符 common, 血符 rare (or the reverse), because the
+numbers won't tell them apart.
+
+**3. 🔥 真火符 on a sword is the game's best line, and it stacks with
+硃砂.** The buff is additive and sticks to the weapon:
+
+| Sword | Base | +真火符 |
+|---|---|---|
+| 戒刀 / 桃木劍 | 1 | 2 |
+| 銅錢劍 | 2 | 3 |
+| 七星劍 | 3 | **4** |
+
+七星劍 + 真火符 = attack 4 **permanently**, matching the best one-shot
+talisman and never running out. And since 硃砂 adds +2 quantity to a
+talisman in hand, **硃砂 → 真火符 ×3 → 七星劍 = attack 6**, which zeroes
+almost anything in the game.
+
+Every design wants a best line, so this existing is good. **But the
+6-slot backpack removed the thing that was keeping it honest.** Under 2
+slots you had to stage it — hold 真火符 + 硃砂, spend the 硃砂, drop it,
+go and find the sword, then spend all three — which cost turns and
+courted disaster. With 6 slots you simply carry all three and press the
+button. The line is now gated by **finding** the pieces and nothing else.
+
+If attack 6 turns out to be too much, the brakes available are: cap a
+sword at **one** 真火符, stop 硃砂 from targeting 真火符, or make the
+buff last one fight instead of sticking.
+
+**4. 🆕 屍毒 poison is a new status that does not exist yet.** 糯米's
 second mode cures "poisoned" — nothing in the design can currently
 inflict it. That implies a jiangshi attack in the **event pool** that
 poisons rather than damages, and a status system to hold it: how long it
@@ -324,21 +353,20 @@ lasts, what it does per turn, whether it stacks, whether cowering or the
 healing tiles clear it. **A whole small system, arriving via one item
 line.** Worth designing on purpose.
 
-**4. Talismans have *quantity*, which the slot rules don't cover.** 硃砂
+**5. Talismans have *quantity*, which the slot rules don't cover.** 硃砂
 adds "+2 quantity to any talisman in hand", so you hold 五雷符 ×3 rather
 than 五雷符. Open: does a stack occupy **one** item slot or three? One is
-the natural reading and mirrors the source's refuellable chainsaw — and
-makes 硃砂 genuinely strong, since 硃砂 + 五雷符 is three attack-4 fights
-in a single slot. Also: can 硃砂 target a talisman you are holding **zero**
-of, or only one you actually have?
+the natural reading and mirrors the source's refuellable chainsaw. Also:
+can 硃砂 target a talisman you hold **zero** of, or only one you actually
+have?
 
-**5. 長明燈 and the combo triangle are gone.** The previous design had
+**6. 長明燈 and the combo triangle are gone.** The previous design had
 lamp + blood / lamp + talisman / cinnabar + talisman as three combos.
 Only the last survives, as 硃砂. Simpler and easier to teach — but the
 altar lamp was also the game's light source in fiction, and its
 disappearance is worth being deliberate about rather than incidental.
 
-**6. 金丹 is the first random item in the game.** EV is +2, the same as
+**7. 金丹 is the first random item in the game.** EV is +2, the same as
 the old soda, with a wide spread. Fits the folklore exactly — mercury
 elixirs killed emperors — and the engine already has seeded RNG streams
 to draw it from, so a shared seed still replays identically. Just note it
@@ -347,13 +375,10 @@ is the only item whose outcome the player cannot plan around.
 ### Still open on items
 - **Which are unique and which are common** — the pool's rarity is
   multiplicity (§ above), and none of the eleven has a count yet.
-- **Do the three categories share the 2-item limit**, or does each have
-  its own slot? Three separate slots would let a player carry sword +
-  talisman + medicine, which reads right for a 道士 and changes the
-  economy a lot.
-- **真火符's sword buff: permanent, or one fight?** Permanent makes
-  七星劍 + 真火符 = attack 4 and is a real build; one fight makes it
-  marginal.
+- **Is a talisman *stack* one slot or many?** Still open, and it matters
+  more now: 6 slots holding stacks of 3 is a lot of talismans.
+- **Can one sword take more than one 真火符?** If yes, 硃砂 makes
+  attack 6 reachable (see 3 above).
 - **Does using a talisman replace the weapon's attack or stack with it?**
   Read as replace ("攻擊力 4" is your attack that fight), which is
   consistent with *attack never stacks* 📐.
@@ -1009,6 +1034,28 @@ more redesign is coming. Reconcile once the systems settle.
   event pool and a small status system to hold it. Also inferred that
   **base attack must now be 0**, since 戒刀 at 1 would otherwise equal
   bare hands.
+- 2026-08-23 — **two item revisions.** 真火符's sword buff is **additive
+  and permanent** (戒刀 1 → 2), and **血符 costs 1 HP, not 2**. The
+  second fixes the flaw flagged earlier: at 2 HP the cost exactly
+  cancelled the +2 attack, at 1 HP it is a genuine upgrade against packs
+  of 5–7, break-even at 4 and 8, and dead weight at 9+ where the clamp
+  flattens both. Two new notes: **血符 and 五雷符 are now nearly the same
+  card** and must be separated by rarity rather than effect; and
+  **七星劍 + 真火符 = attack 4 permanently**, which with 硃砂 (真火符 ×3)
+  reaches **attack 6** — the game's best line, gated by slot pressure and
+  three specific finds. Confirm it is intended, and whether one sword can
+  take multiple 真火符.
+- 2026-08-23 — **backpack expanded 2 → 6 slots.** Big shift in what the
+  game is about: with 11 items designed, a full pack is over half the
+  contents, so the "which two do I keep" squeeze largely disappears and
+  the tension moves entirely onto **finding** things. Fits the 道士
+  fiction (a priest carries a kit) and fits the three categories at ~2
+  each. Two consequences flagged: the **attack-6 line is no longer gated
+  by slot pressure** — you just carry 七星劍 + 真火符 + 硃砂 and press the
+  button — and the **King's numbers must assume a fully-equipped player**,
+  not a player who had to choose. Whether 6 ever binds depends on the
+  search miss rate; if a run only finds 4–5 items, 6 slots is effectively
+  no limit.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose

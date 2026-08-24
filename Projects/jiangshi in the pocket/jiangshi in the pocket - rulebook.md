@@ -133,7 +133,7 @@ Searching is **free** — it costs no turn. It happens after the event, and
 by spending next turn on **STAY** — which means another event. That is
 the price of rummaging: not the search, the lingering.
 
-You may carry **2 items** 📐. The tablet doesn't count against that.
+You may carry **6 items**. The 神主牌 tablet doesn't count against that.
 
 ### 5 — End of turn ✅
 
