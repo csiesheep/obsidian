@@ -23,11 +23,12 @@ Baseline being changed: [[zombie in the pocket - ruleset spec]].
 - [~] **Item pool** — **11 items designed 2026-08-23** (see §1). Still
       open: rarity counts, slot rules for talisman stacks, and the miss
       rate on a search.
-- [~] **King ability design** — **strength 8 set; abilities proposed
-      2026-08-23 → §5.** Designed as a three-beat puzzle rather than a
-      damage race, because at strength 8 the clamp makes Attack 0–4
-      identical. Open: whether 攝魂幡 doubles a talisman's attack (the
-      seal line depends on it).
+- [~] **King ability design** — strength 8 set; **two variants written
+      2026-08-23 → §5.** **A (鎮屍)**: no health, win by sealing him on a
+      zero-damage beat — the banner is the one gate. **B (血戰)**: Attack
+      8 / Health 10, win by emptying him — wider viable kits, but turn
+      order must be fixed and the banner loses its rarity's justification.
+      Bot both.
 - [ ] **Two wins** — how the tablet burial and the duel relate: relative
       difficulty, whether they interact, what the epilogue says about each.
 - [ ] **Bilingual — English + 繁體中文, both first-class.** Not a
@@ -1020,6 +1021,10 @@ each beat is answered with an item, not a score. That reading turns
 strength 8 from a problem into the premise — *steel does not stop him* —
 and it gives every folklore counter a job.
 
+---
+
+## Variant A — 鎮屍, the seal (he has no health)
+
 ### The three beats — 三更三響
 
 He arrives at the end of turn 30, in whatever place you are standing.
@@ -1061,9 +1066,15 @@ breathe eventually.
 
 You do not kill him, you **seal** him.
 
-> **Survive a beat taking zero damage, then spend any talisman as a
-> 鎮屍符** — press it to his forehead. The duel ends and the night is
-> yours.
+> **On any beat where his strike deals you zero damage, you may spend
+> one talisman as a 鎮屍符** — press it to his forehead. The duel ends and
+> the night is yours.
+
+**The seal talisman is separate from whatever got you to Attack 8.** So
+the winning beat costs, typically, three things: the banner, a talisman
+spent for attack, and a talisman spent as the seal. With 6 slots and a
+90 % talisman hit rate that is affordable — but it has to be *carried*,
+and a player who arrives with the banner and one talisman cannot close.
 
 Zero damage needs **Attack ≥ 8**, and **攝魂幡 doubles a talisman's
 attack as well as a sword's** (confirmed 2026-08-23), which opens three
@@ -1118,6 +1129,73 @@ Exactly lethal, which is the right feel: no banner, no night. 黑狗血 or a
 held breath buys one of those beats back and leaves you alive at 4 — but
 alive is not the same as won (see the open question below).
 
+---
+
+## Variant B — 血戰, he has health (alternative, 2026-08-23)
+
+**The King gets a stat block: Attack 8, Health 10.** The duel stops being
+"can you survive him" and becomes "**who empties whom first**." Plus:
+**no 僵直**, and **攝魂幡 doubles swords only, not talismans.**
+
+### What this changes at the root
+
+**鎮屍 is gone.** With health to remove, winning means removing it — the
+zero-damage opening and the forehead talisman have nothing to attach to.
+The clean "the banner is the one gate" structure goes with it. Not a
+loss, but a real trade, and worth choosing deliberately rather than
+inheriting.
+
+### The numbers
+
+- **His damage to you** — keep the inherited clamp:
+  `clamp(8 − your attack, 0, 4)`. Capped at 4 against a 10 HP player,
+  that gives you **three beats** to work in. *(Unclamped, `8 − attack`,
+  a low-attack player dies in two — playable, but much harsher and it
+  needs a new formula for no gain.)*
+- **Your damage to him** — your Attack, **cumulative**. You need **10**.
+- **Talismans are burst** (they replace your attack for that beat);
+  **swords are sustained.**
+
+### Which lines actually win
+
+Ten cumulative damage inside three beats:
+
+| Carrying | Beat 1 · 2 · 3 | Total | |
+|---|---|---|---|
+| 七星劍 + 真火符 (4) | 4 · 4 · 4 | **12** | ✅ |
+| 七星劍 (3) + 幡 on any beat | 3 · 3 · 6 | **12** | ✅ |
+| 銅錢劍 (2) + 五雷符 + 血符 | 4 · 5 · 2 | **11** | ✅ |
+| **戒刀 (1) + 五雷符 + 血符** | 4 · 5 · 1 | **10** | ✅ *exactly* |
+| 七星劍 (3), sword alone | 3 · 3 · 3 | 9 | ❌ **one short** |
+| 銅錢劍 (2), sword alone | 2 · 2 · 2 | 6 | ❌ |
+
+**This is a healthy spread.** Even the worst sword plus two talismans
+gets there, so the duel is no longer chained to the 10 % 七星劍 — while a
+sword *alone* falls exactly one point short, which says the right thing:
+**steel is not enough, you need the craft too.**
+
+### ⚠️ Two things Variant B must answer
+
+**1. Turn order becomes load-bearing.** Look at the 戒刀 line: beat three
+lands the final single point. If **you strike first**, he dies before
+swinging and you win at 2 HP. If it resolves **simultaneously**, he hits
+you too and you both die. Exact-kill lines like that will be common once
+he has health, so the order must be stated. 僵直 used to answer this
+incidentally; without it, **recommend the player strikes first** — he is
+newly woken and stiff, which keeps the old flavour without the free-beat
+exploit.
+
+**2. The banner is demoted, and its rarity no longer fits.** Doubling
+swords only, its sole worthwhile use is 七星劍 ×2 = 6; on a 戒刀 it buys
+2 and is wasted. So it drops from *the key to the duel* to *an
+accelerator for players who already found the good sword* — while keeping
+15 % odds, a single tile, and a location behind the moon gate. **That
+combination is the worst of both**: hard to get and not decisive.
+**Recommend loosening it to 25–30 %** if Variant B is taken, or letting
+it double talismans after all.
+
+## Shared by both variants
+
 ### 不渡活水 — the Stream, and declining the duel
 
 Standing on **溪澗 Stream** at the end of turn 30, he will not come. You
@@ -1137,6 +1215,19 @@ dignified out: walk to the water and live.
   is a lock.
 - **It reuses the combat formula without contradicting it.** No special
   damage rules — just answers that replace beats.
+
+### A vs B, in one line each
+- **A (鎮屍)** — he is a **lock**. One gate (the banner), a puzzle to
+  open it, and a dramatic finish. Cost: two talismans of the design's
+  four do nothing in the fight, and 攝魂幡 must double talismans for any
+  of it to work.
+- **B (血戰)** — he is an **opponent**. A race with a wide spread of
+  viable kits and a clear "steel alone isn't enough" message. Cost:
+  turn order has to be nailed down, and the banner loses its reason to
+  be rare.
+
+Both reuse the existing damage formula and neither needs new engine
+concepts beyond, in B's case, a health pool for one entity. **Bot both.**
 
 ### Open on the King
 - **Beat count: three?** It fixes 12 damage as the untanked worst case,
@@ -1497,6 +1588,23 @@ more redesign is coming. Reconcile once the systems settle.
   banner-less one dies on beat three at exactly 0 HP. New live question:
   **what surviving three beats without sealing means** — the skip items
   (黑狗血, held breath) have no purpose until that is answered.
+- 2026-08-23 — **Variant B written into §5**: the King gets **Attack 8 /
+  Health 10**, no 僵直, and the banner doubles swords only. The duel
+  becomes a race rather than a survival test, which **removes 鎮屍
+  entirely** — with health to strip, the zero-damage opening and the
+  forehead talisman have nothing to attach to. Keeping the inherited
+  clamp on his damage gives the player three beats, and the winning
+  spread is healthy: even 戒刀 + 五雷符 + 血符 reaches exactly 10, so the
+  duel stops being chained to the 10 % sword, while a sword *alone* falls
+  one point short — "steel is not enough, you need the craft too." Two
+  problems B must fix: **turn order becomes load-bearing** (exact-kill
+  lines are common, and simultaneous resolution kills both — recommend the
+  player strikes first), and **the banner is demoted to a good-sword
+  accelerator while keeping key-item rarity**, which is the worst of both;
+  loosen it to 25–30 % or let it double talismans after all. Variant A
+  also clarified: **the seal talisman is a separate item** from whatever
+  produced Attack 8, so the winning beat costs the banner plus two
+  talismans.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
