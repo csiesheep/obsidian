@@ -2369,6 +2369,11 @@ more redesign is coming. Reconcile once the systems settle.
   game in one coordinated day: 27 issues, two implementation sessions,
   every close independently verified. Bilingual (#16) begins as the first
   post-launch update; Search Console submission rests with the user.
+- 2026-08-24 — **bilingual scope ruled: game + landing first, the
+  rulebook as its own second batch; first visit detects the browser
+  language** (zh-* → zh-TW, else English, switch always visible), with
+  detection enabled only once batch-1 coverage is complete so no
+  detected-zh visitor ever lands in a half-translated night.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
