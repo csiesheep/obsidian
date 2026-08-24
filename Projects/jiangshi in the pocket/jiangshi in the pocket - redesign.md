@@ -305,10 +305,10 @@ carry and you find nothing.
 
 | 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 special | |
 |---|---|---|---|---|---|---|---|
-| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
-| 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | **15 %** |
-| 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
-| 七星劍 | **10 %** | 五雷符 | 20 % | nothing | 20 % | | |
+| 戒刀 | 25 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
+| 桃木劍 | 25 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | **15 %** |
+| 銅錢劍 | 25 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
+| 七星劍 | **15 %** | 五雷符 | 20 % | nothing | 20 % | | |
 | nothing | 10 % | nothing | 10 % | | | | |
 
 ### What the probabilities do
@@ -319,21 +319,21 @@ nothing, the effective miss rate *climbs as you collect*:
 | Already carrying | Effective "nothing" |
 |---|---|
 | — | 10 % |
-| 戒刀 | 40 % |
-| 戒刀 + 桃木劍 | 70 % |
-| + 銅錢劍 | 90 % |
+| 戒刀 | 35 % |
+| 戒刀 + 桃木劍 | 60 % |
+| + 銅錢劍 | 85 % |
 
 Diminishing returns with no extra rule written — the fourth weapon search
 in a night is nearly always wasted. This is the cleanest of the four
 tables.
 
-**2. 七星劍 at 10 % means most runs never see it.** It's geometric and the
-odds don't improve as you collect others, so it's ~10 searches expected;
-ten rolls give 65 %, twenty give 88 %. Each extra roll costs a **STAY** —
-a turn *and* an event. **So the realistic attack ceiling for a typical
-run is 2–3, not 3–4**, with 七星劍 as the lucky night. Worth holding on
-to when the King gets numbers: build him against the common case, not the
-best case.
+**2. 七星劍 at 15 %** (raised from 10 % on 2026-08-23, taking the 5 %
+from the two interchangeable Attack-1 swords, which between them were
+soaking 60 % of every weapon search). ~7 searches expected; seven rolls
+give 68 %, twelve give 86 %. Each extra roll costs a **STAY** — a turn
+*and* an event. Reachable on a committed night, still absent from many.
+The 5 % also went partly to 銅錢劍, which matters because the
+tablet-assisted seal line runs through it (§7).
 
 **3. ✅ The health cap fixes the medicine engine.** 帳房 Counting Room and
 槐樹 Pagoda Tree each give **+1 HP at end of turn** *and* a 丹藥 search,
@@ -1064,8 +1064,9 @@ Status column says so. Hooks are suggestions, not decisions.
 **One attack. Win and the night is yours; lose and you are dead.**
 
 ```
-if  Attack >= 12  ->  sealed, you win
-else              ->  he takes you, you lose
+threshold = 12          # 11 if you are carrying the 神主牌
+if  Attack >= threshold  ->  sealed, you win
+else                     ->  he takes you, you lose
 ```
 
 No rounds, no beats, no damage number, no health arithmetic. Strength 12
@@ -1076,36 +1077,37 @@ down to one number and whether you got it to 12.
 
 Attack is `(sword × 2 if 攝魂幡) + talisman`, so:
 
-| The winning kits | Working | Attack |
-|---|---|---|
-| **七星劍 + 真火符 + 攝魂幡 + 五雷符** | (3+1) × 2 + 4 | **12** — exactly enough |
-| **七星劍 + 真火符 + 攝魂幡 + 血符** | (3+1) × 2 + 5 | **13** — one to spare |
+| Kit | Working | Attack | Seals at 12 | Seals at **11** (tablet) |
+|---|---|---|---|---|
+| 七星劍 + 真火符 + 攝魂幡 + 血符 | (3+1) × 2 + 5 | **13** | ✅ | ✅ |
+| 七星劍 + 真火符 + 攝魂幡 + 五雷符 | (3+1) × 2 + 4 | **12** | ✅ | ✅ |
+| 七星劍 + 攝魂幡 + 血符 — no 真火符 | 3 × 2 + 5 | **11** | ✗ | ✅ |
+| **銅錢劍 + 真火符 + 攝魂幡 + 血符** | (2+1) × 2 + 5 | **11** | ✗ | ✅ |
+| 七星劍 + 攝魂幡 + 五雷符 | 3 × 2 + 4 | 10 | ✗ | ✗ |
+| 七星劍 + 真火符 + 攝魂幡 — no talisman | 4 × 2 | 8 | ✗ | ✗ |
+| 七星劍 + 真火符 + 五雷符 — no banner | 4 + 4 | 8 | ✗ | ✗ |
 
-The near misses, which are the instructive half:
+**Every piece is load-bearing**, and the tablet is worth exactly the two
+lines that miss by one. Note the fourth row: **with the tablet you no
+longer need 七星劍 at all** — a 銅錢劍 will do, and that is the wider of
+the two gates opened.
 
-| Falls short | Working | Attack | Short by |
-|---|---|---|---|
-| 七星劍 + 攝魂幡 + 血符 — no 真火符 | 3 × 2 + 5 | 11 | **1** |
-| 銅錢劍 + 真火符 + 攝魂幡 + 血符 — wrong sword | 3 × 2 + 5 | 11 | **1** |
-| 七星劍 + 真火符 + 攝魂幡 — no talisman | 4 × 2 | 8 | 4 |
-| 七星劍 + 真火符 + 五雷符 — no banner | 4 + 4 | 8 | 4 |
-
-**Every piece is load-bearing**, and two of the four misses are short by
-exactly 1 — so a player who has nearly built it can see precisely what is
-missing.
+**The banner is the one thing nothing substitutes for.** Every line that
+reaches 11 spends it.
 
 ### What the gate costs
 
 | Piece | Source | Odds |
 |---|---|---|
-| **七星劍** | 武器 rooms — Blacksmith ★, Woodshed, Memorial Arch | **10 %, unique** |
+| **七星劍** | 武器 rooms — Blacksmith ★, Woodshed, Memorial Arch | **15 %, unique** |
 | **攝魂幡** | 土地廟 only, outdoors, past the moon gate | **15 %, unique** |
 | 真火符 | any 符咒 room | 30 %, unlimited |
 | 五雷符 / 血符 | any 符咒 room | 20 % each, unlimited |
 
 **Two unique items from opposite halves of the map**, plus two common
-talismans. The 10 % sword finally earns its rarity: it is not merely the
-best weapon, it is the *only* one that reaches the seal.
+talismans — or, **carrying the tablet, only the banner is truly
+compulsory.** The banner is therefore the tightest gate in the game: one
+tile, outdoors, 15 %, and nothing else does its job.
 
 ### 鎮屍 — what the win looks like
 
@@ -1197,9 +1199,8 @@ binary check turns out to feel flat as a finale.)*
 - **Does the sword-plus-talisman rule apply to ordinary fights too?**
   Read as **yes** — a general combat rule, not a duel exception. That is
   the assumption the event pool must be built against.
-- **Does carrying the tablet change anything at midnight?** Still no. A
-  player who fails the check while carrying it loses both wins at once,
-  which is dramatic enough without a rule.
+- [x] **Carrying the tablet lowers the threshold to 11** — decided
+  2026-08-23. See §7 for why.
 
 ## 6. The event pool — ✅ designed 2026-08-23
 
@@ -1482,26 +1483,27 @@ all**, so a bad indoor stack can shut the burial down completely.
 
 | Piece | Expected searches | Where |
 |---|---|---|
-| 七星劍 at 10 % | **~10** | 鐵匠鋪 / 柴房 / 牌坊 |
-| 攝魂幡 at 15 % | **~7** | 土地廟 only, outdoors |
+| 七星劍 at **15 %** | ~7 | 鐵匠鋪 / 柴房 / 牌坊 |
+| 攝魂幡 at 15 % | ~7 | 土地廟 only, outdoors |
 
-**~17 searches**, most of them STAY turns, out of 30 — plus finding those
-tiles in the first place, plus travel, plus the event damage taken while
-standing around. The villagers hand over 真火符 and 五雷符 free, which is
-what keeps it possible at all.
+**Both raised to ~7 searches each** by the 2026-08-23 change to the sword,
+so ~13 STAY turns out of 30 rather than ~17 — plus finding those tiles,
+travel, and the damage taken standing still. The villagers hand over
+真火符 and 五雷符 free, which is what makes the rest affordable.
 
-**So the seal is materially harder than the burial**, and both are
-gated on uniques appearing. Knobs if the bots agree, cheapest first:
-1. **七星劍 to 15 %** — the single biggest lever; the sword is the tighter
-   of the two gates.
-2. **攝魂幡 to 20–25 %.**
-3. Let 硃砂 duplicate a found 攝魂幡.
+**And the tablet rule cuts it further**: carrying the 神主牌, the sword
+requirement drops to 銅錢劍 (25 %), leaving **the banner as the only
+genuinely scarce thing the seal needs.** That is the difficulty gap
+closed without a third tuning pass.
 
-### 🎯 The recommendation: let the tablet lower the threshold to 11
+Remaining knobs if the bots still find it too rare: **攝魂幡 to 20–25 %**,
+or let 硃砂 duplicate a found banner.
 
-Right now the tablet does nothing at midnight, and the two wins never
-touch. **Change that: carrying the 神主牌 when he comes drops the seal
-threshold from 12 to 11.**
+### 🎯 ✅ ADOPTED 2026-08-23 — the tablet lowers the threshold to 11
+
+The tablet used to do nothing at midnight, and the two wins never
+touched. **Now: carrying the 神主牌 when he comes drops the seal threshold
+from 12 to 11.**
 
 You are holding his **name**. A jiangshi that hears its own name loses a
 moment — that is the folklore, and it is exactly one moment's worth of
@@ -1512,7 +1514,7 @@ Look at what it does to the near-miss table from §5:
 | Line | Attack | Without tablet | **With tablet** |
 |---|---|---|---|
 | 七星劍 + 攝魂幡 + 血符 — no 真火符 | 11 | ✗ | **✅ seals** |
-| 銅錢劍 + 真火符 + 攝魂幡 + 血符 — wrong sword | 11 | ✗ | **✅ seals** |
+| **銅錢劍 + 真火符 + 攝魂幡 + 血符** — no 七星劍 | 11 | ✗ | **✅ seals** |
 | 七星劍 + 真火符 + 攝魂幡 + 五雷符 | 12 | ✅ | ✅ |
 
 **Both "short by exactly 1" lines become live** — including the one that
@@ -1529,8 +1531,7 @@ buys:
   the sword requirement can be dropped by the player who did the map work
   instead.
 
-The cost is one line of engine code and one number. **Strongly
-recommended.**
+The cost is one line of engine code and one number.
 
 ### The four outcomes
 
@@ -2073,6 +2074,23 @@ more redesign is coming. Reconcile once the systems settle.
   compete. Also settled the outcome space at **four**, with "survived" —
   standing on 溪澗 when the drum sounds — as its own verdict: not a win,
   not a loss, and the only ending the player deliberately chooses.
+- 2026-08-23 — **七星劍 raised to 15 %** and **the tablet rule adopted**
+  (carrying the 神主牌 drops the seal threshold 12 → 11). The 5 % came off
+  the two interchangeable Attack-1 swords — 戒刀 and 桃木劍 to 25 % each,
+  which between them had been soaking 60 % of every weapon search — with
+  some of it going to 銅錢劍 (20 → 25 %), deliberately, because the
+  tablet-assisted seal line runs through that sword. Together the two
+  changes close the difficulty gap §7 identified: expected searches for
+  the sword fall from ~10 to ~7, and **with the tablet in hand 七星劍 is no
+  longer required at all** — 銅錢劍 + 真火符 + 幡 + 血符 reaches 11. So the
+  seal now has four viable kits instead of two, and **攝魂幡 becomes the
+  single genuinely scarce requirement**: one tile, outdoors, 15 %, nothing
+  substitutes for it. Every line that reaches the threshold spends the
+  banner. Also worth noting what the tablet rule does to the *shape* of a
+  run: a player who finds the crypt but cannot reach the grave now has a
+  live second plan rather than a souvenir, so the burial and the seal
+  stopped being alternatives and became a sequence you can fall back
+  along.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose

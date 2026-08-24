@@ -357,10 +357,10 @@ Each search rolls once on the table for that place's category.
 
 | 武器 weapon | | 符咒 magic | | 丹藥 medicine | | 土地廟 only | |
 |---|---|---|---|---|---|---|---|
-| 戒刀 | 30 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
-| 桃木劍 | 30 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | 15 % |
-| 銅錢劍 | 20 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
-| 七星劍 | 10 % | 五雷符 | 20 % | nothing | 20 % | | |
+| 戒刀 | 25 % | 真火符 | 30 % | 糯米 | 40 % | 糯米 | 40 % |
+| 桃木劍 | 25 % | 血符 | 20 % | 黑狗血 | 25 % | **攝魂幡** | 15 % |
+| 銅錢劍 | 25 % | 硃砂 | 20 % | 金丹 | 15 % | nothing | 45 % |
+| 七星劍 | 15 % | 五雷符 | 20 % | nothing | 20 % | | |
 | nothing | 10 % | nothing | 10 % | | | | |
 
 **There is only one of each weapon in the village.** Turn up one you're
@@ -371,9 +371,9 @@ almost always will.
 **Talismans have no limit** — the same one can be found again and again,
 and a talisman search comes up empty only one time in ten.
 
-**七星劍 is rare on purpose.** One search in ten. Most nights you will
-fight with something worse, and that is the game working, not the game
-cheating you.
+**七星劍 is rare on purpose.** Roughly one search in seven. Many nights
+you will fight with something worse, and that is the game working, not the
+game cheating you.
 
 ### What isn't settled about items ⏳
 - **Which are common and which are one-of-a-kind.** Rarity is how the
@@ -431,7 +431,7 @@ night is decided.
 > **Attack 12 or more — you seal him, and you have won.**
 > **Anything less — he takes you.**
 
-Carrying the **神主牌** lowers that 12 to **11** ⏳ — see
+**Carrying the 神主牌 lowers that 12 to 11** — see
 [Winning and losing](#winning-and-losing-).
 
 No fleeing, no cowering, no medicine, no second chance. **黑狗血 does not
@@ -442,22 +442,18 @@ work on him** — there is nowhere he is not.
 Your Attack is the sword — doubled if you spend the **攝魂幡** — with a
 talisman added on top. Two kits get there:
 
-| | Working | Attack |
-|---|---|---|
-| **七星劍** (with a 真火符 in it) **+ 攝魂幡 + 五雷符** | (3+1) × 2 + 4 | **12** |
-| **七星劍** (with a 真火符 in it) **+ 攝魂幡 + 血符** | (3+1) × 2 + 5 | **13** |
+| Kit | Working | Attack | Empty-handed (12) | Carrying the tablet (11) |
+|---|---|---|---|---|
+| 七星劍 + 真火符 + 攝魂幡 + 血符 | (3+1) × 2 + 5 | **13** | ✅ | ✅ |
+| 七星劍 + 真火符 + 攝魂幡 + 五雷符 | (3+1) × 2 + 4 | **12** | ✅ | ✅ |
+| 七星劍 + 攝魂幡 + 血符 | 3 × 2 + 5 | 11 | ✗ | ✅ |
+| **銅錢劍** + 真火符 + 攝魂幡 + 血符 | (2+1) × 2 + 5 | 11 | ✗ | ✅ |
+| 七星劍 + 真火符 + 攝魂幡 — nothing to add | 4 × 2 | 8 | ✗ | ✗ |
+| 七星劍 + 真火符 + 五雷符 — no banner | 4 + 4 | 8 | ✗ | ✗ |
 
-Drop any single piece and you fall short:
-
-| | Attack | |
-|---|---|---|
-| No 真火符 burned into the sword | 11 | one short |
-| 銅錢劍 instead of 七星劍 | 11 | one short |
-| No talisman to add | 8 | four short |
-| No banner to double with | 8 | four short |
-
-**The whole night is spent building one number.** 七星劍 is the only
-sword that reaches it, and the 攝魂幡 is found nowhere but the 土地廟,
+**The whole night is spent building one number.** With the tablet in hand
+you don't even need the 七星劍 — a 銅錢劍 will carry you. But **nothing
+substitutes for the 攝魂幡**, and it is found nowhere except the 土地廟,
 out past the moon gate.
 
 ### 鎮屍 — what winning looks like
