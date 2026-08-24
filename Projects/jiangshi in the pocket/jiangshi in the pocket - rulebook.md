@@ -495,6 +495,11 @@ hidden ending — hard, luck-dependent, and never presented as the better
 one. Burying a man properly is the kinder act; sealing him is only the
 rarer. Neither verdict outranks the other.
 
+And **the game never explains it, even afterwards.** Sealing him unlocks
+no text and no readout; the only place the number is ever shown is the
+verdict card of a player he killed at midnight, which prints their Attack
+beside what it needed and says nothing else.
+
 ### Carrying the tablet to midnight ⏳
 
 If you have the tablet but never reached the grave, it is not dead weight:

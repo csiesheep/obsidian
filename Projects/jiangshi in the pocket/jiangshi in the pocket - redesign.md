@@ -1618,13 +1618,42 @@ the quiet trail:
   description is about doubling a blow, and it is hidden behind the moon
   gate at one tile. Finding it invites the question.
 
+### The game never explains itself — ✅ decided 2026-08-23
+
+**The threshold is never openly displayed. Not before, not after, not
+ever.** Sealing him once unlocks nothing: no achievement text, no "now
+you know", no HUD readout, no spoiler section appended to the rulebook.
+The tally counts the ending and says nothing about how it happened.
+
+So the **death-screen comparison is the only place the number ever
+appears in the entire game**:
+
+```
+        your attack   6
+        needed       12
+```
+
+That makes one line load-bearing. If it ever gets cut for being too
+explicit, discovery dies with it — so it should be treated as a rule of
+the design rather than a piece of UI copy.
+
+Two things follow, and the second is the good one:
+
+- **A player who seals him may not fully know why**, beyond what they
+  happened to be carrying. That is acceptable: the death screen taught
+  them the number, and the kit was in their own hands. The game trusts
+  them to have noticed.
+- **The knowledge lives in players, not in the interface** — which means
+  it gets passed along rather than looked up. For a small web game that is
+  a feature: a secret the game will not explain is something to talk about
+  with someone else who has played it. The community becomes the
+  documentation, which is exactly what happened with the source game's own
+  forum rulings.
+
 ### Open
 - **Can you bury the tablet and then still be attacked at turn 30?** No —
   the burial ends the run immediately. Worth confirming that is wanted,
   since it means a turn-12 burial skips two thirds of the game.
-- **Does the hidden ending stay hidden across runs?** Once a player has
-  sealed him, showing the threshold openly afterwards would be kind.
-  Or not — leaving it unstated forever is also a choice.
 
 ## Cross-cutting
 
@@ -2163,6 +2192,20 @@ more redesign is coming. Reconcile once the systems settle.
   in two places worth preserving: the villagers hand over 真火符 and 五雷符,
   which are really only *for* this, and the 攝魂幡 does nothing an ordinary
   fight requires.
+- 2026-08-23 — **the game never explains the seal: 永遠不說.** The threshold
+  is never openly displayed — sealing him once unlocks nothing, no
+  achievement text, no HUD readout, no spoiler appendix to the rulebook,
+  and the tally counts the ending without explaining it. That leaves the
+  **death-screen comparison as the only place the number ever appears in
+  the whole game**, which makes that one line a rule of the design rather
+  than UI copy: cut it and discovery dies with it. Consequence accepted: a
+  player may seal him without fully knowing why, beyond what they were
+  carrying — the game trusts them to have noticed. And the upside is real:
+  **the knowledge lives in players rather than in the interface**, so it
+  gets passed along instead of looked up. For a small web game a secret it
+  refuses to explain is something to talk about with someone else who has
+  played — the community becomes the documentation, which is exactly what
+  happened to the source game on the BGG forums.
 
 ## Links
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
