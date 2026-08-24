@@ -2278,9 +2278,40 @@ more redesign is coming. Reconcile once the systems settle.
   one turn** — against 3 HP for a player at Attack 4. A sharp spike, and a
   fair one: it is the clearest argument the game makes for being properly
   armed by the last band.
+- 2026-08-24 — **audited the rulebook and spec against every ruling.** Found
+  and fixed one real contradiction — **the rulebook still said cowering
+  "Regain Health"**, three days after that was removed — plus stale ⏳
+  markers on the event pool, the search tables and Combat; three wrong
+  section cross-references in the spec; two rows in the engine-change table
+  still describing breaches as unused and `fled` as undecided; and **four
+  surviving ★ marks** implying 經堂/鐵匠鋪 roll better tables after the
+  `rich` flag was dropped. Also caught that the rulebook told the player
+  the shrine held "the 攝魂幡 and nothing else" when its table is 40 %
+  糯米. Added the edge cases the turn order creates and nobody had written
+  down: fleeing the room's event means **no breach** (you are not in the
+  dead end any more) and no search; a dead-end goal room can be **three
+  fights in one turn**; the rite does not fire at the grave without the
+  tablet; and 金丹 rolls from the search RNG stream so seeds replay.
+  Finally, ruled **only talismans stack** — so the three starting 糯米 take
+  3 of 6 slots, and the pack is exactly sized for *starting rice plus a
+  complete duel kit*, with the bag converting from consumables to
+  equipment as the rice is spent.
+- 2026-08-24 — **ruled: only talismans stack**, so the three starting 糯米
+  take 3 of 6 slots and the pack is exactly sized for *starting rice plus a
+  complete duel kit*. Also wrote [[jiangshi in the pocket - glossary]], the
+  中英對照 table for development: every tile, item, category, event, action
+  and outcome keyed by its **engine id**, which is the contract — ids stay
+  ASCII and are never translated, while both language columns live in the
+  theme files. Flagged one inconsistency the notes had been carrying
+  without anyone noticing: **殭屍 and 僵屍 are both in use** — 殭屍 in the
+  King's name and the framing, 僵屍 in the event-pool tables. They are
+  variant forms of the same word; **殭屍 is the standard Traditional form**
+  and the 歹 radical carries the corpse sense that 僵 ("stiff") does not.
+  Worth a sweep before any of it reaches a UI.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
+- [[jiangshi in the pocket - glossary]] — 中英對照, and the id contract
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
 - [[zombie in the pocket - ruleset spec]] — the baseline being departed from

@@ -10,11 +10,9 @@ The playable rules, in one place, as they stand. Human-facing companion to
 [[jiangshi in the pocket - redesign]] (which is the design record, with the
 reasoning and the arguments).
 
-> ⚠️ **A draft, but a whole game now.** The clock, the turn, the map, the
-> items, the event pool, the poison and the King are all settled. One
-> thing is genuinely unruled and marked ⭐ below: **whether ordinary
-> consumables stack into one slot the way talismans do**, which decides
-> how tight the six-slot pack is.
+> ⚠️ **A draft, but a whole game.** Every system is settled — the clock,
+> the turn, the map, the items, the event pool, the poison and the King.
+> What is left is marked ⏳ and is detail, not structure.
 >
 > 🤫 **This document is not the player-facing rulebook.** 鎮屍 — beating
 > the King — is a **hidden ending**: the shipped `rulebook.html` describes
@@ -299,6 +297,10 @@ and nothing to heal you — it is shelter and nothing more.
 
 You can carry **6**. The 神主牌 tablet doesn't count against that.
 
+**Only talismans stack.** However many of one talisman you pile up, they
+share a single slot — everything else takes a slot each, so the three
+糯米 you start with are already half your pack.
+
 **Weapons stay with you. Everything else — talismans, medicines, the
 banner — is used once and is gone.**
 
@@ -333,7 +335,7 @@ once.**
 | **真火符** True Fire | Fight at **1** — *or* raise one sword's Attack by **+1**, and it stays raised |
 | **五雷符** Five Thunder | Fight at **4** |
 | **血符** Blood | Fight at **5**. Writing it costs you **1 Health** |
-| **硃砂** Cinnabar | Copy a talisman you already hold — **+2 more of it.** However many you stack up, they take **one slot** |
+| **硃砂** Cinnabar | Copy a talisman you already hold — **+2 more of it**, all sharing one slot |
 
 真火符 is the only one worth spending outside a fight: put it into a sword
 and the sword is better for the rest of the night. 七星劍 with a 真火符 in
@@ -399,9 +401,8 @@ you will fight with something worse, and that is the game working, not the
 game cheating you.
 
 ### Still open about items ⏳
-- **⭐ Whether the three starting 糯米 take three slots or one.** A stack
-  of talismans is one slot; whether ordinary consumables stack the same way
-  is unruled, and it decides how tight the 6-slot pack really is.
+- **Whether fleeing a rite's second event abandons it.** Assume it does,
+  and that you may come back and try again.
 - **屍毒 corpse-poison.** 糯米 cures it; nothing in the game inflicts it
   yet. It will come from the event pool, and it needs rules of its own —
   how long it lasts and what it costs you per turn.
@@ -557,6 +558,7 @@ worth taking the tablet even when you doubt you can get it to the ground.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
+- [[jiangshi in the pocket - glossary]] — 中英對照, and the id contract
 - [[jiangshi in the pocket - redesign]] — the design record and reasoning
 - [[jiangshi in the pocket plan]] — the project note
 - [[zombie in the pocket - rulebook]] — the source skeleton's rules

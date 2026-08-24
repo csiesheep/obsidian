@@ -282,20 +282,37 @@ stack of any size is **one slot** (decided 2026-08-24), mirroring the
 source's refuellable chainsaw. 硃砂 may only target a talisman you
 actually hold.
 
-❓ **Do non-talisman consumables stack into one slot?** The stacking
-ruling came from 硃砂, which is the only thing that *creates* duplicates —
-so it was written about talismans. But the player starts with **three
-糯米**, and whether that is **3 slots or 1** changes the backpack economy
-completely:
+✅ **Only talismans stack** (decided 2026-08-24). A stack of any size is
+one slot; **everything else takes a slot per item.** So the three starting
+糯米 occupy **3 of the 6 slots**.
 
-| Reading | Consequence |
-|---|---|
-| **Only talismans stack** | 3 rice = 3 of 6 slots. The pack starts half full, and every rice spent frees a slot for something found. Tight, and the arc from consumables to equipment works |
-| **Everything stacks** | 3 rice = 1 slot. The limit then binds on *variety*, not quantity, and 6 slots is roomy enough that dropping decisions nearly vanish |
+```
+slotsUsed(inv) = count of distinct ids, EXCEPT that
+                 cat === "magic" contributes 1 slot per id regardless of count,
+                 and every other cat contributes 1 slot PER UNIT
+```
 
-**Recommend: only talismans stack**, since that is where the rule came
-from and it preserves the pressure the 6-slot pack was sized for. Needs a
-ruling — several numbers in the redesign note assume 3 rice = 3 slots.
+Inventory is `{id: count}` throughout; only `cat: "magic"` ignores the
+count when charging slots. The rule came from 硃砂, which is the only
+thing in the game that creates duplicates by rule, and it stays scoped
+there.
+
+**The slot arithmetic this produces is deliberate:**
+
+```
+3 starting 糯米                      3
+七星劍                                1
+攝魂幡                                1
+one attack talisman (any stack size)  1
+─────────────────────────────────────
+                                      6   — exactly full
+```
+
+The pack is sized for *your starting rice plus a complete duel kit*, with
+nothing to spare. It also gives a good arc: the bag begins full of
+**consumables** and converts, rice by rice, into **equipment** — every
+rice spent opens a slot for something found. And a fourth rice picked up
+while carrying three plus three is a real decision, not a formality.
 
 ✅ **One 真火符 per sword.** `buffSword: 1` is permanent, and a sword
 accepts **at most one** (decided 2026-08-24). So the sword ceiling is
@@ -626,21 +643,18 @@ they read still exists.
 
 ## 12. Open — ❓, in rough priority
 
-1. **⭐ Do non-talisman consumables stack into one slot?** Whether the
-   three starting 糯米 occupy 3 slots or 1 changes the backpack economy
-   outright. Recommend **only talismans stack**. §4.
-2. **Does fleeing a rite's second event abort it?** Assume **yes**, per
+1. **Does fleeing a rite's second event abort it?** Assume **yes**, per
    the source's "still standing there" ruling — you may return and try
    again. §7.
-3. **Does 護身符 reduce the 1 HP cost of fleeing?** Assume **no**. §6.
-4. **A name for the breach in this theme.** "Zombie door" is the source's
+2. **Does 護身符 reduce the 1 HP cost of fleeing?** Assume **no**. §6.
+3. **A name for the breach in this theme.** "Zombie door" is the source's
    term and a poor fit here. **破牆** — *the wall gives* — is the working
    name in this spec. §2.
 
-*Closed 2026-08-24: no `COWER_HEAL`; talisman stacks are one slot; one
-真火符 per sword; no `rich` flag; breaches kept, **scaling 3/4/5**; generic
-flee at −1 HP; 護身符 is combat-only; each rite draws an extra event; tile
-actions are free.*
+*Closed 2026-08-24: no `COWER_HEAL`; **only talismans stack** (so the 3
+starting 糯米 take 3 slots); one 真火符 per sword; no `rich` flag; breaches
+kept, scaling 3/4/5; generic flee at −1 HP; 護身符 is combat-only; each
+rite draws an extra event; tile actions are free.*
 
 ## 13. Numbers worth re-deriving after any change
 
@@ -663,8 +677,10 @@ poison** (which is a separate −1/turn on top).
 | Expected searches for 七星劍 | ~7 (15 %) |
 | Expected searches for 攝魂幡 | ~7 (15 %) |
 | Winning kits at threshold 12 / 11 | 2 / 4 |
+| Slots used by starting rice + a full duel kit | **6 of 6** |
 
 ## Links
+- [[jiangshi in the pocket - glossary]] — 中英對照, and the id contract
 - [[jiangshi in the pocket - redesign]] — every decision and its reasoning
 - [[jiangshi in the pocket - rulebook]] — the same rules as prose
 - [[jiangshi in the pocket plan]] — project note
