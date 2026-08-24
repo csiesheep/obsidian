@@ -2206,8 +2206,27 @@ more redesign is coming. Reconcile once the systems settle.
   refuses to explain is something to talk about with someone else who has
   played — the community becomes the documentation, which is exactly what
   happened to the source game on the BGG forums.
+- 2026-08-24 — **[[jiangshi in the pocket - ruleset spec]] written**: the
+  code-facing document, mirroring the source spec's shape. Constants,
+  board model, four JSON data tables (`tiles`, `items`, `search`,
+  `events`), the attack and damage formulas, the full turn pseudocode,
+  midnight, and a **§11 mapping of what the inherited engine has to
+  change** — `engine.js` loses the whole deck/clock half, `board.js` is
+  data-only, and the dread dial, phantoms and scare systems survive
+  untouched because they read state that still exists. Writing it surfaced
+  **nine ❓ items that cannot be coded around**, collected in §12 and
+  ranked: `COWER_HEAL` was never actually settled (still 3, candidate
+  4–5); zombie doors have no trigger now that STAY is legal; whether a
+  generic flee still exists at all; talisman stacks vs slots; multiple
+  真火符 per sword; what the two rites cost; and `rich: true` on 經堂 /
+  鐵匠鋪 currently means nothing mechanically. Also added §13, a list of
+  hand-derived invariants a bot suite should assert — the expected-damage
+  figures, the Attack-4 ceiling against the 11 PM band, and the search
+  expectations — because several of them are load-bearing and were worked
+  out by hand rather than measured.
 
 ## Links
+- [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
 - [[jiangshi in the pocket - rulebook]] — the same rules as playable prose
 - [[jiangshi in the pocket plan]] — project note (partly superseded, see above)
 - [[zombie in the pocket - ruleset spec]] — the baseline being departed from

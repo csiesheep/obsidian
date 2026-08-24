@@ -1,0 +1,560 @@
+---
+tags: [project, spec]
+status: draft
+started: 2026-08-24
+---
+# jiangshi in the pocket — ruleset spec
+
+Implementation spec. Mechanics only — constants, state transitions, data
+tables, pseudocode. The reasoning behind every number lives in
+[[jiangshi in the pocket - redesign]]; the human-readable rules are in
+[[jiangshi in the pocket - rulebook]]. **If those three disagree, this
+file is what the engine should match, and the disagreement is a bug in
+one of the others.**
+
+**Confidence key:** ✅ decided · ❓ open, needs a ruling before it can be
+coded · 📐 inherited unchanged from
+[[zombie in the pocket - ruleset spec]]
+
+> **What this is not.** Unlike the source spec, nothing here was
+> reverse-engineered from a printed game — it is all original design
+> decided between 2026-08-22 and 2026-08-23. There is no art to verify
+> against and no designer to appeal to. The ❓ items are genuinely
+> undecided, not merely unresearched.
+
+---
+
+## 1. Constants ✅
+
+```js
+export const RULES = {
+  // clock
+  TURNS_TOTAL:    30,
+  TURN_MINUTES:   6,
+  TURNS_PER_HOUR: 10,
+  START_HOUR:     21,      // 9 PM; bands are 21 / 22 / 23
+
+  // player
+  START_HEALTH:   10,
+  HEALTH_CAP:     10,      // hard cap; nothing exceeds it
+  START_ATTACK:   0,       // bare-handed. Weapons are absolute, not bonuses
+  MAX_ITEMS:      6,       // the tablet is exempt
+  START_ITEMS:    { "sticky-rice": 3 },
+
+  // cowering
+  COWER_CHARGES:  3,
+  COWER_HEAL:     3,       // ❓ candidate 4–5, never settled
+
+  // combat
+  MAX_COMBAT_DAMAGE: 4,
+  MIN_COMBAT_DAMAGE: 0,
+
+  // poison
+  POISON_PER_TURN: 1,      // ticks at START of turn; does not stack
+
+  // the King
+  KING_THRESHOLD:             12,
+  KING_THRESHOLD_WITH_TABLET: 11,
+};
+```
+
+**Budget check.** 30 turns, every one of which draws an event except a
+cower. So a night is **27–30 event draws** against 10 HP — versus the
+source's 21 draws against 6 HP with unlimited cowering. Denser and
+harsher, and the cap is what keeps it finite.
+
+## 2. Board model 📐
+
+**Unchanged from the source**: two unbounded square grids (indoor,
+outdoor) joined at exactly one seam. Tiles occupy integer cells, each has
+exits in `{N,E,S,W}` and a rotation `r ∈ {0..3}` applied as
+`(exit + r) % 4`.
+
+Carried over verbatim — see the source spec §2 for the reasoning:
+- Placement: on entering an unexplored cell, draw the top tile of the
+  matching deck and rotate it so **≥1 exit faces back at the edge you
+  left**. Rotation is otherwise the player's free choice.
+- **Non-entry edges need not match.** A door may face a wall.
+- Movement legality: `A.hasExit(d) && B.hasExit(opposite(d))`.
+- The grid is unbounded.
+- Seam: 天井 Courtyard's exterior door ↔ 後門石階 Back Steps. Both are set
+  aside at setup, so each is deterministically the first tile of its deck.
+
+### Two departures ✅
+
+1. **Movement is optional** (§5). The source made it mandatory. `STAY` is
+   always a legal action, so a player can never be forced to move.
+2. **❓ Zombie doors have no trigger any more.** The source fired them on
+   *no usable exit*; with `STAY` legal, being boxed in is an ordinary
+   situation rather than a crisis. **Decide: remove the mechanic, or
+   re-key it to something else** (an event-pool outcome is the obvious
+   home). Until then the board code keeps the capability and nothing calls
+   it.
+
+### Tiles — `data/tiles.json` ✅
+
+`search` names a table in §4. `rich: true` is the ★ marker (§4 does not
+yet use it — see ❓ in §4).
+
+```json
+{
+  "indoor": [
+    {"id":"gatehouse",     "exits":["N","E","W"],     "start":true},
+    {"id":"apothecary",    "exits":["N"],             "search":"medicine"},
+    {"id":"woodshed",      "exits":["N","E"],         "search":"weapon"},
+    {"id":"sutra-hall",    "exits":["N","W"],         "search":"magic",    "rich":true},
+    {"id":"mourning-hall", "exits":["N","E","W"],     "search":"magic"},
+    {"id":"courtyard",     "exits":["N","E","S","W"], "exteriorDoor":true},
+    {"id":"blacksmith",    "exits":["N"],             "search":"weapon",   "rich":true},
+    {"id":"counting-room", "exits":["N","E","W"],     "search":"medicine", "onTurnEnd":"HEAL_1"},
+    {"id":"incense-hall",  "exits":["N","E"],         "action":"RESTORE_COWER_ONCE"},
+    {"id":"sealed-crypt",  "exits":["E","W"],         "goal":"TAKE_TABLET"}
+  ],
+  "outdoor": [
+    {"id":"back-steps",    "exits":["E","S"],         "seam":"N", "start":true},
+    {"id":"dry-well",      "exits":["S","W"]},
+    {"id":"bamboo-grove",  "exits":["E","S","W"],     "search":"magic"},
+    {"id":"memorial-arch", "exits":["E","S","W"],     "search":"weapon"},
+    {"id":"pavilion",      "exits":["E","S","W"]},
+    {"id":"pagoda-tree",   "exits":["E","S","W"],     "search":"medicine", "onTurnEnd":"HEAL_1"},
+    {"id":"stone-ward",    "exits":["N","E","S","W"]},
+    {"id":"stream",        "exits":["E","W"],         "flags":["RUNNING_WATER"]},
+    {"id":"earth-shrine",  "exits":["E","S"],         "search":"relic",    "action":"PRAY_ONCE"},
+    {"id":"mass-grave",    "exits":["E","S"],         "goal":"BURY_TABLET"}
+  ]
+}
+```
+
+Exit density 21/10 indoor (2.1), 26/10 outdoor (2.6) — deliberately
+matched to the source's 2.13 / 2.6.
+
+### Tile behaviours ✅
+
+| Field | Meaning |
+|---|---|
+| `start` | Placed at origin (indoor) / set aside for the seam (outdoor) |
+| `exteriorDoor` | One of its exits is the moon gate — the only crossing |
+| `seam` | The edge that joins back to the Courtyard |
+| `search` | Which §4 table a search here rolls on |
+| `onTurnEnd: HEAL_1` | +1 HP if the turn ends here (capped) |
+| `action: RESTORE_COWER_ONCE` | Standing here, may restore **1 cower charge. Once per run** |
+| `action: PRAY_ONCE` | **Once per run**: the next unexplored *outdoor* tile placed is `mass-grave` |
+| `flags: RUNNING_WATER` | The King will not come here (§8) |
+| `goal: TAKE_TABLET` | The 神主牌 is here (§7) |
+| `goal: BURY_TABLET` | Burying it here wins (§7) |
+
+## 3. The clock ✅
+
+The turn **is** the clock. No deck, no reshuffle.
+
+```js
+// turn N, 1-based, 1..30
+minutesElapsed = (N - 1) * TURN_MINUTES;         // 0..174
+hourBand       = START_HOUR + Math.floor((N - 1) / TURNS_PER_HOUR);  // 21|22|23
+bandKey        = String(hourBand - 12);          // "9" | "10" | "11"
+clockLabel     = 21:00 + minutesElapsed;         // 9:00 .. 11:54
+```
+
+| Band | Turns | Clock |
+|---|---|---|
+| 9 PM | 1–10 | 21:00 → 22:00 |
+| 10 PM | 11–20 | 22:00 → 23:00 |
+| 11 PM | 21–30 | 23:00 → 24:00 |
+
+**After turn 30 resolves → `midnight()` (§8).** There is no
+losing-to-the-clock; midnight is an appointment, not a deadline.
+
+`clockTime()` becomes a pure function of `N` — no deck length, and none of
+the source's "empty deck reads 60" special case.
+
+## 4. Items and search ✅
+
+### Item definitions — `data/items.json`
+
+```json
+[
+  {"id":"precept-knife",       "cat":"weapon",   "attack":1, "unique":true},
+  {"id":"peachwood-sword",     "cat":"weapon",   "attack":1, "unique":true},
+  {"id":"coin-sword",          "cat":"weapon",   "attack":2, "unique":true},
+  {"id":"sevenstar-sword",     "cat":"weapon",   "attack":3, "unique":true},
+
+  {"id":"truefire-talisman",   "cat":"magic",    "attack":1, "buffSword":1, "consumed":true},
+  {"id":"fivethunder-talisman","cat":"magic",    "attack":4, "consumed":true},
+  {"id":"blood-talisman",      "cat":"magic",    "attack":5, "costHp":1,    "consumed":true},
+  {"id":"cinnabar",            "cat":"magic",    "effect":"DUPLICATE_TALISMAN", "n":2, "consumed":true},
+
+  {"id":"soul-banner",         "cat":"relic",    "effect":"DOUBLE_SWORD", "unique":true, "consumed":true},
+
+  {"id":"sticky-rice",         "cat":"medicine", "heal":3, "cures":"POISON", "consumed":true},
+  {"id":"black-dog-blood",     "cat":"medicine", "effect":"ESCAPE_FIGHT", "consumed":true, "notVsKing":true},
+  {"id":"golden-elixir",       "cat":"medicine", "gamble":[{"p":50,"hp":6},{"p":50,"hp":-2}], "consumed":true},
+
+  {"id":"protective-charm",    "cat":"charm",    "damageReduction":1, "unique":true, "searchable":false}
+]
+```
+
+**13 items.** Weapons and the charm persist; everything else is consumed
+on use. `protective-charm` is not in any search table — it comes only from
+the 9 PM villager (§5).
+
+### Search tables — `data/search.json`
+
+Rolled once per search. `null` = found nothing.
+
+```json
+{
+  "weapon": [
+    {"id":"precept-knife","p":25}, {"id":"peachwood-sword","p":25},
+    {"id":"coin-sword","p":25},    {"id":"sevenstar-sword","p":15},
+    {"id":null,"p":10}
+  ],
+  "magic": [
+    {"id":"truefire-talisman","p":30}, {"id":"blood-talisman","p":20},
+    {"id":"cinnabar","p":20},          {"id":"fivethunder-talisman","p":20},
+    {"id":null,"p":10}
+  ],
+  "medicine": [
+    {"id":"sticky-rice","p":40}, {"id":"black-dog-blood","p":25},
+    {"id":"golden-elixir","p":15}, {"id":null,"p":20}
+  ],
+  "relic": [
+    {"id":"sticky-rice","p":40}, {"id":"soul-banner","p":15},
+    {"id":null,"p":45}
+  ]
+}
+```
+
+Each table sums to 100.
+
+### Rolling a search ✅
+
+```
+search(state, table):
+  pick = weightedPick(table)             # from the search RNG stream
+  if pick == null:              return NOTHING
+  if item.unique and held(pick): return NOTHING      # duplicate -> nothing
+  if bagFull(state):            return OFFER_DROP    # player chooses
+  take(pick)
+```
+
+**Uniques already held return nothing.** This is what makes weapon
+searches self-limiting: effective miss climbs 10 % → 35 % → 60 % → 85 %
+as the swords accumulate.
+
+❓ **`rich: true` has no mechanical effect yet.** 經堂 and 鐵匠鋪 are
+marked ★ as "the best of their category", but both roll the same table as
+their siblings. Either give them a better table, more rolls, or drop the
+flag.
+
+❓ **Talisman stacks.** `cinnabar` gives `+2 quantity` of a held talisman
+— so inventory holds counts, not just ids. **Does a stack of 3 occupy one
+slot or three?** One is the intended reading (it mirrors the source's
+refuellable chainsaw) but it is not settled. Also: may 硃砂 target a
+talisman you hold **zero** of? Assume no.
+
+❓ **Multiple 真火符 on one sword?** `buffSword: 1` is permanent and
+additive. If stacking is unlimited, 硃砂 + 真火符 ×3 reaches Attack 6 on a
+七星劍. Recommend capping at **one per sword**.
+
+## 5. The event pool ✅
+
+`data/events.json`, keyed by band. Each band sums to 100.
+
+```json
+{
+  "9": [
+    {"t":"JIANGSHI","n":3,"p":15},
+    {"t":"JIANGSHI","n":4,"p":25},
+    {"t":"HP","hp":-1,"p":10},
+    {"t":"HP","hp":1,"p":10},
+    {"t":"NOTHING","p":20},
+    {"t":"POISON","p":10},
+    {"t":"VILLAGER","gift":"protective-charm","turnsInto":4,"p":10}
+  ],
+  "10": [
+    {"t":"JIANGSHI","n":4,"p":25},
+    {"t":"JIANGSHI","n":5,"p":15},
+    {"t":"HP","hp":-1,"p":10},
+    {"t":"HP","hp":1,"p":10},
+    {"t":"NOTHING","p":20},
+    {"t":"POISON","p":10},
+    {"t":"VILLAGER","gift":"truefire-talisman","turnsInto":5,"p":10}
+  ],
+  "11": [
+    {"t":"JIANGSHI","n":4,"p":20},
+    {"t":"JIANGSHI","n":5,"p":20},
+    {"t":"JIANGSHI","n":6,"p":20},
+    {"t":"HP","hp":-1,"p":10},
+    {"t":"NOTHING","p":10},
+    {"t":"POISON","p":10},
+    {"t":"VILLAGER","gift":"fivethunder-talisman","turnsInto":6,"p":10}
+  ]
+}
+```
+
+Drawn **with replacement** — it is a distribution, not a deck. The same
+event may fire twice.
+
+### VILLAGER resolution ✅
+
+```
+villager(state, ev):
+  if holds("sticky-rice") and player accepts:
+     consume("sticky-rice")
+     take(ev.gift)                     # charm / talisman
+  else:
+     combat(state, ev.turnsInto)       # the band's worst jiangshi
+```
+
+Note the 10 and 11 PM gifts are **真火符 and 五雷符** — two of the four
+pieces the seal needs (§8). This is deliberate: it is a second route to
+the endgame kit for a player who spends rice on strangers.
+
+### POISON ✅
+
+```
+poison(state):  state.poisoned = true      # no stack; already-poisoned is a no-op
+```
+
+## 6. Attack and combat ✅
+
+### The attack formula — **the central departure from the source**
+
+**A sword and a talisman ADD.** The source allowed one weapon only.
+
+```js
+function attack(state, use = {}) {
+  let sword = bestSword(state);              // 0..3, plus any buffSword baked in
+  if (use.banner) sword *= 2;                // 攝魂幡 doubles the SWORD only
+  const talisman = use.talisman ? def(use.talisman).attack : 0;
+  return sword + talisman;                   // banner never doubles the talisman
+}
+```
+
+- **Only one sword counts** 📐 — the best held, never summed.
+- `buffSword` from 真火符 is **permanent** and stored on the sword, not
+  recomputed.
+- The banner is **one use, consumed**, and doubles the sword half only.
+
+Worked examples:
+
+| Holding | Working | Attack |
+|---|---|---|
+| 七星劍 + 真火符 in it, banner, 五雷符 | (3+1) × 2 + 4 | **12** |
+| 七星劍 + 真火符 in it, banner, 血符 | (3+1) × 2 + 5 | **13** |
+| 銅錢劍 + 真火符 in it, banner, 血符 | (2+1) × 2 + 5 | **11** |
+| 七星劍, banner, 五雷符 | 3 × 2 + 4 | 10 |
+| 七星劍 + 真火符, 五雷符, no banner | 4 + 4 | 8 |
+
+### Damage ✅
+
+```js
+function damage(n, atk, hasCharm) {
+  let d = Math.max(MIN_COMBAT_DAMAGE, Math.min(MAX_COMBAT_DAMAGE, n - atk));
+  if (hasCharm) d = Math.max(0, d - 1);     // 護身符, applied AFTER the clamp
+  return d;
+}
+```
+
+❓ **Does 護身符 also reduce `HP: -1` events?** "受到傷害 −1" reads as all
+damage, which would zero those events outright. Assume **yes** unless
+ruled otherwise. It explicitly does **not** touch poison — *poison is not
+damage* (§7).
+
+### Escaping a fight ✅
+
+`black-dog-blood` → `ESCAPE_FIGHT`: no damage, item consumed.
+**Barred against the King** (`notVsKing: true`).
+
+❓ **Is there a generic flee, as the source had** (−1 HP, step to an
+adjacent explored tile, draw no card)? The redesign never addressed it.
+With `STAY` legal and 黑狗血 covering escape, the simplest answer is
+**no generic flee** — but it needs saying, because `fled` is a flag the
+inherited turn code reads.
+
+## 7. Poison, the tablet, cowering ✅
+
+### 中毒
+
+- Inflicted by the `POISON` event, 10 % in every band.
+- **−1 HP at the START of each turn**, forever, until cured.
+- **Does not stack.**
+- **Only `sticky-rice` cures it.** `protective-charm` does **not** —
+  poison is not damage.
+- Irrelevant at midnight: the seal is a threshold on Attack, not health.
+
+### The 神主牌 tablet
+
+- Taken at `sealed-crypt`, buried at `mass-grave`.
+- **Slotless** 📐 — never counts against `MAX_ITEMS`.
+- Carrying it at midnight lowers the seal threshold **12 → 11** (§8).
+
+❓ **What the two rites cost.** Taking the tablet and burying it were "a
+second card" each in the source. In turn terms the natural translation is
+**one extra event apiece**, resolved immediately. Not settled.
+
+### Cowering
+
+```
+cower(state):
+  if state.cowerCharges <= 0: return ILLEGAL
+  state.cowerCharges--
+  heal(state, RULES.COWER_HEAL)
+  END TURN            # no event, no search
+```
+
+The **only** event-free turn in the game. 3 charges, +1 from
+`incense-hall` once per run.
+
+## 8. Turn sequence ✅
+
+```
+turn(N):                                  # N = 1..30
+  1. POISON TICK
+       if state.poisoned: health -= POISON_PER_TURN;  if health <= 0 -> LOSS
+
+  2. ACTION — player picks exactly one:
+       MOVE  -> pick a legal adjacent cell
+                if unexplored: draw tile from matching deck, player rotates
+                               (>=1 exit must face the edge left), place
+                move player
+                if crossing the moon gate: place back-steps at the seam
+       STAY  -> remain in place
+       COWER -> see §7, ends the turn here
+
+  3. EVENT — draw from events[bandKey(N)], with replacement
+       JIANGSHI n -> combat: player may spend banner / talisman / 黑狗血
+                     health -= damage(n, attack(state, use), hasCharm)
+       HP hp      -> health += hp        (respect HEALTH_CAP; <=0 -> LOSS)
+       NOTHING    -> nothing
+       POISON     -> state.poisoned = true
+       VILLAGER   -> see §5
+
+  4. SEARCH — optional, free, once per turn
+       if tile.search: roll per §4
+
+  5. TILE END
+       if tile.onTurnEnd == "HEAL_1": health += 1   (capped)
+
+  6. N++
+     if N > TURNS_TOTAL: midnight()
+```
+
+**Step order matters.** Poison before the action, so a turn spent curing
+still pays that turn's tick. Search *after* the event, so you rummage a
+room that has already shown you what is in it.
+
+**The tile actions** (`RESTORE_COWER_ONCE`, `PRAY_ONCE`) are offered while
+standing on the tile and consume no turn. ❓ Confirm — free is the
+assumption.
+
+## 9. Midnight — the King ✅
+
+```
+midnight(state):
+  if currentTile.flags.includes("RUNNING_WATER"):
+      return "SURVIVED"                       # he will not cross it
+
+  threshold = state.tablet ? KING_THRESHOLD_WITH_TABLET : KING_THRESHOLD
+  atk = attack(state, playerChoice)           # ONE chance: banner + talisman
+  if atk >= threshold: return "WIN_SEAL"
+  return "LOSS_KING"
+```
+
+**One strike, binary.** No rounds, no damage, no health. He has no
+abilities, no health pool, and 黑狗血 does not work on him.
+
+The kits that reach the threshold:
+
+| Kit | Attack | at 12 | at 11 (tablet) |
+|---|---|---|---|
+| 七星劍 + 真火符 + banner + 血符 | 13 | ✅ | ✅ |
+| 七星劍 + 真火符 + banner + 五雷符 | 12 | ✅ | ✅ |
+| 七星劍 + banner + 血符 | 11 | ✗ | ✅ |
+| 銅錢劍 + 真火符 + banner + 血符 | 11 | ✗ | ✅ |
+
+**Every winning line spends the banner.** It is the only truly
+compulsory item.
+
+### 🤫 Presentation rule — not a mechanic, but binding
+
+鎮屍 is a **hidden ending**. The threshold is **never displayed**, before
+or after, and sealing him unlocks nothing. The *only* place the number
+ever appears is the verdict card of a player killed at midnight:
+
+```
+        your attack   6
+        needed       12
+```
+
+That single line is the entire discovery mechanism. **Treat it as part of
+the spec, not as UI copy** — remove it and the ending becomes
+unreachable in practice.
+
+## 10. Win / lose ✅
+
+| Result | Condition |
+|---|---|
+| `WIN_BURIAL` | Survive the rite at `mass-grave` holding the tablet. **Ends the run immediately** |
+| `WIN_SEAL` | `attack >= threshold` at midnight |
+| `SURVIVED` | On a `RUNNING_WATER` tile when turn 30 resolves. Not a win, not a loss |
+| `LOSS_HEALTH` | Health ≤ 0 at any point (combat, event, or poison tick) |
+| `LOSS_KING` | Turn 30 resolves under the threshold |
+
+There is **no loss to the clock**.
+
+## 11. What the inherited engine has to change
+
+Mapping to the existing `zombie_in_the_pocket` code, which the fork at
+`~/code/jiangshi_in_the_pocket` starts from:
+
+| File | Change |
+|---|---|
+| `js/engine.js` | **Heaviest.** Delete the deck, `timePasses()`, the hour reshuffle, `SETUP_BURN`, `bandKey`-from-deck. Add: turn counter, event-pool draw, poison state, cower charges, the additive attack formula, item categories, search rolls, the midnight threshold. `clockTime()` becomes pure arithmetic on `N` |
+| `js/board.js` | Data only — 20 tiles. `STAY` means movement is no longer mandatory. Zombie-door trigger goes unused (❓ §2) |
+| `js/app.js` | Turn loop restructured to action → event → search. New prompts: villager, search-accept, midnight kit choice. `fled` semantics (❓ §6) |
+| `js/render.js` | Turn-based clock face (36° ticks), cower pips, poison indicator, 6-slot backpack, 20 tile scenes |
+| `js/epilogue.js` | Four outcomes; per-language *assembly* for zh-TW, not just strings |
+| `js/tally.js` | Record which of the two wins; **never rank them** (§9) |
+| `data/` | All four files replaced: `tiles`, `items`, `search`, `events` |
+| `tests/` | The ~64 deck/clock/hour-band tests mostly stop applying. The 25 board tests survive |
+
+**The dread dial, phantoms, the standing figure, the guttering lamp and
+the scare system all survive untouched** — they read state, and the state
+they read still exists.
+
+## 12. Open — ❓, in rough priority
+
+1. **`COWER_HEAL`** — still 3, candidate 4–5. Cowering costs a turn *and*
+   one of three charges now, so 3 may be too little.
+2. **Zombie doors** — remove, or re-key (§2).
+3. **Generic flee** — exists or not (§6).
+4. **Talisman stacks and slots** — one slot or many (§4).
+5. **Multiple 真火符 per sword** — recommend capping at one (§4).
+6. **The two rites' cost** — an extra event each is the natural reading (§7).
+7. **`rich: true`** — give ★ rooms a real edge, or drop the flag (§4).
+8. **`護身符` vs `HP: -1` events** — assume it applies (§6).
+9. **Tile actions cost no turn** — assume free (§8).
+
+## 13. Numbers worth re-deriving after any change
+
+Cheap invariants a bot suite should assert, because several of them are
+load-bearing and were arrived at by hand:
+
+| Invariant | Value |
+|---|---|
+| Every search table and event band sums to 100 | — |
+| Expected HP lost per turn, bare-handed | 1.85 / 2.00 / 2.90 by band |
+| Expected HP lost per turn at Attack 4 | 0.00 / 0.25 / 0.90 |
+| Sustained attack ceiling from swords alone | **4** (七星劍 + 真火符) |
+| 11 PM damage at the ceiling, over 10 turns | ~9 HP against a cap of 10 |
+| Camping a `HEAL_1` tile is losing | +1/turn vs 2.3–2.9 |
+| Expected searches for 七星劍 | ~7 (15 %) |
+| Expected searches for 攝魂幡 | ~7 (15 %) |
+| Winning kits at threshold 12 / 11 | 2 / 4 |
+
+## Links
+- [[jiangshi in the pocket - redesign]] — every decision and its reasoning
+- [[jiangshi in the pocket - rulebook]] — the same rules as prose
+- [[jiangshi in the pocket plan]] — project note
+- [[zombie in the pocket - ruleset spec]] — what 📐 refers to

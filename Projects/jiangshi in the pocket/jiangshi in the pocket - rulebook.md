@@ -520,6 +520,7 @@ worth taking the tablet even when you doubt you can get it to the ground.
 - **Whether one moon gate is enough**, given the round trip path 1 needs.
 
 ## Links
+- [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
 - [[jiangshi in the pocket - redesign]] — the design record and reasoning
 - [[jiangshi in the pocket plan]] — the project note
 - [[zombie in the pocket - rulebook]] — the source skeleton's rules
