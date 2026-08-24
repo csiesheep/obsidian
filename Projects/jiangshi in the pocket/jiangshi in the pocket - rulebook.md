@@ -516,12 +516,12 @@ ground you have won anyway. If it isn't, you simply saw the night out.
 There are two ways to end the night well, and they ask for different
 things.
 
-| | How | What it costs you |
-|---|---|---|
+|                         | How                                                                                           | What it costs you                                                                        |
+| ----------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | **Win — 下葬 the burial** | Take the 神主牌 from the 停柩房, carry it out through the moon gate, and finish the rite at the 亂葬崗 | **Turns spent walking.** Three rooms have to turn up, and the 天井 is the only way outside |
-| **Win — 鎮屍 the seal** | Meet the King's one strike at midnight with **Attack 12** | **Turns spent standing still.** Four things have to be found |
-| **Survived** | Be standing on the **溪澗 Stream** when turn 30 ends | Nothing, and it wins you nothing. You live; he is still out there |
-| **Lost** | Health reaches 0 — or turn 30 finds you short of 12 | — |
+| **Win — 鎮屍 the seal**   | Meet the King's one strike at midnight with **Attack 12**                                     | **Turns spent standing still.** Four things have to be found                             |
+| **Survived**            | Be standing on the **溪澗 Stream** when turn 30 ends                                            | Nothing, and it wins you nothing. You live; he is still out there                        |
+| **Lost**                | Health reaches 0 — or turn 30 finds you short of 12                                           | —                                                                                        |
 
 **The burial ends the night the moment you finish it.** The seal cannot
 happen before turn 30. So the burial is the win you plan for, and the
