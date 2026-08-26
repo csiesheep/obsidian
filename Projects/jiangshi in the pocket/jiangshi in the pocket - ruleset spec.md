@@ -16,6 +16,62 @@ one of the others.**
 coded · 📐 inherited unchanged from
 [[zombie in the pocket - ruleset spec]]
 
+## ⚡ AMENDMENTS — 2026-08-24 (post-launch, user-ruled)
+
+Three changes override the sections below until the inline text is
+rewritten. **These are the contract now.**
+
+1. **Cowering is REMOVED entirely.** No `COWER_CHARGES`, no cower action,
+   no charge pips, no 香堂 restore. A turn's action is **MOVE or STAY**,
+   nothing else. The dread `exposed` term (charges × lateness) is removed
+   and the weights revert to night .34 / hurt .32 / fought .16 /
+   running .10 / carrying .08.
+   — Superseded by the user's follow-up ruling: **香堂 gains
+   `onTurnEnd: HEAL_1`** (+1 HP if the turn ends there) **and 帳房 loses
+   its HEAL_1**, keeping only its 丹藥 search. The indoor heal tile moves
+   from the counting room to the incense hall — and the old heal+search
+   stack on one tile is gone with it. Heal-tile count stays two (香堂
+   indoors, 槐樹 outdoors).
+2. **土地廟's prayer is REMOVED.** No PRAY_ONCE; the shrine keeps its
+   `search: "relic"` (still the only source of 攝魂幡). The burial hunt
+   loses its luck-mitigation; expect the hunter's rate to drop.
+3. **石敢當 draws NO event — entering or staying.** New tile flag
+   (`flags: ["WARDED"]`); the ward's folklore finally has its mechanic.
+   The King still comes there at midnight (only RUNNING_WATER declines).
+   **Ruled 2026-08-25: the ward blocks 破牆 too** — a breach is a
+   jiangshi coming through a wall, and that is precisely what the stone
+   wards. Measured cost ≈ +1 point of seal, burial unchanged.
+   Net effect: the game's safety is now **a place you travel to**, not a
+   resource you carry.
+
+Bots and the §13 rows touching cowering are stale until re-measured.
+
+### Second amendment set — 2026-08-25 (user-ruled)
+
+4. **Equipment hands, outside the backpack.** A character panel with two
+   equipment slots: **right hand = weapon, left hand = 護身符**, both
+   empty at start. Weapons and the charm **no longer occupy backpack
+   slots**; the pack (still 6) holds consumables only — talisman stacks,
+   rice, blood, elixir, and the 攝魂幡 (a 法器, not a weapon or charm).
+5. **One weapon carried, ever.** Replaces "carry several, best counts".
+   Finding a weapon while armed prompts **replace or leave**; the prompt
+   shows the attack comparison (a burned-in 真火符 travels with the sword
+   and is lost with it). **Ruled 2026-08-25: left behind and gone from the night** (棄即滅) —
+   any weapon that exits a resolved replace prompt un-held (the old
+   blade on take, the incoming one on keep) is never offered by any
+   search table again; the 10→35→60→85 weapon-table dry-up curve
+   returns as a side effect. Weapons are unique, so the choice is
+   real — and now permanent.
+6. **Every event gets a full-screen animation** — presentation only, no
+   rules change; calm mode and prefers-reduced-motion must both temper
+   it, and the night's pacing budget is a design constraint, not an
+   afterthought.
+
+Consequences flagged: the §13 row "starting rice + full duel kit = 6 of
+6" dies (the kit's sword leaves the pack); pack pressure drops — **the
+pack stays at 6, ruled by the user 2026-08-25**, no longer merely a
+default; bots and invariants stale again until re-measured.
+
 > **What this is not.** Unlike the source spec, nothing here was
 > reverse-engineered from a printed game — it is all original design
 > decided between 2026-08-22 and 2026-08-23. There is no art to verify
@@ -23,6 +79,31 @@ coded · 📐 inherited unchanged from
 > undecided, not merely unresearched.
 
 ---
+
+### Third amendment set — 2026-08-25 (user-ruled; A delegated)
+
+7. **The seal returns to rarity.** 鎮屍 stays the hidden ending and §9 is
+   untouched; the number comes back to match the name. **攝魂幡 relic odds
+   15% → 2%; KING_THRESHOLD 12 → 14, with-tablet 11 → 13.** The attack
+   ceiling is exactly 13, so the tablet is now mandatory for the seal —
+   the recipe is his name, 七星劍, a burned-in 真火符, 攝魂幡 and 血符,
+   all five or nothing. Accepted consequence: a tablet-less LOSS_KING
+   card reads "needed 14", a number bare hands cannot reach — the game
+   telling the truth that something was missing. Priced in
+   tools/lever-pricing.md (option A, 1.7%/1.7%, burial and survival
+   unmoved). §13's winning-kits row needs re-deriving.
+
+8. **The <2% target is superseded — 攝魂幡 pays 10%.** Ruled 2026-08-25,
+   later the same day and with the measurement in hand. 土地廟's table is
+   糯米 40 / 攝魂幡 10 / nothing 50; the shrine has had no identity but
+   the banner since the prayer was removed, and at 2% it was a rice tile
+   with a rumour attached. **The measured cost is 鎮屍 at 3.5-4.2%**, and
+   the user chose the shrine over the ceiling knowing the number. §9 is
+   untouched — the ending is still never explained and never announced;
+   it is simply rarer than common and no longer rare to the point of
+   vanishing. Anything that still states "under 2%" as a target is stale.
+   The lever curve (banner 2/3/4/5/10 → seal 0.9/1.5/2.1/2.4/3.5-4.2) is
+   in tools/bots-report.md if it is ever revisited.
 
 ## 1. Constants ✅
 
@@ -38,11 +119,8 @@ export const RULES = {
   START_HEALTH:   10,
   HEALTH_CAP:     10,      // hard cap; nothing exceeds it
   START_ATTACK:   0,       // bare-handed. Weapons are absolute, not bonuses
-  MAX_ITEMS:      6,       // the tablet is exempt
+  MAX_ITEMS:      4,       // the tablet is exempt (6 until #47, 2026-08-25)
   START_ITEMS:    { "sticky-rice": 3 },
-
-  // cowering — a charge SKIPS THE EVENT. It heals nothing.
-  COWER_CHARGES:  3,
 
   // combat
   MAX_COMBAT_DAMAGE: 4,
@@ -54,8 +132,8 @@ export const RULES = {
   POISON_PER_TURN: 1,      // ticks at START of turn; does not stack
 
   // the King
-  KING_THRESHOLD:             12,
-  KING_THRESHOLD_WITH_TABLET: 11,
+  KING_THRESHOLD:             13,   // 12 until option A, 14 until #56
+  KING_THRESHOLD_WITH_TABLET: 12,
 };
 ```
 
@@ -286,7 +364,7 @@ actually hold.
 
 ✅ **Only talismans stack** (decided 2026-08-24). A stack of any size is
 one slot; **everything else takes a slot per item.** So the three starting
-糯米 occupy **3 of the 6 slots**.
+糯米 occupy **3 of the 4 slots**.
 
 ```
 slotsUsed(inv) = count of distinct ids, EXCEPT that
@@ -668,6 +746,13 @@ kept, scaling 3/4/5; generic flee at −1 HP; 護身符 is combat-only; each
 rite draws an extra event; tile actions are free.*
 
 ## 13. Numbers worth re-deriving after any change
+> ⚠️ **The code is the authority, not this block.** `js/engine.js`'s RULES
+> object is what ships; the values here are kept current as a reading aid and
+> have been wrong before. Anything in §13 marked ⚠️ predates the rulings of
+> 2026-08-25 and is re-derived in `tools/bots-report.md`, which is generated
+> from measurement rather than written beside it.
+
+
 
 Cheap invariants a bot suite should assert, because several of them are
 load-bearing and were arrived at by hand:
@@ -684,11 +769,10 @@ poison** (which is a separate −1/turn on top).
 | 11 PM damage at the ceiling, over 10 turns | ~9 HP against a cap of 10 |
 | Camping a `HEAL_1` tile is losing | +1/turn vs 2.3–2.9 |
 | Worst possible single turn (11 PM dead end, 僵屍 6 + breach 5) | 7 HP at Attack 2, 3 HP at Attack 4 |
-| Value of a cower charge (damage avoided) | ~0.85 / ~1.25 / ~2.3 by band, at Attack 2 |
-| Expected searches for 七星劍 | ~7 (15 %) |
-| Expected searches for 攝魂幡 | ~7 (15 %) |
-| Winning kits at threshold 12 / 11 | 2 / 4 |
-| Slots used by starting rice + a full duel kit | **6 of 6** |
+| Expected searches for 七星劍 | ~10 (10 %, since #46) |
+| Expected searches for 攝魂幡 | ~10 (10 %, since #52) |
+| Winning kits at threshold 13 / 12 | ⚠️ re-derive — see tools/bots-report.md |
+| Slots used by starting rice + a full duel kit | ⚠️ does not fit at 4 — see tools/pack-4-reachability.md |
 
 ## Links
 - [[jiangshi in the pocket - glossary]] — 中英對照, and the id contract

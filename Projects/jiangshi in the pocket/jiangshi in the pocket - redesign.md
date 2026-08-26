@@ -2374,6 +2374,95 @@ more redesign is coming. Reconcile once the systems settle.
   language** (zh-* → zh-TW, else English, switch always visible), with
   detection enabled only once batch-1 coverage is complete so no
   detected-zh visitor ever lands in a half-translated night.
+- 2026-08-24 — **bilingual batch 1 shipped and verified**: 417/417 keys
+  both ways, detection on (zh-* → 繁中), zero visible Latin in a zh
+  night, 201/0 with bidirectional overlay guards. Two findings worth the
+  record: the plan's fear that epilogue.js would need per-language
+  assembly dissolved on contact — the clause order survives in Chinese
+  and the difference was **two punctuation marks, now data**; and the
+  round's real bug was **audible-only** — three utility controls
+  announcing raw keys to screen-reader users in both languages, an
+  ordering fault no sighted check could see. The rulebook translation is
+  batch 2, filed as its own issue. 口袋裡的殭屍 now speaks both its
+  languages in public.
+- 2026-08-24 — **bilingual batch 2 shipped; the tracker is empty.** The
+  rulebook in 繁體中文 (inline-English, fetched-zh — no state where the
+  rules page is blank), structural parity guarded down to table rows and
+  anchors, §9 audited in both languages. The closing find of the project:
+  **the rulebook had taught the fork's Attack 1 / Health 6 all along** —
+  it survived every issue because nothing compared the page to the
+  engine, and it erred in the friendly direction no player reports. It
+  was caught by the act of translating, which reads with the attention
+  of someone who must reproduce the sentence. A guard now pins the
+  page's numbers to RULES. **28 issues opened, 28 closed, every close
+  independently verified. 口袋裡的殭屍 is public, bilingual, and done.**
+- 2026-08-24 — **the game is renamed: 三更:殭屍 / The Third Watch: The
+  Jiangshi.** The launch title collided with the zh community's name for
+  the source game and carried a pocket from a fiction this game left
+  behind; the new name is the appointment itself — and for anyone who
+  later finds the hidden ending, it quietly means more than it says,
+  which suits this design. Renamed hours after launch and before the
+  first Search Console submission: the cheapest window there will ever
+  be. Slug unchanged; both old names retained as alternateNames.
+- 2026-08-24 — **post-launch redesign, user-ruled: cowering removed, the
+  shrine's prayer removed, 石敢當 warded (no event on enter or stay).**
+  One coherent move: safety stops being an inventory (three charges,
+  anywhere) and becomes geography (one stone, at the crossroads, walk to
+  it). The prayer's removal takes the burial's luck-mitigation with it.
+  Flagged consequences: 香堂 is orphaned (its only mechanic was the
+  charge restore — defaulting to a plain tile pending a new idea); the
+  hunter's 32.8 % and the adept's 22.4 % are both stale, since one leaned
+  on the prayer and the other cowered its way to midnight — and a kitted
+  duelist can now wait at the warded stone instead, which may make the
+  seal *easier*: re-measure before believing anything. The dread exposed
+  term (built this morning) is removed with the mechanic it read.
+- 2026-08-24 — **香堂's new role ruled: the indoor HEAL_1 moves there
+  from 帳房** (which keeps only its 丹藥 search). Better fiction (incense
+  and stillness heal more credibly than a clerk's medicine chest) and it
+  unstacks heal-plus-search from a single tile — the last echo of the old
+  healing-engine worry. Two heal tiles remain, one per half.
+- 2026-08-25 — **the redesign landed and the bots re-measured (before →
+  after, same seeds ×2000): hunter FLAT (328/359 → 336/365), adept HELD
+  (224/243 → 230/266), turtle halved, camper collapsed** (midnight
+  arrivals 46.3 → 28.7 %). The expected casualty — the burial, without
+  its prayer — didn't materialise: the hunter wins by burying *early*,
+  and the prayer only ever paid in a lategame that mostly never came. The
+  adept's trade (three portable charges for one permanent square) came
+  out exactly even, which is the ruling's own sentence — *safety is a
+  place you travel to now* — holding as arithmetic. One gap escalated to
+  the user: **破牆 is not an event, so the warded stone still takes
+  breaches** (~300–450/1000 nights, exactly when a kitted duelist waits
+  there); the counterfactual prices ward-blocks-breach at ~+1 point of
+  seal, hunter unchanged, so the ruling is thematic, not balance-bound.
+  Verification lesson added to the pile: a stale module map survived a
+  full cache-reload sweep — only a fresh origin clears it.
+- 2026-08-25 — **the redesign's presentation half shipped (#29): the
+  game now plays MOVE-or-STAY in both languages, the warded stone says
+  its line** (a silent skip is indistinguishable from a break — the ward
+  tells), incense heals, the counting room only trades. Two process
+  lessons joined the pile: **the SHELL bump belongs to whoever changes a
+  SHELL file** (engine work shipped at the old cache and returning
+  players briefly risked mixed versions), and **slice deletion needs
+  assertions on the tail** (an over-slice shipped a prep where doorways
+  silently did nothing — third instance of the pattern, self-caught).
+  Removing the cower CSS also un-masked a clock-gauge bug it had been
+  hiding since the HUD landed. Open on the user's desk: whether the ward
+  blocks 破牆.
+- 2026-08-25 — **second post-launch feature set ruled: equipment hands
+  (right = weapon, left = charm, outside the pack, one weapon ever with a
+  replace prompt) and full-screen event animations.** Defaults taken and
+  flagged: the replaced weapon is left behind and gone; the banner stays
+  a pack item; the pack stays at 6 despite losing its two residents —
+  pressure drop noted for a later ruling. Four issues: engine, equipment
+  UI, animation framework, animation content.
+- 2026-08-25 — **ruled: the backpack stays at 6** — the post-equipment
+  pressure drop is accepted, not an oversight. The breach-vs-ward
+  question remains the one open ruling.
+- 2026-08-25 — **ruled: the ward blocks the breach** (擋). The stone now
+  stops both the deck and the wall — the folklore argument carried, and
+  the counterfactual had already priced it at ~+1 point of seal with the
+  burial unchanged. The last open ruling is closed; the design has no
+  pending questions.
 
 ## Links
 - [[jiangshi in the pocket - ruleset spec]] — the code-facing spec
@@ -2383,3 +2472,183 @@ more redesign is coming. Reconcile once the systems settle.
 - [[zombie in the pocket - ruleset spec]] — the baseline being departed from
 - [[zombie in the pocket - rulebook]] — prose rules, same baseline
 - [[zombie in the pocket plan]] — the parent project
+
+
+### 2026-08-25 — 棄即滅:換下的武器離開這一夜
+
+#31 落地後 BE 量到兩件事,一起呈給用戶:
+
+1. **背包不縮,數字入檔。** 裝備離開背包後生存全面上升(露營者見三更
+   28.7%→37.3%,術士封印 250/1000,獵人下葬 344)。BE 標價:縮到 5 買不回
+   (245),縮到 4 才咬(208/334)。用戶先前已裁「背包不縮」,看過數字後
+   維持原裁 —— 裝備不再擠壓藥品視為特性。
+2. **棄劍下場,用戶裁「棄即滅」。** 替換提示裡任何一把「未被持有地離場」
+   的武器(換掉的舊劍、拒絕的新劍)整夜不再出現於任何搜索表。副作用是
+   舊的武器房遞減曲線(落空 10→35→60→85)回歸 —— 這正是 #31 曾意外
+   移除的自限機制。主題上:丟在某個房裡的劍,不會憑空又被「搜到」。
+   → 開 #36 給 BE,排在 #35(石敢當擋破牆)之後、機器人重跑之前 ——
+   旗標先落,表格一次量最終世界。
+
+
+### 2026-08-25 — 事件動畫設計:殭屍四階與王的駕到(用戶指定)
+
+用戶要求:(1) 殭屍依攻擊力 3/4/5/6 分階動畫;(2) 殭屍王專屬動畫。
+事實根據:事件表 初更 3/4、二更 4/5、三更 4/5/6;拒絕村民化為 4/5/6;
+現有 jumpScare 已以 `weight=(n−3)/3` 為 3–6 帶寬縮放,層級是把同一包
+毫秒填得更兇,**不加時間** —— 30× 稅在 #33 已封頂。
+
+**四階,一個文法(強度=它怎麼到,不是只有幾張臉)** — 借殭屍譜系為
+設計語彙(白殭/黑殭/跳殭/飛殭),只活在 CSS class 與設計文件,不進 UI 字串:
+
+| n | 名 | 到場 | 聲 | 佈景 |
+|---|---|---|---|---|
+| 3 | 白殭 | 遠處門口的僵直剪影,臉小而遲 | 兩記慢跳雷 | 燈籠轉暗 |
+| 4 | 黑殭 | 臉近一層,額前無符,微前傾 | 三記較快 | 首見霜氣 |
+| 5 | 跳殭 | 先指甲後臉,邊緣暗角收攏 | 倍速+一記反拍 | 一盞燭滅 |
+| 6 | 飛殭 | 滿框撲面,霜爬滿玻璃 | 連環急奏 | 眾燭齊滅後復明;眼用「亮」不用閃(不做頻閃) |
+
+**三條出路照舊**(#33 的既定政策「拿走攻擊、留下資訊」):
+calm=臉永不到場,層級全由節奏+佈景載運;reduced-motion=每階一張構圖
+不同的定格(剪影距離即層級);fast=無舞台。時長不變:仍是
+SCARE_BASE_MS + weight×200 那一包。
+
+**王的駕到 —— 文法整個反過來。** 殭屍場是「升」(逼近的節奏);王是
+「降」(他已經在了)。鼓最後一響、真靜默,然後畫框開在他**已然站定**
+—— 清官袍、長影、一步慢移,不撲。霜自足下漫開,燭焰背他而彎。
+無數字無門檻暗示(§9 永遠有效)。calm=永不轉臉,只給袍與影,聲音就是
+被抽走的房間+一記低鳴;reduced=單張定格(門、他、伏低的燈光)。
+一夜一次,允許 set-piece 預算(≤2.5s,可跳過),不受 30× 稅約束 ——
+取代 midnightBeat 裡那記 jumpScare(1)。
+
+→ #34 補殭屍四階規格;王的駕到另開一單,排 #34 之後。
+
+
+### 2026-08-25 — 鎮屍壓回 2% 以下(用戶裁定)
+
+裝備/結界/棄劍三波落地後,鎮屍達成率爬到 26-30%(術士型)。
+問用戶:三成玩家碰得到的結局還算「隱藏」嗎?**裁:機率降到 < 2%。**
+§9(隱藏、永遠不說)不動 —— 讓名實重新相符的方向是把「實」拉回來,
+不是改「名」。
+
+機制未定,交 BE 用機器人標價選項(幡的 15%、成套門檻、王的門檻、
+幡一次性等槓桿,單獨與組合),約束:下葬與生存帶盡量不動。
+用戶從標價中挑,BE 不得先落地。
+
+
+### 2026-08-25 — 藝術方向改版:寫實中式恐怖(用戶指定)
+
+用戶要求:事件與殭屍動畫重設計,走寫實、中式恐怖片風格。
+方向文件(給 FE 的設計語言,SVG/CSS 媒材內的「寫實」= 電影感,不是照片):
+
+**光。** 兩光源制:燈籠鎢黃(活人的光)對屍青月白(那邊的光)。
+黑要能吞人。全畫面去飽和,紅色保留為唯一飽和色 —— 只給硃砂與符紙。
+
+**質地。** 底片顆粒(feTurbulence)、濕石、紙纖維;霧分層慢漂。
+不再是版畫圖示感,是打了實景燈的片場。
+
+**動作文法。** 恐怖片的寫實=靜止+不對勁。去掉彈跳與卡通節奏;
+長停,然後一次到位。嚇人的是「一直不動的東西動了一下」。
+
+**四階重新上鏡。** 白殭=門洞逆光一瞥,符紙微顫;黑殭=漆皮膚質,
+僵臂更近;跳殭=殘影跳,畫面震(不准頻閃,守衛現在是真的);
+飛殭=臉滿框+顆粒+呼息白霧,眼睛用獸類反光(亮,不閃)。
+
+**事件。** 損血=看不見的傷(墨色暈開、燈芯一矮);回血=鎢光回暖;
+中毒=墨入水般在畫面邊緣爬(屍毒找心);沒事=恐怖片裡最毒的一場 ——
+房間只是看著你,一根燭火呼吸;村民=光緣人影,姿勢有一點不像人。
+
+**王。** 文法照舊(降,不升),寫實加成:官袍織紋、霜的結晶細節、
+影子比人先到。
+
+**不變的鐵律。** 節奏預算原封(30× 稅);calm=拿走攻擊留下資訊;
+reduced=定格構圖;無頻閃;§9;純 SVG/CSS 無外部資產;動 SHELL 就跑
+record_shell.py。
+
+
+### 2026-08-25 — 封印方案選定:A 案(用戶授權裁量)
+
+BE 標價五案(tools/lever-pricing.md, 461764e):只有 A 兩批皆低於 2%。
+用戶表示無偏好,授權裁量 → 採 BE 與協調者一致推薦的 **A 案**:
+
+- 攝魂幡 relic 表 15% → **2%**
+- KING_THRESHOLD 12 → **14**;持神主牌 11 → **13**
+
+兩批 1.7%/1.7%,下葬 344/374 不動,生存近零損;偶然封印 14-15 → 1。
+由於全遊戲攻擊天花板恰為 13,門檻 14 = 神主牌成為必需 —— 配方變成
+「他的名字+七星劍+燒入真火符+攝魂幡+血符」五缺一不可。已知代價:
+無牌敗北者的 §9 卡會顯示「需要 14」(裸手達不到的數字)—— 接受此讀法:
+遊戲在說實話,確實缺了東西。§9 本文不動。
+
+
+### 2026-08-25 — 背包縮到 4 格(改判)+ 背包 UI 田字化
+
+用戶裁:**MAX_ITEMS 6 → 4**。這是對先前「背包不縮」的改判 —— 當時的裁決
+在標價之前,現在有數字了。舊世界的標價(4 格 = 208-218 封印、獵人下葬 334)
+已不適用,因為 A 案改變了整個世界,需重新標價。
+
+**落地前必答的一題:4 格時封印還可能嗎?** 開局 3 糯米佔 3 格,只剩 1 格;
+§13 的「開局米+整套決鬥裝 = 6/6」必然作廢。A 案後神主牌已是必需。
+若答案是不可能(或只有玩家不會發現的丟棄順序才可能),停手回報 ——
+**不可能的隱藏結局和稀有的隱藏結局是兩回事**,§9 的設計前提是稀有但可達。
+
+UI 同時改版:2×2「田」字格、格子裡只放圖、名稱與說明滑鼠移上去才顯示。
+無障礙不可退讓:鍵盤 focus 與觸控都要有同樣的揭示路徑;疊加數(符、米)
+要留在格子上,因為名字不再在那裡承載它。
+
+
+### 2026-08-25 — A 案落地與封印漏斗(實測)
+
+A 案已上線(門檻 14/13、幡 2%)。封印 1.7%/1.7%,下葬 344/374 與生存
+完全未動;偶然封印 14-15 → 1。用戶問「P(湊齊套件)是多少」,實測漏斗:
+
+| 階段 | 批 A | 批 B |
+|---|---|---|
+| 活到三更 | 329 | 347 |
+| 不在活水上 | 329 | 345 |
+| 七星劍在手 | 97.6% | 95.7% |
+| 真火符已燒入 | 90.3% | 89.9% |
+| 攝魂幡可用 | 24.3% | 21.3% |
+| 重符一張 | 94.8% | 96.0% |
+| 帶著神主牌 | 40.7% | 47.0% |
+| 五件同時在手 | 7.6% | 7.8% |
+| **過得了門檻** | **5.2%** | **4.9%** |
+
+P(帶的夠) 從 ~81%/85% 砍到 5%,而 P(走到門口) 原地不動 —— 這正是 A 案
+的設計:不碰生存,只掐封印的專屬瓶頸。承載整個降幅的就是裁決挑的兩道
+閘:幡(24%,原 84%)與神主牌(從折扣變成必需)。劍、符、加持都在
+90-98%,形狀正確 —— 卡在「要特地去拿的東西」,不卡在「一般能力」。
+
+**配方少講了一件事**:五件到齊有 7.6%,過得了門檻只有 5.2%。差額全是
+帶了五雷(4)而需要血符(5) —— 8+4=12,差 13 一點。所以第五件其實
+特指**血符**:那個在門口要你付自己一點血的東西。連他的名字算進去,是六樣。
+
+
+### 2026-08-25 — 幡 10% 定案,「< 2%」被取代
+
+實測:幡 10% → 鎮屍 3.5-4.2%,與同日稍早的「< 2%」相衝。槓桿曲線
+(幡 2/3/4/5/10 → 封印 0.9/1.5/2.1/2.4/3.5-4.2)呈給用戶,三個選項:
+幡 3%(兩者兼得的上限)、幡 10%(棄守門檻)、幡 4%(卡在交界)。
+**用戶裁:維持幡 10%,接受 3.5-4.2%。** 取捨清楚 —— 值得走一趟的土地廟,
+勝過一個更低的數字。§9 不動,鎮屍仍然永遠不說。
+
+衝突是乾淨的:其他數字全數未動(下葬 322/342、烏龜 31/32、露營者到場率
+不變),機制單一 —— 到門口的人有三倍帶著幡(門口攻擊力 9.08 → 11.11)。
+
+
+### 2026-08-25 — 王 13、活水規則移除、見到天亮退役
+
+三條一起裁定並落地:
+
+1. **王的力量 13**(帶牌 12)。實測封印 3.5-4.2% → **11.3-12.8%**,用戶
+   明示接受。到場率與門口攻擊力一格未動 —— 純轉換率:同一批人帶著
+   同樣的東西,更多人夠了。13 剛好等於攻擊力天花板,是本週單一槓桿
+   影響最大的一次。神主牌重新變成非必需(完美配裝可過),帶牌 12 寬鬆。
+2. **移除活水規則**(王不渡活水)。溪澗自此只剩出入口,沒有任何效果。
+3. **見到天亮正式退役**。它唯一的產生路徑就是活水,遊戲從五種結局
+   變四種。烏龜型機器人的 31-32 次「見到天亮」一對一變成「王帶走了你」。
+
+**同時發現的舊帳**:中英兩份規則書一直寫著「溪澗:他們過不來,所以你
+站在這裡他們打你也不痛」—— 而引擎**從來沒實作過**(combatDamage 沒有
+water 參數,resolveCombat 沒讀過棋盤)。用戶前幾天「提議」的新規則,
+其實是自己文件裡早就寫死的承諾。**用戶裁:刪掉承諾,不實作規則。**
+連同 #56 之後同樣變成假話的「他不渡活水」一併掃除。

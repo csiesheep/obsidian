@@ -6,6 +6,11 @@ version: pre-alpha — all systems drafted
 ---
 # jiangshi in the pocket — rulebook
 
+> ⚡ **2026-08-24 amendments (see the spec's amendment block):** cowering
+> is removed; the shrine's prayer is removed; 石敢當 draws no event on
+> enter or stay. The Cowering section below and every mention of charges
+> are historical until rewritten.
+
 The playable rules, in one place, as they stand. Human-facing companion to
 [[jiangshi in the pocket - redesign]] (which is the design record, with the
 reasoning and the arguments).
@@ -505,6 +510,8 @@ loses his footing, and in that opening the paper goes onto his forehead
 and he stops mid-hop. Nobody destroys a 殭屍王. You put him back.
 
 ### Not being there
+
+**溪澗 Stream** ⚠️ SUPERSEDED 2026-08-25 (#56/#58): running water no longer stops him and never stopped the 殭屍 — the engine never implemented that. The shipped rulebook.html is authoritative. Original text follows.
 
 **溪澗 Stream** is running water, and he will not cross it. Stand there
 when turn 30 ends and **he does not come** — you live, and you cannot

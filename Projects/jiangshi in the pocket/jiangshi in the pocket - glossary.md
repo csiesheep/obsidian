@@ -34,11 +34,13 @@ its own UI is a small, avoidable embarrassment.
 Romanisation stays **jiangshi** (no tone marks, no hyphen) — it is the
 project name and the URL slug.
 
-**The Chinese display title is 口袋裡的殭屍** — decided by the user
-2026-08-24, replacing the never-decided 殭屍在口袋 that had crept into the
-pages. Natural word order, and an echo of the community's name for the
-source game. English title stays *Jiangshi in the Pocket*; the slug stays
-`jiangshi_in_the_pocket`.
+**The title is 三更:殭屍 / The Third Watch: The Jiangshi** — decided by
+the user 2026-08-24 (same day, superseding 口袋裡的殭屍 / Jiangshi in the
+Pocket, which collided with the community's name for the source game and
+referenced a pocket this game never had). Both prior names survive as
+JSON-LD `alternateName`s. The slug stays `jiangshi_in_the_pocket` — it is
+an address, not a name. zh colon full-width; the vault folder and file
+names keep the project's working name.
 
 ---
 
@@ -120,9 +122,9 @@ rules stay uniform.
 | Code term | 繁體中文 | English |
 |---|---|---|
 | `MOVE` | 移動 | Move |
-| `STAY` | 停留 | Stay |
-| `COWER` | 躲藏 | Cower |
-| `cowerCharges` | 躲藏額度 | Cower charges |
+| `STAY` | 休息 | Stay | — 停留 until 2026-08-25 (#74); the on-board control shows the word, so the contract follows the button
+| `COWER` | 躲藏 | Cower — **removed 2026-08-24** |
+| `cowerCharges` | 躲藏額度 | Cower charges — **removed 2026-08-24** |
 | `search` | 搜索 | Search |
 | `flee` | 逃跑 | Run |
 | `breach` | 破牆 | Breach |
@@ -150,7 +152,7 @@ rules stay uniform.
 |---|---|---|
 | `WIN_BURIAL` | 下葬 | The tablet is back in the ground |
 | `WIN_SEAL` | 鎮屍 | The paper is on his forehead |
-| `SURVIVED` | 見到天亮 | You saw the night out |
+| `SURVIVED` | 見到天亮 | **RETIRED 2026-08-25 (#59)** — its only producer was 活水 at midnight, removed by #56. Four outcomes now. |
 | `LOSS_HEALTH` | 傷重不治 | — |
 | `LOSS_KING` | 王帶走了你 | — |
 
@@ -164,7 +166,7 @@ better one — see the spec §9.
 |---|---|---|
 | the corpse hostel | 義莊 | the corpse hostel |
 | the village | 村子 | the village |
-| running water | 活水 | running water |
+| running water | 活水 | **RETIRED 2026-08-25 (#56)** — the King crosses; 溪澗 has exits and nothing else |
 | corpse-poison | 屍毒 | corpse-poison |
 | the ghost tree | 鬼樹 | the ghost tree |
 
