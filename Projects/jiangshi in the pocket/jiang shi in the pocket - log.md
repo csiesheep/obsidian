@@ -14,8 +14,8 @@ production.
 
 ## 2026-08-28
 
-**96 commits to `main`. 26 issues closed. 2 open.**
-`origin/main` at `07560da`. Production `CACHE` tracked the repo all day.
+**100 commits to `main`. 27 issues closed. 2 open.**
+`origin/main` at `4a83270`. Production `CACHE` tracked the repo all day.
 
 ### Shipped
 
@@ -181,13 +181,42 @@ own grammar → does the traversal traverse.
   before checking. I hit the same reading from the right element and only found
   the red by looking at `backgroundImage`.
 
+### #115, and the family it turned out to belong to
+
+**Fixed and verified at `4a83270`, PASS (360).** The fixture now imports
+`game.html`'s real `.sidebar` and proves the region before asserting
+containment. Both sabotages were run **in `game.html`, then committed with
+`record_shell.py` re-run**, so the digest was green and could not be what caught
+them — one failure each, each naming the wrapper it actually found.
+
+**The second instance was worth more than the first**, and FE found it by taking
+the "look for others" paragraph seriously. `creaturePanel()`'s
+`closest(".board-pane")` is deliberately `#board`'s **parent**, because
+`renderBoard()` wipes `#board` and a panel mounted inside would be deleted by any
+mid-fight refresh. `render.js` explains it at length; nothing enforced it, and
+every stage fixture hand-wrote the nesting. Losing it means **the creature never
+appears** — silent in the tests, obvious in play. Nine `querySelector` sites go
+quiet with it.
+
+**#116 is the third, and it was inside the second one's demo.**
+`<section class="board-pane" id="board-pane">` carries both names on one line, so
+the rename took the id — and `app.js` writes screen-reader labels by that id
+under `if (el)`, where a missing id is silence rather than an error. In
+繁體中文: `#board` 遊戲圖板, `#actions-pop` 輪到你, `#log` 旁白, and the board pane
+**"Board"**. Three of four localised, one silently English, suite green.
+
+**The shape of all three:** a string in `game.html` that code depends on, with
+the dependency recorded in a comment and restated in a fixture. Not drifted on
+`main` — the third one is a gap, not a defect.
+
 ### Open
 
 - **#109** — the tab icon becomes 僵屍4's head. Ruled: `favicon.svg` only, the
   "neck up, tighter" crop, an icon-weight redraw rather than a scaled painting,
   and the deliberate break of the three-surfaces rule written into
   `tools/make_icons.py`.
-- **#115** — filed today: **the #113 guard cannot see `game.html`.**
+- **#116** — the four aria ids `app.js` localises by are not in the
+  both-directions check. Not drifted; a gap.
 
 ### Waiting on the repo owner
 
