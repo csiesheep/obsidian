@@ -14,8 +14,8 @@ production.
 
 ## 2026-08-28
 
-**121 commits to `main`. 32 issues closed. 1 open.**
-`origin/main` at `ed32411`, and production has it. Production `CACHE` tracked the repo all day.
+**125 commits to `main`. 33 issues closed. ZERO open.**
+`origin/main` at `d40ded6`. Production `CACHE` tracked the repo all day.
 
 ### Shipped
 
@@ -297,13 +297,37 @@ returning eleven identical rows because a `ResizeObserver` was wiping the value
 between measurements, and a corner assertion that passed a single row of ten
 because its threshold was half of a number the test itself had chosen.
 
-### Open
+### #109, and the fix that made it worse
 
-- **#109** — the tab icon becomes 僵屍4's head. No movement today.
-- **`origin/be-70-invariant`** — a dead stump, verified rather than assumed:
-  main holds all four of its tests **plus three more**, and zero of its assertion
-  strings are missing from main. Kept only because deleting it is the owner's
-  call.
+The tab icon is 僵屍4 from the neck up, redrawn rather than cropped. **It existed
+only as 56 unstaged lines in a shared worktree** — one `git add -A` from being
+swept into someone else's commit — so committing it came before anything else.
+`tools/make_icons.py` now states its own exception next to the code that
+generates the house.
+
+**`record_shell.py` silently did nothing on the first run.** It fingerprints
+`git show HEAD:` bytes, not the working tree, so it hashed the *old* committed
+favicon and reported the CACHE unchanged while the new file sat modified beside
+it. Commit first, then record. Caught only by reading its output.
+
+Rasterised at 16px, magnified 11×: it reads — a pale face, a cream strip with
+red marks, a dark ground, unmistakably not a house. But the crown is **twelve
+scattered pixels with no row holding more than two**, so it reads as a pale oval
+rather than a head.
+
+**I tried to fix that, and measured the result: strictly worse.** 32px crown
+pixels 17 → 12, the top eight rows from `0,0,0,0,2,2,0,0` to all zero, and the
+pale face that carries the icon shrinking 59 → 53 px. The reason is contrast,
+not geometry — **hair `#101116` on ground `#0a0b0d` is 1.03:1**, so the crown is
+invisible against the ground by construction and reads only where it borders the
+face. Widening that band eats the face, and the face at 8.4:1 is the whole
+reason the shape separates from a tab strip.
+
+Reverted, and the finding written into the file, because the next person will
+have the same idea. **A plausible fix, measured before it shipped, and the
+measurement said no.**
+
+### Nothing open
 
 ### Waiting on the repo owner
 
