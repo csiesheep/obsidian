@@ -14,8 +14,8 @@ production.
 
 ## 2026-08-28
 
-**94 commits to `main`. 24 issues closed. 3 open, all three assigned.**
-`origin/main` at `bf1cbb0`. Production `CACHE` tracked the repo all day.
+**96 commits to `main`. 26 issues closed. 2 open.**
+`origin/main` at `07560da`. Production `CACHE` tracked the repo all day.
 
 ### Shipped
 
@@ -66,6 +66,28 @@ production.
 - **#102** — `js/robot.js`, an AI driver behind `?robot=1`.
 - **#96 (partial)** — `js/reach.js`, a reachability tool aimed at a named ending.
 - `tools/ends.html` — all five verdict cards side by side with a language toggle.
+
+### The day's second lesson: a guard that cannot see its subject
+
+**#115.** The #113 guard asserts exactly the right thing — containment rather
+than a selector, and it refuses to pass on an empty region — and it is blind to
+the thing it guards. It builds its own DOM with `host.innerHTML`, so the nesting
+it checks is the nesting the **test** wrote. FE demonstrated the failing
+direction by breaking the fixture, which is the guard's own input.
+
+Run it the other way — add `class="panel panel--status"` in `game.html` — and the
+wash lands on the clock block: **84px against the body's 323px**, containing
+neither the hands nor the pack, still red, still toggling, still looking
+deliberate. **The suite reports 359 passed, 0 failed.**
+
+The shell digest *did* catch the raw edit — but it is a tamper detector, not a
+semantic one. Commit and run `tools/record_shell.py`, which is what anyone making
+the change would do, and it goes green with the wash on the wrong box.
+
+**And the instrument lied again, in the same direction as always.** `?robot=1`
+adds a Robot button that wraps the nav 46 → 86 and overflows the page by 31px at
+375×667. I had that on screen as a layout regression before I checked what was
+producing it. The driver changed the layout it was measuring.
 
 ### The day's actual lesson
 
@@ -134,21 +156,44 @@ own grammar → does the traversal traverse.
   and the region empty (the fixture's buttons were dead before any fight, so
   both assertions were trivially true on a pack that could never act).
 
-### Open, all three assigned
+### Landed and verified after that
 
-- **#113** — 中毒 moves beside the clock and the body panel turns red. **This
-  also patches a hole in #111 that nobody had looked for:** `#hud-poison` sits
-  outside the status row and is 39px tall, so the no-scroll fit **breaks the
-  moment the player is poisoned** — 667/overflow 0 becomes 710/overflow 43. I
-  enumerated the other conditional blocks (hands full, buff, pack full) and
-  **poison is the only one** that breaks it.
-- **#114** — the phone drops the hand labels **unconditionally**, trims the hands
-  and pack cells, and moves `--phone-chrome` **once**, together with #113. Tile
-  143 → **169** (+18%). The `sr-only` labels stay, so the channel that cannot see
-  the layout still knows which slot is which.
-- **#109** — the browser icon becomes 僵屍4's head. Measured: a neck-up crop
-  beats a fuller one on all three axes (face 8%→16%, the 符 12→18px at 16px,
-  contrast 36→45), but it still wants an **icon-weight redraw, not a crop**.
+- **#113 + #114 together**, one measurement and one move of the constant, which
+  was the point of pairing them. `--phone-chrome` 424 → **408**, found by sweep
+  rather than by summing my table — 401 fits, 400 overflows by one pixel — and
+  my table had a row that was **wrong in the direction that would have cost tile
+  height**: making the status row a flex row so the mark could sit in it grew it
+  62 → 72 and bought nothing.
+
+      tile     143.1 -> 152.5   (+6.6%)
+      hands    114   ->  95.4
+      sidebar  319.6 -> 301.3
+      focus    243   -> 259.2
+
+  Poisoned now costs **zero height** — panel delta 0.0, status delta 0.0,
+  overflow 0 either way, reversible — which was the 43px hole in #111. The mark
+  sits at left 136 against a clock ending at 126, on the same row. The labels are
+  off the screen and still in the DOM at 1×1 in both languages.
+
+  **The wash is a background-image, not a background-color**, so
+  `backgroundColor` reads unchanged in both states. FE measured it on the wrong
+  element, got `rgba(0,0,0,0)`, and had written "the wash is not rendering"
+  before checking. I hit the same reading from the right element and only found
+  the red by looking at `backgroundImage`.
+
+### Open
+
+- **#109** — the tab icon becomes 僵屍4's head. Ruled: `favicon.svg` only, the
+  "neck up, tighter" crop, an icon-weight redraw rather than a scaled painting,
+  and the deliberate break of the three-surfaces rule written into
+  `tools/make_icons.py`.
+- **#115** — filed today: **the #113 guard cannot see `game.html`.**
+
+### Waiting on the repo owner
+
+- **Trim the backpack cells too?** FE correctly refused to do it:
+  「縮小武器/身上/右手 panel」 names the hands panel, and the pack trim was **my
+  suggestion rather than a ruling**. It is worth about another 17px of tile.
 
 ### Ruled by the repo owner
 
