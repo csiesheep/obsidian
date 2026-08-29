@@ -14,8 +14,8 @@ production.
 
 ## 2026-08-28
 
-**100 commits to `main`. 27 issues closed. 2 open.**
-`origin/main` at `4a83270`. Production `CACHE` tracked the repo all day.
+**110 commits to `main`. 29 issues closed. 3 open.**
+`origin/main` at `bd51fbd`. Production `CACHE` tracked the repo all day.
 
 ### Shipped
 
@@ -67,28 +67,6 @@ production.
 - **#96 (partial)** — `js/reach.js`, a reachability tool aimed at a named ending.
 - `tools/ends.html` — all five verdict cards side by side with a language toggle.
 
-### The day's second lesson: a guard that cannot see its subject
-
-**#115.** The #113 guard asserts exactly the right thing — containment rather
-than a selector, and it refuses to pass on an empty region — and it is blind to
-the thing it guards. It builds its own DOM with `host.innerHTML`, so the nesting
-it checks is the nesting the **test** wrote. FE demonstrated the failing
-direction by breaking the fixture, which is the guard's own input.
-
-Run it the other way — add `class="panel panel--status"` in `game.html` — and the
-wash lands on the clock block: **84px against the body's 323px**, containing
-neither the hands nor the pack, still red, still toggling, still looking
-deliberate. **The suite reports 359 passed, 0 failed.**
-
-The shell digest *did* catch the raw edit — but it is a tamper detector, not a
-semantic one. Commit and run `tools/record_shell.py`, which is what anyone making
-the change would do, and it goes green with the wash on the wrong box.
-
-**And the instrument lied again, in the same direction as always.** `?robot=1`
-adds a Robot button that wraps the nav 46 → 86 and overflows the page by 31px at
-375×667. I had that on screen as a layout regression before I checked what was
-producing it. The driver changed the layout it was measuring.
-
 ### The day's actual lesson
 
 **The instruments were wrong about as often as the code — roughly a dozen each.**
@@ -123,6 +101,28 @@ falsifications from the grammar of the thing, not from the matcher you just
 wrote. Don't parse a language you already have a parser for. And every fix
 relocates the risk rather than deleting it — location → translation → the scan's
 own grammar → does the traversal traverse.
+
+### The day's second lesson: a guard that cannot see its subject
+
+**#115.** The #113 guard asserts exactly the right thing — containment rather
+than a selector, and it refuses to pass on an empty region — and it is blind to
+the thing it guards. It builds its own DOM with `host.innerHTML`, so the nesting
+it checks is the nesting the **test** wrote. FE demonstrated the failing
+direction by breaking the fixture, which is the guard's own input.
+
+Run it the other way — add `class="panel panel--status"` in `game.html` — and the
+wash lands on the clock block: **84px against the body's 323px**, containing
+neither the hands nor the pack, still red, still toggling, still looking
+deliberate. **The suite reports 359 passed, 0 failed.**
+
+The shell digest *did* catch the raw edit — but it is a tamper detector, not a
+semantic one. Commit and run `tools/record_shell.py`, which is what anyone making
+the change would do, and it goes green with the wash on the wrong box.
+
+**And the instrument lied again, in the same direction as always.** `?robot=1`
+adds a Robot button that wraps the nav 46 → 86 and overflows the page by 31px at
+375×667. I had that on screen as a layout regression before I checked what was
+producing it. The driver changed the layout it was measuring.
 
 ### Landed after the first write-up
 
@@ -209,14 +209,63 @@ under `if (el)`, where a missing id is silence rather than an error. In
 the dependency recorded in a comment and restated in a fixture. Not drifted on
 `main` — the third one is a gap, not a defect.
 
+### The evening: the hearts
+
+**#117** moved the whole reading — clock and hearts — off the sidebar and onto
+the tile, made poison green hearts instead of a red panel, and gave six health
+transitions their own sweeps. It **partly reverted #113, four hours old**.
+
+The sidebar gave up its status block, so `--phone-chrome` came down **408 → 346**
+and the tile went **152.5 → 188.9**. FE swept for that number; I had measured a
+baseline before the work and predicted ~346 without handing it over. **Two
+derivations from different data landing on the same number** — the first thing
+all day that was validated rather than restated.
+
+**#118 is the one that matters.** The hearts shipped as **outlines**, and the
+empty ones were **not drawn at all** — at health 4 the row read *four*, not
+*four of ten*. The CSS said `fill: currentColor`. `getComputedStyle` agreed:
+`fill: rgb(239,100,73)`. **The pixels drew a ring.**
+
+`assets/icons.svg` carries its own stylesheet whose first rule is the line-art
+default, `symbol { fill: none; stroke: currentColor }`. `<use>` clones into a
+**shadow tree**, where that is a specified value and the host's `fill` is merely
+inherited. **Every instrument reads the host, and the host is not where the
+paint happens.** 364 tests, four rounds of correct measurement, and the thing
+that caught it was **a screenshot**.
+
+Two more fell out of the fix, both the same shape — something the sprite had
+been silently providing:
+
+- inlining the path removes the **stroke** as well as the fill, and an empty
+  heart with neither is *absent, not faint*;
+- `.hearts--sweeping` made every heart paintable so `fill-opacity` could drive
+  the animation, and that override also removed the `fill: none` that was the
+  only thing telling empty from full. **Every empty heart filled solid grey for
+  the length of any sweep** — correct at rest, wrong for 1350ms at a time.
+
+**And I got a placement finding wrong in exactly the way I had been correcting
+others all day.** I reported the row as centred rather than 右上, from
+`Math.max` over the heart **glyphs'** boxes — 275.4. The container is
+`position:absolute; right:0` inside a `#tilehud` that is exactly `--tile`, and
+its right edge is 282.1, flush to the pixel. **Right object, wrong element**,
+on the one measurement I used to contradict a peer.
+
+What survived was not a defect but a fact: **ten hearts are 180px on a 189px
+tile.** Right-aligning something that already spans the width cannot read as a
+corner.
+
 ### Open
 
-- **#109** — the tab icon becomes 僵屍4's head. Ruled: `favicon.svg` only, the
-  "neck up, tighter" crop, an icon-weight redraw rather than a scaled painting,
-  and the deliberate break of the three-surfaces rule written into
-  `tools/make_icons.py`.
-- **#116** — the four aria ids `app.js` localises by are not in the
-  both-directions check. Not drifted; a gap.
+- **#119** — ruled from that: the hearts become **two rows of five in the
+  top-right**, and the clock takes the top band the hearts stop needing. I ruled
+  the wrap direction rather than leaving it to be guessed — **reading order**,
+  and loss is the exact reverse — and flagged that `TILE_HUD_MIN` was calibrated
+  against a block that was wide and short.
+- **#109** — the tab icon becomes 僵屍4's head. No movement today.
+- **`origin/be-70-invariant`** — a dead stump, verified rather than assumed:
+  main holds all four of its tests **plus three more**, and zero of its assertion
+  strings are missing from main. Kept only because deleting it is the owner's
+  call.
 
 ### Waiting on the repo owner
 
