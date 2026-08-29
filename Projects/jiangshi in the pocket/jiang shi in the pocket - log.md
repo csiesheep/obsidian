@@ -14,7 +14,7 @@ production.
 
 ## 2026-08-28
 
-**94 commits to `main`. 22 issues closed. 3 open.**
+**94 commits to `main`. 24 issues closed. 3 open, all three assigned.**
 `origin/main` at `bf1cbb0`. Production `CACHE` tracked the repo all day.
 
 ### Shipped
@@ -134,7 +134,7 @@ own grammar → does the traversal traverse.
   and the region empty (the fixture's buttons were dead before any fight, so
   both assertions were trivially true on a pack that could never act).
 
-### Open, all three assigned or waiting on a ruling
+### Open, all three assigned
 
 - **#113** — 中毒 moves beside the clock and the body panel turns red. **This
   also patches a hole in #111 that nobody had looked for:** `#hud-poison` sits
@@ -142,34 +142,34 @@ own grammar → does the traversal traverse.
   moment the player is poisoned** — 667/overflow 0 becomes 710/overflow 43. I
   enumerated the other conditional blocks (hands full, buff, pack full) and
   **poison is the only one** that breaks it.
-- **#110** — sound gaps. **Searching a room is completely silent** and it is the
-  most repeated action in the game; `itemPickup` exists but is wired only to a
-  villager's gift and 硃砂. The poison tick takes a health point every turn in
-  silence. The override socket already exists — 16 named cues, file-or-synthesis,
-  multiple takes — so this is not a build.
+- **#114** — the phone drops the hand labels **unconditionally**, trims the hands
+  and pack cells, and moves `--phone-chrome` **once**, together with #113. Tile
+  143 → **169** (+18%). The `sr-only` labels stay, so the channel that cannot see
+  the layout still knows which slot is which.
 - **#109** — the browser icon becomes 僵屍4's head. Measured: a neck-up crop
   beats a fuller one on all three axes (face 8%→16%, the 符 12→18px at 16px,
   contrast 36→45), but it still wants an **icon-weight redraw, not a crop**.
 
-### Waiting on the repo owner
+### Ruled by the repo owner
 
-- **Is sound audible?** Never verified by anyone. The cues are confirmed to
-  *fire*; no automated pane can produce a user gesture, and two panes gave two
-  different answers about the context state while neither could answer whether a
-  sound came out. Concrete test: open the game, tap a door, listen for the
-  creak. **#110 is not worth doing until this is known.**
-- **Hands labels: conditional or unconditional?** The ruling was to hide
-  武器/身上/右手 when the slot has something. Measured: the labels currently show
-  in *both* states and the panel is 114px either way, so a conditional hide gives
-  a variable panel height — and `--phone-chrome` is a single hand-maintained
-  constant. That leaves three outcomes: the tile never grows, the layout
-  overflows when slots empty, or **the board resizes as you pick things up** —
-  which is the worst and sounds the most reasonable. Unconditional takes the tile
-  143 → 154, and with the pack trimmed → **169**.
-- **Favicon: one surface or four?** `make_icons.py` says "three surfaces, one
-  building, and no way for them to drift". The favicon is hand-drawn; the app
-  PNGs are generated from `titlehouse`. Changing only the favicon gives a
-  jiangshi in the tab and a house on the home screen.
+- **Sound is audible.** Confirmed by ear: 有音效. This is the one question of the
+  day that **no pane could answer** — two of them gave two different readings of
+  the audio context's state and *neither* could say whether a sound came out of a
+  speaker. It took a person with ears, and nothing else would have done.
+  **#110 closed on it.** The gaps it names stay true and unfixed: searching a
+  room, the most repeated action in the game, is still silent, and the poison
+  tick still takes a health point without a sound.
+- **Hands labels: unconditional.** 手機上不顯示 — hidden on phones in both states,
+  so the panel height is a constant and `--phone-chrome` stays a single
+  hand-maintained number. This avoids the outcome that sounded most reasonable
+  and was worst: **a board that resizes as you pick things up.**
+- **Favicon: one surface.** 只改分頁 — `favicon.svg` only; the four PNGs keep the
+  house and keep being generated from `titlehouse`. `make_icons.py` claims "three
+  surfaces, one building, and no way for them to drift", so the break is
+  deliberate and must be **written into that file**: a favicon is read at 16px
+  where a face is 16% of the icon, the app icons start at 192px where a
+  silhouette is the whole job, and one drawing across a 12× size range stopped
+  making sense the moment one of the two became a face.
 
 ### Closed since, with what stays true
 
@@ -179,17 +179,12 @@ own grammar → does the traversal traverse.
   targets are wired and honestly marked undriven.
 - **#107** — sound was **muted by default** and a phone could never turn it on
   (the only switch is the `M` key, and the button went with the utility panel in
-  #73). Defaulted to on. **Audibility has never been verified by anyone** — an
-  automated pane cannot produce a user gesture, and two panes gave two different
-  answers about the context state while neither could answer whether a sound came
-  out. **Needs a human with speakers.**
-- **#108** — `中毒` is hardcoded in `render.js`; a stale gloss-stripper truncates
-  "Ritual implement" → "Ritual".
-- **#109** — the browser icon becomes 僵屍4's head. Measured: a neck-up crop
-  beats a fuller one on all three axes (face area 8%→16%, the 符 12→18px at 16px,
-  contrast 36→45). Still wants an **icon-weight redraw, not a crop**. Also forces
-  a decision — the favicon is hand-drawn but the app PNGs are generated from
-  `titlehouse` with an explicit no-drift rule, so changing one splits them.
+  #73). Defaulted to on. Audibility was unverifiable by any pane and was
+  **confirmed by the repo owner by ear**, which is the only instrument that could
+  have done it.
+- **#108** — `中毒` was hardcoded in `render.js`; a stale gloss-stripper truncated
+  "Ritual implement" → "Ritual". Both fixed; the screen-reader line that no
+  language owned was the part nobody would ever have filed.
 - **#110** — sound gaps. **Searching a room is completely silent**, and it is the
   most repeated action in the game; `itemPickup` exists but is wired only to a
   villager's gift and 硃砂. The poison tick takes a health point every turn in
@@ -216,8 +211,11 @@ own grammar → does the traversal traverse.
 - Whether to commit a **Han handwriting font**. The handwritten letter is
   English-only today; Chinese falls to Georgia by design, because the hand is
   scoped to `html[lang^="en"]` so Han never reaches a face that lacks it.
-- **iPhone without scrolling** — measured, not yet designed to a conclusion. At
-  375×667 the page overflows by **141px**: nav 85 (wraps to two rows), board 356,
-  panel 332. Two levers verified — one-row nav −34px, tile 200→160 −68px — which
-  leaves **39px**. Hands-beside-pack was tried and **does not fit at 375 wide**.
-  The remaining 39px has no confirmed source yet.
+
+### Superseded
+
+- **"iPhone overflows by 141px, with 39px unaccounted for"** — written earlier
+  today, closed out by **#111**. The 39px was never a real remainder: I measured
+  the **idle** screen after telling FE to measure with the actions window open,
+  which is the same fault I had flagged in others all day. The true gap was
+  **312px**, and the page now fits at 375×667 with overflow 0.
