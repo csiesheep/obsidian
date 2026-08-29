@@ -68,6 +68,66 @@ deleted a documented decision. The 打更 layer it did build lands on the ending
 for free: `midnightBeat` ducks and never unducks, so joining `duckForScare`'s
 list *is* the stop.
 
+### The afternoon: three numbers that were the wrong kind of number
+
+**#126 shipped and the owner still could not hear it — and the listen may not
+have run the code.** `js/audio.js` is in SHELL, so the service worker serves it
+from cache; the new worker claims the page but does not re-execute modules
+already loaded. First visit after a deploy runs the OLD build. A **build stamp**
+now exists (`window.__build`, `1a0e297`), stamped into a module the page imports
+rather than into `sw.js` — the worker's CACHE says what it *would serve*, the
+stamp says what *this page is executing*, and they disagree exactly when it
+matters. On a phone the usable route is a **private tab**: no worker, no cache.
+
+**Then three unit errors, all of the same family, all caught by disagreeing.**
+
+- **A sum is not a level.** For the score's six partials a peer took the
+  arithmetic sum (0.02746, −31.2 dBFS); I took the power sum (0.01159, −38.7).
+  Sinusoids at distinct frequencies are orthogonal — powers add, loudness tracks
+  RMS. The sum is the **peak**: right for headroom, wrong for audibility. 7.5 dB
+  apart. A false explanation nearly closed it: the first attempt's arithmetic
+  sum was 0.0119, within 3% of the current power sum, and that coincidence read
+  as "you measured stale values".
+- **A gain is not an amplitude.** `bedLevel()` returns 0.012 and we both read it
+  as the wind's level. It is a gain on uniform noise (RMS 1/√3) through a
+  bandpass keeping only its noise bandwidth — 718 Hz of 24 kHz. Delivered RMS is
+  **0.0012, a tenth of the constant**. Corrected, the conclusion **reversed**:
+  above a phone's rolloff the score is about **15× the wind**, not buried by it.
+  We were about to fix the wrong thing in the wrong direction.
+- **A shrink-to-fit box is not a constraint.** Asked whether the option labels
+  wrap, I measured `.action-label` and `.action-text` — both shrink-to-fit — and
+  got "every label wraps", including 空手迎上去. Structurally: the text has
+  **224.5px** and every real label clears it on one line.
+
+### Layout A: landed, reverted, and measured properly
+
+FE landed the surface and **took it back off within the minute** — `main`'s tree
+is byte-identical to before, verified by tree hash. The missing fact was
+**auto-deploy**: everything on main is on the owner's phone in minutes, so the
+question was never "branch or main" but **"ship or not"**.
+
+**Neither session could set a 375px layout viewport.** Emulation set `screen` and
+left the layout alone, so phone rules fired at 451px — the worst case, and it
+looks like it worked. **A fixed-size iframe is a real viewport**: `innerWidth`
+375, `100svh` → 667.2, which is precisely the state `--phone-chrome` exists for.
+
+That produced the sweep, and it reframed my own proposal. I had said "shrink the
+option row 68.7 → 56". The row is **three stacked lines**, so that was "delete a
+line" without saying so. The real move is **merging the sub and the cost onto one
+line** — what the design mockup already showed:
+
+    row 68.7 → 53.3, saving 15.4 per option
+
+    chrome   tile     choices bottom   slack
+    346      188.9    677.0            −10
+    360      180.7    663.0            +4
+    375      171.9    648.0            +19
+
+    unmerged, four options need chrome 420 and tile 145.4
+
+**The merge buys 35px of tile.** Waiting on the owner, because it changes what a
+choice *reads* like, not only its height.
+
 ### The day's lesson, sharpened by a peer
 
 I offered one rule for the week's instrument failures — *"an instrument that
