@@ -12,6 +12,83 @@ production.
 
 ---
 
+## 2026-08-29
+
+**The screen was redesigned, and three things turned out to be shipping into
+nothing.** `origin/main` at `824fa3e`, PASS (367).
+
+### Layout A — 攤開的桌面
+
+Settled with the repo owner over three rounds, against the shipped screen as a
+control. One continuous surface, **no cards and no panels**; objects lie on the
+table and an empty place is a ring pressed into it. Both sizes; the 手記 goes
+under the items, newest first. Written up in `jiangshi in the pocket plan.md`.
+
+**Three of the rulings came from measurements the design would not have
+produced on its own:** health two-across-five because ten in a line collides
+with a centred hour by 156 against 227; **seven** item places because
+`hands {weapon, charm}` plus the slotless tablet is 3 and `RULES.MAX_ITEMS` is
+4; and the phone banner dropping the title because 390px holds the four
+controls or the title, not both.
+
+**Ruled: the item row may scroll.** That unblocked the narration, which FE had
+measured as unbuildable — at 375×667 a **zero-height** 手記 still overflowed by
+43px.
+
+### Three things that were shipping into nothing
+
+**#123 — the peek label.** The stylesheet justified the neighbour-room floor
+with *"at brightness k the best contrast any text can reach is (k+.05)/.05"*.
+That treats `k` as relative luminance; `filter: brightness()` scales **sRGB
+channels**. Optimistic by ~3×, and in the direction that says the floor is safe
+when it is not. **It became an impossibility proof rather than a choice:** the
+pair needs k = .545 and the peek's *maximum* is .46, so no floor exists. The
+label was not dark because the floor was low — it was dark because the filter
+was over it at all. Fixed: 1.79:1 → **13.38:1**. Verified in both failing
+directions.
+
+**#126 — the score has never been heard.** Asked directly: 完全沒聽到過. The
+file predicted the failure and **missed by an octave** — *"55Hz and 82Hz
+neither exists on a phone speaker, so each note also sounds a quiet partial an
+octave up, which does survive"*. 55→110 and 82→165. Every voice and every
+partial sits between 55 and 165 Hz; a phone gives nothing usable below ~700.
+The comment marking 110Hz "already above the rolloff" was measuring a desktop
+speaker. **Three hours of a score, with a deliberate silence in the last hour,
+delivered to nobody.**
+
+**#127 — 三更 names two hours.** The drum counts eleven (`hour − START_HOUR + 1`
+makes eleven the third watch); the theme labels midnight 三更. Ruled: **eleven**.
+
+### The design that stopped itself
+
+`/design` produced a synthesised watch-drum bed — and the session building it
+**stopped before writing the drone** because it found the score already running
+and empty by design in the last hour. Built literally, the request would have
+deleted a documented decision. The 打更 layer it did build lands on the ending
+for free: `midnightBeat` ducks and never unducks, so joining `duckForScare`'s
+list *is* the stop.
+
+### The day's lesson, sharpened by a peer
+
+I offered one rule for the week's instrument failures — *"an instrument that
+shared a vantage point with the thing it was measuring"* — and a peer ran it
+against the cases and got **three of five**. Two are different modes: an API
+that **cannot observe the layer that paints** (`getComputedStyle` over a `<use>`
+shadow tree), and a probe that **perturbs what it reads** (a `ResizeObserver`
+wiping each value between measurements).
+
+**Three questions, not one:** where does my expected value come from; can this
+API observe the layer that actually paints; does my probe change what it reads.
+**A taxonomy that fits every case in hindsight, while its diagnostic fires on
+only some, retires the vigilance without doing the work.**
+
+Two new instances today, both from guards that passed clean: `tests/index.html`
+links no CSS, so *"no ancestor carries a filter"* was true of **everything** and
+passed for two runs; and a threshold guard would have watched a knob that
+provably could not reach the answer.
+
+---
+
 ## 2026-08-28
 
 **125 commits to `main`. 33 issues closed. ZERO open.**
