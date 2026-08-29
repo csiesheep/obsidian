@@ -14,8 +14,8 @@ production.
 
 ## 2026-08-28
 
-**110 commits to `main`. 29 issues closed. 3 open.**
-`origin/main` at `bd51fbd`. Production `CACHE` tracked the repo all day.
+**121 commits to `main`. 32 issues closed. 1 open.**
+`origin/main` at `ed32411`, and production has it. Production `CACHE` tracked the repo all day.
 
 ### Shipped
 
@@ -254,13 +254,51 @@ What survived was not a defect but a fact: **ten hearts are 180px on a 189px
 tile.** Right-aligning something that already spans the width cannot read as a
 corner.
 
+### The frame was wrong, and that was mine
+
+「Tile panel 我是指這個」「或者叫 map panel」「不是 tile 本身」. Both FE and I had
+anchored the reading to `#tilehud`, which is **exactly `--tile`** — the room
+picture. The owner meant `#board-pane`, the whole dark panel around it.
+
+**And "the pane is much bigger" is not what the measurements say.** Its slack is
+almost entirely horizontal:
+
+    1280x800   pane 60-904 x 74-784   focus 138-826 x 85-773   free  L78 R78 T11 B11
+    375x667    pane 12-363 x 58-395   focus  27-348 x 66-387   free  L15 R15 T 8 B 8
+
+So "the top of the map panel" is within 8–11px of the top of the focus, which is
+where the **north doorway** sits.
+
+**I then handed FE a constraint derived from the wrong element — again.** I
+measured the focus grid's corner **cell** (66×66) and reported it as the free
+region, with three suggested compromises. The north doorway is only 46px wide
+and centred, so the real ground is **152×145** and the block fits at full size
+with 67px to spare. **The obstacle is not the cell that contains it.** None of
+the three were needed, and FE was right to re-measure rather than take my table.
+
+That is twice in one evening: the heart row's alignment (I measured the glyphs'
+boxes, not the positioned container) and this. **Both times I was the one
+insisting others measure the right object.**
+
+### Where it ended up
+
+Clock centred at the top of the map panel; hearts two rows of five in its
+top-right corner, solid when held and outlined when spent; poison turns them
+green **with a dark rim**, so the state is not in hue alone; six transitions
+sweep one heart at a time in reading order at ~135ms, and the sweeps **queue**
+so 糯米's cure-and-heal cannot race itself. The sidebar gave up its status block,
+so the phone tile went **152.5 → 188.9**.
+
+**Four clean results turned out to be false today, and all four were found by
+someone refusing to believe them** — the vacuous `.panel--status` fixture
+(#115), the aria map with no guard (#116), the ring that every computed style
+called solid (#118), and — FE's own, on the last one — eleven tile sizes
+returning eleven identical rows because a `ResizeObserver` was wiping the value
+between measurements, and a corner assertion that passed a single row of ten
+because its threshold was half of a number the test itself had chosen.
+
 ### Open
 
-- **#119** — ruled from that: the hearts become **two rows of five in the
-  top-right**, and the clock takes the top band the hearts stop needing. I ruled
-  the wrap direction rather than leaving it to be guessed — **reading order**,
-  and loss is the exact reverse — and flagged that `TILE_HUD_MIN` was calibrated
-  against a block that was wide and short.
 - **#109** — the tab icon becomes 僵屍4's head. No movement today.
 - **`origin/be-70-invariant`** — a dead stump, verified rather than assumed:
   main holds all four of its tests **plus three more**, and zero of its assertion
