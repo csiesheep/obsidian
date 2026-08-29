@@ -323,6 +323,85 @@ Re-theming is explicitly encouraged by the designer's own license note.
 - [ ] Phase 3: jiangshi skeleton behind the switch
 - [ ] Name decision before the landing page ships
 
+## Layout A — the game screen, settled 2026-08-29
+
+The direction is **攤開的桌面**: one continuous surface, no cards and no panels.
+Separation is a hairline and space. Objects lie on the table with shadows; an
+empty place is a ring pressed into it, never a dashed cell. Chosen over two
+alternatives (**一室之內**, map-fills-the-screen; **手記**, narration-first) with
+the shipped screen drawn beside them as the control.
+
+Reference: the four directions, then Layout A at both sizes, then Layout A lit.
+
+### The stack, both sizes
+
+Same order in both — **房間 → 選擇 → 身上 → 手記**. First what you are holding,
+then how you got here.
+
+- **Phone 390×844** — a vertical stack.
+- **Desktop 1280×800** — board field on the left; a right column carrying 身上
+  and then 手記 beneath it.
+
+### The decisions that are load-bearing
+
+- **Health is top-right, in TWO ROWS OF FIVE**, level with a centred hour. This
+  matches what #119 shipped. Ten in a line is 156px and a centred hour ends at
+  227 of 390 — a single row collides. Five is 76px and clears by **70.6px**.
+  Moving health out from under the hour also takes **34px** off the column.
+- **Seven item places, and they are two kinds.** `hands {weapon, charm}` plus
+  the tablet (slotless, but it gets a display slot) = 3, and
+  `RULES.MAX_ITEMS = 4` = 4. The hairline between them is the whole
+  distinction; **no labels on the objects**, per #114.
+- **手記 is on screen, under the items, newest first.** The narration exists and
+  today is read only to screen readers. Newest at the top, older receding
+  through four greys, bad news in `--danger`, fading out at the bottom. Newest
+  last opened a void under the label whenever the night was young.
+- **Phone top banner**: quiet text plus one hairline, no buttons. The title is
+  dropped at 390 — there is room for the four controls or the title, not both.
+
+### The measured budget (phone)
+
+    每個選項 64.6px — the only block that grows
+
+                          667 viewport      ~740 viewport
+    物品以上 · 2 選項       ✓ 剩 124          ✓ 剩 197
+    物品以上 · 4 選項       ✗ 超出 5          ✓ 剩 68
+    物品含在內 · 2 選項     ✓ 剩 26           ✓ 剩 99
+    物品含在內 · 4 選項     ✗ 超出 104        ✗ 超出 31
+
+**Unresolved:** whether the item row must sit above the fold at four options. If
+it must, ~100px is available from the room (212→176), the hour band (82→60), the
+option rows (64.6→56) and the banner (44→36), without touching the narration.
+
+## Atmosphere — light, not effects
+
+**The game already has 74 keyframes and a three-dial light model.** `--dusk`
+(the clock, one direction only), `--dread` (written by `renderHour` from engine
+`dread()`), and `--gutter` (the candle failing). `--gutter` sags the vignette,
+the glow and the neighbour rooms **together**, and the stylesheet states why:
+*light that sags everywhere at once reads as the flame failing; light that sags
+in one element reads as a CSS effect.*
+
+So the work is **not new effects**. It is connecting Layout A to the light that
+exists — which Layout A is unusually good for, because with no panels the
+vignette is one layer over the whole surface: the candle sags and the narration,
+the object shadows and the banner go with it.
+
+### What that means concretely
+
+- Object shadows read `--gutter`: weak flame, short scattered shadows.
+- The hour's colour interpolates toward `--flame` as `--dusk` rises.
+- 中毒 tints the whole surface, because there is no panel left to tint.
+- Reduced motion is inherited as-is: one slow dim and return, no second dip.
+
+### The one problem Layout A creates
+
+`css/style.css` records that **a gutter is 800ms during which room names sit
+below the contrast floor**, which is why `candleGutter()` skips outright while a
+decision is pending. That trade was made for **a few room names**. Layout A puts
+**a whole column of prose** on screen under the same light. Whether the 手記
+needs the same protection is a live question, not a settled one.
+
 ## Log
 - 2026-08-20 — project created; plan written against the shipped Grave
   Errand codebase. Key calls: fork with shared history (not a theme
