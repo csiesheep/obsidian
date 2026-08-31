@@ -477,6 +477,28 @@ stale. Critically, **Technicians must be individually certified on each type**
 Defect types are distinguished by **shape and icon, not colour alone**
 (colourblind-safe).
 
+**A defect lives 12 seconds on the belt.** `BELT_SECONDS = 12`.
+
+> Added 2026-08-31, because the omission cost real work. v2, v3 and v4 all
+> described a defect timing out without ever saying after how long — v3 only
+> mentioned "+3s defect timeout per rank", an increment with no base. An
+> undefined constant does not stay undefined; someone picks one, and here it
+> was picked at 60 to satisfy an arithmetic artefact in an acceptance test.
+> Measured on the phase-2 build, the two values are different games:
+>
+> | | 12s | 60s |
+> |---|---|---|
+> | tile travel | 60.5 px/s | 12.1 px/s |
+> | reaction window | 12s | 60s |
+>
+> At 60 a tile moves its own width every 3.3 seconds — a slowly drifting
+> to-do list, not something you catch. At 12, with five robots running, the
+> belt holds ~5.7 on average and 115 of 532 units were scrapped over four
+> minutes: defects genuinely get away from you, which is the pressure §3's
+> Quality Score exists to create. **This is the number §18's phase-2
+> checkpoint must be run at**, or the checkpoint answers a question about a
+> constant instead of about the verb.
+
 ### 8.2 Robot failure states (things on the floor)
 
 | # | State | Act | Interaction | Effect while active |
