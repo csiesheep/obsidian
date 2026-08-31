@@ -167,13 +167,20 @@ Four verbs, four rhythms: fast and dense, interrupting, spatial, deliberate.
 `Quality Score (QS)` = rolling percentage of the last **200** produced units that
 shipped in good condition.
 
-**Sale price multiplier = 0.5 + QS**
+**Sale price multiplier = 0.5 × 4^QS**
 
 | QS | Multiplier |
 |---|---|
 | 100% | **2.0×** |
 | 50% | 1.0× |
 | 0% | **0.5×** |
+
+> **Corrected 2026-08-31.** v2 and v3 both stated this as `0.5 + QS`, which
+> yields 1.5× at QS 100% — contradicting the table above, the 4× claim below, and
+> §13.2's ceiling calculation, all three of which assume 2.0×. `0.5 × 4^QS` fits
+> every row of the table exactly and is what the rest of the document already
+> depends on. Do not "simplify" it back to a sum: the three rows are a doubling,
+> not a line.
 
 This is the spine of the design. Letting defects slip past is not a small missed
 bonus — it's a **4× income swing** between sloppy and perfect play. It's why
@@ -740,7 +747,7 @@ throughput       = min(assemblyRate, packRate)        ← NOT a sum
 pileDelta        = assemblyRate − packRate            ← overflow is destroyed
 defectsPerSec    = Σ(assemblers[L] × workRate[L] × defectRate[L])
 
-unitValue        = baseValue × (0.5 + QS)
+unitValue        = baseValue × 0.5 × 4^QS       ← not (0.5 + QS); see §3
 packagedValue    = unitValue × packSize × bundleBonus
 income/sec       = throughput × packagedValue / packSize
                  + (defectsFixed/sec × unitValue × salvageBonus)
