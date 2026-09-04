@@ -18,7 +18,7 @@ first site monetized this way. Live at
 ## Context
 `csiesheep.com` apex = WordPress.com (fronted by Cloudflare). Static
 tools/games live at `<category>.csiesheep.com/<name>/` on a Cloudflare
-Worker (see [[Deploy a repo under a csiesheep.com subdomain]]). AdSense
+Worker (see [[cloudfare csiesheep.com subdomain setup runbook]]). AdSense
 sits on top of whichever page serves the loader snippet.
 
 ## The full pipeline (in order)
@@ -144,6 +144,6 @@ Surfaces that had to change (all now on `…240290`):
 > `…240290`; don't leave both accounts monetizing the domain.
 
 ## Related
-- [[Deploy a repo under a csiesheep.com subdomain]]
+- [[cloudfare csiesheep.com subdomain setup runbook]]
 - [[betrayal sound board#SEO Plan|Betrayal Sound Board — SEO plan]]
 - [[betrayal sound board|Betrayal Sound Board — design]]

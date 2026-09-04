@@ -76,7 +76,7 @@ attorney.*
 Added 2026-08-14. Target: a static web game live at
 `games.csiesheep.com/zombie_in_the_pocket/`, same stack and deploy path as
 [[betrayal sound board]] (static HTML/CSS/vanilla JS + Cloudflare Worker,
-follow [[Deploy a repo under a csiesheep.com subdomain]]). Repo already
+follow [[cloudfare csiesheep.com subdomain setup runbook]]). Repo already
 created and cloned to `C:\Users\sheep\code\zombie_in_the_pocket`.
 
 The spec ([[zombie in the pocket - ruleset spec]]) is code-ready and

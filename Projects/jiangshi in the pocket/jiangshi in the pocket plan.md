@@ -421,6 +421,6 @@ needs the same protection is a live question, not a settled one.
 - [[zombie in the pocket plan]] — the parent project, incl. licensing research
 - [[zombie in the pocket - ruleset spec]] — the mechanics this inherits
 - [[zombie in the pocket - rulebook]] — prose rules, to be re-skinned
-- [[Deploy a repo under a csiesheep.com subdomain]] — the existing deploy, unchanged
+- [[cloudfare csiesheep.com subdomain setup runbook]] — the existing deploy, unchanged
 - [[betrayal sound board]] — the hub sibling
 - [csiesheep/zombie_in_the_pocket](https://github.com/csiesheep/zombie_in_the_pocket) — the repo both modes ship from
