@@ -969,6 +969,56 @@ class，同樣的 3px 邊框、4px 硬陰影、hover 變色、`cursor:pointer`�
 
 ---
 
+### 5.15 評價的懲罰：沒有懲罰（2026-09-05 裁決）
+
+問題來自 5.14——招商拿掉之後，`CHURN_RATING` 那條「低於 1.0 星租戶開始搬走」
+沒有東西可以搬走了，所以低評價的後果空了一塊。我把這題原封不動交給 owner，
+沒有自己填。
+
+**owner 逐字：**
+
+> 「沒有懲罰」
+
+**這條只回答「離散的懲罰事件」。** 評價仍然是乘數：票價 `1 + 0.25×rating`
+（0.8 星 ×1.2、5.0 星 ×2.25）、人流 `womMult`。低評價的後果是**賺比較少**，
+那是獎勵的梯度，不是懲罰。以下是**我的解讀，不是 owner 的話**，可以推翻：
+`RATING_MIN` 0.8、`RATING_DRIFT_TO` 2.0、`RATING_DRIFT` 0.010 全部留著。
+
+副作用：5.7 那個死亡螺旋的風險整個消失。原本 `CHURN_RATING` 1.0 和
+`LEASE_BLOCK` 1.6 之間是死區（招不到人、也還沒差到會退租），三次機器人跑分
+有一次卡在 15 層 90 分鐘。兩條線都不存在之後，那個形狀不可能再出現。
+
+**連帶要拿掉的常數**：`LEASE_BASE` `LEASE_GROWTH` `LEASE_BLOCK` `ANCHOR_LEASE`
+`CHURN_RATING` `CHURN_EVERY` `WOM_RATING` `WOM_CHANCE`。
+
+### 5.16 招商移除的 FE/BE 接縫
+
+拿掉招商不只是拿掉一道閘門。`st.leased` 同時是**租戶的指派**，而
+`tenantMix(st, b)` 讀它算出票價與人流倍率。所以 `isLeased` 一拿掉，租戶層
+會跟著整個消失，連 `ui.js` 裡玩家挑租戶的那組卡片（`data-tenant`）一起。
+
+這是兩個 peer 之間的接縫，由 orchestrator 定死之後兩邊才能平行做：
+
+```
+state.js 不再 export：buyLease leaseCost canLease leaseBlocked fillLease
+                      bandLeases leasedInBand leasedTotal tenantCount occOf isLeased
+簽章與回傳形狀不變：  tenantMix(st,b) -> {fare,pop,n}   builtInBand(st,b) -> number
+st.leased 從存檔消失，舊存檔載入時直接丟掉這個欄位
+```
+
+`tenantMix` 改由該帶的 `defaultTenant` 決定——**這是我的推論，不是裁決**。
+它保住現有數值，並留一個「換資料就能接 5.14 事件」的接縫。
+
+**`tenantEvents` 不刪，只換接線**（從 `bandLeases` 改成走訪每帶的 defaultTenant，
+count 用 `builtInBand`）。理由是排序：#1–#7 的勾選還沒回來，現在刪掉租戶事件，
+遊戲會有一段完全沒有樓層風味事件的空窗，而那正好是階段 2 要拿來調參的東西。
+
+派工：[#10](https://github.com/csiesheep/elevator_inc/issues/10) BE 引擎層、
+[#11](https://github.com/csiesheep/elevator_inc/issues/11) FE 介面與規則書。
+驗收第 7 組（4 條 guard）在實作**之前**就 commit 了（`8eba5b3`），功能不存在
+時回報 TODO 而不是紅。
+
+
 ## 待辦
 
 - [x] 決定要做哪一個 —— 電梯公司
@@ -985,7 +1035,9 @@ class，同樣的 3px 邊框、4px 硬陰影、hover 變色、`cursor:pointer`�
 - [x] 拆樓頁拿掉門檻、保留／歸零改成清單 —— 見 5.11
 - [x] 樓層號／目的地改點陣字；轎廂顯示隨手動/自動切換 —— 見 5.12
 - [x] 室內配色：背景退後、乘客與數字不再隨日夜翻面 —— 見 5.13
-- [ ] 取消招商改成事件／人物（5.14）：步驟 1 菜單已出，等挑選
+- [ ] 取消招商改成事件／人物（5.14）：步驟 1 菜單已出，等挑選（#1–#7）
+- [ ] 招商移除本身已派工：#10 BE 引擎、#11 FE 介面與規則書（5.15/5.16）
+- [ ] 拿掉 $1.2M 錢坑之後的重新配平：加蓋成本曲線要陡多少（階段 2，要模擬數字）
 - [ ] 後期的無上限 sink（5.3，還沒選；建議 A1 無限升級 + B6 可調調度器 + C8 電力）
 - [x] 把 elevator_inc 加進 `csiesheep/games` 首頁的卡片 —— 已上線，hub 連得到
 - [x] 真人試玩一次（2026-09-04）
