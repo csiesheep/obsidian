@@ -158,6 +158,64 @@ say **what they are guarding against**, not just forbid:
 **A prohibition with no stated reason gets obeyed in a direction you did not
 expect.**
 
+### Two peers, one id, both green (2026-09-06)
+
+Two branches worked the same data file in parallel. I had assigned file
+ownership, which I thought was the whole problem. It was not: **what actually
+collides in a data file is not lines, it is ids.**
+
+Both branches appended a passenger type called `bellhop` — one
+`patience:56 size:3` that jams the doors, one `patience:999 size:2` that pays
+nothing. Both branches also added an achievement called `trolley`. Git saw two
+appends to the end of the same list; deleting the conflict markers "resolved"
+it. **Both branches' test suites were green, because the collision only exists
+when both are present.** I found it by scanning for duplicate ids after the
+merge, not before.
+
+The product made it worse: the counter key is `st.codex[p.type]`, so a
+duplicated type id means **two achievements reading the same counter**.
+
+The fix is upstream of merging: **ownership has to extend to the namespace.**
+Ask every peer to list the new ids it intends to use in its first comment, and
+reject the collisions there. Resolving it afterwards needs a *design ruling*
+(which one renames, and why) — which was always the orchestrator's job, not
+the merge's.
+
+### The count of reds was right; one of the reasons was not (2026-09-06)
+
+I injected three defects at once to falsify three new guards. Three went red.
+It looked like three falsifications.
+
+The second one went red saying **"the population is empty — this guard has
+never tried anything."** The first defect (a mistyped type id) made the second
+guard's lookup return undefined, so it skipped every row. That guard checked
+nothing on that run, and I came close to recording the red as proof it worked.
+
+What caught it was the non-empty assertion I had put inside the guard itself.
+Injected alone, the defect made it go red where it should: `celeb summons 9
+reporters (20 → 34s on stage)`.
+
+**One defect at a time, and read the reason for the red, not the count.**
+
+### A criterion that did not say what it covered (2026-09-06)
+
+An artist added a colour-distance criterion nobody had written before —
+accessory colour against the 28 floor background colours. It immediately caught
+a sprite **I had personally fixed** eight issues earlier: back then the camera
+collided with the urgent-state body colour, I moved it, and it landed on the
+floor background instead.
+
+Nothing went red at the time, because the criterion in force only covered the
+three body colours. **"This colour is far enough now" was true; the reader —
+me — supplied a scope much larger than the criterion actually had.** That is
+the §5.4 failure applied to acceptance criteria rather than to prose.
+
+The same artist also falsified its own measurement page: it injected a bad
+colour and a duplicated shape, and found its conclusion sentence was
+hardcoded — it still said "fine" with the error present. **That step was worth
+more than any of the twelve sprites it drew.**
+
+
 ## Still-open additions (not yet in the skill)
 
 > [!note] Two lessons from 2026-09-04 that the skill does not yet carry
