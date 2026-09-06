@@ -39,6 +39,15 @@ declared in the handover so the orchestrator can route the ruling to the
 file's owner. The worst case is not a merge conflict — it is two peers
 quietly holding different versions of the same truth.
 
+**The loop has exactly one shape** (owner's correction, 2026-09-05):
+
+> peer implements → orchestrator verifies → **fails, it goes back to the peer**
+> → passes, the issue closes.
+
+There is no third exit. In particular there is no "close it and file the
+remainder as a new issue for the owner" — see below, that is how it actually
+broke.
+
 ## The four things that actually made it work
 
 **A dispatch carries the ruling *and its reasoning*.** A peer will hit
@@ -96,6 +105,58 @@ stories.
   bot farm shipped three false sentences on the verdict card; 399 tests
   shipped a stats strip with no separators. **Open the page before running
   the suite** for anything whose job is to be looked at.
+
+### Closing an issue that was not finished (2026-09-05)
+
+A ruling said "make this event **hurt**". The peer delivered: mechanism
+correct, falsification thorough, and it **honestly reported that the worst
+case still only cost the player 1–2 passengers**. I then
+
+1. praised it for reporting honestly — correct,
+2. filed the shortfall as a **new issue marked "needs an owner ruling"** — wrong,
+3. **closed the original as completed** — wrong.
+
+Each step looks conscientious on its own: nothing hidden, a trace left, the
+decision routed to whoever has the authority. Together they record an
+unfinished thing as finished and grow the owner's queue by one.
+
+**Why this one is easy to miss:** a gap the peer honestly reported and a
+trade-off that genuinely needs the owner *look identical in a handover* —
+both read as "there is still a problem here, take a look."
+
+The question that separates them:
+
+> Is this unmet because it is **not finished**, or because **finishing it
+> revealed the direction was wrong**?
+> The first goes back to the peer. Only the second is the owner's.
+
+- "the event is not painful enough" → the acceptance criterion *was* "make it
+  hurt" — **not finished** — back to the peer.
+- "all three candidates are worth less than their price, because this economy
+  has nowhere for the improvement to cash out" → the **premise** of the ruling
+  is refuted; more peer work will not change it — **that one is the owner's**.
+
+Two tells:
+
+- You are writing a new issue whose body is "the part of the old one that was
+  not met." That is not a new issue, it is the old one's current state.
+- You are closing an issue while thinking "the rest gets handled separately."
+  That thought *is* the unfinished part.
+
+**And a brief-writing lesson underneath it.** The peer had not touched the
+tuning parameters because my dispatch said "**do not tune these yourself**".
+I meant *don't tune them to make your numbers look good*; it read *don't tune
+them*. Both readings are reasonable — my sentence was imprecise, and it
+followed the conservative one, which was not a mistake. Constraints have to
+say **what they are guarding against**, not just forbid:
+
+> ❌ don't tune the parameters
+> ✅ don't tune them to flatter your numbers. Tuning them to *meet the ruling*
+>    is your job — stop and report when you think it has gone too far, rather
+>    than quietly pulling it back.
+
+**A prohibition with no stated reason gets obeyed in a direction you did not
+expect.**
 
 ## Still-open additions (not yet in the skill)
 
