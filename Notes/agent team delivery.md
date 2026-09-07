@@ -19,6 +19,9 @@ languages) was built this way end to end, across ~40 dispatches.
 > keep looking authoritative. If something below contradicts the skill,
 > the skill wins.
 
+> [!tip] Starting a brand-new project with this process
+> Step-by-step owner's checklist (numbers → contract → mechanics → one red guard → orchestrator → one peer → parallel): [[agent team delivery runbook]].
+
 ## When to use
 
 When one session cannot hold the work, or when several dependent threads
