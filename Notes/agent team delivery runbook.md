@@ -15,6 +15,9 @@ which is where the order of these steps was paid for.
 > the step is done. If it contradicts the skill, the skill wins. Context and index
 > for the whole approach: [[agent team delivery]].
 
+> [!tip] Existing project instead of a new one?
+> The order changes: settle the site → fill Phase 0 gaps → triage issues → retire persistent sessions → one issue through a full loop → parallel. Orchestrator-facing brief for elevator inc: [[elevator inc alignment runbook]].
+
 ## The one-line version
 
 **numbers → contract → mechanics → one guard you have seen go red → only then an
