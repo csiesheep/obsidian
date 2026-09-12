@@ -99,7 +99,7 @@ game shows five of the eight and the table can count what is left.
 | silence | 封口 | Hold Your Tongue | no chat, no bot talk, for the round and its reveal | any |
 | quiet | 無事 | Quiet Night | nothing | any |
 | dark | 熄燈 | Lights Out | only each vote's tally is public until the game ends | any |
-| recused | 避嫌 | Recused | the leader may not go on their own team | only if a brother leader could still send a team of brothers |
+| recused | 避嫌 | Recused | the leader may not go on their own team | missions 1–3 only, and only if a brother leader could still send a team of brothers |
 
 Renamed from the owner's first list (精兵 / 記名 / 清廷密令 / 傷員 / 噤聲 /
 平常日). The deck name 天時 pairs with 天地會 and means "what heaven deals".
@@ -112,6 +112,7 @@ Renamed from the owner's first list (精兵 / 記名 / 清廷密令 / 傷員 / �
 | deck off | 56 | 67 | 49 | 36 | 34 | 42 |
 | six cards | 67 | 71 | 54 | 45 | 47 | 50 |
 | eight cards | 52 | 56 | 42 | 33 | 29 | 34 |
+| eight cards, 避嫌 off missions 4–5 | 52 | 56 | 42 | 33 | 31 | 36 |
 
 The deck favours the brotherhood by 4–13 points at every count. Likely
 drivers: 畫押 (spies will not fail a signed round unless it wins, so it is
@@ -124,6 +125,11 @@ With 熄燈 and 避嫌 in, the eight-card deck leans slightly toward the Qing,
 3–11 points below deck-off. Any single cell is within noise at 200 games
 (two estimates differ by about ±10 at 95%), but the direction is the same
 at all six counts, as it was for the six-card deck the other way.
+
+Keeping 避嫌 out of missions 4 and 5 barely moves it: five, seven and eight
+play out identically (the rule does not change where the card can appear
+there), six lands on the same rate, nine and ten gain two points each for
+the brotherhood, within noise. It is a feel rule more than a balance rule.
 
 ## Rules in scope (v1 = base game, exactly)
 
@@ -327,6 +333,8 @@ the realistic online use is everyone at a table with their phone.
       short for a real argument.
 
 ## Decisions
+- **2026-09-12** — 避嫌 never on the last two missions (owner's rule), the
+  same reading as 掛彩 and mission 5: the last rounds are missions 4 and 5.
 - **2026-09-12** — Added 熄燈 (Lights Out) and 避嫌 (Recused) to the 天時
   deck, the owner's pick of three proposed pro-Qing cards (風緊, doubling
   the cost of a rejection, was not taken).
