@@ -1,6 +1,6 @@
 ---
 tags: [project]
-status: planning
+status: building
 started: 2026-09-11
 ---
 # the resistance
@@ -22,7 +22,7 @@ started: 2026-09-11
   timers, reconnection tokens. This project copies that skeleton and
   replaces the game.
 - Rules digest with sources: [[the resistance - rulebook]].
-- **Status: planning. Nothing built yet.**
+- **Status: M0 in progress (2026-09-11) — repo scaffolded, placeholder deploy pending.**
 
 ## Why this shape
 The Resistance is 90% conversation and 10% mechanics. The mechanics are
@@ -124,7 +124,7 @@ the_resistance/
     shared/
       engine.js         rules: tables, phase machine, reducer, view projection
       bots.js           suspicion model + policies (resistance / spy), 3 levels
-      talk.js           templated table-talk lines from the bots (v1.5)
+      talk.js           templated table-talk lines from the bots, per language
     rules.html          the rulebook page (own prose), SEO target
     og-image.png, favicon.svg, manifest
   src/
@@ -254,20 +254,29 @@ the realistic online use is everyone at a table with their phone.
    cards; Targeting; Avalon roles; zh-Hant strings.
 
 ## Open questions (decide before M0)
-- [ ] **Title and credit line** — see Licensing. Fan-made "The Resistance"
-      with credit, or a distinct name?
-- [ ] **Language** — English first, zh-Hant later (like Dice Wars), or
-      both from the start (like 三更：殭屍)?
-- [ ] **Default player count for solo** — 5 (fastest, 2 spies) or 7
-      (the classic table, 3 spies, the two-fail rule shows up)?
-- [ ] **Bot talk in v1 or v1.5?** It is flavour, but solo mode is quiet
-      without it.
+- [x] **Title and credit line** — ship as "The Resistance — fan-made,
+      unofficial" with a designer/publisher credit line. (2026-09-11)
+- [x] **Language** — English and traditional Chinese from the start; all
+      player-visible strings in one strings file per language. (2026-09-11)
+- [x] **Default player count for solo** — 7. (2026-09-11)
+- [x] **Bot talk in v1.** Thin version: ~20–30 templates per language,
+      picked from what the bot actually concluded. (2026-09-11)
 - [ ] **Blind Spies toggle in v1?** Trivial to add; changes the bot model
       (spy bots no longer know each other).
 - [ ] **Timers** — the numbers above are guesses; 90 s to propose may be
       short for a real argument.
 
 ## Decisions
+- **2026-09-11** — Ship as "fan-made, unofficial" under the name The
+  Resistance, with a credit line. Own art and prose regardless.
+- **2026-09-11** — English + zh-Hant from v1 (`?lang=` / toggle, strings
+  in `public/i18n/{en,zh-Hant}.json`). Bot talk templates are per language
+  too.
+- **2026-09-11** — Solo default: 7 players (3 spies, two-fail rule on
+  mission 4).
+- **2026-09-11** — Bot table talk ships in v1 (M3), thin.
+- **2026-09-11** — M0 started: repo `csiesheep/the_resistance` created
+  from the Dice Wars skeleton, placeholder page.
 - **2026-09-11** — Base game only in v1; expansions data-driven for later.
 - **2026-09-11** — Copy the Dice Wars skeleton rather than start clean;
   it already solved rooms, timers, reconnection and AI seats.
