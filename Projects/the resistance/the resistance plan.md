@@ -22,7 +22,7 @@ started: 2026-09-11
   timers, reconnection tokens. This project copies that skeleton and
   replaces the game.
 - Rules digest with sources: [[the resistance - rulebook]].
-- **Status: M2 done (2026-09-11) — bots tuned, 40 tests. M3 (solo UI) next.**
+- **Status: M3 done (2026-09-11) — solo mode playable in en / zh-Hant with bot talk, rules page. M4 (rooms) next.**
 
 ## Why this shape
 The Resistance is 90% conversation and 10% mechanics. The mechanics are
@@ -303,4 +303,6 @@ the realistic online use is everyone at a table with their phone.
 - [x] M2: bots + harness. Normal bots: resistance wins 53/66/42/38/31/38 %
       at 5–10 players (300 games per cell); hard spies beat normal
       operatives, hard operatives beat normal spies. (2026-09-11)
-- [ ] M3: solo mode UI + bot talk.
+- [x] M3: solo mode UI + bot talk + i18n + rules page. Played through
+      end to end in both languages on a phone viewport. (2026-09-11)
+- [ ] M4: rooms (Durable Object, timers, chat, bot fill, reconnect).
