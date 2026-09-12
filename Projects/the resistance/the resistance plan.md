@@ -22,7 +22,7 @@ started: 2026-09-11
   timers, reconnection tokens. This project copies that skeleton and
   replaces the game.
 - Rules digest with sources: [[the resistance - rulebook]].
-- **Status: M0 in progress (2026-09-11) — repo scaffolded, placeholder deploy pending.**
+- **Status: M0 done (2026-09-11) — placeholder live at the URL. M1 (engine) next.**
 
 ## Why this shape
 The Resistance is 90% conversation and 10% mechanics. The mechanics are
@@ -275,12 +275,16 @@ the realistic online use is everyone at a table with their phone.
 - **2026-09-11** — Solo default: 7 players (3 spies, two-fail rule on
   mission 4).
 - **2026-09-11** — Bot table talk ships in v1 (M3), thin.
-- **2026-09-11** — M0 started: repo `csiesheep/the_resistance` created
-  from the Dice Wars skeleton, placeholder page.
+- **2026-09-11** — M0 done: repo `csiesheep/the_resistance` from the Dice
+  Wars skeleton, placeholder page (noindex) deployed with `npx wrangler
+  deploy` from this machine — **not** the dashboard GitHub connection, so
+  pushes do not auto-deploy until that is connected. Routes verified,
+  `.git`/`src` not served, all siblings still 200.
 - **2026-09-11** — Base game only in v1; expansions data-driven for later.
 - **2026-09-11** — Copy the Dice Wars skeleton rather than start clean;
   it already solved rooms, timers, reconnection and AI seats.
 
 ## Next steps
 - [ ] Owner confirms the plan and the open questions above.
-- [ ] M0: scaffold and deploy a placeholder at the URL.
+- [x] M0: scaffold and deploy a placeholder at the URL. (2026-09-11)
+- [ ] M1: engine + tests.
