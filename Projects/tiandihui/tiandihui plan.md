@@ -78,10 +78,28 @@ game on the hub has already been through.
 | evil side | Spies | 清廷 | The Qing |
 | evil role | Spy | 密探 | Informer |
 | bot names | Dana, Marco… | 阿七、石頭、馬三… | Ah Qi, Shitou, Ma San… |
-| favicon | abstract circle | the three-sided 天地人 mark the society signed with | |
+| favicon | abstract circle | a vermilion 天地 seal on paper | |
 
-Blue stays the brotherhood, red stays the Qing, gold stays the leader.
 Mission / 任務 kept as-is: it is a generic word and the clearest one.
+
+### Look (盟書, from 2026-09-12)
+Design canvas: https://claude.ai/code/artifact/2b5d7729-b7d8-40b7-9862-55a953eb3dac
+(page 1 is the shipped direction, nine screens; page 2 keeps the two
+directions not taken, 夜堂 lantern hall and 年畫 woodblock poster).
+
+| token | value | used for |
+|---|---|---|
+| paper | `#ece2cb` (fields `#f4ebd7`, avatars `#f6efdf`) | the ground |
+| ink | `#1e1a16` | text, 1.5px rules, the 敗 seal, the Qing's fail |
+| vermilion | `#b5322a` (dark `#8a2a22`) | the brotherhood: 成 seal, primary button, picked seat, 令 leader tag, hour spine |
+| imperial yellow | `#c9962b` (dark `#8f6a1c`) | the Qing: a spy seen by a spy (ring + 清 tag), informer band and chips |
+| dark ground | `#2a2420` | only behind the reveal card |
+| display | LXGW WenKai TC | title, big numbers, hour names |
+| body | Noto Serif TC | everything else |
+
+Square corners, no shadows (the reveal card excepted), numbers 一二三 in
+Chinese for the track, stepper, round label and lobby ledger; vote badges
+贊 / 否. English keeps digits and ✓ / ✕ but the same seals.
 
 ## 天時 deck / The Hour (from 2026-09-12)
 
@@ -315,11 +333,10 @@ any prefix):
 | (in game) | Game over | Winner, every role revealed, round-by-round history, Play again |
 | `rules.html` | Rulebook | Own prose, the two tables, the variants; the SEO page |
 
-Mockups: the *Resistance Screens* artifact (10 phone frames, 2026-09-11).
-Design direction from the mockups: dark ground, blue for operative /
-missions won, red for spy / missions lost, gold for the leader token;
-condensed uppercase display type (poster / stencil), phone-first because
-the realistic online use is everyone at a table with their phone.
+Mockups: the *Resistance Screens* artifact (10 phone frames, 2026-09-11)
+was the first, dark, poster-style direction. Replaced 2026-09-12 by the
+盟書 paper look (see Theme › Look); still phone-first because the
+realistic online use is everyone at a table with their phone.
 
 ## Milestones
 1. **M0 — Scaffold.** Repo from the Dice Wars skeleton, `PREFIX`
@@ -352,6 +369,13 @@ the realistic online use is everyone at a table with their phone.
       short for a real argument.
 
 ## Decisions
+- **2026-09-12** — Redesigned every page as a 盟書 (paper oath): the
+  owner picked it from three directions shown on a design canvas (paper
+  oath, lantern hall, woodblock poster). Colour now carries meaning:
+  vermilion = brotherhood / success, ink = fail, imperial yellow = the
+  Qing; this swapped the earlier red-spy / gold-pick rings to yellow-spy /
+  red-pick. Engine, bots and room untouched; app.js only gained Chinese
+  numerals, seal glyphs and the reveal card's band and stamp.
 - **2026-09-12** — Removed 熄燈 from the 天時 deck (owner's call) after it
   measured as the strongest single card, 5–9 points toward the Qing at
   every count. The deck is seven cards.
@@ -418,6 +442,9 @@ the realistic online use is everyone at a table with their phone.
       reconnect mid-game, rematch, leave, bad code. (2026-09-12)
 - [x] Rename to 天地會, new repo `csiesheep/tiandihui`, new Worker and
       routes, deployed and verified at `/tiandihui/`. (2026-09-12)
+- [x] 盟書 redesign of all pages, commit f84e629, deployed and byte-verified
+      live; walked through landing, setup, reveal, vote, mission result,
+      lobby and rules in both languages locally. (2026-09-12)
 - [ ] Decide what happens to the old `/the_resistance/` Worker: delete it,
       or leave it 301-ing to the new path. It is still live.
 - [x] 天時 deck: engine, bots, solo + room UI, both languages, rules page,
