@@ -442,6 +442,13 @@ realistic online use is everyone at a table with their phone.
       reconnect mid-game, rematch, leave, bad code. (2026-09-12)
 - [x] Rename to 天地會, new repo `csiesheep/tiandihui`, new Worker and
       routes, deployed and verified at `/tiandihui/`. (2026-09-12)
+- [x] Ship: noindex dropped on both pages, Open Graph / Twitter cards,
+      VideoGame JSON-LD, 1200x630 social image (paper, vertical title, the
+      seal; drawn with Pillow from 標楷體 + Noto Serif TC), a crawlable
+      paragraph on the landing; hub tile, root sitemap line and robots.txt
+      pointer in the `games` repo. Both deployed and byte-verified.
+      Still to do by hand: submit the URL in Search Console. AdSense not
+      started. (2026-09-12)
 - [x] 盟書 redesign of all pages, commit f84e629, deployed and byte-verified
       live; walked through landing, setup, reveal, vote, mission result,
       lobby and rules in both languages locally. (2026-09-12)
