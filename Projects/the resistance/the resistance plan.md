@@ -22,7 +22,7 @@ started: 2026-09-11
   timers, reconnection tokens. This project copies that skeleton and
   replaces the game.
 - Rules digest with sources: [[the resistance - rulebook]].
-- **Status: M1 done (2026-09-11) — engine + 27 tests. M2 (bots) in progress.**
+- **Status: M2 done (2026-09-11) — bots tuned, 40 tests. M3 (solo UI) next.**
 
 ## Why this shape
 The Resistance is 90% conversation and 10% mechanics. The mechanics are
@@ -283,9 +283,24 @@ the realistic online use is everyone at a table with their phone.
 - **2026-09-11** — Base game only in v1; expansions data-driven for later.
 - **2026-09-11** — Copy the Dice Wars skeleton rather than start clean;
   it already solved rooms, timers, reconnection and AI seats.
+- **2026-09-11** — Bot model as planned (posterior over spy sets), plus two
+  things the harness forced: spies **vote like operatives** except on
+  decisive votes, and operatives get a **fog** knob — exact Bayesian
+  operatives with the vote majority win ~90% at every table, which is not
+  the real game. Normal = fog 0.45; hard = fog 0.12 (six players stays
+  ~95% resistance on hard, that is the count's nature).
+- **2026-09-11** — Node 24.19 on this machine crashes with 0xC0000005 a few
+  percent of the time on long bot runs, under any V8 flags, and Node 22
+  via npx too; other apps on the machine have the same crash in the
+  event log. Treated as environmental: the harness runs each cell in a
+  child process with retries. Worth remembering if anything else here
+  starts dying randomly.
 
 ## Next steps
 - [ ] Owner confirms the plan and the open questions above.
 - [x] M0: scaffold and deploy a placeholder at the URL. (2026-09-11)
 - [x] M1: engine + tests, 27 passing incl. 3000-game fuzz. (2026-09-11)
-- [ ] M2: bots + harness.
+- [x] M2: bots + harness. Normal bots: resistance wins 53/66/42/38/31/38 %
+      at 5–10 players (300 games per cell); hard spies beat normal
+      operatives, hard operatives beat normal spies. (2026-09-11)
+- [ ] M3: solo mode UI + bot talk.
