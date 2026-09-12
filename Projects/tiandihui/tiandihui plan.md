@@ -86,9 +86,9 @@ Mission / 任務 kept as-is: it is a generic word and the clearest one.
 ## 天時 deck / The Hour (from 2026-09-12)
 
 An optional deck, off by default, toggled in solo setup and in the room
-lobby. Eight face-up cards; one is drawn at the start of every round and
+lobby. Seven face-up cards; one is drawn at the start of every round and
 holds for that round only. Drawn cards are not returned, so a five-round
-game shows five of the eight and the table can count what is left.
+game shows five of the seven and the table can count what is left.
 
 | id | 名 | English | effect | draw rule |
 |---|---|---|---|---|
@@ -98,12 +98,12 @@ game shows five of the eight and the table can count what is left.
 | wounded | 掛彩 | Laid Up | one random seat cannot be proposed this round | not on mission 5 |
 | silence | 封口 | Hold Your Tongue | no chat, no bot talk, for the round and its reveal | any |
 | quiet | 無事 | Quiet Night | nothing | any |
-| dark | 熄燈 | Lights Out | only each vote's tally is public until the game ends | any |
 | recused | 避嫌 | Recused | the leader may not go on their own team | missions 1–3 only, and only if a brother leader could still send a team of brothers |
 
 Renamed from the owner's first list (精兵 / 記名 / 清廷密令 / 傷員 / 噤聲 /
 平常日). The deck name 天時 pairs with 天地會 and means "what heaven deals".
 熄燈 and 避嫌 were added the same day to lean the deck back toward the Qing.
+熄燈 was removed again after measuring it alone (see the 2,000-game table).
 
 **Balance, bots vs bots, normal/normal, 200 games a cell, resistance win %:**
 
@@ -130,6 +130,25 @@ Keeping 避嫌 out of missions 4 and 5 barely moves it: five, seven and eight
 play out identically (the rule does not change where the card can appear
 there), six lands on the same rate, nine and ten gain two points each for
 the brotherhood, within noise. It is a feel rule more than a balance rule.
+
+**Remeasured at 2,000 games a cell, same seeds for every row, normal/normal,
+brotherhood win %.** Supersedes the 200-game rows above, which were too
+noisy to show what one card does. A single cell is good to about ±3.
+
+| players | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|
+| deck off | 54 | 75 | 48 | 39 | 34 | 43 |
+| eight cards, with 熄燈 | 54 | 59 | 39 | 31 | 35 | 31 |
+| seven cards, shipped | 62 | 68 | 48 | 37 | 40 | 36 |
+
+熄燈 alone cost the brotherhood 5–9 points at every count, the strongest
+single card, so it was removed. The shipped seven-card deck is about
+neutral averaged over counts but uneven: it favours the brotherhood at 5
+and 9, the Qing at 6 and 10, and is even at 7 and 8.
+
+The removal was checked to change nothing else: the shipped code gives
+exactly the win counts of the pre-removal code (89fb4bf) with 熄燈 spliced
+out of the deck, 1245 / 1357 / 950 / 732 / 804 / 729 of 2,000.
 
 ## Rules in scope (v1 = base game, exactly)
 
@@ -333,6 +352,9 @@ the realistic online use is everyone at a table with their phone.
       short for a real argument.
 
 ## Decisions
+- **2026-09-12** — Removed 熄燈 from the 天時 deck (owner's call) after it
+  measured as the strongest single card, 5–9 points toward the Qing at
+  every count. The deck is seven cards.
 - **2026-09-12** — 避嫌 never on the last two missions (owner's rule), the
   same reading as 掛彩 and mission 5: the last rounds are missions 4 and 5.
 - **2026-09-12** — Added 熄燈 (Lights Out) and 避嫌 (Recused) to the 天時
@@ -403,6 +425,9 @@ the realistic online use is everyone at a table with their phone.
       modules are byte-identical to the tested files. (2026-09-12)
 - [x] 熄燈 and 避嫌 added to lean the deck toward the Qing; room tests
       check no socket is sent a vote in the dark. (2026-09-12)
-- [ ] Decide on 天時 balance: the eight-card deck now leans slightly Qing
-      (see the balance table). Accept, or tune.
+- [x] 熄燈 removed after measuring it alone; code, text and tests with it.
+      Deployed. (2026-09-12)
+- [ ] Decide on 天時 balance: the shipped seven-card deck is about neutral
+      on average but uneven by player count (see the 2,000-game table).
+      Accept, or tune.
 - [ ] M5: ship — drop noindex, OG image, hub card, sitemap, AdSense slot.
