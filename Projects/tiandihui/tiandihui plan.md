@@ -379,7 +379,8 @@ the realistic online use is everyone at a table with their phone.
 - [ ] Decide what happens to the old `/the_resistance/` Worker: delete it,
       or leave it 301-ing to the new path. It is still live.
 - [x] 天時 deck: engine, bots, solo + room UI, both languages, rules page,
-      tests, harness `--hours`. (2026-09-12)
+      tests, harness `--hours`. Deployed and verified live: the served
+      modules are byte-identical to the tested files. (2026-09-12)
 - [ ] Decide on 天時 balance: accept the brotherhood tilt, or tune a card
       (see the balance table).
 - [ ] M5: ship — drop noindex, OG image, hub card, sitemap, AdSense slot.
