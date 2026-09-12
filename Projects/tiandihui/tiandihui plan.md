@@ -3,17 +3,19 @@ tags: [project]
 status: building
 started: 2026-09-11
 ---
-# the resistance
+# tiandihui 天地會
 
 ## Overview
-- A browser version of **The Resistance** (Don Eskridge, Indie Boards &
-  Cards, 2009/2010) — the 5–10 player social-deduction game of spies and
-  operatives. Two ways to play:
+- **天地會 / Tiandihui Brotherhood** — a 5–10 player social-deduction game
+  of sworn brothers and Qing informers, under its own name and setting.
+  The play is the well-known mission-and-vote system (see
+  [[tiandihui - rulebook]]); the name, theme, art and prose are ours.
+  Two ways to play:
   1. **Single player** — you plus 4–9 AI bots, entirely in the browser.
   2. **Online room** — a four-letter code, friends join, AI bots fill any
      empty seats. Humans who drop out are taken over by a bot.
-- Lives at `games.csiesheep.com/the_resistance/`, its own repo
-  (`csiesheep/the_resistance`) and Worker (`the-resistance`), attached to
+- Lives at `games.csiesheep.com/tiandihui/`, its own repo
+  (`csiesheep/tiandihui`) and Worker (`tiandihui`), attached to
   the hub by path-scoped Routes — same shape as every sibling
   ([[cloudfare csiesheep.com subdomain setup runbook]]).
 - Direct sibling of **Dice Wars** (`~/code/dicewars`): that repo already has
@@ -21,8 +23,8 @@ started: 2026-09-11
   room, a shared engine used by both browser and server, AI seats, per-turn
   timers, reconnection tokens. This project copies that skeleton and
   replaces the game.
-- Rules digest with sources: [[the resistance - rulebook]].
-- **Status: M4 done (2026-09-12) — online rooms live. M5 (ship: SEO, hub card, index) next.**
+- Rules digest with sources: [[tiandihui - rulebook]].
+- **Status: renamed and relaunched as 天地會 (2026-09-12). M0–M4 done and live at `/tiandihui/`. M5 (ship: drop noindex, OG image, hub card, AdSense) next.**
 
 ## Why this shape
 The Resistance is 90% conversation and 10% mechanics. The mechanics are
@@ -39,22 +41,23 @@ tiny (a state machine with six phases) — the work is in three places:
 Everything else (pages, SEO, hub card, deploy) is the routine that every
 game on the hub has already been through.
 
-## Licensing — the key constraint
-- **Rules and mechanics are not copyrightable.** A clean-room
-  implementation of the game system is fine, as with
-  [[zombie in the pocket plan]].
-- **"The Resistance" is a trademark of Indie Boards & Cards**, and the card
-  art, tableau art and rulebook prose are their copyright. This site would
-  carry AdSense, i.e. commercial use.
-- Plan: **own art, own copy, no card images, no rulebook text lifted.**
-  The rulebook page on the site is written from scratch.
-- ⚠️ **Naming decision needed.** The path `/the_resistance/` is the working
-  URL. Shipping under the *display title* "The Resistance" is the same
-  situation the zombie project chose to avoid by renaming. Options:
-  (a) ship as "The Resistance — fan-made, unofficial" with a credit line
-  to the designer and publisher; (b) a distinct title with a
-  "compatible with / inspired by The Resistance" line. The URL can stay
-  either way — `PREFIX` is independent of the title.
+## Licensing — resolved 2026-09-12
+- **Copyright risk was always low.** Rules and mechanics are not
+  copyrightable; the player-count and team-size tables are part of the
+  system, not expression. No official art, card faces or rulebook prose
+  was ever used. Every string, icon and page on the site is written or
+  drawn here.
+- **The real risk was trademark**, not copyright: using another
+  publisher's product name as the name of our own similar product, on a
+  page that carries ads. "Fan-made, unofficial" is a mitigating factor,
+  not a defence.
+- **Fixed by renaming**, the same call [[zombie in the pocket plan]] made.
+  The game now has its own name (天地會 / Tiandihui Brotherhood), its own
+  setting (a Qing-era sworn brotherhood infiltrated by court informers)
+  and its own faction words. The original is credited exactly once, in the
+  footer, as the design that inspired the play — nominative reference,
+  which is what it is for.
+- Still true: no official art, no lifted text, own rules page.
   *Not legal advice.*
 
 ## Source material
@@ -64,6 +67,21 @@ game on the hub has already been through.
 - BGG entry (41114): https://boardgamegeek.com/boardgame/41114/the-resistance
 - Publisher page: https://indieboardsandcards.com/our-games/the-resistance/
 - Editions/expansions overview: https://en.wikipedia.org/wiki/The_Resistance_(game)
+
+## Theme (from 2026-09-12)
+
+| slot | before | now (zh) | now (en) |
+|---|---|---|---|
+| title | The Resistance | 天地會 | Tiandihui Brotherhood |
+| good side | Resistance | 天地會 | The Brotherhood |
+| good role | Operative | 兄弟 | Brother |
+| evil side | Spies | 清廷 | The Qing |
+| evil role | Spy | 密探 | Informer |
+| bot names | Dana, Marco… | 阿七、石頭、馬三… | Ah Qi, Shitou, Ma San… |
+| favicon | abstract circle | the three-sided 天地人 mark the society signed with | |
+
+Blue stays the brotherhood, red stays the Qing, gold stays the leader.
+Mission / 任務 kept as-is: it is a generic word and the clearest one.
 
 ## Rules in scope (v1 = base game, exactly)
 
@@ -267,6 +285,10 @@ the realistic online use is everyone at a table with their phone.
       short for a real argument.
 
 ## Decisions
+- **2026-09-12** — Renamed to 天地會 / Tiandihui Brotherhood and moved to
+  `/tiandihui/`, on trademark grounds (see Licensing). New repo cloned
+  from the old one so all 11 commits of history came along. Engine, bots
+  and room code untouched; only player-visible strings changed.
 - **2026-09-11** — Ship as "fan-made, unofficial" under the name The
   Resistance, with a credit line. Own art and prose regardless.
 - **2026-09-11** — English + zh-Hant from v1 (`?lang=` / toggle, strings
@@ -316,4 +338,8 @@ the realistic online use is everyone at a table with their phone.
       are played by the bot after 15 s and get their seat back with the
       tab's token, chat, rematch. Tested with two tabs + bots to game over,
       reconnect mid-game, rematch, leave, bad code. (2026-09-12)
+- [x] Rename to 天地會, new repo `csiesheep/tiandihui`, new Worker and
+      routes, deployed and verified at `/tiandihui/`. (2026-09-12)
+- [ ] Decide what happens to the old `/the_resistance/` Worker: delete it,
+      or leave it 301-ing to the new path. It is still live.
 - [ ] M5: ship — drop noindex, OG image, hub card, sitemap, AdSense slot.

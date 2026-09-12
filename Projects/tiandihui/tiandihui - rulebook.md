@@ -2,11 +2,14 @@
 tags: [project, rules]
 updated: 2026-09-11
 ---
-# the resistance — rulebook digest
+# tiandihui — rulebook digest
 
-Digest, in my own words, of the base rules plus the expansions, for
-[[the resistance plan]]. The site's rules page must be written fresh from
-this, not from the publisher's prose.
+Digest, in my own words, of the base rules plus the expansions of the game
+the play is modelled on, for [[tiandihui plan]]. Kept as a mechanics
+reference only. The site ships under its own name and setting (天地會),
+and its rules page is written fresh from this, never from the
+publisher's prose. Faction words here are the original's; the site's are
+兄弟 / 密探.
 
 ## Sources
 - Consolidated rules v1.1 (base + The Plot Thickens + modules), PDF:
