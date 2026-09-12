@@ -22,7 +22,7 @@ started: 2026-09-11
   timers, reconnection tokens. This project copies that skeleton and
   replaces the game.
 - Rules digest with sources: [[the resistance - rulebook]].
-- **Status: M3 done (2026-09-11) — solo mode playable in en / zh-Hant with bot talk, rules page. M4 (rooms) next.**
+- **Status: M4 done (2026-09-12) — online rooms live. M5 (ship: SEO, hub card, index) next.**
 
 ## Why this shape
 The Resistance is 90% conversation and 10% mechanics. The mechanics are
@@ -289,6 +289,11 @@ the realistic online use is everyone at a table with their phone.
   operatives with the vote majority win ~90% at every table, which is not
   the real game. Normal = fog 0.45; hard = fog 0.12 (six players stays
   ~95% resistance on hard, that is the count's nature).
+- **2026-09-12** — Room design note: the room's language (the host's at
+  creation) governs bot talk and system lines; each client's own UI chrome
+  follows its own toggle. One stage timer for "votes revealed" / "cards
+  flipped" pauses everyone together; a staged event is consumed when the
+  stage ends (the first version re-staged it forever).
 - **2026-09-11** — Node 24.19 on this machine crashes with 0xC0000005 a few
   percent of the time on long bot runs, under any V8 flags, and Node 22
   via npx too; other apps on the machine have the same crash in the
@@ -305,4 +310,10 @@ the realistic online use is everyone at a table with their phone.
       operatives, hard operatives beat normal spies. (2026-09-11)
 - [x] M3: solo mode UI + bot talk + i18n + rules page. Played through
       end to end in both languages on a phone viewport. (2026-09-11)
-- [ ] M4: rooms (Durable Object, timers, chat, bot fill, reconnect).
+- [x] M4: rooms — Durable Object per code, per-seat view fan-out, phase
+      clocks (reveal 30 s, propose 90 s, vote 30 s, mission 30 s; the table
+      decides for whoever runs out), bots fill seats, disconnected humans
+      are played by the bot after 15 s and get their seat back with the
+      tab's token, chat, rematch. Tested with two tabs + bots to game over,
+      reconnect mid-game, rematch, leave, bad code. (2026-09-12)
+- [ ] M5: ship — drop noindex, OG image, hub card, sitemap, AdSense slot.
