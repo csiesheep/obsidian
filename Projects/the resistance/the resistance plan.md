@@ -22,7 +22,7 @@ started: 2026-09-11
   timers, reconnection tokens. This project copies that skeleton and
   replaces the game.
 - Rules digest with sources: [[the resistance - rulebook]].
-- **Status: M0 done (2026-09-11) — placeholder live at the URL. M1 (engine) next.**
+- **Status: M1 done (2026-09-11) — engine + 27 tests. M2 (bots) in progress.**
 
 ## Why this shape
 The Resistance is 90% conversation and 10% mechanics. The mechanics are
@@ -287,4 +287,5 @@ the realistic online use is everyone at a table with their phone.
 ## Next steps
 - [ ] Owner confirms the plan and the open questions above.
 - [x] M0: scaffold and deploy a placeholder at the URL. (2026-09-11)
-- [ ] M1: engine + tests.
+- [x] M1: engine + tests, 27 passing incl. 3000-game fuzz. (2026-09-11)
+- [ ] M2: bots + harness.
