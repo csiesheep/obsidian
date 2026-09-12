@@ -86,9 +86,9 @@ Mission / 任務 kept as-is: it is a generic word and the clearest one.
 ## 天時 deck / The Hour (from 2026-09-12)
 
 An optional deck, off by default, toggled in solo setup and in the room
-lobby. Six face-up cards; one is drawn at the start of every round and
+lobby. Eight face-up cards; one is drawn at the start of every round and
 holds for that round only. Drawn cards are not returned, so a five-round
-game shows five of the six and the table can count what is left.
+game shows five of the eight and the table can count what is left.
 
 | id | 名 | English | effect | draw rule |
 |---|---|---|---|---|
@@ -98,16 +98,20 @@ game shows five of the six and the table can count what is left.
 | wounded | 掛彩 | Laid Up | one random seat cannot be proposed this round | not on mission 5 |
 | silence | 封口 | Hold Your Tongue | no chat, no bot talk, for the round and its reveal | any |
 | quiet | 無事 | Quiet Night | nothing | any |
+| dark | 熄燈 | Lights Out | only each vote's tally is public until the game ends | any |
+| recused | 避嫌 | Recused | the leader may not go on their own team | only if a brother leader could still send a team of brothers |
 
 Renamed from the owner's first list (精兵 / 記名 / 清廷密令 / 傷員 / 噤聲 /
 平常日). The deck name 天時 pairs with 天地會 and means "what heaven deals".
+熄燈 and 避嫌 were added the same day to lean the deck back toward the Qing.
 
 **Balance, bots vs bots, normal/normal, 200 games a cell, resistance win %:**
 
 | players | 5 | 6 | 7 | 8 | 9 | 10 |
 |---|---|---|---|---|---|---|
 | deck off | 56 | 67 | 49 | 36 | 34 | 42 |
-| deck on | 67 | 71 | 54 | 45 | 47 | 50 |
+| six cards | 67 | 71 | 54 | 45 | 47 | 50 |
+| eight cards | 52 | 56 | 42 | 33 | 29 | 34 |
 
 The deck favours the brotherhood by 4–13 points at every count. Likely
 drivers: 畫押 (spies will not fail a signed round unless it wins, so it is
@@ -115,6 +119,11 @@ close to a free success) and 密令 (a success certifies a whole team, and a
 failure gives an exact spy count). Bots were not retuned for the deck, so
 this is a signal, not a verdict. To attribute it per card, the engine would
 need a custom-deck option for the harness.
+
+With 熄燈 and 避嫌 in, the eight-card deck leans slightly toward the Qing,
+3–11 points below deck-off. Any single cell is within noise at 200 games
+(two estimates differ by about ±10 at 95%), but the direction is the same
+at all six counts, as it was for the six-card deck the other way.
 
 ## Rules in scope (v1 = base game, exactly)
 
@@ -318,6 +327,9 @@ the realistic online use is everyone at a table with their phone.
       short for a real argument.
 
 ## Decisions
+- **2026-09-12** — Added 熄燈 (Lights Out) and 避嫌 (Recused) to the 天時
+  deck, the owner's pick of three proposed pro-Qing cards (風緊, doubling
+  the cost of a rejection, was not taken).
 - **2026-09-12** — Added the 天時 deck as an option, off by default, like
   blind informers. Not a core rule: it measurably shifts balance toward the
   brotherhood.
@@ -381,6 +393,8 @@ the realistic online use is everyone at a table with their phone.
 - [x] 天時 deck: engine, bots, solo + room UI, both languages, rules page,
       tests, harness `--hours`. Deployed and verified live: the served
       modules are byte-identical to the tested files. (2026-09-12)
-- [ ] Decide on 天時 balance: accept the brotherhood tilt, or tune a card
-      (see the balance table).
+- [x] 熄燈 and 避嫌 added to lean the deck toward the Qing; room tests
+      check no socket is sent a vote in the dark. (2026-09-12)
+- [ ] Decide on 天時 balance: the eight-card deck now leans slightly Qing
+      (see the balance table). Accept, or tune.
 - [ ] M5: ship — drop noindex, OG image, hub card, sitemap, AdSense slot.
