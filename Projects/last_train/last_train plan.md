@@ -121,28 +121,29 @@ cane · 密碼本 codebook · 風衣 trench coat · 搜查令 warrant · 單片�
 · 時刻表 timetable · 黑函 poison-pen letter · 破鏡 broken mirror · 頭等票
 first-class ticket · 皮箱 ×2.
 
-### Look (direction C, chosen 2026-09-13)
+### Look (dark, from 2026-09-13; supersedes the cream version the same day)
 Design canvas: https://claude.ai/code/artifact/581233b4-4a9a-42d7-92d7-61b7f422ed75
-(page 1 the main flow, twelve phone screens; page 2 the two directions
-not taken, 夜航船 night boat and 木刻版畫 woodblock).
+(page 1 the main flow, twelve phone screens; page 2 the directions not
+taken: the cream train version, a graphite alternative, 夜航船 night boat
+and 木刻版畫 woodblock).
 
 | token | value | used for |
 |---|---|---|
-| cream | `#f1e9d6` (cards `#faf5ea`) | the ground |
-| line | `#d6cbb3` | 1px rules |
-| navy | `#1c2a44` | text, 1.5px borders, primary button, your seat, the dark ticket card |
-| grey | `#6d7383` | secondary text |
-| brass | `#b08d3c` (dark `#8a6c26`) | the Timekeepers, watches, the ticket's stamp line, timers, the pick outline |
-| jade | `#2f6f5e` | the Sealbearers, seals |
-| rust | `#b2362b` | a scuffle: attack count, the scuffle button |
-| steel | `#4a6fa5` | a guard: defence count, AI tag |
-| display | Noto Serif TC 900 | title, big words, headings |
+| ground | `#0e121b` (deep `#090c13`, cards `#161c28`) | the night carriage |
+| line | `#2a3244` | 1px rules and borders |
+| bone | `#e6dfd0` | text, the primary button, your seat's border, item cards |
+| grey | `#8b91a0` | secondary text |
+| brass | `#a8863a` (bright `#c9a54f`) | the Timekeepers, watches, the ticket card's border and stamp line, timers, the pick outline |
+| jade | `#3f8a74` | the Sealbearers, seals |
+| rust | `#b8452f` | a scuffle: attack count, the scuffle button |
+| steel | `#6f8fb8` | a guard: defence count, AI tag |
+| display | Noto Serif TC 700 | title, big words, headings |
 | body | Noto Sans TC | everything else |
 | Latin | Cormorant Garamond | the English title, the room code, the big numbers |
 
-Capsule buttons (26px radius), 1.5px navy lines, no shadows. The dark navy
-"ticket" card with notched sides carries the title, the room code, the
-reveal and the result; everything else is paper. Chinese numerals for the
+Square 2px corners, 1px lines, no shadows, no glow. The brass-bordered
+"ticket" card with notched sides carries the title, the room code and the
+result; the reveal sits on the deepest ground. Chinese numerals for the
 player count (六); rounds are stops, 第三站.
 
 ## Rules in scope (v1 = base game, exactly)
@@ -289,6 +290,11 @@ visible margin of doubt, not the instant the math allows.
 Questions 3–8 are taken as recommended unless the owner says otherwise.
 
 ## Decisions
+- **2026-09-13**: owner asked for a dark, serious theme. The cream / navy
+  / brass train look became near-black blue, bone and dim brass; capsule
+  buttons became 2px squares; the glow went. Vocabulary and screens
+  unchanged. The cream version is kept on page 2 of the canvas beside a
+  graphite alternative.
 - **2026-09-13**: owner picked 末班夜車 / The Last Night Train over the
   recommended 夜航船. Repo renamed `csiesheep/night_boat` →
   `csiesheep/last_train` (GitHub redirects the old name), prefix, Worker
