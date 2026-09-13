@@ -291,6 +291,27 @@ visible margin of doubt, not the instant the math allows.
 Questions 3–8 are taken as recommended unless the owner says otherwise.
 
 ## Decisions
+- **2026-09-13**: M1 rulings, made while writing the engine and pinned by
+  tests. (1) Every decision that could reveal a hidden trade is a *window*
+  answered by every eligible seat (priest before support, gunman for the
+  two parties, the attacker's hypnotist step, the powers round, doctor
+  after the count); a seat is skipped only when its revealed trade settles
+  it. Clients may auto-answer for a human who cannot use the power. (2)
+  The hypnotist may name any seat but the defender, bystanders included,
+  and the named seat is shut out of the powers round and the doctor
+  window. (3) Fortune teller is a free action on your own turn; the
+  diplomat's demand *is* the turn's action, a forced trade where the
+  diplomat picks what goes back. (4) Trade texts fire for the giver and
+  are announced to the table (that is what smuggling switches off); a
+  broken mirror on either side silences both texts; offers go only to
+  seats holding at least one item. (5) The winner's "take" is hidden
+  when the loser holds nothing; the doctor window comes before the
+  winner's choice. (6) Hand limit is enforced at the end of the turn that
+  broke it, gifts chain if a recipient goes over. (7) At most one strong
+  drink counts per declaration, for the smaller gang only; a case counts
+  as its goal item only once the pile is empty. (8) A wrong solo claim is
+  illegal rather than a loss, since everything it needs is in your own
+  hand.
 - **2026-09-13**: owner said go; M0 deployed from this machine (Worker
   `last_train`, version 3b14c55c). Pushes do not deploy; the dashboard is
   not connected, same as tiandihui.
@@ -315,4 +336,10 @@ Questions 3–8 are taken as recommended unless the owner says otherwise.
       byte-identical live (sha1, cache-busted); prefix sitemap served;
       `src/`, `.git/`, `wrangler.jsonc`, `package.json` 404; hub root and
       five siblings still 200; `noindex` in place. (2026-09-13)
-- [ ] M1 engine. [ ] M2 bots. [ ] M3 solo. [ ] M4 rooms. [ ] M5 ship.
+- [x] M1 engine: `public/shared/engine.js`, 26 tests passing, among them
+      a fuzz of 200 games (25 seeds × counts 3–10, 1,500 steps each,
+      smuggling on for half) that checks item and trade conservation, the
+      hand limit between turns, termination by declaration, and that no
+      seat's view carries another seat's gang, hand or hidden trade.
+      Deployed and byte-verified live. (2026-09-13)
+- [ ] M2 bots. [ ] M3 solo. [ ] M4 rooms. [ ] M5 ship.
