@@ -6,7 +6,8 @@ started: 2026-09-13
 # last_train 末班夜車 — plan
 
 Created 2026-09-13. Repo `csiesheep/last_train`, live at
-`https://games.csiesheep.com/last_train/` (not yet).
+`https://games.csiesheep.com/last_train/` (placeholder since 2026-09-13,
+noindex until M5).
 
 ## Overview
 **末班夜車 / The Last Night Train** is a 3–10 player hidden-gang card game,
@@ -290,6 +291,9 @@ visible margin of doubt, not the instant the math allows.
 Questions 3–8 are taken as recommended unless the owner says otherwise.
 
 ## Decisions
+- **2026-09-13**: owner said go; M0 deployed from this machine (Worker
+  `last_train`, version 3b14c55c). Pushes do not deploy; the dashboard is
+  not connected, same as tiandihui.
 - **2026-09-13**: owner asked for a dark, serious theme. The cream / navy
   / brass train look became near-black blue, bone and dim brass; capsule
   buttons became 2px squares; the glow went. Vocabulary and screens
@@ -306,5 +310,9 @@ Questions 3–8 are taken as recommended unless the owner says otherwise.
 
 ## Next steps
 - [x] Owner confirms the name. (2026-09-13)
-- [ ] M0: deploy the placeholder, verify both routes and the siblings.
+- [x] M0: placeholder deployed with `npx wrangler deploy`; bare prefix
+      301s to `/last_train/`; index, style, favicon and both i18n files
+      byte-identical live (sha1, cache-busted); prefix sitemap served;
+      `src/`, `.git/`, `wrangler.jsonc`, `package.json` 404; hub root and
+      five siblings still 200; `noindex` in place. (2026-09-13)
 - [ ] M1 engine. [ ] M2 bots. [ ] M3 solo. [ ] M4 rooms. [ ] M5 ship.
