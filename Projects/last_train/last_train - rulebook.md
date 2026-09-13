@@ -8,7 +8,7 @@ Digest, in my own words, of the base rules and the one expansion of the
 game the play is modelled on, *Die Kutschfahrt zur Teufelsburg* (Michael
 Palm and Lukas Zach, Adlung-Spiele 2006), for [[last_train plan]]. Kept as
 a mechanics reference only. The site ships under its own name and setting
-(夜航船 / The Night Boat) and its rules page is written fresh from this,
+(末班夜車 / The Last Night Train) and its rules page is written fresh from this,
 never from the publisher's prose. Card words here are the original's
 German with a literal English gloss; the site's own words are in the plan.
 
