@@ -475,3 +475,18 @@ Questions 3–8 are taken as recommended unless the owner says otherwise.
 - [ ] Later: balance work on the bots (solo/ticket wins 13–25 %, hard not
       yet stronger than normal); the three official variants and the
       expansion as data.
+
+## 插畫版（2026-09-14，已上線）
+
+美術全部由本機 ComfyUI Z-Image-Turbo 工作流產生，經 MCP 伺服器 `comfyui-zimage` 呼叫，成品縮成 JPEG 放在 `public/art/`（52 檔，約 500 KB）。
+
+- 乘客二十位，月份牌風格肖像，`public/shared/passengers.js` 是名單（id、中文名、英文名）。單人模式在設定頁挑臉，AI 用剩下的臉並以臉命名；包廂由 Durable Object 分配，玩家帶著偏好的臉上車，沒被占用就給他。
+- 幫會改名：鐘樓會 / 印信社（the Clocktower Society / the Seal Society）。引擎內部 id 不變（timekeepers / sealbearers）。
+- 車廂：兩張長椅，64px 頭像排排坐；輪到誰有金圈，攻守用紅／藍框。
+- 物品與行當有圖；點行李或別人亮出的行當，底部彈出說明（全車幾件、一局一次或隨時）。
+- 攻防畫面：攻守雙方大頭像與計數，每位支持者一列，顯示立場、亮出的東西；結果直接寫在標題。
+- 揭示頁：幫會信物大圖、行當與行李都有圖。終點結算表有頭像與行李縮圖。
+- 首頁改用雨夜大站頭圖。
+- 不用滬語，文字不點名地名，只借三〇年代的風格。「原價」一項車主說不用管。
+
+設計稿：Claude Design 畫布第四頁「插畫版 v3 · 月份牌乘客」。
