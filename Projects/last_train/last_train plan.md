@@ -373,6 +373,15 @@ to give back. The demand is now illegal in that case and the cells
 Questions 3–8 are taken as recommended unless the owner says otherwise.
 
 ## Decisions
+- **2026-09-13**: M3 client choices. The human is never asked a question
+  that cannot matter: scuffle windows for a power they do not hold, a
+  powers round with nothing to show and a hypnotist step without the
+  hypnotist are answered for them a quarter-second later, so the secrecy
+  the engine keeps costs no taps. Bots act 0.3–1.2 s apart by step, and
+  pause an extra 1.4 s after a scuffle or a declaration so the line can
+  be read. `?play&auto=1` makes seat 0 a bot too, for watching a whole
+  game. Rooms are M4: the landing shows the compartment buttons disabled
+  with a one-line note.
 - **2026-09-13**: M1 rulings, made while writing the engine and pinned by
   tests. (1) Every decision that could reveal a hidden trade is a *window*
   answered by every eligible seat (priest before support, gunman for the
@@ -424,4 +433,12 @@ Questions 3–8 are taken as recommended unless the owner says otherwise.
       hand limit between turns, termination by declaration, and that no
       seat's view carries another seat's gang, hand or hidden trade.
       Deployed and byte-verified live. (2026-09-13)
-- [ ] M2 bots. [ ] M3 solo. [ ] M4 rooms. [ ] M5 ship.
+- [x] M2 bots + harness: `bots.js`, `tests/sim.js`, 6 bot tests; the full
+      table above. Deployed. (2026-09-13)
+- [x] M3 solo: `app.js`, `index.html`, `style.css`, `rules.html`,
+      `talk.js`, both language files. Smoke-tested locally in the browser
+      pane: an all-bot game to the terminus with the log, talk and reveal
+      table; a human game through the reveal, the turn bar, an attack
+      (stopped by a priest), backing a defender, a trade offer. Every
+      client file byte-verified live. (2026-09-13)
+- [ ] M4 rooms. [ ] M5 ship.
