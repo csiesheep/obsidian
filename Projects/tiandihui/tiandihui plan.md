@@ -369,6 +369,10 @@ realistic online use is everyone at a table with their phone.
       short for a real argument.
 
 ## Decisions
+- **2026-09-13** — Tutorial shipped: `?tutorial` (five-step primer) and
+  `?play=tutorial` (guided five-seat game, you are always a brother, informers
+  fixed at Ma San and Xiuniang, bots scripted while on rails, six guide slips
+  that hold the bots until read). Entry on the landing and rules pages.
 - **2026-09-12** — Redesigned every page as a 盟書 (paper oath): the
   owner picked it from three directions shown on a design canvas (paper
   oath, lantern hall, woodblock poster). Colour now carries meaning:
