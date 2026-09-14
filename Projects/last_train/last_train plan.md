@@ -251,14 +251,69 @@ last_train/
 Mockup: the canvas above. Phone-first, 390×844.
 
 ## Bots and balance
-`node tests/sim.js <games> <n or 0> [levelA levelB]`, each cell a child
-process with retries. Report per count 3–10: win rate of the side that
-declared first, fraction of games ending in a wrong declaration, average
-turns, average scuffles per game. Targets for normal bots: games end in
-15–40 turns at every count; wrong declarations under 20 %; no side above
-60 % at even counts; at odd counts the bigger side under 65 %. "Feels
-human": bots trade early, scuffle with the unknown, and declare with a
-visible margin of doubt, not the instant the math allows.
+`node tests/sim.js <games> <n or 0> [levelA levelB] [--seed=N] [--verbose]
+[--smuggling]`, each cell a child process with retries. Per count 3–10 it
+reports the Timekeepers' win rate, the wrong-declaration and solo rates,
+average turns, scuffles and trades per game, the smaller gang's win rate
+at odd counts, and **calibration**: the mean confidence bots declared at
+against how often they were right.
+
+### What the bots are (M2, 2026-09-13)
+- A bot sees its `view` and the engine's `legalActions` for its seat,
+  nothing else. Stateless: beliefs are rebuilt from the knowledge list and
+  the public log at every decision.
+- **Gang belief**: all splits of the other seats into allies and enemies
+  at the possible gang sizes (two sizes at odd counts), C(9,4)+C(9,5) at
+  most. Peeked gangs are hard constraints. Soft evidence from the log:
+  who backs whom in a scuffle (×1.35), who trades with whom (×1.12), who
+  attacks whom (×0.85), the pharmacist's pick (×1.5); the whole soft
+  likelihood is tempered to the power 0.6, because behaviour is a guess
+  about a guess and a table of guessers otherwise talks itself into
+  cliques. Gives P(ally) per seat and a *joint* P(all named are allies).
+- **Item belief**: for each watch and seal (plus the cases once the pile
+  is empty) a distribution over hands and the pile. Sightings pin it
+  (hands seen by warrant or take, cards given, got, offered, the fortune
+  teller's look); every logged movement spreads it, with the mover's hand
+  size *at the time* replayed from the log, and a take moving a goal item
+  with more than an even share. Gives P(seat holds ≥ k of my items).
+- **Declaring**: the most probable claim among the top four candidate
+  allies with one or two items each; P(correct) = joint P(allies) × Π
+  P(items) × [enough, or enough with the drink in the worlds where my gang
+  is the smaller one, counted over the peek-consistent hypotheses and
+  discounted ×0.85]. Declare when it clears a threshold that slides down
+  with the turn count (normal 0.85 → floor 0.65, giving way after turn 60;
+  hard 0.92 → 0.72; easy 0.65). The first-class ticket win is taken the
+  moment it is legal.
+- **Turn policy** scores every legal offer, attack and demand: a monocle
+  or warrant to the least-known seat, the poison-pen letter to a probable
+  enemy, goal items to nobody; attacks by expected support margin times the
+  value of a peek and of the cards likely there; the diplomat's demand for
+  my goal item where it most likely sits.
+- **Responses**: accept a trade when it pays or comes from a probable
+  ally and return the cheapest card; back the side you believe in
+  (edge 0.2 at normal); show every usable item; priest for a threatened
+  ally or a toll; pharmacist only for a clear ally with stakes; doctor
+  when an ally lost with cards at stake; take when the loser likely holds
+  my kind, peek when the gang is unknown.
+- Levels: easy = 45 % random moves; normal as above; hard = sharper
+  thresholds and edges, 2 % noise so no two bots can loop forever.
+
+### Numbers
+Calibration during tuning, normal vs normal, 100–200 games a cell:
+
+| count | wrong declarations | declared at mean p → right | solo | turns |
+|---|---|---|---|---|
+| 6 | 11 % | .86 → 87 % | 15 % | 77 |
+| 8 | 19 % | .82 → 77 % | 19 % | 78 |
+| 9 | 18 % | .78 → 77 % | 21 % | 76 |
+
+Before the hand-size replay and the tempering the bots declared at .90
+and were right half the time at nine players; the two changes fixed most
+of it. Solo wins with the ticket are 12–25 % at every count: they come in
+long games (solo at turn 100 on average, with real watches and seals, not
+cases) where goal items pile up in whoever wins scuffles. That is a
+property of bots that hoard and declare late more than of the rules;
+the full table below is the baseline to improve on. SIM_TABLE
 
 ## Milestones
 - **M0 Scaffold** (repo done, not deployed): router, placeholder, tables +
