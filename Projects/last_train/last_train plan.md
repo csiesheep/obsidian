@@ -490,3 +490,4 @@ Questions 3–8 are taken as recommended unless the owner says otherwise.
 - 不用滬語，文字不點名地名，只借三〇年代的風格。「原價」一項車主說不用管。
 
 設計稿：Claude Design 畫布第四頁「插畫版 v3 · 月份牌乘客」。
+- 首頁一屏（2026-09-14，方案 B）：站台圖當底，標題在上、四個控制項貼底，描述縮成兩句「夜車出站，同車的人各懷心思。交換、動手，攤牌。」設計畫布第五頁留有 A／B／C 三案。
