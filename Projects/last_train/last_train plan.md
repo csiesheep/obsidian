@@ -373,6 +373,17 @@ to give back. The demand is now illegal in that case and the cells
 Questions 3–8 are taken as recommended unless the owner says otherwise.
 
 ## Decisions
+- **2026-09-13**: M4 room choices. Clocks per step (turn 60 s, trade
+  answer 30 s, windows 15 s, support 15 s per declarer, powers 20 s, the
+  reveal 45 s); when one runs out the carriage applies the bot policy for
+  the first human still owed an answer and says so in the log. Bots act
+  on a 0.3–1.2 s beat, and in the steps everyone answers together
+  (windows, powers, the reveal, the timetable pass) all bots answer in one
+  alarm, so a nine-bot window does not take ten seconds. Each socket gets
+  its own view *and* its own legal actions, so the client never needs the
+  state to know what to offer. The room's language (the host's at
+  creation) governs bot talk and system lines; the engine's own log is
+  rendered by each tab in its own language.
 - **2026-09-13**: M3 client choices. The human is never asked a question
   that cannot matter: scuffle windows for a power they do not hold, a
   powers round with nothing to show and a hypnotist step without the
@@ -441,4 +452,14 @@ Questions 3–8 are taken as recommended unless the owner says otherwise.
       table; a human game through the reveal, the turn bar, an attack
       (stopped by a priest), backing a defender, a trade offer. Every
       client file byte-verified live. (2026-09-13)
-- [ ] M4 rooms. [ ] M5 ship.
+- [x] M4 rooms: `src/room.js` (Durable Object per compartment, step
+      clocks, bot fill, grace takeover, reconnect token, chat, rematch,
+      idle deletion), the lobby view and net mode in `app.js`, 5 room tests
+      over a fake context (own-cards-only views with legal actions, wrong
+      seat ignored and bad action refused, clock timeout decides and says
+      so, chat capped, token reclaims a seat, latecomer spectates).
+      Driven locally in the browser pane: create, add three AI, depart,
+      reveal, chat, a scuffle I won, the clock deciding for me when I let
+      it run out. Deployed; client files byte-verified; a live WebSocket
+      smoke test opened a compartment on production. (2026-09-13)
+- [ ] M5 ship.
