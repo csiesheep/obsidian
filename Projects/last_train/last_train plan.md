@@ -313,7 +313,31 @@ of it. Solo wins with the ticket are 12–25 % at every count: they come in
 long games (solo at turn 100 on average, with real watches and seals, not
 cases) where goal items pile up in whoever wins scuffles. That is a
 property of bots that hoard and declare late more than of the rules;
-the full table below is the baseline to improve on. SIM_TABLE
+the full table below is the baseline to improve on.
+
+**Full table, 100 games a cell, seed 5, 2026-09-13.** Timekeepers win %
+(wrong-declaration % / solo %) · avg turns · declared at mean p → right %.
+The two sides are symmetric by construction, so the win rate is a noise
+check (±10 at 100 games); the columns to read are the wrong and solo
+rates, the length, and the calibration.
+
+| TK / SB | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|
+| easy / easy | 28 (6/49) · 56 · .85→88 | crashed | 50 (29/11) · 86 · .69→67 | 47 (32/11) · 99 · .69→64 | 50 (31/9) · 95 · .68→66 | crashed | 45 (45/4) · 102 · .64→53 | 53 (38/5) · 105 · .67→60 |
+| normal / normal | 32 (24/38) · 142 · .74→61 | 39 (19/25) · 102 · .81→75 | 42 (30/9) · 85 · .76→67 | 54 (12/13) · 81 · .86→86 | 40 (27/10) · 75 · .82→70 | 46 (15/18) · 85 · .86→82 | 51 (25/11) · 75 · .81→72 | 42 (18/17) · 70 · .85→78 |
+| hard / hard | 33 (28/35) · 223 · .73→57 | 40 (23/26) · 148 · .76→69 | 39 (25/23) · 90 · .79→68 | 37 (11/25) · 75 · .88→85 | 40 (17/24) · 77 · .84→78 | 32 (17/19) · 80 · .87→79 | 46 (20/16) · 72 · .85→76 | 43 (17/24) · 76 · .87→78 |
+| normal / hard | 37 (22/42) · 193 · .75→62 | 44 (17/26) · 100 · .86→77 | 37 (22/25) · 68 · .82→71 | 41 (9/16) · 78 · .87→89 | 42 (31/11) · 81 · .77→65 | 42 (8/21) · 74 · .89→90 | 33 (26/17) · 74 · .83→69 | 32 (14/17) · 72 · .90→83 |
+| hard / normal | 23 (19/49) · 190 · .76→63 | 34 (18/29) · 107 · .85→75 | 45 (29/19) · 82 · .77→64 | 40 (12/17) · 77 · .88→86 | 47 (22/14) · 73 · .84→74 | 43 (14/19) · 78 · .86→83 | 44 (16/18) · 77 · .84→80 | 56 (13/18) · 73 · .90→84 |
+
+Reading it: even counts 6–10 land at 70–85 turns with 8–19 % wrong and
+13–25 % solo, calibrated within about 5 points at normal; odd counts run
+5–10 points more overconfident because the drink is a coin flip. Three
+players is the long, swingy game the reviews describe (140–220 turns,
+half of them solo). Hard is not yet stronger than normal in the mixed
+rows: its higher threshold makes it declare later, which the other side
+punishes by declaring first. Easy declares at .65–.69 and is right about
+60 % of the time, which is the intended "loose" feel. The two crashed
+easy cells are a harness or bot fault to run down (see Next steps).
 
 ## Milestones
 - **M0 Scaffold** (repo done, not deployed): router, placeholder, tables +
