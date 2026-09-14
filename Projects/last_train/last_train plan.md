@@ -1,13 +1,13 @@
 ---
 tags: [project]
-status: planned
+status: shipped
 started: 2026-09-13
 ---
 # last_train 末班夜車 — plan
 
-Created 2026-09-13. Repo `csiesheep/last_train`, live at
-`https://games.csiesheep.com/last_train/` (placeholder since 2026-09-13,
-noindex until M5).
+Created 2026-09-13. Repo `csiesheep/last_train`, live and indexed at
+`https://games.csiesheep.com/last_train/` since 2026-09-13 (M0 through M5
+in one day).
 
 ## Overview
 **末班夜車 / The Last Night Train** is a 3–10 player hidden-gang card game,
@@ -462,4 +462,16 @@ Questions 3–8 are taken as recommended unless the owner says otherwise.
       reveal, chat, a scuffle I won, the clock deciding for me when I let
       it run out. Deployed; client files byte-verified; a live WebSocket
       smoke test opened a compartment on production. (2026-09-13)
-- [ ] M5 ship.
+- [x] M5 ship: noindex dropped on both pages, Open Graph / Twitter cards,
+      VideoGame JSON-LD, the 1200×630 social image (dark ticket, Noto
+      Serif TC title, pocket watch at 11:40, drawn with Pillow), a static
+      bilingual paragraph on the landing, the analytics tag; hub tile,
+      root sitemap line (lastmod 2026-09-13) and robots.txt pointer to the
+      game's own sitemap in `~/code/games`. Both Workers deployed and
+      byte-verified. (2026-09-13)
+- [ ] Submit `https://games.csiesheep.com/last_train/` in Search Console
+      (owner's manual step).
+- [ ] AdSense slot: a separate decision, not started.
+- [ ] Later: balance work on the bots (solo/ticket wins 13–25 %, hard not
+      yet stronger than normal); the three official variants and the
+      expansion as data.
