@@ -573,3 +573,15 @@ Questions 3–8 are taken as recommended unless the owner says otherwise.
 - **開場動畫維持 15 秒**：曾問車主要不要縮短或只播第一次，車主回「不會太長」。
 - 過程中修掉的瑕疵：淡入淡出如果在畫面被藏起來（`hidden`）之後才開始就永遠跑不完，殘留那次會把下一段影片壓在不透明度 0（第二段影片整片黑）；收掉影片時一併取消。
 - 驗證：本機把「按知道了 → 漸黑 → 影片 → 漸黑 → 月台」整條時間軸量過（0–1 黑幕、1.0 影片開始、15.1 播完、16.1 漸黑、17.1 換頁、18.1 黑幕退開）；線上量到直向影片 375×487／黑條 4.3cm／可見寬度 44%；39 個單元測試分檔跑全過（`npm test` 併發會讓 bots 那支 37 秒 fuzz 偶發 V8 segfault，與改動無關）；每次部署後逐位元比對。版本 cf742257 → 86ed8837 → d124c3af → 0eee5018。
+
+## 首頁磚與 SEO（2026-09-16 上線）
+
+- **games.csiesheep.com 首頁磚改版**（設計在畫布第十八頁，三案 A 月台／B 車票／C 同車的人，車主選 A）：月台的畫佔磚的上半 214px，夜色漸層蓋下來，「末班夜車」騎進畫腳的黑裡。圖是設計畫布裡的 `hero_dark_a`，壓成 694×385、39 KB、`loading="lazy"`，放在 hub repo 根目錄 `last_train.jpg`。磚 347×515（原 499）。原本那支線稿懷錶 SVG 與 `.tile-watch` 樣式移除。hub 提交 10db0c4、版本 ca153450。
+- **拿掉「同人作品／fan-made · unofficial」**（車主決定）：首頁磚徽章、規則頁中英頁尾、`i18n` 的 `credit` 三處。改成只保留玩法出處：「玩法啟發自 Michael Palm 與 Lukas Zach 設計的《Die Kutschfahrt zur Teufelsburg》；名稱、設定、美術與文字皆為本站原創。」英文同理（Inspired by…）。
+- **SEO**：
+  - 首頁的 `<h1>`、品牌、導覽連結、標語、`meta` 行原本都是空的（由 `data-t` 在 JS 跑完才填），不跑 JS 的爬蟲看到的是一個沒有字的頁面。現在服務端 HTML 直接帶中文字，JS 照舊用訪客語言覆蓋。可爬文字 390 → 493 字元。
+  - `<title>` 從 85 字縮到 60 字；`description` 從 370 字改寫成 162 字（搜尋結果不會被切掉）。規則頁同樣改寫。
+  - 兩頁都加 `hreflang`（zh-Hant／en／x-default）、`robots: index, follow, max-image-preview:large`、`BreadcrumbList` JSON-LD；規則頁補上 `twitter:title/description`、`og:image` 尺寸與 `og:locale`。
+  - `sitemap.xml`（遊戲自己那份）加 `lastmod`／`priority`，程式碼裡用 `LASTMOD` 常數；hub 的 sitemap 把 `/` 與 `/last_train/` 的日期更新到 2026-09-16。
+  - 驗證：Googlebot／bingbot／facebookexternalhit 取首頁都是 200（GPTBot 是 403，Cloudflare 的 AI 爬蟲阻擋，未動）；39 個測試全過；部署後五個檔案逐位元比對一致。遊戲版本 ebd7f4c3，提交 4a3215b。
+- **仍留給車主**：Google Search Console 驗證與提交 sitemap（需要你的 Google 帳號）、AdSense。
