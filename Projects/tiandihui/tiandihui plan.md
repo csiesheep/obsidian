@@ -369,6 +369,15 @@ realistic online use is everyone at a table with their phone.
       short for a real argument.
 
 ## Decisions
+- **2026-09-16** — Reports rounds to the 遊戲路口 portal (try-our-games.vercel.app,
+  slug `tiandihui`) when opened with `?gp_token`. `public/portal.js` is the
+  platform's reference implementation; hooks in `app.js`: `startGame` and the
+  room `view` handler open a round (start first, end_and_restart after, with
+  abandon if the previous game was unfinished), `afterStep` and the room `view`
+  handler report win/lose for the player's own side, a pagehide beacon reports
+  abandon. Tutorial and spectators not reported; no score. Tested live with
+  test account gptest009: 9 rounds (3 win, 2 lose, 4 abandon). Credentials and
+  the dev-panel key stay out of the repo and this vault.
 - **2026-09-13** — Tutorial shipped: `?tutorial` (five-step primer) and
   `?play=tutorial` (guided five-seat game, you are always a brother, informers
   fixed at Ma San and Xiuniang, bots scripted while on rails, six guide slips
