@@ -260,6 +260,15 @@ two stability-2 spaces).
    game against 0.2 滅, and 24 % of random games end on four seals, none on
    three 滅. Owner's call 2026-09-18: let the M2 harness decide; the fallbacks
    are five seals, or seals that need the capital at the cap.
+9. **楚滅越 has no Qin counterpart.** Its lasting +1 on every South scoring is
+   worth about 2.5 Mandate a game for Chu; Qin's 白起破郢 lost its v1 scoring
+   clause. Recommendation: give 司馬錯伐蜀 "此後西土記分時秦 +1", or make
+   楚滅越 a one-off.
+10. **Domination with a single battleground.** As written, one controlled
+    battleground in an otherwise empty region is 優勢 (more spaces and more
+    battlegrounds than nobody). Twilight Struggle also asks for a
+    non-battleground. Recommendation: keep; it rewards the first entry into
+    an empty region and the bots handle it.
 
 ## Decisions
 - **2026-09-18** Scoring cards re-split by era: 三晉, 西土, 南方 in the reform
