@@ -5,6 +5,10 @@ started: 2026-09-18
 ---
 # warring states
 
+> [!tip] v2 規則已另立
+> 2026-09-18 起,實作用的規則在 [[zongheng - rulebook]],計畫在 [[zongheng plan]]。
+> 本文保留為 v1 原型與設計史,不再更新。v2 對 v1 的逐項差異見 rulebook 第六節。
+
 戰國七雄主題的網頁版卡驅動桌遊(CDG),機制移植自《冷戰熱鬥》(Twilight Struggle)
 並做過簡化。**目前只有設計,尚未寫任何程式碼。**
 
