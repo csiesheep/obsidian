@@ -304,8 +304,12 @@ two stability-2 spaces).
       keeps one clock per decision kind, lets the bot play its seat and any
       away seat, sends per-seat views; 4 tests over a fake context. The
       client's socket path is not written yet. (2026-09-18)
+- [x] M4 client: create or join from the landing, lobby (code, seats, swap,
+      bot fill, level, start), the table driven by the room's view, actions
+      over the socket, clock in the bar, rematch from the lobby. Walked through
+      against wrangler dev. Chat and reconnect-after-drop not exercised yet. (2026-09-18)
 - [ ] Decide the seal rule from the hard-vs-hard batch; write it into the rulebook.
-- [ ] M4 client: socket path, lobby, rematch. Then M5.
+- [ ] M5: rules page, deploy the playable build (still noindex), then the ship checklist.
 
 Owner's direction (2026-09-18): little effort on UI (it will be redesigned with
 image and video generators); make the engine, the balance and the play flow
