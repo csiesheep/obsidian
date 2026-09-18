@@ -316,7 +316,9 @@ two stability-2 spaces).
 - [x] M4 client: create or join from the landing, lobby (code, seats, swap,
       bot fill, level, start), the table driven by the room's view, actions
       over the socket, clock in the bar, rematch from the lobby. Walked through
-      against wrangler dev. Chat and reconnect-after-drop not exercised yet. (2026-09-18)
+      against wrangler dev with a bot seat, and with two humans in two tabs:
+      each tab saw only its own hand, the setup handed over, and a reload got
+      the seat back with the tab's token. Chat is not wired in the client yet. (2026-09-18)
 - [ ] Decide the seal rule from the hard-vs-hard batch; write it into the rulebook.
 - [ ] M5: rules page, deploy the playable build (still noindex), then the ship checklist.
 
