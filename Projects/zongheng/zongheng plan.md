@@ -292,7 +292,20 @@ two stability-2 spaces).
       fuzz over random legal games with invariants after every action, a
       replay check. Random play: 200 games end in 6.0 turns on average, every
       one of the six endings occurs. (2026-09-18)
-- [ ] M2: bots and the harness over the open numbers.
+- [x] M2: `bots.js` (easy random, normal one ply from the seat's view with a
+      determinized guess of the unknown, hard adds the other side's best reply)
+      and `tests/sim.js` (rules cells in 10-game child processes with retries;
+      `--cells`, `--only=`, `k=v` options). First tables in the Balance log. (2026-09-18)
+- [x] M3 first cut: solo client plays end to end against the bot in the
+      browser pane (setup, headline, every kind of choice, campaign preview,
+      game over); `?play&auto` watches the bot play both seats. Plain look on
+      purpose. Rules page and polish remain. (2026-09-18)
+- [x] M4 server side: `src/room.js` deals, applies actions through the engine,
+      keeps one clock per decision kind, lets the bot play its seat and any
+      away seat, sends per-seat views; 4 tests over a fake context. The
+      client's socket path is not written yet. (2026-09-18)
+- [ ] Decide the seal rule from the hard-vs-hard batch; write it into the rulebook.
+- [ ] M4 client: socket path, lobby, rematch. Then M5.
 
 Owner's direction (2026-09-18): little effort on UI (it will be redesigned with
 image and video generators); make the engine, the balance and the play flow
