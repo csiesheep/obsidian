@@ -245,6 +245,12 @@ side's path, not the opponent's skill.
 | sealAt=cap + comp 0 | 43 | 6.1 | 18 % | 33 % | 23 % | −2.2 |
 | sealAt=cap + tie to Qin | 28 | 6.1 | 24 % | 37 % | 23 % | −4.8 |
 
+**2026-09-18, the decided rules, normal vs normal, 400 games, seeds 11000+**: Qin 44 %
+(±5), mean turn 5.8, mandate −1.9; endings 天命 37 %, 終局 19 %, 合縱 18 %,
+記分 18 %, 一統 4 %, 土崩 4 %, 平手 2 %; West 3.6 : 0.7, South 0.1 : 4.3. The
+hard-vs-hard confirmation died at 120 of 150 games when one chunk crashed
+Node five times running; the harness now replays such a chunk game by game.
+
 At 200 games a cell one estimate is good to about ±7, so the 39 and the 46
 for the two comp-0 cells are the same number. Ties are 1 to 3 % of games:
 the tie rule does not matter.
