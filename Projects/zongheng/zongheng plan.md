@@ -218,6 +218,14 @@ the hand is a horizontal tray, the action sheet slides up.
 5. **Map style**: schematic with fixed positions (recommended for a phone) or
    a drawn geographic map.
 6. **Bot names**: historical generals and ministers as above, or invented.
+7. **南方 is worth more than 西土** (2/5/7 against 2/4/6, from v1, no reason
+   given). With both homes now scored equally often, random play still nets
+   Chu 5.0 a scoring in the South against Qin's 3.6 in the West. Recommendation:
+   make them equal (2/4/6 both) unless the M2 harness shows Qin ahead.
+8. **相印 is much easier to progress than 滅**: random play pays 2.9 seals a
+   game against 0.2 滅, and 24 % of random games end on four seals, none on
+   three 滅. Real Qin play defends capitals, so wait for M2; the fallbacks are
+   five seals, or seals that need the capital at the cap.
 
 ## Decisions
 - **2026-09-18** Scoring cards re-split by era: 三晉, 西土, 南方 in the reform
@@ -245,7 +253,12 @@ the hand is a horizontal tray, the action sheet slides up.
       c2e73fdd); all 9 served files byte-identical to the repo, `/zongheng`
       301s, `/zongheng/index.html` 307s back under the prefix, sitemap has 2
       urls, `noindex` live, `src/` not served, hub and tiandihui still 200. (2026-09-18)
-- [ ] M1: engine, cards, tests.
+- [x] M1: engine (`engine.js`, a plan-and-pending machine), the 72 cards
+      (`cards.js`), 47 tests: board, one test per rule, the tricky cards, a
+      fuzz over random legal games with invariants after every action, a
+      replay check. Random play: 200 games end in 6.0 turns on average, every
+      one of the six endings occurs. (2026-09-18)
+- [ ] M2: bots and the harness over the open numbers.
 
 Owner's direction (2026-09-18): little effort on UI (it will be redesigned with
 image and video generators); make the engine, the balance and the play flow
