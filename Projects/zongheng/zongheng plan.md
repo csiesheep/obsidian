@@ -6,8 +6,8 @@ slug: zongheng
 ---
 # 縱橫 zongheng - plan
 
-Created 2026-09-18. Repo `csiesheep/zongheng` (not yet created), live at
-`https://games.csiesheep.com/zongheng/` (not yet).
+Created 2026-09-18. Repo https://github.com/csiesheep/zongheng (created
+2026-09-18), live at `https://games.csiesheep.com/zongheng/` (not deployed yet).
 
 ## Overview
 **縱橫 / Zongheng** is a two-player card-driven strategy game set in the Warring
@@ -208,8 +208,7 @@ the hand is a horizontal tray, the action sheet slides up.
 - M5 Ship: noindex off, OG image, JSON-LD, hub tile, sitemap. One day.
 
 ## Open questions (decide before M0)
-1. **Name** 縱橫 / Zongheng (recommended; it names the two strategies and the
-   quote), or 逐鹿 / Zhulu, or 問鼎 / Wending. Decides slug, repo and Worker.
+1. ~~**Name**~~ Decided 2026-09-18: 縱橫 / Zongheng, slug `zongheng`.
 2. **Ship the v2 rules as written**, with the nine numbers left to the
    harness in M2. Recommendation: yes; a paper prototype cannot answer them.
 3. **遊說 in v1**. Recommendation: keep; it is the only unlockable answer to the
@@ -221,6 +220,11 @@ the hand is a horizontal tray, the action sheet slides up.
 6. **Bot names**: historical generals and ministers as above, or invented.
 
 ## Decisions
+- **2026-09-18** Name confirmed by the owner: 縱橫 / Zongheng, slug `zongheng`.
+  Repo `csiesheep/zongheng` created from the `tiandihui` shape (prefix router,
+  Durable Object shell with two seats, i18n files, `node --test` layout) plus
+  the board data (`public/shared/board.js`) and its integrity tests. Placeholder
+  page is `noindex`. Not deployed; M0's deploy is the next step.
 - **2026-09-18** Design v2 written as the implementation spec
   ([[zongheng - rulebook]]): asymmetric instant wins (滅國 / 相印), three eras,
   征伐 with region locks, 遊說, reform track cut to 6 boxes, final scoring,
@@ -229,7 +233,8 @@ the hand is a horizontal tray, the action sheet slides up.
   owner picks another name.
 
 ## Next steps
-- [ ] Owner confirms the name and the open questions above.
-- [ ] Create repo `csiesheep/zongheng` from the `tiandihui` skeleton (after the name).
-- [ ] M0 placeholder at the URL.
+- [x] Owner confirms the name: 縱橫 / Zongheng. (2026-09-18)
+- [ ] Owner answers open questions 2 to 6 (defaults stand if not).
+- [x] Create repo `csiesheep/zongheng` from the `tiandihui` skeleton. (2026-09-18)
+- [ ] M0: deploy the placeholder at the URL, verify the routes and the bytes.
 - [ ] M1 engine.
