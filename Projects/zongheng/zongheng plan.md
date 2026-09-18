@@ -194,6 +194,43 @@ the hand is a horizontal tray, the action sheet slides up.
 - "Feels human": the bot holds scoring cards until the region is set up,
   dumps opponent events into 變法 or 說客, and never walks into 土崩.
 
+## Balance log (bot vs bot, `node tests/sim.js`)
+
+Read as signals with about ±8 points at 100 to 150 games a cell. Both seats
+use the same bot, so an asymmetry is the rules or the bot's handling of one
+side's path, not the opponent's skill.
+
+**2026-09-18, normal vs normal, 100 games a cell, seeds 1000+**
+
+| cell | Qin % | mean turn | 合縱 | 天命 | 一統 | note |
+|---|---|---|---|---|---|---|
+| base (4 seals on control) | 15 | 3.9 | 72 % | 13 % | 3 % | seals end most games by turn 4 |
+| seals=5 | 29 | 5.3 | 33 % | 35 % | 3 % | |
+| sealAt=cap | 29 | 5.7 | 20 % | 47 % | 2 % | seal needs Chu at stability +2 in the capital |
+| mie=2 | 29 | 3.3 | 61 % | 11 % | 21 % | a race, not a fix |
+| cap=3 | 23 | 4.0 | 68 % | 17 % | 1 % | |
+| comp=0 / comp=4 | 20 / 26 | 3.7 / 3.9 | 63 / 62 % | | | within noise |
+| homeLock=3 | 29 | 3.7 | 65 % | 17 % | | |
+| luoyi=0.5, turns=9 | 15, 19 | | 73, 69 % | | | no effect |
+| scoringSplit=v2 | 12 | 3.5 | 42 % | 35 % | | mandate −10.6: the old split again |
+| qin=hard / chu=hard | 33 / 17 | | 46 / 72 % | | | a deeper Qin defends better |
+| qin=easy / chu=easy | 1 / 100 | | | | | levels order correctly |
+
+**2026-09-18, hard vs hard, 150 games, seeds 5000+**
+
+| cell | Qin % | mean turn | 合縱 | 天命 | 終局 | mandate |
+|---|---|---|---|---|---|---|
+| base | 27 | 4.2 | 58 % | 18 % | 7 % | +0.5 |
+| sealAt=cap | 30 | 6.2 | 23 % | 34 % | 23 % | −4.8 |
+
+Reading: four seals on plain control decide most games before the alliance
+era; requiring the cap (or five seals) turns them back into one threat among
+several and lets games run six turns. Qin still sits near 30 %, so a second
+lever is needed after the seal fix; candidates are the Chu bonus points, the
+tie rule, and the South's structural edge (Chu's home tallies 4.3 a scoring
+against Qin's 3.0 in the West with equal values: 楚滅越's +1 and the South's
+two stability-2 spaces).
+
 ## Milestones
 - M0 Scaffold: repo from `tiandihui`, `PREFIX /zongheng`, Worker `zongheng`,
   routes, placeholder (noindex), deploy, verify bytes. Half a day.
