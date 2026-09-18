@@ -231,6 +231,23 @@ side's path, not the opponent's skill.
 | cap + 函谷關 3 | 34 | 5.6 | 29 % | 40 % | −3.4 | 3.2 : 0.3 | 0.1 : 4.4 |
 | cap + 函谷關 3 + comp 0 | 46 | 5.6 | 17 % | 37 % | −1.5 | 3.1 : 0.3 | 0.1 : 4.4 |
 
+| cap + 五國伐秦 not 關中 | 35 | 5.5 | 22 % | 40 % | −4.7 | 3.1 : 0.8 | 0.1 : 4.4 |
+| cap + 函谷關 3 + 五國伐秦 | 41 | 5.6 | 22 % | 38 % | −2.5 | 3.6 : 0.7 | 0.1 : 4.2 |
+| cap + 函谷關 3 + 五國伐秦 + comp 0 (**decided**) | 39 | 5.7 | 19 % | 41 % | −3.2 | 3.6 : 0.8 | 0.1 : 4.3 |
+| 5 seals on control + 函谷關 3 + 五國伐秦 | 49 | 5.5 | 21 % | 34 % | +0.5 | 3.7 : 0.8 | 0.1 : 4.2 |
+
+**2026-09-18, hard vs hard, 120 games a cell, seeds 5000+**
+
+| cell | Qin % | mean turn | 合縱 | 天命 | 終局 | mandate |
+|---|---|---|---|---|---|---|
+| seals=5 | 38 | 5.5 | 18 % | 34 % | 17 % | −1.5 |
+| sealAt=cap + comp 0 | 43 | 6.1 | 18 % | 33 % | 23 % | −2.2 |
+| sealAt=cap + tie to Qin | 28 | 6.1 | 24 % | 37 % | 23 % | −4.8 |
+
+At 200 games a cell one estimate is good to about ±7, so the 39 and the 46
+for the two comp-0 cells are the same number. Ties are 1 to 3 % of games:
+the tie rule does not matter.
+
 Home regions, 40 bot games under sealAt=cap: when the West scores Qin controls
 關中 31 % of the time (presence 57 %, domination 31 %, nothing 12 %); when the
 South scores Chu controls 郢 71 % of the time (domination 70 %). Qin's home is
@@ -270,7 +287,7 @@ two stability-2 spaces).
    a drawn geographic map.
 6. **Bot names**: historical generals and ministers as above, or invented.
 7. ~~**南方 is worth more than 西土**~~ Decided 2026-09-18: equal, 2/4/6 both.
-8. **相印 is much easier to progress than 滅**: random play pays 2.9 seals a
+8. ~~**相印 is much easier to progress than 滅**~~ Decided 2026-09-18 from the harness: a seal needs the capital at the cap. Original note: **相印 was much easier to progress than 滅**: random play pays 2.9 seals a
    game against 0.2 滅, and 24 % of random games end on four seals, none on
    three 滅. Owner's call 2026-09-18: let the M2 harness decide; the fallbacks
    are five seals, or seals that need the capital at the cap.
@@ -285,6 +302,15 @@ two stability-2 spaces).
     an empty region and the bots handle it.
 
 ## Decisions
+- **2026-09-18** Rules decided from the harness and made the engine defaults:
+  a 相印 needs control of the capital with Chu's influence at the cap; 函谷關
+  starts at 3; Chu's 2 bonus points are gone; 五國伐秦 cannot target 關中.
+  Five seals balanced as well in the bots but would be blocked for good by a
+  human Qin camping one capital. Qin lands at 39 to 46 % with normal bots
+  (±7); a confirmation run at 400 games is on disk under %TEMP%. The first
+  drafts stay reachable as harness options. Playable build deployed
+  (version fe5080f7), all 12 served files byte-identical, a room created and
+  played on production.
 - **2026-09-18** Scoring cards re-split by era: 三晉, 西土, 南方 in the reform
   deck; 東方, 北疆 in the alliance deck. The first draft (東方 early, 西土 late)
   scored Chu's home 2.5 times a game against Qin's once, about 10 Mandate a
@@ -333,7 +359,14 @@ two stability-2 spaces).
       against wrangler dev with a bot seat, and with two humans in two tabs:
       each tab saw only its own hand, the setup handed over, and a reload got
       the seat back with the tab's token. Chat is not wired in the client yet. (2026-09-18)
-- [ ] Decide the seal rule from the hard-vs-hard batch; write it into the rulebook.
+- [x] Seal rule and setup decided from the harness, written into the rulebook
+      with dated why-notes, made the engine defaults, 59 tests pass. (2026-09-18)
+- [x] Playable build deployed and byte-verified, still `noindex`; rules page
+      live at `/zongheng/rules`; a production room created, bot added, game
+      started and played to the first headline. (2026-09-18)
+- [ ] Balance round 2 at 1,000 games a cell: Qin is still a little under 50 %;
+      candidates are a West scoring bonus for Qin to mirror 楚滅越, and the
+      bots' handling of Qin's home.
 - [ ] M5: rules page, deploy the playable build (still noindex), then the ship checklist.
 
 Owner's direction (2026-09-18): little effort on UI (it will be redesigned with
