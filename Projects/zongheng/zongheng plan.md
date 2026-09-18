@@ -7,7 +7,8 @@ slug: zongheng
 # 縱橫 zongheng - plan
 
 Created 2026-09-18. Repo https://github.com/csiesheep/zongheng (created
-2026-09-18), live at `https://games.csiesheep.com/zongheng/` (not deployed yet).
+2026-09-18), live at https://games.csiesheep.com/zongheng/ (playable, still
+`noindex`, since 2026-09-18).
 
 ## Overview
 **縱橫 / Zongheng** is a two-player card-driven strategy game set in the Warring
