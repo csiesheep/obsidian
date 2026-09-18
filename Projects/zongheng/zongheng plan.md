@@ -218,14 +218,11 @@ the hand is a horizontal tray, the action sheet slides up.
 5. **Map style**: schematic with fixed positions (recommended for a phone) or
    a drawn geographic map.
 6. **Bot names**: historical generals and ministers as above, or invented.
-7. **南方 is worth more than 西土** (2/5/7 against 2/4/6, from v1, no reason
-   given). With both homes now scored equally often, random play still nets
-   Chu 5.0 a scoring in the South against Qin's 3.6 in the West. Recommendation:
-   make them equal (2/4/6 both) unless the M2 harness shows Qin ahead.
+7. ~~**南方 is worth more than 西土**~~ Decided 2026-09-18: equal, 2/4/6 both.
 8. **相印 is much easier to progress than 滅**: random play pays 2.9 seals a
    game against 0.2 滅, and 24 % of random games end on four seals, none on
-   three 滅. Real Qin play defends capitals, so wait for M2; the fallbacks are
-   five seals, or seals that need the capital at the cap.
+   three 滅. Owner's call 2026-09-18: let the M2 harness decide; the fallbacks
+   are five seals, or seals that need the capital at the cap.
 
 ## Decisions
 - **2026-09-18** Scoring cards re-split by era: 三晉, 西土, 南方 in the reform
