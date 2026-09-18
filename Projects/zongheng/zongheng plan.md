@@ -223,6 +223,20 @@ side's path, not the opponent's skill.
 | base | 27 | 4.2 | 58 % | 18 % | 7 % | +0.5 |
 | sealAt=cap | 30 | 6.2 | 23 % | 34 % | 23 % | −4.8 |
 
+**2026-09-18, normal vs normal, 200 games a cell, seeds 7000+ (after the harness merge fix; every cell prints its n)**
+
+| cell | Qin % | mean turn | 合縱 | 天命 | mandate | West Q:C | South Q:C |
+|---|---|---|---|---|---|---|---|
+| sealAt=cap | 33 | 5.4 | 24 % | 40 % | −4.6 | 2.6 : 0.4 | 0.1 : 4.5 |
+| cap + 函谷關 3 | 34 | 5.6 | 29 % | 40 % | −3.4 | 3.2 : 0.3 | 0.1 : 4.4 |
+| cap + 函谷關 3 + comp 0 | 46 | 5.6 | 17 % | 37 % | −1.5 | 3.1 : 0.3 | 0.1 : 4.4 |
+
+Home regions, 40 bot games under sealAt=cap: when the West scores Qin controls
+關中 31 % of the time (presence 57 %, domination 31 %, nothing 12 %); when the
+South scores Chu controls 郢 71 % of the time (domination 70 %). Qin's home is
+the fragile one: it starts with one controlled space to Chu's two, and Chu's
+early 五國伐秦 strikes it in the era the West scores.
+
 Reading: four seals on plain control decide most games before the alliance
 era; requiring the cap (or five seals) turns them back into one threat among
 several and lets games run six turns. Qin still sits near 30 %, so a second
