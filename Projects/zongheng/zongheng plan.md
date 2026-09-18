@@ -220,6 +220,11 @@ the hand is a horizontal tray, the action sheet slides up.
 6. **Bot names**: historical generals and ministers as above, or invented.
 
 ## Decisions
+- **2026-09-18** Scoring cards re-split by era: 三晉, 西土, 南方 in the reform
+  deck; 東方, 北疆 in the alliance deck. The first draft (東方 early, 西土 late)
+  scored Chu's home 2.5 times a game against Qin's once, about 10 Mandate a
+  game before any play. The old split stays in the engine as harness cell
+  `scoringSplit: "v2"`.
 - **2026-09-18** Name confirmed by the owner: 縱橫 / Zongheng, slug `zongheng`.
   Repo `csiesheep/zongheng` created from the `tiandihui` shape (prefix router,
   Durable Object shell with two seats, i18n files, `node --test` layout) plus
