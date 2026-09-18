@@ -371,6 +371,11 @@ two stability-2 spaces).
 - [x] Playable build deployed and byte-verified, still `noindex`; rules page
       live at `/zongheng/rules`; a production room created, bot added, game
       started and played to the first headline. (2026-09-18)
+- [x] Client: room chat, solo games saved in the browser and resumable from
+      the landing, a rules link on every view, a per-state progress row, a
+      "since your last action" strip, a result screen with a way back to the
+      final board, English text for all 72 cards. Deployed (version f47d0f1f)
+      and byte-verified. (2026-09-18)
 - [ ] Balance round 2 at 1,000 games a cell: Qin is still a little under 50 %;
       candidates are a West scoring bonus for Qin to mirror 楚滅越, and the
       bots' handling of Qin's home.
