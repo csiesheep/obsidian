@@ -236,5 +236,13 @@ the hand is a horizontal tray, the action sheet slides up.
 - [x] Owner confirms the name: 縱橫 / Zongheng. (2026-09-18)
 - [ ] Owner answers open questions 2 to 6 (defaults stand if not).
 - [x] Create repo `csiesheep/zongheng` from the `tiandihui` skeleton. (2026-09-18)
-- [ ] M0: deploy the placeholder at the URL, verify the routes and the bytes.
+- [x] M0: placeholder deployed with `npx wrangler deploy` (version
+      c2e73fdd); all 9 served files byte-identical to the repo, `/zongheng`
+      301s, `/zongheng/index.html` 307s back under the prefix, sitemap has 2
+      urls, `noindex` live, `src/` not served, hub and tiandihui still 200. (2026-09-18)
+- [ ] M1: engine, cards, tests.
+
+Owner's direction (2026-09-18): little effort on UI (it will be redesigned with
+image and video generators); make the engine, the balance and the play flow
+right first.
 - [ ] M1 engine.
