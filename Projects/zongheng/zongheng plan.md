@@ -330,6 +330,20 @@ three states shapes play more than it wins (rulebook 未決項 2).
     an empty region and the bots handle it.
 
 ## Decisions
+- **2026-09-18** The owner signed off the C2 UI design ("C2: every page" on the canvas): landing at two
+  iPhone sizes with a neutral-card multiplayer block, solo setup that wears the chosen side (black / dark
+  red / white), table pages on the light C1 map with soft region tints and strong names, a dark red lower
+  half when seated as Chu, card sheets that wear the card (Chu dark red, Qin black, neutral and scoring
+  white), one identical frame on all 23 Qin illustrations, no mixed Chinese and English labels except 秦,
+  楚 and the title. Next the owner wants seven videos, done one by one, three ideas and a 10 s ComfyUI
+  clip each, with the user scenario shown:
+  1. opening video, then the landing page
+  2. start a game as Qin, then the table
+  3. start a game as Chu, then the table
+  4. win as Qin, then the Qin win page
+  5. lose as Qin, then the Chu win page
+  6. win as Chu, then the Chu win page (the owner wrote "Qin win page"; read as a slip, to confirm)
+  7. lose as Chu, then the Qin win page (the owner wrote "CHU win page"; same)
 - **2026-09-18** From here on Zongheng is built by a team, not by one session. An
   orchestrator session opened in the repo writes issues and dispatches each to a
   subagent whose model fits the role (`peer-be` Opus, `peer-fe`, `peer-writer` and
