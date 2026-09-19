@@ -140,6 +140,9 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — M3 第一輪(csiesheep/bored_games#5 writer、#6 FE,平行派、檔案不重疊)走完。驗收先 land(`7d37e85`):輸入手感的常數和純函式逐條(數字抄自規則筆記)、en / zh-Hant 的 key 和洞一致、前端不可寫死中文、i18n 真的有用到;i18n 的 53 個 key 是 orchestrator 定的命名空間。#5 退回一次(兩個英文字串)→ `3d594c3`;#6 退回一次(英文封面斷行)→ main @ `66361d4`,68 / 0 / 0,已部署,線上 13 個檔案 sha1 相同,線上實際開過遊戲頁。
 - **2026-09-19** — #6 的驗證:390 × 669 打完一局(真實時間間隔的 pointer 事件),`replay(seed, actions)` 和畫面的 state 相同;把引擎的命中判斷改成 `if (false)`,3 條線穿過敵機、畫面不擊毀 → 前端沒有自己算規則;對坐時座位 1 的提示在上方轉 180°。前端多了 `window.__dogfight.record()` 給驗證用。儀器限制:瀏覽器 pane 隱藏時 rAF 幾乎停住,畫格用 MessageChannel 幫浦推;動畫節奏沒在正常速度下看過。
 - **2026-09-19** — orchestrator 裁決(都可以被 owner 推翻):評語門檻 = 贏家剩 3 / 2 / 1 架 → 甲上 / 甲 / 乙上,單人輸了或平手不給(#6);`public/shared/i18n.js` 歸 FE(`TEAM.md`);`msg.cap` 英文上限放寬到 28 字元(#5)。
+- **2026-09-19** — owner 裁決(csiesheep/bored_games#7),原話:「move the language switch to the top right corner」。orchestrator 的解讀:封面頁、整個頁面的右上角、卡片外面;其他頁面不動。land `2797788`,已部署。
+- **2026-09-19** — M3 第二輪「自己畫飛機」走完:#8 BE(`art` 欄位,`setup(seed, {art})` 嚴格驗證、不影響任何規則;上限 16 條 / 400 點,orchestrator 裁決,已寫進規則筆記)land `bbd2c89`;#9 FE(三個畫框、`toArt`、對坐時黑筆那一頁轉 180°、畫存在 `localStorage`)land `5c14c60`。main @ `5c14c60`,76 / 0 / 0,已部署,線上 14 個檔案 sha1 相同。M3 的範圍到這裡做完,剩 owner 的 iPhone 驗收。
+- **2026-09-19** — 這一輪儀器騙過我一次:隱藏的瀏覽器 pane 不送 `resize` 事件(也不送 `ResizeObserver` 通知),我把「canvas 沒跟著縮」當成產品缺陷退回 #9;FE 量到「`resize` 0 次」才找到根因。修法改成不靠事件(CSS 填滿),所以結果仍然是改善,但那次退回的理由有一半是儀器。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
@@ -152,4 +155,5 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [ ] Owner:在 csiesheep/bored_games#4 回先手勝率和每局出手數怎麼處理(起始帶、5 架、或等 M3 的手感)。
 - [x] Orchestrator:M3 第一輪:封面、開局、單人、對坐、結束、規則頁、i18n。2026-09-19(#5、#6,main @ `66361d4`)
 - [ ] Owner:在 iPhone 上玩 https://games.csiesheep.com/bored_games/(真的手指、可見高度、動畫節奏),回報手感。
-- [ ] Orchestrator:M3 第二輪:自己畫飛機(BE 加 `art` 欄位 + FE 畫框),等 owner 的 iPhone 回報一起收。
+- [x] Orchestrator:M3 第二輪:自己畫飛機。2026-09-19(#8、#9,main @ `5c14c60`);封面語言切換移到右上角(#7)。
+- [ ] Orchestrator:M4 Rooms(兩座位 DO、回合時鐘、bot 頂替、重連)——開工前要 owner 在 #2 的裁決;開新的 orchestrator session。
