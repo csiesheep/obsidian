@@ -134,6 +134,9 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — Phase 0 的引擎切片:13 個注入和 fuzz 都沒有找到缺陷。它現在被驗收獨立看過了,但還沒在 Worker / DO 裡跑過(M4)。
 - **2026-09-19** — orchestrator 裁決(#1):平手的表示法是 `over === true` 而且 `winner === null`,不加新欄位。
 - **2026-09-19** — 待 owner 裁決(csiesheep/bored_games#2):`view` 要不要藏 `seed` / `rng`。這份計畫的 Architecture 寫「回傳整個 state」,但 `rng` 決定下一手的誤差和弧度:客戶端可以算出必中的手,bot 的 Monte Carlo 會變成偷看答案。M2 開工前要定。
+- **2026-09-19** — M2(csiesheep/bored_games#3)走完派 → 交付 → 驗 → land。驗收先寫先 land(`7069370`):bot 只拿得到拿掉 `seed` / `rng` 的 view,所以 #2 怎麼裁決都成立。BE 交 `94f7436`:`bots.js`(三個等級;Monte Carlo 用 bot 自己的亂數配 `trace()`,不 `apply`)和 `tests/sim.js`。main @ `b6723cf`,61 / 0 / 0,已部署,線上 5 個檔案 sha1 相同。9 個注入各紅在該紅的列(混進 `view.rng` → 只有「不偷看」紅,三種 view 三個角度)。
+- **2026-09-19** — M2 量到的三張表(每格 600 局,`sim.js` 和 orchestrator 自己的探針兩支儀器一致):階梯 hard 對 easy 80.3% / 78.8%(目標 ≥ 75%,達標);**座位 0 勝率 easy / normal / hard = 37.5 / 29.0 / 23.8%(目標 50 ± 5,沒到,而且是後手優勢,跟未知數 #5 假設的方向相反)**;**每局出手數 p50 = 6(目標 8 到 16,沒到)**;耗到上限 0 局。`choose` hard 平均 1.2 ms(桌機)。
+- **2026-09-19** — 旋鈕探針(只在探針行程裡改 `RULES`,repo 沒動;hard 同級 600 局):起始帶是唯一有力的旋鈕——40–120 → 14.5%、現在 90–260 → 26.8%、180–350 → 43.8%、200–380 → 55.7%;命中半徑、誤差、弧度幾乎沒用;縮短最遠距離更糟。沒有旋鈕把出手數拉過平均 7.5。待 owner 裁決:csiesheep/bored_games#4。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
@@ -142,4 +145,6 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [x] Owner's second go: the orchestrator session starts M1. 2026-09-19(task chip「Run the bored_games orchestrator」,cwd 在 repo;目標 M1 引擎,優先序:數值表逐條有測試 → fuzz → 重播)
 - [x] Orchestrator:第一張 issue 走完派 → 交付 → 驗 → land,回報 owner。2026-09-19(#1,main @ `e3085f6`)
 - [ ] Owner:在 csiesheep/bored_games#2 回 `view` 要不要藏 `seed` / `rng`(M2 開工前)。
-- [ ] Orchestrator:M2 bots + harness(先手勝率、每局出手數、等級階梯);bot 只拿 `view`。
+- [x] Orchestrator:M2 bots + harness。2026-09-19(#3,main @ `b6723cf`)
+- [ ] Owner:在 csiesheep/bored_games#4 回先手勝率和每局出手數怎麼處理(起始帶、5 架、或等 M3 的手感)。
+- [ ] Orchestrator:M3 Solo + 對坐 UI(FE / writer / artist);不被 #2、#4 擋住,數值都在 `RULES`。
