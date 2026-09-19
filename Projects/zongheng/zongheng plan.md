@@ -166,9 +166,10 @@ zongheng/
 ## Pages and UI
 | Route | View | What is on it |
 |---|---|---|
-| `/zongheng/` | Landing | Title 縱橫, tagline, the map as art, **Play vs bot**, **Create room**, **Join** (code), rules link, credit line |
-| `?play` | Solo setup | Side 秦 / 楚 / random, bot level, your name, language → Start |
-| `?room=ABCD` | Lobby | Code, two seats (human / bot badges), side pick, level, Start |
+| `/zongheng/` | Landing (`index.html`, `landing.js`) | Title 縱橫, tagline, the map as art, your name, **Resume your game** and **Back to room CODE** when there is one, **Play vs bot**, **Create room**, **Join** (code), rules link, credit line |
+| `/zongheng/play` | Game page (`play.html`, `app.js`) | Everything below; the bar carries the return link ‹ 縱橫 to the landing |
+| `play?play` | Solo setup | Side 秦 / 楚 / random, bot level, your name, language → Start |
+| `play?room=ABCD`, `play?create=1` | Lobby | Code, two seats (human / bot badges), side pick, level, Start |
 | (in game) | Headline | Both hands face down until committed; reveal in ops order |
 | (in game) | Table | Map (pan/zoom), three tracks, era and turn, hand tray, action sheet: event / place / 征伐 / 遊說 / 變法 with legal targets lit |
 | Table › Place | Tap spaces to drop points; the cost per point shown (1 or 2); cap warnings |
@@ -269,6 +270,24 @@ tie rule, and the South's structural edge (Chu's home tallies 4.3 a scoring
 against Qin's 3.0 in the West with equal values: 楚滅越's +1 and the South's
 two stability-2 spaces).
 
+### Round 2, 2026-09-18: the two lasting scoring clauses
+Normal vs normal, 1,000 games a cell, the same seeds (20000+) in every cell,
+run in batches of 5 (`--chunk=5`) with resume. About ±3 points at this size.
+
+| cell | Qin wins | mean Mandate | 滅 | 相印 | turns |
+|---|---|---|---|---|---|
+| round-1 rules | 39 % | -2.7 | 1.14 | 2.59 | 5.8 |
+| westBonus: 司馬錯伐蜀 adds a lasting West +1 for Qin | 42 % | -1.4 | 1.14 | 2.66 | 5.8 |
+| noYue: 楚滅越 loses its lasting South +1 | 45 % | -0.4 | 1.19 | 2.65 | 6.0 |
+| both | **50 %** | **+0.8** | 1.18 | 2.63 | 5.9 |
+
+Endings with both: 一統 3 %, 合縱 17 %, 天命 38 %, 土崩 4 %, 記分 18 %, 終局
+20 %, 平手 1 %. Home tallies a scoring: the West 4.2 to 0.7, the South 0.1 to
+3.8, so the two homes now pay the same. Both clauses are the engine defaults
+(repo `9f083a5`, deployed `b821476e`, byte-verified); the old pair is the
+`round1Rules` harness cell. Still open: 一統 ends only 3 % of bot games, so 滅
+three states shapes play more than it wins (rulebook 未決項 2).
+
 ## Milestones
 - M0 Scaffold: repo from `tiandihui`, `PREFIX /zongheng`, Worker `zongheng`,
   routes, placeholder (noindex), deploy, verify bytes. Half a day.
@@ -298,7 +317,9 @@ two stability-2 spaces).
    game against 0.2 滅, and 24 % of random games end on four seals, none on
    three 滅. Owner's call 2026-09-18: let the M2 harness decide; the fallbacks
    are five seals, or seals that need the capital at the cap.
-9. **楚滅越 has no Qin counterpart.** Its lasting +1 on every South scoring is
+9. ~~**楚滅越 has no Qin counterpart.**~~ Decided 2026-09-18 from round 2 of the
+   harness: 司馬錯伐蜀 gains "此後西土記分時秦 +1" and 楚滅越 becomes two points
+   and nothing more (Qin 50 % over 1,000 games). Original note: its lasting +1 on every South scoring is
    worth about 2.5 Mandate a game for Chu; Qin's 白起破郢 lost its v1 scoring
    clause. Recommendation: give 司馬錯伐蜀 "此後西土記分時秦 +1", or make
    楚滅越 a one-off.
@@ -309,6 +330,21 @@ two stability-2 spaces).
     an empty region and the bots handle it.
 
 ## Decisions
+- **2026-09-18** Balance round 2 adopted: 司馬錯伐蜀 keeps a lasting +1 for Qin
+  on West scorings, 楚滅越 drops its lasting South +1. Normal bots: Qin 50 %
+  over 1,000 games (39 % before). History agrees: 蜀 was the granary that made
+  Qin rich; Chu's hold on 越 was never firm.
+- **2026-09-18** The landing page and the game page are separate files:
+  `index.html` + `landing.js` (no engine, fast, indexable later) and
+  `play.html` + `app.js`. The game page carries a return link (‹ 縱橫) in its
+  bar; the landing offers "Resume your game" and "Back to room CODE" when
+  there is something to return to. Deployed `22f6e705`.
+- **2026-09-18** UI redesign: three directions on a Design canvas
+  (https://claude.ai/artifact/DRqSqSm8LFmtnxZW7s3i41), twelve phone artboards, stills from
+  Z-Image-Turbo and three 3-second clips with sound from MiniMax H3 Turbo
+  (4 steps, 768x1344, about 3.5 minutes a clip on the 3090). A 帛圖 Silk Map,
+  B 兵符 Bronze War Table, C 兩廷 Two Courts. The owner picks; nothing in the
+  client changes until then.
 - **2026-09-18** Rules decided from the harness and made the engine defaults:
   a 相印 needs control of the capital with Chu's influence at the cap; 函谷關
   starts at 3; Chu's 2 bonus points are gone; 五國伐秦 cannot target 關中.
@@ -376,9 +412,17 @@ two stability-2 spaces).
       "since your last action" strip, a result screen with a way back to the
       final board, English text for all 72 cards. Deployed (version f47d0f1f)
       and byte-verified. (2026-09-18)
-- [ ] Balance round 2 at 1,000 games a cell: Qin is still a little under 50 %;
-      candidates are a West scoring bonus for Qin to mirror 楚滅越, and the
-      bots' handling of Qin's home.
+- [x] Balance round 2 at 1,000 games a cell: 司馬錯伐蜀 West +1 and 楚滅越
+      without its South +1 bring Qin from 39 % to 50 %. Engine defaults, card
+      text in both languages, deployed `b821476e`. (2026-09-18)
+- [x] Landing page and game page split, return link on the game page.
+      Deployed `22f6e705`. (2026-09-18)
+- [x] UI redesign explorations: three directions with generated stills and
+      H3 clips on the canvas https://claude.ai/artifact/DRqSqSm8LFmtnxZW7s3i41. (2026-09-18)
+- [ ] Owner picks a UI direction (A 帛圖, B 兵符, C 兩廷, or a mix); then the
+      client is rebuilt on it, desktop layout included.
+- [ ] Hard-bot check of the round-2 rules (150 games) and a look at why 一統
+      ends only 3 % of games.
 - [ ] M5: rules page, deploy the playable build (still noindex), then the ship checklist.
 
 Owner's direction (2026-09-18): little effort on UI (it will be redesigned with
