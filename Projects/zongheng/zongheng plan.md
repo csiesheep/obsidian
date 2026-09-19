@@ -487,6 +487,7 @@ three states shapes play more than it wins (rulebook 未決項 2).
       restored; repo `95d1ead`. The owner asked this session to be the orchestrator; it moved
       into the repo folder. (2026-09-18)
 - [ ] Videos paused by the owner (2026-09-18): all three opening clips rejected, then "let's stop video generation, make the designed UI alive first". #8 stays parked.
+- [x] Desktop landing: the owner found the stretched desktop landing poor and chose design A (the iPhone layout as one centred 430 px column, the two courts and the gold seam running on behind it); canvas page "Desktop landing". Built as issue #11, in parallel with #5 (returned once: layout not the design, table scrolls, labels and names clipped) and #10 (rules page, own stylesheet). (2026-09-18)
 - [ ] Making the signed-off C2 design live, as ordered issues (https://github.com/csiesheep/zongheng/issues):
       #1 art into the repo (landed `098fc82`), #3 uniform Qin frames (landed `554d591`), #4 win art and the light map
       (landed `ea13f54`), #2 landing + no mixed labels + setup themes + card sheets (landed `e9d3f36`
