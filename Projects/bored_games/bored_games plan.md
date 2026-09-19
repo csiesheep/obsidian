@@ -143,6 +143,9 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — owner 裁決(csiesheep/bored_games#7),原話:「move the language switch to the top right corner」。orchestrator 的解讀:封面頁、整個頁面的右上角、卡片外面;其他頁面不動。land `2797788`,已部署。
 - **2026-09-19** — M3 第二輪「自己畫飛機」走完:#8 BE(`art` 欄位,`setup(seed, {art})` 嚴格驗證、不影響任何規則;上限 16 條 / 400 點,orchestrator 裁決,已寫進規則筆記)land `bbd2c89`;#9 FE(三個畫框、`toArt`、對坐時黑筆那一頁轉 180°、畫存在 `localStorage`)land `5c14c60`。main @ `5c14c60`,76 / 0 / 0,已部署,線上 14 個檔案 sha1 相同。M3 的範圍到這裡做完,剩 owner 的 iPhone 驗收。
 - **2026-09-19** — 這一輪儀器騙過我一次:隱藏的瀏覽器 pane 不送 `resize` 事件(也不送 `ResizeObserver` 通知),我把「canvas 沒跟著縮」當成產品缺陷退回 #9;FE 量到「`resize` 0 次」才找到根因。修法改成不靠事件(CSS 填滿),所以結果仍然是改善,但那次退回的理由有一半是儀器。
+- **2026-09-19** — owner 裁決(csiesheep/bored_games#2):選「藏 (Recommended)」→ `view` 永遠拿掉 `seed` 和 `rng`。owner 裁決(#4),原話:「randomly who is the first.」→ 誰先手由種子隨機決定,數值不動(orchestrator 的解讀,記在 #4)。兩件併成 #10(BE)+ #11(writer 改規則頁第一句),main @ `1c4f3db`,82 / 0 / 0,已部署,線上 14 個檔案 sha1 相同。Architecture 一節寫的「`view` 回傳整個 state」已經不成立:以這一條為準。
+- **2026-09-19** — #10 之後的三張表(每格 600 局,`sim.js` / orchestrator 的探針):座位 0 勝率 easy 52.0 / 51.7%、normal 49.2 / 49.7%、hard 49.0 / 46.3%(目標 50 ± 5,到了);先出手的一方仍然只贏 34 / 29.5 / 25.7%(後手優勢還在,只是擲硬幣決定落在誰身上);每局出手數 p50 仍是 6(目標 8 到 16,沒到,owner 還沒裁決,#4 留著開)。
+- **2026-09-19** — 這一輪驗收的洞:注入「硬幣 = `seed & 1`」時 81 列全綠,因為我抽的 400 個種子奇偶交替。補了一列(偶數 / 奇數 / 1024 的倍數 / 連續,四族各要 40–60%),同一個注入現在紅。教訓:取樣的種子自己有樣式時,跟樣式同相的缺陷是隱形的。另外 `tests/sim.js` 的彙總沒有任何驗收在看(BE 自己指出),目前靠 orchestrator 的獨立探針當第二支儀器;M4 之前決定要不要給它一列。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
@@ -156,4 +159,6 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [x] Orchestrator:M3 第一輪:封面、開局、單人、對坐、結束、規則頁、i18n。2026-09-19(#5、#6,main @ `66361d4`)
 - [ ] Owner:在 iPhone 上玩 https://games.csiesheep.com/bored_games/(真的手指、可見高度、動畫節奏),回報手感。
 - [x] Orchestrator:M3 第二輪:自己畫飛機。2026-09-19(#8、#9,main @ `5c14c60`);封面語言切換移到右上角(#7)。
-- [ ] Orchestrator:M4 Rooms(兩座位 DO、回合時鐘、bot 頂替、重連)——開工前要 owner 在 #2 的裁決;開新的 orchestrator session。
+- [x] Owner 裁決 #2(藏)和 #4(先手隨機)→ #10、#11,2026-09-19,main @ `1c4f3db`。
+- [ ] Orchestrator:M4 Rooms(兩座位 DO、回合時鐘 30 秒、bot 頂替、斷線重連、再來一張)。房間只送 `view`;收畫(`art`)的那一層要先擋訊息大小、自己驗 `opts` 的形狀(#8 的留言);開新的 orchestrator session。
+- [ ] Owner:#4 剩下的一件——每局只有 6 手要不要處理(每邊 5 架、或改目標),iPhone 玩過再說。
