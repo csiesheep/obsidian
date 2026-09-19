@@ -330,6 +330,28 @@ three states shapes play more than it wins (rulebook 未決項 2).
     an empty region and the bots handle it.
 
 ## Decisions
+- **2026-09-18** The owner picked direction **C 兩廷 Two Courts** (the interface
+  wears your side) and asked for three versions of it, a correct symbol for 秦,
+  and an illustration for every card. Round 2 is the second page of the canvas
+  (https://claude.ai/artifact/DRqSqSm8LFmtnxZW7s3i41):
+  C1 玄鳥與鳳 Two Birds (heraldic, light: Qin's mark is the dark bird 玄鳥 of its
+  founding myth as a roof-tile roundel, Chu's the lacquer phoenix), C2 虎符與漆鳳
+  Bronze and Lacquer (material, dark: 虎狼之秦's tiger tally against Chu's
+  phoenix standing on a tiger, a night map), C3 經緯 Warp and Weft (typographic:
+  Qin is every horizontal band and row of sans type, Chu every vertical column
+  of brush type; almost no texture, the cheapest to build). In all three the
+  characters 秦 and 楚 are real type, never generated glyphs: the first round's
+  Qin art had invented pseudo seal characters.
+- **2026-09-18** Card art: one illustration per card, all 72, and a card wears
+  its side. Qin events are stone rubbings (white line on black), Chu events are
+  lacquer paintings (black and gold on vermilion), neutral events and scoring
+  cards are ink wash on paper. Z-Image-Turbo, 768x1024, 8 steps, about 6 s an
+  image; seeds are 5000 + the card number (ten were redone with 70xx seeds).
+  Originals, prompts and the resumable batch script are in
+  `C:/Users/sheep/code/ComfyUI/output/zongheng_cards/` (`prompts.json`,
+  `prompts.py`, `zimage_batch.py`). Known flaws to fix before shipping: later
+  dynasty roofs and crenellated walls in places, a tiny pagoda in 北疆記分, two
+  assassins in 荊軻刺秦王. Every prompt forbids writing, so no fake characters.
 - **2026-09-18** Balance round 2 adopted: 司馬錯伐蜀 keeps a lasting +1 for Qin
   on West scorings, 楚滅越 drops its lasting South +1. Normal bots: Qin 50 %
   over 1,000 games (39 % before). History agrees: 蜀 was the granary that made
@@ -419,8 +441,13 @@ three states shapes play more than it wins (rulebook 未決項 2).
       Deployed `22f6e705`. (2026-09-18)
 - [x] UI redesign explorations: three directions with generated stills and
       H3 clips on the canvas https://claude.ai/artifact/DRqSqSm8LFmtnxZW7s3i41. (2026-09-18)
-- [ ] Owner picks a UI direction (A 帛圖, B 兵符, C 兩廷, or a mix); then the
-      client is rebuilt on it, desktop layout included.
+- [x] Owner picks a UI direction: C 兩廷 Two Courts. (2026-09-18)
+- [x] Round 2 on the canvas: three versions of Two Courts (C1, C2, C3), each
+      with landing, game page, a Chu card sheet and a Qin card sheet, plus a
+      gallery of all 72 illustrated cards. (2026-09-18)
+- [ ] Owner picks a version (C1, C2, C3 or a mix) and says whether the card art
+      styles stand; then the client is rebuilt on it, desktop layout included,
+      and the card images move into the repo.
 - [ ] Hard-bot check of the round-2 rules (150 games) and a look at why 一統
       ends only 3 % of games.
 - [ ] M5: rules page, deploy the playable build (still noindex), then the ship checklist.
