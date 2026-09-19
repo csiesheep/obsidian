@@ -129,10 +129,17 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — owner 第一次 go:六個 open question 全照推薦(系列共用一個 repo、名稱「無聊遊戲簿 / Bored Games」、房間排 M4、自己畫飛機進 v1、出界墜毀保留、出手上限 30),Team 一節的所有權表和 deploy 規則照提案確認。
 - **2026-09-19** — Phase 0 完成。repo `csiesheep/bored_games` @ `b90d4fa`;placeholder 已部署,線上 4 個檔案 sha1 和 repo 相同。驗收 27 通過 / 0 失敗 / 3 尚未實作。弄紅兩次(一次一個缺陷):命中半徑改 0 → 「RULES.HIT 期望 24 實際 0」「0 / 50 個種子擊毀」「over=false winner=null」三列紅;拿掉「不打自己人」→ 「alive=false by=0」一列紅;還原後回 27 / 0 / 3。
 - **2026-09-19** — Phase 0 的 `engine.js` 切片(開局、合法手、出一手)是起手的 session 寫的,沒有獨立驗證;`TEAM.md` 有寫。
+- **2026-09-19** — M1 第一張 issue(csiesheep/bored_games#1)走完派 → 交付 → 驗 → land。驗收先寫先 land(`4c05bdf`,對 Phase 0 引擎 44 通過 / 0 失敗 / 10 尚未實作):規則筆記每張數值表逐列、出手上限、view、replay、fuzz(120 局,每一手用 SPEC 重算的神諭對照)。BE(`peer-be`)交 `5b2f198`,只動 `engine.js`:出手上限(兩個人都出滿 30 才結束;結束順序 打光對方 → 自己沒飛機 → 上限比數量;平手 = `over` 而且 `winner === null`)、`onPaper`、`view`、`replay(seed, actions)`。main @ `e3085f6`,54 / 0 / 0,已部署,線上 4 個檔案 sha1 相同。
+- **2026-09-19** — #1 的弄紅紀錄(一次一個缺陷,下在產品)。land 驗收前對 Phase 0 引擎 13 個:12 個紅在該紅的列;「紙邊不含邊」是綠的(剛好落在紙邊的線尾用 apply 造不出來),所以契約要求匯出 `onPaper`。交付後 11 個:上限只看出手的人 →「59 手之後 over=true turn=0 shots=[30,29]」;上限排在打光對方前面 → 只有 0 對 0 那一列紅「over=true winner=0」;`onPaper` 不含邊 →「紙上 2 / 7」;引擎亂數改 Math.random → 5 列紅。改過的那一列(replay 拒絕不合法的手)在 `e3085f6` 上重新弄紅。完整的表在 #1 的留言。
+- **2026-09-19** — Phase 0 的引擎切片:13 個注入和 fuzz 都沒有找到缺陷。它現在被驗收獨立看過了,但還沒在 Worker / DO 裡跑過(M4)。
+- **2026-09-19** — orchestrator 裁決(#1):平手的表示法是 `over === true` 而且 `winner === null`,不加新欄位。
+- **2026-09-19** — 待 owner 裁決(csiesheep/bored_games#2):`view` 要不要藏 `seed` / `rng`。這份計畫的 Architecture 寫「回傳整個 state」,但 `rng` 決定下一手的誤差和弧度:客戶端可以算出必中的手,bot 的 Monte Carlo 會變成偷看答案。M2 開工前要定。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
 - [x] 建 repo `csiesheep/bored_games`,從 `tiandihui` scaffold。2026-09-19
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-09-19
 - [x] Owner's second go: the orchestrator session starts M1. 2026-09-19(task chip「Run the bored_games orchestrator」,cwd 在 repo;目標 M1 引擎,優先序:數值表逐條有測試 → fuzz → 重播)
-- [ ] Orchestrator:第一張 issue 走完派 → 交付 → 驗 → land,回報 owner。
+- [x] Orchestrator:第一張 issue 走完派 → 交付 → 驗 → land,回報 owner。2026-09-19(#1,main @ `e3085f6`)
+- [ ] Owner:在 csiesheep/bored_games#2 回 `view` 要不要藏 `seed` / `rng`(M2 開工前)。
+- [ ] Orchestrator:M2 bots + harness(先手勝率、每局出手數、等級階梯);bot 只拿 `view`。
