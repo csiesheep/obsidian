@@ -330,6 +330,18 @@ three states shapes play more than it wins (rulebook 未決項 2).
     an empty region and the bots handle it.
 
 ## Decisions
+- **2026-09-18** The owner picked version **C2 虎符與漆鳳 Bronze and Lacquer** of Two
+  Courts, with two requirements, both applied on the canvas and binding for the build:
+  1. **The landing page never scrolls on an iPhone.** It is exactly one small viewport
+     tall (`100svh`): the two court panels share whatever height the controls leave.
+     Drawn at 390x664 (iPhone 14/15 in Safari with both bars showing) and 375x553
+     (iPhone SE in Safari); the name field lost its visible label to save a row.
+  2. **Every card has rounded corners and its number sits in a round badge, as the Chu
+     cards do** (每張牌的角都作圓滑,數字都是圓框,跟楚國卡一樣): hand cards, card
+     sheets and the 72-card gallery, for Qin, neutral and scoring cards alike. A side now
+     shows through colour, material and typeface, not through corner shape.
+  The owner also set the hand row on the C2 game page to 207 px; kept. All image prompts
+  are in [[zongheng - art prompts]].
 - **2026-09-18** The owner picked direction **C 兩廷 Two Courts** (the interface
   wears your side) and asked for three versions of it, a correct symbol for 秦,
   and an illustration for every card. Round 2 is the second page of the canvas
@@ -445,9 +457,12 @@ three states shapes play more than it wins (rulebook 未決項 2).
 - [x] Round 2 on the canvas: three versions of Two Courts (C1, C2, C3), each
       with landing, game page, a Chu card sheet and a Qin card sheet, plus a
       gallery of all 72 illustrated cards. (2026-09-18)
-- [ ] Owner picks a version (C1, C2, C3 or a mix) and says whether the card art
-      styles stand; then the client is rebuilt on it, desktop layout included,
-      and the card images move into the repo.
+- [x] Owner picks a version: C2 虎符與漆鳳 Bronze and Lacquer, with a landing that
+      never scrolls on an iPhone and rounded cards with round number badges. Canvas
+      updated. (2026-09-18)
+- [ ] Rebuild the client on C2 when the owner says go: landing at `100svh`, game page,
+      card sheet, the 72 card images into the repo (about 7 MB as 600x800 JPEG), desktop
+      layout, both languages; then deploy and byte-verify.
 - [ ] Hard-bot check of the round-2 rules (150 games) and a look at why 一統
       ends only 3 % of games.
 - [ ] M5: rules page, deploy the playable build (still noindex), then the ship checklist.
