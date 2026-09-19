@@ -330,6 +330,14 @@ three states shapes play more than it wins (rulebook 未決項 2).
     an empty region and the bots handle it.
 
 ## Decisions
+- **2026-09-18** From here on Zongheng is built by a team, not by one session. An
+  orchestrator session opened in the repo writes issues and dispatches each to a
+  subagent whose model fits the role (`peer-be` Opus, `peer-fe`, `peer-writer` and
+  `peer-artist` Sonnet, `peer-chore` Haiku, `orch-checker` Sonnet), then verifies
+  independently before landing (`agent-team-delivery` §十三, `~/.claude/CLAUDE.md`).
+  Everything built so far (engine, cards, bots, harness, rooms, client) was written and
+  checked by one session, so by the skill's §一 it is the least-verified part of the
+  system: peers are told to suspect it first.
 - **2026-09-18** The owner picked version **C2 虎符與漆鳳 Bronze and Lacquer** of Two
   Courts, with two requirements, both applied on the canvas and binding for the build:
   1. **The landing page never scrolls on an iPhone.** It is exactly one small viewport
@@ -460,7 +468,10 @@ three states shapes play more than it wins (rulebook 未決項 2).
 - [x] Owner picks a version: C2 虎符與漆鳳 Bronze and Lacquer, with a landing that
       never scrolls on an iPhone and rounded cards with round number badges. Canvas
       updated. (2026-09-18)
-- [ ] Rebuild the client on C2 when the owner says go: landing at `100svh`, game page,
+- [ ] Set the repo up for the team: a session opened in `C:/Users/sheep/code/zongheng`
+      (titled "zongheng orchestrator"), `/agent-team-delivery init`, the owner fills the
+      ownership table in `TEAM.md`, one guard made to go red once.
+- [ ] First team issue, after the owner's go: rebuild the client on C2: landing at `100svh`, game page,
       card sheet, the 72 card images into the repo (about 7 MB as 600x800 JPEG), desktop
       layout, both languages; then deploy and byte-verify.
 - [ ] Hard-bot check of the round-2 rules (150 games) and a look at why 一統
