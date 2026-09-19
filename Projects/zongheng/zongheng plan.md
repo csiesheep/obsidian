@@ -486,7 +486,12 @@ three states shapes play more than it wins (rulebook 未決項 2).
       `tools/orch.sh`; a guard shown red (seals 4 -> 5 failed "four 相印 win for Chu") and
       restored; repo `95d1ead`. The owner asked this session to be the orchestrator; it moved
       into the repo folder. (2026-09-18)
-- [ ] In progress as issues #1 (art into `public/art/`, `peer-chore`) and #2 (C2 phone client, `peer-fe`), https://github.com/csiesheep/zongheng/issues : rebuild the client on C2: landing at `100svh`, game page,
+- [ ] Making the signed-off C2 design live, as ordered issues (https://github.com/csiesheep/zongheng/issues):
+      #1 art into the repo (landed `098fc82`), #3 uniform Qin frames (landed `554d591`), #2 landing +
+      no mixed labels + setup themes + card sheets (with `peer-fe`), #4 win art and the light map
+      (with `peer-chore`), then #5 table pages, #6 lobby + endings + rules, #7 desktop (proposal first),
+      #9 copy pass; #8 videos waits for the owner's picks. Every land is deployed and byte-checked. (2026-09-18)
+- [ ] Superseded note, kept for history: issues #1 (art into `public/art/`, `peer-chore`) and #2 (C2 phone client, `peer-fe`), https://github.com/csiesheep/zongheng/issues : rebuild the client on C2: landing at `100svh`, game page,
       card sheet, the 72 card images into the repo (about 7 MB as 600x800 JPEG), desktop
       layout, both languages; then deploy and byte-verify.
 - [ ] Hard-bot check of the round-2 rules (150 games) and a look at why 一統
