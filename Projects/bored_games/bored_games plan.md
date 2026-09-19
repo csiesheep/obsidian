@@ -134,4 +134,5 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
 - [x] 建 repo `csiesheep/bored_games`,從 `tiandihui` scaffold。2026-09-19
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-09-19
-- [ ] Owner's second go: the orchestrator session starts M1.
+- [x] Owner's second go: the orchestrator session starts M1. 2026-09-19(task chip「Run the bored_games orchestrator」,cwd 在 repo;目標 M1 引擎,優先序:數值表逐條有測試 → fuzz → 重播)
+- [ ] Orchestrator:第一張 issue 走完派 → 交付 → 驗 → land,回報 owner。
