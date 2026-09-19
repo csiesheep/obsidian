@@ -81,7 +81,7 @@ v1 也包含「自己畫飛機」:畫的筆畫縮放進固定的框,命中半徑
 | (in game) | 結束 | 誰贏、畫了幾條線、老師的評語、再撕一張 |
 | `/bored_games/dogfight/rules` | 規則 | 六句話加一張圖 |
 
-Mockup:https://claude.ai/artifact/(見 Decisions 的連結)。手機優先;owner 的 iPhone Chrome 可見高度約 669,紙 2:3 在 390 寬時是 585 高,上下各留一條給標題和輪次提示。用 `svh`,不用 `vh`。
+Mockup(八個手機畫面,中英可切換):https://claude.ai/artifact/XB9W22TKt8nBDk2rUbhqcK。手機優先;owner 的 iPhone Chrome 可見高度約 669,紙 2:3 在 390 寬時是 585 高,上下各留一條給標題和輪次提示。用 `svh`,不用 `vh`。
 
 ## Bots and balance
 - bot 要推理的事:對每個(自己的飛機 × 對方的飛機)候選,用引擎的誤差分布做 Monte Carlo(每個候選 40 次),估擊毀機率、出界機率,以及出手後自己停的位置被對方下一手打中的機率。另外考慮「不開火、往前挪」的手。分數 = 擊毀 − 出界 − 曝險 × 權重。
