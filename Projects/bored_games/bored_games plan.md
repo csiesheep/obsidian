@@ -137,6 +137,9 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — M2(csiesheep/bored_games#3)走完派 → 交付 → 驗 → land。驗收先寫先 land(`7069370`):bot 只拿得到拿掉 `seed` / `rng` 的 view,所以 #2 怎麼裁決都成立。BE 交 `94f7436`:`bots.js`(三個等級;Monte Carlo 用 bot 自己的亂數配 `trace()`,不 `apply`)和 `tests/sim.js`。main @ `b6723cf`,61 / 0 / 0,已部署,線上 5 個檔案 sha1 相同。9 個注入各紅在該紅的列(混進 `view.rng` → 只有「不偷看」紅,三種 view 三個角度)。
 - **2026-09-19** — M2 量到的三張表(每格 600 局,`sim.js` 和 orchestrator 自己的探針兩支儀器一致):階梯 hard 對 easy 80.3% / 78.8%(目標 ≥ 75%,達標);**座位 0 勝率 easy / normal / hard = 37.5 / 29.0 / 23.8%(目標 50 ± 5,沒到,而且是後手優勢,跟未知數 #5 假設的方向相反)**;**每局出手數 p50 = 6(目標 8 到 16,沒到)**;耗到上限 0 局。`choose` hard 平均 1.2 ms(桌機)。
 - **2026-09-19** — 旋鈕探針(只在探針行程裡改 `RULES`,repo 沒動;hard 同級 600 局):起始帶是唯一有力的旋鈕——40–120 → 14.5%、現在 90–260 → 26.8%、180–350 → 43.8%、200–380 → 55.7%;命中半徑、誤差、弧度幾乎沒用;縮短最遠距離更糟。沒有旋鈕把出手數拉過平均 7.5。待 owner 裁決:csiesheep/bored_games#4。
+- **2026-09-19** — M3 第一輪(csiesheep/bored_games#5 writer、#6 FE,平行派、檔案不重疊)走完。驗收先 land(`7d37e85`):輸入手感的常數和純函式逐條(數字抄自規則筆記)、en / zh-Hant 的 key 和洞一致、前端不可寫死中文、i18n 真的有用到;i18n 的 53 個 key 是 orchestrator 定的命名空間。#5 退回一次(兩個英文字串)→ `3d594c3`;#6 退回一次(英文封面斷行)→ main @ `66361d4`,68 / 0 / 0,已部署,線上 13 個檔案 sha1 相同,線上實際開過遊戲頁。
+- **2026-09-19** — #6 的驗證:390 × 669 打完一局(真實時間間隔的 pointer 事件),`replay(seed, actions)` 和畫面的 state 相同;把引擎的命中判斷改成 `if (false)`,3 條線穿過敵機、畫面不擊毀 → 前端沒有自己算規則;對坐時座位 1 的提示在上方轉 180°。前端多了 `window.__dogfight.record()` 給驗證用。儀器限制:瀏覽器 pane 隱藏時 rAF 幾乎停住,畫格用 MessageChannel 幫浦推;動畫節奏沒在正常速度下看過。
+- **2026-09-19** — orchestrator 裁決(都可以被 owner 推翻):評語門檻 = 贏家剩 3 / 2 / 1 架 → 甲上 / 甲 / 乙上,單人輸了或平手不給(#6);`public/shared/i18n.js` 歸 FE(`TEAM.md`);`msg.cap` 英文上限放寬到 28 字元(#5)。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
@@ -147,4 +150,6 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [ ] Owner:在 csiesheep/bored_games#2 回 `view` 要不要藏 `seed` / `rng`(M2 開工前)。
 - [x] Orchestrator:M2 bots + harness。2026-09-19(#3,main @ `b6723cf`)
 - [ ] Owner:在 csiesheep/bored_games#4 回先手勝率和每局出手數怎麼處理(起始帶、5 架、或等 M3 的手感)。
-- [ ] Orchestrator:M3 Solo + 對坐 UI(FE / writer / artist);不被 #2、#4 擋住,數值都在 `RULES`。
+- [x] Orchestrator:M3 第一輪:封面、開局、單人、對坐、結束、規則頁、i18n。2026-09-19(#5、#6,main @ `66361d4`)
+- [ ] Owner:在 iPhone 上玩 https://games.csiesheep.com/bored_games/(真的手指、可見高度、動畫節奏),回報手感。
+- [ ] Orchestrator:M3 第二輪:自己畫飛機(BE 加 `art` 欄位 + FE 畫框),等 owner 的 iPhone 回報一起收。
