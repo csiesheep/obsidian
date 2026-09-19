@@ -468,10 +468,11 @@ three states shapes play more than it wins (rulebook 未決項 2).
 - [x] Owner picks a version: C2 虎符與漆鳳 Bronze and Lacquer, with a landing that
       never scrolls on an iPhone and rounded cards with round number badges. Canvas
       updated. (2026-09-18)
-- [ ] Set the repo up for the team: a session opened in `C:/Users/sheep/code/zongheng`
-      (titled "zongheng orchestrator"), `/agent-team-delivery init`, the owner fills the
-      ownership table in `TEAM.md`, one guard made to go red once.
-- [ ] First team issue, after the owner's go: rebuild the client on C2: landing at `100svh`, game page,
+- [x] Team setup: `TEAM.md` with the ownership table and deploy rule the owner confirmed,
+      `tools/orch.sh`; a guard shown red (seals 4 -> 5 failed "four 相印 win for Chu") and
+      restored; repo `95d1ead`. The owner asked this session to be the orchestrator; it moved
+      into the repo folder. (2026-09-18)
+- [ ] In progress as issues #1 (art into `public/art/`, `peer-chore`) and #2 (C2 phone client, `peer-fe`), https://github.com/csiesheep/zongheng/issues : rebuild the client on C2: landing at `100svh`, game page,
       card sheet, the 72 card images into the repo (about 7 MB as 600x800 JPEG), desktop
       layout, both languages; then deploy and byte-verify.
 - [ ] Hard-bot check of the round-2 rules (150 games) and a look at why 一統
