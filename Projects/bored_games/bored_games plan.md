@@ -1,7 +1,7 @@
 # 無聊遊戲簿 / Bored Games — plan
 
-Created 2026-09-19. Repo `csiesheep/bored_games`(還沒建,等 owner 確認名稱), live at
-`https://games.csiesheep.com/bored_games/` (not yet).
+Created 2026-09-19. Repo `csiesheep/bored_games`, live at
+`https://games.csiesheep.com/bored_games/` (placeholder, `noindex`).
 
 ## Overview
 一本作業簿,裡面是小時候無聊時自己發明的遊戲。每款一個手勢、三分鐘一局、不需要教學文字。第一款是**紙上空戰**:兩個人,一張對摺的紙,用筆尖滑出一條線,線穿過對方的飛機就擊毀,每邊三架,先打光對方的人贏。網頁版加上:跟電腦玩、同一支手機兩人對坐、四個字母的房間碼連線對戰、英文 + 繁體中文、手機優先。原創,沒有出版品原作。
@@ -126,9 +126,12 @@ Phase 0 proposal; the owner confirms it with the first go.
 ## Decisions
 - **2026-09-19** — 兩款手感原型 owner 試玩通過(車窗跑者:looks good;紙上空戰:可以)。先做紙上空戰。
 - **2026-09-19** — 手感數值以原型預設為準,寫進規則筆記當 group 0 的來源。
+- **2026-09-19** — owner 第一次 go:六個 open question 全照推薦(系列共用一個 repo、名稱「無聊遊戲簿 / Bored Games」、房間排 M4、自己畫飛機進 v1、出界墜毀保留、出手上限 30),Team 一節的所有權表和 deploy 規則照提案確認。
+- **2026-09-19** — Phase 0 完成。repo `csiesheep/bored_games` @ `b90d4fa`;placeholder 已部署,線上 4 個檔案 sha1 和 repo 相同。驗收 27 通過 / 0 失敗 / 3 尚未實作。弄紅兩次(一次一個缺陷):命中半徑改 0 → 「RULES.HIT 期望 24 實際 0」「0 / 50 個種子擊毀」「over=false winner=null」三列紅;拿掉「不打自己人」→ 「alive=false by=0」一列紅;還原後回 27 / 0 / 3。
+- **2026-09-19** — Phase 0 的 `engine.js` 切片(開局、合法手、出一手)是起手的 session 寫的,沒有獨立驗證;`TEAM.md` 有寫。
 
 ## Next steps
-- [ ] Owner confirms the plan, the open questions and the Phase 0 proposal (first go).
-- [ ] 建 repo `csiesheep/bored_games`(名稱確認後),從 `tiandihui` scaffold。
-- [ ] Phase 0: placeholder, `TEAM.md`, first guard seen red.
+- [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
+- [x] 建 repo `csiesheep/bored_games`,從 `tiandihui` scaffold。2026-09-19
+- [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-09-19
 - [ ] Owner's second go: the orchestrator session starts M1.
