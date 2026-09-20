@@ -240,3 +240,19 @@ owner:「Let's do 2 sounds and 2 musics as examples」。模型都下載完整(�
 | `bgm_reform_chu_C_yunmeng_s5223` | 54.80 秒 | -19.4 / -1.9 dB |
 
 模型會自己決定在上限(60 秒)之前收尾,楚的兩首只有 44 到 48 秒。三首峰值頂到 0 dB,正式用要降。等 owner 聽。
+
+## 十、owner 的決定與音效批次(2026-09-20 下午)
+
+- **楚 C 雲夢:好**(`bgm_reform_chu_C_yunmeng_s5223`)。其餘五首還沒有評語。
+- **順序:先做音效,再做音樂,分批交。**
+
+音效批次(`scratchpad/audio/make_sfx.py`,每個聲音三個版本,Stable Audio 3,每個約 3 秒;試聽頁用 `make_sheet.py` 產生,MP3 內嵌在一個 HTML 裡,每個版本下面是我量到的長度、事件數、峰值):
+
+| 批 | 內容 | 狀態 |
+|---|---|---|
+| S1 牌與地圖(10 個) | `card.pick`、`card.commit`、`card.reveal`、`card.event.qin`、`card.event.neutral`、`map.confirm`、`map.control.gain` / `.lose`、`map.campaign`、`map.opponent` | 已交 `samples/sfx_batch_S1.html`,等 owner 選 |
+| S2 軌道、門檻、回合(11 個) | `track.mandate.qin` / `.chu`、`seal.gain` / `.lose`、`mie`、`warn`、`turn.new`、`turn.era`、`turn.yours`、`turn.clock.tick` / `.last` | 已交 `samples/sfx_batch_S2.html`,等 owner 選 |
+| S3 介面與結局(6 個) | `ui.tap`、`ui.error`、`end.win.qin` / `.chu`、`end.lose.qin` / `.chu` | 已定義,未生成 |
+| 之前已收下 | `map.place`(s7102)、`card.event.chu`(s7201) | 完成 |
+
+S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之後再分批。
