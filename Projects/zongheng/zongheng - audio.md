@@ -227,3 +227,16 @@ owner:「Let's do 2 sounds and 2 musics as examples」。模型都下載完整(�
 | `bgm_reform_chu_A_bianzhong_s5221` | 楚 A 編鐘:大鐘起句、中鐘旋律、小鐘加花、編磬對答,60 BPM |
 | `bgm_reform_chu_B_jiuge_s5222` | 楚 B 九歌:排簫主奏、篪如回聲、瑟的流水、巫鼓與手鈴;**只有這一首**在中段放了很遠的無字男聲吟唱(楚歌),不喜歡就丟掉 |
 | `bgm_reform_chu_C_yunmeng_s5223` | 楚 C 雲夢:瑟主奏、笙的長音、骨笛學鳥叫、偶爾一聲鐘,66 BPM |
+
+第二輪六首已做完並寄給 owner(2026-09-20 14:17;每首 5 到 7 分鐘)。量到的:
+
+| 檔名 | 長度 | 平均 / 峰值 |
+|---|---|---|
+| `bgm_reform_qin_A_junzhen_s5211` | 59.99 秒 | -17.3 / -0.0 dB |
+| `bgm_reform_qin_B_qinsheng_s5212` | 56.80 秒 | -16.8 / -0.0 dB |
+| `bgm_reform_qin_C_miaotang_s5213` | 56.91 秒 | -21.3 / -1.3 dB |
+| `bgm_reform_chu_A_bianzhong_s5221` | 47.91 秒 | -22.4 / -1.0 dB |
+| `bgm_reform_chu_B_jiuge_s5222` | 43.60 秒 | -20.4 / -0.0 dB |
+| `bgm_reform_chu_C_yunmeng_s5223` | 54.80 秒 | -19.4 / -1.9 dB |
+
+模型會自己決定在上限(60 秒)之前收尾,楚的兩首只有 44 到 48 秒。三首峰值頂到 0 dB,正式用要降。等 owner 聽。
