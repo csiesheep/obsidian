@@ -205,3 +205,25 @@ owner:「Let's do 2 sounds and 2 musics as examples」。模型都下載完整(�
 排隊腳本:`scratchpad/audio/audio_queue.py jobs.json [sound|music|<id>]`,一次一個、已經有輸出的就跳過(這台電腦會重開機)。
 
 要你用耳朵判斷的:(1) 兩首有沒有人聲或哼唱(模型是為歌曲設計的,我用 `[Instrumental]` 標籤和「no vocals」壓它);(2) 聽起來像不像箏 / 缶、編鐘 / 排簫,還是一般的「中國風」;(3) 兩首的速度和調是否接近到可以當同一首的兩個版本;(4) 落子聲和鐘聲像不像。
+
+## 九、owner 聽過第一批(2026-09-20)
+
+- **兩個音效:好。** `sfx_map_place_s7102`(落子)和 `sfx_event_chu_s7201`(編鐘)收下;音效就用 Stable Audio 3 這個工作流程和這種提示詞寫法。
+- **兩首音樂:「smooth but not good」。** 要每邊三首,**更容易分辨、更有古中國味**。
+
+第二輪的做法(`scratchpad/audio/make_jobs2.py` → `jobs2.json`),照 MiniMax 自己的 caption 寫法指南(repo 裡的 `skills/music-caption-rewriter/SKILL.md`)改:
+
+1. **寫「要什麼」,不列「不要什麼」**。第一輪我列了一串 no piano / no synthesizer,指南說要用正面、具體的描述;點名反而可能把它們帶進來。
+2. **Arrangement 寫成逐段的時間線**(Intro、兩段 Instrumental、Solo、Outro 各是哪個樂器進來、做什麼),lyrics 欄位用同樣的段落標籤。
+3. Vocal Details 照指南寫「The piece is instrumental」加上主奏樂器。
+4. **用八音把兩邊分開**:秦 = 土、革、絲(塤、缶、戰鼓、秦箏、古琴);楚 = 金、石、竹(編鐘、編磬、排簫、篪、瑟、笙)。兩邊連調式都不同:秦 D 羽調(小調感),楚 G 宮調(明亮)。
+5. 古味靠織體:單旋律、支聲複調、不配和聲、樂句之間留白、乾的錄音(秦)或大殿的長餘音(楚)、出土樂器複製品。
+
+| 檔名 | 性格 |
+|---|---|
+| `bgm_reform_qin_A_junzhen_s5211` | 秦 A 軍陣:大戰鼓與缶,低音秦箏的短句,塤獨奏,60 BPM |
+| `bgm_reform_qin_B_qinsheng_s5212` | 秦 B 秦聲:李斯說的「擊甕叩缶,彈箏搏髀」,三個陶甕、拍腿、粗獷的箏,76 BPM |
+| `bgm_reform_qin_C_miaotang_s5213` | 秦 C 廟堂:古琴的滑音與泛音、塤、每句一聲鼓,散板 |
+| `bgm_reform_chu_A_bianzhong_s5221` | 楚 A 編鐘:大鐘起句、中鐘旋律、小鐘加花、編磬對答,60 BPM |
+| `bgm_reform_chu_B_jiuge_s5222` | 楚 B 九歌:排簫主奏、篪如回聲、瑟的流水、巫鼓與手鈴;**只有這一首**在中段放了很遠的無字男聲吟唱(楚歌),不喜歡就丟掉 |
+| `bgm_reform_chu_C_yunmeng_s5223` | 楚 C 雲夢:瑟主奏、笙的長音、骨笛學鳥叫、偶爾一聲鐘,66 BPM |
