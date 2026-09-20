@@ -256,3 +256,39 @@ owner:「Let's do 2 sounds and 2 musics as examples」。模型都下載完整(�
 | 之前已收下 | `map.place`(s7102)、`card.event.chu`(s7201) | 完成 |
 
 S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之後再分批。
+
+## 十一、owner 選定的音效(2026-09-20 傍晚)
+
+收下 16 個(資料在 `scratchpad/audio/accepted.json`,原始 FLAC 在 `C:/Users/sheep/code/ComfyUI/output/zongheng_audio/`):
+
+| cue | 版本 |
+|---|---|
+| `sfx.map.place` | `sfx_map_place_s7102` |
+| `sfx.card.event.chu` | `sfx_event_chu_s7201` |
+| `sfx.card.pick` | `sfx_card_pick_s8100` |
+| `sfx.card.commit` | `sfx_card_commit_s8110` |
+| `sfx.card.reveal` | `sfx_card_reveal_s8120` |
+| `sfx.card.event.qin` | `sfx_card_event_qin_s8130` |
+| `sfx.card.event.neutral` | `sfx_card_event_neutral_s8140` |
+| `sfx.map.confirm` | `sfx_map_confirm_s8150` |
+| `sfx.map.control.gain` | `sfx_map_control_gain_s8162` |
+| `sfx.map.campaign` | `sfx_map_campaign_s8181` |
+| `sfx.map.opponent` | `sfx_map_opponent_s8190` |
+| `sfx.seal.gain` | `sfx_seal_gain_s8220` |
+| `sfx.seal.lose` | `sfx_seal_lose_s8231` |
+| `sfx.warn` | `sfx_warn_s8250` |
+| `sfx.turn.new` | `sfx_turn_new_s8260` |
+| `sfx.turn.yours` | `sfx_turn_yours_s8282` |
+
+退回重做(owner 的話就是新的方向),已重做並交 `samples/sfx_batch_S2b_zh.html`:
+
+| cue | owner 說 | 新做法 |
+|---|---|---|
+| `sfx.map.control.lose` | 沉重一點,像是關機的聲音 | 一個往下沉、慢慢消失的低音 |
+| `sfx.track.mandate.qin` | 鼓聲 | 大戰鼓兩擊,第二擊較低 |
+| `sfx.track.mandate.chu` | 有沒有楚國代表的聲音? | A 編鐘三個上行音;B 排簫三個上行音(各三個版本,請選一種代表楚) |
+| `sfx.mie` | 城牆倒塌的聲音就好 | 拿掉大鑼,只留夯土牆倒塌 |
+| `sfx.turn.era` | 一段中型銅聲 | 中型銅鐘四個慢音的短句,不加鼓 |
+| `sfx.turn.clock.tick` / `.last` | 重新產生 | 水滴改成木梆 / 空心木塊 |
+
+試聽頁從這一批起用繁體中文(`make_sheet.py ... zh`):每個聲音有中文名稱、用在哪裡、想要的聲音。
