@@ -153,6 +153,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — M4 做完:前端(csiesheep/bored_games#14)land + 部署,main @ `b6bb80b`,97 / 0 / 0,線上 15 個靜態檔 sha1 相同。開房間 / 房間碼 / 等人頁 / 連線對戰(座位 1 的紙轉 180°、自己永遠在下方)/ 斷線倒數、電腦接手、同分頁重連 / 再撕一張。連線模式裡客戶端不 `setup`、不 `apply`;倒數只用伺服器的 `now`。驗證:本機 `wrangler dev` + 兩個分頁(轉過來的紙上出手瞄準誤差 −0.1°、兩邊 view 雜湊相同、斷線 → 接手、重新載入直接回到紙上),線上兩個分頁同一個房間碼也對得上。退回一次(回來的人被擋在畫飛機那一頁)。
 - **2026-09-19** — 英文對手名字(#15):計畫 Theme 表寫的是 Ming next door / Class monitor / The new kid;現在線上是 **Ming Next Door / Class Monitor / New Kid**(拿掉冠詞、改成綽號式大小寫,因為同一個名字要放在句首、句中、按鈕上)。`over.summary` 英文改成「Lines drawn: {lines}. Planes left: {left}.」(原本剩 1 架時是 1 planes)。orchestrator 裁決,owner 可以推翻。
 - **2026-09-19** — `tools/orch.sh falsify` 對未追蹤的檔案會「注入了卻說沒命中、也還原不了」(FE 在 #14 踩到)→ 改成直接拒絕。新增一列驗收:`net.js` 的 `OFFLINE_MS` 要等於伺服器的(同一個事實有兩份)。
+- **2026-09-19** — owner 回報(csiesheep/bored_games#16),原話:「重畫按鈕沒有用」。原因:`重畫` 只清這一次碰過的那一框,框裡是上次存的畫、還沒碰任何框時什麼都不做(#9 的 brief 沒定義這個情況,是 orchestrator 的疏漏)。orchestrator 裁決:清目前的框,沒有就清第一個有畫的;目前的框框線換成筆色;三框都空時按鈕 disabled。main @ `e5936e8`,98 / 0 / 0,已部署;orchestrator 親手重現 owner 的情況驗過。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
