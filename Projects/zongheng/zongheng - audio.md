@@ -183,3 +183,25 @@ owner 問:`audio_minimax_music_3` 夠不夠做音樂和音效?
 無論哪個模型都不會給無縫循環點:循環要自己剪(找小節點、交叉淡化),用 venv 裡的 ffmpeg 就能做。
 
 我聽不到聲音:我能做的是寫簡述、排隊生成(和 H3 影片一樣,一次一個、可續跑,因為這台電腦會重開機)、量長度、響度和循環接點;好不好聽要你聽。
+
+## 八、第一批樣本(2026-09-20,兩個工作流程都跑得動)
+
+owner:「Let's do 2 sounds and 2 musics as examples」。模型都下載完整(大小和 Hugging Face 一致),放在 `%LOCALAPPDATA%/Comfy-Desktop/ComfyUI-Shared/models`。
+
+| 用途 | 工作流程(ComfyUI 範本) | 我改了什麼 | 速度(一張 3090) |
+|---|---|---|---|
+| 音樂 | `audio_minimax_music_3`(MiniMax Music 3: Text to Music) | 照範本的子圖接線(UNETLoader、CLIPLoader type `minimax`、VAELoader、MiniMaxMusic3TextEncode、ConditioningZeroOut、EmptyMiniMaxMusic3LatentAudio、KSampler 30 步 cfg 1.7 euler / simple、VAEDecodeAudio);用一般解碼而不是分塊解碼;存成 FLAC | 60 秒的曲子約 **7 分鐘**(425 秒、419 秒) |
+| 音效 | `audio_stable_audio_3_medium`(Stable Audio 3.0 Medium) | 不用範本裡的 Qwen 改寫提示詞,自己照它的 One-shot / SFX 寫法寫(結尾加 `Length: N seconds`);CheckpointLoaderSimple、CLIPLoader `t5gemma_b_b_ul2` type `stable_audio`、KSampler 8 步 cfg 1 lcm / simple;存成 FLAC | 每個約 **3 秒** |
+
+樣本(原始 FLAC 在 `C:/Users/sheep/code/ComfyUI/output/zongheng_audio/`,給人聽的 MP3 和兩個 API 格式的工作流程在它的 `samples/`):
+
+| 檔案 | cue | 量到的(我聽不到) |
+|---|---|---|
+| `bgm_table_reform_qin_s5101` | `bgm.table.reform` 秦主奏:箏、缶、低鼓、塤;66 BPM、D 小調五聲 | 59.99 秒,44.1 kHz 立體聲,平均 -20.2 dB,**峰值 0.0 dB(頂到了,正式用要降)**,開頭 0.58 秒靜音 |
+| `bgm_table_reform_chu_s5101` | 同一期、同速同調,楚主奏:編鐘、瑟、排簫、磬 | 59.87 秒,平均 -25.9 dB,峰值 -2.7 dB,開頭 0.99 秒靜音 |
+| `sfx_map_place_s7101 / s7102 / s7103` | `sfx.map.place` 棋子落在木盤上 | s7102 是乾淨的單擊(0.23 秒後全靜);s7101、s7103 在 0.9 秒左右有第二聲 |
+| `sfx_event_chu_s7201 / s7202 / s7203` | `sfx.card.event.chu` 一顆編鐘 | s7201 餘音最長(2.4 秒)、峰值 -9.2 dB;s7202 偏小聲;s7203 中間斷了一下 |
+
+排隊腳本:`scratchpad/audio/audio_queue.py jobs.json [sound|music|<id>]`,一次一個、已經有輸出的就跳過(這台電腦會重開機)。
+
+要你用耳朵判斷的:(1) 兩首有沒有人聲或哼唱(模型是為歌曲設計的,我用 `[Instrumental]` 標籤和「no vocals」壓它);(2) 聽起來像不像箏 / 缶、編鐘 / 排簫,還是一般的「中國風」;(3) 兩首的速度和調是否接近到可以當同一首的兩個版本;(4) 落子聲和鐘聲像不像。
