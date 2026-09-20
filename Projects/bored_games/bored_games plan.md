@@ -150,6 +150,9 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — 線上實測才看到的:客戶端時鐘跟伺服器差 3.3 秒,30 秒的期限被讀成 26.7 秒 → 契約追加:每則 `state` 帶伺服器的 `now`,客戶端用 `deadline − now` 倒數。那一列驗收我第一次寫錯了(拿後來被 tick 改掉的時鐘去比),BE 證明它不可滿足而沒有去扭產品;修正後重新弄紅過。
 - **2026-09-19** — M4 文字(#13)land:連線的 23 個 key;退回一次(按鈕讀起來像陳述、英文用了 bot、一處「對面 / 對方」不一致)。M4 前端(#14,開房間 / 房間碼 / 等人頁 / 連線對戰 / 斷線重連 / 再撕一張)已派給 FE,驗收先 land(`net.js` 的純函式 3 列)。
 - **2026-09-19** — orchestrator 的失誤:收尾時用 `taskkill /IM workerd.exe` 按名字殺行程,那會關掉這台機器上所有 session 的 `wrangler dev`。之後只按 PID 或埠號關;#14 的 brief 已經寫進去。
+- **2026-09-19** — M4 做完:前端(csiesheep/bored_games#14)land + 部署,main @ `b6bb80b`,97 / 0 / 0,線上 15 個靜態檔 sha1 相同。開房間 / 房間碼 / 等人頁 / 連線對戰(座位 1 的紙轉 180°、自己永遠在下方)/ 斷線倒數、電腦接手、同分頁重連 / 再撕一張。連線模式裡客戶端不 `setup`、不 `apply`;倒數只用伺服器的 `now`。驗證:本機 `wrangler dev` + 兩個分頁(轉過來的紙上出手瞄準誤差 −0.1°、兩邊 view 雜湊相同、斷線 → 接手、重新載入直接回到紙上),線上兩個分頁同一個房間碼也對得上。退回一次(回來的人被擋在畫飛機那一頁)。
+- **2026-09-19** — 英文對手名字(#15):計畫 Theme 表寫的是 Ming next door / Class monitor / The new kid;現在線上是 **Ming Next Door / Class Monitor / New Kid**(拿掉冠詞、改成綽號式大小寫,因為同一個名字要放在句首、句中、按鈕上)。`over.summary` 英文改成「Lines drawn: {lines}. Planes left: {left}.」(原本剩 1 架時是 1 planes)。orchestrator 裁決,owner 可以推翻。
+- **2026-09-19** — `tools/orch.sh falsify` 對未追蹤的檔案會「注入了卻說沒命中、也還原不了」(FE 在 #14 踩到)→ 改成直接拒絕。新增一列驗收:`net.js` 的 `OFFLINE_MS` 要等於伺服器的(同一個事實有兩份)。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
@@ -165,6 +168,8 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [x] Orchestrator:M3 第二輪:自己畫飛機。2026-09-19(#8、#9,main @ `5c14c60`);封面語言切換移到右上角(#7)。
 - [x] Owner 裁決 #2(藏)和 #4(先手隨機)→ #10、#11,2026-09-19,main @ `1c4f3db`。
 - [x] Orchestrator:M4 伺服器(#12)和文字(#13)。2026-09-19,main @ `3464d7d`。
-- [ ] Orchestrator:M4 前端(#14)驗收 → land → 部署;用兩個分頁在線上真的打一局。
+- [x] Orchestrator:M4 前端(#14)。2026-09-19,main @ `b6bb80b`;線上兩個分頁對過。
+- [ ] Orchestrator:M5 Ship(noindex off、OG、JSON-LD、hub tile、sitemap)——**要 owner 說 go 才開工**(部署規則從那一刻起也變成只在 owner 說 go 時部署);開新的 orchestrator session。
+- [ ] Orchestrator(M5 之前的小事):`tests/sim.js` 的彙總要不要一列驗收;`setup.online.soon` 這個 key 已經沒人用,要不要拿掉。
 - [ ] Owner:兩支真的手機連線打一局(行動網路、切到背景再回來)。
 - [ ] Owner:#4 剩下的一件——每局只有 6 手要不要處理(每邊 5 架、或改目標),iPhone 玩過再說。
