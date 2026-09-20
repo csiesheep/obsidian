@@ -146,6 +146,10 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — owner 裁決(csiesheep/bored_games#2):選「藏 (Recommended)」→ `view` 永遠拿掉 `seed` 和 `rng`。owner 裁決(#4),原話:「randomly who is the first.」→ 誰先手由種子隨機決定,數值不動(orchestrator 的解讀,記在 #4)。兩件併成 #10(BE)+ #11(writer 改規則頁第一句),main @ `1c4f3db`,82 / 0 / 0,已部署,線上 14 個檔案 sha1 相同。Architecture 一節寫的「`view` 回傳整個 state」已經不成立:以這一條為準。
 - **2026-09-19** — #10 之後的三張表(每格 600 局,`sim.js` / orchestrator 的探針):座位 0 勝率 easy 52.0 / 51.7%、normal 49.2 / 49.7%、hard 49.0 / 46.3%(目標 50 ± 5,到了);先出手的一方仍然只贏 34 / 29.5 / 25.7%(後手優勢還在,只是擲硬幣決定落在誰身上);每局出手數 p50 仍是 6(目標 8 到 16,沒到,owner 還沒裁決,#4 留著開)。
 - **2026-09-19** — 這一輪驗收的洞:注入「硬幣 = `seed & 1`」時 81 列全綠,因為我抽的 400 個種子奇偶交替。補了一列(偶數 / 奇數 / 1024 的倍數 / 連續,四族各要 40–60%),同一個注入現在紅。教訓:取樣的種子自己有樣式時,跟樣式同相的缺陷是隱形的。另外 `tests/sim.js` 的彙總沒有任何驗收在看(BE 自己指出),目前靠 orchestrator 的獨立探針當第二支儀器;M4 之前決定要不要給它一列。
+- **2026-09-19** — M4 伺服器(csiesheep/bored_games#12)land + 部署:規則全在純函式的 `src/room-core.js`(時鐘、亂數從外面給,驗收第 17 組 10 列),`src/room.js` 是薄的 Durable Object(Hibernation WebSocket、alarm = `room.wake`、storage),`/bored_games/ws?room=ABCD`。main @ `3464d7d`,93 / 0 / 3,v1 sqlite migration 已上線。orchestrator 的探針(兩條真的 WebSocket)在 `wrangler dev` 和線上各跑一次:回合時鐘 30.0 秒代打、斷線 20.0 / 20.3 秒接手、同 token 重連、`full`、16 KB 上限、訊息裡沒有對方的 token、view 沒有 seed / rng。orchestrator 裁決(#12):房間碼四個大寫字母去掉 I、O、客戶端產生;電腦想 1.2 秒;閒置 10 分鐘刪除;不做觀戰。
+- **2026-09-19** — 線上實測才看到的:客戶端時鐘跟伺服器差 3.3 秒,30 秒的期限被讀成 26.7 秒 → 契約追加:每則 `state` 帶伺服器的 `now`,客戶端用 `deadline − now` 倒數。那一列驗收我第一次寫錯了(拿後來被 tick 改掉的時鐘去比),BE 證明它不可滿足而沒有去扭產品;修正後重新弄紅過。
+- **2026-09-19** — M4 文字(#13)land:連線的 23 個 key;退回一次(按鈕讀起來像陳述、英文用了 bot、一處「對面 / 對方」不一致)。M4 前端(#14,開房間 / 房間碼 / 等人頁 / 連線對戰 / 斷線重連 / 再撕一張)已派給 FE,驗收先 land(`net.js` 的純函式 3 列)。
+- **2026-09-19** — orchestrator 的失誤:收尾時用 `taskkill /IM workerd.exe` 按名字殺行程,那會關掉這台機器上所有 session 的 `wrangler dev`。之後只按 PID 或埠號關;#14 的 brief 已經寫進去。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
@@ -160,5 +164,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [ ] Owner:在 iPhone 上玩 https://games.csiesheep.com/bored_games/(真的手指、可見高度、動畫節奏),回報手感。
 - [x] Orchestrator:M3 第二輪:自己畫飛機。2026-09-19(#8、#9,main @ `5c14c60`);封面語言切換移到右上角(#7)。
 - [x] Owner 裁決 #2(藏)和 #4(先手隨機)→ #10、#11,2026-09-19,main @ `1c4f3db`。
-- [ ] Orchestrator:M4 Rooms(兩座位 DO、回合時鐘 30 秒、bot 頂替、斷線重連、再來一張)。房間只送 `view`;收畫(`art`)的那一層要先擋訊息大小、自己驗 `opts` 的形狀(#8 的留言);開新的 orchestrator session。
+- [x] Orchestrator:M4 伺服器(#12)和文字(#13)。2026-09-19,main @ `3464d7d`。
+- [ ] Orchestrator:M4 前端(#14)驗收 → land → 部署;用兩個分頁在線上真的打一局。
+- [ ] Owner:兩支真的手機連線打一局(行動網路、切到背景再回來)。
 - [ ] Owner:#4 剩下的一件——每局只有 6 手要不要處理(每邊 5 架、或改目標),iPhone 玩過再說。
