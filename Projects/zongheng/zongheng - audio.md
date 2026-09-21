@@ -430,3 +430,5 @@ S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之
 | `sfx.tut.step` 教學一課完成 | `sfx_tut_step_s8800` |
 
 **P1 和 P2 的音效全部定案:50 個檔;音樂 14 個情境。** 只剩 P3 的 13 列(開關聲、分頁、複製房號、移出遊戲、棄牌、洗牌、先到變法格、洛邑、回合結算、斷線 / 回來、教學完成、軍師、六種結束方式各自的一聲)還沒做,要不要做由 owner 決定。S4 + S5 併成一次接線:#65(素材,21 個檔)和 #66(遊戲端)。
+
+- **owner(2026-09-20 深夜):「第三優先的 13 個小聲音 不用作」。** P3 的 13 列(`sfx.ui.toggle`、`sfx.ui.tab`、`sfx.ui.copy`、`sfx.card.remove`、`sfx.card.discard`、`sfx.card.reshuffle`、`sfx.track.reform.first`、`sfx.luoyi`、`sfx.turn.end`、`sfx.room.drop` / `.back`、`sfx.tut.done`、`sfx.advisor`、`sfx.end.reason.*`)不做。聲音的清單到此定案:音樂 14 個情境、音效 50 個檔(P1 29 + P2 21)。接線完成(#65、#66)之後,聲音只剩 owner 實際玩過之後的音量與循環調整。
