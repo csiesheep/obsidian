@@ -374,3 +374,5 @@ S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之
 - **S4**(10 個,種子 86xx):`sfx.ui.open`、`sfx.ui.close`、`sfx.card.deal`、`sfx.card.ops`、`sfx.card.enemyEvent.qin`、`sfx.card.enemyEvent.chu`、`sfx.card.jiuding`、`sfx.map.unplace`、`sfx.map.campaign.key`、`sfx.map.lobby`。
 - **S5**(11 個,種子 87xx 到 880x):`sfx.track.weariness`、`sfx.track.reform`、`sfx.restore`、`sfx.turn.headline`、`sfx.turn.timeout`、`sfx.score.count`、`sfx.room.join`、`sfx.room.leave`、`sfx.room.chat`、`sfx.room.start`、`sfx.tut.step`。
 - `sfx.score.result` 不另外做:接線時用已定案的天命聲(往秦 `s8311` / 往楚 `s8322`)。
+
+- 2026-09-20 晚上:`sfx.track.mandate.chu`(天命往楚)定為 **`sfx_track_mandate_chu_paixiao_s8330`(B 排簫)**,只用這一個;編鐘的 `s8322` 不用。楚的聲音因此有兩個代表音色:事件 = 編鐘(`sfx_event_chu_s7201`),天命 = 排簫。P1 共 29 個音效檔。S4、S5(P2 的 21 個聲音)和 M2b(兩首低沉的敗北,各先一個版本)的試聽頁已寄出,等 owner 聽。
