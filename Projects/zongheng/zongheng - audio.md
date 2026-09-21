@@ -387,3 +387,8 @@ S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之
 - **#61(`peer-chore`)素材**:40 個檔轉成 `public/audio/<cue>.mp3`,附 `manifest.json`(cue → file / kind / seconds / gain / loop / source)、`prompts.json`(每個檔的模型、種子、提示詞)和可重跑的 `tools/audio_build.py`。音效:去頭尾靜音、3 ms 淡入 40 ms 淡出、單聲道、峰值 -3 dBFS。音樂:立體聲、`loudnorm` 到 -20 LUFS / -2 dB TP、128 kbps。預估 13 到 15 MB,依情境才載入。
 - **下一張(`peer-fe`)**:聲音引擎(第一次點擊後才出聲;`zh.sfx`、`zh.music` 兩個設定,預設都開;首頁兩個看得到的開關;牌桌音樂依時期與座位換曲、交叉淡化;分頁在背景時音樂暫停)和一個不碰 DOM 的對照模組(紀錄的每一種事件 → 哪個 cue;哪個畫面 → 哪首音樂;「只差一步」的判定),後者由 orchestrator 寫測試。
 - **M3 音樂**(設定頁「靜庭」、危急層「心跳」、教學「學堂」,各兩個版本)生成中;P2 的 21 個音效(S4、S5)等 owner 聽。
+
+### owner 聽過 M3(2026-09-20 夜)
+
+- `bgm.setup` = **`bgm_setup_jingting_s5511`**(靜庭)、`bgm.tension` = **`bgm_tension_xintiao_s5521`**(心跳,26 秒)、`bgm.tutorial` = **`bgm_tutorial_xuetang_s5532`**(學堂,60 秒)。音樂到這裡 14 個情境全部定案。
+- 接進遊戲:等 #63(建置腳本加 `--only`)合併後,開一張小工單把這三首加進 `public/audio/`;`bgm.setup`、`bgm.tutorial` 就不再是「缺的曲子」(合約測試的 `missingCues` 期望值要跟著改成空的);`bgm.tension` 要另外接線(危急層:疊在牌桌音樂上、小聲循環,`dangerFlags` 有任何一項成立時淡入)。
