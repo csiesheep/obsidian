@@ -293,6 +293,20 @@ S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之
 
 試聽頁從這一批起用繁體中文(`make_sheet.py ... zh`):每個聲音有中文名稱、用在哪裡、想要的聲音。
 
+### owner 聽過 S2b(2026-09-20 晚上)
+
+| 聲音 | 選定 |
+|---|---|
+| `sfx.track.mandate.qin` 天命往秦 | `sfx_track_mandate_qin_s8311`(戰鼓兩擊) |
+| `sfx.track.mandate.chu` 天命往楚 | **兩個都收**:`sfx_track_mandate_chu_s8322`(A 編鐘)和 `sfx_track_mandate_chu_paixiao_s8330`(B 排簫)。owner 兩行都列了,沒說二選一;接線時先用編鐘,排簫留作楚的第二個代表音色(待 owner 確認要不要疊在一起) |
+| `sfx.mie` 秦滅一國 | `sfx_mie_s8342`(只有城牆倒塌) |
+| `sfx.turn.era` 進入新時期 | `sfx_turn_era_s8350`(中型銅鐘四個慢音) |
+| `sfx.turn.clock.tick` 倒數滴答 | `sfx_turn_clock_tick_s8360`(木梆) |
+| `sfx.turn.clock.last` 倒數最後三秒 | `sfx_turn_clock_last_s8371`(空心木塊) |
+| `sfx.map.control.lose` 失去控制 | **再重作**(第二次退回,沒有新的方向,仍是「沉重一點,像關機的聲音」)。批次 S2c 換三種解讀,各三個版本:A 三個很快往下的低音(像關機的提示音)、B 大銅鐘敲一下立刻被手按住、C 音高往下滑的大鼓。種子 85xx |
+
+到這裡收下 **23 個**音效檔(22 個 cue,天命往楚有兩個)。S2c 和 S3(按鈕、不能點、四個結局的開場聲,種子 84xx)同時生成:`sfx_burst.py` 一次把全部音效工作丟進 ComfyUI 的佇列,不然每個 3 秒的音效都要排在一首 10 分鐘的音樂後面。
+
 ## 十二、音樂批次(2026-09-20 傍晚,owner:「先產生musics,我等會再聽sounds」)
 
 做法照 owner 選中的「楚 C 雲夢」:MiniMax 自己的 caption 寫法(正面、具體、逐段時間線)、八音分家(秦 = 土革絲,楚 = 金石竹)、秦 D 羽調 / 楚 G 宮調。**每首直接做成正式長度**(換長度就是另一首曲子,所以選中的檔就是上線的檔):牌桌 120 秒、首頁 90 秒、勝利 30 秒(不循環)、敗北 60 秒。每首兩個種子。腳本 `scratchpad/audio/make_music.py`(批次 M1、M2)→ `jobs_music_all.json`(每個情境先做第一個版本,再做第二個,因為這台 PC 會重開)→ `audio_queue.py`;試聽頁 `make_music_sheet.py` → `samples/bgm_batch_M1_zh.html`、`bgm_batch_M2_zh.html`(繁體中文)。
