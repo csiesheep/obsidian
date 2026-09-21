@@ -357,3 +357,20 @@ S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之
 
 - 2026-09-20 晚上:`bgm.win.chu` 定為 **`bgm_win_chu_fengming_s5431`**(純器樂;加吟唱的 `s5436` 不用)。
 - 2026-09-20 晚上:`sfx.map.control.lose` 定為 **`sfx_map_control_lose_drum_s8522`**(S2c 的 C:音高往下滑的大鼓;第三次才過)。這個檔峰值 0.0 dB,接線前要降。到這裡 S1 + S2 的 21 個 cue 全部有定案(天命往楚有兩個檔),共 24 個音效檔。
+
+### owner 聽過 S3(2026-09-20 晚上):第一優先的音效全部定案
+
+| 聲音 | 選定 |
+|---|---|
+| `sfx.ui.tap` 按鈕 | `sfx_ui_tap_s8400` |
+| `sfx.ui.error` 不能點 | `sfx_ui_error_s8410` |
+| `sfx.end.win.qin` 秦勝的開場 | `sfx_end_win_qin_s8422` |
+| `sfx.end.win.chu` 楚勝的開場 | `sfx_end_win_chu_s8432` |
+| `sfx.end.lose.qin` 秦敗的開場 | `sfx_end_lose_qin_s8441` |
+| `sfx.end.lose.chu` 楚敗的開場 | `sfx_end_lose_chu_s8452` |
+
+到這裡 **P1 的 21 列全部有定案**,共 30 個音效檔(`scratchpad/audio/accepted.json`)。接著做 P2,分兩批,每個聲音三個版本:
+
+- **S4**(10 個,種子 86xx):`sfx.ui.open`、`sfx.ui.close`、`sfx.card.deal`、`sfx.card.ops`、`sfx.card.enemyEvent.qin`、`sfx.card.enemyEvent.chu`、`sfx.card.jiuding`、`sfx.map.unplace`、`sfx.map.campaign.key`、`sfx.map.lobby`。
+- **S5**(11 個,種子 87xx 到 880x):`sfx.track.weariness`、`sfx.track.reform`、`sfx.restore`、`sfx.turn.headline`、`sfx.turn.timeout`、`sfx.score.count`、`sfx.room.join`、`sfx.room.leave`、`sfx.room.chat`、`sfx.room.start`、`sfx.tut.step`。
+- `sfx.score.result` 不另外做:接線時用已定案的天命聲(往秦 `s8311` / 往楚 `s8322`)。
