@@ -376,3 +376,14 @@ S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之
 - `sfx.score.result` 不另外做:接線時用已定案的天命聲(往秦 `s8311` / 往楚 `s8322`)。
 
 - 2026-09-20 晚上:`sfx.track.mandate.chu`(天命往楚)定為 **`sfx_track_mandate_chu_paixiao_s8330`(B 排簫)**,只用這一個;編鐘的 `s8322` 不用。楚的聲音因此有兩個代表音色:事件 = 編鐘(`sfx_event_chu_s7201`),天命 = 排簫。P1 共 29 個音效檔。S4、S5(P2 的 21 個聲音)和 M2b(兩首低沉的敗北,各先一個版本)的試聽頁已寄出,等 owner 聽。
+
+### owner 聽過 M2b(2026-09-20 晚上):P1 的音樂全部定案
+
+- `bgm.lose.qin` = **`bgm_lose_qin_jin_low_s5461`**(燼,低沉,60 秒);`bgm.lose.chu` = **`bgm_lose_chu_chuge_low_s5471`**(楚歌,更低沉,55 秒)。
+- 到這裡 **P1 全部定案:29 個音效檔、11 首音樂**(`scratchpad/audio/accepted.json`)。
+
+## 十三、接進遊戲(2026-09-20 晚上開始)
+
+- **#61(`peer-chore`)素材**:40 個檔轉成 `public/audio/<cue>.mp3`,附 `manifest.json`(cue → file / kind / seconds / gain / loop / source)、`prompts.json`(每個檔的模型、種子、提示詞)和可重跑的 `tools/audio_build.py`。音效:去頭尾靜音、3 ms 淡入 40 ms 淡出、單聲道、峰值 -3 dBFS。音樂:立體聲、`loudnorm` 到 -20 LUFS / -2 dB TP、128 kbps。預估 13 到 15 MB,依情境才載入。
+- **下一張(`peer-fe`)**:聲音引擎(第一次點擊後才出聲;`zh.sfx`、`zh.music` 兩個設定,預設都開;首頁兩個看得到的開關;牌桌音樂依時期與座位換曲、交叉淡化;分頁在背景時音樂暫停)和一個不碰 DOM 的對照模組(紀錄的每一種事件 → 哪個 cue;哪個畫面 → 哪首音樂;「只差一步」的判定),後者由 orchestrator 寫測試。
+- **M3 音樂**(設定頁「靜庭」、危急層「心跳」、教學「學堂」,各兩個版本)生成中;P2 的 21 個音效(S4、S5)等 owner 聽。
