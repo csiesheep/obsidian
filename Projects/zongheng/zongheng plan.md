@@ -558,7 +558,11 @@ three states shapes play more than it wins (rulebook 未決項 2).
   - Guards for both are in `tests/opening.test.js`.
   - **#78:** the landing records why the opening ended (`zh.opening.last`). `?opening&diag` shows an on-screen event log for the next phone-only problem.
   - Main is `ebe638b`, 159 tests.
-- Running (2026-09-21): **#86** every desktop button smaller (one scale, about 32-36 px); **#87** remove the corner thumbnail, the opponent's card panel waits for a tap; **#88** the log panel, design **A 逐手卷軸** (the owner's pick from three on the canvas, Version 53, page 紀錄): chronological, one row per move with result chips, tap a row to see it on the map; guard `tests/logview.test.js` (groupLog). Not yet confirmed on the phone: #68 to #75.
+- [x] **#86 live**: every desktop button on one smaller scale (32 px, 14 px text); the compact sheet 217 -> 126 px.
+- [x] **#87 live**: the corner thumbnail is gone; the opponent's card panel waits for a tap, then the steps play.
+- [x] **#88 live** (main `1ca3b21`, 169 tests): the log panel, design A 逐手卷軸: chronological, turn/round headers, one row per move with result chips (status in gold), headline rows, chat as speech (escaped), filters 全部/秦/楚/對話, tap a row to flash it on the map. Guard `tests/logview.test.js`.
+- Owner question (2026-09-21): why 相印 2/4 with 4 capitals: a seal needs Chu control AND a full stack (stability + 2). Offered a seal-progress marker on capitals; waiting.
+- Nothing running.
 - **Opponent's move (owner 2026-09-21):** three designs on the canvas (Version 51, page 對手的一手); the owner picked **A 亮牌**: the opponent's card is revealed over the map (~1.5 s), each action then plays on the map (~0.6 s a step), and it settles into a chip that opens the ordered step list; tap to skip; the headline card is revealed the same way (my default). **#79 live** (main `4396368`, version `96d24fdb`, two rounds): the reveal, steps, chip and sheet work for the bot and room opponents; round 2 fixed the numbering, the mandate wording (the change, not the value), scoring and seal lines, and a missing reveal for the Nine Cauldrons. Guard `tests/oppmove.test.js`.
 - [x] **#80 live** (main `1d12a62`): desktop hand cards were clipped to a 72 px strip since #68; fixed with `#lowerBlock { display: contents }` on desktop.
 - [x] **#81 live** (main `d3ad41e`): the engine logs a `play` entry for the Nine Cauldrons (the news now says 「楚打出九鼎(征伐)」); #79's guess removed; audio-cues would have thrown on it and was fixed. Guard `tests/jiuding-log.test.js`.
