@@ -341,3 +341,16 @@ S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之
   - 秦敗 燼(低沉)`bgm_lose_qin_jin_low_s5461 / s5462`:全部壓在最低音區。一聲很深的鬆鼓、低音大塤三個往下的低音、古琴最低空弦的持續音、句子一次比一次低、最後一聲悶鼓。拿掉火的劈啪聲(高頻)。
   - 楚敗 楚歌(更低沉)`bgm_lose_chu_chuge_low_s5471 / s5472`:編鐘裡最大最低的一顆用包布的槌輕敲、瑟最低幾根弦掃一下、中段遠處幾個男低音哼一個很低的長音、一聲軟槌大鼓像心跳停下、最後一聲鐘散進低風。
 - 佇列改成:M2b 四首先做,再補牌桌剩下的第二個版本(虎狼、國殤、雲夢長版);首頁與勝利的第二個版本取消。
+
+### owner 聽過 M1(2026-09-20 晚上):牌桌六首全部收下
+
+| 情境 | 選定(都是第一個版本) |
+|---|---|
+| `bgm.table.reform.qin` 變法期 · 秦 | `bgm_table_reform_qin_D_weishui_s5311`(渭水,108 秒) |
+| `bgm.table.reform.chu` 變法期 · 楚 | `bgm_table_reform_chu_C_yunmeng_long_s5361`(雲夢長版,120 秒;取代先前選的 55 秒版 `s5223`) |
+| `bgm.table.alliance.qin` 縱橫期 · 秦 | `bgm_table_alliance_qin_lianheng_s5321`(連橫,77 秒) |
+| `bgm.table.alliance.chu` 縱橫期 · 楚 | `bgm_table_alliance_chu_yingdu_s5331`(郢都,120 秒) |
+| `bgm.table.conquest.qin` 兼併期 · 秦 | `bgm_table_conquest_qin_hulang_s5341`(虎狼,106 秒) |
+| `bgm.table.conquest.chu` 兼併期 · 楚 | `bgm_table_conquest_chu_guoshang_s5351`(國殤,71 秒) |
+
+剩下的第二個版本取消(已做出來的 `s5312`、`s5322`、`s5332`、`s5342` 留在硬碟上,沒有用到)。P1 的音樂現在只差兩首敗北(M2b 進行中)和楚勝要用哪個版本。之後是 M3:`bgm.setup`、`bgm.tension`、`bgm.tutorial`。接線前要做:全部降到同一個響度(多數峰值頂到 0 dB)、轉成 MP3 / OGG、循環點(牌桌六首和首頁要能循環;77 秒和 71 秒那兩首比較短,循環會比較明顯)。
