@@ -412,3 +412,21 @@ S1 到 S3 加上已收下的兩個,就是清單裡全部 P1 音效。P2、P3 之
 | `sfx.map.lobby` 遊說結算 | `sfx_map_lobby_s8691` |
 
 音效共 39 個檔定案。S5(11 個)還在等 owner 聽。接進遊戲:一張 chore 工單(加進 `tools/audio_cues.json`,`--only` 建置),一張前端工單(對照表擴充,合約測試先寫)。
+
+### owner 聽過 S5(2026-09-20 深夜):十一個全收
+
+| 聲音 | 選定 |
+|---|---|
+| `sfx.track.weariness` 疲敝加重 | `sfx_track_weariness_s8701` |
+| `sfx.track.reform` 變法前進 | `sfx_track_reform_s8710` |
+| `sfx.restore` 復國 | `sfx_restore_s8721` |
+| `sfx.turn.headline` 標題階段開始 | `sfx_turn_headline_s8730` |
+| `sfx.turn.timeout` 時間到 | `sfx_turn_timeout_s8740` |
+| `sfx.score.count` 記分逐項計算 | `sfx_score_count_s8752` |
+| `sfx.room.join` 有人進房 | `sfx_room_join_s8761` |
+| `sfx.room.leave` 有人離開 | `sfx_room_leave_s8770` |
+| `sfx.room.chat` 聊天訊息 | `sfx_room_chat_s8780` |
+| `sfx.room.start` 遊戲開始 | `sfx_room_start_s8790` |
+| `sfx.tut.step` 教學一課完成 | `sfx_tut_step_s8800` |
+
+**P1 和 P2 的音效全部定案:50 個檔;音樂 14 個情境。** 只剩 P3 的 13 列(開關聲、分頁、複製房號、移出遊戲、棄牌、洗牌、先到變法格、洛邑、回合結算、斷線 / 回來、教學完成、軍師、六種結束方式各自的一聲)還沒做,要不要做由 owner 決定。S4 + S5 併成一次接線:#65(素材,21 個檔)和 #66(遊戲端)。
