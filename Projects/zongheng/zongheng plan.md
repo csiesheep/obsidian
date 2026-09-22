@@ -567,8 +567,10 @@ three states shapes play more than it wins (rulebook 未決項 2).
 - [x] **#92 live**: the card's history collapses (collapsed by default) on the card page and both peeks; 九鼎 no longer labelled a scoring card.
 - [x] **#93 live**: the advisor's map targets appear only once the suggested card is picked.
 - [x] **#94 live**: Cancel always returns to the hand (the place branch's own onCancel only cleared points); 看牌 opens the card's detail page.
-- Waiting on the owner: 五國 designs (canvas Version 56, page 五國: A 國字小籤, B 國綬線 recommended, C 點國都亮一國).
-- Nothing running (171 tests).
+- [x] **#95 live** (main `10770cf`, 173 tests): owner asked how to tell the five states apart and picked **A 國字小籤**: a small tag (韓 魏 趙 齊 燕, five colours) beside each of the 14 state spaces, never on its own disc, name or numerals (three rounds). Guard `tests/state-tags.test.js`.
+- [x] **#96 live**: the rules page card history was unreadable (its <p> lacked `sheet-text`, taking the page's light text colour; not #92 as first guessed) and is now collapsible, collapsed by default.
+- Owner questions answered: 滅國 rules; a seal persists until Qin controls the capital; campaigns need no adjacency.
+- Nothing running.
 - **Opponent's move (owner 2026-09-21):** three designs on the canvas (Version 51, page 對手的一手); the owner picked **A 亮牌**: the opponent's card is revealed over the map (~1.5 s), each action then plays on the map (~0.6 s a step), and it settles into a chip that opens the ordered step list; tap to skip; the headline card is revealed the same way (my default). **#79 live** (main `4396368`, version `96d24fdb`, two rounds): the reveal, steps, chip and sheet work for the bot and room opponents; round 2 fixed the numbering, the mandate wording (the change, not the value), scoring and seal lines, and a missing reveal for the Nine Cauldrons. Guard `tests/oppmove.test.js`.
 - [x] **#80 live** (main `1d12a62`): desktop hand cards were clipped to a 72 px strip since #68; fixed with `#lowerBlock { display: contents }` on desktop.
 - [x] **#81 live** (main `d3ad41e`): the engine logs a `play` entry for the Nine Cauldrons (the news now says 「楚打出九鼎(征伐)」); #79's guess removed; audio-cues would have thrown on it and was fixed. Guard `tests/jiuding-log.test.js`.
