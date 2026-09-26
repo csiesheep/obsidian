@@ -112,7 +112,11 @@ Then play passes left.
    bonuses. Higher wins.
 5. **Winner picks one**: (a) look at the loser's society *and* profession
    cards, or (b) look at all the loser's items and take one (the item's
-   text is not triggered).
+   text is not triggered). **If that was the loser's last item, the winner
+   must give the loser any one of the winner's own items back** ("War dies
+   die letzte Handkarte des Unterlegenen, muss er ihm einen beliebigen
+   Gegenstand aus seinem eigenen Besitz zurückgeben."). Missed in the first
+   digest; added 2026-09-25, and the game follows it since then.
    **Tie** ⇒ the attacker draws one item from the pile if any is left.
 6. The attacker's turn ends.
 
