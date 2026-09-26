@@ -683,3 +683,4 @@ three states shapes play more than it wins (rulebook 未決項 2).
 Owner's direction (2026-09-18): little effort on UI (it will be redesigned with
 image and video generators); make the engine, the balance and the play flow
 right first.
+- [ ] M1 engine.
