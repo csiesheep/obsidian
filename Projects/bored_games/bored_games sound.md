@@ -4,12 +4,14 @@ tags:
   - gamedev
   - bored_games
   - audio
-status: draft
+status: paused
 created: 2026-09-25
 updated: 2026-09-25
 ---
 
 # 紙上空戰 音效清單
+
+> **暫停(owner,2026-09-25,原話:「Stop the sound effects for now」)。** 停在:5 個選好的 H3 音效在 `output/bored_sfx/work/chosen/`;8 個的 Web Audio 合成版等 owner 試聽(https://claude.ai/artifact/9e6pmWSJP6GsstzSagsDvv);批次二還沒開始。沒有任何東西在跑。
 
 草稿,等 owner 看過清單才開始產生。順序:二十頁([[bored_games campaign]])做完之後。
 
