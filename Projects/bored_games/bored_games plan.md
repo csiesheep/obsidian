@@ -190,5 +190,5 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [ ] Owner:兩支真的手機連線打一局(行動網路、切到背景再回來)。
 - [ ] Owner:#4 剩下的一件——每局只有 6 手要不要處理(每邊 5 架、或改目標),iPhone 玩過再說。
 - [x] Owner:單人關卡要做、排在 M5 之後(2026-09-25)。
-- [ ] M5 部署完之後:開二十關的 orchestrator(task chip)。
+- [x] M5 部署完之後:開二十關的 orchestrator(task chip)。2026-09-26,owner 原話:「開二十關的 orchestrator」→ task chip「Run the bored_games campaign orchestrator」已交給 owner(cwd 在 repo);campaign.md 第 2 到 5 題還沒裁決,那個 session 會先開一張「要 owner 裁決」的 issue。
 - [ ] Owner:看音效清單 [[bored_games sound]](22 個,2026-09-25),回答四個問題;二十頁做完之後才產生。
