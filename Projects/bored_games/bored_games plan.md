@@ -157,6 +157,8 @@ Phase 0 proposal; the owner confirms it with the first go.
 
 - **2026-09-25** — owner 說 M5 go,原話:「M5 go」。從 M5 拿掉 `noindex` 的那個改動起,部署只在 owner 說 go 時(`TEAM.md`「部署」一節)。開新的 orchestrator session 做 M5。單人關卡([[bored_games campaign]])不在 M5 裡。
 
+- **2026-09-25** — owner 裁決(csiesheep/bored_games#17),原話:「a」→ M5 四條都 land 之後,main 那時的 SHA + hub 一次部署、比對位元組、停。更正:#17 裡標成「owner 原話」的「只放行拿掉 noindex 那個 SHA」是 vault session 寫的開場指示,不是 owner 說的;owner 對 M5 的原話只有「M5 go」。
+
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
 - [x] 建 repo `csiesheep/bored_games`,從 `tiandihui` scaffold。2026-09-19
