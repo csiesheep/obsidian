@@ -177,3 +177,4 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [ ] Owner:兩支真的手機連線打一局(行動網路、切到背景再回來)。
 - [ ] Owner:#4 剩下的一件——每局只有 6 手要不要處理(每邊 5 架、或改目標),iPhone 玩過再說。
 - [ ] Owner:看單人關卡草稿 [[bored_games campaign]](二十頁,2026-09-25),決定要不要做、排在 M5 之前還是之後。
+- [ ] Owner:看音效清單 [[bored_games sound]](22 個,2026-09-25),回答四個問題;二十頁做完之後才產生。
