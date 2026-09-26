@@ -155,6 +155,8 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-09-19** — `tools/orch.sh falsify` 對未追蹤的檔案會「注入了卻說沒命中、也還原不了」(FE 在 #14 踩到)→ 改成直接拒絕。新增一列驗收:`net.js` 的 `OFFLINE_MS` 要等於伺服器的(同一個事實有兩份)。
 - **2026-09-19** — owner 回報(csiesheep/bored_games#16),原話:「重畫按鈕沒有用」。原因:`重畫` 只清這一次碰過的那一框,框裡是上次存的畫、還沒碰任何框時什麼都不做(#9 的 brief 沒定義這個情況,是 orchestrator 的疏漏)。orchestrator 裁決:清目前的框,沒有就清第一個有畫的;目前的框框線換成筆色;三框都空時按鈕 disabled。main @ `e5936e8`,98 / 0 / 0,已部署;orchestrator 親手重現 owner 的情況驗過。
 
+- **2026-09-25** — owner 說 M5 go,原話:「M5 go」。從 M5 拿掉 `noindex` 的那個改動起,部署只在 owner 說 go 時(`TEAM.md`「部署」一節)。開新的 orchestrator session 做 M5。單人關卡([[bored_games campaign]])不在 M5 裡。
+
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
 - [x] 建 repo `csiesheep/bored_games`,從 `tiandihui` scaffold。2026-09-19
@@ -170,7 +172,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [x] Owner 裁決 #2(藏)和 #4(先手隨機)→ #10、#11,2026-09-19,main @ `1c4f3db`。
 - [x] Orchestrator:M4 伺服器(#12)和文字(#13)。2026-09-19,main @ `3464d7d`。
 - [x] Orchestrator:M4 前端(#14)。2026-09-19,main @ `b6bb80b`;線上兩個分頁對過。
-- [ ] Orchestrator:M5 Ship(noindex off、OG、JSON-LD、hub tile、sitemap)——**要 owner 說 go 才開工**(部署規則從那一刻起也變成只在 owner 說 go 時部署);開新的 orchestrator session。
+- [ ] Orchestrator:M5 Ship(noindex off、OG、JSON-LD、hub tile、sitemap)——owner 2026-09-25 說 go,新的 orchestrator session 已交給 owner(task chip「Run the bored_games M5 orchestrator」)(部署規則從那一刻起也變成只在 owner 說 go 時部署);開新的 orchestrator session。
 - [ ] Orchestrator(M5 之前的小事):`tests/sim.js` 的彙總要不要一列驗收;`setup.online.soon` 這個 key 已經沒人用,要不要拿掉。
 - [ ] Owner:兩支真的手機連線打一局(行動網路、切到背景再回來)。
 - [ ] Owner:#4 剩下的一件——每局只有 6 手要不要處理(每邊 5 架、或改目標),iPhone 玩過再說。
