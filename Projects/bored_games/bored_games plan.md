@@ -159,6 +159,8 @@ Phase 0 proposal; the owner confirms it with the first go.
 
 - **2026-09-25** — owner 裁決(csiesheep/bored_games#17),原話:「a」→ M5 四條都 land 之後,main 那時的 SHA + hub 一次部署、比對位元組、停。更正:#17 裡標成「owner 原話」的「只放行拿掉 noindex 那個 SHA」是 vault session 寫的開場指示,不是 owner 說的;owner 對 M5 的原話只有「M5 go」。
 
+- **2026-09-25** — owner 裁決,原話:「之後」→ 二十關([[bored_games campaign]])要做,排在 M5 之後當 v1.1;M5 部署完再開新的 orchestrator 做。
+
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
 - [x] 建 repo `csiesheep/bored_games`,從 `tiandihui` scaffold。2026-09-19
@@ -178,5 +180,6 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [ ] Orchestrator(M5 之前的小事):`tests/sim.js` 的彙總要不要一列驗收;`setup.online.soon` 這個 key 已經沒人用,要不要拿掉。
 - [ ] Owner:兩支真的手機連線打一局(行動網路、切到背景再回來)。
 - [ ] Owner:#4 剩下的一件——每局只有 6 手要不要處理(每邊 5 架、或改目標),iPhone 玩過再說。
-- [ ] Owner:看單人關卡草稿 [[bored_games campaign]](二十頁,2026-09-25),決定要不要做、排在 M5 之前還是之後。
+- [x] Owner:單人關卡要做、排在 M5 之後(2026-09-25)。
+- [ ] M5 部署完之後:開二十關的 orchestrator(task chip)。
 - [ ] Owner:看音效清單 [[bored_games sound]](22 個,2026-09-25),回答四個問題;二十頁做完之後才產生。
