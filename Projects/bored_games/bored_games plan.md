@@ -183,7 +183,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [x] Orchestrator:M4 伺服器(#12)和文字(#13)。2026-09-19,main @ `3464d7d`。
 - [x] Orchestrator:M4 前端(#14)。2026-09-19,main @ `b6bb80b`;線上兩個分頁對過。
 - [x] Orchestrator:M5 Ship(noindex off、OG、JSON-LD、hub tile、sitemap)。2026-09-26,main @ `aa14725` 已部署、hub `923ac88`,線上逐位元組相同。
-- [ ] Owner:在 csiesheep/bored_games#17 回事故那則(處理選項;TEAM.md 要不要寫進「hub push main 就是部署」)。
+- [x] Owner:在 csiesheep/bored_games#17 回事故那則。2026-09-26,原話:「寫進 TEAM.md,選項 1」→ TEAM.md `df64ffc`。
 - [ ] Owner:Search Console 送出 `https://games.csiesheep.com/bored_games/sitemap.xml`(手動)。
 - [ ] Owner:在 iPhone 上看分享卡片(把 `/bored_games/` 和 `/bored_games/dogfight/` 的連結貼進聊天軟體)。
 - [ ] Orchestrator(M5 之前的小事):`tests/sim.js` 的彙總要不要一列驗收;`setup.online.soon` 這個 key 已經沒人用,要不要拿掉。
