@@ -98,12 +98,12 @@ Phase 0 proposal; the owner confirms it with the first go.
 | `public/shared/dogfight/engine.js`, `public/shared/dogfight/bots.js`, `src/`, `tests/sim.js`, `wrangler.jsonc`, `package.json` | BE |
 | `public/index.html`, `public/dogfight/*.html`, `public/dogfight/app.js`, `public/shared/paper.js`, `public/style.css` | FE |
 | `public/i18n/*`, 規則頁的文字, `README.md` | writer |
-| `public/art/`(社群分享圖、favicon)和產生它們的 prompt | artist |
+| `public/art/`(社群分享圖、favicon)、`art/`(產生它們的程式,例如 `art/og.py`)和 prompt | artist |
 | `tests/`(`sim.js` 除外), `tools/`, `TEAM.md` | orchestrator |
 
 - First guard:group 0 從規則筆記抄常數(紙 600 × 900、每邊 3 架、起始帶 90 到 260、命中半徑 24、距離 100 到 740、出手上限 30)。group 1 檢查產品動詞:`setup(seed)` 擺出 3 + 3 架而且都在自己那一半;兩個座位都有合法的手;對準敵機中心、`pr` 足夠的一手會擊毀它;`pr = 1` 朝紙外的一手會讓自己墜毀。弄紅的方法:`orch falsify` 把引擎的命中半徑改成 0,預期 group 1 的「對準中心會擊毀」那一行變紅。
 - Placeholder deploy: yes,`games.csiesheep.com/bored_games/`,`noindex`,一頁作業簿封面寫「還沒寫」。
-- Deploy rule: M5 之前頁面是 `noindex`,orchestrator 每次 land 後 `npx wrangler deploy` 並比對 live bytes;M5 起只在 owner 說 go 才 deploy。
+- Deploy rule: M5 之前頁面是 `noindex`,orchestrator 每次 land 後 `npx wrangler deploy` 並比對 live bytes;M5 起只在 owner 說 go 才 deploy。**hub(`csiesheep/games`)不一樣:它的 main 接了 Cloudflare,push main 約 25 秒後就自動部署**——land 到 hub 等於部署(2026-09-26 查到,見 Decisions)。
 - Orchestrator's first goal: M1 紙上空戰引擎。優先序:規則筆記的數值表逐條有測試 → 合法手的 fuzz(隨機種子、隨機手,不當機、state 永遠合法、30 手上限一定結束)→ 重播(種子 + 動作重現同一局)。
 
 ## Milestones
@@ -161,6 +161,12 @@ Phase 0 proposal; the owner confirms it with the first go.
 
 - **2026-09-25** — owner 裁決,原話:「之後」→ 二十關([[bored_games campaign]])要做,排在 M5 之後當 v1.1;M5 部署完再開新的 orchestrator 做。
 
+- **2026-09-26** — M5 做完、已部署。五張 issue:#17 三頁拿掉 noindex + TEAM.md 部署規則(`26a767f`)、#18 兩張分享圖(`226a0d5`)、#19 `seo.*` 的字(`c720de1`,圖說修正 `ae6ece0`)、#20 三頁的 OG / Twitter / canonical / JSON-LD + 封面那一段(`52ccedd`)、#21 `/bored_games/sitemap.xml`(`880d824`);hub #22(csiesheep/games `923ac88`:tile、sitemap 一列、robots 指標、LXGW 400)。main @ `aa14725`,驗收 113 / 0 / 0,Version `e874c98d`。線上逐位元組比對:bored_games 27 個檔 + sitemap、hub 10 個檔 + sitemap + robots 全部相同。canonical 是回 200 的網址:規則頁是 `/bored_games/dogfight/rules`(`rules.html` 會 307)。
+- **2026-09-26** — orchestrator 裁決(#18–#21,寫在驗收第 22、23 組):卡片標題 = 英文名 + 中文名;描述 / 圖說 = `seo.*` 的英文 + 空格 + 中文(`en.js` 不准有中文,雙語在頁面上組);兩張分享圖(封面、紙上空戰;規則頁共用),1200×630、≤ 300 KB,Pillow 照遊戲的樣子畫,`art/og.py` 可重現;VideoGame JSON-LD 在紙上空戰頁、封面是 WebSite + hasPart;封面那一段兩種語言都寫死在靜態 HTML,CSS 依 `<html lang>` 只顯示一種。
+- **2026-09-26** — 退回紀錄:#19 兩次(英文 comma splice、中文對坐描述不符;圖說因為 #18 的 brief 錯而改)、#18 兩次(線被標題框擋住;正中方塊沒有完整的飛機——第二次退回改成直接給座標構圖)、#22 一次(摺紙飛機 → 遊戲的 7 筆飛機)、#20 一次(那一段中文被硬斜切、對比 2.99:1 → 7.89:1)。**orchestrator 的錯**:#18 brief 寫「被打下的飛機打紅叉」,遊戲其實是淡掉 + 開火方筆色塗掉。
+- **2026-09-26** — **事故(orchestrator 造成)**:把 hub 的 #22 land 到 games main 的那一刻(07:48:37Z)hub 就自動部署了(07:49:00Z),比裁決 A 的「一起部署」早了約 8.5 小時;期間 hub 的 sitemap 列了還是 noindex 的 `/bored_games/`、robots 指向 404 的 sitemap。bored_games 部署後兩個不一致都消失。記在 #17(要 owner 裁決兩件:當時的處理選項、TEAM.md 是否寫進「hub push main 就是部署」)。
+- **2026-09-26** — 這一輪儀器騙過我的:(1) 自己的驗收列「封面那一段」第一版永遠不會綠(`<html lang="zh-Hant">` 吞掉整頁)——做一棵假的完成樹看它綠一次才抓到;(2) Git Bash 把 `node -e` / `python -` 裡的引號和反斜線改掉,證偽注入「沒命中」卻看起來像 guard 沒紅——注入要寫成檔案、印命中數;(3) hub worktree 的 CRLF 讓位元組比對假紅——比 git blob;(4) peer 回報的數字是 rebase 前的讀數。orch-checker 探到一個驗收的洞(那一段帶 `data-i18n` 不會紅),已補一列。
+
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-09-19
 - [x] 建 repo `csiesheep/bored_games`,從 `tiandihui` scaffold。2026-09-19
@@ -176,7 +182,10 @@ Phase 0 proposal; the owner confirms it with the first go.
 - [x] Owner 裁決 #2(藏)和 #4(先手隨機)→ #10、#11,2026-09-19,main @ `1c4f3db`。
 - [x] Orchestrator:M4 伺服器(#12)和文字(#13)。2026-09-19,main @ `3464d7d`。
 - [x] Orchestrator:M4 前端(#14)。2026-09-19,main @ `b6bb80b`;線上兩個分頁對過。
-- [ ] Orchestrator:M5 Ship(noindex off、OG、JSON-LD、hub tile、sitemap)——owner 2026-09-25 說 go,新的 orchestrator session 已交給 owner(task chip「Run the bored_games M5 orchestrator」)(部署規則從那一刻起也變成只在 owner 說 go 時部署);開新的 orchestrator session。
+- [x] Orchestrator:M5 Ship(noindex off、OG、JSON-LD、hub tile、sitemap)。2026-09-26,main @ `aa14725` 已部署、hub `923ac88`,線上逐位元組相同。
+- [ ] Owner:在 csiesheep/bored_games#17 回事故那則(處理選項;TEAM.md 要不要寫進「hub push main 就是部署」)。
+- [ ] Owner:Search Console 送出 `https://games.csiesheep.com/bored_games/sitemap.xml`(手動)。
+- [ ] Owner:在 iPhone 上看分享卡片(把 `/bored_games/` 和 `/bored_games/dogfight/` 的連結貼進聊天軟體)。
 - [ ] Orchestrator(M5 之前的小事):`tests/sim.js` 的彙總要不要一列驗收;`setup.online.soon` 這個 key 已經沒人用,要不要拿掉。
 - [ ] Owner:兩支真的手機連線打一局(行動網路、切到背景再回來)。
 - [ ] Owner:#4 剩下的一件——每局只有 6 手要不要處理(每邊 5 架、或改目標),iPhone 玩過再說。
