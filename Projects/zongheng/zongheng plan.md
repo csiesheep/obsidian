@@ -606,7 +606,7 @@ three states shapes play more than it wins (rulebook 未決項 2).
 - [x] **#128 live** (`ac11c89`): the log keeps the whole game (`LOG_CAP` 2000). Eviction, if it ever happens, drops whole moves only.
 - [x] **#125 live** (main `154d293`, version `94fceb77`, 348 tests): new games default to `emperor: win-lead`. Old saves still play as `vp`. The end screen, hint, log and rules page all name 稱帝. The vault rulebook was updated with it.
 - **#129** in check (FE, `fe/129-cap-bar` @ `2b623d7`): the owner's cap design **D**, a bar over a numeral that is at its cap (stability + 2), and tapping a capped space says so. The checker's items 1–3 pass: 2,080 states checked with 0 mismatches, and the falsified version gives 294 mismatches.
-- **Open, the owner's design ask (2026-09-26):** make the action names and mechanics fit the Warring States. I proposed 兵說利法: 扶植→收買, 奇襲 (or 攻伐) stays concentrated, and 遊說 becomes spread, 1 from each of several spaces next to your control, no weariness. Waiting on the owner's pick, then a simulation.
+- **#130 running (BE, `be/130-lobby-capital`), owner's picks 2026-09-26:** 遊說 becomes a d6 realignment, allowed only where you also have your own influence (`realign-own`). After each roll the player picks 再說一次 or 收手. The capital rule is **守不住才敗** (`homeFall: lose-turn`: if the enemy controls your capital, 關中 or 郢, at the end of the turn, you lose). The name stays 遊說. UI picks: 遊說 display **B** (a card over the map, `_orch_keep/lobby_ui/`); capital screens in `_orch_keep/capital_ui/`. Baseline on main: Qin 51.0 % nn / 54.2 % hh. nn cells: realign 49 %, mild 48 %, lose 51 %, lose-turn 50 %, lose-majority 60 % (turn 4.2, off the table), move 50 %. Waiting on the realign-own + 收手 cells and their combination with lose-turn; then the FE issue.
 - **Balance check (my own, 2026-09-24, main, 120 games):** Qin 48 %, consistent with #104's rule-B interval — a peer's 6 straight Chu wins was luck. Ends: 天命 45 %, 合縱 21 %, 終局 15 %, 記分 12 %, 土崩 4 %, **一統 3 %** (滅 1.18 a game). Open question for the owner: Qin's own headline route, conquest, almost never wins.
 - **#112** ran: a TypeError throws every second in rooms (`needsHeadline` reads null via app.js's clock). Pre-existing, found by the #111 checker.
 - **#110** ran: when the sheet falls back to one nowrap line, the warning and the pick sentence are concatenated and the warning's tail is cut (「…play it…」 / 「…否則判」). A warning that loses the game must never be truncated.
@@ -683,4 +683,3 @@ three states shapes play more than it wins (rulebook 未決項 2).
 Owner's direction (2026-09-18): little effort on UI (it will be redesigned with
 image and video generators); make the engine, the balance and the play flow
 right first.
-- [ ] M1 engine.
