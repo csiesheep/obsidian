@@ -9,4 +9,4 @@ tags: [source]
 Link: https://tomarigi.me/
 
 ## Description
-- 日本のライブカメラ地図 (Japan's Live Camera Map): an interactive map of live camera feeds from locations across Japan.
+- 日本のライブカメラ地図 (Japan's Live Camera Map): an interactive map of live camera feeds from locations across the world.
