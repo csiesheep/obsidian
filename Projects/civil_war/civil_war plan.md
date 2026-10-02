@@ -6,7 +6,7 @@ slug: civil_war
 ---
 # 國共內戰 1945-1949 civil_war - plan
 
-> [!info] Phase 0 做完,等 owner 的第二次 go(2026-10-01)
+> [!info] Phase 0 做完,owner 回了第二次 go;orchestrator 的 session 等 owner 點開(2026-10-01)
 > 名稱:**國共內戰 1945-1949 / China Civil War 1945-1949**,slug `civil_war`。
 > repo https://github.com/csiesheep/civil_war ,佔位頁 https://games.csiesheep.com/civil_war/ (`noindex`,已上線)。
 > 還沒有遊戲:只有地圖、72 張牌的資料、開得了局的引擎、第一條 guard。結果在「起手計畫」的「Phase 0 結果」。
@@ -41,6 +41,7 @@ slug: civil_war
 | 2026-10-01 | 「請開始」:要一份怎麼起手的計畫。計畫在「起手計畫」一節 | owner |
 | 2026-10-01 | 名稱:國共內戰 1945-1949,英文 China Civil War 1945-1949 | owner |
 | 2026-10-01 | slug:`civil_war` | owner |
+| 2026-10-01 | **第二次 go**:開 orchestrator 做 M1。`.gitignore` 歸誰沒有回,仍然沒有主人 | owner |
 | 2026-10-01 | **第一次 go**:「Go,照提案做」。所有權表、第一條 guard、佔位頁上線、部署規則、orchestrator 的目標與優先序,都照「起手計畫」 | owner |
 
 未定:B、C、D、E、G 的順序。
@@ -339,8 +340,11 @@ commit 的順序是刻意的:骨架 → 縱橫的引擎原樣複製(`57819be`)�
 - [x] **owner 的第一次 go**(2026-10-01):名稱與 slug、所有權表、第一條 guard、佔位頁上線、部署規則、orchestrator 的目標與優先序。
 - [x] Phase 0(2026-10-01):repo `csiesheep/civil_war`、佔位頁部署並對位元組、`init`、所有權表與部署規則寫入 `TEAM.md`、最小切片、guard 紅兩次再綠。
 - [x] 第二個停點(2026-10-01):紅的那幾行交給 owner 了。
-- [ ] **owner 的第二次 go**;順便回 `.gitignore` 歸誰。
-- [ ] 在 repo 裡開 orchestrator session,目標 M1。這個 vault 的 session 到此為止,不再寫產品程式碼。
+- [x] **owner 的第二次 go**(2026-10-01)。
+- [x] orchestrator 的開場已經放成一個待啟動的 session(標題「Run the civil_war orchestrator (M1)」,在 repo 裡開),等 owner 點開(2026-10-01)。
+- [ ] owner 回 `.gitignore` 歸誰(建議 orchestrator);在 orchestrator 的 issue 上回也可以。
+
+vault 的這個 session 到此為止:不再寫產品程式碼,也不從這裡派工。M1 起的進度在 repo 的 issue 上。
 
 不擋起手、可以平行做的:
 
