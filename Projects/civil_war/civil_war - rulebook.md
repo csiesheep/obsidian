@@ -2,14 +2,14 @@
 tags: [project, boardgame]
 status: idea
 started: 2026-10-01
-slug: yizhi
+slug: civil_war
 ---
-# 易幟 yizhi - rulebook
+# 國共內戰 1945-1949 civil_war - rulebook
 
 > [!info] 第一批的規則 v0(2026-10-01),還沒跑過任何一局
 > 範圍是 owner 定的:縱橫的規則,加上機制 A(補給線)、F(時局),即時勝利不關、事件要開,
 > 再加這一版新增的 H(外國勢力)。設計準則也是 owner 給的:**盡量符合史實;國軍一開始佔優,共軍後期佔優。**
-> 沒寫到的細節一律照 [[zongheng - rulebook]]。B、C、D、E、G 五個機制還沒進來,完整版在 [[yizhi - mechanisms]]。
+> 沒寫到的細節一律照 [[zongheng - rulebook]]。B、C、D、E、G 五個機制還沒進來,完整版在 [[civil_war - mechanisms]]。
 > 所有數字是第一版的猜測,集中在最後的「未決項」。史實日期憑記憶,定稿前要逐條查證。
 
 ## 一、概要
@@ -406,7 +406,7 @@ owner 的準則是國軍先強、共軍後強。這不是靠一條規則,是下�
 
 ## 六、和縱橫的差異(第一批)
 
-| 項目 | 縱橫 | 易幟第一批 |
+| 項目 | 縱橫 | 國共內戰第一批 |
 | --- | --- | --- |
 | 地圖 | 26 據點,一種 | 29 據點,分城與鄉 |
 | 補給 | 無 | 國軍的城要連回港或首都 |
@@ -440,6 +440,6 @@ owner 的準則是國軍先強、共軍後強。這不是靠一條規則,是下�
 
 ## Related
 
-- [[yizhi plan]] 決定、review、批次順序
-- [[yizhi - mechanisms]] 七個機制的完整版(B 到 G 還沒進這份規則)
+- [[civil_war plan]] 決定、review、批次順序
+- [[civil_war - mechanisms]] 七個機制的完整版(B 到 G 還沒進這份規則)
 - [[zongheng - rulebook]] 沒寫到的細節以它為準

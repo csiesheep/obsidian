@@ -2,19 +2,19 @@
 tags: [project, boardgame]
 status: idea
 started: 2026-09-30
-slug: yizhi
+slug: civil_war
 ---
-# 易幟 yizhi - plan
+# 國共內戰 1945-1949 civil_war - plan
 
-> [!info] 點子階段,草稿 v0.4(2026-10-01)
-> 還沒有 repo。名稱「易幟 / Yizhi」和 slug `yizhi` 都是暫定。
-> v0.4:owner 回了 review 的兩個問題(即時勝利不關、事件要開),給了兩條設計準則(盡量符合史實、國軍先強共軍後強),
-> 並要求加入外國勢力。第一批的規則已經寫成 [[yizhi - rulebook]],含 72 張牌。
-> 沒有任何東西跑過;史實日期憑記憶,定稿前要查證。
+> [!info] Phase 0 進行中(2026-10-01)
+> 名稱定了:**國共內戰 1945-1949 / China Civil War 1945-1949**,slug `civil_war`。
+> repo `csiesheep/civil_war`,網址 `https://games.csiesheep.com/civil_war/`。
+> 工作名稱「易幟」不再是產品名,只是遊戲裡的術語(一個實力派換旗)。
+> 第一批的規則在 [[civil_war - rulebook]],含 72 張牌。史實日期憑記憶,定稿前要查證。
 
 ## Overview
 
-**易幟**是 [[zongheng plan|縱橫]] 的姊妹作:同一副卡驅動骨架,搬到 1945 到 1949 年的國共內戰。
+**國共內戰 1945-1949** 是 [[zongheng plan|縱橫]] 的姊妹作:同一副卡驅動骨架,搬到 1945 到 1949 年的國共內戰。
 兩人、8 回合(每回合約半年)、60 到 90 分鐘。單機對 bot 或四碼房間,中英雙語,手機優先。
 
 一句話:國軍要守住一張越來越薄的網,盟友靠不住,外援一年比一年少;共軍切線、圍城、等人倒戈。
@@ -22,8 +22,8 @@ slug: yizhi
 三份筆記的分工:
 
 - 這一份:決定了什麼、先做什麼、哪裡有問題。
-- [[yizhi - rulebook]]:第一批實際要做的規則與牌表。
-- [[yizhi - mechanisms]]:八個機制(A 到 H)的完整版,包含還沒排進去的 B、C、D、E、G。
+- [[civil_war - rulebook]]:第一批實際要做的規則與牌表。
+- [[civil_war - mechanisms]]:八個機制(A 到 H)的完整版,包含還沒排進去的 B、C、D、E、G。
 
 ## Decisions
 
@@ -37,10 +37,12 @@ slug: yizhi
 | 2026-10-01 | 準則:盡量符合史實;國軍一開始佔優,共軍後期佔優 | owner |
 | 2026-10-01 | 加入外國勢力的影響 | owner |
 | 2026-10-01 | 長春圍城做成牌(帶民心代價);二二八這一版不做成牌,等台灣進地圖再處理。理由在規則書牌表後 | owner 交給 Claude 決定 |
+| 2026-10-01 | 「請開始」:要一份怎麼起手的計畫。計畫在「起手計畫」一節 | owner |
+| 2026-10-01 | 名稱:國共內戰 1945-1949,英文 China Civil War 1945-1949 | owner |
+| 2026-10-01 | slug:`civil_war` | owner |
+| 2026-10-01 | **第一次 go**:「Go,照提案做」。所有權表、第一條 guard、佔位頁上線、部署規則、orchestrator 的目標與優先序,都照「起手計畫」 | owner |
 
-| 2026-10-01 | 「請開始」:要一份怎麼起手的計畫。計畫在「起手計畫」一節,等第一次 go | owner |
-
-未定:名稱(等第一次 go);B、C、D、E、G 的順序。
+未定:B、C、D、E、G 的順序。
 
 ## 設計準則怎麼落地
 
@@ -98,7 +100,7 @@ review 擔心兩色版的勢力層會退化。重新照史實看,它的形狀其
 
 ## 第一批:縱橫的規則 + A + F + H
 
-條文與牌表在 [[yizhi - rulebook]]。和縱橫不同的地方:
+條文與牌表在 [[civil_war - rulebook]]。和縱橫不同的地方:
 
 - 地圖 29 據點,分城與鄉;國軍的城要連回港或首都(A)。
 - 每回合一張固定公開的時局(F)。
@@ -213,10 +215,10 @@ review 擔心兩色版的勢力層會退化。重新照史實看,它的形狀其
 
 自己的設計,衍生自自己的縱橫。頁尾致謝沿用縱橫那一句(啟發自 Twilight Struggle 的卡驅動設計,同人、非官方)。
 
-名稱查過一輪(2026-10-01,網路搜尋,不是商標檢索):沒有找到叫「易幟」的桌遊或兵棋。
-英文 Yizhi 在 BGG 上只對到一個微縮模型角色(Bushido: Yizhi),不是遊戲名稱。
-同題材的既有作品都用描述性的名字:Every Inch of Soil: The Chinese Civil War, 1945-1949;Chinese Civil War: 1946-1949;3W 的 Chinese Civil War(1979)。
-所以「Chinese Civil War」只當描述用,產品名是 易幟 / Yizhi。*Not legal advice.*
+產品名是 owner 定的:**國共內戰 1945-1949 / China Civil War 1945-1949**(2026-10-01)。
+這是描述題材的名字,不是自創的商標。同題材的既有作品也都用描述性的名字(2026-10-01 網路搜尋,不是商標檢索):
+Every Inch of Soil: The Chinese Civil War, 1945-1949;Chinese Civil War: 1946-1949;3W 的 Chinese Civil War(1979)。
+英文用 owner 給的 China Civil War,和這幾款的 Chinese Civil War 不完全相同。頁面上要寫清楚是同人、非官方,和上面任何一款都無關。*Not legal advice.*
 
 ## 起手計畫(2026-10-01,等 owner 的第一次 go)
 
@@ -225,7 +227,7 @@ owner 看完這一節回 go,才建 repo、做 Phase 0。**repo 還沒建,因為�
 
 ### 和標準流程不一樣的三處
 
-1. **不是從零搭,是從縱橫的後端複製。** 帶過來:`wrangler.jsonc`、`package.json`、`src/index.js`(路由,前綴改成 `/yizhi`)、
+1. **不是從零搭,是從縱橫的後端複製。** 帶過來:`wrangler.jsonc`、`package.json`、`src/index.js`(路由,前綴改成 `/civil_war`)、
    `public/shared/engine.js`、`public/shared/bots.js`、`tests/sim.js`、`tests/driver.js`、`tools/`。
    不帶:縱橫的前端(`app.js`、各頁、樣式)、i18n、美術、音效、牌和地圖的內容、約 90 個測試。
    規則測試由 orchestrator 在 M1 對著縱橫的 repo 一條一條搬;牌的測試重寫。不保留縱橫的 git 歷史,README 寫明來源。
@@ -255,7 +257,7 @@ owner 看完這一節回 go,才建 repo、做 Phase 0。**repo 還沒建,因為�
   - 怎麼讓它紅一次:把天津的「港」拿掉。北平和天津都連不回補給源,第 0 組要印出是哪兩座城。
 - **Phase 0 這個 session 寫的切片**:`board.js`(地圖 v0.2 的資料)、`cards.js`(72 張的資料:id、期、陣營、行動點、名稱;效果先不做)、
   引擎開局改成讀地圖資料、補給的走訪函式。只到「開得了局、有合法行動」為止。這是 repo 裡最少被驗證的程式碼,會照實寫在 `TEAM.md`。
-- **佔位頁部署**:要。`games.csiesheep.com/yizhi/` 一頁,只有標題、「製作中」和 `noindex`。部署後逐位元組對過 repo。**這一步會公開上線。**
+- **佔位頁部署**:要。`games.csiesheep.com/civil_war/` 一頁,只有標題、「製作中」和 `noindex`。部署後逐位元組對過 repo。**這一步會公開上線。**
 - **部署規則**:M5 之前(頁面都是 `noindex`),orchestrator 每次 land 後部署並對位元組;M5 起只在 owner 說 go 時部署。
 - **orchestrator 的第一個目標**:M1。優先序:
   1. 地圖與補給(A)的規則與測試。
@@ -281,29 +283,17 @@ owner 看完這一節回 go,才建 repo、做 Phase 0。**repo 還沒建,因為�
 
 ## Open questions
 
-1. **名稱。** owner 2026-10-01:「名字再想一下,不然就叫國共內戰也行。」開 repo 之前要定。候選(都用網路搜尋查過,沒找到同名的桌遊或兵棋;不是商標檢索):
+1. **牌表**:72 張 owner 還沒回意見。尤其「史達林的建議」(史實有爭議)要不要留。
+2. **後面批次的順序。**
+3. **冀熱遼**要不要加一個鄉,讓共軍能從鄉下接近遼西和錦州。
+4. **題材敏感度。** 用字中性之外,首頁要不要加一句說明。
 
-   | | 名稱 | 英文 | slug | 意思 | 取捨 |
-   | --- | --- | --- | --- | --- | --- |
-   | 甲 | **鼎革** | Dingge | `dingge` | 政權更替;史家講 1949 常用「鼎革之際」 | 中性、古雅、兩個字,和縱橫是一對(縱橫有九鼎)。要認得這個詞才懂 |
-   | 乙 | **易幟** | Yizhi | `yizhi` | 換旗。遊戲的核心術語 | 中性、有畫面。但第一批的易幟只是佔地,要到機制 D 才名實相符 |
-   | 丙 | **易勢** | Yishi | `yishi` | 攻守易勢 | 就是 owner 的準則「國軍先強、共軍後強」。和易幟只差一個字,容易混 |
-   | 丁 | **向背** | Xiangbei | `xiangbei` | 人心向背 | 對上民心軌。比較抽象,不像戰爭遊戲 |
-   | 戊 | **國共內戰** | The Chinese Civil War | `guogong` | 題材本身 | 最好懂、最好搜。但英文名和至少兩款既有兵棋相同(3W 1979;Chinese Civil War: 1946-1949),站上其他遊戲也都有自己的名字 |
-
-   **建議:主標題用自己的名字,副標題用「國共內戰 1945–1949」。** 例如「鼎革:國共內戰 1945–1949」/ Dingge: The Chinese Civil War, 1945–1949。
-   這樣好懂好搜和有辨識度兩邊都拿到,同題材的 Every Inch of Soil: The Chinese Civil War, 1945-1949 也是這個做法。
-   主標題我建議**鼎革**(第一批就名實相符,而且和縱橫成對),其次易幟。slug 跟主標題走;repo、Worker、網址、vault 資料夾都用它。
-   若選了易幟以外的名字,vault 的 `Projects/yizhi/` 與三份筆記在建 repo 之前一起改名。
-2. **牌表**:72 張 owner 還沒看過。尤其「史達林的建議」(史實有爭議)要不要留。
-3. **後面批次的順序。**
-4. **冀熱遼**要不要加一個鄉,讓共軍能從鄉下接近遼西和錦州。
-5. **題材敏感度。** 用字中性之外,首頁要不要加一句說明。
+(名稱已定,2026-10-01。考慮過的其他名字:鼎革、易幟、易勢、向背。)
 
 ## Next steps
 
 - [ ] **owner 的第一次 go**:確認名稱與 slug、所有權表、第一條 guard、佔位頁上線、部署規則、orchestrator 的目標與優先序(都在「起手計畫」)。
-- [ ] Phase 0:建 repo `csiesheep/yizhi`、佔位頁部署並對位元組、`/agent-team-delivery init`、寫入確認過的所有權表、最小切片、guard 紅一次再綠。
+- [ ] Phase 0:建 repo `csiesheep/civil_war`、佔位頁部署並對位元組、`/agent-team-delivery init`、寫入確認過的所有權表、最小切片、guard 紅一次再綠。
 - [ ] 第二個停點:把紅的那一行交給 owner;**owner 的第二次 go**。
 - [ ] 在 repo 裡開 orchestrator session,目標 M1。這個 vault 的 session 到此為止,不再寫產品程式碼。
 
@@ -316,8 +306,8 @@ owner 看完這一節回 go,才建 repo、做 Phase 0。**repo 還沒建,因為�
 
 ## Related
 
-- [[yizhi - rulebook]] 第一批的規則與 72 張牌
-- [[yizhi - mechanisms]] 八個機制的完整版、遼瀋走一遍的例子
+- [[civil_war - rulebook]] 第一批的規則與 72 張牌
+- [[civil_war - mechanisms]] 八個機制的完整版、遼瀋走一遍的例子
 - 設計畫布:https://claude.ai/artifact/GNg8gPCSdRnRrBZYv5afpc
 - [[zongheng plan]] 母體的實作計畫與 Balance log
 - [[zongheng - rulebook]] 沿用的規則原文
