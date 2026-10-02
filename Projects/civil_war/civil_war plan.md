@@ -6,9 +6,10 @@ slug: civil_war
 ---
 # 國共內戰 1945-1949 civil_war - plan
 
-> [!info] Phase 0 進行中(2026-10-01)
-> 名稱定了:**國共內戰 1945-1949 / China Civil War 1945-1949**,slug `civil_war`。
-> repo `csiesheep/civil_war`,網址 `https://games.csiesheep.com/civil_war/`。
+> [!info] Phase 0 做完,等 owner 的第二次 go(2026-10-01)
+> 名稱:**國共內戰 1945-1949 / China Civil War 1945-1949**,slug `civil_war`。
+> repo https://github.com/csiesheep/civil_war ,佔位頁 https://games.csiesheep.com/civil_war/ (`noindex`,已上線)。
+> 還沒有遊戲:只有地圖、72 張牌的資料、開得了局的引擎、第一條 guard。結果在「起手計畫」的「Phase 0 結果」。
 > 工作名稱「易幟」不再是產品名,只是遊戲裡的術語(一個實力派換旗)。
 > 第一批的規則在 [[civil_war - rulebook]],含 72 張牌。史實日期憑記憶,定稿前要查證。
 
@@ -220,10 +221,51 @@ review 擔心兩色版的勢力層會退化。重新照史實看,它的形狀其
 Every Inch of Soil: The Chinese Civil War, 1945-1949;Chinese Civil War: 1946-1949;3W 的 Chinese Civil War(1979)。
 英文用 owner 給的 China Civil War,和這幾款的 Chinese Civil War 不完全相同。頁面上要寫清楚是同人、非官方,和上面任何一款都無關。*Not legal advice.*
 
-## 起手計畫(2026-10-01,等 owner 的第一次 go)
+## 起手計畫(第一次 go:2026-10-01;Phase 0 已做完,等第二次 go)
 
-照 `initialize_a_game` 的流程。前四步(規則書、名稱、計畫、畫面)已經做了大半,現在停在第一個停點:
-owner 看完這一節回 go,才建 repo、做 Phase 0。**repo 還沒建,因為名稱還沒確認;每次事後改名都要換 repo、Worker 和網址。**
+照 `initialize_a_game` 的流程。owner 2026-10-01 回了第一次 go(「Go,照提案做」),Phase 0 同一天做完。
+現在停在第二個停點:owner 看過 guard 紅的那幾行,回 go,才在 repo 裡開 orchestrator session 做 M1。
+
+### Phase 0 結果(2026-10-01)
+
+| | |
+| --- | --- |
+| repo | https://github.com/csiesheep/civil_war ,公開,`main` 在 `2f24219`,五個 commit |
+| 佔位頁 | https://games.csiesheep.com/civil_war/ ,`noindex`;線上 6 個檔案的 sha1 和 repo 的 `2f24219` 逐一相同;手機寬度看過一次 |
+| guard | `node --test tests/acceptance.test.js`:通過 11 / 失敗 0 / 尚未實作 6 |
+| `orch` | `wt smoke HEAD` 與 `rm smoke` 走得通;六個 agent 都在 |
+
+commit 的順序是刻意的:骨架 → 縱橫的引擎原樣複製(`57819be`)→ 席位改名(一條 sed)→ Phase 0 切片 → lockfile。
+所以 `git diff 57819be -- public/shared/engine.js` 就是這個遊戲對縱橫引擎改過的全部。
+
+**guard 紅過兩次,一次一個缺陷:**
+
+1. 把天津的「港」拿掉(owner 確認過的那個缺陷)。印出:
+   - `失敗 · 0 常數對照 · 城的要衝 9 個、根據地 5 個、港 4 個 · 港: 期望 ["guangzhou","jinzhou","shanghai","tianjin"],實際 ["guangzhou","jinzhou","shanghai"]`
+   - `失敗 · 1 產品的動詞 · 開局沒有孤城 · 開局的補給源: 期望 [...,"tianjin"],實際 ["guangzhou","nanjing","shanghai"]`
+   - `VERDICT 通過 9 / 失敗 2 / 尚未實作 6`
+2. 開局不把牌洗進牌庫(動詞停擺)。印出:
+   - `失敗 · 1 產品的動詞 · 200 個種子都開得了局… · 種子 1:免費放置之後不在第 1 回合的標題階段(phase action,turn 1)`
+   - `VERDICT 通過 10 / 失敗 1 / 尚未實作 6`
+
+兩次都 `orch restore`、`orch clean`,之後重跑是綠的。
+
+**我預告錯的一件事。** 提案寫「把天津的港拿掉,北平和天津都連不回補給源」。實際上沒有:guard 紅在常數和補給源清單,
+但**北平、天津並沒有變成孤城**。原因是地圖上有一條後路:北平 → 察綏 → 晉中 → 西安 → 鄭州 → 淮海 → 南京。
+用探針量過:天津不當補給源時孤城是 0 座;再丟察綏,孤城是天津、北平;再丟晉中,是天津、北平、太原。
+所以我之前在 review 和機制筆記裡寫的「華北要等天津丟了才真的斷」是錯的,要天津**加上**察綏或晉中。
+這是地圖的性質,不是程式的錯。要不要留這條後路(平綏路接同蒲路)是設計決定,列在 Open questions。
+
+**這個 session 寫的、沒有人獨立驗過的東西**(也寫在 `TEAM.md`):`board.js`、`cards.js`(只有資料,67 張牌的事件一張都沒做,打出事件會直接報錯)、
+`engine.js` 開頭列的那幾處改動(開局讀地圖、補給的走訪)、`tests/acceptance.test.js`。這是 repo 裡最少被驗證的程式碼。
+`bots.js` 和 `tests/sim.js` 是縱橫的原檔,還沒改寫,不能跑。
+
+**和提案不一樣的地方:**
+
+- starter 的 `tests/index.html`(頁面版驗收)沒放進來:確認過的所有權表沒有它那一列,而現在的 guard 是 node 測試,用不到。
+- `.gitignore` 沒有主人:提案的表裡沒有它。`TEAM.md` 裡寫明還沒確認,要 owner 補一句(建議歸 orchestrator)。
+- `public/shared/` 底下的四個 js 是靜態資源,佔位頁上線時跟著公開了(repo 本來就公開)。
+- 引擎的回合數、手牌數還是縱橫的對稱數字;第 1 回合的免費放置順序規則書沒寫,先照縱橫(共軍先放)。兩件都在 guard 的「尚未實作」或引擎註解裡。
 
 ### 和標準流程不一樣的三處
 
@@ -286,15 +328,18 @@ owner 看完這一節回 go,才建 repo、做 Phase 0。**repo 還沒建,因為�
 1. **牌表**:72 張 owner 還沒回意見。尤其「史達林的建議」(史實有爭議)要不要留。
 2. **後面批次的順序。**
 3. **冀熱遼**要不要加一個鄉,讓共軍能從鄉下接近遼西和錦州。
+   **華北的後路**(Phase 0 量到的):北平可以經察綏、晉中連到西安,所以丟了天津還不會成孤城,要再丟察綏或晉中。
+   留著,平津一役就得先切察綏(史實上先打的確實是張家口、新保安);拿掉察綏到晉中那條相鄰,天津一丟北平就孤。建議留著。
 4. **題材敏感度。** 用字中性之外,首頁要不要加一句說明。
 
 (名稱已定,2026-10-01。考慮過的其他名字:鼎革、易幟、易勢、向背。)
 
 ## Next steps
 
-- [ ] **owner 的第一次 go**:確認名稱與 slug、所有權表、第一條 guard、佔位頁上線、部署規則、orchestrator 的目標與優先序(都在「起手計畫」)。
-- [ ] Phase 0:建 repo `csiesheep/civil_war`、佔位頁部署並對位元組、`/agent-team-delivery init`、寫入確認過的所有權表、最小切片、guard 紅一次再綠。
-- [ ] 第二個停點:把紅的那一行交給 owner;**owner 的第二次 go**。
+- [x] **owner 的第一次 go**(2026-10-01):名稱與 slug、所有權表、第一條 guard、佔位頁上線、部署規則、orchestrator 的目標與優先序。
+- [x] Phase 0(2026-10-01):repo `csiesheep/civil_war`、佔位頁部署並對位元組、`init`、所有權表與部署規則寫入 `TEAM.md`、最小切片、guard 紅兩次再綠。
+- [x] 第二個停點(2026-10-01):紅的那幾行交給 owner 了。
+- [ ] **owner 的第二次 go**;順便回 `.gitignore` 歸誰。
 - [ ] 在 repo 裡開 orchestrator session,目標 M1。這個 vault 的 session 到此為止,不再寫產品程式碼。
 
 不擋起手、可以平行做的:
