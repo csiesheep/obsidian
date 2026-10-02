@@ -11,7 +11,9 @@ in Obsidian.
 - `Projects/` — durable per-project notes: `Projects/<name>.md`.
 - `Notes/` — general notes not tied to a single day or project
   (ideas, references, how-tos).
-- `Templates/` — note templates (`daily.md`, `runbook.md`).
+- `Sources/` — one note per source (website, etc.): `Sources/<name>.md`,
+  created from `Templates/source.md` (name, link, description, added-at).
+- `Templates/` — note templates (`daily.md`, `runbook.md`, `source.md`).
 
 New top-level folders are fine as the vault grows; keep names short and
 lowercase-ish, and prefer `[[wikilinks]]` over deep folder nesting.
