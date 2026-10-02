@@ -38,7 +38,9 @@ slug: yizhi
 | 2026-10-01 | 加入外國勢力的影響 | owner |
 | 2026-10-01 | 長春圍城做成牌(帶民心代價);二二八這一版不做成牌,等台灣進地圖再處理。理由在規則書牌表後 | owner 交給 Claude 決定 |
 
-未定:名稱;做不做;B、C、D、E、G 的順序。
+| 2026-10-01 | 「請開始」:要一份怎麼起手的計畫。計畫在「起手計畫」一節,等第一次 go | owner |
+
+未定:名稱(等第一次 go);B、C、D、E、G 的順序。
 
 ## 設計準則怎麼落地
 
@@ -207,17 +209,92 @@ review 擔心兩色版的勢力層會退化。重新照史實看,它的形狀其
 
 **開新 repo,從縱橫 fork。** 新 repo 沒有 `TEAM.md` 之前是 Phase 0;實作要在那個 repo 的 session 裡做,不在這個 vault 的 session。
 
+## Licensing
+
+自己的設計,衍生自自己的縱橫。頁尾致謝沿用縱橫那一句(啟發自 Twilight Struggle 的卡驅動設計,同人、非官方)。
+
+名稱查過一輪(2026-10-01,網路搜尋,不是商標檢索):沒有找到叫「易幟」的桌遊或兵棋。
+英文 Yizhi 在 BGG 上只對到一個微縮模型角色(Bushido: Yizhi),不是遊戲名稱。
+同題材的既有作品都用描述性的名字:Every Inch of Soil: The Chinese Civil War, 1945-1949;Chinese Civil War: 1946-1949;3W 的 Chinese Civil War(1979)。
+所以「Chinese Civil War」只當描述用,產品名是 易幟 / Yizhi。*Not legal advice.*
+
+## 起手計畫(2026-10-01,等 owner 的第一次 go)
+
+照 `initialize_a_game` 的流程。前四步(規則書、名稱、計畫、畫面)已經做了大半,現在停在第一個停點:
+owner 看完這一節回 go,才建 repo、做 Phase 0。**repo 還沒建,因為名稱還沒確認;每次事後改名都要換 repo、Worker 和網址。**
+
+### 和標準流程不一樣的三處
+
+1. **不是從零搭,是從縱橫的後端複製。** 帶過來:`wrangler.jsonc`、`package.json`、`src/index.js`(路由,前綴改成 `/yizhi`)、
+   `public/shared/engine.js`、`public/shared/bots.js`、`tests/sim.js`、`tests/driver.js`、`tools/`。
+   不帶:縱橫的前端(`app.js`、各頁、樣式)、i18n、美術、音效、牌和地圖的內容、約 90 個測試。
+   規則測試由 orchestrator 在 M1 對著縱橫的 repo 一條一條搬;牌的測試重寫。不保留縱橫的 git 歷史,README 寫明來源。
+2. **後端先行,畫面最後。** M1、M2 沒有任何畫面,跑到第一輪模擬的停損點才決定要不要往下。
+   所以各頁的 mockup(首頁、設定、大廳、牌桌、結束、規則)先不畫,只先畫地圖。這和縱橫當時的優先序一樣。
+3. **里程碑多一段。** 停損點之後、畫面之前,插入機制 B、D……的批次,每一批都是「引擎 → bot → 模擬」一圈。畫面蓋在定下來的規則上。
+
+### Team(agent-team-delivery),Phase 0 提案
+
+所有權表(照縱橫的 `TEAM.md`,每一列要 owner 確認):
+
+| 檔案 | 角色 |
+| --- | --- |
+| `public/shared/*.js`、`src/`、`tests/sim.js`、`tests/diag.js`、`wrangler.jsonc`、`package.json` | BE |
+| `public/*.html`、`public/app.js`、`public/landing.js`、`public/rules.js`、`public/style.css`、`public/favicon.svg` | FE |
+| `public/i18n/*`、`README.md` | writer |
+| `public/art/` 與產生它的 prompt | artist |
+| `tests/*.test.js`、`tests/driver.js`、`tests/harness.js`、`tools/`、`TEAM.md` | orchestrator |
+
+中文牌文在 `public/shared/cards.js`(BE 的檔案)裡:writer 改牌文是跨界修改,交付時點名。這條照縱橫。
+
+- **第一條 guard。**
+  - 第 0 組(常數,從規則書抄,不從產品讀):29 個據點(17 城 12 鄉);五區各 6、7、7、3、6 個;9 個城的要衝、5 個根據地、4 個港;
+    41 條相鄰、雙向一致;開局藍 46 紅 24;開局每座有藍的城都有補給;開局沒有整編或易幟標記;
+    72 張牌,三期 27 / 24 / 21,國軍 23、共軍 23、中立 21、記分 5;牌面行動點國軍 57、共軍 60;美國支持 4、蘇聯支持 1。
+  - 第 1 組(產品的動詞):200 個種子都開得了局,第 1 回合時局的免費放置做得完,發完牌之後兩邊在自己的第一個決定都至少有一個合法行動。
+  - 怎麼讓它紅一次:把天津的「港」拿掉。北平和天津都連不回補給源,第 0 組要印出是哪兩座城。
+- **Phase 0 這個 session 寫的切片**:`board.js`(地圖 v0.2 的資料)、`cards.js`(72 張的資料:id、期、陣營、行動點、名稱;效果先不做)、
+  引擎開局改成讀地圖資料、補給的走訪函式。只到「開得了局、有合法行動」為止。這是 repo 裡最少被驗證的程式碼,會照實寫在 `TEAM.md`。
+- **佔位頁部署**:要。`games.csiesheep.com/yizhi/` 一頁,只有標題、「製作中」和 `noindex`。部署後逐位元組對過 repo。**這一步會公開上線。**
+- **部署規則**:M5 之前(頁面都是 `noindex`),orchestrator 每次 land 後部署並對位元組;M5 起只在 owner 說 go 時部署。
+- **orchestrator 的第一個目標**:M1。優先序:
+  1. 地圖與補給(A)的規則與測試。
+  2. 不對稱的行動回合與時局(F)。
+  3. 支持度軌與兩張外援牌(H)。
+  4. 72 張牌的效果,每張一個測試;fuzz 綠燈。
+  5. 史實查證(writer 的 issue):牌的年份、兵力數字、支持度的四個時間點。
+
 ## Milestones
 
-1. ~~第一批的規則書~~ v0 寫好了(2026-10-01)。還缺:史實逐條查證、owner 看過牌表。
-2. **fork 與 Phase 0**:新 repo、佔位部署、`TEAM.md`、第一個會紅的 guard。要先定名稱。
-3. **第一批實作**:上面 12 項,加測試,fuzz 綠燈。沒有畫面。
-4. **第一輪模擬**:看那八個數字。**停損點。**
-5. 之後:B、D……,以及地圖畫面、文字、美術、上線。
+| | 內容 | 誰 | 做完的判準 |
+| --- | --- | --- | --- |
+| M0 | Phase 0:repo、佔位頁上線、`TEAM.md`、第一條 guard 紅過一次 | 這個 session | owner 看到紅的那一行,回第二次 go |
+| M1 | 第一批的引擎:上面 12 項、72 張牌、規則書每條一個測試、fuzz | orchestrator 與 BE | 測試綠;隨機對局兩千局不卡死 |
+| M2 | bot(懂孤城、外援、不對稱回合)與模擬 harness | orchestrator 與 BE | 「第一輪模擬」那八個數字的表 |
+| **停損點** | owner 看表,決定往下、調整、或收掉 | owner | |
+| M2b… | 機制批次:B、D、E、C、G,每批一圈引擎、bot、模擬 | orchestrator 與 BE | 每批一張前後對照表 |
+| M3 | 單機畫面:地圖 A 版、軌道、手牌、行動面板、記分、規則頁、兩種語言 | FE、writer、artist | owner 在手機上玩完一局 |
+| M4 | 房間:兩席、時鐘、bot 補位與接管、重連、再來一局 | BE、FE | |
+| M5 | 上線:SEO、OG 圖、hub 磁磚、sitemap | | owner 的 go |
+
+規則書 v0 已寫好(2026-10-01);還缺史實查證和 owner 看過牌表,兩件都不擋 Phase 0。
 
 ## Open questions
 
-1. **名稱。** 「易幟」暫定。其他候選:江山、逐鹿、山河。開 repo 之前要定。
+1. **名稱。** owner 2026-10-01:「名字再想一下,不然就叫國共內戰也行。」開 repo 之前要定。候選(都用網路搜尋查過,沒找到同名的桌遊或兵棋;不是商標檢索):
+
+   | | 名稱 | 英文 | slug | 意思 | 取捨 |
+   | --- | --- | --- | --- | --- | --- |
+   | 甲 | **鼎革** | Dingge | `dingge` | 政權更替;史家講 1949 常用「鼎革之際」 | 中性、古雅、兩個字,和縱橫是一對(縱橫有九鼎)。要認得這個詞才懂 |
+   | 乙 | **易幟** | Yizhi | `yizhi` | 換旗。遊戲的核心術語 | 中性、有畫面。但第一批的易幟只是佔地,要到機制 D 才名實相符 |
+   | 丙 | **易勢** | Yishi | `yishi` | 攻守易勢 | 就是 owner 的準則「國軍先強、共軍後強」。和易幟只差一個字,容易混 |
+   | 丁 | **向背** | Xiangbei | `xiangbei` | 人心向背 | 對上民心軌。比較抽象,不像戰爭遊戲 |
+   | 戊 | **國共內戰** | The Chinese Civil War | `guogong` | 題材本身 | 最好懂、最好搜。但英文名和至少兩款既有兵棋相同(3W 1979;Chinese Civil War: 1946-1949),站上其他遊戲也都有自己的名字 |
+
+   **建議:主標題用自己的名字,副標題用「國共內戰 1945–1949」。** 例如「鼎革:國共內戰 1945–1949」/ Dingge: The Chinese Civil War, 1945–1949。
+   這樣好懂好搜和有辨識度兩邊都拿到,同題材的 Every Inch of Soil: The Chinese Civil War, 1945-1949 也是這個做法。
+   主標題我建議**鼎革**(第一批就名實相符,而且和縱橫成對),其次易幟。slug 跟主標題走;repo、Worker、網址、vault 資料夾都用它。
+   若選了易幟以外的名字,vault 的 `Projects/yizhi/` 與三份筆記在建 repo 之前一起改名。
 2. **牌表**:72 張 owner 還沒看過。尤其「史達林的建議」(史實有爭議)要不要留。
 3. **後面批次的順序。**
 4. **冀熱遼**要不要加一個鄉,讓共軍能從鄉下接近遼西和錦州。
@@ -225,12 +302,17 @@ review 擔心兩色版的勢力層會退化。重新照史實看,它的形狀其
 
 ## Next steps
 
-- [ ] owner 看規則書的牌表,回 Open questions 的 1、2。
-- [ ] 史實查證(牌的年份、兵力數字、支持度那四個時間點)。
+- [ ] **owner 的第一次 go**:確認名稱與 slug、所有權表、第一條 guard、佔位頁上線、部署規則、orchestrator 的目標與優先序(都在「起手計畫」)。
+- [ ] Phase 0:建 repo `csiesheep/yizhi`、佔位頁部署並對位元組、`/agent-team-delivery init`、寫入確認過的所有權表、最小切片、guard 紅一次再綠。
+- [ ] 第二個停點:把紅的那一行交給 owner;**owner 的第二次 go**。
+- [ ] 在 repo 裡開 orchestrator session,目標 M1。這個 vault 的 session 到此為止,不再寫產品程式碼。
+
+不擋起手、可以平行做的:
+
+- [ ] owner 看規則書的牌表(「史達林的建議」要不要留)。
 - [ ] 畫「A 版、第 5 回合、有點數有孤城」的地圖,加上支持度軌、時局、外援牌的位置。
 - [ ] 設計畫布補一張機制 H 的說明卡。
 - [ ] B 的 2×3 表用紙筆玩幾次。
-- [ ] 名稱定了再開 repo。
 
 ## Related
 
