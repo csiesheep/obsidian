@@ -167,3 +167,10 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     code with the right reason, green on a stub). Harness 45/0/4 → 45/0/11.
   - [#8](https://github.com/csiesheep/comfy-studio/issues/8) t2i workflows + image outputs → peer-be;
     [#9](https://github.com/csiesheep/comfy-studio/issues/9) t2i page (grid) + hub link → peer-fe (parallel).
+  - Real runs (9:16, 768×1344): Z-Image Turbo 42 s, Qwen Image 2.1 48 s. BE fixed
+    `scripts/editor_to_api.py` for the Z-Image template's newer format (H3 outputs byte-identical).
+  - #8 + #9 landed together as `2132e69` (merge of verified `117b85b` + `134995b`, plus a harness row:
+    watch() saves a video result and keeps video_url). Harness → **55/0/2**. Checker falsified 4 ways;
+    real Qwen image prompt; real images seen in the grid. Deployed. Closed. **Phase 5 done.**
+  - Next: Phase 6 img2img (Z-Image img2img, Qwen Image Edit 2511, Qwen Image 2.1 multi-image edit):
+    needs photo upload + multi-photo slots (image2/image3, currently 400).
