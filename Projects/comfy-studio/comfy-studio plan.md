@@ -154,3 +154,9 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     (5 rows, probed with temp workflows + stub, each defect red). Harness 37/0/6 → 37/0/11.
   - [#6](https://github.com/csiesheep/comfy-studio/issues/6) t2v workflows (2 real runs) → peer-be;
     [#7](https://github.com/csiesheep/comfy-studio/issues/7) t2v page + hub link → peer-fe (parallel).
+  - Real runs: t2v fused 5 s 9:16 in 151 s, t2v full 792 s.
+  - #6 + #7 landed together as `6a98465` (merge of verified `1a349ce` + `7009959`, plus a harness
+    row: bad aspect refused before queueing). Harness → **45/0/4**. Checker falsified 5 ways; real
+    Qwen t2v prompt (Chinese, no photo) in 7 s; pages checked by eye. Deployed. Closed. **Phase 4 done.**
+  - Harness `df21c6b`: a shipped page that loses its route is red (was todo).
+  - Next: Phase 5 text2img — needs image outputs in watch() and the image job list.
