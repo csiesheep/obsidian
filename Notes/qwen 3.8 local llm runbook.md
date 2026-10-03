@@ -216,6 +216,32 @@ image's aspect ratio at ~0.7 MP (both sides multiples of 32).
 - **Rule in the skill:** if the image shows a real, identifiable person, it won't write prompts
   that undress them or show them nude or sexual.
 
+## H3 Video Studio (browser / iPhone → Qwen → ComfyUI)
+
+Set up 2026-10-03. A web page for the h3-image-to-video pipeline, usable from the iPhone:
+pick a photo, type a short idea, **Qwen** (sees the photo) writes the H3 prompt, edit it if you
+like, **Make video** → ComfyUI renders it → it plays and downloads in the page.
+
+| Want to | Do |
+|---|---|
+| Open it (iPhone, tailnet) | https://desktop-r2u3mdm.tail528148.ts.net/video/ → Add to Home Screen |
+| Open it (PC) | http://127.0.0.1:8190 |
+| Start / stop | `C:\h3-studio\start-studio-hidden.bat` / `stop-studio.bat` (doesn't start after a reboot) |
+| Videos + inputs + history | `C:\Users\sheep\Videos\h3\studio\` (`jobs.json`, `inputs\`) |
+| Log | `C:\h3-studio\studio.log` |
+
+- Needs all three running: Qwen server, ComfyUI, studio. The page shows a green/red dot for Qwen and ComfyUI.
+- `server.py` (stdlib) reuses `h3_i2v.py` + `h3_fused_i2v_api.json` from the skill folder, so
+  a fix to the skill's workflow applies to the page too. Qwen is called with thinking off
+  (prompt in ~10 s); the system prompt carries the H3 template and the real-person rule.
+- The phone photo is downscaled in the browser to ≤1.6 MP JPEG before upload (H3 renders ~0.7 MP).
+- Jobs keep running if the page is closed; the server resumes watching running jobs after a restart.
+- "Use again" on a finished video reloads its photo and prompt for another seed.
+- `tailscale serve` now has two routes: `/` → 8080 (Qwen chat), `/video` → 8190 (prefix is
+  stripped). Remove just the studio route: `tailscale serve --https=443 --set-path /video off`.
+- The Claude app's built-in browser pane blocks fetches to the ts.net address
+  (`ERR_BLOCKED_BY_CLIENT`); test there with http://127.0.0.1:8190 instead. Safari is fine.
+
 ## Gotchas found along the way
 
 - **Template patch is required for Claude Code.** Qwen's template raised
@@ -249,6 +275,7 @@ image's aspect ratio at ~0.7 MP (both sides multiples of 32).
 | 2026-10-02 | Added vision projector (mmproj) after image input in `claude-qwen` failed with a 500 |
 | 2026-10-03 | Checked which skills `claude-qwen` sees; added the `h3-image-to-video` personal skill |
 | 2026-10-03 | Tailscale + `tailscale serve` for iPhone access (tailnet only, HTTPS) |
+| 2026-10-03 | H3 Video Studio page at `/video` (`C:\h3-studio\`): photo + idea → Qwen prompt → ComfyUI H3 video |
 
 ## Related
 
