@@ -17,7 +17,8 @@ this PC. Set up 2026-10-01/02. First real use: the Taiwan deals research in
 | Stop it / free the GPU | double-click `C:\llama.cpp\stop-qwen.bat` |
 | Chat in the browser | http://127.0.0.1:8080 |
 | Call it from code | OpenAI-style: `http://127.0.0.1:8080/v1`, model `qwen3.8-27b-uncensored`, any API key |
-| Claude Code on Qwen | open a **terminal**, `cd` to the folder, run `claude-qwen` |
+| Claude Code on Qwen | open a **terminal**, `cd` to the folder, run `claude-qwen` (steps below) |
+| Send it an image | works in the browser chat, the API, and `claude-qwen` (needs the mmproj, installed) |
 | Check it's up | http://127.0.0.1:8080/health → `{"status":"ok"}` |
 
 The server does **not** start by itself after a reboot.
@@ -29,6 +30,7 @@ The server does **not** start by itself after a reboot.
 | llama.cpp build 11342 (CUDA 12.4) | `C:\llama.cpp\` | official GitHub release, not the article's one-click script |
 | Model, default | `C:\models\Qwen3.8-27B-Uncensored-Q4_K_M.gguf` (15.7 GB) | SHA256 checked against Hugging Face |
 | Model, older | `C:\models\Qwen3.8-27B-Uncensored-Q5_K_M.gguf` (18.2 GB) | SHA256 checked |
+| Vision projector (mmproj) | `C:\models\mmproj-Qwen3.8-27B-Uncensored-F16.gguf` (0.9 GB) | SHA256 checked; the launcher adds `--mmproj` when the file exists. Without it, image input fails with `500 image input is not supported ... provide the mmproj` |
 | Claude Code CLI 2.1.286 | `winget install Anthropic.ClaudeCode` | plain `claude` still uses Claude |
 | Launchers | `C:\llama.cpp\start-qwen-hidden.ps1/.bat`, `stop-qwen.bat`, `claude-qwen.cmd` | `C:\llama.cpp` is on the user PATH |
 | Patched chat template | `C:\llama.cpp\qwen-template.jinja` | original saved as `qwen-template-original.jinja` |
@@ -45,7 +47,8 @@ author says quantization makes the old refusal boundary less stable.
 
 `start-qwen-hidden.ps1` defaults: **Q4_K_M, 128K context (131072), 1 request at a time,
 q8_0 KV cache**, MTP speculative decoding (`--spec-type draft-mtp --spec-draft-n-max 2`),
-`CUDA_VISIBLE_DEVICES=1`, patched template. Uses ~21.4 GB on the second 3090.
+`CUDA_VISIBLE_DEVICES=1`, patched template, vision projector. Uses ~22.5 GB on the second 3090
+(21.4 GB before vision was added); a test image request peaked at 22.6 GB with no spill.
 
 Options: `-Quant`, `-Ctx`, `-Parallel`, `-KvQ8`. The old setup:
 
@@ -77,6 +80,24 @@ Prompt reading ~680 tok/s (142 s for 97K). Generation ~60 tok/s on short prompts
 
 ## claude-qwen (Claude Code on the local model)
 
+### Running it
+
+1. Server up? If not (after a reboot or `stop-qwen.bat`), double-click
+   `C:\llama.cpp\start-qwen-hidden.bat` and wait for `Qwen ... is up`.
+2. Open a **new** terminal (Windows Terminal / PowerShell). A terminal opened before
+   `C:\llama.cpp` was added to PATH won't find the command.
+3. `cd` to the folder to work in, then run `claude-qwen`.
+4. First reply takes about a minute (Qwen reads Claude Code's ~55K-token prompt and tools);
+   later turns are faster. Quit with `/exit` or Ctrl+C twice.
+
+If `claude-qwen` is "not recognized", run it by full path: `C:\llama.cpp\claude-qwen.cmd`.
+
+If the server is restarted while a `claude-qwen` session is waiting on a reply, that request
+won't recover (it retries up to 10 times, then fails). Send the message again, or restart
+`claude-qwen`.
+
+### How it works
+
 `claude-qwen` = Claude Code with these env vars set **for that process only**:
 `ANTHROPIC_BASE_URL=http://127.0.0.1:8080`, a dummy `ANTHROPIC_AUTH_TOKEN`, and every model
 role (`ANTHROPIC_MODEL`, default opus/sonnet/haiku, subagent) set to `qwen3.8-27b-uncensored`.
@@ -92,6 +113,8 @@ llama-server speaks the Anthropic Messages API (`/v1/messages`) including tool c
 - The global `~/.claude/CLAUDE.md` still loads, so Qwen sees the TEAM.md rules too.
 - Test (2026-10-02): read a Python file and add a discount argument → correct edit,
   74 s, 4 calls, ~55K input tokens (Claude Code's own prompt + tools is most of that).
+- Images: pasting or attaching an image in `claude-qwen` works once the mmproj is loaded.
+  Test (2026-10-02): a 1024×1024 PNG cost ~1,000 input tokens and was described correctly.
 
 ## Gotchas found along the way
 
@@ -113,6 +136,16 @@ llama-server speaks the Anthropic Messages API (`/v1/messages`) including tool c
 - **Facts from Qwen need checking.** On the Taiwan deals research, 8 of its 20 URLs reached the
   right brand; it confused 萊爾富 with Lawson and listed renamed/merged chains. Good for
   structure and drafts, not for facts.
+
+## Change log
+
+| Date | Change |
+|---|---|
+| 2026-10-01 | llama.cpp b11342 + Q5_K_M, 32K context, 4 slots, on GPU 1 via a visible `.bat` window |
+| 2026-10-02 | Server died when its window was closed → hidden WMI launcher + `stop-qwen.bat` |
+| 2026-10-02 | Switched to Q4_K_M, 128K context, 1 slot, q8_0 KV cache |
+| 2026-10-02 | Claude Code CLI installed; `claude-qwen` launcher; patched chat template for mid-conversation system messages |
+| 2026-10-02 | Added vision projector (mmproj) after image input in `claude-qwen` failed with a 500 |
 
 ## Related
 
