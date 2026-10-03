@@ -174,3 +174,12 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     real Qwen image prompt; real images seen in the grid. Deployed. Closed. **Phase 5 done.**
   - Next: Phase 6 img2img (Z-Image img2img, Qwen Image Edit 2511, Qwen Image 2.1 multi-image edit):
     needs photo upload + multi-photo slots (image2/image3, currently 400).
+- 2026-10-03: Phase 6 started (owner: "Go Phase 6").
+  - orchestrator 裁決: result follows the photo (no shape); labeled photo slots; 2511's photo 2
+    optional → falls back to photo 1; strength 0.2–1.0 where there's a real denoise; Z-Image first.
+    Test runs use non-person images only (not the owner's family photos).
+  - Acceptance landed `a2ae206` (parent `2132e69`): DESIGN.md §Image to image; harness section 9
+    (6 rows; photo row drives the real start_job — red on today's engine with its own reason).
+    Harness 55/0/2 → 55/0/8.
+  - [#10](https://github.com/csiesheep/comfy-studio/issues/10) multi-photo + 3 workflows → peer-be;
+    [#11](https://github.com/csiesheep/comfy-studio/issues/11) img2img page + hub → peer-fe (parallel).
