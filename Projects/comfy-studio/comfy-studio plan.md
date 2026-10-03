@@ -140,3 +140,10 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     eye at 375 px dark with the live job list (8 jobs); deployed (page only, served file byte-identical).
     The checker found the static picker row too weak (matches a comment; can't tell run from prompt)
     → tighten in the next acceptance commit. Closed.
+  - Harness tightened `209eec8`: picker row strips comments and checks api/prompt and api/run
+    separately; new row "picker's first entry = the no-workflow default".
+  - #4 H3 full: real run 5 s in **842 s** (4.3× fused). Sent back once: job watch gave up at 60 min
+    (a 15 s H3 full ≈ 43 min, queue time counted) → now waits while ComfyUI has the prompt, 10-min
+    lost window, 6 h cap; description gives times. Landed `a11fceb`, harness → **37/0/6**, deployed.
+    Closed. **Phase 3 done.**
+  - Open for owner: H3 full at 0.7 MP (DESIGN) vs the template's 0.4 MP (faster).
