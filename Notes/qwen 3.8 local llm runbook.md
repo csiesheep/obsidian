@@ -224,21 +224,25 @@ like, **Make video** → ComfyUI renders it → it plays and downloads in the pa
 
 | Want to | Do |
 |---|---|
-| Open it (iPhone, tailnet) | https://desktop-r2u3mdm.tail528148.ts.net/video/ → Add to Home Screen |
-| Open it (PC) | http://127.0.0.1:8190 |
-| Start / stop | `C:\h3-studio\start-studio-hidden.bat` / `stop-studio.bat` (doesn't start after a reboot) |
+| Open it (iPhone, tailnet) | https://desktop-r2u3mdm.tail528148.ts.net/studio/img2video (hub: `/studio/`; old `/video/` redirects) → Add to Home Screen |
+| Open it (PC) | http://127.0.0.1:8190/img2video |
+| Start / stop | `C:\Users\sheep\code\comfy-studio\start-studio-hidden.bat` / `stop-studio.bat` (doesn't start after a reboot) |
 | Videos + inputs + history | `C:\Users\sheep\Videos\h3\studio\` (`jobs.json`, `inputs\`) |
-| Log | `C:\h3-studio\studio.log` |
+| Log | `C:\Users\sheep\code\comfy-studio\studio.log` |
+
+> Since 2026-10-03 the code lives in the **comfy-studio** repo (private, github.com/csiesheep/comfy-studio);
+> plan in [[comfy-studio plan]]. `C:\h3-studio\` is the old copy and is no longer run.
 
 - Needs all three running: Qwen server, ComfyUI, studio. The page shows a green/red dot for Qwen and ComfyUI.
-- `server.py` (stdlib) reuses `h3_i2v.py` + `h3_fused_i2v_api.json` from the skill folder, so
-  a fix to the skill's workflow applies to the page too. Qwen is called with thinking off
+- `server.py` (stdlib) has its own copy of the H3 workflow and helpers (the skill folder's copy
+  is separate). Qwen is called with thinking off
   (prompt in ~10 s); the system prompt carries the H3 template and the real-person rule.
 - The phone photo is downscaled in the browser to ≤1.6 MP JPEG before upload (H3 renders ~0.7 MP).
 - Jobs keep running if the page is closed; the server resumes watching running jobs after a restart.
 - "Use again" on a finished video reloads its photo and prompt for another seed.
-- `tailscale serve` now has two routes: `/` → 8080 (Qwen chat), `/video` → 8190 (prefix is
-  stripped). Remove just the studio route: `tailscale serve --https=443 --set-path /video off`.
+- `tailscale serve` routes: `/` → 8080 (Qwen chat), `/studio` → 8190 (prefix is stripped),
+  `/video` → 8190`/legacy-video` (302 to `/studio/img2video`). Remove one:
+  `tailscale serve --https=443 --set-path /studio off`.
 - The Claude app's built-in browser pane blocks fetches to the ts.net address
   (`ERR_BLOCKED_BY_CLIENT`); test there with http://127.0.0.1:8190 instead. Safari is fine.
 
