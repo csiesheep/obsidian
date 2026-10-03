@@ -109,4 +109,16 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
   (declared: it wrote the Phase 0 code itself; that code has had no independent review).
   - Acceptance for issue 1 landed first: `c25093b` (parent `3636d57`), harness 17/0/5 → 18/0/9;
     git-ignore row falsified (data/ commented out → "not ignored by git: [3 paths]").
-  - [Issue #1](https://github.com/csiesheep/comfy-studio/issues/1) data folder per mode → dispatched to peer-be.
+  - [Issue #1](https://github.com/csiesheep/comfy-studio/issues/1) data folder per mode → peer-be →
+    verified (orch-checker + page check) → landed `50407d7` (parent `c25093b`), harness 18/0/9 → 22/0/5 →
+    deployed: 4 jobs migrated into `data\img2video\`, all play over the tailnet. Closed.
+    Old `C:\Users\sheep\Videos\h3\studio\` left for the owner to delete.
+  - Follow-ups (on #1): port 8190 can be double-bound; harness probe cleanup; README path (writer);
+    `/api/jobs` ~13 s while ComfyUI is busy; `stop-studio.bat` must be run by full path.
+- 2026-10-03: Phase 2 started (owner: "Go").
+  - Acceptance landed `f5f8726` (parent `50407d7`): engine contract in DESIGN.md, golden H3 graph,
+    9 engine rows (probed against a throwaway stub: correct 31/0/4; each single defect red with the
+    right reason; the port row was rewritten after it stayed green on the real defect). Harness
+    probe fix from #1 included. Harness 22/0/5 → 22/0/13.
+  - [#2](https://github.com/csiesheep/comfy-studio/issues/2) engine → peer-be;
+    [#3](https://github.com/csiesheep/comfy-studio/issues/3) README → peer-writer (in parallel).
