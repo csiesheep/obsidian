@@ -130,3 +130,13 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
   - Carried into Phase 3: auto-sized width/height are not page fields (orchestrator 裁決); harness
     rows for the request-level default and int→float seconds; a golden graph from a real run for
     every new workflow; multi-photo slots and image outputs still to build (Phases 5-6).
+- 2026-10-03: Phase 3 started (owner: "Go").
+  - Acceptance landed `7579804` (parent `5878a35`): DESIGN.md §Picker; harness section 6 (request
+    default, int→float seconds — both pass and were falsified; auto-sized fields and reference runs —
+    todo, each probed red). Picker row per page. Harness 31/0/4 → 33/0/9.
+  - [#4](https://github.com/csiesheep/comfy-studio/issues/4) H3 full workflow from a real run → peer-be;
+    [#5](https://github.com/csiesheep/comfy-studio/issues/5) img2video picker → peer-fe (in parallel).
+  - #5 landed `02d0c96` (parent `7579804`), harness 33/0/9 → 34/0/8; checked by orch-checker and by
+    eye at 375 px dark with the live job list (8 jobs); deployed (page only, served file byte-identical).
+    The checker found the static picker row too weak (matches a comment; can't tell run from prompt)
+    → tighten in the next acceptance commit. Closed.
