@@ -5,8 +5,8 @@ tags: [runbook, llm, local-ai, claude-code, llama-cpp, comfyui, skill]
 # Qwen 3.8 local LLM — install, setup, claude-qwen
 
 Local uncensored Qwen3.8-27B on the PC (2× RTX 3090, i9-13900K, 48 GB RAM), served by
-llama.cpp on the **second** 3090 so the first stays free for ComfyUI. Reachable only from
-this PC. Set up 2026-10-01/02. First real use: the Taiwan deals research in
+llama.cpp on the **second** 3090 so the first stays free for ComfyUI. Reachable from this PC
+and, through Tailscale, from my own devices (iPhone) — not from the public internet. Set up 2026-10-01/03. First real use: the Taiwan deals research in
 `Projects/discount/` (see `comparison_claude_vs_qwen.md` there for how it did).
 
 ## Quick use
@@ -20,8 +20,35 @@ this PC. Set up 2026-10-01/02. First real use: the Taiwan deals research in
 | Claude Code on Qwen | open a **terminal**, `cd` to the folder, run `claude-qwen` (steps below) |
 | Send it an image | works in the browser chat, the API, and `claude-qwen` (needs the mmproj, installed) |
 | Check it's up | http://127.0.0.1:8080/health → `{"status":"ok"}` |
+| Use it from the iPhone | Tailscale app on, then Safari → https://desktop-r2u3mdm.tail528148.ts.net (see below) |
 
 The server does **not** start by itself after a reboot.
+
+## iPhone access (Tailscale)
+
+Set up 2026-10-03. Tailscale 1.102.4 on the PC (`winget install Tailscale.Tailscale`) and the
+Tailscale iOS app, both signed in as `csiegoat@`. The PC is `desktop-r2u3mdm`, tailnet IP
+`100.97.49.62`.
+
+`tailscale serve` publishes the local server to **my tailnet only**, over HTTPS:
+
+```
+https://desktop-r2u3mdm.tail528148.ts.net  (tailnet only)
+|-- / proxy http://127.0.0.1:8080
+```
+
+- llama-server still listens only on `127.0.0.1` — no firewall rule, no API key, `claude-qwen`
+  unchanged. Only devices signed in to my Tailscale account can reach it.
+- Serve/HTTPS had to be enabled once for the tailnet (approved via a login.tailscale.com link).
+- The serve setting persists across reboots (`--bg`); the **PC must be on, Tailscale running,
+  and the Qwen server started**.
+- On the iPhone: turn Tailscale on → Safari → the URL above → Share → **Add to Home Screen**.
+  Image upload works in that chat page too.
+- Any OpenAI-compatible app can use `https://desktop-r2u3mdm.tail528148.ts.net/v1`, model
+  `qwen3.8-27b-uncensored`, any key.
+- One request at a time: the phone, `claude-qwen` and scripts share it.
+- Check / stop: `tailscale serve status` · `tailscale serve --https=443 off`
+- Tested from the PC through the HTTPS address: health ok, chat page 200, chat request answered.
 
 ## What is installed
 
@@ -203,7 +230,8 @@ image's aspect ratio at ~0.7 MP (both sides multiples of 32).
 - **Watch "shared" GPU memory**: if the process's shared usage grows by GBs, Windows is spilling
   VRAM into system RAM and generation gets very slow — lower the context.
 - **More parallel slots split the context**: `-Parallel 4` at 160K gives four 40K slots.
-- **No API key, localhost only.** Exposing it at games.csiesheep.com was discussed but not
+- **No API key; localhost + my tailnet only.** If a tailnet device is ever shared with someone
+  else, add `--api-key`. Exposing it publicly at games.csiesheep.com was discussed but not
   done; it would need Cloudflare Tunnel + a Worker route + Cloudflare Access (or `--api-key`),
   and `--api-prefix` for a sub-path.
 - **Facts from Qwen need checking.** On the Taiwan deals research, 8 of its 20 URLs reached the
@@ -220,6 +248,7 @@ image's aspect ratio at ~0.7 MP (both sides multiples of 32).
 | 2026-10-02 | Claude Code CLI installed; `claude-qwen` launcher; patched chat template for mid-conversation system messages |
 | 2026-10-02 | Added vision projector (mmproj) after image input in `claude-qwen` failed with a 500 |
 | 2026-10-03 | Checked which skills `claude-qwen` sees; added the `h3-image-to-video` personal skill |
+| 2026-10-03 | Tailscale + `tailscale serve` for iPhone access (tailnet only, HTTPS) |
 
 ## Related
 
