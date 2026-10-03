@@ -147,3 +147,10 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     lost window, 6 h cap; description gives times. Landed `a11fceb`, harness → **37/0/6**, deployed.
     Closed. **Phase 3 done.**
   - Open for owner: H3 full at 0.7 MP (DESIGN) vs the template's 0.4 MP (faster).
+    → owner: "Keep 0.7, go Phase 4".
+- 2026-10-03: Phase 4 started (text2video).
+  - orchestrator 裁決: shape choice 9:16 (default) / 16:9 / 1:1 at 0.7 MP.
+  - Acceptance landed `bf60ef3` (parent `a11fceb`): DESIGN.md §Text to video; harness section 7
+    (5 rows, probed with temp workflows + stub, each defect red). Harness 37/0/6 → 37/0/11.
+  - [#6](https://github.com/csiesheep/comfy-studio/issues/6) t2v workflows (2 real runs) → peer-be;
+    [#7](https://github.com/csiesheep/comfy-studio/issues/7) t2v page + hub link → peer-fe (parallel).
