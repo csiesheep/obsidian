@@ -160,3 +160,10 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     Qwen t2v prompt (Chinese, no photo) in 7 s; pages checked by eye. Deployed. Closed. **Phase 4 done.**
   - Harness `df21c6b`: a shipped page that loses its route is red (was todo).
   - Next: Phase 5 text2img — needs image outputs in watch() and the image job list.
+- 2026-10-03: Phase 5 started (owner: "Go Phase 5").
+  - orchestrator 裁決: same shapes at ~1 MP / 64 (768×1344 default, 1344×768, 1024×1024); Z-Image first.
+  - Acceptance landed `95002cd` (parent `df21c6b`): DESIGN.md §Text to image; harness section 8
+    (7 rows; the image-output row drives the real watch() against a recorded ComfyUI — red on today's
+    code with the right reason, green on a stub). Harness 45/0/4 → 45/0/11.
+  - [#8](https://github.com/csiesheep/comfy-studio/issues/8) t2i workflows + image outputs → peer-be;
+    [#9](https://github.com/csiesheep/comfy-studio/issues/9) t2i page (grid) + hub link → peer-fe (parallel).
