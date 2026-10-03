@@ -183,3 +183,20 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     Harness 55/0/2 → 55/0/8.
   - [#10](https://github.com/csiesheep/comfy-studio/issues/10) multi-photo + 3 workflows → peer-be;
     [#11](https://github.com/csiesheep/comfy-studio/issues/11) img2img page + hub → peer-fe (parallel).
+  - #10: Qwen Image Edit 2511's models aren't installed → **owner 裁決: ship without it**.
+    Real runs (non-person images): Z-Image img2img 24 s, Qwen two-photo edit 79 s. Found and fixed
+    an input/result file-name clash (`<id>_out.<ext>`); orchestrator added the missing guard for it.
+  - #10 + #11 landed together as `d8880cb`. Harness → **64/0/1** (todo: optional-photo fallback,
+    waits for a workflow with an optional photo). Deployed. Closed. **Phase 6 done — all six phases done.**
+
+## Where it stands (2026-10-03)
+
+All four pages live at https://desktop-r2u3mdm.tail528148.ts.net/studio/ with 8 workflows:
+img2video (H3 fused, H3 full), text2video (H3 fused, H3 full), text2img (Z-Image Turbo, Qwen Image
+2.1), img2img (Z-Image img2img, Qwen two-photo edit). Harness 64/0/1, 11 issues closed.
+
+Open / possible next:
+- Qwen Image Edit 2511 — needs its 4 model files installed first.
+- README still lists text2img/img2img as planned (writer issue).
+- `/api/jobs` slow while ComfyUI is busy (#1 handover, never done).
+- Not yet run for real: 16:9 / 1:1 shapes, 10–15 s H3 full, a full "Make" from each new page.
