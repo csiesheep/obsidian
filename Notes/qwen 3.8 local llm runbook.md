@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-02
-tags: [runbook, llm, local-ai, claude-code, llama-cpp]
+updated: 2026-10-03
+tags: [runbook, llm, local-ai, claude-code, llama-cpp, comfyui, skill]
 ---
 # Qwen 3.8 local LLM — install, setup, claude-qwen
 
@@ -116,6 +116,79 @@ llama-server speaks the Anthropic Messages API (`/v1/messages`) including tool c
 - Images: pasting or attaching an image in `claude-qwen` works once the mmproj is loaded.
   Test (2026-10-02): a 1024×1024 PNG cost ~1,000 input tokens and was described correctly.
 
+### Skills in claude-qwen
+
+`claude-qwen` uses the same `~/.claude` folder as the Claude app, so it sees:
+- **personal skills** in `C:\Users\sheep\.claude\skills\<name>\SKILL.md` (agent-team-delivery,
+  csiesheep-perspective, initialize_a_game, nuwa-skill, h3-image-to-video) — put a skill here to
+  have it in both;
+- **project skills** in `<project>\.claude\skills\` when run inside that project;
+- Claude Code's built-in skills (code-review, simplify, init, ...).
+
+It does **not** see skills that come from the claude.ai account (`anthropic-skills:*` such as
+docs/pdf/xlsx/pptx/deep-research, and the artifact skills), because it isn't logged in.
+Checked 2026-10-03 by asking `claude-qwen -p` to list its skills. Qwen follows long, multi-step
+skills less reliably than Claude; short, concrete skills work best.
+
+## h3-image-to-video skill
+
+Personal skill (works in the Claude app and `claude-qwen`): one image + a short description →
+a video with sound from the **MiniMax-H3 fused image-to-video** workflow on the local ComfyUI
+(first 3090, port 8188).
+
+Use it by asking, e.g. "Animate `C:\pics\cat.png`: the cat stretches and walks off, 10 seconds."
+The skill looks at the image, expands the description into an H3 prompt, runs it, and reports
+the video path, size, seed and prompt.
+
+Files in `C:\Users\sheep\.claude\skills\h3-image-to-video\`:
+
+| File | What it is |
+|---|---|
+| `SKILL.md` | the instructions: inputs, steps, prompt template, rules |
+| `h3_i2v.py` | uploads the image as first frame, fills the workflow, submits, waits, copies the MP4 out (stdlib only) |
+| `h3_fused_i2v_api.json` | the API-format graph, taken from a successful run of `ComfyUI/user/default/workflows/minimax_h3_fused_UC_i2v.json`, with a LoadImage wired into `first_frame` |
+
+Run the script directly:
+
+```bash
+python C:\Users\sheep\.claude\skills\h3-image-to-video\h3_i2v.py --image photo.png --prompt-file prompt.txt --seconds 10 --out-dir C:\Users\sheep\Videos\h3
+```
+
+Options: `--seconds` (5-15, default 10), `--seed`, `--megapixels` (default 0.7), `--steps`
+(default 4), `--prefix`, `--allow-long` (go past 15 s, untested), `--dry-run` (print the filled
+workflow only).
+
+Prompt format (the "H3 prompt contract"; write in Chinese or English):
+
+```
+integrated_multimodal_description:
+<style + scene, matching the image>
+[0s-3s] <camera move + first action>
+[3s-7s] <main action>
+[7s-10s] <ending>
+
+overall_soundscape:
+<ambient and action sounds>
+
+non_diegetic_music:
+<music style, or N/A>
+```
+
+Settings baked into the template: fused ref-delta int8 model, Qwen3-VL-32B text encoder, SLA
+attention 0.9/64, res_multistep / simple, 4 steps, sigma shift 12/3, 24 fps; output keeps the
+image's aspect ratio at ~0.7 MP (both sides multiples of 32).
+
+- **Length:** H3 was trained on ~124-362 frames (≈5-15 s); the script refuses other lengths
+  unless `--allow-long`.
+- **Speed:** test 2026-10-03: 5 s fox video, 832×832, with audio, **226 s** to generate. Expect
+  ~5-8 min for 10 s. First frame matched the image exactly; the first beats were followed, the
+  last one ("look back at the camera") was not.
+- **Don't write files into the Claude app's scratch folder** (`AppData\Roaming\Claude\...`):
+  Windows virtualizes it for the app, so Python can't see files there ("file not found"). The
+  skill falls back to `C:\Users\sheep\Videos\h3\`.
+- **Rule in the skill:** if the image shows a real, identifiable person, it won't write prompts
+  that undress them or show them nude or sexual.
+
 ## Gotchas found along the way
 
 - **Template patch is required for Claude Code.** Qwen's template raised
@@ -146,6 +219,7 @@ llama-server speaks the Anthropic Messages API (`/v1/messages`) including tool c
 | 2026-10-02 | Switched to Q4_K_M, 128K context, 1 slot, q8_0 KV cache |
 | 2026-10-02 | Claude Code CLI installed; `claude-qwen` launcher; patched chat template for mid-conversation system messages |
 | 2026-10-02 | Added vision projector (mmproj) after image input in `claude-qwen` failed with a 500 |
+| 2026-10-03 | Checked which skills `claude-qwen` sees; added the `h3-image-to-video` personal skill |
 
 ## Related
 
