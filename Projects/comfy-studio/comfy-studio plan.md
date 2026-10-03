@@ -122,3 +122,11 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     probe fix from #1 included. Harness 22/0/5 → 22/0/13.
   - [#2](https://github.com/csiesheep/comfy-studio/issues/2) engine → peer-be;
     [#3](https://github.com/csiesheep/comfy-studio/issues/3) README → peer-writer (in parallel).
+  - #3 landed `ed86f0d` after one send-back (said "videos" where image modes store images). Closed.
+  - #2 landed `5878a35` (parent `ed86f0d`), harness 22/0/13 → **31/0/4**. Checker falsified 4 ways
+    (real-person rule, node-id leak, seconds max, default workflow); orchestrator ran real Qwen
+    through the engine. Peer's real run: 5 s in 214 s. Deployed; 5 jobs play; a second server on
+    8190 is now refused (WinError 10048). Closed. **Phase 2 done.**
+  - Carried into Phase 3: auto-sized width/height are not page fields (orchestrator 裁決); harness
+    rows for the request-level default and int→float seconds; a golden graph from a real run for
+    every new workflow; multi-photo slots and image outputs still to build (Phases 5-6).
