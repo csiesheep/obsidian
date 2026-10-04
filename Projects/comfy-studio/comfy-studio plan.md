@@ -189,6 +189,20 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
   - #10 + #11 landed together as `d8880cb`. Harness → **64/0/1** (todo: optional-photo fallback,
     waits for a workflow with an optional photo). Deployed. Closed. **Phase 6 done — all six phases done.**
 
+- 2026-10-03: **Quality round** (owner: all five approaches yes; 3 "may need a UI design", 4 "a button
+  to select the video draft mode"). Investigation + approaches: [[quality approaches]].
+  - Acceptance landed `58086c6`: DESIGN.md §Quality (experiments method, draft/final profiles, Qwen
+    writing rules with markers, Continue); harness section 10 (10 rows, todo; probed with a stub).
+    Harness 64/0/1 → 64/0/11.
+  - [#12](https://github.com/csiesheep/comfy-studio/issues/12) video steps × resolution × SLA grid
+    (measure only, ~2.5 h GPU) → peer-be; [#14](https://github.com/csiesheep/comfy-studio/issues/14)
+    Qwen prompt rewrite → peer-be; [#15](https://github.com/csiesheep/comfy-studio/issues/15)
+    draft/final profiles + 8 s default → peer-be; [#16](https://github.com/csiesheep/comfy-studio/issues/16)
+    Continue (FE, UI proposal first) → peer-fe. All four in parallel.
+  - Queued: [#13](https://github.com/csiesheep/comfy-studio/issues/13) image grid (after #12, GPU);
+    #17 Draft toggle + Make final (FE, after #15 and #16); #18 image candidates (approach 4 for images);
+    adoption of #12/#13 results (manifests + reference runs) after the owner judges the sheets.
+
 ## Where it stands (2026-10-03)
 
 All four pages live at https://desktop-r2u3mdm.tail528148.ts.net/studio/ with 8 workflows:
