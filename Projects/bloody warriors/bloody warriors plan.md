@@ -2,14 +2,14 @@
 tags: [project, game, 3d]
 status: design
 started: 2026-10-04
-slug: dragon_fly
+slug: bloody_warriors
 name: 一騎當前
 ---
 # 一騎當前 bloody warriors - plan
 
 > [!info] 設計 v0.2:元素與規則已定;技術棧與 M0-M5 里程碑待補(2026-10-04)
-> 名稱:**一騎當前**(「一騎當千」的變體,孤騎當前)。vault 專案 `bloody warriors`(本檔),repo 代號 `dragon_fly`。
-> repo https://github.com/csiesheep/dragon_fly (public,目前只有 README + DESIGN.md,未部署)。
+> 名稱:**一騎當前**(「一騎當千」的變體,孤騎當前)。vault 專案 `bloody warriors`(本檔),repo 代號 `bloody_warriors`。
+> repo https://github.com/csiesheep/bloody_warriors (public,目前只有 README + DESIGN.md,未部署)。
 > 三國無雙類網頁 3D 血腥版:Three.js、Low-poly、v1 單武将(趙雲)、弧光血花。
 
 ## Overview
@@ -251,5 +251,5 @@ name: 一騎當前
 
 ## Related
 
-- repo:https://github.com/csiesheep/dragon_fly
-- 設計文件(repo 內,與本檔同步):`dragon_fly/DESIGN.md`
+- repo:https://github.com/csiesheep/bloody_warriors
+- 設計文件(repo 內,與本檔同步):`bloody_warriors/DESIGN.md`
