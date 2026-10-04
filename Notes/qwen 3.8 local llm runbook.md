@@ -20,8 +20,8 @@ and, through Tailscale, from my own devices (iPhone) — not from the public int
 | Claude Code on Qwen | open a **terminal**, `cd` to the folder, run `claude-qwen` (steps below) |
 | Send it an image | works in the browser chat, the API, and `claude-qwen` (needs the mmproj, installed) |
 | Check it's up | http://127.0.0.1:8080/health → `{"status":"ok"}` |
-| Use it from the iPhone | Tailscale app on, then Safari → https://desktop-r2u3mdm.tail528148.ts.net:8443 (see below) |
-| Coding agent from the iPhone | opencode at https://desktop-r2u3mdm.tail528148.ts.net/ — see [[opencode runbook]] |
+| Use it from the iPhone | Tailscale app on, then Safari → https://pc.tail528148.ts.net:8443 (see below) |
+| Coding agent from the iPhone | opencode at https://pc.tail528148.ts.net/ — see [[opencode runbook]] |
 
 Since 2026-10-04 the server **starts at logon** (with opencode), via the Task Scheduler task
 "Qwen + opencode (start at logon)" → `C:\llama.cpp\start-opencode-remote.ps1`, 30 s after login.
@@ -30,19 +30,21 @@ Only after I log in — not at the login screen. Disable the task to stop that.
 ## iPhone access (Tailscale)
 
 Set up 2026-10-03. Tailscale 1.102.4 on the PC (`winget install Tailscale.Tailscale`) and the
-Tailscale iOS app, both signed in as `csiegoat@`. The PC is `desktop-r2u3mdm`, tailnet IP
-`100.97.49.62`.
+Tailscale iOS app, both signed in as `csiegoat@`. The PC is `pc` on the tailnet (renamed
+from `desktop-r2u3mdm` on 2026-10-04 with `tailscale set --hostname=pc`; the Windows computer name is
+unchanged), tailnet IP `100.97.49.62`. After a rename, `tailscale serve` routes stay under the old
+name: `tailscale serve reset` and add them again.
 
 `tailscale serve` publishes the local server to **my tailnet only**, over HTTPS:
 
 ```
-https://desktop-r2u3mdm.tail528148.ts.net:8443  (tailnet only)
+https://pc.tail528148.ts.net:8443  (tailnet only)
 |-- / proxy http://127.0.0.1:8080
 ```
 
 > **Moved 2026-10-04** from the root address (`…ts.net/`) to port **8443**: the root `/` now
 > serves opencode ([[opencode runbook]]), which can't live under a sub-path. Anything pointed at
-> `https://desktop-r2u3mdm.tail528148.ts.net/v1` must change to `…ts.net:8443/v1`. A cached old
+> `https://pc.tail528148.ts.net/v1` must change to `…ts.net:8443/v1`. A cached old
 > chat page at `/` shows "Unexpected token '<' … not valid JSON" — hard refresh / re-add the icon.
 
 - llama-server still listens only on `127.0.0.1` — no firewall rule, no API key, `claude-qwen`
@@ -52,7 +54,7 @@ https://desktop-r2u3mdm.tail528148.ts.net:8443  (tailnet only)
   and the Qwen server started**.
 - On the iPhone: turn Tailscale on → Safari → the URL above → Share → **Add to Home Screen**.
   Image upload works in that chat page too.
-- Any OpenAI-compatible app can use `https://desktop-r2u3mdm.tail528148.ts.net:8443/v1`, model
+- Any OpenAI-compatible app can use `https://pc.tail528148.ts.net:8443/v1`, model
   `qwen3.8-27b-uncensored`, any key.
 - One request at a time: the phone, `claude-qwen`, opencode and scripts share it.
 - Check / stop: `tailscale serve status` · `tailscale serve --https=8443 off`
@@ -233,7 +235,7 @@ like, **Make video** → ComfyUI renders it → it plays and downloads in the pa
 
 | Want to | Do |
 |---|---|
-| Open it (iPhone, tailnet) | https://desktop-r2u3mdm.tail528148.ts.net/studio/img2video (hub: `/studio/`; old `/video/` redirects) → Add to Home Screen |
+| Open it (iPhone, tailnet) | https://pc.tail528148.ts.net/studio/img2video (hub: `/studio/`; old `/video/` redirects) → Add to Home Screen |
 | Open it (PC) | http://127.0.0.1:8190/img2video |
 | Start / stop | `C:\Users\sheep\code\comfy-studio\start-studio-hidden.bat` / `stop-studio.bat` (starts at logon since 2026-10-04) |
 | Videos + inputs + history | `C:\Users\sheep\Videos\h3\studio\` (`jobs.json`, `inputs\`) |
@@ -298,6 +300,7 @@ like, **Make video** → ComfyUI renders it → it plays and downloads in the pa
 | 2026-10-04 | Qwen's tailnet route moved `/` → `:8443`; opencode took `/` |
 | 2026-10-04 | Logon task "Qwen + opencode (start at logon)": Qwen no longer needs a manual start after reboot |
 | 2026-10-04 | H3 Video Studio added to the logon task (ComfyUI still manual) |
+| 2026-10-04 | Tailnet name `desktop-r2u3mdm` → `pc`: all URLs now `https://pc.tail528148.ts.net` (old name dead) |
 
 ## Related
 

@@ -19,7 +19,7 @@ has **Qwen prompt help**.
 
 | Page | URL (tailnet) |
 |---|---|
-| Hub | `https://desktop-r2u3mdm.tail528148.ts.net/studio/` |
+| Hub | `https://pc.tail528148.ts.net/studio/` |
 | Text to image | `/studio/text2img` |
 | Image to image | `/studio/img2img` |
 | Text to video | `/studio/text2video` |
@@ -247,7 +247,7 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
 
 ## Where it stands (2026-10-03)
 
-All four pages live at https://desktop-r2u3mdm.tail528148.ts.net/studio/ with 8 workflows:
+All four pages live at https://pc.tail528148.ts.net/studio/ with 8 workflows:
 img2video (H3 fused, H3 full), text2video (H3 fused, H3 full), text2img (Z-Image Turbo, Qwen Image
 2.1), img2img (Z-Image img2img, Qwen two-photo edit). Harness 64/0/1, 11 issues closed.
 

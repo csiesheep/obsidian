@@ -13,7 +13,7 @@ Set up 2026-10-03/04.
 
 | Want to | Do |
 |---|---|
-| Use it from the iPhone | Tailscale app on → Safari → https://desktop-r2u3mdm.tail528148.ts.net/ → user `opencode`, password below → Add to Home Screen |
+| Use it from the iPhone | Tailscale app on → Safari → https://pc.tail528148.ts.net/ → user `opencode`, password below → Add to Home Screen |
 | Use it on the PC (browser) | http://127.0.0.1:4096 (same login) |
 | Use it on the PC (terminal) | new terminal → `cd` to a project → `opencode` (TUI) |
 | One-shot from a script | `opencode run "your prompt"` |
@@ -36,12 +36,12 @@ The web UI opens in `C:\Users\sheep\code`; other folders can be opened from the 
 ## Tailnet routes (since 2026-10-04)
 
 ```
-https://desktop-r2u3mdm.tail528148.ts.net        (tailnet only)
+https://pc.tail528148.ts.net        (tailnet only)
 |-- /        proxy http://127.0.0.1:4096   ← opencode
 |-- /video   proxy http://127.0.0.1:8190/legacy-video
 |-- /studio  proxy http://127.0.0.1:8190
 
-https://desktop-r2u3mdm.tail528148.ts.net:8443   (tailnet only)
+https://pc.tail528148.ts.net:8443   (tailnet only)
 |-- /        proxy http://127.0.0.1:8080   ← Qwen chat page + API (was at / before)
 ```
 
@@ -102,6 +102,7 @@ No sharing of the tailnet device, no Funnel. Unauthenticated requests get `401` 
 | 2026-10-04 | Swapped routes: opencode at `/`, Qwen to `:8443` |
 | 2026-10-04 | Logon task "Qwen + opencode (start at logon)" — tested from cold |
 | 2026-10-04 | Comfy Studio added to the logon task as a second action — tested |
+| 2026-10-04 | Tailnet name `desktop-r2u3mdm` → `pc` (`tailscale set --hostname=pc`, then `tailscale serve reset` + re-add routes) — all routes tested on the new name |
 
 ## Related
 
