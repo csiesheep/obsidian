@@ -7,7 +7,7 @@ name: 一騎當前
 ---
 # 一騎當前 bloody warriors - plan
 
-> [!info] 設計 v0.2:元素與規則已定;技術棧與 M0-M5 里程碑待補(2026-10-04)
+> [!info] 設計 v0.3:元素、規則、技術棧與 M0–M5 里程碑已定(owner v0 確認 2026-10-04)
 > 名稱:**一騎當前**(「一騎當千」的變體,孤騎當前)。vault 專案 `bloody warriors`(本檔),repo 代號 `bloody_warriors`。
 > repo https://github.com/csiesheep/bloody_warriors (public,目前只有 README + DESIGN.md,未部署)。
 > 三國無雙類網頁 3D 血腥版:Three.js、Low-poly、v1 單武将(趙雲)、弧光血花。
@@ -222,32 +222,35 @@ name: 一騎當前
 | 2026-10-04 | 敵將:夏侯惇 | owner |
 | 2026-10-04 | 美術:Low-poly 風格化 | owner |
 | 2026-10-04 | 血紅上限:邊緣→中大紅 | owner |
+| 2026-10-04 | 部署:games.csiesheep.com/bloody_warriors/(本 repo 一個 Cloudflare Worker,games 慣例) | owner |
+| 2026-10-04 | 突進 2.5m / 0.15s / 期間無敵 / CD 0.8s;防禦減傷 70%、移速減半 | owner |
+| 2026-10-04 | 突刺:v0 不做(規格保留) | owner |
+| 2026-10-04 | 角色分工:引擎/規則→peer-be、畫面/頁面→peer-fe、美術→peer-artist、文案→peer-writer | owner |
 
-## Milestones(待補,下一輪正式拆解)
+## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
-暫列(引擎 Three.js、美術 Low-poly 已定):
+技術棧:Vite + TypeScript + Three.js;敵兵 InstancedMesh;血花/血池池化;HUD 用 DOM overlay;config.ts 單一數值表;Cloudflare Worker(path-prefix router)部署。
 
-| | 內容 |
-| --- | --- |
-| M0 | 骨架:Three.js 場景、跟隨相機、輸入、一個會動的兵 |
-| M1 | 核心戰鬥:普攻三段、碰撞、敵兵 AI(Chase / Attack / Die) |
-| M2 | 血腥系統:血花、血池、泛紅、慢動作 + 無雙表 |
-| M3 | 無雙狀態 + 敵將 + 3 波 |
-| M4 | 計分、勝負、手感打磨 |
-| M5 | 上線 |
+| | 內容 | 驗收 | 證偽 |
+| --- | --- | --- | --- |
+| M0 | 骨架:Vite+TS+Three、地面+邊界、佔位將軍、WASD+滑鼠、跟隨相機、placeholder 部署 | 頁面載入、玩家可動、相機跟隨;?json=1 報得出玩家位置 | 改 config 速度 → guard 紅 |
+| M1 | 三段普攻鏈+hitbox、傷害/硬直/擊退、假人敵兵 AI、擠推、hit-stop、連擊計數 | 假人 HP30 兩下死;敵兵能傷將軍;連擊數正確 | 改鏈接視窗 → 紅 |
+| M2 | 波次(10/15/20、同場≤20)、兵海、血水平→泛紅、血池≤40、粒子池≤500 | 波次數量正確;連殺 60 人池子不爆 | 改粒子上限 → 紅 |
+| M3 | 無雙表(+5/+8/+15、−2/s)+無雙狀態(5s)+濺血 | 腳本輸入逐步比對表值;無雙恰好 5s | 改衰減率 → 紅 |
+| M4 | 長坂坡地圖、夏侯惇(HP300+2 必殺+狂暴)、勝/敗、計分 | 完整 3 波+斬將→勝利;計分公式驗證 | 改狂暴門檻 → 紅 |
+| M5 | 手感、慢動作、音效、性能 pass(≥60fps)、眼睛 QA、規則書、上線 | 全套 guard 綠 + 性能數字 + owner 親眼驗 | 套件即閘門 |
 
 ## Open questions
 
-- 突刺的輸入:普攻變體,還是專屬鍵?
-- 無雙狀態的「受擊 −5」要不要開?
-- (其餘 §6 全數敲定,見 Decisions。)
+- 無雙狀態的「受擊 −5」要不要開?(DESIGN.md §3.4 標「可選」)
+- (突刺輸入已隨「v0 不做」一起解除;其餘已定,見 Decisions。)
 
 ## Next steps
 
-- [ ] 補技術棧細節(渲染策略、InstancedMesh、粒子池、狀態管理、config 表)
-- [ ] 正式拆解 M0 到 M5 里程碑
-- [ ] 決定突刺輸入與「受擊 −5」
-- [ ] owner 確認後,repo 進 Phase 0(或先做 M0 骨架)
+- [x] 技術棧 + M0–M5 拆解(DESIGN.md v0.3 §7,2026-10-04)
+- [ ] M0:骨架 + 部署到 games.csiesheep.com/bloody_warriors/(2026-10-04 進行中)
+- [ ] M0 通過後開 orchestrator session(cwd 在 repo),目標 M1
+- [ ] 決定無雙表「受擊 −5」要不要開
 
 ## Related
 
