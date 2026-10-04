@@ -220,7 +220,16 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     results + unopened key in `comfy-studio\data\experiments\image-grid-2026-10-03\`.
     Model-scored adherence (of 20): A today 16 · B 1.5 MP 15 · D 40 steps 18 · E 2K 17 · K cfg 3.5 18 ·
     Z-Image F today(20 st) 14 · G 8 st 13 · H 8 st 1.5 MP 14. Median s/image: 47 · 60 · 64 · 248 · 70 ·
-    49 · 25 · 33. Differences within noise (one seed, five prompts). **Waiting for the owner.**
+    49 · 25 · 33. Differences within noise (one seed, five prompts).
+- 2026-10-04: **Owner judged blind** on a judging page (artifact, 54 items, 30 good / 24 bad; key
+    opened only after). Video: fused 8 steps at today's size good/good (today bad/bad; every 768p arm
+    mixed); full 20 steps good/good. Images: Qwen Image cfg 3.5 + negative 5/0; 40 steps 4/1; today
+    2/3; Z-Image 8 steps 3/2 vs 20 steps 2/3.
+  - **Adopted (orchestrator 裁決):** fused 8 steps (0.7 MP, SLA on); Qwen Image cfg 3.5 + negative " ",
+    25 steps; Z-Image 8 steps. Not adopted: 768p, SLA off, 2K/1.5 MP, 40 steps. DESIGN §Adopted
+    settings; acceptance `0f9a54f` (three-state rows; golden regenerated for 8 steps). Harness 75/0/7.
+  - [#18](https://github.com/csiesheep/comfy-studio/issues/18) adoption with fresh reference runs → peer-be.
+    #12 and #13 closed. Then #17 Draft toggle (now worth it: draft ≈ 2.5 min vs final ≈ 5.3 min).
   - Queued:
     #17 Draft toggle + Make final (FE, after #15 and #16); #18 image candidates (approach 4 for images);
     adoption of #12/#13 results (manifests + reference runs) after the owner judges the sheets.
