@@ -199,6 +199,14 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     Qwen prompt rewrite → peer-be; [#15](https://github.com/csiesheep/comfy-studio/issues/15)
     draft/final profiles + 8 s default → peer-be; [#16](https://github.com/csiesheep/comfy-studio/issues/16)
     Continue (FE, UI proposal first) → peer-fe. All four in parallel.
+  - #16 Continue landed `7b0b4de` (+ harness fix `605a7d9`). #14 Qwen rewrite landed `5abfcaf` after
+    one send-back (img2img answered English ideas in Chinese — missing `Language:` line; cause: the
+    test idea matched the Chinese example's idea). #15 profiles landed `9bbef6f` (+ row `96714c8`):
+    final byte-identical, draft fused-only; measured saving only ~25 % (fixed costs 55–85 s/run).
+    Video default now 8 s. Harness **75/0/1**.
+  - Deploy slip: restarted the server while a studio job ran; the resume path re-adopted it (verified).
+    Rule from now: abort the deploy on a running job.
+  - Open for owner: build #17 (Draft toggle + Make final) given the ~25 % saving today?
   - Queued: [#13](https://github.com/csiesheep/comfy-studio/issues/13) image grid (after #12, GPU);
     #17 Draft toggle + Make final (FE, after #15 and #16); #18 image candidates (approach 4 for images);
     adoption of #12/#13 results (manifests + reference runs) after the owner judges the sheets.
