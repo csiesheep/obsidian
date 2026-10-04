@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-03
-tags: [runbook, llm, local-ai, claude-code, llama-cpp, comfyui, skill]
+updated: 2026-10-04
+tags: [runbook, llm, local-ai, claude-code, llama-cpp, comfyui, skill, opencode]
 ---
 # Qwen 3.8 local LLM — install, setup, claude-qwen
 
@@ -20,9 +20,12 @@ and, through Tailscale, from my own devices (iPhone) — not from the public int
 | Claude Code on Qwen | open a **terminal**, `cd` to the folder, run `claude-qwen` (steps below) |
 | Send it an image | works in the browser chat, the API, and `claude-qwen` (needs the mmproj, installed) |
 | Check it's up | http://127.0.0.1:8080/health → `{"status":"ok"}` |
-| Use it from the iPhone | Tailscale app on, then Safari → https://desktop-r2u3mdm.tail528148.ts.net (see below) |
+| Use it from the iPhone | Tailscale app on, then Safari → https://desktop-r2u3mdm.tail528148.ts.net:8443 (see below) |
+| Coding agent from the iPhone | opencode at https://desktop-r2u3mdm.tail528148.ts.net/ — see [[opencode runbook]] |
 
-The server does **not** start by itself after a reboot.
+Since 2026-10-04 the server **starts at logon** (with opencode), via the Task Scheduler task
+"Qwen + opencode (start at logon)" → `C:\llama.cpp\start-opencode-remote.ps1`, 30 s after login.
+Only after I log in — not at the login screen. Disable the task to stop that.
 
 ## iPhone access (Tailscale)
 
@@ -33,9 +36,14 @@ Tailscale iOS app, both signed in as `csiegoat@`. The PC is `desktop-r2u3mdm`, t
 `tailscale serve` publishes the local server to **my tailnet only**, over HTTPS:
 
 ```
-https://desktop-r2u3mdm.tail528148.ts.net  (tailnet only)
+https://desktop-r2u3mdm.tail528148.ts.net:8443  (tailnet only)
 |-- / proxy http://127.0.0.1:8080
 ```
+
+> **Moved 2026-10-04** from the root address (`…ts.net/`) to port **8443**: the root `/` now
+> serves opencode ([[opencode runbook]]), which can't live under a sub-path. Anything pointed at
+> `https://desktop-r2u3mdm.tail528148.ts.net/v1` must change to `…ts.net:8443/v1`. A cached old
+> chat page at `/` shows "Unexpected token '<' … not valid JSON" — hard refresh / re-add the icon.
 
 - llama-server still listens only on `127.0.0.1` — no firewall rule, no API key, `claude-qwen`
   unchanged. Only devices signed in to my Tailscale account can reach it.
@@ -44,10 +52,10 @@ https://desktop-r2u3mdm.tail528148.ts.net  (tailnet only)
   and the Qwen server started**.
 - On the iPhone: turn Tailscale on → Safari → the URL above → Share → **Add to Home Screen**.
   Image upload works in that chat page too.
-- Any OpenAI-compatible app can use `https://desktop-r2u3mdm.tail528148.ts.net/v1`, model
+- Any OpenAI-compatible app can use `https://desktop-r2u3mdm.tail528148.ts.net:8443/v1`, model
   `qwen3.8-27b-uncensored`, any key.
-- One request at a time: the phone, `claude-qwen` and scripts share it.
-- Check / stop: `tailscale serve status` · `tailscale serve --https=443 off`
+- One request at a time: the phone, `claude-qwen`, opencode and scripts share it.
+- Check / stop: `tailscale serve status` · `tailscale serve --https=8443 off`
 - Tested from the PC through the HTTPS address: health ok, chat page 200, chat request answered.
 
 ## What is installed
@@ -60,6 +68,7 @@ https://desktop-r2u3mdm.tail528148.ts.net  (tailnet only)
 | Vision projector (mmproj) | `C:\models\mmproj-Qwen3.8-27B-Uncensored-F16.gguf` (0.9 GB) | SHA256 checked; the launcher adds `--mmproj` when the file exists. Without it, image input fails with `500 image input is not supported ... provide the mmproj` |
 | Claude Code CLI 2.1.286 | `winget install Anthropic.ClaudeCode` | plain `claude` still uses Claude |
 | Launchers | `C:\llama.cpp\start-qwen-hidden.ps1/.bat`, `stop-qwen.bat`, `claude-qwen.cmd` | `C:\llama.cpp` is on the user PATH |
+| opencode + its launcher | `C:\opencode\`, `C:\llama.cpp\start-opencode-remote.ps1/.bat`, `stop-opencode-remote.bat` | see [[opencode runbook]]; the start script also starts Qwen |
 | Patched chat template | `C:\llama.cpp\qwen-template.jinja` | original saved as `qwen-template-original.jinja` |
 | Server log | `C:\llama.cpp\server.log` (previous run: `server.prev.log`) | |
 
@@ -226,7 +235,7 @@ like, **Make video** → ComfyUI renders it → it plays and downloads in the pa
 |---|---|
 | Open it (iPhone, tailnet) | https://desktop-r2u3mdm.tail528148.ts.net/studio/img2video (hub: `/studio/`; old `/video/` redirects) → Add to Home Screen |
 | Open it (PC) | http://127.0.0.1:8190/img2video |
-| Start / stop | `C:\Users\sheep\code\comfy-studio\start-studio-hidden.bat` / `stop-studio.bat` (doesn't start after a reboot) |
+| Start / stop | `C:\Users\sheep\code\comfy-studio\start-studio-hidden.bat` / `stop-studio.bat` (starts at logon since 2026-10-04) |
 | Videos + inputs + history | `C:\Users\sheep\Videos\h3\studio\` (`jobs.json`, `inputs\`) |
 | Log | `C:\Users\sheep\code\comfy-studio\studio.log` |
 
@@ -240,7 +249,12 @@ like, **Make video** → ComfyUI renders it → it plays and downloads in the pa
 - The phone photo is downscaled in the browser to ≤1.6 MP JPEG before upload (H3 renders ~0.7 MP).
 - Jobs keep running if the page is closed; the server resumes watching running jobs after a restart.
 - "Use again" on a finished video reloads its photo and prompt for another seed.
-- `tailscale serve` routes: `/` → 8080 (Qwen chat), `/studio` → 8190 (prefix is stripped),
+- Studio calls Qwen server-side at `127.0.0.1:8080`, so the 2026-10-04 move of Qwen's tailnet
+  route to `:8443` didn't affect it.
+- Since 2026-10-04 the studio **starts at logon** (second action of the "Qwen + opencode (start at
+  logon)" task, output appended to `C:\llama.cpp\autostart.log`). **ComfyUI does not** — start it
+  by hand or the studio's ComfyUI dot is red.
+- `tailscale serve` routes: `/` → 4096 (opencode; was 8080 Qwen chat until 2026-10-04, now `:8443`), `/studio` → 8190 (prefix is stripped),
   `/video` → 8190`/legacy-video` (302 to `/studio/img2video`). Remove one:
   `tailscale serve --https=443 --set-path /studio off`.
 - The Claude app's built-in browser pane blocks fetches to the ts.net address
@@ -280,8 +294,13 @@ like, **Make video** → ComfyUI renders it → it plays and downloads in the pa
 | 2026-10-03 | Checked which skills `claude-qwen` sees; added the `h3-image-to-video` personal skill |
 | 2026-10-03 | Tailscale + `tailscale serve` for iPhone access (tailnet only, HTTPS) |
 | 2026-10-03 | H3 Video Studio page at `/video` (`C:\h3-studio\`): photo + idea → Qwen prompt → ComfyUI H3 video |
+| 2026-10-03 | opencode installed on top of this server ([[opencode runbook]]) |
+| 2026-10-04 | Qwen's tailnet route moved `/` → `:8443`; opencode took `/` |
+| 2026-10-04 | Logon task "Qwen + opencode (start at logon)": Qwen no longer needs a manual start after reboot |
+| 2026-10-04 | H3 Video Studio added to the logon task (ComfyUI still manual) |
 
 ## Related
 
+- [[opencode runbook]] — opencode coding agent on this server, from the iPhone.
 - ComfyUI (first 3090, port 8188) — Qwen Image 2.1 and Z-Image-Turbo were driven from Qwen-written prompts the same day.
 - `Projects/discount/` — the deals-map research and the Claude vs Qwen comparison.
