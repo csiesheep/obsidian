@@ -230,6 +230,12 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     settings; acceptance `0f9a54f` (three-state rows; golden regenerated for 8 steps). Harness 75/0/7.
   - [#18](https://github.com/csiesheep/comfy-studio/issues/18) adoption with fresh reference runs → peer-be.
     #12 and #13 closed. Then #17 Draft toggle (now worth it: draft ≈ 2.5 min vs final ≈ 5.3 min).
+  - #18 landed + deployed `ea884f0` (checker: exactly the 5 adopted inputs changed). Measured: fused
+    8 steps 4.2 min for 5 s; Qwen Image cfg 3.5 63 s; Z-Image 8 steps 24 s. Harness 81/0/1.
+- 2026-10-04: **Delete** (owner: "For each generated image or video, add a button to delete it").
+  orchestrator 裁決: soft delete to `data\<mode>\trash\`, done/error only, two-tap on every page.
+  Acceptance `2ac07d6`. [#19](https://github.com/csiesheep/comfy-studio/issues/19) server → peer-be;
+  [#20](https://github.com/csiesheep/comfy-studio/issues/20) pages → peer-fe (parallel).
   - Queued:
     #17 Draft toggle + Make final (FE, after #15 and #16); #18 image candidates (approach 4 for images);
     adoption of #12/#13 results (manifests + reference runs) after the owner judges the sheets.
