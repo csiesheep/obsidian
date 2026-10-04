@@ -7,7 +7,7 @@ name: 一騎當前
 ---
 # 一騎當前 bloody warriors - plan
 
-> [!info] 設計 v0.3:元素、規則、技術棧與 M0–M5 里程碑已定(owner v0 確認 2026-10-04)
+> [!info] 設計 v0.4:元素、規則、技術棧與 M0–M5 里程碑已定(owner v0 確認 2026-10-04;M0 實測確認 speed/相機 2026-10-04)
 > 名稱:**一騎當前**(「一騎當千」的變體,孤騎當前)。vault 專案 `bloody warriors`(本檔),repo 代號 `bloody_warriors`。
 > repo https://github.com/csiesheep/bloody_warriors (public,目前只有 README + DESIGN.md,未部署)。
 > 三國無雙類網頁 3D 血腥版:Three.js、Low-poly、v1 單武将(趙雲)、弧光血花。
@@ -226,6 +226,7 @@ name: 一騎當前
 | 2026-10-04 | 突進 2.5m / 0.15s / 期間無敵 / CD 0.8s;防禦減傷 70%、移速減半 | owner |
 | 2026-10-04 | 突刺:v0 不做(規格保留) | owner |
 | 2026-10-04 | 角色分工:引擎/規則→peer-be、畫面/頁面→peer-fe、美術→peer-artist、文案→peer-writer | owner |
+| 2026-10-04 | M0 實測確認:speed 6 m/s、相機 8/10/1.5(寫入 DESIGN §2.1/§4);敵兵 speed 3.5 m/s 為起始值(待確認) | owner |
 
 ## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
@@ -248,8 +249,8 @@ name: 一騎當前
 ## Next steps
 
 - [x] 技術棧 + M0–M5 拆解(DESIGN.md v0.3 §7,2026-10-04)
-- [ ] M0:骨架 + 部署到 games.csiesheep.com/bloody_warriors/(2026-10-04 進行中)
-- [ ] M0 通過後開 orchestrator session(cwd 在 repo),目標 M1
+- [x] M0:骨架 + 部署到 games.csiesheep.com/bloody_warriors/(2026-10-04 完成,SHA 6b9bd3f,owner 已玩過)
+- [x] M0 通過後開 orchestrator session(cwd 在 repo),目標 M1(2026-10-04,issue #1,派 peer-be)
 - [ ] 決定無雙表「受擊 −5」要不要開
 
 ## Related
