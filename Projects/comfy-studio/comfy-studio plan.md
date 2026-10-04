@@ -207,7 +207,14 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
   - Deploy slip: restarted the server while a studio job ran; the resume path re-adopted it (verified).
     Rule from now: abort the deploy on a running job.
   - Open for owner: build #17 (Draft toggle + Make final) given the ~25 % saving today?
-  - Queued: [#13](https://github.com/csiesheep/comfy-studio/issues/13) image grid (after #12, GPU);
+  - #12 grid done (16 runs, 1.87 h GPU, no OOM; 15 s at arm D peaked 19.7 GiB). Runner landed
+    `4fa4457`. Blind sheets + results in [[video-grid-2026-10-03/i2v_sheet.png]],
+    [[video-grid-2026-10-03/t2v_sheet.png]]; full results incl. blind MP4s and the unopened key in
+    `comfy-studio\data\experiments\video-grid-2026-10-03\`. **Waiting for the owner's blind ranking.**
+    Exec times (s), photo / text: A 201/185 · B 321/287 · C 186/249 · D 275/377 · E 317/552 ·
+    F 341/588 · G 664/1304.
+  - #13 image grid dispatched → peer-be.
+  - Queued:
     #17 Draft toggle + Make final (FE, after #15 and #16); #18 image candidates (approach 4 for images);
     adoption of #12/#13 results (manifests + reference runs) after the owner judges the sheets.
 
