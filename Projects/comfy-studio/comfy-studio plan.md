@@ -236,6 +236,11 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
   orchestrator 裁決: soft delete to `data\<mode>\trash\`, done/error only, two-tap on every page.
   Acceptance `2ac07d6`. [#19](https://github.com/csiesheep/comfy-studio/issues/19) server → peer-be;
   [#20](https://github.com/csiesheep/comfy-studio/issues/20) pages → peer-fe (parallel).
+  - Owner changed it: **"Hard delete is fine"** → files erased, record removed, no trash; two-tap kept.
+    (My contract edit half-applied — doc changed, test row didn't — for a few minutes; corrected.)
+  - Landed + deployed `bb3355b`; harness **86/0/1**. Live-tested on a copy: 1st tap arms (0 requests),
+    auto-reverts after 4 s, 2nd tap → 1 request, file + record gone, nothing else touched.
+    Known gap: no automated check catches a page that deletes on the first tap (only the live test).
   - Queued:
     #17 Draft toggle + Make final (FE, after #15 and #16); #18 image candidates (approach 4 for images);
     adoption of #12/#13 results (manifests + reference runs) after the owner judges the sheets.
