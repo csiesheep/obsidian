@@ -20,7 +20,7 @@ Set up 2026-10-03/04.
 | Start (Qwen + opencode + routes) | double-click `C:\llama.cpp\start-opencode-remote.bat` — normally not needed, it **starts at logon** |
 | Stop opencode | `C:\llama.cpp\stop-opencode-remote.bat` (leaves Qwen running; `stop-qwen.bat` for that) |
 | Password | `C:\Users\sheep\.config\opencode\remote-password.txt` (random, 24 chars) — to change it see below |
-| Log | `C:\llama.cpp\opencode.log`; logon-task output: `C:\llama.cpp\autostart.log` |
+| Log | `C:\llama.cpp\opencode.log`, `opencode-proxy.log`; logon-task output: `C:\llama.cpp\autostart.log` |
 
 The web UI opens in `C:\Users\sheep\code`; other folders can be opened from the UI.
 
@@ -30,7 +30,8 @@ The web UI opens in `C:\Users\sheep\code`; other folders can be opened from the 
 |---|---|---|
 | opencode 1.18.34 | `C:\opencode\` (`npm i -g --prefix C:\opencode opencode-ai`) | `C:\opencode` is on the user PATH. **Not** in `AppData\Roaming\npm` — see gotchas |
 | Config | `C:\Users\sheep\.config\opencode\opencode.json` | provider `llamacpp` → `http://127.0.0.1:8080/v1`, model `qwen3.8-27b-uncensored`, 128K context, 32K output, tools/reasoning/images on; `share` disabled, `autoupdate` off |
-| Launcher | `C:\llama.cpp\start-opencode-remote.ps1/.bat`, `stop-opencode-remote.bat` | starts Qwen first if it's down, then `opencode serve` hidden via WMI on `127.0.0.1:4096` with `OPENCODE_SERVER_PASSWORD`, then sets the tailnet routes |
+| Launcher | `C:\llama.cpp\start-opencode-remote.ps1/.bat`, `stop-opencode-remote.bat` | starts Qwen first if it's down, then `opencode serve` hidden via WMI on `127.0.0.1:4095` with `OPENCODE_SERVER_PASSWORD`, then the proxy on `127.0.0.1:4096`, then sets the tailnet routes |
+| Session-list proxy | `C:\opencode\proxy.js` (Node, no dependencies) | `:4096` → opencode `:4095`; see "All sessions on every device" below |
 | Logon task | Task Scheduler → **"Qwen + opencode (start at logon)"** | 30 s after I log in, runs hidden: (1) this launcher, (2) `comfy-studio\start-studio-hidden.ps1`; 10-min limit; output to `autostart.log`. ComfyUI is not in it |
 
 ## Tailnet routes (since 2026-10-04)
@@ -86,12 +87,38 @@ No sharing of the tailnet device, no Funnel. Unauthenticated requests get `401` 
 - **Launch `opencode.exe`, not the npm `.cmd` shim**, from the WMI launcher.
 - **Windows PowerShell 5.1** (what `.bat` files run) has no `RandomNumberGenerator.Fill` — use
   `RandomNumberGenerator.Create().GetBytes()`.
+- **Sessions "disappeared" after a refresh / on another device** (fixed 2026-10-04, see below).
 - **"Server unavailable — Unexpected token '<', "<!doctype"... is not valid JSON"** right after
   the route swap: the browser still had the **old Qwen chat page** cached at `/`; its `/props`
   call now reached opencode, which returned HTML. Hard refresh (Ctrl+Shift+R) / new Safari tab /
   re-add the home-screen icon. Qwen's chat page is at `:8443` now.
 - One Qwen request at a time: opencode, `claude-qwen`, the studio and the phone share it.
 - Qwen thinks by default; first reply in a new session can take a while.
+
+## All sessions on every device (proxy)
+
+**Problem:** after a refresh, or on a new device, the web UI showed "Nothing here yet". Sessions
+were never lost; the server stores them all (`opencode.db`, `GET /api/session` lists every
+project). But the web UI (1.18.x) only shows projects saved in **that browser's localStorage**
+(`opencode.global.dat:server` → `projects.local: [{worktree, expanded}]`). opencode starts in
+`C:\Users\sheep\code` (not a git repo → empty "global" project), so a fresh browser had nothing
+to show. Settings has no option for it.
+
+**Fix:** `C:\opencode\proxy.js` sits between Tailscale and opencode. For HTML page loads it adds
+`<script src="/__oc-seed.js">` to `<head>`. That script runs before the app, fetches `/project`
+plus the folders of non-git sessions from `/api/session`, and merges them into that localStorage
+key. Everything else (API, `/global/event` stream, terminal websocket) passes through untouched;
+opencode still checks the password.
+
+- It must be a **separate file**, not inline: opencode's CSP only allows its own inline script
+  (by hash) plus `'self'`. The first inline attempt was silently blocked.
+- A project you close in the UI comes back on the next refresh (by design: the server is the list).
+- If an opencode update changes that storage key/format, the page just falls back to the old
+  behaviour (the script never throws). Check `localStorage['opencode.global.dat:server']`.
+- Tested 2026-10-04: browser with cleared storage → first load lists `last_train` + "Greeting";
+  opening a session and refreshing on it works; event stream held as long as direct; through
+  `https://pc.tail528148.ts.net`: 401 without password, prompt answered.
+- Direct link to one project still works: `/<base64url of the folder path>/session`.
 
 ## Change log
 
@@ -103,6 +130,7 @@ No sharing of the tailnet device, no Funnel. Unauthenticated requests get `401` 
 | 2026-10-04 | Logon task "Qwen + opencode (start at logon)" — tested from cold |
 | 2026-10-04 | Comfy Studio added to the logon task as a second action — tested |
 | 2026-10-04 | Tailnet name `desktop-r2u3mdm` → `pc` (`tailscale set --hostname=pc`, then `tailscale serve reset` + re-add routes) — all routes tested on the new name |
+| 2026-10-04 | Session-list proxy (`C:\opencode\proxy.js`, :4096 → opencode :4095) so every device lists all projects/sessions after refresh |
 
 ## Related
 
