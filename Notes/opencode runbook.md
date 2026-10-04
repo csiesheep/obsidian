@@ -13,7 +13,7 @@ Set up 2026-10-03/04.
 
 | Want to | Do |
 |---|---|
-| Use it from the iPhone | Tailscale app on → Safari → https://pc.tail528148.ts.net/ → user `opencode`, password below → Add to Home Screen |
+| Use it from the iPhone | Tailscale app on → Safari → https://pc.curlew-mountain.ts.net/ → user `opencode`, password below → Add to Home Screen |
 | Use it on the PC (browser) | http://127.0.0.1:4096 (same login) |
 | Use it on the PC (terminal) | new terminal → `cd` to a project → `opencode` (TUI) |
 | One-shot from a script | `opencode run "your prompt"` |
@@ -31,18 +31,18 @@ The web UI opens in `C:\Users\sheep\code`; other folders can be opened from the 
 | opencode 1.18.34 | `C:\opencode\` (`npm i -g --prefix C:\opencode opencode-ai`) | `C:\opencode` is on the user PATH. **Not** in `AppData\Roaming\npm` — see gotchas |
 | Config | `C:\Users\sheep\.config\opencode\opencode.json` | provider `llamacpp` → `http://127.0.0.1:8080/v1`, model `qwen3.8-27b-uncensored`, 128K context, 32K output, tools/reasoning/images on; `share` disabled, `autoupdate` off |
 | Launcher | `C:\llama.cpp\start-opencode-remote.ps1/.bat`, `stop-opencode-remote.bat` | starts Qwen first if it's down, then `opencode serve` hidden via WMI on `127.0.0.1:4095` with `OPENCODE_SERVER_PASSWORD`, then the proxy on `127.0.0.1:4096`, then sets the tailnet routes |
-| Session-list proxy | `C:\opencode\proxy.js` (Node, no dependencies) | `:4096` → opencode `:4095`; see "All sessions on every device" below |
+| Session-list proxy | `C:\opencode\proxy.js` (Node, no dependencies), run by `C:\opencode\run-proxy.cmd` | `:4096` → opencode `:4095`; see "All sessions on every device" below. `run-proxy.cmd` restarts it 2 s after it stops and logs a `proxy stopped` line |
 | Logon task | Task Scheduler → **"Qwen + opencode (start at logon)"** | 30 s after I log in, runs hidden: (1) this launcher, (2) `comfy-studio\start-studio-hidden.ps1`; 10-min limit; output to `autostart.log`. ComfyUI is not in it |
 
 ## Tailnet routes (since 2026-10-04)
 
 ```
-https://pc.tail528148.ts.net        (tailnet only)
+https://pc.curlew-mountain.ts.net        (tailnet only)
 |-- /        proxy http://127.0.0.1:4096   ← opencode
 |-- /video   proxy http://127.0.0.1:8190/legacy-video
 |-- /studio  proxy http://127.0.0.1:8190
 
-https://pc.tail528148.ts.net:8443   (tailnet only)
+https://pc.curlew-mountain.ts.net:8443   (tailnet only)
 |-- /        proxy http://127.0.0.1:8080   ← Qwen chat page + API (was at / before)
 ```
 
@@ -74,7 +74,7 @@ No sharing of the tailnet device, no Funnel. Unauthenticated requests get `401` 
   API session + prompt → Qwen answered (~20 s).
 - Logon task: stopped Qwen + opencode, ran the task → both came back (Qwen loaded in ~1 min),
   task result 0, prompt answered through the tailnet URL.
-- Not yet tested from the iPhone itself at the time of writing.
+- iPhone (Safari, 2026-10-04): logged in on `https://pc.curlew-mountain.ts.net/`, all sessions listed after refresh.
 
 ## Gotchas found along the way
 
@@ -117,7 +117,8 @@ opencode still checks the password.
   behaviour (the script never throws). Check `localStorage['opencode.global.dat:server']`.
 - Tested 2026-10-04: browser with cleared storage → first load lists `last_train` + "Greeting";
   opening a session and refreshing on it works; event stream held as long as direct; through
-  `https://pc.tail528148.ts.net`: 401 without password, prompt answered.
+  `https://pc.curlew-mountain.ts.net`: 401 without password, prompt answered. Confirmed on the iPhone:
+  all sessions show after a refresh.
 - Direct link to one project still works: `/<base64url of the folder path>/session`.
 
 ## Change log
@@ -131,6 +132,8 @@ opencode still checks the password.
 | 2026-10-04 | Comfy Studio added to the logon task as a second action — tested |
 | 2026-10-04 | Tailnet name `desktop-r2u3mdm` → `pc` (`tailscale set --hostname=pc`, then `tailscale serve reset` + re-add routes) — all routes tested on the new name |
 | 2026-10-04 | Session-list proxy (`C:\opencode\proxy.js`, :4096 → opencode :4095) so every device lists all projects/sessions after refresh |
+| 2026-10-04 | Tailnet renamed to `curlew-mountain.ts.net`; routes re-added; all tested on `https://pc.curlew-mountain.ts.net` |
+| 2026-10-04 | Proxy was found stopped with no error in its log (opencode still up → `/` gave 502). Added `run-proxy.cmd` restart loop, client-disconnect error handling, timestamped exit/uncaught logging. Kill test: back in ~2 s |
 
 ## Related
 
