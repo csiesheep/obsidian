@@ -121,6 +121,16 @@ opencode still checks the password.
   all sessions show after a refresh.
 - Direct link to one project still works: `/<base64url of the folder path>/session`.
 
+**Sessions listed but would not open on the iPhone (2026-10-05).** The same sessions opened fine
+locally without a password, so the suspect is iOS Safari not sending the basic-auth login for some
+sub-requests, e.g. the Web Worker `/assets/markdown.worker-*.js` that renders a session → 401.
+Fix in `proxy.js`: for `GET /assets/<one file name>` only (no `..`, no query), the proxy adds the
+login itself (it gets `OPENCODE_SERVER_PASSWORD` from the launcher); everything else still needs the
+user's login. Tested: asset 200 without login; `/project`, `/`, `/assets/../project`,
+`/assets/%2e%2e/project`, `/assets/..%2fproject`, `?query` variants → all 401. The proxy now logs every
+401 (`opencode-proxy.log`: method, URL, whether a login was sent, user agent), so if sessions still
+won't open, the log names the blocked request. *Waiting for the iPhone retest.*
+
 ## Change log
 
 | Date | Change |
