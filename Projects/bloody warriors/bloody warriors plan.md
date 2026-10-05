@@ -227,6 +227,7 @@ name: 一騎當前
 | 2026-10-04 | 突刺:v0 不做(規格保留) | owner |
 | 2026-10-04 | 角色分工:引擎/規則→peer-be、畫面/頁面→peer-fe、美術→peer-artist、文案→peer-writer | owner |
 | 2026-10-04 | M0 實測確認:speed 6 m/s、相機 8/10/1.5(寫入 DESIGN §2.1/§4);敵兵 speed 3.5 m/s 為起始值(待確認) | owner |
+| 2026-10-04 | M1 landed(`eabaa2f`/deployed `aebed980`):probe=2 時間軸裁定 0.05/0.4、敵兵 (0,-2)(active 窗口按鍵不接鏈,原 0.35 會被吞);peer-be 子 agent 兩度靜默失敗 → orchestrator 自實作 | orchestrator |
 
 ## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
@@ -251,6 +252,8 @@ name: 一騎當前
 - [x] 技術棧 + M0–M5 拆解(DESIGN.md v0.3 §7,2026-10-04)
 - [x] M0:骨架 + 部署到 games.csiesheep.com/bloody_warriors/(2026-10-04 完成,SHA 6b9bd3f,owner 已玩過)
 - [x] M0 通過後開 orchestrator session(cwd 在 repo),目標 M1(2026-10-04,issue #1,派 peer-be)
+- [x] M1:核心戰鬥迴圈(三段普攻鏈 + 假人敵兵),landed main `eabaa2f`、deployed `aebed980`(2026-10-04,issue #1 已關;peer-be 子 agent 兩度靜默失敗 → orchestrator 自實作;鏈接 guard 強化:補後搖 0.2s 斷言)
+- [ ] owner 玩 M1(左鍵/J 砍假人)→ 過關後 M2:波次 + 兵海 + 血池
 - [ ] 決定無雙表「受擊 −5」要不要開
 
 ## Related
