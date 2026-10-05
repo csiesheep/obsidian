@@ -196,6 +196,7 @@ name: 一騎當前
 - 無雙表 + 無雙狀態
 - 勝負 + 計分
 - 桌面鍵盤 + 滑鼠
+- iPhone 觸控(虛擬搖桿 + 攻擊鈕 + 自動瞄準,M1.5 提前做,原列「後期」)
 
 **不做(後期):**
 
@@ -205,7 +206,6 @@ name: 一騎當前
 - 重血腥模式(斷肢、斷頭)
 - 音效 / BGM
 - 線上 / 排行榜
-- 手機觸控
 - 存檔 / 設定
 
 ## Decisions
@@ -228,6 +228,8 @@ name: 一騎當前
 | 2026-10-04 | 角色分工:引擎/規則→peer-be、畫面/頁面→peer-fe、美術→peer-artist、文案→peer-writer | owner |
 | 2026-10-04 | M0 實測確認:speed 6 m/s、相機 8/10/1.5(寫入 DESIGN §2.1/§4);敵兵 speed 3.5 m/s 為起始值(待確認) | owner |
 | 2026-10-04 | M1 landed(`eabaa2f`/deployed `aebed980`):probe=2 時間軸裁定 0.05/0.4、敵兵 (0,-2)(active 窗口按鍵不接鏈,原 0.35 會被吞);peer-be 子 agent 兩度靜默失敗 → orchestrator 自實作 | orchestrator |
+| 2026-10-04 | iPhone 觸控提前做(M1.5):左下固定搖桿 + 右下攻擊鈕,指向 = 自動瞄準最近敵人(deadzone 0.3 / 射程 12 m);無敵時保持原朝向 | owner |
+| 2026-10-04 | M1.5 landed(`13a3f38`/deployed `61554f2d`):probe=3 決定性(搖桿走 6m + 自動瞄準兩下砍死);證偽 autoAimRange 12→0.5 三條紅;搖桿 DOM 接線未經真機觸控事件,待 owner iPhone 實測 | orchestrator |
 
 ## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
@@ -253,7 +255,8 @@ name: 一騎當前
 - [x] M0:骨架 + 部署到 games.csiesheep.com/bloody_warriors/(2026-10-04 完成,SHA 6b9bd3f,owner 已玩過)
 - [x] M0 通過後開 orchestrator session(cwd 在 repo),目標 M1(2026-10-04,issue #1,派 peer-be)
 - [x] M1:核心戰鬥迴圈(三段普攻鏈 + 假人敵兵),landed main `eabaa2f`、deployed `aebed980`(2026-10-04,issue #1 已關;peer-be 子 agent 兩度靜默失敗 → orchestrator 自實作;鏈接 guard 強化:補後搖 0.2s 斷言)
-- [ ] owner 玩 M1(左鍵/J 砍假人)→ 過關後 M2:波次 + 兵海 + 血池
+- [x] M1.5:iPhone 觸控(虛擬搖桿 + 攻擊鈕 + 自動瞄準),landed main `13a3f38`、deployed `61554f2d`(2026-10-04,issue #2 已關;node 12/12、harness 17/17/0;搖桿 DOM 接線待實機驗證)
+- [ ] owner 玩 M1 + iPhone 玩 M1.5(左鍵/J 或 攻擊鈕砍假人)→ 過關後 M2:波次 + 兵海 + 血池
 - [ ] 決定無雙表「受擊 −5」要不要開
 
 ## Related
