@@ -234,6 +234,7 @@ name: 一騎當前
 | 2026-10-05 | 無雙表「受擊 −5」開(§3.4「可選」定案) | owner |
 | 2026-10-05 | M3 landed(`4e7dd2c`/merged `8f5c334`/deployed `3391fe76`):無雙表(+5/+8/+15/−5/−2/s/max100)+無雙 5s(傷×1.5/速×1.2/無敵/0.5s 慢動作 0.4×/紅金調)+重擊(傷 30/擊退 1.5/風 0.5 收 0.4)+受擊畫面濺血(2s 淡出);node 30/30、harness 30/30/0、tsc 0;證偽 musou.decay 2→5 → node 2 紅 + harness 3 紅。裁定:①重擊節奏 0.5/0.15/0.4/pushback 1.5(orchestrator 初值,owner 可調)②擊殺只 +15 ③gain 按 hit 事件 ④重擊與連擊不混用 ⑤orchestrator 自寫自驗 | orchestrator |
 | 2026-10-05 | 槍掃動畫提前自 M5(owner 實機:J/K 有傷害但將軍不動,拍板先做):spear 右肩 pivot + 純函式 `spearPose`(phase→sweep/ang/lean,smoothstep;n=1 右→左、n=2 鏡像、n=3 上劈、重擊高舉下砸),時長讀 config;landed `8bf65d6`(merged `728b674`)/deployed `b47246c3`(issue #5 已關);node 34/34、harness 30/30/0、tsc 0;證偽重擊 sweep 1.4→2.4 → node 1 紅。裁定:姿態角度為 orchestrator 初值,玩測可調 | orchestrator |
+| 2026-10-05 | M4 landed(`2812405`/merged `46a0a3c`/deployed `7e3273a3`):長坂坡(±20、6 圓柱障礙、8 刷兵點輪用)+ 夏侯惇(HP300/普攻 10/直線衝刺 12m/s・接觸 1.2m 傷 20・滿 8m 停/三段連擊 3×10・0.25s/狂暴 <30% 攻速 ×1.2)+ 突進(Shift,2.5m/0.15s/無敵/CD 0.8)+ 防禦(U,減傷 70%/半速)+ 勝敗畫面(R/鈕重開)+ 計分(100/1000/×(1+連擊×0.1)/時間分 1000−2/s 僅勝利);node 43/43、harness 36/36/0、tsc 0;證偽狂暴門檻 0.3→0.5 → node 2 紅。裁定:①敵將必殺節奏 + 選擇規則(dist>4 衝刺/dist<2.2 連擊/否則普攻,共享 CD 4s)②狂暴 = 內部時鐘 ×1.2、移動用真實 dt ③時間分公式 ④combat.ts 不在權限 → 敵將 hitbox 用 id 9999 代理在 main.ts ⑤防禦減傷只套敵兵(敵將於 stepBoss 內減)——皆 orchestrator 初值,玩測可調 | orchestrator |
 
 ## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
@@ -263,7 +264,7 @@ name: 一騎當前
 - [x] M3:無雙表(+5/+8/+15/−5/−2/s)+ 無雙狀態(5s:×1.5/×1.2/無敵/慢動作)+ 重擊(傷 30/擊退)+ 受擊畫面濺血,landed main `4e7dd2c`(merged `8f5c334`)、deployed `3391fe76`(2026-10-05,issue #4 已關;node 30/30、harness 30/30/0、tsc 0;證偽 musou.decay 2→5 → node 2 紅 + harness 3 紅;裁定:受擊 −5 開、重擊節奏 orchestrator 初值、擊殺只 +15、重擊與連擊不混用)
 - [x] 槍掃動畫(提前自 M5):spear 改右肩 pivot 驅動,純函式 `spearPose` 由 swing/heavy phase 算 sweep/ang/lean(n=1 右→左、n=2 鏡像、n=3 上劈、重擊高舉下砸),時長讀 config,landed main `8bf65d6`(merged `728b674`)、deployed `b47246c3`(2026-10-05,issue #5 已關;起因 owner 實機:J/K 有傷害但將軍不動;node 34/34、harness 30/30/0、tsc 0;證偽重擊 sweep 1.4→2.4 → node 1 紅;裁定:姿態角度為 orchestrator 初值,玩測可調)
 - [ ] owner 實機玩測(M1 戰鬥 / M1.5 搖桿 / M2 波次推進 + 兵海堆積 + 泛紅 / M3 無雙表漲與開、重擊擊退、受擊濺血 / 槍掃動畫:J 掃槍、第三段上劈、K 高舉下砸)
-- [ ] M4:長坂坡地圖 + 夏侯惇(HP300+2 必殺+狂暴)+ 勝/敗 + 計分
+- [x] M4:長坂坡地圖(6 障礙 + 8 刷兵點輪用)+ 夏侯惇(HP300+2 必殺+狂暴)+ 突進/防禦 + 勝/敗畫面 + 計分,landed main `2812405`(merged `46a0a3c`)、deployed `7e3273a3`(2026-10-05,issue #6 已關;node 43/43、harness 36/36/0、tsc 0;證偽狂暴門檻 0.3→0.5 → node 2 紅;裁定:必殺節奏/時間分公式/敵將 proxy 為 orchestrator 初值)
 
 ## Related
 
