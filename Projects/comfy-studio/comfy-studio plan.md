@@ -298,3 +298,7 @@ Open / possible next:
   auto short line (#28/#29 closed; their api/idea and typed-text-wins logic reused). Skill settings adopted:
   15 steps, cfg 1, 1280. Prompts = the skill's build_prompts verbatim (harness oracle produced by the skill).
   Acceptance `9a82cb7`; BE #30, FE #31 dispatched.
+  - **Live 2026-10-05 in `ac7a339`.** Harness 109 / 0 / 1.
+    - Independent 10-call sample: skill wording, legs and feet, no glasses, earring sides, clean back — 10/10 each.
+    - Real runs, both workflows, owner's sample: one full figure head to shoes, earrings correct in head crops.
+    - Time: standard 169 s, uncensored 137 s; Qwen about 1 s (short line) and about 6 s (three prompts).
