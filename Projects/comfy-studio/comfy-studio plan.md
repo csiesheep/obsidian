@@ -268,3 +268,10 @@ Open / possible next:
   - Tailscale changed outside this work: the PC is now **pc.curlew-mountain.ts.net**; `/studio` and
     `/video` routes carried over; `/` now proxies port 4096 (was the Qwen chat on 8080). Docs still name
     the old host (DESIGN.md, README.md, TEAM.md, start-studio-hidden.ps1) — update pending owner's ok.
+  - Docs moved to the new host (owner "yes, update them").
+- **2026-10-04 · 3-view page** (owner: "can you add one more page into studio, i.e., 3-view, with two
+  workflows Qwen21 30view - standard and - uncensored ?"). Design in DESIGN.md §3-view: `/studio/3view`,
+  one character photo in → front · side · back out, one seed for all three, user writes only the look.
+  Acceptance landed `33d5a63` (section 14, 10 todo; probed with a stand-in engine, 4 single defects each
+  red on the right row). BE #24 (engine multi-target slots + multi-output jobs, two workflows with real
+  reference runs) and FE #25 (page + hub tile) dispatched in parallel.
