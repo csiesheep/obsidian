@@ -230,6 +230,7 @@ name: 一騎當前
 | 2026-10-04 | M1 landed(`eabaa2f`/deployed `aebed980`):probe=2 時間軸裁定 0.05/0.4、敵兵 (0,-2)(active 窗口按鍵不接鏈,原 0.35 會被吞);peer-be 子 agent 兩度靜默失敗 → orchestrator 自實作 | orchestrator |
 | 2026-10-04 | iPhone 觸控提前做(M1.5):左下固定搖桿 + 右下攻擊鈕,指向 = 自動瞄準最近敵人(deadzone 0.3 / 射程 12 m);無敵時保持原朝向 | owner |
 | 2026-10-04 | M1.5 landed(`13a3f38`/deployed `61554f2d`):probe=3 決定性(搖桿走 6m + 自動瞄準兩下砍死);證偽 autoAimRange 12→0.5 三條紅;搖桿 DOM 接線未經真機觸控事件,待 owner iPhone 實測 | orchestrator |
+| 2026-10-04 | M2 landed(`c18b864`/merged `1f2fd5a`/deployed `9a81249d`):波次 10/15/20(間歇 3s)+兵海(同場上限 20,spawnGap 0.2s)+血水平(kill+8/hit+2/decay−3/s/max100)→泛紅(100→0.6 中大紅)+血池≤40(最舊淡出)+粒子池≤500+擊殺/受擊濺血(12/6);node 20/20、harness 24/24/0、tsc 0;證偽 pool.particle 500→100 → node 2 紅 + harness 2 紅。裁定:①同場上限取 20(§3.5「約 15」pacing 以 spawnGap 取代)②InstancedMesh 延 M5(≤20 用 individual-mesh pool)③kill=+8 不疊 +2 | orchestrator |
 
 ## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
@@ -256,8 +257,10 @@ name: 一騎當前
 - [x] M0 通過後開 orchestrator session(cwd 在 repo),目標 M1(2026-10-04,issue #1,派 peer-be)
 - [x] M1:核心戰鬥迴圈(三段普攻鏈 + 假人敵兵),landed main `eabaa2f`、deployed `aebed980`(2026-10-04,issue #1 已關;peer-be 子 agent 兩度靜默失敗 → orchestrator 自實作;鏈接 guard 強化:補後搖 0.2s 斷言)
 - [x] M1.5:iPhone 觸控(虛擬搖桿 + 攻擊鈕 + 自動瞄準),landed main `13a3f38`、deployed `61554f2d`(2026-10-04,issue #2 已關;node 12/12、harness 17/17/0;搖桿 DOM 接線待實機驗證)
-- [ ] owner 玩 M1 + iPhone 玩 M1.5(左鍵/J 或 攻擊鈕砍假人)→ 過關後 M2:波次 + 兵海 + 血池
-- [ ] 決定無雙表「受擊 −5」要不要開
+- [x] M2:波次(10/15/20)+ 兵海(同場上限 20)+ 血水平泛紅 + 血池/粒子池,landed main `c18b864`(merged `1f2fd5a`)、deployed `9a81249d`(2026-10-04,issue #3 已關;node 20/20、harness 24/24/0、tsc 0;證偽 pool.particle 500→100 → node 2 紅 + harness 2 紅)
+- [ ] owner 實機玩測(M1 戰鬥 / M1.5 搖桿 / M2 波次推進 + 兵海堆積 + 泛紅)→ 過關後 M3
+- [ ] M3:無雙表(+5/+8/+15、−2/s)+ 無雙狀態(5s)+ 濺血
+- [ ] 決定無雙表「受擊 −5」要不要開(影響 M3)
 
 ## Related
 
