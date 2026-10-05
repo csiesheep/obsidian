@@ -293,3 +293,8 @@ Open / possible next:
   - Open for the owner: Qwen's description of a head-and-shoulders photo has no lower body, so the views frame
     as a bust (run E). Typing the outfit in the idea works around it. Qwen also invents glasses in 4/20 calls
     on the sample, the same as before this work.
+- **2026-10-05 · 3-view three-step flow** (owner: follow the qwen21-three-view skill; photo → "Describe with Qwen"
+  → "Write the 3 prompts with Qwen" (editable Front/Side/Back) → "Make 3 views"). Supersedes the back box and the
+  auto short line (#28/#29 closed; their api/idea and typed-text-wins logic reused). Skill settings adopted:
+  15 steps, cfg 1, 1280. Prompts = the skill's build_prompts verbatim (harness oracle produced by the skill).
+  Acceptance `9a82cb7`; BE #30, FE #31 dispatched.
