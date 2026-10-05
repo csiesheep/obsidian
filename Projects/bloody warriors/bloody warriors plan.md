@@ -231,6 +231,8 @@ name: 一騎當前
 | 2026-10-04 | iPhone 觸控提前做(M1.5):左下固定搖桿 + 右下攻擊鈕,指向 = 自動瞄準最近敵人(deadzone 0.3 / 射程 12 m);無敵時保持原朝向 | owner |
 | 2026-10-04 | M1.5 landed(`13a3f38`/deployed `61554f2d`):probe=3 決定性(搖桿走 6m + 自動瞄準兩下砍死);證偽 autoAimRange 12→0.5 三條紅;搖桿 DOM 接線未經真機觸控事件,待 owner iPhone 實測 | orchestrator |
 | 2026-10-04 | M2 landed(`c18b864`/merged `1f2fd5a`/deployed `9a81249d`):波次 10/15/20(間歇 3s)+兵海(同場上限 20,spawnGap 0.2s)+血水平(kill+8/hit+2/decay−3/s/max100)→泛紅(100→0.6 中大紅)+血池≤40(最舊淡出)+粒子池≤500+擊殺/受擊濺血(12/6);node 20/20、harness 24/24/0、tsc 0;證偽 pool.particle 500→100 → node 2 紅 + harness 2 紅。裁定:①同場上限取 20(§3.5「約 15」pacing 以 spawnGap 取代)②InstancedMesh 延 M5(≤20 用 individual-mesh pool)③kill=+8 不疊 +2 | orchestrator |
+| 2026-10-05 | 無雙表「受擊 −5」開(§3.4「可選」定案) | owner |
+| 2026-10-05 | M3 landed(`4e7dd2c`/merged `8f5c334`/deployed `3391fe76`):無雙表(+5/+8/+15/−5/−2/s/max100)+無雙 5s(傷×1.5/速×1.2/無敵/0.5s 慢動作 0.4×/紅金調)+重擊(傷 30/擊退 1.5/風 0.5 收 0.4)+受擊畫面濺血(2s 淡出);node 30/30、harness 30/30/0、tsc 0;證偽 musou.decay 2→5 → node 2 紅 + harness 3 紅。裁定:①重擊節奏 0.5/0.15/0.4/pushback 1.5(orchestrator 初值,owner 可調)②擊殺只 +15 ③gain 按 hit 事件 ④重擊與連擊不混用 ⑤orchestrator 自寫自驗 | orchestrator |
 
 ## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
@@ -247,8 +249,7 @@ name: 一騎當前
 
 ## Open questions
 
-- 無雙狀態的「受擊 −5」要不要開?(DESIGN.md §3.4 標「可選」)
-- (突刺輸入已隨「v0 不做」一起解除;其餘已定,見 Decisions。)
+- (無雙表「受擊 −5」已定:開,2026-10-05;突刺輸入已隨「v0 不做」一起解除;其餘已定,見 Decisions。)
 
 ## Next steps
 
@@ -258,9 +259,9 @@ name: 一騎當前
 - [x] M1:核心戰鬥迴圈(三段普攻鏈 + 假人敵兵),landed main `eabaa2f`、deployed `aebed980`(2026-10-04,issue #1 已關;peer-be 子 agent 兩度靜默失敗 → orchestrator 自實作;鏈接 guard 強化:補後搖 0.2s 斷言)
 - [x] M1.5:iPhone 觸控(虛擬搖桿 + 攻擊鈕 + 自動瞄準),landed main `13a3f38`、deployed `61554f2d`(2026-10-04,issue #2 已關;node 12/12、harness 17/17/0;搖桿 DOM 接線待實機驗證)
 - [x] M2:波次(10/15/20)+ 兵海(同場上限 20)+ 血水平泛紅 + 血池/粒子池,landed main `c18b864`(merged `1f2fd5a`)、deployed `9a81249d`(2026-10-04,issue #3 已關;node 20/20、harness 24/24/0、tsc 0;證偽 pool.particle 500→100 → node 2 紅 + harness 2 紅)
-- [ ] owner 實機玩測(M1 戰鬥 / M1.5 搖桿 / M2 波次推進 + 兵海堆積 + 泛紅)→ 過關後 M3
-- [ ] M3:無雙表(+5/+8/+15、−2/s)+ 無雙狀態(5s)+ 濺血
-- [ ] 決定無雙表「受擊 −5」要不要開(影響 M3)
+- [x] M3:無雙表(+5/+8/+15/−5/−2/s)+ 無雙狀態(5s:×1.5/×1.2/無敵/慢動作)+ 重擊(傷 30/擊退)+ 受擊畫面濺血,landed main `4e7dd2c`(merged `8f5c334`)、deployed `3391fe76`(2026-10-05,issue #4 已關;node 30/30、harness 30/30/0、tsc 0;證偽 musou.decay 2→5 → node 2 紅 + harness 3 紅;裁定:受擊 −5 開、重擊節奏 orchestrator 初值、擊殺只 +15、重擊與連擊不混用)
+- [ ] owner 實機玩測(M1 戰鬥 / M1.5 搖桿 / M2 波次推進 + 兵海堆積 + 泛紅 / M3 無雙表漲與開、重擊擊退、受擊濺血)
+- [ ] M4:長坂坡地圖 + 夏侯惇(HP300+2 必殺+狂暴)+ 勝/敗 + 計分
 
 ## Related
 
