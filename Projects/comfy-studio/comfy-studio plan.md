@@ -284,3 +284,12 @@ Open / possible next:
       for ~1 min. Undone with `reset --keep`; nothing was pushed. Saved to memory.
     - Open for the owner: one description fills all 3 views. The owner's own edit wrote a different back-view
       text (hood down, mirrored earring). A per-view back description is possible if wanted.
+- **2026-10-05 · 3-view back-view description** (owner: "yes, add a separate back-view description"). Live in
+  `fadc67e`, harness 108 / 0 / 1. Optional "Back view" box: blank uses the description. Qwen fills it in two
+  calls: notes, then `back_from`, which rewrites the description as seen from behind. About 7.5–13 s.
+  - What it took: Qwen's back notes alone put the drawstrings on the back, which a probe run confirmed, and drew
+    a different, legless figure (run C). The fix was to build the back text from the description. Run D, with
+    the owner's description, matches the front.
+  - Open for the owner: Qwen's description of a head-and-shoulders photo has no lower body, so the views frame
+    as a bust (run E). Typing the outfit in the idea works around it. Qwen also invents glasses in 4/20 calls
+    on the sample, the same as before this work.
