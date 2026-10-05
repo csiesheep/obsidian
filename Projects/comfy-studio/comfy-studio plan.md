@@ -275,3 +275,12 @@ Open / possible next:
   Acceptance landed `33d5a63` (section 14, 10 todo; probed with a stand-in engine, 4 single defects each
   red on the right row). BE #24 (engine multi-target slots + multi-output jobs, two workflows with real
   reference runs) and FE #25 (page + hub tile) dispatched in parallel.
+  - **Live 2026-10-04 in `e279abb`.** Harness 101 / 0 / 1. Two measured runs, both cold: standard 166 s,
+    uncensored 141 s per 3-image job, at 1024 px. Real strip checked by eye: front, profile and back of one fox.
+    - Review rounds: FE found 2 harness holes (comment-satisfied Delete, todo hub link), and I found a third
+      (CSS comment). The checker found an unguarded strip order, then 3 watch() failure paths. Each was
+      fixed with a red-first row; BE was returned once for the failure paths.
+    - My slip: a failed command before `cd worktree` merged both branches into the live checkout's local main
+      for ~1 min. Undone with `reset --keep`; nothing was pushed. Saved to memory.
+    - Open for the owner: one description fills all 3 views. The owner's own edit wrote a different back-view
+      text (hood down, mirrored earring). A per-view back description is possible if wanted.
