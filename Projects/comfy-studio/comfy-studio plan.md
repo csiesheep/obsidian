@@ -302,3 +302,10 @@ Open / possible next:
     - Independent 10-call sample: skill wording, legs and feet, no glasses, earring sides, clean back — 10/10 each.
     - Real runs, both workflows, owner's sample: one full figure head to shoes, earrings correct in head crops.
     - Time: standard 169 s, uncensored 137 s; Qwen about 1 s (short line) and about 6 s (three prompts).
+- **2026-10-05 · uncensored img2img** (owner: "兩個都加，用 heretic 編碼器", "1. 換成 heretic 2. 保留原樣"). Live in `55f4d57`.
+  Harness 114 / 0 / 1.
+  - New: Qwen 2.1 uncensored edit (one photo, instruction; 46 s) and Qwen 2.1 uncensored img2img (strength 0.2–1.0,
+    default 0.6; 64 s).
+  - Two-photo edit now on the heretic encoder (70 s). All three use UC GGUF + heretic 8B and say "not for photos of
+    children". Z-Image unchanged and still the default.
+  - Finding: at 0.6 img2img keeps colours; use the edit for colour changes.
