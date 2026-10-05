@@ -309,3 +309,9 @@ Open / possible next:
   - Two-photo edit now on the heretic encoder (70 s). All three use UC GGUF + heretic 8B and say "not for photos of
     children". Z-Image unchanged and still the default.
   - Finding: at 0.6 img2img keeps colours; use the edit for colour changes.
+- **2026-10-05 · Qwen rules in one place** (owner asked to remove the rules: declined; then "can you put all the rule
+  in one place?"). Live in `b26d584`.
+  - `workflows/qwen_rules.txt` holds the real-person and minor rules. It is appended to every Qwen request and read
+    per call, so an edit applies without a restart.
+  - If the file is missing or empty, Qwen requests fail with a 500.
+  - The 12 copies are removed; the child rule now covers every page.
