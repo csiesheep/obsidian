@@ -256,3 +256,15 @@ Open / possible next:
 - README still lists text2img/img2img as planned (writer issue).
 - `/api/jobs` slow while ComfyUI is busy (#1 handover, never done).
 - Not yet run for real: 16:9 / 1:1 shapes, 10–15 s H3 full, a full "Make" from each new page.
+
+- 2026-10-04: owner: **"no need #17"** (no Draft toggle; engine profile stays unused), **"skip qwen edit
+  2511"** (dropped for good), **image candidates: "select how many seeds to try. default 1."**
+  orchestrator 裁決: count 1-4 on text2img/img2img, one job per seed (typed s → s, s+1, …).
+  Acceptance `3db958a` (probed: same-seed stand-in red). [#21](https://github.com/csiesheep/comfy-studio/issues/21)
+  server → peer-be; [#22](https://github.com/csiesheep/comfy-studio/issues/22) pages → peer-fe.
+  - #21 + #22 landed + deployed `c26019e`; harness **89/0/1**. Live test: Images 2, seed 777 → seeds
+    777/778, two different pictures from one tap. Two more harness bugs of mine fixed on the way
+    (a literal backspace in a regex; gaps count=true / bad prompt with count 3).
+  - Tailscale changed outside this work: the PC is now **pc.curlew-mountain.ts.net**; `/studio` and
+    `/video` routes carried over; `/` now proxies port 4096 (was the Qwen chat on 8080). Docs still name
+    the old host (DESIGN.md, README.md, TEAM.md, start-studio-hidden.ps1) — update pending owner's ok.
