@@ -233,6 +233,7 @@ name: 一騎當前
 | 2026-10-04 | M2 landed(`c18b864`/merged `1f2fd5a`/deployed `9a81249d`):波次 10/15/20(間歇 3s)+兵海(同場上限 20,spawnGap 0.2s)+血水平(kill+8/hit+2/decay−3/s/max100)→泛紅(100→0.6 中大紅)+血池≤40(最舊淡出)+粒子池≤500+擊殺/受擊濺血(12/6);node 20/20、harness 24/24/0、tsc 0;證偽 pool.particle 500→100 → node 2 紅 + harness 2 紅。裁定:①同場上限取 20(§3.5「約 15」pacing 以 spawnGap 取代)②InstancedMesh 延 M5(≤20 用 individual-mesh pool)③kill=+8 不疊 +2 | orchestrator |
 | 2026-10-05 | 無雙表「受擊 −5」開(§3.4「可選」定案) | owner |
 | 2026-10-05 | M3 landed(`4e7dd2c`/merged `8f5c334`/deployed `3391fe76`):無雙表(+5/+8/+15/−5/−2/s/max100)+無雙 5s(傷×1.5/速×1.2/無敵/0.5s 慢動作 0.4×/紅金調)+重擊(傷 30/擊退 1.5/風 0.5 收 0.4)+受擊畫面濺血(2s 淡出);node 30/30、harness 30/30/0、tsc 0;證偽 musou.decay 2→5 → node 2 紅 + harness 3 紅。裁定:①重擊節奏 0.5/0.15/0.4/pushback 1.5(orchestrator 初值,owner 可調)②擊殺只 +15 ③gain 按 hit 事件 ④重擊與連擊不混用 ⑤orchestrator 自寫自驗 | orchestrator |
+| 2026-10-05 | 槍掃動畫提前自 M5(owner 實機:J/K 有傷害但將軍不動,拍板先做):spear 右肩 pivot + 純函式 `spearPose`(phase→sweep/ang/lean,smoothstep;n=1 右→左、n=2 鏡像、n=3 上劈、重擊高舉下砸),時長讀 config;landed `8bf65d6`(merged `728b674`)/deployed `b47246c3`(issue #5 已關);node 34/34、harness 30/30/0、tsc 0;證偽重擊 sweep 1.4→2.4 → node 1 紅。裁定:姿態角度為 orchestrator 初值,玩測可調 | orchestrator |
 
 ## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
@@ -260,7 +261,8 @@ name: 一騎當前
 - [x] M1.5:iPhone 觸控(虛擬搖桿 + 攻擊鈕 + 自動瞄準),landed main `13a3f38`、deployed `61554f2d`(2026-10-04,issue #2 已關;node 12/12、harness 17/17/0;搖桿 DOM 接線待實機驗證)
 - [x] M2:波次(10/15/20)+ 兵海(同場上限 20)+ 血水平泛紅 + 血池/粒子池,landed main `c18b864`(merged `1f2fd5a`)、deployed `9a81249d`(2026-10-04,issue #3 已關;node 20/20、harness 24/24/0、tsc 0;證偽 pool.particle 500→100 → node 2 紅 + harness 2 紅)
 - [x] M3:無雙表(+5/+8/+15/−5/−2/s)+ 無雙狀態(5s:×1.5/×1.2/無敵/慢動作)+ 重擊(傷 30/擊退)+ 受擊畫面濺血,landed main `4e7dd2c`(merged `8f5c334`)、deployed `3391fe76`(2026-10-05,issue #4 已關;node 30/30、harness 30/30/0、tsc 0;證偽 musou.decay 2→5 → node 2 紅 + harness 3 紅;裁定:受擊 −5 開、重擊節奏 orchestrator 初值、擊殺只 +15、重擊與連擊不混用)
-- [ ] owner 實機玩測(M1 戰鬥 / M1.5 搖桿 / M2 波次推進 + 兵海堆積 + 泛紅 / M3 無雙表漲與開、重擊擊退、受擊濺血)
+- [x] 槍掃動畫(提前自 M5):spear 改右肩 pivot 驅動,純函式 `spearPose` 由 swing/heavy phase 算 sweep/ang/lean(n=1 右→左、n=2 鏡像、n=3 上劈、重擊高舉下砸),時長讀 config,landed main `8bf65d6`(merged `728b674`)、deployed `b47246c3`(2026-10-05,issue #5 已關;起因 owner 實機:J/K 有傷害但將軍不動;node 34/34、harness 30/30/0、tsc 0;證偽重擊 sweep 1.4→2.4 → node 1 紅;裁定:姿態角度為 orchestrator 初值,玩測可調)
+- [ ] owner 實機玩測(M1 戰鬥 / M1.5 搖桿 / M2 波次推進 + 兵海堆積 + 泛紅 / M3 無雙表漲與開、重擊擊退、受擊濺血 / 槍掃動畫:J 掃槍、第三段上劈、K 高舉下砸)
 - [ ] M4:長坂坡地圖 + 夏侯惇(HP300+2 必殺+狂暴)+ 勝/敗 + 計分
 
 ## Related
