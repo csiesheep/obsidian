@@ -319,3 +319,8 @@ Open / possible next:
   writes the prompts). Acceptance `286375e`, section 19. The oracle is the skills' own `--dry-run` graphs; the
   keyframe times are chosen so that rounding and truncating give different frames.
   - BE #34 and FE #35 dispatched. The real runs use the #30 3-view cartoon images, about 8 min each.
+  - **Live 2026-10-05 in `3b8acb3`.** Harness 122 / 0 / 1.
+    - R2V 6 s took 442 s. Multiframe 7 s took 532 s; all 3 keyframes landed. Both about 75 s per second of video.
+    - Also fixed: the empty Continue banner on h3_fused.
+    - Open with the owner: the test character reads as a child to Qwen ("young boy"), and the skills forbid these
+      uncensored models on anyone who looks under 18. My input choice. The two proposals are below.
