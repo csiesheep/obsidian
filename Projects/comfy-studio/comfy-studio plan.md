@@ -324,3 +324,9 @@ Open / possible next:
     - Also fixed: the empty Continue banner on h3_fused.
     - Open with the owner: the test character reads as a child to Qwen ("young boy"), and the skills forbid these
       uncensored models on anyone who looks under 18. My input choice. The two proposals are below.
+- **2026-10-05 · under-18 check + adult test inputs** (owner: "兩個都做"). Live in `aa5de63`.
+  - The H3 reference and multiframe workflows ask Qwen "adult or minor?" about every picture, on both Write with Qwen and
+    Make. Only a clear "adult" passes; anything else refuses, which fails closed.
+  - Live: the cartoon sample was refused in 3.8 s; the adult 3 views passed.
+  - The six uncensored reference runs were re-recorded with an adult test character, so tests use adults only.
+  - Open: the gate does not cover 3-view uncensored or the uncensored img2img workflows.
