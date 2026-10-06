@@ -315,3 +315,7 @@ Open / possible next:
     per call, so an edit applies without a restart.
   - If the file is missing or empty, Qwen requests fail with a 500.
   - The 12 copies are removed; the child rule now covers every page.
+- **2026-10-05 · H3 reference-to-video + multiframe on img2video** (owner: follow the two skills; Qwen 3.8 uncensored
+  writes the prompts). Acceptance `286375e`, section 19. The oracle is the skills' own `--dry-run` graphs; the
+  keyframe times are chosen so that rounding and truncating give different frames.
+  - BE #34 and FE #35 dispatched. The real runs use the #30 3-view cartoon images, about 8 min each.
