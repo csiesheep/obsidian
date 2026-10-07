@@ -236,6 +236,7 @@ name: 一騎當前
 | 2026-10-05 | 槍掃動畫提前自 M5(owner 實機:J/K 有傷害但將軍不動,拍板先做):spear 右肩 pivot + 純函式 `spearPose`(phase→sweep/ang/lean,smoothstep;n=1 右→左、n=2 鏡像、n=3 上劈、重擊高舉下砸),時長讀 config;landed `8bf65d6`(merged `728b674`)/deployed `b47246c3`(issue #5 已關);node 34/34、harness 30/30/0、tsc 0;證偽重擊 sweep 1.4→2.4 → node 1 紅。裁定:姿態角度為 orchestrator 初值,玩測可調 | orchestrator |
 | 2026-10-05 | M4 landed(`2812405`/merged `46a0a3c`/deployed `7e3273a3`):長坂坡(±20、6 圓柱障礙、8 刷兵點輪用)+ 夏侯惇(HP300/普攻 10/直線衝刺 12m/s・接觸 1.2m 傷 20・滿 8m 停/三段連擊 3×10・0.25s/狂暴 <30% 攻速 ×1.2)+ 突進(Shift,2.5m/0.15s/無敵/CD 0.8)+ 防禦(U,減傷 70%/半速)+ 勝敗畫面(R/鈕重開)+ 計分(100/1000/×(1+連擊×0.1)/時間分 1000−2/s 僅勝利);node 43/43、harness 36/36/0、tsc 0;證偽狂暴門檻 0.3→0.5 → node 2 紅。裁定:①敵將必殺節奏 + 選擇規則(dist>4 衝刺/dist<2.2 連擊/否則普攻,共享 CD 4s)②狂暴 = 內部時鐘 ×1.2、移動用真實 dt ③時間分公式 ④combat.ts 不在權限 → 敵將 hitbox 用 id 9999 代理在 main.ts ⑤防禦減傷只套敵兵(敵將於 stepBoss 內減)——皆 orchestrator 初值,玩測可調 | orchestrator |
 | 2026-10-05 | M5 landed(`f54d7b7`/merged `a833bc5`/deployed `50939510`):手感(鏡頭震動 5 類 hit .08/kill .15/bossHit .12/bossAtk .2/hurt .18、0.15s 二次衰減+hit-stop 微震)+血水平 >70 擊殺慢動作 0.25s@0.5×(無雙慢動作較長者保留)+WebAudio 6 種合成音效(volume 0.3、M 靜音、首次觸控解鎖)+性能 pass(粒子→THREE.Points 單 draw call;headless SwiftShader 實測 20 兵+500 粒子 300 幀 avg 1357fps/最慢 100 幀 812fps,draw calls 28)+規則書頁(rules.html,右下角「規則」)+上線(noindex→index、sitemap 補遊戲頁+rules);node 49/49、harness 44/44/0、tsc 0;證偽 killSlowmo.bloodMin 70→95 → node 2 紅。裁定:震動幅度/時長、音效頻率皆 orchestrator 初值,玩測可調;性能門檻 ≥60fps(headless 留 13× margin) | orchestrator |
+| 2026-10-07 | 無雙 bugfix(issue #8,owner 實玩「無雙好像不能用?」):根因 = musouKill/musouHit clamp 到恰好 100,stepMusou 每幀 decay 2/s 連滿格都照減 → 下一幀 99.97,tryActivate 嚴格 >=100 永遠 false;UI Math.round() 一直顯示 100%(騙人)、.full 光暈只亮 1 幀 → 滿表 <1 幀,人類按不到。修法 = stepMusou 滿格 pin 不 decay(直到啟動耗盡),滿格時 .full 常亮 = ready 線索;landed `98b3af4`(merged `f2f9856`)/deployed `c7e11865`;node 50/50(新 guard:填滿→stepMusou 5 幀→仍 100→tryActivate true)、tsc 0;證偽:還原舊邏輯 → 新測試紅(99.8333≠100);CDP e2e(修正版 build 實時):meter 100%@9.5s→按 Space→fx 0→1、meter 歸零、active 中再填 40%、score 1110→1640(×1.5 生效);live byte-match OK。裁定:pin-at-max 取代「滿格也 decay」(原 decay 設計意圖是催使用,但與嚴格門檻自相矛盾);無雙未滿按鍵仍無回饋(silent fail)= 玩測可再加 | orchestrator |
 
 ## Milestones(正式拆解,DESIGN.md §7.4,2026-10-04)
 
@@ -267,6 +268,7 @@ name: 一騎當前
 - [ ] owner 實機玩測(M1 戰鬥 / M1.5 搖桿 / M2 波次推進 + 兵海堆積 + 泛紅 / M3 無雙表漲與開、重擊擊退、受擊濺血 / 槍掃動畫:J 掃槍、第三段上劈、K 高舉下砸)
 - [x] M4:長坂坡地圖(6 障礙 + 8 刷兵點輪用)+ 夏侯惇(HP300+2 必殺+狂暴)+ 突進/防禦 + 勝/敗畫面 + 計分,landed main `2812405`(merged `46a0a3c`)、deployed `7e3273a3`(2026-10-05,issue #6 已關;node 43/43、harness 36/36/0、tsc 0;證偽狂暴門檻 0.3→0.5 → node 2 紅;裁定:必殺節奏/時間分公式/敵將 proxy 為 orchestrator 初值)
 - [x] M5:手感(震動/擊殺慢動作)+極簡音效+性能 pass(粒子→單 draw call)+規則書+上線,landed main `f54d7b7`(merged `a833bc5`)、deployed `50939510`(2026-10-05,issue #7 已關;node 49/49、harness 44/44/0、tsc 0;證偽 bloodMin 70→95 → node 2 紅;性能 headless 實測 1357fps/812fps、draw calls 28;裁定:震動/音效為 orchestrator 初值,玩測可調)
+- [x] 無雙 bugfix:滿格 pin 不 decay,修 tryActivate 嚴格 >=100 幾乎必敗,landed main `98b3af4`(merged `f2f9856`)、deployed `c7e11865`(2026-10-07,issue #8 已關;node 50/50、tsc 0;CDP e2e 確認滿格按 Space 有啟動)
 
 ## Related
 
