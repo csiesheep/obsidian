@@ -87,6 +87,14 @@ No sharing of the tailnet device, no Funnel. Unauthenticated requests get `401` 
 - **Launch `opencode.exe`, not the npm `.cmd` shim**, from the WMI launcher.
 - **Windows PowerShell 5.1** (what `.bat` files run) has no `RandomNumberGenerator.Fill` — use
   `RandomNumberGenerator.Create().GetBytes()`.
+- **Skills:** opencode reads Claude's personal skills from `C:\Users\sheep\.claude\skills\` (and
+  nuwa-skill's `examples\*` as separate skills), but **only when it starts**. A skill added later
+  (`h3-character-replacement`, 2026-10-06) is invisible until opencode restarts: kill the
+  `opencode serve --port 4095` process and run `start-opencode-remote.bat` (the proxy can stay up).
+  Check: `GET /skill?directory=<folder>`.
+- **Skill YAML must be strict.** opencode skips a skill whose frontmatter is invalid YAML; Claude
+  tolerates it. `description: ... (1-9: e.g. ...)` broke `h3-reference-to-video` (colon + space
+  inside an unquoted value) → changed to `(1-9, e.g.`. Avoid `: ` in descriptions or quote them.
 - **Sessions "disappeared" after a refresh / on another device** (fixed 2026-10-04, see below).
 - **"Server unavailable — Unexpected token '<', "<!doctype"... is not valid JSON"** right after
   the route swap: the browser still had the **old Qwen chat page** cached at `/`; its `/props`
