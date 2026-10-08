@@ -244,6 +244,26 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
   - Queued:
     #17 Draft toggle + Make final (FE, after #15 and #16); #18 image candidates (approach 4 for images);
     adoption of #12/#13 results (manifests + reference runs) after the owner judges the sheets.
+- **2026-10-08 · jobs.json WinError 5** (owner report from the 3-view page). The lost job was recovered by hand from
+  `jobs.json.tmp`. #46 is **live in `808280b`**:
+  - `save_jobs` retries the replace for up to 2 s.
+  - A queued job whose record can't be saved is taken back out of ComfyUI. Only its own prompt is touched.
+  - A lost interrupt is sent again while that prompt still runs.
+  - Harness 160 / 0 / 1.
+  - Lesson: the BE peer's load test (56 prompts / 34 interrupts) hung the shared ComfyUI. Briefs now cap real
+    submissions.
+- **2026-10-08 · ComfyUI restart.** Comfy Desktop came back with an error dialog and did not start the server.
+  - I started it by hand with Desktop's own command, first from the wrong folder. `code\ComfyUI` is an old February
+    clone, and Qwen 2.1 / H3 nodes were missing there.
+  - The right one is `AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI` (0.37.0), run with the
+    `code\ComfyUI\.venv` python and `--base-directory code\ComfyUI`. All 15 studio workflows' nodes are present.
+- **2026-10-08 · 3-view resolution** (owner: "加上解析度選項"). #47 is **live in `7d96bef`**:
+  - The page offers 1280 (default) / 1536 / 2048, written into every encoder branch. Harness 164 / 0 / 1.
+  - Real run through the studio: one adult photo, 5 views, seed 1234. 1280 took 299 s, 1536 took 485 s, 2048 took
+    994 s (3.3×), with outputs of 1120×1472, 1312×1792 and 1760×2368.
+  - All 15 views were usable. Higher resolution did not improve likeness.
+  - The skill (`skills@5d045ba`) and `Skills/qwen21-three-view` were updated with these numbers.
+  - Next: try more than one reference image. `TextEncodeQwenImage21` takes up to 16; the skill uses 1.
 
 ## Where it stands (2026-10-03)
 
