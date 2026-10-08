@@ -263,7 +263,17 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
     994 s (3.3×), with outputs of 1120×1472, 1312×1792 and 1760×2368.
   - All 15 views were usable. Higher resolution did not improve likeness.
   - The skill (`skills@5d045ba`) and `Skills/qwen21-three-view` were updated with these numbers.
-  - Next: try more than one reference image. `TextEncodeQwenImage21` takes up to 16; the skill uses 1.
+- **2026-10-08 · Multi-reference experiment.** `TextEncodeQwenImage21` takes up to 16 reference images; the skill
+  uses 1. I ran one test, outside the studio and the skill:
+  - Setup: image 2 was a 190×240 face close-up cropped from the same photo, wired into `images.image_2` on every
+    encoder, and each prompt said "keep the face exactly as in <image2>". 3 views at 1280, seed 1234, the same prompts
+    as the 1280 run.
+  - It ran: 253 s, against about 180 s with one reference (+40%).
+  - The face was not clearly closer to the source. It came out rounder, with a bigger smile, and the profile was a
+    little cleaner.
+  - Side effects: the bag lost its print, and the tie belt showed through the back of the jacket.
+  - Reading: a crop of the same photo adds no new information. Not tested: a second, different photo of the same
+    person (a back view, or a portrait close-up), which is where more references could help.
 
 ## Where it stands (2026-10-03)
 
