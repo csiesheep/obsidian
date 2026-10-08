@@ -274,6 +274,11 @@ Phases 4-6 don't depend on each other once 2 is in; they can run in parallel.
   - Side effects: the bag lost its print, and the tie belt showed through the back of the jacket.
   - Reading: a crop of the same photo adds no new information. Not tested: a second, different photo of the same
     person (a back view, or a portrait close-up), which is where more references could help.
+  - Second test, with an owner-supplied pair: a front selfie, plus a side photo as image 2 for the hair from the
+    side and back. Standard workflow, head only, 3 views at 1280, 2 seeds per arm.
+  - Result: the second photo barely changed anything. The hair shape at the side and back was nearly the same with and
+    without it; the seed mattered more (it decided eyes open or closed). Cost: 248-253 s against 169-188 s (+35-45%).
+  - Verdict: not worth adding to the page or the skill for now.
 
 ## Where it stands (2026-10-03)
 
