@@ -1,6 +1,6 @@
 ---
 tags: [project, boardgame, plan]
-status: planning
+status: phase0-done
 created: 2026-10-13
 updated: 2026-10-13
 ---
@@ -119,17 +119,20 @@ Phase 0 proposal; the owner confirms it with the first go.
 2. 美術方向：A 街頭旗海 / B 選舉公報 / C 開票之夜 — recommendation: **A**，棋子用小旗，地圖用區域折疊清單。
 3. 真名：用陳水扁、宋楚瑜、連戰真名，不用照片與肖像 — recommendation: 用真名（歷史題材），美術只用號次與顏色。
 4. ~~bot 三級的名字~~ — **已定**（owner 2026-10-13）：樁腳／總幹事／操盤手。
-5. 房間計時：每個行動 60 秒，逾時 bot 代打一手 — recommendation: 60 秒；政見發表會翻牌 30 秒。
-6. 設計模擬器要不要進 repo：改寫成 `tests/sim.js`（BE）而不是原樣複製 — recommendation: 改寫，原檔留在 vault 當對照。
+5. 房間計時 — owner 未反對，照建議：每個行動 60 秒，政見發表會翻牌 30 秒（M4 前可改）。
+6. 設計模擬器 — owner 未反對，照建議：M2 改寫成 `tests/sim.js`（BE），原檔留在 vault 當對照。
 
 ## Decisions
 - **2026-10-13** — 設計定案：規則書 v0.2（門檻 4、宋跨區 1 CP、爆料必觸發且必打、連 7 張）；模擬 30 個變體，v0.2 勝率 39/38/23。
 - **2026-10-13** — 名稱：《2000：總統的誕生》／2000: Taiwan Decides，slug `president_2000`（owner 確認）。
 - **2026-10-13** — UI：先以方向 A 街頭旗海實作，之後重新檢視（owner）。真名、不用肖像；bot 三級 樁腳／總幹事／操盤手（owner）。
 - **2026-10-13** — 事件牌樣張 12 張加進 canvas（Cards 版面）：色帶歸屬、CP 黑方塊、議題圓、催票縣市與休息方塊底列、必觸發紅框。
-- **2026-10-13** — Repo `csiesheep/president_2000` 建立，scaffold 自 tiandihui，未部署。
+- **2026-10-13** — Repo `csiesheep/president_2000` 建立，scaffold 自 tiandihui。
+- **2026-10-13** — 第一次 go（owner：「Go」）：所有權表、部署規則、第一道 guard、placeholder 部署、M1 優先序全部照提案。
+- **2026-10-13** — Phase 0 完成：placeholder 上線並逐位元組比對 7 個檔案相符；`TEAM.md`；第一道 guard 通過 17／失敗 0／尚未實作 11，證偽（台北縣 24→23）紅在 4 條、理由正確。Phase 0 的程式碼只有起手 session 驗過。
+- **2026-10-13** — 工具觀察：`orch falsify` 只認 git 追蹤的檔案，對未 commit 的新檔案會印「pattern 沒命中」但其實改了、restore 不還原。先 commit 再證偽。
 
 ## Next steps
-- [ ] Owner confirms the plan, the open questions and the Phase 0 proposal (first go).
-- [ ] Phase 0: placeholder, `TEAM.md`, first guard seen red.
+- [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
+- [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-10-13
 - [ ] Owner's second go: the orchestrator session starts M1.
