@@ -100,16 +100,27 @@ function mkCards(){
   X('L','美國國會譴責北京',2,'岸',()=>[0.6,-0.8,0.6],(g)=>{g.addIssue(CHEN,'岸',1);g.addIssue(LIEN,'岸',1);});
   X('L','股市重挫',2,'經',()=>[-0.5,-0.5,0.8],(g)=>{g.addIssue(LIEN,'經',1);for(let p=0;p<3;p++)g.mom[p]=Math.max(0,g.mom[p]-1);});
   X('L','李登輝暗助',3,'廉',()=>[2.4,-1,-1.6],(g)=>{g.placeBest(CHEN,2,true);g.mom[LIEN]=Math.max(0,g.mom[LIEN]-1);});
+  // v0.3 cards (2026-10-14): +10 early events
+  add(0,'E','南部大造勢',3,'經',()=>2,(g,p)=>g.placeBest(p,2,true,c=>COUNTY_DATA[c][1]===4));
+  add(0,'E','張俊雄邱義仁',2,'廉',()=>1.2,(g,p)=>{g.bag[p]+=3;g.mom[p]++;});
+  add(1,'E','省政建設',3,'經',()=>1.8,(g,p)=>g.addIssue(p,'經',2));
+  add(1,'E','軍公教警',2,'經',()=>1.3,(g,p)=>{g.placeBest(p,2,false);g.bag[p]+=1;});
+  add(1,'E','許信良參選',2,'岸',()=>1.2,(g,p)=>{const c=g.bestCountyFor(p,c=>g.cubes(c,CHEN)>0,CHEN);if(c>=0)g.removeFrom(c,CHEN,1,false);g.mom[p]++;});
+  add(2,'E','黨員歸隊',3,'經',()=>1.6,(g,p)=>{for(let k=0;k<2;k++){const c=g.bestCountyFor(p,c=>g.cubes(c,SOONG)>0,SOONG);if(c<0)break;if(g.check(p))g.removeFrom(c,SOONG,1,false);}});
+  add(2,'E','經濟內閣',2,'經',()=>1.2,(g,p)=>{g.addIssue(p,'經',1);g.bag[p]+=2;});
+  add(2,'E','國民黨黨慶',2,'岸',()=>1.2,(g,p)=>{g.mom[p]++;g.addIssue(p,'岸',1);});
+  X('E','TVBS 民調',2,'廉',g=>{const m=Math.min(...g.mom);return g.mom.map(x=>x===m?0.4:0);},(g)=>{const m=Math.min(...g.mom);const p=g.mom.indexOf(m);g.mom[p]++;});
+  X('E','中共軍演傳聞',3,'岸',()=>[-0.8,0.5,0.6],(g)=>{g.addIssue(LIEN,'岸',1);g.addIssue(SOONG,'岸',1);g.mom[CHEN]=Math.max(0,g.mom[CHEN]-1);});
   return C;
 }
 // Local cards: 20 early + 16 late; counties weighted; cp 2 x20, 3 x16
-const LOCAL_DIST={'台北縣':6,'台北市':5,'桃園縣':3,'台中縣':3,'高雄市':3,'彰化縣':2,'高雄縣':2,'台南縣':2,'台中市':1,'屏東縣':1,'雲林縣':1,'台南市':1,'苗栗縣':1,'南投縣':1,'嘉義縣':1,'新竹縣':1,'宜蘭縣':1,'花蓮縣':1};
-function mkLocal(){const L=[];let i=0;for(const n in LOCAL_DIST)for(let k=0;k<LOCAL_DIST[n];k++){L.push({owner:'L',deck:i<20?'E':'L',name:'地方:'+n,cp:(i%9<5)?2:3,icon:null,county:CN[n],val:()=>0,fx:(g,p,card)=>g.placeIn(p,card.county,1,false,true)});i++;}return L;}
+const LOCAL_DIST=[['台北縣',6],['台北市',5],['桃園縣',3],['台中縣',3],['高雄市',3],['彰化縣',2],['高雄縣',2],['台南縣',2],['台中市',1],['屏東縣',1],['雲林縣',1],['台南市',1],['苗栗縣',1],['南投縣',1],['嘉義縣',1],['新竹縣',1],['宜蘭縣',1],['花蓮縣',1],['高雄縣',1],['台北市',1],['桃園縣',1],['台南市',1],['嘉義市',1]];
+function mkLocal(){const L=[];let i=0;for(const [n,cnt] of LOCAL_DIST)for(let k=0;k<cnt;k++){L.push({owner:'L',deck:i<25?'E':'L',name:'地方:'+n,cp:(i%9<5)?2:3,icon:null,county:CN[n],val:()=>0,fx:(g,p,card)=>g.placeIn(p,card.county,1,false,true)});i++;}return L;}
 
 // ---------- Game ----------
 class Game{
   constructor(seed,opts){
-    this.rand=mulberry32(seed);this.o=Object.assign({bagInit:12,lien8:false,stealCheck:'always',endorse:'half',threshold:'u4',issueDecay:'leader',mediaSteal:false,greyCP:false,soongFree:'flat1',baoliaoMust:true,adj:'0,0,0',baoliaoNoSave:false,baoliaoMustPlay:true,deal5:false,chenMom:3,chenCeil:true,log:false},opts);
+    this.rand=mulberry32(seed);this.o=Object.assign({bagInit:12,lien8:false,stealCheck:'always',endorse:'half',threshold:'u4',issueDecay:'leader',mediaSteal:false,greyCP:false,soongFree:'flat1',baoliaoMust:true,adj:'0,0,0',baoliaoNoSave:false,baoliaoMustPlay:true,deal5:true,chenMom:3,chenCeil:true,log:false},opts);
     this.counties=COUNTY_DATA.map(([name,reg,G,B,N,init])=>{const blocks=[];for(let k=0;k<G;k++)blocks.push({t:'G',o:-1});for(let k=0;k<B;k++)blocks.push({t:'B',o:-1});for(let k=0;k<N;k++)blocks.push({t:'N',o:-1});return{name,reg,blocks,init};});
     for(const c of this.counties){for(let p=0;p<3;p++){let n=c.init[p];for(const b of c.blocks){if(n===0)break;if(b.o<0&&b.t===CAMP(p)){b.o=p;n--;}}}}
     // start adjustment "dc,ds,dl": +n adds n cubes on own-camp empty blocks (largest counties first), -n removes n cubes
@@ -186,6 +197,7 @@ class Game{
   playCard(p,card,info){this.rest[p]+=this.restFor(p,card);
     if(card.owner==='X'){this.stats.events++;card.fx(this,p,card);this.doAction(p,card.cp);return;}
     if(info.asEvent&&card.owner===p){this.stats.events++;card.fx(this,p,card);return;}
+    if(card.must&&this.o.baoliaoMust&&card.owner===p&&card.val(this,p)>0){this.doAction(p,card.cp);this.stats.events++;card.fx(this,p,card);return;}
     // CP
     if(info.preempt){this.mom[p]-=2;this.stats.preempts++;}
     this.doAction(p,card.cp);
