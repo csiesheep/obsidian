@@ -74,7 +74,7 @@ function mkCards(){
   add(1,'L','跪票',3,'廉',()=>2,(g,p)=>{g.mom[p]+=2;g.placeBest(p,2,false);});
   // 連
   add(2,'E','開除宋楚瑜黨籍',3,'廉',()=>1,(g,p)=>{let k=2;for(let r=0;r<7&&k>0;r++)if(g.media[r][SOONG]>0){g.media[r][SOONG]--;k--;}g.mom[SOONG]++;});
-  add(2,'E','楊吉雄爆料',4,'廉',g=>g.flags.xingpiao?0:5,(g,p)=>{g.flags.xingpiao=true;let n=0;for(let k=0;k<4;k++){const c=g.bestCountyFor(p,c=>g.cubes(c,SOONG)>0,SOONG);if(c<0)break;g.removeFrom(c,SOONG,1,true);n++;}g.flags.xingpiaoRemoved=n;g.issues.forEach(i=>{if(i.name==='廉')i.cubes[SOONG]=0;});g.mom[SOONG]=0;});
+  add(2,'E','楊吉雄爆料',4,'廉',g=>g.flags.xingpiao?0:5,(g,p)=>{g.flags.xingpiao=true;let n=0;for(let k=0;k<4;k++){const c=g.bestCountyFor(p,c=>g.cubes(c,SOONG)>0,SOONG);if(c<0)break;g.removeFrom(c,SOONG,1,true);n++;}g.flags.xingpiaoRemoved=n;g.issues.forEach(i=>{if(i.name==='廉')i.cubes[SOONG]=0;});g.mom[SOONG]=0;},{must:true});
   add(2,'E','說法反覆',3,'廉',g=>g.flags.shouyi&&!g.flags.fanfu?2.5:0,(g,p)=>{g.flags.fanfu=true;for(let k=0;k<2;k++){const c=g.bestCountyFor(p,c=>g.cubes(c,SOONG)>0,SOONG);if(c<0)break;g.removeFrom(c,SOONG,1,true);}g.mom[p]++;});
   add(2,'E','黨機器動員',4,'經',()=>3,(g,p)=>g.placeBest(p,3,true));
   add(2,'E','黨產廣告',3,'經',()=>1.2,(g,p)=>g.mediaBest(p,2));
@@ -109,7 +109,7 @@ function mkLocal(){const L=[];let i=0;for(const n in LOCAL_DIST)for(let k=0;k<LO
 // ---------- Game ----------
 class Game{
   constructor(seed,opts){
-    this.rand=mulberry32(seed);this.o=Object.assign({bagInit:12,lien8:false,stealCheck:'always',endorse:'half',threshold:'half',issueDecay:'leader',mediaSteal:false,greyCP:false,soongFree:true,adj:'0,0,0',log:false},opts);
+    this.rand=mulberry32(seed);this.o=Object.assign({bagInit:12,lien8:false,stealCheck:'always',endorse:'half',threshold:'u4',issueDecay:'leader',mediaSteal:false,greyCP:false,soongFree:'flat1',baoliaoMust:true,adj:'0,0,0',baoliaoNoSave:false,baoliaoMustPlay:false,log:false},opts);
     this.counties=COUNTY_DATA.map(([name,reg,G,B,N,init])=>{const blocks=[];for(let k=0;k<G;k++)blocks.push({t:'G',o:-1});for(let k=0;k<B;k++)blocks.push({t:'B',o:-1});for(let k=0;k<N;k++)blocks.push({t:'N',o:-1});return{name,reg,blocks,init};});
     for(const c of this.counties){for(let p=0;p<3;p++){let n=c.init[p];for(const b of c.blocks){if(n===0)break;if(b.o<0&&b.t===CAMP(p)){b.o=p;n--;}}}}
     // start adjustment "dc,ds,dl": +n adds n cubes on own-camp empty blocks (largest counties first), -n removes n cubes
@@ -134,7 +134,7 @@ class Game{
   cubes(c,p){let n=0;for(const b of this.counties[c].blocks)if(b.o===p)n++;return n;}
   emptyOf(c,t){let n=0;for(const b of this.counties[c].blocks)if(b.o<0&&b.t===t)n++;return n;}
   share(p){const t=this.bag[0]+this.bag[1]+this.bag[2];return t?this.bag[p]/t:1/3;}
-  boss(c){const n=this.counties[c].blocks.length;const th=this.o.threshold==='half'?Math.ceil(n/2):4;for(let p=0;p<3;p++)if(this.cubes(c,p)>=th)return p;return -1;}
+  boss(c){const n=this.counties[c].blocks.length;const th=this.o.threshold==='half'?Math.ceil(n/2):this.o.threshold==='u4'?4:(n<=1?1:n<=3?2:this.o.threshold);for(let p=0;p<3;p++)if(this.cubes(c,p)>=th)return p;return -1;}
   regLead(r){const m=this.media[r];let best=-1,bv=0,tie=false;for(let p=0;p<3;p++){if(m[p]>bv){bv=m[p];best=p;tie=false;}else if(m[p]===bv&&bv>0)tie=true;}return tie?-1:best;}
   natLead(){const t=[0,0,0];for(const m of this.media)for(let p=0;p<3;p++)t[p]+=m[p];let best=-1,bv=0,tie=false;for(let p=0;p<3;p++){if(t[p]>bv){bv=t[p];best=p;tie=false;}else if(t[p]===bv&&bv>0)tie=true;}return tie?-1:best;}
   issueLeader(i){const c=i.cubes;let best=-1,bv=0,tie=false;for(let p=0;p<3;p++){if(c[p]>bv){bv=c[p];best=p;tie=false;}else if(c[p]===bv&&bv>0)tie=true;}return tie?-1:best;}
@@ -182,13 +182,14 @@ class Game{
   netValue(p,card){const cpv=this.bestAction(p,card.cp).v;if(card.owner===p){const ev=card.val(this,p);return{net:Math.max(ev,cpv),asEvent:ev>=cpv&&ev>0,cpv,ev};}
     if(card.owner==='X'){const xv=card.xval(this);return{net:cpv+xv[p],asEvent:true,cpv,ev:xv[p]};}
     if(card.owner==='L'){return{net:cpv,asEvent:false,cpv,ev:0};}
-    const q=card.owner;const harm=(this.mom[q]>=1&&card.val(this,q)>=1)?card.val(this,q):0;let net=cpv-harm,pre=false;if(harm>=2.5&&this.mom[p]>=2){net=cpv-0.8;pre=true;}return{net,asEvent:false,cpv,ev:-harm,preempt:pre};}
+    const q=card.owner;const mustT=card.must&&this.o.baoliaoMust;const harm=(mustT||(this.mom[q]>=1&&card.val(this,q)>=1))?card.val(this,q):0;if(mustT){return{net:cpv-harm,asEvent:false,cpv,ev:-harm,preempt:false};}let net=cpv-harm,pre=false;if(harm>=2.5&&this.mom[p]>=2){net=cpv-0.8;pre=true;}return{net,asEvent:false,cpv,ev:-harm,preempt:pre};}
   playCard(p,card,info){this.rest[p]+=this.restFor(p,card);
     if(card.owner==='X'){this.stats.events++;card.fx(this,p,card);this.doAction(p,card.cp);return;}
     if(info.asEvent&&card.owner===p){this.stats.events++;card.fx(this,p,card);return;}
     // CP
     if(info.preempt){this.mom[p]-=2;this.stats.preempts++;}
     this.doAction(p,card.cp);
+    if(typeof card.owner==='number'&&card.owner!==p&&card.must&&this.o.baoliaoMust){const q=card.owner;if(card.val(this,q)>0){this.stats.triggers++;card.fx(this,q,card);return;}}
     if(!info.preempt&&typeof card.owner==='number'&&card.owner!==p){const q=card.owner;if(this.mom[q]>=1&&card.val(this,q)>=1){this.mom[q]--;this.stats.triggers++;card.fx(this,q,card);return;}}
     this.disc.push(card);}
   draw(p,n){const deck=this.turn<=5?this.deckE:this.deckL;while(this.hands[p].length<n){if(deck.length===0){if(!this.disc.length)break;deck.push(...this.shuffle(this.disc.splice(0)));}this.hands[p].push(deck.pop());}}
@@ -201,11 +202,11 @@ class Game{
     this.initiative=this.initiativeCheck();let ord=this.orderFor(this.initiative);
     for(let ph=0;ph<4;ph++){const order=ord.slice(ph%3).concat(ord.slice(0,ph%3));for(const p of order){
       if(!this.candUsed[p]&&this.candTurn[p]===t&&ph===0){this.candUsed[p]=true;const cp=p===LIEN?3:5;this.rest[p]+=p===LIEN?2:0;this.doAction(p,cp);continue;}
-      const hand=this.hands[p];let best=null;for(const card of hand){const info=this.netValue(p,card);if(!best||info.net>best.info.net)best={card,info};}
+      const hand=this.hands[p];let best=null;for(const card of hand){const info=this.netValue(p,card);if(this.o.baoliaoMustPlay&&card.must&&!this.flags.xingpiao){best={card,info};break;}if(!best||info.net>best.info.net)best={card,info};}
       if(!best)continue;hand.splice(hand.indexOf(best.card),1);this.playCard(p,best.card,best.info);}}
     this.momentumPhase();
     // strategy save
-    for(let p=0;p<3;p++){const hand=this.hands[p];if(t<=5){hand.sort((a,b)=>b.cp-a.cp);const s=hand.shift();if(s)this.saveDeb[p].push(s);}else{hand.sort((a,b)=>this.countyValue(b.county)-this.countyValue(a.county));for(let k=0;k<2;k++){const s=hand.shift();if(s)this.saveEle[p].push(s);}}this.disc.push(...hand.splice(0));
+    for(let p=0;p<3;p++){const hand=this.hands[p];if(this.o.baoliaoNoSave){const k=hand.findIndex(c=>c.must);if(k>=0)this.disc.push(hand.splice(k,1)[0]);}if(t<=5){hand.sort((a,b)=>b.cp-a.cp);const s=hand.shift();if(s)this.saveDeb[p].push(s);}else{hand.sort((a,b)=>this.countyValue(b.county)-this.countyValue(a.county));for(let k=0;k<2;k++){const s=hand.shift();if(s)this.saveEle[p].push(s);}}this.disc.push(...hand.splice(0));
       this.bag[p]+=this.rest[p];this.rest[p]=0;}}
   countyValue(c){const cc=this.counties[c];let e=0;for(const b of cc.blocks)if(b.o<0)e++;return e+cc.blocks.length*0.2;}
   momentumPhase(){for(let p=0;p<3;p++)this.mom[p]=p===CHEN?Math.ceil(this.mom[p]/2):Math.floor(this.mom[p]/2);
