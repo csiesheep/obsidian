@@ -4,7 +4,7 @@ status: draft
 created: 2026-10-13
 updated: 2026-10-13
 ---
-# 2000 Taiwan election — 規則書草稿 v0.2
+# 《2000：總統的誕生》— 規則書草稿 v0.2
 
 > [!info] 這是什麼
 > 依 [[2000 Taiwan election]] 的設計決策整理成的第一版完整規則，目的是能**紙上試玩**（H28）。
