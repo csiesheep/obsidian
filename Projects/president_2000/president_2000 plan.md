@@ -43,7 +43,7 @@ Credit line（頁尾一次）：「同人作品，非官方。靈感來自 Chris
 | title | 1960: The Making of the President | 2000：總統的誕生 | 2000: Taiwan Decides |
 | sides / roles | Kennedy / Nixon | 陳水扁（綠）、宋楚瑜（橘）、連戰（藍） | Chen, Soong, Lien |
 | cubes | support cubes | 票塊上的小旗 | flags on vote blocks |
-| bot names | — | 樁腳／總幹事／操盤手（三個強度） | Canvasser / Campaign chief / Strategist |
+| bot names | — | 助選員／總幹事／操盤手（三個強度） | Volunteer / Campaign chief / Strategist |
 | favicon | — | 一面紅色小旗 | a red pennant |
 
 ### Look
@@ -56,7 +56,7 @@ Canvas: https://claude.ai/artifact/VH7BjNkQumRRPvZjfn7afB （第一排三個方�
 - 回合：主動權（袋中抽到兩顆同色，贏家選位置）→ 行動 ×4（每階段輪轉起手）→ 動能結算（衰減、議題交換、槽位獎勵、議題衰減）→ 留牌。
 - 出牌：事件或 CP；對手事件 1 動能觸發、2 動能封鎖；外力事件必觸發；楊吉雄爆料必觸發且拿到那回合必須打出。
 - 行動：競選（填／跨營填／搶；宋跨區固定 1 CP，其他每區 1 CP）、廣告、議題。
-- 支持檢定、樁腳主（固定 4 顆）、區域媒體優勢、袋子（起始 12、抽空重裝 12）。
+- 支持檢定、地方大老（固定 4 顆）、區域媒體優勢、袋子（起始 12、抽空重裝 12）。
 - 政見發表會（同時翻牌、兩張結算、2/3/4 顆）、兩段棄保（差距 ≥ 2）、投票日七步。
 - 候選人特性：宋 5 CP 候選人牌、跨區 1 CP；連 3 CP 候選人牌、休息方塊 +1、起始媒體 2；陳起始動能 3、衰減進位。
 - 手牌（v0.3）：前期發 5 出 4 留 1 不棄、後期發 6 出 4 留 2 不棄。牌庫：前期 75（事件 50 ＋ 地方 25）、後期 36（事件 20 ＋ 地方 16）；整局不洗牌；70 張事件牌全部在規則書 14.3。
@@ -65,7 +65,7 @@ Canvas: https://claude.ai/artifact/VH7BjNkQumRRPvZjfn7afB （第一排三個方�
 ## Architecture
 - Worker + prefix router（`src/index.js`，從 tiandihui 複製只改 PREFIX）、static assets、一個 DO 一間房。
 - `engine.js`：state = { seed+rng, turn, phase, counties[25]{blocks[]{t,o}}, pos[3], mom[3], bag[3], rest[3], media[7][3], issues[3], endorse[7], decks, hands, saved, flags, log }。actions：`playCard{card, mode:event|cp, action:{kind, plan}}`、`trigger`、`preempt`、`save`、`revealDebate`、投票日自動。`view(state, seat)` 藏別人的手牌與留牌、藏牌庫順序。RNG mulberry32，JSON clone。
-- `bots.js`：從設計模擬器的啟發式起步（目標函數＝自己預估票 − 最強對手預估票，棄保用軟化流向），三級：樁腳只填塊、總幹事算棄保與觸發、操盤手留牌、封鎖、卡議題平手。每個決定帶 `why` 給 talk。
+- `bots.js`：從設計模擬器的啟發式起步（目標函數＝自己預估票 − 最強對手預估票，棄保用軟化流向），三級：助選員只填塊、總幹事算棄保與觸發、操盤手留牌、封鎖、卡議題平手。每個決定帶 `why` 給 talk。
 - `room.js`：三席；每個行動 60 秒逾時由 bot 代打；斷線 15 秒 bot 接手；sessionStorage token 回座；30 分鐘無人刪房。
 - Solo driver 在 `app.js`。
 
@@ -101,7 +101,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 
 - 中文牌文在 `public/shared/cards.js`（BE 的檔案）裡：writer 改牌文是跨界修改，交付時點名。
 - `.gitignore` 沒有主人，照 civil_war 的做法留白。
-- First guard：group 0 從規則書抄常數（154 塊、每縣市票塊數、初始盤 25/35/20 與 13/30/31、休息方塊 2/1/0、樁腳主 4、手牌 7/4/1/2、事件牌 18/17/18/7、9 回合）；group 1 檢查一局能被設定、第 1 回合第 1 階段每一席至少有一個合法動作（出任一張牌當 CP）。證偽：`orch falsify` 把棋盤資料裡台北縣的 24 改成 23，group 0 的「總塊數 154」與「台北縣 24」兩條要紅，印出的那一行留在筆記。
+- First guard：group 0 從規則書抄常數（154 塊、每縣市票塊數、初始盤 25/35/20 與 13/30/31、休息方塊 2/1/0、地方大老 4、手牌 7/4/1/2、事件牌 18/17/18/7、9 回合）；group 1 檢查一局能被設定、第 1 回合第 1 階段每一席至少有一個合法動作（出任一張牌當 CP）。證偽：`orch falsify` 把棋盤資料裡台北縣的 24 改成 23，group 0 的「總塊數 154」與「台北縣 24」兩條要紅，印出的那一行留在筆記。
 - Placeholder deploy：yes，`games.csiesheep.com/president_2000/`（noindex）。
 - Deploy rule：M5 之前（頁面 noindex）orchestrator 每次 land 之後部署並逐位元組比對；M5 起只在 owner 說 go 時。指令 `npx wrangler deploy`。
 - Orchestrator's first goal：M1 engine。Priorities：(1) 棋盤、牌庫、回合迴圈、支持檢定與袋子；(2) 60 張事件牌資料驅動，先做效果最簡單的 40 張，興票案三張與「本回合」旗標最後；(3) 政見發表會、兩段棄保、投票日七步；(4) fuzz 合法動作、view 不漏手牌；(5) 用設計模擬器當對照：同種子同策略時引擎的 bot 對打數字要落在 v0.2 基準內。
@@ -118,7 +118,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 1. ~~英文名與 slug~~ — **已定**（owner 2026-10-13）：2000: Taiwan Decides / `president_2000`。
 2. 美術方向：A 街頭旗海 / B 選舉公報 / C 開票之夜 — recommendation: **A**，棋子用小旗，地圖用區域折疊清單。
 3. 真名：用陳水扁、宋楚瑜、連戰真名，不用照片與肖像 — recommendation: 用真名（歷史題材），美術只用號次與顏色。
-4. ~~bot 三級的名字~~ — **已定**（owner 2026-10-13）：樁腳／總幹事／操盤手。
+4. ~~bot 三級的名字~~ — **已定**（owner 2026-10-13）：樁腳／總幹事／操盤手；2026-10-14 最弱一級改名助選員（owner「A and C」）。
 5. 房間計時 — owner 未反對，照建議：每個行動 60 秒，政見發表會翻牌 30 秒（M4 前可改）。
 6. 設計模擬器 — owner 未反對，照建議：M2 改寫成 `tests/sim.js`（BE），原檔留在 vault 當對照。
 
@@ -132,6 +132,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-13** — Phase 0 完成：placeholder 上線並逐位元組比對 7 個檔案相符；`TEAM.md`；第一道 guard 通過 17／失敗 0／尚未實作 11，證偽（台北縣 24→23）紅在 4 條、理由正確。Phase 0 的程式碼只有起手 session 驗過。
 - **2026-10-13** — 第二次 go（owner：「Go」）：orchestrator session 以 task chip 開在 repo，目標 M1，優先序照提案。起手 session 到此結束，不再寫產品程式碼。
 - **2026-10-14** — owner 裁決「好，用 2」：手牌改 1960 形狀（5/4/1/0、6/4/2/0）、前期牌庫補到 75（+10 事件 +5 地方）、初始盤陳 −2 連 +2。規則書 v0.3；模擬 40 / 37 / 22。repo 的 cards.js、engine 發牌、guard 的手牌與牌數常數要跟著改（issue 給 orchestrator）。
+- **2026-10-14** — owner 裁決「A and C」：bot 最弱一級「樁腳」改名「助選員」（英文 Canvasser → Volunteer，也避開和催票 canvass 撞字）；名詞「樁腳主」改為「地方大老」（英文仍是 local boss）。原因：bot 名和名詞同時出現在畫面上會混淆。規則書、design、plan 已改；repo 的字串與測試由 orchestrator 開 issue。
 - **2026-10-13** — 工具觀察：`orch falsify` 只認 git 追蹤的檔案，對未 commit 的新檔案會印「pattern 沒命中」但其實改了、restore 不還原。先 commit 再證偽。
 
 ## Next steps
