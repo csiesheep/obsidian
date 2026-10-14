@@ -1,6 +1,6 @@
 ---
 tags: [project, boardgame, plan]
-status: phase0-done
+status: m1
 created: 2026-10-13
 updated: 2026-10-13
 ---
@@ -130,9 +130,11 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-13** — Repo `csiesheep/president_2000` 建立，scaffold 自 tiandihui。
 - **2026-10-13** — 第一次 go（owner：「Go」）：所有權表、部署規則、第一道 guard、placeholder 部署、M1 優先序全部照提案。
 - **2026-10-13** — Phase 0 完成：placeholder 上線並逐位元組比對 7 個檔案相符；`TEAM.md`；第一道 guard 通過 17／失敗 0／尚未實作 11，證偽（台北縣 24→23）紅在 4 條、理由正確。Phase 0 的程式碼只有起手 session 驗過。
+- **2026-10-13** — 第二次 go（owner：「Go」）：orchestrator session 以 task chip 開在 repo，目標 M1，優先序照提案。起手 session 到此結束，不再寫產品程式碼。
 - **2026-10-13** — 工具觀察：`orch falsify` 只認 git 追蹤的檔案，對未 commit 的新檔案會印「pattern 沒命中」但其實改了、restore 不還原。先 commit 再證偽。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-10-13
-- [ ] Owner's second go: the orchestrator session starts M1.
+- [x] Owner's second go: the orchestrator session starts M1. 2026-10-13（owner：「Go」；task chip「Run the president_2000 orchestrator」已建，cwd 是 repo）
+- [ ] M1 engine lands（orchestrator 的 issue）。
