@@ -1,0 +1,133 @@
+---
+tags: [project, boardgame, plan]
+status: planning
+created: 2026-10-13
+updated: 2026-10-13
+---
+# 2000：總統的誕生 / 2000: Taiwan Decides — plan
+
+Created 2026-10-13. Repo `csiesheep/president_2000`, live at
+`https://games.csiesheep.com/president_2000/` (not yet).
+
+## Overview
+三人卡驅動選戰遊戲，改編自 *1960: The Making of the President*，場景換成 2000 年台灣總統大選：陳水扁、宋楚瑜、連戰各由一位玩家執，從 1999 年 11 月開除宋黨籍到 3 月 18 日投票日，九個回合在 25 個縣市、154 個票塊上填塊、搶塊、押議題、打廣告，最後由棄保決定勝負。一局約 40 分鐘。網頁版：單人對兩個 bot、四碼房間三人對戰（空位由 bot 補）、英文與繁體中文、手機優先。同人作品，非官方；自創名稱與美術。
+
+## Why this shape
+以 `tiandihui` 為範本：prefix router、一個 Durable Object 一間房、`public/shared/engine.js` 純函式引擎同時跑在瀏覽器與 DO、`tests/sim.js` bot 對打 harness、i18n 全部在 `public/i18n/`。這個遊戲新的部分：三人（不是兩人也不是五到十人）、比例制票塊地圖、袋子抽方塊的支持檢定、兩次棄保結算、有全規則設計模擬器可直接改寫成 `tests/sim.js`。
+
+## Licensing
+原作 *1960: The Making of the President*，Christian Leonhard 與 Jason Matthews 設計，Z-Man Games（2007）／GMT Games（2017）出版。規則與機制不受著作權保護；風險在英文商標「The Making of the President」。
+自創名稱：**2000: Taiwan Decides / 2000：總統的誕生**。中文名是 owner 定的；英文刻意不用「Making of」。
+Credit line（頁尾一次）：「同人作品，非官方。靈感來自 Christian Leonhard 與 Jason Matthews 設計的 *1960: The Making of the President*；規則與機制不受著作權保護，本作為獨立實作、自創名稱與美術。」
+真實政治人物：候選人用真名（這是歷史），不用照片、不畫肖像，以號次與顏色代表；事件牌全部是公開史實。
+*Not legal advice.*
+
+## Source material
+- 規則書：[[president_2000 - rulebook]]（v0.2，自寫，不是原作規則；含 60 張事件牌）。
+- 設計決策與模擬：[[president_2000 - design]]（第三節定案、第七節 30 個變體的模擬結果）。
+- 模擬器：`Projects/president_2000/sim/sim.js`（Node，一局 0.01 秒）。
+- 原作規則對照：ultraboardgames 的 1960 規則整理與規則書 PDF（連結在 design 第九節）。
+- 史料：2000 年縣市得票、1996 縣市得票（初始盤的依據）、選戰大事記。
+
+未決或粗糙處（v1 怎麼處理）：
+| 點 | v1 |
+|---|---|
+| 規則書第十七節的 11 個小預設（袋子 12、議題衰減領先者 −1、背書換一半等） | 照 v0.2 做；模擬顯示影響小 |
+| 張榮發挺扁、跪票 兩張牌史實未查證 | 先做，writer 查證後改牌文 |
+| 連偏弱（模擬 23%） | 不給第 8 張牌；M2 harness 再看 |
+| 走透透 另一種寫法（棋子所在縣市免檢定） | 不做 |
+
+## Theme
+| slot | original | now (zh) | now (en) |
+|---|---|---|---|
+| title | 1960: The Making of the President | 2000：總統的誕生 | 2000: Taiwan Decides |
+| sides / roles | Kennedy / Nixon | 陳水扁（綠）、宋楚瑜（橘）、連戰（藍） | Chen, Soong, Lien |
+| cubes | support cubes | 票塊上的小旗 | flags on vote blocks |
+| bot names | — | 樁腳／總幹事／操盤手（三個強度） | Canvasser / Campaign chief / Strategist |
+| favicon | — | 一面紅色小旗 | a red pennant |
+
+### Look
+方向 A「街頭旗海」（1999 年競選旗）。Ground `#f7f4ee` 紙白，ink `#1a1a1a`，line `#d9d5cc`。候選人三色：宋 `#f07f1a`、連 `#1757b5`、陳 `#138a4a`；紅 `#d7263d` 是印章、按鈕與警示。游離塊淡色：綠 `#cfe8d8`、藍 `#cfdcf2`；無色 `#e3e0d8`。Display 與 body 都是 Noto Sans TC（900 / 700 / 400），數字用 Anton。方角 4px、2px 墨線、不做陰影；頂上一條紅白藍旗串。
+Canvas: https://claude.ai/artifact/VH7BjNkQumRRPvZjfn7afB （第一排三個方向，第二排方向 A 全流程八頁）。
+
+## Rules in scope (v1 = rulebook v0.2, exactly)
+- 三人，9 回合；第 6 回合政見發表會、第 9 回合投票日。
+- 25 縣市 154 票塊（綠營游離 38、藍營游離 85、無色 31），初始盤陳 25／宋 35／連 20。
+- 回合：主動權（袋中抽到兩顆同色，贏家選位置）→ 行動 ×4（每階段輪轉起手）→ 動能結算（衰減、議題交換、槽位獎勵、議題衰減）→ 留牌。
+- 出牌：事件或 CP；對手事件 1 動能觸發、2 動能封鎖；外力事件必觸發；楊吉雄爆料必觸發且拿到那回合必須打出。
+- 行動：競選（填／跨營填／搶；宋跨區固定 1 CP，其他每區 1 CP）、廣告、議題。
+- 支持檢定、樁腳主（固定 4 顆）、區域媒體優勢、袋子（起始 12、抽空重裝 12）。
+- 政見發表會（同時翻牌、兩張結算、2/3/4 顆）、兩段棄保（差距 ≥ 2）、投票日七步。
+- 候選人特性：宋 5 CP 候選人牌、跨區 1 CP；連 3 CP 候選人牌、休息方塊 +1、起始媒體 2；陳起始動能 3、衰減進位。
+- 牌庫：前期 60（事件 40 ＋ 地方 20）、後期 36（事件 20 ＋ 地方 16）；60 張事件牌全部在規則書 14.3。
+變體與擴充（之後、資料驅動）：連發 8 張、走透透替代寫法、投票日事件、政見發表會事件、候選人牌復原。
+
+## Architecture
+- Worker + prefix router（`src/index.js`，從 tiandihui 複製只改 PREFIX）、static assets、一個 DO 一間房。
+- `engine.js`：state = { seed+rng, turn, phase, counties[25]{blocks[]{t,o}}, pos[3], mom[3], bag[3], rest[3], media[7][3], issues[3], endorse[7], decks, hands, saved, flags, log }。actions：`playCard{card, mode:event|cp, action:{kind, plan}}`、`trigger`、`preempt`、`save`、`revealDebate`、投票日自動。`view(state, seat)` 藏別人的手牌與留牌、藏牌庫順序。RNG mulberry32，JSON clone。
+- `bots.js`：從設計模擬器的啟發式起步（目標函數＝自己預估票 − 最強對手預估票，棄保用軟化流向），三級：樁腳只填塊、總幹事算棄保與觸發、操盤手留牌、封鎖、卡議題平手。每個決定帶 `why` 給 talk。
+- `room.js`：三席；每個行動 60 秒逾時由 bot 代打；斷線 15 秒 bot 接手；sessionStorage token 回座；30 分鐘無人刪房。
+- Solo driver 在 `app.js`。
+
+## Pages and UI
+| Route | View | What is on it |
+|---|---|---|
+| `/president_2000/` | Landing | 2000 大字、三面候選人旗、單人／開房／加入、credit |
+| `?play` | Solo setup | 選候選人（含各自強弱一句）、bot 強度三級、教學開關 |
+| `?room=ABCD` | Lobby | 代碼、三席（人／bot／空）、桌邊話、開局 |
+| (in game) | Table | 回合與動能列、議題三槽＋袋子、區域折疊清單（展開縣市看票塊與小旗）、手牌列 |
+| (in game) | Card | 牌的大圖與效果、事件／CP 選擇、競選縣市清單含檢定機率、桌邊話 |
+| (in game) | 政見發表會 | 三議題三欄的牌與 CP 合計、留牌列、翻牌 |
+| (in game) | 開票／Game over | 當選人、票數條、投票日流水、領先縣市、再來一局 |
+| `/president_2000/rules` | Rulebook | 目標、回合、出牌、檢定、棄保、投票日，附 60 張牌 |
+
+Mockup: https://claude.ai/artifact/VH7BjNkQumRRPvZjfn7afB 。手機優先，390 寬。地圖用「區域折疊清單」不用地理圖：手機上 25 個縣市的票塊列放不下，展開一區才看縣市。
+
+## Bots and balance
+- 第一版 bot 直接改寫自設計模擬器（`sim/sim.js`）的啟發式；harness `node tests/sim.js <games> [variant=value …]`，每格子程序、重試。
+- 目標（v0.2 模擬的基準，1000 局）：勝率陳 39 / 宋 38 / 連 23，平均票塊 44.9 / 44.7 / 43.4，勝差 3.6 塊，投票率 86%，興票案 100%、授意說 37%。M2 的 bot 對打落在陳與宋各 30–45%、連 18–30%、投票率 82–90% 就算合格；偏出去先查 bot 再查規則。
+- 「像人」：會在對手有動能時不打對手大牌、會留 4 CP 牌去政見發表會、會在投票日前把差距卡在一顆。
+
+## Team (agent-team-delivery)
+Phase 0 proposal; the owner confirms it with the first go.
+
+| Files | Role |
+|---|---|
+| `public/shared/*.js`、`src/`、`tests/sim.js`、`tests/diag.js`、`wrangler.jsonc`、`package.json` | BE |
+| `public/*.html`、`public/app.js`、`public/landing.js`、`public/rules.js`、`public/style.css`、`public/favicon.svg` | FE |
+| `public/i18n/*`、規則頁文字、`README.md` | writer |
+| `public/art/` 與產生它的 prompt | artist |
+| `tests/*.test.js`、`tests/driver.js`、`tests/harness.js`、`tools/`、`TEAM.md` | orchestrator |
+
+- 中文牌文在 `public/shared/cards.js`（BE 的檔案）裡：writer 改牌文是跨界修改，交付時點名。
+- `.gitignore` 沒有主人，照 civil_war 的做法留白。
+- First guard：group 0 從規則書抄常數（154 塊、每縣市票塊數、初始盤 25/35/20 與 13/30/31、休息方塊 2/1/0、樁腳主 4、手牌 7/4/1/2、事件牌 18/17/18/7、9 回合）；group 1 檢查一局能被設定、第 1 回合第 1 階段每一席至少有一個合法動作（出任一張牌當 CP）。證偽：`orch falsify` 把棋盤資料裡台北縣的 24 改成 23，group 0 的「總塊數 154」與「台北縣 24」兩條要紅，印出的那一行留在筆記。
+- Placeholder deploy：yes，`games.csiesheep.com/president_2000/`（noindex）。
+- Deploy rule：M5 之前（頁面 noindex）orchestrator 每次 land 之後部署並逐位元組比對；M5 起只在 owner 說 go 時。指令 `npx wrangler deploy`。
+- Orchestrator's first goal：M1 engine。Priorities：(1) 棋盤、牌庫、回合迴圈、支持檢定與袋子；(2) 60 張事件牌資料驅動，先做效果最簡單的 40 張，興票案三張與「本回合」旗標最後；(3) 政見發表會、兩段棄保、投票日七步；(4) fuzz 合法動作、view 不漏手牌；(5) 用設計模擬器當對照：同種子同策略時引擎的 bot 對打數字要落在 v0.2 基準內。
+
+## Milestones
+- M0 Scaffold and team setup (Phase 0): router, placeholder deployed and verified, `TEAM.md`, a first guard seen red. M1 on are orchestrator issues.
+- M1 Engine + tests (incl. a fuzz test over legal moves).
+- M2 Bots + harness, win-rate table against the v0.2 targets.
+- M3 Solo UI (方向 A), bot talk, i18n, rules page with the 60 cards.
+- M4 Rooms: DO, clocks, chat, bot fill, reconnect, rematch.
+- M5 Ship: noindex off, OG, JSON-LD, hub tile, sitemap.
+
+## Open questions (decide before M0)
+1. 英文名與 slug：**2000: Taiwan Decides / `president_2000`** — recommendation: 照這個；英文避開「Making of」。
+2. 美術方向：A 街頭旗海 / B 選舉公報 / C 開票之夜 — recommendation: **A**，棋子用小旗，地圖用區域折疊清單。
+3. 真名：用陳水扁、宋楚瑜、連戰真名，不用照片與肖像 — recommendation: 用真名（歷史題材），美術只用號次與顏色。
+4. bot 三級的名字：樁腳／總幹事／操盤手 — recommendation: 照這個。
+5. 房間計時：每個行動 60 秒，逾時 bot 代打一手 — recommendation: 60 秒；政見發表會翻牌 30 秒。
+6. 設計模擬器要不要進 repo：改寫成 `tests/sim.js`（BE）而不是原樣複製 — recommendation: 改寫，原檔留在 vault 當對照。
+
+## Decisions
+- **2026-10-13** — 設計定案：規則書 v0.2（門檻 4、宋跨區 1 CP、爆料必觸發且必打、連 7 張）；模擬 30 個變體，v0.2 勝率 39/38/23。
+- **2026-10-13** — 名稱：《2000：總統的誕生》（owner）；英文 2000: Taiwan Decides 與 slug `president_2000` 待 owner 確認。
+- **2026-10-13** — Repo `csiesheep/president_2000` 建立，scaffold 自 tiandihui，未部署。
+
+## Next steps
+- [ ] Owner confirms the plan, the open questions and the Phase 0 proposal (first go).
+- [ ] Phase 0: placeholder, `TEAM.md`, first guard seen red.
+- [ ] Owner's second go: the orchestrator session starts M1.
