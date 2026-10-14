@@ -115,16 +115,18 @@ Phase 0 proposal; the owner confirms it with the first go.
 - M5 Ship: noindex off, OG, JSON-LD, hub tile, sitemap.
 
 ## Open questions (decide before M0)
-1. 英文名與 slug：**2000: Taiwan Decides / `president_2000`** — recommendation: 照這個；英文避開「Making of」。
+1. ~~英文名與 slug~~ — **已定**（owner 2026-10-13）：2000: Taiwan Decides / `president_2000`。
 2. 美術方向：A 街頭旗海 / B 選舉公報 / C 開票之夜 — recommendation: **A**，棋子用小旗，地圖用區域折疊清單。
 3. 真名：用陳水扁、宋楚瑜、連戰真名，不用照片與肖像 — recommendation: 用真名（歷史題材），美術只用號次與顏色。
-4. bot 三級的名字：樁腳／總幹事／操盤手 — recommendation: 照這個。
+4. ~~bot 三級的名字~~ — **已定**（owner 2026-10-13）：樁腳／總幹事／操盤手。
 5. 房間計時：每個行動 60 秒，逾時 bot 代打一手 — recommendation: 60 秒；政見發表會翻牌 30 秒。
 6. 設計模擬器要不要進 repo：改寫成 `tests/sim.js`（BE）而不是原樣複製 — recommendation: 改寫，原檔留在 vault 當對照。
 
 ## Decisions
 - **2026-10-13** — 設計定案：規則書 v0.2（門檻 4、宋跨區 1 CP、爆料必觸發且必打、連 7 張）；模擬 30 個變體，v0.2 勝率 39/38/23。
-- **2026-10-13** — 名稱：《2000：總統的誕生》（owner）；英文 2000: Taiwan Decides 與 slug `president_2000` 待 owner 確認。
+- **2026-10-13** — 名稱：《2000：總統的誕生》／2000: Taiwan Decides，slug `president_2000`（owner 確認）。
+- **2026-10-13** — UI：先以方向 A 街頭旗海實作，之後重新檢視（owner）。真名、不用肖像；bot 三級 樁腳／總幹事／操盤手（owner）。
+- **2026-10-13** — 事件牌樣張 12 張加進 canvas（Cards 版面）：色帶歸屬、CP 黑方塊、議題圓、催票縣市與休息方塊底列、必觸發紅框。
 - **2026-10-13** — Repo `csiesheep/president_2000` 建立，scaffold 自 tiandihui，未部署。
 
 ## Next steps
