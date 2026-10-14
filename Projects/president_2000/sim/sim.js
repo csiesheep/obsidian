@@ -109,14 +109,14 @@ function mkLocal(){const L=[];let i=0;for(const n in LOCAL_DIST)for(let k=0;k<LO
 // ---------- Game ----------
 class Game{
   constructor(seed,opts){
-    this.rand=mulberry32(seed);this.o=Object.assign({bagInit:12,lien8:false,stealCheck:'always',endorse:'half',threshold:'u4',issueDecay:'leader',mediaSteal:false,greyCP:false,soongFree:'flat1',baoliaoMust:true,adj:'0,0,0',baoliaoNoSave:false,baoliaoMustPlay:true,log:false},opts);
+    this.rand=mulberry32(seed);this.o=Object.assign({bagInit:12,lien8:false,stealCheck:'always',endorse:'half',threshold:'u4',issueDecay:'leader',mediaSteal:false,greyCP:false,soongFree:'flat1',baoliaoMust:true,adj:'0,0,0',baoliaoNoSave:false,baoliaoMustPlay:true,deal5:false,chenMom:3,chenCeil:true,log:false},opts);
     this.counties=COUNTY_DATA.map(([name,reg,G,B,N,init])=>{const blocks=[];for(let k=0;k<G;k++)blocks.push({t:'G',o:-1});for(let k=0;k<B;k++)blocks.push({t:'B',o:-1});for(let k=0;k<N;k++)blocks.push({t:'N',o:-1});return{name,reg,blocks,init};});
     for(const c of this.counties){for(let p=0;p<3;p++){let n=c.init[p];for(const b of c.blocks){if(n===0)break;if(b.o<0&&b.t===CAMP(p)){b.o=p;n--;}}}}
     // start adjustment "dc,ds,dl": +n adds n cubes on own-camp empty blocks (largest counties first), -n removes n cubes
     const adj=String(this.o.adj).split(',').map(Number);const byBig=this.counties.map((c,i)=>i).sort((a,b)=>this.counties[b].blocks.length-this.counties[a].blocks.length);
     for(let p=0;p<3;p++){let n=adj[p]||0;while(n!==0){let done=false;for(const c of byBig){const blocks=this.counties[c].blocks;if(n>0){const b=blocks.find(b=>b.o<0&&b.t===CAMP(p));if(b){b.o=p;n--;done=true;break;}}else{const b=blocks.find(b=>b.o===p);if(b){b.o=-1;n++;done=true;break;}}}if(!done)break;}}
     this.pos=[CN['台南縣'],CN['南投縣'],CN['台北市']];
-    this.mom=[3,2,1];this.bag=[this.o.bagInit,this.o.bagInit,this.o.bagInit];this.rest=[0,0,0];
+    this.mom=[this.o.chenMom,2,1];this.bag=[this.o.bagInit,this.o.bagInit,this.o.bagInit];this.rest=[0,0,0];
     this.media=Array.from({length:7},()=>[0,0,0]);this.media[0][LIEN]=1;this.media[2][LIEN]=1;
     this.issues=this.shuffle(ISS.map(n=>({name:n,cubes:[0,0,0]})));// index = slot
     this.endorse=Array(7).fill(-1);this.endDeck=this.shuffle([0,1,2,3,4,5,6,0,1,2,3,4,5,6]);this.endDisc=[];
@@ -198,7 +198,7 @@ class Game{
     this.projAll();const lead=this.score(init,this.pt)>0;const others=[0,1,2].filter(q=>q!==init);const ord=lead?[others[0],others[1],init]:[init,others[0],others[1]];return ord;}
   // ----- turn -----
   normalTurn(){const t=this.turn;this.flags.freeAll=[false,false,false];this.flags.freeCross=[0,0,0];this.flags.chenImmune=false;this.flags.lienNoRest=false;
-    for(let p=0;p<3;p++)this.draw(p,this.o.lien8&&p===LIEN?8:7);
+    for(let p=0;p<3;p++)this.draw(p,this.o.deal5?(t<=5?5:6):(this.o.lien8&&p===LIEN?8:7));
     this.initiative=this.initiativeCheck();let ord=this.orderFor(this.initiative);
     for(let ph=0;ph<4;ph++){const order=ord.slice(ph%3).concat(ord.slice(0,ph%3));for(const p of order){
       if(!this.candUsed[p]&&this.candTurn[p]===t&&ph===0){this.candUsed[p]=true;const cp=p===LIEN?3:5;this.rest[p]+=p===LIEN?2:0;this.doAction(p,cp);continue;}
@@ -209,7 +209,7 @@ class Game{
     for(let p=0;p<3;p++){const hand=this.hands[p];if(this.o.baoliaoNoSave){const k=hand.findIndex(c=>c.must);if(k>=0)this.disc.push(hand.splice(k,1)[0]);}if(t<=5){hand.sort((a,b)=>b.cp-a.cp);const s=hand.shift();if(s)this.saveDeb[p].push(s);}else{hand.sort((a,b)=>this.countyValue(b.county)-this.countyValue(a.county));for(let k=0;k<2;k++){const s=hand.shift();if(s)this.saveEle[p].push(s);}}this.disc.push(...hand.splice(0));
       this.bag[p]+=this.rest[p];this.rest[p]=0;}}
   countyValue(c){const cc=this.counties[c];let e=0;for(const b of cc.blocks)if(b.o<0)e++;return e+cc.blocks.length*0.2;}
-  momentumPhase(){for(let p=0;p<3;p++)this.mom[p]=p===CHEN?Math.ceil(this.mom[p]/2):Math.floor(this.mom[p]/2);
+  momentumPhase(){for(let p=0;p<3;p++)this.mom[p]=(p===CHEN&&this.o.chenCeil)?Math.ceil(this.mom[p]/2):Math.floor(this.mom[p]/2);
     const nl=this.natLead();if(nl>=0){for(let k=1;k<3;k++){if(this.issueLeader(this.issues[k])===nl&&this.issueLeader(this.issues[k-1])!==nl){[this.issues[k],this.issues[k-1]]=[this.issues[k-1],this.issues[k]];break;}}}
     const l0=this.issueLeader(this.issues[0]),l1=this.issueLeader(this.issues[1]),l2=this.issueLeader(this.issues[2]);
     if(l1>=0){if(this.mom[l1]>=2)this.giveEndorse(l1);else this.mom[l1]++;}
