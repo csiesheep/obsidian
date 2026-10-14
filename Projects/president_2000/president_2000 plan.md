@@ -2,7 +2,7 @@
 tags: [project, boardgame, plan]
 status: m1
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-14
 ---
 # 2000：總統的誕生 / 2000: Taiwan Decides — plan
 
@@ -59,7 +59,7 @@ Canvas: https://claude.ai/artifact/VH7BjNkQumRRPvZjfn7afB （第一排三個方�
 - 支持檢定、樁腳主（固定 4 顆）、區域媒體優勢、袋子（起始 12、抽空重裝 12）。
 - 政見發表會（同時翻牌、兩張結算、2/3/4 顆）、兩段棄保（差距 ≥ 2）、投票日七步。
 - 候選人特性：宋 5 CP 候選人牌、跨區 1 CP；連 3 CP 候選人牌、休息方塊 +1、起始媒體 2；陳起始動能 3、衰減進位。
-- 牌庫：前期 60（事件 40 ＋ 地方 20）、後期 36（事件 20 ＋ 地方 16）；60 張事件牌全部在規則書 14.3。
+- 手牌（v0.3）：前期發 5 出 4 留 1 不棄、後期發 6 出 4 留 2 不棄。牌庫：前期 75（事件 50 ＋ 地方 25）、後期 36（事件 20 ＋ 地方 16）；整局不洗牌；70 張事件牌全部在規則書 14.3。
 變體與擴充（之後、資料驅動）：連發 8 張、走透透替代寫法、投票日事件、政見發表會事件、候選人牌復原。
 
 ## Architecture
@@ -131,6 +131,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-13** — 第一次 go（owner：「Go」）：所有權表、部署規則、第一道 guard、placeholder 部署、M1 優先序全部照提案。
 - **2026-10-13** — Phase 0 完成：placeholder 上線並逐位元組比對 7 個檔案相符；`TEAM.md`；第一道 guard 通過 17／失敗 0／尚未實作 11，證偽（台北縣 24→23）紅在 4 條、理由正確。Phase 0 的程式碼只有起手 session 驗過。
 - **2026-10-13** — 第二次 go（owner：「Go」）：orchestrator session 以 task chip 開在 repo，目標 M1，優先序照提案。起手 session 到此結束，不再寫產品程式碼。
+- **2026-10-14** — owner 裁決「好，用 2」：手牌改 1960 形狀（5/4/1/0、6/4/2/0）、前期牌庫補到 75（+10 事件 +5 地方）、初始盤陳 −2 連 +2。規則書 v0.3；模擬 40 / 37 / 22。repo 的 cards.js、engine 發牌、guard 的手牌與牌數常數要跟著改（issue 給 orchestrator）。
 - **2026-10-13** — 工具觀察：`orch falsify` 只認 git 追蹤的檔案，對未 commit 的新檔案會印「pattern 沒命中」但其實改了、restore 不還原。先 commit 再證偽。
 
 ## Next steps
