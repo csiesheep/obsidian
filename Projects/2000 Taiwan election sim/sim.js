@@ -109,7 +109,7 @@ function mkLocal(){const L=[];let i=0;for(const n in LOCAL_DIST)for(let k=0;k<LO
 // ---------- Game ----------
 class Game{
   constructor(seed,opts){
-    this.rand=mulberry32(seed);this.o=Object.assign({bagInit:12,lien8:false,stealCheck:'always',endorse:'half',threshold:'u4',issueDecay:'leader',mediaSteal:false,greyCP:false,soongFree:'flat1',baoliaoMust:true,adj:'0,0,0',baoliaoNoSave:false,baoliaoMustPlay:false,log:false},opts);
+    this.rand=mulberry32(seed);this.o=Object.assign({bagInit:12,lien8:false,stealCheck:'always',endorse:'half',threshold:'u4',issueDecay:'leader',mediaSteal:false,greyCP:false,soongFree:'flat1',baoliaoMust:true,adj:'0,0,0',baoliaoNoSave:false,baoliaoMustPlay:true,log:false},opts);
     this.counties=COUNTY_DATA.map(([name,reg,G,B,N,init])=>{const blocks=[];for(let k=0;k<G;k++)blocks.push({t:'G',o:-1});for(let k=0;k<B;k++)blocks.push({t:'B',o:-1});for(let k=0;k<N;k++)blocks.push({t:'N',o:-1});return{name,reg,blocks,init};});
     for(const c of this.counties){for(let p=0;p<3;p++){let n=c.init[p];for(const b of c.blocks){if(n===0)break;if(b.o<0&&b.t===CAMP(p)){b.o=p;n--;}}}}
     // start adjustment "dc,ds,dl": +n adds n cubes on own-camp empty blocks (largest counties first), -n removes n cubes
