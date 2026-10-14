@@ -134,6 +134,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-14** — owner 裁決「好，用 2」：手牌改 1960 形狀（5/4/1/0、6/4/2/0）、前期牌庫補到 75（+10 事件 +5 地方）、初始盤陳 −2 連 +2。規則書 v0.3；模擬 40 / 37 / 22。repo 的 cards.js、engine 發牌、guard 的手牌與牌數常數要跟著改（issue 給 orchestrator）。
 - **2026-10-14** — owner 裁決「A and C」：bot 最弱一級「樁腳」改名「助選員」（英文 Canvasser → Volunteer，也避開和催票 canvass 撞字）；名詞「樁腳主」改為「地方大老」（英文仍是 local boss）。原因：bot 名和名詞同時出現在畫面上會混淆。規則書、design、plan 已改；repo 的字串與測試由 orchestrator 開 issue。
 - **2026-10-14** — owner 裁決「#10 is fine」：M2 平衡，全操盤手對打 1000 局三批合計連約 30.2%（帶的上限 30%）算合格；陳、宋、投票率都在帶內。另「It is fine」：全助選員對打宋贏 97% 也接受。
+- **2026-10-14** — owner 對 Q4–Q8 回「Yes」（照 orchestrator 建議）：Q4（外力牌放方塊由被放的一方選）、Q5（棄保類牌移除與放方塊都檢定）、Q6（本回合免檢定只免同營）、Q8（事件縣市前後期各自分配）維持；**Q7 改 B**：政見發表會牌出完時，沒人出過牌的議題（0 比 0 比 0）不結算，議題依原順序回軌道剩下的空槽。規則書 §九 6 已改。
 - **2026-10-13** — 工具觀察：`orch falsify` 只認 git 追蹤的檔案，對未 commit 的新檔案會印「pattern 沒命中」但其實改了、restore 不還原。先 commit 再證偽。
 
 ## Next steps
