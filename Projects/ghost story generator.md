@@ -77,7 +77,7 @@ annotate 用 Haiku（批量抽取，便宜），write 和 judge 用 Opus。三�
 
 **資料**：抓了 201 篇（2023 到 2026，推文中位數 54，46 篇爆）。因為這台機器沒有 API 憑證，先用 Claude 子代理照 annotate prompt 手標 60 篇當種子，38 篇可用（其他是系列中段、回文、翻譯文）。
 
-**詞彙表被真資料改掉的地方**：加了場景 `home`（自家）、`ruins`（廢墟），機制 `dead_contact`（亡者來電）、`proxy_sighting`（透過通靈者看見），聲音標記 `translated`（統計預設排除）。抓取改成跳過 `Re:`。
+**詞彙表被真資料改掉的地方**：加了場景 `home`（自家）、`ruins`（廢墟），機制 `dead_contact`（亡者來電）、`proxy_sighting`（透過通靈者看見），聲音標記 `translated`（預設納入，`stats --exclude-translated` 可排除；10-13 使用者決定翻譯文也要用）。抓取改成跳過 `Re:`。
 
 **38 篇看到的訊號（樣本小，是假設不是結論）**：
 
