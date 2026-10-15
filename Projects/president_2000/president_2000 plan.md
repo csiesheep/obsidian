@@ -145,6 +145,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-15** — owner：「end game page，可以用qwen2.1 產生圖，顯示得票數跟得票率 / 設計三個版本，給我看」，看完三版選「第一版」（開票之夜：當選人陣營的旗海與煙火主視覺、得票數與得票率、投票率、你的名次、2000 年史實對照；canvas R26gizGsymbFUZnLxPoP7V）。#32 artist 把三張主視覺做成 art/end/<seat>.webp，#33 FE 改結局頁。
 - **2026-10-15** — owner：「重新設計卡牌UI，不要有那麼多線條的框。用陣營顏色當成卡牌的背景色。設計3版給我看」，選「二版」（滿版圖：插圖滿版上緣、融進陣營色底、CP 在左上色塊、沒有框線；canvas KxzB6DUEdDH45zSVb477NQ）。陣營色：陳 #2f7d46、宋 #c25a12、連 #2456a6、外力 #3d3732、地方 #86683a（宋與地方加深，是 orchestrator 為白字對比定的）。候選人牌不在範圍。#36 FE；2026-10-15 land（296dc58，部署後線上 same 123 / diff 0）。實作時宋用 #bc540c（比 #c25a12 再深一點，白字對比才過 4.5:1，orchestrator 裁決）。
 - **2026-10-15** — owner：「候選人牌也改版」。orchestrator 裁決（#37，owner 沒逐條說）：照 #36 二版做——座位陣營色底、沒有框線、art/candidates/<座位>.webp 滿版插圖、左上 CP 角標（5/5/3）、蠟封章改成右上角膠囊「整局一次／已用」；行為不變（點了再問一次）；不能用時跟不能出的手牌一樣淡。#37 FE；2026-10-15 land（63c775d，退回兩次：桌機名字落在畫面外與英文名被截、不能用時沒變淡；部署後線上 same 123 / diff 0）。
+- **2026-10-15** — owner 對體驗改善提案（canvas 73DdDpKSfhjNotCsVUKypN，15 項分 P1/P2/P3）說「Design P1 first and show me」，看完 P1 設計頁說「Go ahead」。P1 = ①回合開場卡、②對手出牌重播、⑤介面音效（瀏覽器合成，0 KB）、⑨縣市框插圖、⑬悔一步（單人）、⑭對手速度。orchestrator 定的細節，寫在 owner 看過的便利貼上：回合日期 = 2000/3/18 往前 (9−n)×2 週；悔一步只在單人、電腦沒動且沒抽亂數時可悔；開場卡在房間各自出現、不擋計時。orchestrator 裁決（owner 尚未看過）：便利貼寫的頭條是「影響最大的那一步」，為了能驗證改成「上一回合以事件打出或觸發、CP 最高的牌」。第一批：#40 BE（turn 紀錄帶 votes）、#41 ⑨、#42 ⑤⑭、#43 ⑬；第二批 ①（#44）、②（#45）。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
