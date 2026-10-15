@@ -140,6 +140,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-14** — owner 選插圖：**牌面＝美術三「桌上模型」**（陳剪紙、宋黏土、連木頭黃銅加藍漆鐵皮、地方鐵道模型小鎮、外力報紙雕塑，Qwen Image 2.1 微距照片風）；**議題＝美術二「平面插畫」**（磚紅、米白、炭灰的中世紀現代風）；**候選人＝美術二「競選文宣」**（宋手繪看板、連九〇年代官方海報、陳絹印海報；只畫象徵物：雨鞋與橙背心／深藍扶手椅與白梅／裂開柏油長出的綠芽）。清廉議題圖用「出淤泥而不染」的白蓮（天秤版本兩次都畫成金幣較重，棄用）。
 - **2026-10-15** — owner：「Implement a tutorial of the game, try to lead the user run some steps」。orchestrator 裁決（#27）：只做單人、固定一局（陳對助選員、固定種子），帶玩家親手走完第一回合的一次完整行動（出牌拿 CP、競選、點縣市放塊、一次檢定、結束行動），看一次對手、預告議題；教學中只能照教學走，隨時可跳過；首頁入口 `?tutorial`。
 - **2026-10-13** — 工具觀察：`orch falsify` 只認 git 追蹤的檔案，對未 commit 的新檔案會印「pattern 沒命中」但其實改了、restore 不還原。先 commit 再證偽。
+- **2026-10-15** — owner 定稿精簡牌桌（#29，canvas WQA4hG46qh5FBqXCWGfBjh「定稿」）：「第一版的候選人 / 第二版的議題 / 第一版的地圖」；地圖上方塊一樣大、框照票塊數變大；候選人以圓圖站在所在縣市，縣市框不變色、上方與地圖上方都不另列位置；候選人板縮小，票數寫成「33」+小字「0萬票」（每顆 10 萬票）。orchestrator 裁決（#29，不是 owner 的）：手機上手牌、已留、袋子改成點候選人板才顯示。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
