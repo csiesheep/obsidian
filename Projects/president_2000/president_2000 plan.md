@@ -144,6 +144,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-15** — owner 裁決媒體改全國（回應 orchestrator 的簡化清單 2a/2b 與 A/B/C 三案）：「2b + B」。即：七區媒體格改成一格「全國媒體」，廣告行動照舊但不選區；拿掉區域媒體優勢的免檢定；全國媒體領先者保留「交換議題位置」與投票日每顆換 1 顆袋中方塊，並**每回合結束 +1 動能**（B 案）。簡化清單其他項（封鎖、背書、檢定條件、議題獎勵、休息方塊…）owner 尚未裁決。orchestrator 待辦：改規則書、寫驗收（含三位候選人勝率範圍）、派 BE。
 - **2026-10-15** — owner：「end game page，可以用qwen2.1 產生圖，顯示得票數跟得票率 / 設計三個版本，給我看」，看完三版選「第一版」（開票之夜：當選人陣營的旗海與煙火主視覺、得票數與得票率、投票率、你的名次、2000 年史實對照；canvas R26gizGsymbFUZnLxPoP7V）。#32 artist 把三張主視覺做成 art/end/<seat>.webp，#33 FE 改結局頁。
 - **2026-10-15** — owner：「重新設計卡牌UI，不要有那麼多線條的框。用陣營顏色當成卡牌的背景色。設計3版給我看」，選「二版」（滿版圖：插圖滿版上緣、融進陣營色底、CP 在左上色塊、沒有框線；canvas KxzB6DUEdDH45zSVb477NQ）。陣營色：陳 #2f7d46、宋 #c25a12、連 #2456a6、外力 #3d3732、地方 #86683a（宋與地方加深，是 orchestrator 為白字對比定的）。候選人牌不在範圍。#36 FE；2026-10-15 land（296dc58，部署後線上 same 123 / diff 0）。實作時宋用 #bc540c（比 #c25a12 再深一點，白字對比才過 4.5:1，orchestrator 裁決）。
+- **2026-10-15** — owner：「候選人牌也改版」。orchestrator 裁決（#37，owner 沒逐條說）：照 #36 二版做——座位陣營色底、沒有框線、art/candidates/<座位>.webp 滿版插圖、左上 CP 角標（5/5/3）、蠟封章改成右上角膠囊「整局一次／已用」；行為不變（點了再問一次）。#37 FE。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
