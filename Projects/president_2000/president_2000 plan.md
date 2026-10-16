@@ -158,6 +158,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-15** — 換成 v0.5 的拆單：規則書本文改成 v0.5（orchestrator，v0.4 留備份）；#52 文字（writer，驗收 rulestext.test.js 改成 v0.5，已派）；#53 遊戲換成 v0.5（FE，驗收 v05play.test.js，等 #51 與 #52 land 後派）。v0.4 只留給切換前存的舊局。
 - **2026-10-15** — #52 v0.5 文字 land（b18ea88）並部署：線上規則頁已是 v0.5。為縮短「規則頁 v0.5、遊戲 v0.4」的空窗，#53 改成不等 #51、現在就派（跟 #51 並行，避開 cardFace／miniCard／rules.js）。
 - **2026-10-15** — #51 票根（乙）land（041147e）並部署：每張事件牌與地方牌底下一截米色票根，「議題」配線條報紙圖示、「投票日催票」配票匭與縣市；插圖右上角的議題膠囊拿掉。
+- **2026-10-15** — owner：「分析目前v0.5 ，提出可以簡化到規則」。300 局 v0.5 的頻率與票數分析寫在 [[president_2000 - v0.5 簡化分析]]：一級（封鎖、第二槽擇一、第一次棄保）、二級（同營填檢定條件、議題交換、陳的進位、主動權檢定）、三級只列出。等 owner 選要模擬哪些。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
