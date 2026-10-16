@@ -157,6 +157,7 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-15** — owner 看過 v0.5 的數字（600 局 陳 42.0／宋 30.2／連 27.8%、勝差 4.26、投票率 86.1%）與兩個發現後：「改成 v0.5」。遊戲換成 v0.5：新開的單人與房間用 v0.5，規則書、規則頁、教學、地圖與牌文跟著改（orchestrator 拆單）。
 - **2026-10-15** — 換成 v0.5 的拆單：規則書本文改成 v0.5（orchestrator，v0.4 留備份）；#52 文字（writer，驗收 rulestext.test.js 改成 v0.5，已派）；#53 遊戲換成 v0.5（FE，驗收 v05play.test.js，等 #51 與 #52 land 後派）。v0.4 只留給切換前存的舊局。
 - **2026-10-15** — #52 v0.5 文字 land（b18ea88）並部署：線上規則頁已是 v0.5。為縮短「規則頁 v0.5、遊戲 v0.4」的空窗，#53 改成不等 #51、現在就派（跟 #51 並行，避開 cardFace／miniCard／rules.js）。
+- **2026-10-15** — #51 票根（乙）land（041147e）並部署：每張事件牌與地方牌底下一截米色票根，「議題」配線條報紙圖示、「投票日催票」配票匭與縣市；插圖右上角的議題膠囊拿掉。
 
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
