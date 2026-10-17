@@ -194,6 +194,11 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-17** — #70 第三次退回：手機上對手那一行被夾成一行後露出下一行的上半截、紙條壓到議題總數 6px（中英文各 13＋7 次）。auto70.mjs 加一列「地圖下緣的浮標只露整行、彼此不重疊」（b88132b）；main 的英文也紅這列（#66 留下的 12 次），一併要 #70 修。
 - **2026-10-17** — #69 land（23d951e，父節點 b88132b 與 FE d03682f）並部署（Version 228702a7，線上同 126、異 0）：打法按鈕兩行、背書圖例併入議題總數、自動打開的面板補一句、確認時關縣市框、留牌時托盤升起、不能悔改小字、悔一步在面板裡。checker：npm test 37/0、labels69 6/6、12 支工具全 PASS；證偽四個各紅在該紅的列。閘門翻成失敗（82debf4）。另看到英文手機抬起的牌面票根縣名被切（#51 的寬度），待開。
 - **2026-10-17** — owner：「Desktop 上，紀錄 預設展開在右邊」→ #74：桌機（≥1100 寬）紀錄一打開就停在地圖右邊那一欄，跟決策面板共用（面板在上、紀錄不壓到它）、捲到最新、地圖不變小；orchestrator 裁決：開著時按鈕不顯示新行數。驗收 tools/feeddock74.mjs（46 列；探針全綠、八個缺陷各紅在該紅的列），gamepage66 改成桌機兩種開關順序都接受。
+- **2026-10-17** — #72 退回一次：記號都對（checker：marks72 2/2、11 支工具全 PASS、四個證偽各紅），但疊起來的 chip 蓋住下面的縣市框（手機中文 26、英文 41、桌機 23 次；#72 之前 0／1／0）。marks72.mjs 加「chip 不壓到別的縣市框」（6ba5175）。裁決：英文的「搶」用 ⇆。
+- **2026-10-17** — #70 第四版內容接受，但 table.js 整個變成 CRLF（11 行的改動顯示成 2558 行）→ 加 tests/lineends.test.js（public/tests/tools 只准 LF，畫師的 prompts.json 是已知例外，309887a）。第五版只改回換行（126 個 public 檔去掉 CR 後與第四版逐位元組相同）。
+- **2026-10-17** — #70 land（1a54d50，父節點 9b74ffe 與 FE 8a6f708）並部署（Version fb362657，線上同 126、異 0）：單一選項自己做掉、紙條、悔一步跳過、地圖下緣的浮標只露整行不重疊。checker：npm test 38/0、auto70 5/5、工具 auto70 6 等全 PASS；證偽四個各紅。compact29「點候選人圖到縣市」一列偶爾紅，main 上三次也紅一次，是舊的不穩定。閘門翻成失敗（8f4eb89）。
+- **2026-10-17** — #74 退回一次：右欄停靠、面板在上、捲到最新、不顯示紅點都對（checker：feeddock74 46、13 支工具全 PASS、四個證偽各紅），但紀錄裡「剛剛」被切成半行、清單第一行也半行，貼在一起像疊字（1280×800 對手動完、1366×657 抬起手牌）。feeddock74.mjs 加「紀錄裡不被切」（8f4eb89）。#73 在 #70 上線後派 FE（tools/handoff73.mjs 在 9b74ffe：探針全綠、十個缺陷各紅）。
+- **2026-10-17** — 環境：停背景的 wrangler 只停得到外層 shell，wrangler 會留著並在 workerd 掛掉時重啟它；8778 曾同時有三台在聽，新的那台沒有回應。之後停伺服器一律 taskkill wrangler 的 node PID（/T）。
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-10-13
