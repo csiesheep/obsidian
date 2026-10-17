@@ -199,6 +199,10 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-17** — #70 land（1a54d50，父節點 9b74ffe 與 FE 8a6f708）並部署（Version fb362657，線上同 126、異 0）：單一選項自己做掉、紙條、悔一步跳過、地圖下緣的浮標只露整行不重疊。checker：npm test 38/0、auto70 5/5、工具 auto70 6 等全 PASS；證偽四個各紅。compact29「點候選人圖到縣市」一列偶爾紅，main 上三次也紅一次，是舊的不穩定。閘門翻成失敗（8f4eb89）。
 - **2026-10-17** — #74 退回一次：右欄停靠、面板在上、捲到最新、不顯示紅點都對（checker：feeddock74 46、13 支工具全 PASS、四個證偽各紅），但紀錄裡「剛剛」被切成半行、清單第一行也半行，貼在一起像疊字（1280×800 對手動完、1366×657 抬起手牌）。feeddock74.mjs 加「紀錄裡不被切」（8f4eb89）。#73 在 #70 上線後派 FE（tools/handoff73.mjs 在 9b74ffe：探針全綠、十個缺陷各紅）。
 - **2026-10-17** — 環境：停背景的 wrangler 只停得到外層 shell，wrangler 會留著並在 workerd 掛掉時重啟它；8778 曾同時有三台在聽，新的那台沒有回應。之後停伺服器一律 taskkill wrangler 的 node PID（/T）。
+- **2026-10-17** — #74 land（0775146，父節點 8f4eb89 與 FE beb519d）並部署（Version e4da9256，線上同 126、異 0）：桌機紀錄一打開就在右欄、面板在上、紀錄在下、捲到最新、不畫「剛剛」、開著時沒有紅點；教學裡維持關著。checker：feeddock74 51 等全 PASS、證偽三個各紅；labels69 偶發紅一次，main 與 merge 各三次全過。
+- **2026-10-17** — #72 第二次退回：chip 不再壓到縣市框（另一組 18 局面 0 次），但手機上高雄、台東一帶的 chip 碰到地圖下緣的浮標（中文 3、英文 4）。marks72.mjs 加「記號不被浮標蓋住」（9b3726f；第一版用中心點量不到半邊被蓋的情況，改量框的重疊）。turncard44 觀察時間 4.5 → 7 秒（#73 的交棒卡排在開場卡之後，規則不變）。#73 需 rebase 到 9b3726f（與 #74 在 app.js、roompage.js 衝突）。
+- **2026-10-17** — owner 問：「動能點可以做什麼用？」→ 答：v0.7 裡三個用途（花 1 觸發對手拿去當 CP 的自己的牌、投票日每點 +10% 催票運氣、兩種平手的順位）；不影響平常檢定；每回合減半。
+- **2026-10-17** — owner：「想要移除動能點；敵人事件一定觸發/去除動能變催票運氣；模擬一下對勝率的影響」→ #75（BE）：createGame 參數 momentum "none"、trigger "always"|"never"，四種設定各 600 局（A 現在、B 提案、C 只拿掉動能、D 只改觸發）。驗收 tools/balance75.mjs（735c91f；A 釘在 main：陳 36.5／宋 34.8／連 28.7，差 3.38，觸發 9.15／局）。orchestrator 補的假設：議題獎勵與牌上的動能部分直接拿掉、不補；4 張牌變成空事件（政黨輪替、民調領先、民調公布、TVBS 民調），另 23 張少一句；平手改比座位與縣市數。探針顯示電腦不跟著調整時 B 的陳只剩 11%，所以要求電腦照新規則評估。
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-10-13
