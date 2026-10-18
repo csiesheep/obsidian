@@ -25,7 +25,7 @@ updated: 2026-10-18
 |---|---|---|---|
 | Instagram | `gui.chang.shi` | 可用 | `guichangshi` 被一個空帳號占走，所以用加點版 |
 | Threads | `gui.chang.shi` | 可用 | 用 IG 登入就同名 |
-| YouTube | `@gui.chang.shi` | 可用 | `@guichangshi` 也可用，建頻道時兩個都試，拿得到不加點的就用不加點的 |
+| YouTube | `@鬼唱詩` | 已拿到（2026-10-18） | 漢字 handle；`@guichangshi`、`@gui.chang.shi` 仍空著，當備用 |
 | TikTok | `@gui.chang.shi` | 可用 | 只占名，台灣沒分潤 |
 | Facebook 粉專 | `gui.chang.shi` | 沒有公開頁，應可用 | FB 對私人帳號也顯示同一句，建粉專設網址時才確定；備選 `guichangshi` |
 | Pinterest | `guichangshi` | 可用 | Pinterest 不收點 |
@@ -133,8 +133,8 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - [x] **Instagram**：`@gui.chang.shi` 2026-10-18 用這個 email 註冊完成。不要併進個人 IG 的帳號中心，用「新增帳號」切換就好。
 - [ ] 註冊完立刻：雙重驗證（驗證 app）、備用碼存好、關「同步聯絡人」、關「允許別人用電話／email 找到你」。
 - [ ] 切專業帳號：設定與活動 → 帳號類型和工具 → 切換為專業帳號 → 創作者 → 類別「數位創作者」。
-- [ ] **Threads**：用 IG 登入，確認 handle 是 `gui.chang.shi`。公開；回覆開給所有人；隱藏字詞加詐騙常見詞。
-- [ ] **YouTube**：用同一個 email 開頻道「鬼唱詩」，handle 先試 `@guichangshi`，拿不到再 `@gui.chang.shi`。先不上傳。
+- [x] **Threads**：2026-10-18 用 IG 登入，`@gui.chang.shi` 上線，顯示名稱鬼唱詩。還要做：公開；回覆開給所有人；隱藏字詞加詐騙常見詞。
+- [x] **YouTube**：頻道「鬼唱詩」2026-10-18 開好，handle `@鬼唱詩`（漢字 handle，YouTube 允許 1 到 10 字）。網址複製出來是百分號編碼，對外一律貼 `guichangshi.com/yt` 的轉址（網域買好後設）。先不上傳。
 - [ ] **TikTok**：註冊，使用者名稱 `gui.chang.shi`。只占名。
 - [ ] **Facebook 粉專**：用擁有者的個人 FB 建粉專「鬼唱詩」（管理員身分對外不顯示），網址試 `gui.chang.shi`，不行就 `guichangshi`。先不發。
 - [ ] **Pinterest**：使用者名稱 `guichangshi`。只占名。
@@ -178,3 +178,5 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 
 - 2026-10-18：定名鬼唱詩、`@gui.chang.shi`。查完各平台可用性，寫風格、文字範本、開帳步驟。
 - 2026-10-18：Gmail `gui.chang.shi.tw@gmail.com` 和 IG `@gui.chang.shi` 開好。
+- 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
+- 2026-10-18：Threads `@gui.chang.shi` 開好。
