@@ -12,7 +12,7 @@ updated: 2026-10-17
 # 鬼故事 IG + Threads 經營
 
 > [!info] 一句話
-> 一個鬼故事品牌帳號，Threads 放文字短篇和互動，IG 放漫畫輪播。故事用 ghost-story 寫，漫畫用 ghost-comic 畫，都是原創、AI 輔助、純屬虛構。上游專案是 [[ghost story generator]]。
+> 一個鬼故事品牌帳號，Threads 放文字短篇和互動，IG 放漫畫輪播。故事用 ghost-story 寫，漫畫用 ghost-comic 畫，都是原創、AI 輔助、純屬虛構。上游專案是 [[ghost story generator]]。為什麼做、對誰做、其他平台、其他格式、怎麼賺、什麼時候停，在 [[ghost story business plan]]。
 
 IG 和 Threads 都不能自己開「社團」。Threads 的 Communities 是 Meta 挑主題開的，不能自建（2025-10 全球 beta，200 多個主題）。所以這份計畫做的是「品牌帳號 + 兩個平台分工」。要成員制的社團得另外開 Facebook 社團。
 
@@ -115,3 +115,4 @@ ghost-story 原本是用 PTT 推文數學出什麼樣的故事受歡迎。IG 和
 ## 歷程
 
 - 2026-10-17：擬計畫。
+- 2026-10-17：寫 [[ghost story business plan]]。平台分級（核心 Threads、IG；導流 PTT、Dcard；變現 YouTube、FB 社團；小紅書不做）、新格式（三格預告 Reel、條漫、有聲版、互動鬼故事、季刊）、收入模式和停損都在那邊。
