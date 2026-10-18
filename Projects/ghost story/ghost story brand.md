@@ -7,7 +7,7 @@ tags:
   - social
   - ghost-story
   - brand
-status: ready-to-create-accounts
+status: accounts-in-progress
 created: 2026-10-18
 updated: 2026-10-18
 ---
@@ -129,8 +129,8 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 
 ### 10/18 到 10/19：占名
 
-- [ ] 開品牌專用 email：**新開一個免費 Gmail**（試 `guichangshi@gmail.com`），不是個人 Gmail 的別名，也不是公司信箱，也不用付費的 Google Workspace。所有平台（IG、Threads、YouTube、TikTok、FB 粉專、Pinterest）都用它登入，一個身分。加復原電話和第二個復原信箱，密碼進密碼管理器。對外聯絡用的 `hello@guichangshi.com` 在網域買好後用 Cloudflare Email Routing（免費）轉進這個 Gmail，只放簡介、不當任何平台的登入帳號。
-- [ ] **Instagram**：用這個 email 註冊，使用者名稱 `gui.chang.shi`。不要併進個人 IG 的帳號中心，用「新增帳號」切換就好。
+- [x] 品牌專用 email：`gui.chang.shi.tw@gmail.com`（2026-10-18 開好）。免費 Gmail，不是個人 Gmail 的別名，也不是公司信箱，也不用付費的 Google Workspace。所有平台（IG、Threads、YouTube、TikTok、FB 粉專、Pinterest）都用它登入，一個身分。加復原電話和第二個復原信箱，密碼進密碼管理器。對外聯絡用的 `hello@guichangshi.com` 在網域買好後用 Cloudflare Email Routing（免費）轉進這個 Gmail，只放簡介、不當任何平台的登入帳號。
+- [x] **Instagram**：`@gui.chang.shi` 2026-10-18 用這個 email 註冊完成。不要併進個人 IG 的帳號中心，用「新增帳號」切換就好。
 - [ ] 註冊完立刻：雙重驗證（驗證 app）、備用碼存好、關「同步聯絡人」、關「允許別人用電話／email 找到你」。
 - [ ] 切專業帳號：設定與活動 → 帳號類型和工具 → 切換為專業帳號 → 創作者 → 類別「數位創作者」。
 - [ ] **Threads**：用 IG 登入，確認 handle 是 `gui.chang.shi`。公開；回覆開給所有人；隱藏字詞加詐騙常見詞。
@@ -177,3 +177,4 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 ## 歷程
 
 - 2026-10-18：定名鬼唱詩、`@gui.chang.shi`。查完各平台可用性，寫風格、文字範本、開帳步驟。
+- 2026-10-18：Gmail `gui.chang.shi.tw@gmail.com` 和 IG `@gui.chang.shi` 開好。
