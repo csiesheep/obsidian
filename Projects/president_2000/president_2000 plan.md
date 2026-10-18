@@ -220,6 +220,10 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-17** — #80 land（a9af4d8，Version 19a95c68，線上同 126、異 0）：MORALE_FULL 是 V10（只改十一個數字，四張不動士氣的寫 0 留在表上）。checker：balance79 9/9（引擎的表等於 V10、P 等於 V10 的 40.3/32.3/27.3、勝差 3.96）、balance77 9/9、balance75 11/11、npm test 39/0。驗收先寫時抓到儀器的盲點：黨員大會是後期牌，打出時連都在 60–80，+20 與 +30 都停在 80，逐張比對看不出 → 加了直接對表的一列，逐張那一列點名只在 20 或 80 看到的牌。下一步（還沒派）：牌文與規則頁照 V10 改、決定要不要讓玩家玩的遊戲換成這套草案。
 - **2026-10-18** — owner：「yes, go ahead」（依 V10 改牌文和規則頁；把遊戲換成這套規則）→ v0.8 規格寫在 [[president_2000 - v0.8 草稿（士氣，沒有動能）]]（沒有動能、一定觸發、士氣 50/50/50、27 張牌文一字不差）。分兩張：#81 writer（字）、#82 FE（上場），照 #59／#60 的先例。
 - **2026-10-18** — #81 land（2976d04，Version 8dbb6497，線上同 126、異 0）：27 張牌文、規則頁、說明與教學的字沒有動能；31 個只有 v0.7 舊局才畫的字串留著（MOM_ONLY）。rulestext 17/0/0，四個缺陷各紅在該紅的列。驗收先寫時改了 rulestext 的舊列（v0.8 起讀 v0.8）與 turncard64（投票日第一步）。#82 的驗收 tests/v08play.test.js（e617a21）先放上 main；兩支探針證明它兩個方向都會紅（第一版把議題軌道的「+1 mom.」當成板子的動能，切到 </article> 才對）。#82 派 FE。
+- **2026-10-18** — owner：「請打磨此遊戲，直到其具有商業價值」→ 五條商業盤點線（A 第一次、B 手感、C 技術、D 深度、E 上市；報告在同資料夾「商業盤點 2026-10-18 · A–E」），整理成 [[president_2000 - 商業化路線圖 2026-10-18]]。owner 裁決：美術授權「先只做免費公開」（Qwen Research License，非商用）；商業模式「先免費網頁上線」。
+- **2026-10-18** — #84 查證（writer，附出處）→ owner：「全部照建議改」：李登輝暗助說、馬英九選前民調談話、選前之夜催票（查無宋 2000 年下跪）、興票案說法反覆、花東鄉親、眷村英文 Military Dependents' Villages；張榮發挺扁、掃除黑金不改；效果不改。#85 writer 改名（驗收 tests/cards85.test.js，65b5f32），#86 artist 重畫暗助說與選前之夜兩張圖。
+- **2026-10-18** — #83 新手難度派 BE（驗收 tools/balance83.mjs，fcc75bc）：稍懂的新手對兩位 level 0 每座 30–50%、L1 對 level 0 ≥ 50%、L1–L3 一字不差。orchestrator 探針：不知道人坐哪的 level 0 十組都做不到（連卡在 13–26%），知道人坐哪的做得到（46.7/46.7/34.0）→ chooseMove 收 { humans }。
+- **2026-10-18** — #82 驗證中途改了三支儀器：feeddock74（每一下等交棒卡不在；另加重播中點兩下的一列）、replay47（等到 log 的牌與章都出現，不是固定秒數）、panel61（沒有動能的局量票數・士氣）。教訓：儀器要在被量的那棵樹裡跑（它們用自己樹的程式算局面），我有一次在別的樹跑，量到的是 v0.7 的局。
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-10-13
