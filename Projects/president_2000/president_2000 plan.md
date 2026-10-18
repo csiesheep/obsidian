@@ -224,6 +224,10 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-18** — #84 查證（writer，附出處）→ owner：「全部照建議改」：李登輝暗助說、馬英九選前民調談話、選前之夜催票（查無宋 2000 年下跪）、興票案說法反覆、花東鄉親、眷村英文 Military Dependents' Villages；張榮發挺扁、掃除黑金不改；效果不改。#85 writer 改名（驗收 tests/cards85.test.js，65b5f32），#86 artist 重畫暗助說與選前之夜兩張圖。
 - **2026-10-18** — #83 新手難度派 BE（驗收 tools/balance83.mjs，fcc75bc）：稍懂的新手對兩位 level 0 每座 30–50%、L1 對 level 0 ≥ 50%、L1–L3 一字不差。orchestrator 探針：不知道人坐哪的 level 0 十組都做不到（連卡在 13–26%），知道人坐哪的做得到（46.7/46.7/34.0）→ chooseMove 收 { humans }。
 - **2026-10-18** — #82 驗證中途改了三支儀器：feeddock74（每一下等交棒卡不在；另加重播中點兩下的一列）、replay47（等到 log 的牌與章都出現，不是固定秒數）、panel61（沒有動能的局量票數・士氣）。教訓：儀器要在被量的那棵樹裡跑（它們用自己樹的程式算局面），我有一次在別的樹跑，量到的是 v0.7 的局。
+- **2026-10-18** — #82 land（f78b8d3，Version 316274d2）：v0.8 上場（沒有動能、一定觸發、士氣 50/50/50），畫面沒有動能；舊局照舊。驗證中改了 panel61、feeddock74、replay47 三支儀器（各做 A/B）。
+- **2026-10-18** — #83（新手 level 0，BE）、#85（七張牌改名，writer）、#86（兩張插圖，artist）一起 land（181050f，Version 396ed334）。balance83：新手對新手電腦 陳 39.3 / 宋 38.7 / 連 41.7（各是「人坐那一座」的勝率，三組不同的局，不會加總 100%；owner 問過）；L1–L3 一字不差。
+- **2026-10-18** — #87 land（f3d3137，Version e9a7494b）：單人與房間四級、新手在前、第一次來預設新手；電腦拿到 { humans }。真的單人局新手 陳 46.7 / 宋 36.0 / 連 34.0。首頁改「對四種難度的 AI」。待查：compact29、gamepage66 用頁面隨機種子開局，checker 那輪各紅一條手機英文（4 個議題槽、toast 蓋縣市）重現不出來 → 派 helper 固定種子、掃種子重現。
+- **2026-10-18** — 第二波設計提案（五張手機稿：結局頁當選／落選同票、開票夜、第一局提示、拿對手牌當 CP 的提醒）：https://claude.ai/artifact/FWervdeqDq9QRFL6zKjqNK ，等 owner 看。
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-10-13
