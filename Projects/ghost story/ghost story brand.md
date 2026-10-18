@@ -137,7 +137,7 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - [x] **YouTube**：頻道「鬼唱詩」2026-10-18 開好，handle `@鬼唱詩`（漢字 handle，YouTube 允許 1 到 10 字）。網址複製出來是百分號編碼，對外一律貼 `guichangshi.com/yt` 的轉址（網域買好後設）。先不上傳。
 - [ ] **TikTok**：註冊，使用者名稱 `gui.chang.shi`。只占名。
 - [ ] **Facebook 粉專**：用擁有者的個人 FB 建粉專「鬼唱詩」（管理員身分對外不顯示），網址試 `gui.chang.shi`，不行就 `guichangshi`。先不發。
-- [ ] **Pinterest**：使用者名稱 `guichangshi`。只占名。
+- [x] **Pinterest**：2026-10-18 用品牌 Gmail 開好，顯示名稱鬼唱詩。自動給的 `guichangshitw` 已改成 `guichangshi`（同日）。只占名。
 - [ ] **網域**：註冊 `guichangshi.com` 和 `guichangshi.tw`，先指到 Threads。
 - [ ] 方格子、Firstory 第三波再開，不用現在。
 
@@ -180,3 +180,4 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - 2026-10-18：Gmail `gui.chang.shi.tw@gmail.com` 和 IG `@gui.chang.shi` 開好。
 - 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
 - 2026-10-18：Threads `@gui.chang.shi` 開好。
+- 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。
