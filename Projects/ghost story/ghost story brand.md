@@ -136,7 +136,10 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - [x] **Threads**：2026-10-18 用 IG 登入，`@gui.chang.shi` 上線，顯示名稱鬼唱詩。公開、回覆開給所有人、隱藏字詞都設好（同日）。
 - [x] **YouTube**：頻道「鬼唱詩」2026-10-18 開好，handle `@鬼唱詩`（漢字 handle，YouTube 允許 1 到 10 字）。網址複製出來是百分號編碼，對外一律貼 `guichangshi.com/yt` 的轉址（網域買好後設）。先不上傳。
 - [x] **TikTok**：2026-10-18 用品牌 Gmail 開好，使用者名稱 `guichangshi`（不加點，和 Pinterest、網域一致）。只占名。
-- [ ] **Facebook 粉專**：用擁有者的個人 FB 建粉專「鬼唱詩」（管理員身分對外不顯示），網址試 `gui.chang.shi`，不行就 `guichangshi`。先不發。
+- [x] **Facebook 粉專**：2026-10-18 開好，Page ID `61595535390663`，類別 Digital creator，簡介已貼。還要做兩件：
+  - [ ] **把地址和電話從粉專拿掉**：開好當下公開頁的 About 顯示了一個住址和一個電話（FB 從個人帳號或預設帶進來的）。粉專 → About → Contact and basic info → 地址、電話都刪掉，只留 Threads 連結，email 可留可不留。匿名帳號不能露這兩個。
+  - [ ] 設網址：Settings → Page setup → Username → `gui.chang.shi`，不行就 `guichangshi`。目前還是 `profile.php?id=…` 的長網址。
+  - [ ] Settings → Linked accounts → 連 IG `@gui.chang.shi`。
 - [x] **Pinterest**：2026-10-18 用品牌 Gmail 開好，顯示名稱鬼唱詩。自動給的 `guichangshitw` 已改成 `guichangshi`（同日）。只占名。
 - [ ] **網域（延後，擁有者 2026-10-18 決定）**：等 IG 和 Threads 做起來再買，觸發點放在 [[ghost story business plan]] 的 M1 過關。到時候 `guichangshi.com` 在 Cloudflare Registrar 買（不加價、含 WHOIS 隱私，Email Routing 和轉址規則同一處設），`guichangshi.tw` 在 PChome 買網址或 Gandi，nameserver 改到 Cloudflare。買之前 YouTube 網址先貼 `youtube.com/@鬼唱詩`（複製出來會是編碼版）或頻道的 `youtube.com/channel/UC…`。2026-10-18 查過四個網域都還沒人註冊，買之前再查一次。
 - [ ] 方格子、Firstory 第三波再開，不用現在。
@@ -180,4 +183,4 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - 2026-10-18：Gmail `gui.chang.shi.tw@gmail.com` 和 IG `@gui.chang.shi` 開好。
 - 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
 - 2026-10-18：Threads `@gui.chang.shi` 開好。
-- 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。
+- 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。FB 粉專開好（ID 61595535390663），但公開頁帶出了地址和電話，要拿掉；網址還沒設。
