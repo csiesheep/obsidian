@@ -218,6 +218,8 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-17** — #79 land（9e3a94a，Version 3c9b442c，線上同 126、異 0）：checker 重跑 balance79 7/7（P、Q、R 各 27 張牌全看到）、balance77 9/9、balance75 11/11、npm test 39/0/0，數字跟 BE 一模一樣；三個缺陷各紅在「照表變動」那一列。
 - **2026-10-17** — orchestrator 問「要把表改成 V10 嗎？」，owner：「Yes」→ #80 派 BE 把 MORALE_FULL 改成 V10（十一張牌）。驗收 balance79 的表換成 V10，另加一列：600 局時 P 等於 orchestrator 量到的 V10「win 40.3/32.3/27.3, margin 3.96」（種子 1–600；同一支 comp79 對 #79 的表量到 47.5/40.3/12.2、3.94，跟 balance79 的 P 一樣，量法對得上）。牌文與規則頁之後另開。
 - **2026-10-17** — #80 land（a9af4d8，Version 19a95c68，線上同 126、異 0）：MORALE_FULL 是 V10（只改十一個數字，四張不動士氣的寫 0 留在表上）。checker：balance79 9/9（引擎的表等於 V10、P 等於 V10 的 40.3/32.3/27.3、勝差 3.96）、balance77 9/9、balance75 11/11、npm test 39/0。驗收先寫時抓到儀器的盲點：黨員大會是後期牌，打出時連都在 60–80，+20 與 +30 都停在 80，逐張比對看不出 → 加了直接對表的一列，逐張那一列點名只在 20 或 80 看到的牌。下一步（還沒派）：牌文與規則頁照 V10 改、決定要不要讓玩家玩的遊戲換成這套草案。
+- **2026-10-18** — owner：「yes, go ahead」（依 V10 改牌文和規則頁；把遊戲換成這套規則）→ v0.8 規格寫在 [[president_2000 - v0.8 草稿（士氣，沒有動能）]]（沒有動能、一定觸發、士氣 50/50/50、27 張牌文一字不差）。分兩張：#81 writer（字）、#82 FE（上場），照 #59／#60 的先例。
+- **2026-10-18** — #81 land（2976d04，Version 8dbb6497，線上同 126、異 0）：27 張牌文、規則頁、說明與教學的字沒有動能；31 個只有 v0.7 舊局才畫的字串留著（MOM_ONLY）。rulestext 17/0/0，四個缺陷各紅在該紅的列。驗收先寫時改了 rulestext 的舊列（v0.8 起讀 v0.8）與 turncard64（投票日第一步）。#82 的驗收 tests/v08play.test.js（e617a21）先放上 main；兩支探針證明它兩個方向都會紅（第一版把議題軌道的「+1 mom.」當成板子的動能，切到 </article> 才對）。#82 派 FE。
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-10-13
