@@ -64,6 +64,7 @@ IG 的「可用」是「沒有公開個人頁」，極少數是被停權的帳�
   - B　**硃砂印章**：篆體「鬼唱詩」三字紅印，紙白底。最像品牌，最不像鬼故事帳號。
   - C　**秋墳一盞燈**：墳前一盞小燈，其餘全黑。最留白，最難在小圖辨認。
   - 推薦 A。B 留給印在結尾卡和合集封面上的 logo。
+  - **結果（2026-10-18）**：九張候選在 `Pictures\ghost_comic\avatar\out\pick_avatar.png`。擁有者選 B 的 B1，但改成全紅底、字放大置中、純平塗、`#B8322A`。所以頭像和印章是同一個東西：頭像是紅底白字，結尾卡上的印用同一組字反過來做（白底紅印）即可。A1（白布小鬼）留著當限動和單格的角色。
 - **封面卡（IG 輪播第一張，3:4）**：上五分之一直排標題，中間一格不雷的畫面，下緣小字「鬼唱詩｜第 N 首」。每本封面同一個框，主頁格狀才會整齊。
 - **結尾卡**：四行。「本首完」、「AI 輔助創作，純屬虛構」、「看完記得收驚」、「@gui.chang.shi」。右下角 B 方向的紅印。
 - **文字卡（Threads 反應好的故事轉 IG 輪播）**：紙白底、明體、一張不超過 120 字、左上角「第 N 首」。
@@ -146,7 +147,8 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 
 ### 10/19 到 10/21：長相
 
-- [ ] 用 ComfyUI 畫頭像三個方向各 3 版（2.3），擁有者選一個。選定後裁圓，IG、Threads、YouTube、TikTok、FB 全部換上同一張。
+- [x] 用 ComfyUI 畫頭像三個方向各 3 版（2.3），擁有者選一個。2026-10-18 選定 **B1 硃砂印章**，不是推薦的 A1：擁有者要求字放大、置中、紅底填滿無漸層、紅色暗一點。做法是把 B1 的三個白字抽出來放在純平塗 `#B8322A` 上（字高佔 78%），沒有重畫。定稿在 `C:\Users\sheep\Pictures\ghost_comic\avatar\final\`：`avatar_1024.png`（IG、Threads、FB、TikTok、Pinterest）、`avatar_800_youtube.png`、`avatar_circle_1024.png`（透明圓形版，給網站和結尾卡）。腳本 `avatar_b1_flat.py`。
+- [ ] 把頭像換到六個平台上（IG 換了 Threads 會跟著換，FB 粉專、YouTube、TikTok、Pinterest 各自傳）。
 - [ ] 顯示名稱改「鬼唱詩｜台灣怪談」，簡介貼 2.4 的範本，IG 連結放 Threads、Threads 連結放 IG。
 - [ ] 做封面卡和結尾卡的模板，加進 `manga.py export`（紅印、「第 N 首」、`@gui.chang.shi`）。
 - [ ] 限動四個分類的封面圖。
@@ -184,3 +186,4 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
 - 2026-10-18：Threads `@gui.chang.shi` 開好。
 - 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。FB 粉專開好（ID 61595535390663），公開頁帶出的地址和電話同日刪掉，網址 `facebook.com/gui.chang.shi` 設好，IG 也連好。七個平台帳號全開好，10/18 到 19 的「占名」段落除了延後的網域全部完成。
+- 2026-10-18：頭像定稿：B1 印章改成全紅底 `#B8322A`、白字置中放大，檔案在 `Pictures\ghost_comic\avatar\final\`。
