@@ -26,7 +26,7 @@ updated: 2026-10-18
 | Instagram | `gui.chang.shi` | 可用 | `guichangshi` 被一個空帳號占走，所以用加點版 |
 | Threads | `gui.chang.shi` | 可用 | 用 IG 登入就同名 |
 | YouTube | `@鬼唱詩` | 已拿到（2026-10-18） | 漢字 handle；`@guichangshi`、`@gui.chang.shi` 仍空著，當備用 |
-| TikTok | `@gui.chang.shi` | 可用 | 只占名，台灣沒分潤 |
+| TikTok | `@guichangshi` | 已拿到（2026-10-18） | 只占名，台灣沒分潤 |
 | Facebook 粉專 | `gui.chang.shi` | 沒有公開頁，應可用 | FB 對私人帳號也顯示同一句，建粉專設網址時才確定；備選 `guichangshi` |
 | Pinterest | `guichangshi` | 可用 | Pinterest 不收點 |
 | 方格子 | `@guichangshi` | 可用 | 第三波才用 |
@@ -135,10 +135,10 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - [x] 切專業帳號：設定與活動 → 帳號類型和工具 → 切換為專業帳號 → 創作者 → 類別「數位創作者」。（2026-10-18 做完）
 - [x] **Threads**：2026-10-18 用 IG 登入，`@gui.chang.shi` 上線，顯示名稱鬼唱詩。公開、回覆開給所有人、隱藏字詞都設好（同日）。
 - [x] **YouTube**：頻道「鬼唱詩」2026-10-18 開好，handle `@鬼唱詩`（漢字 handle，YouTube 允許 1 到 10 字）。網址複製出來是百分號編碼，對外一律貼 `guichangshi.com/yt` 的轉址（網域買好後設）。先不上傳。
-- [ ] **TikTok**：註冊，使用者名稱 `gui.chang.shi`。只占名。
+- [x] **TikTok**：2026-10-18 用品牌 Gmail 開好，使用者名稱 `guichangshi`（不加點，和 Pinterest、網域一致）。只占名。
 - [ ] **Facebook 粉專**：用擁有者的個人 FB 建粉專「鬼唱詩」（管理員身分對外不顯示），網址試 `gui.chang.shi`，不行就 `guichangshi`。先不發。
 - [x] **Pinterest**：2026-10-18 用品牌 Gmail 開好，顯示名稱鬼唱詩。自動給的 `guichangshitw` 已改成 `guichangshi`（同日）。只占名。
-- [ ] **網域**：註冊 `guichangshi.com` 和 `guichangshi.tw`，先指到 Threads。
+- [ ] **網域（延後，擁有者 2026-10-18 決定）**：等 IG 和 Threads 做起來再買，觸發點放在 [[ghost story business plan]] 的 M1 過關。到時候 `guichangshi.com` 在 Cloudflare Registrar 買（不加價、含 WHOIS 隱私，Email Routing 和轉址規則同一處設），`guichangshi.tw` 在 PChome 買網址或 Gandi，nameserver 改到 Cloudflare。買之前 YouTube 網址先貼 `youtube.com/@鬼唱詩`（複製出來會是編碼版）或頻道的 `youtube.com/channel/UC…`。2026-10-18 查過四個網域都還沒人註冊，買之前再查一次。
 - [ ] 方格子、Firstory 第三波再開，不用現在。
 
 ### 10/19 到 10/21：長相
@@ -180,4 +180,4 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - 2026-10-18：Gmail `gui.chang.shi.tw@gmail.com` 和 IG `@gui.chang.shi` 開好。
 - 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
 - 2026-10-18：Threads `@gui.chang.shi` 開好。
-- 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。
+- 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。
