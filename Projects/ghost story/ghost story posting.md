@@ -106,7 +106,7 @@ AI 輔助創作｜故事純屬虛構
 ## 6. 開站前要補的工具（小改）
 
 1. `ghost_plan.py post` 加 `--number N`：自動加「第 N 首｜」和「收驚。」，IG 文案模式也一樣。
-2. `manga.py export` 的文案改成品牌格式（第 N 首、#鬼唱詩 #台灣怪談、傳給朋友那一句），加 `--number`。
+2. ~~`manga.py export` 的文案改成品牌格式~~：2026-10-18 做好，`export --brand 鬼唱詩 --seal <頭像> --number N` 連封面、結尾卡、文案一起換（分支 `ghost-comic-brand`）。四本已重出到各自的 `out/export/ig/`。
 3. `manga.py export --pinterest`：輸出 1000×1500 的封面和單頁釘圖，加一份標題和說明的文字檔。
 4. 合併 PR #12，讓本機的 ghost-comic 有 `reel`。
 
