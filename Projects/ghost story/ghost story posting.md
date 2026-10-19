@@ -77,7 +77,7 @@ py -X utf8 $S/social-post/scripts/ledger.py --brand-file "$B" posted $N instagra
 | D+1 起 5 天 | Pinterest | D+1 封面釘圖，之後每天 2 頁，連到 IG 那則 | 1000×1500 釘圖（工具待補，第 6 節） | Claude 透過 Chrome |
 | D+2 21:00 | 成效 | 48 小時的數字 | [[ghost story social]] 的成效表 | 擁有者和 Claude |
 
-> [!note] 2026-10-18 擁有者決定：先只發 IG、Threads、Pinterest。上表 FB 粉專、YouTube Shorts、TikTok 三列暫停，之後再說；IG 發文時也先不要開「分享到 Facebook」。
+> [!note] 2026-10-19 擁有者改決定：FB 粉專、YouTube Shorts、TikTok 從現在起一起發，上表三列恢復；IG 帳號中心要開一次「分享到 Facebook」。詳細計畫在 [[ghost story content plan]]。（10-18 原本決定先只發 IG、Threads、Pinterest。）
 
 FB、YouTube、TikTok 是交叉發，不承諾回留言，時間先留給 IG 和 Threads（[[ghost story growth]] 第 10 節）。之後要開的話，YouTube 的訂閱越早累積，拿分潤時越有底子。
 
