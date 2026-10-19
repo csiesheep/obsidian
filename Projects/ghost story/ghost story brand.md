@@ -189,5 +189,6 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
 - 2026-10-18：Threads `@gui.chang.shi` 開好。
 - 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。FB 粉專開好（ID 61595535390663），公開頁帶出的地址和電話同日刪掉，網址 `facebook.com/gui.chang.shi` 設好，IG 也連好。七個平台帳號全開好，10/18 到 19 的「占名」段落除了延後的網域全部完成。
+- 2026-10-18：換頭像和簡介的流程做成 skill `social-profile`（csiesheep/skills 分支 `social-profile`，本機已裝）。以後換頭像、改簡介，說「用 social-profile 換」即可。
 - 2026-10-18：IG、Threads 簡介填好；頭像換到 IG、Threads、FB 粉專、YouTube、Pinterest、TikTok；TikTok 顯示名稱改成鬼唱詩。六個平台的長相統一。
 - 2026-10-18：頭像定稿：B1 印章改成全紅底 `#B8322A`、白字置中放大，檔案在 `Pictures\ghost_comic\avatar\final\`。
