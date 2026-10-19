@@ -148,7 +148,8 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 ### 10/19 到 10/21：長相
 
 - [x] 用 ComfyUI 畫頭像三個方向各 3 版（2.3），擁有者選一個。2026-10-18 選定 **B1 硃砂印章**，不是推薦的 A1：擁有者要求字放大、置中、紅底填滿無漸層、紅色暗一點。做法是把 B1 的三個白字抽出來放在純平塗 `#B8322A` 上（字高佔 78%），沒有重畫。定稿在 `C:\Users\sheep\Pictures\ghost_comic\avatar\final\`：`avatar_1024.png`（IG、Threads、FB、TikTok、Pinterest）、`avatar_800_youtube.png`、`avatar_circle_1024.png`（透明圓形版，給網站和結尾卡）。腳本 `avatar_b1_flat.py`。
-- [ ] 把頭像換到六個平台上（IG 換了 Threads 會跟著換，FB 粉專、YouTube、TikTok、Pinterest 各自傳）。
+- [ ] 把頭像換到六個平台上。IG 已換（2026-10-18，Claude 透過擁有者的 Chrome 上傳 `avatar_1024.png`，IG 顯示 Profile photo added）。Threads 不一定跟著 IG 換，沒換就到 Threads 編輯個人檔案 → 從 Instagram 匯入。FB 粉專、YouTube、TikTok、Pinterest 還沒換。
+- [ ] IG 簡介還是空的（0/150），貼 2.4 的範本。
 - [ ] 顯示名稱改「鬼唱詩｜台灣怪談」，簡介貼 2.4 的範本，IG 連結放 Threads、Threads 連結放 IG。
 - [ ] 做封面卡和結尾卡的模板，加進 `manga.py export`（紅印、「第 N 首」、`@gui.chang.shi`）。
 - [ ] 限動四個分類的封面圖。
