@@ -136,7 +136,7 @@ AI 輔助創作｜故事純屬虛構
 
 | 順序 | 平台 | 貼什麼 | 檔案 | 注意 |
 |---|---|---|---|---|
-| 1 | IG 輪播 | 封面（p10）、10 頁、結尾卡 | `ig/01.jpg` 到 `12.jpg`、`ig/caption.txt` | 裁切選原比例，不要正方形；有 AI 標籤就開；不開分享到 FB |
+| 1 ✅ | IG 輪播 | 封面（p10）、10 頁、結尾卡 | `ig/01.jpg` 到 `12.jpg`、`ig/caption.txt` | **2026-10-18 23:3x 已發**：<https://www.instagram.com/p/Deqmn6Bm5Jy/>，原比例、AI 標籤已開（貼文顯示「AI content」）、沒分享到 FB 或 Threads，帳簿已記 |
 | 2 | Threads | 鉤子貼文加全文附件，配 p8 | `threads/01_post_hook.txt`（建議）或 `01_post.txt`、`01_attachment.txt`、`01_image_p8.jpg` | 主題標籤「鬼故事」；附件不能用就改串文；發完在下面回一則 IG 連結 |
 | 3 | Pinterest | 封面釘圖，連到 IG 那則 | `pinterest/00_cover.jpg`、`pinterest/pins.txt` | 先建圖板「鬼唱詩｜台灣怪談漫畫」；第 1 到 3 頁之後三天各釘一張 |
 
