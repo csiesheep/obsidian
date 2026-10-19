@@ -137,7 +137,7 @@ AI 輔助創作｜故事純屬虛構
 
 | 順序 | 平台 | 貼什麼 | 檔案 | 注意 |
 |---|---|---|---|---|
-| 0 ✅ | IG 自介輪播（第 0 首｜關於鬼唱詩） | 封面（王士禎詩句直排）、為什麼叫鬼唱詩、怎麼做的、規矩、收驚，5 張 3:4 | `C:\Users\sheep\Pictures\ghost_comic\intro_0\out\export\ig\01.jpg` 到 `05.jpg`、`caption.txt`；產生程式 `C:\Users\sheep\Pictures\ghost_comic\intro_0\make_intro.py` | **2026-10-19 已發**（Claude 透過 Chrome）：<https://www.instagram.com/p/DesOn3kEnGD/>，原比例、AI 標籤開、沒分享到 Threads，帳簿已記。網頁版沒有「釘選到個人檔案」，要擁有者用手機 app 釘選 |
+| 0 ✅ | IG 自介輪播（第 0 首｜關於鬼唱詩） | 封面（王士禎詩句直排）、為什麼叫鬼唱詩、怎麼做的、規矩、收驚，5 張 3:4 | `C:\Users\sheep\Pictures\ghost_comic\intro_0\out\export\ig\01.jpg` 到 `05.jpg`、`caption.txt`；產生程式 `C:\Users\sheep\Pictures\ghost_comic\intro_0\make_intro.py` | **2026-10-19 已發**（Claude 透過 Chrome）：<https://www.instagram.com/p/DesOn3kEnGD/>，原比例、AI 標籤開、沒分享到 Threads，帳簿已記。網頁版沒有「釘選到個人檔案」，擁有者 2026-10-19 用手機 app 釘選好了 |
 | 1 ✅ | IG 輪播 | 封面（p10）、10 頁、結尾卡 | `ig/01.jpg` 到 `12.jpg`、`ig/caption.txt` | **2026-10-18 23:3x 已發**：<https://www.instagram.com/p/Deqmn6Bm5Jy/>，原比例、AI 標籤已開（貼文顯示「AI content」）、沒分享到 FB 或 Threads，帳簿已記 |
 | 2 ✅ | Threads | 鉤子加 p8，不放全文 | `threads/01_post_hook.txt`（最後一行改成「……全篇漫畫在 IG。」）、`01_image_p8.jpg` | **2026-10-18 23:37 已發**：<https://www.threads.com/@gui.chang.shi/post/DeqoW1smxte>，主題標籤「鬼故事」；底下自己回一則「漫畫版：」加 IG 連結，串文顯示 1/2、2/2；帳簿已記 |
 | 3 ✅ | Pinterest | 封面釘圖，連到 IG 那則 | `pinterest/00_cover.jpg`、`pinterest/pins.txt` | **2026-10-18 已發**：<https://www.pinterest.com/pin/1107463364654400823/>，公開圖板「鬼唱詩｜台灣怪談漫畫」（沒開分區）、標題和說明照 pins.txt、連結 IG 那則、「Mark as AI-Modified」和「AI-generated person」都勾（釘圖顯示「AI modified」），帳簿已記。第 1 到 3 頁之後三天各釘一張 |
