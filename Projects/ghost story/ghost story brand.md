@@ -64,7 +64,7 @@ IG 的「可用」是「沒有公開個人頁」，極少數是被停權的帳�
   - B　**硃砂印章**：篆體「鬼唱詩」三字紅印，紙白底。最像品牌，最不像鬼故事帳號。
   - C　**秋墳一盞燈**：墳前一盞小燈，其餘全黑。最留白，最難在小圖辨認。
   - 推薦 A。B 留給印在結尾卡和合集封面上的 logo。
-  - **結果（2026-10-18）**：九張候選在 `Pictures\ghost_comic\avatar\out\pick_avatar.png`。擁有者選 B 的 B1，但改成全紅底、字放大置中、純平塗、`#B8322A`。所以頭像和印章是同一個東西：頭像是紅底白字，結尾卡上的印用同一組字反過來做（白底紅印）即可。A1（白布小鬼）留著當限動和單格的角色。
+  - **結果（2026-10-18）**：九張候選在 `Pictures\gui_chang_shi\brand\avatar\out\pick_avatar.png`。擁有者選 B 的 B1，但改成全紅底、字放大置中、純平塗、`#B8322A`。所以頭像和印章是同一個東西：頭像是紅底白字，結尾卡上的印用同一組字反過來做（白底紅印）即可。A1（白布小鬼）留著當限動和單格的角色。
 - **封面卡（IG 輪播第一張，3:4）**：上五分之一直排標題，中間一格不雷的畫面，下緣小字「鬼唱詩｜第 N 首」。每本封面同一個框，主頁格狀才會整齊。
 - **結尾卡**：四行。「本首完」、「AI 輔助創作，純屬虛構」、「看完記得收驚」、「@gui.chang.shi」。右下角 B 方向的紅印。
 - **文字卡（Threads 反應好的故事轉 IG 輪播）**：紙白底、明體、一張不超過 120 字、左上角「第 N 首」。
@@ -72,7 +72,7 @@ IG 的「可用」是「沒有公開個人頁」，極少數是被停權的帳�
 
 ### 2.3b 品牌設定檔（工具讀的那一份）
 
-> [!info] 顏色、印章、AI 標示、「第 N 首」的寫法、結尾卡的字、IG 和 Reel 的文案範本、Threads 文的開頭和「收驚。」，全部寫在 `C:\Users\sheep\Pictures\ghost_comic\brand\brand.json`。ghost-comic 的 `export`、`reel` 和 ghost-story 的 `post` 都用 `--brand-file` 讀它。要改字或顏色就改那份檔案，再重出；這份筆記是給人看的說明，兩邊要一起改。「第 N 首」的編號記在同資料夾的 `ledger.json`，由 social-post skill 的 `ledger.py` 發號，不要手算。（2026-10-18）
+> [!info] 顏色、印章、AI 標示、「第 N 首」的寫法、結尾卡的字、IG 和 Reel 的文案範本、Threads 文的開頭和「收驚。」，全部寫在 `C:\Users\sheep\Pictures\gui_chang_shi\brand\brand.json`。ghost-comic 的 `export`、`reel` 和 ghost-story 的 `post` 都用 `--brand-file` 讀它。要改字或顏色就改那份檔案，再重出；這份筆記是給人看的說明，兩邊要一起改。「第 N 首」的編號記在同資料夾的 `ledger.json`，由 social-post skill 的 `ledger.py` 發號，不要手算。（2026-10-18）
 
 ### 2.4 文字範本
 
@@ -186,7 +186,7 @@ https://www.threads.com/@gui.chang.shi
 
 ### 10/19 到 10/21：長相
 
-- [x] 用 ComfyUI 畫頭像三個方向各 3 版（2.3），擁有者選一個。2026-10-18 選定 **B1 硃砂印章**，不是推薦的 A1：擁有者要求字放大、置中、紅底填滿無漸層、紅色暗一點。做法是把 B1 的三個白字抽出來放在純平塗 `#B8322A` 上（字高佔 78%），沒有重畫。定稿在 `C:\Users\sheep\Pictures\ghost_comic\avatar\final\`：`avatar_1024.png`（IG、Threads、FB、TikTok、Pinterest）、`avatar_800_youtube.png`、`avatar_circle_1024.png`（透明圓形版，給網站和結尾卡）。腳本 `avatar_b1_flat.py`。
+- [x] 用 ComfyUI 畫頭像三個方向各 3 版（2.3），擁有者選一個。2026-10-18 選定 **B1 硃砂印章**，不是推薦的 A1：擁有者要求字放大、置中、紅底填滿無漸層、紅色暗一點。做法是把 B1 的三個白字抽出來放在純平塗 `#B8322A` 上（字高佔 78%），沒有重畫。定稿在 `C:\Users\sheep\Pictures\gui_chang_shi\brand\avatar\final\`：`avatar_1024.png`（IG、Threads、FB、TikTok、Pinterest）、`avatar_800_youtube.png`、`avatar_circle_1024.png`（透明圓形版，給網站和結尾卡）。腳本 `avatar_b1_flat.py`。
 - [x] 把頭像換到六個平台上。2026-10-18 Claude 透過擁有者的 Chrome 全部換好：IG、Threads（沒有跟著 IG 自動換，另外上傳）、FB 粉專（切成粉專身分換完再切回個人帳號）、YouTube（`avatar_800_youtube.png`，Changes published）、Pinterest、TikTok（擁有者先在 Chrome 登入）。
 - [x] TikTok 顯示名稱改成「鬼唱詩」（2026-10-18；TikTok 的暱稱 7 天只能改一次，下次最早 10/25）。
 - [x] IG 簡介：2026-10-18 貼上 2.4 的四行範本，個人頁確認顯示正確。
@@ -228,8 +228,8 @@ https://www.threads.com/@gui.chang.shi
 - 2026-10-18：Gmail `gui.chang.shi.tw@gmail.com` 和 IG `@gui.chang.shi` 開好。
 - 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
 - 2026-10-18：Threads `@gui.chang.shi` 開好。
-- 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。FB 粉專開好（ID 61595535390663），公開頁帶出的地址和電話同日刪掉，網址 `facebook.com/gui.chang.shi` 設好，IG 也連好。七個平台帳號全開好，10/18 到 19 的「占名」段落除了延後的網域全部完成。
+- 2026-10-18：頭像 9 張候選畫好（`Pictures\gui_chang_shi\brand\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。FB 粉專開好（ID 61595535390663），公開頁帶出的地址和電話同日刪掉，網址 `facebook.com/gui.chang.shi` 設好，IG 也連好。七個平台帳號全開好，10/18 到 19 的「占名」段落除了延後的網域全部完成。
 - 2026-10-18：簡介改版，第一行改用王士禎「料應厭作人間語，愛聽秋墳鬼唱詩」。用 `social-profile` 貼到六個平台：IG、Threads、TikTok、Pinterest、FB 粉專、YouTube，全部在公開頁確認過。名字出處和第 0 首自介也改成這句。
 - 2026-10-18：換頭像和簡介的流程做成 skill `social-profile`（csiesheep/skills 分支 `social-profile`，本機已裝）。以後換頭像、改簡介，說「用 social-profile 換」即可。
 - 2026-10-18：IG、Threads 簡介填好；頭像換到 IG、Threads、FB 粉專、YouTube、Pinterest、TikTok；TikTok 顯示名稱改成鬼唱詩。六個平台的長相統一。
-- 2026-10-18：頭像定稿：B1 印章改成全紅底 `#B8322A`、白字置中放大，檔案在 `Pictures\ghost_comic\avatar\final\`。
+- 2026-10-18：頭像定稿：B1 印章改成全紅底 `#B8322A`、白字置中放大，檔案在 `Pictures\gui_chang_shi\brand\avatar\final\`。

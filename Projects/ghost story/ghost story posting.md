@@ -23,7 +23,7 @@ updated: 2026-10-18
 |---|---|
 | 故事全文 | `<漫畫資料夾>/story.md`，或 ghost-story 寫出來的檔案 |
 | 漫畫 | `<漫畫資料夾>/`：`board.json`、`choices.json`、`out/pages/` |
-| 品牌檔 | `C:\Users\sheep\Pictures\ghost_comic\brand\brand.json` |
+| 品牌檔 | `C:\Users\sheep\Pictures\gui_chang_shi\brand\brand.json` |
 | 帳簿 | 同資料夾的 `ledger.json` |
 
 | 層 | 在哪 | 負責 |
@@ -35,18 +35,24 @@ updated: 2026-10-18
 ### 0.2 指令
 
 ```bash
-B="C:/Users/sheep/Pictures/ghost_comic/brand/brand.json"
-C="C:/Users/sheep/Pictures/ghost_comic/<漫畫資料夾>"
+B="C:/Users/sheep/Pictures/gui_chang_shi/brand/brand.json"
+D="C:/Users/sheep/Pictures/gui_chang_shi/stories/<英文短名>"   # 一首故事的資料夾
+C="$D/comic"                                                    # manga.py 的工作資料夾
 S=~/.claude/skills
 
-# 1. 拿號：同一個標題再要一次會拿回同一號，文字和漫畫共用
-N=$(py -X utf8 $S/social-post/scripts/ledger.py --brand-file "$B" reserve "<標題>" --kind comic)
+# 1. 拿號：同一個標題再要一次會拿回同一號，文字和漫畫共用；--folder 把帳簿對到資料夾
+N=$(py -X utf8 $S/social-post/scripts/ledger.py --brand-file "$B" reserve "<標題>" --kind comic --folder stories/<英文短名>)
 
 # 2. 產檔
-py -X utf8 $S/ghost-story/scripts/ghost_plan.py post "$C/story.md" --mode attach --brand-file "$B" --number $N > "$C/out/export/threads.txt"
+mkdir -p "$D/posts/threads"
+py -X utf8 $S/ghost-story/scripts/ghost_plan.py post "$D/story.md" --mode attach --brand-file "$B" --number $N > "$D/posts/threads/post.txt"
 py -X utf8 $S/ghost-comic/scripts/manga.py --work "$C" export --brand-file "$B" --number $N --cover <封面格>
 py -X utf8 $S/ghost-comic/scripts/manga.py --work "$C" reel teaser <A1> <A2> <A3> --brand-file "$B" --number $N --name teaser_A
 py -X utf8 $S/ghost-comic/scripts/manga.py --work "$C" reel teaser <B1> <B2> <B3> --brand-file "$B" --number $N --name teaser_B
+
+# 2b. manga.py 還是輸出到 comic/out/export/，搬到故事資料夾
+rm -rf "$D/posts/ig" && mv "$C/out/export/ig" "$D/posts/ig"
+for v in teaser_A teaser_B; do mkdir -p "$D/reels/$v" && mv "$C/out/export/reels/$v"* "$D/reels/$v/"; done
 
 # 3. 每一則發出、打開確認以後
 py -X utf8 $S/social-post/scripts/ledger.py --brand-file "$B" posted $N instagram --url <連結>
@@ -55,7 +61,7 @@ py -X utf8 $S/social-post/scripts/ledger.py --brand-file "$B" posted $N instagra
 **挑格子**：
 - 封面格：不雷，右上角沒有重要的東西，因為直排標題壓在那裡。
 - 預告 A、B：各三格，都在揭露之前，開頭不同。
-- Threads 配圖：一格不雷的格子，從 `out/panels/` 挑。
+- Threads 配圖：一格不雷的格子，從 `comic/out/panels/` 挑。
 
 ### 0.3 一首的時程範本（D 是發文日）
 
@@ -133,11 +139,11 @@ AI 輔助創作｜故事純屬虛構
 
 ## 2a. 第 1 首改成現在發（2026-10-18 週日晚上，擁有者決定）
 
-開站不等 10/31。檔案都在 `C:\Users\sheep\Pictures\ghost_comic\three_behind\out\export\` 底下，帳簿已登記第 1 首。每一則都是：給擁有者看預覽，擁有者說發，Claude 透過 Chrome 發，打開確認，記帳簿。
+開站不等 10/31。檔案都在 `C:\Users\sheep\Pictures\gui_chang_shi\stories\three_behind\posts\` 底下，帳簿已登記第 1 首。每一則都是：給擁有者看預覽，擁有者說發，Claude 透過 Chrome 發，打開確認，記帳簿。
 
 | 順序 | 平台 | 貼什麼 | 檔案 | 注意 |
 |---|---|---|---|---|
-| 0 ✅ | IG 自介輪播（第 0 首｜關於鬼唱詩） | 封面（王士禎詩句直排）、為什麼叫鬼唱詩、怎麼做的、規矩、收驚，5 張 3:4 | `C:\Users\sheep\Pictures\ghost_comic\intro_0\out\export\ig\01.jpg` 到 `05.jpg`、`caption.txt`；產生程式 `C:\Users\sheep\Pictures\ghost_comic\intro_0\make_intro.py` | **2026-10-19 已發**（Claude 透過 Chrome）：<https://www.instagram.com/p/DesOn3kEnGD/>，原比例、AI 標籤開、沒分享到 Threads，帳簿已記。網頁版沒有「釘選到個人檔案」，擁有者 2026-10-19 用手機 app 釘選好了 |
+| 0 ✅ | IG 自介輪播（第 0 首｜關於鬼唱詩） | 封面（王士禎詩句直排）、為什麼叫鬼唱詩、怎麼做的、規矩、收驚，5 張 3:4 | `C:\Users\sheep\Pictures\gui_chang_shi\about\posts\ig\01.jpg` 到 `05.jpg`、`caption.txt`；產生程式 `C:\Users\sheep\Pictures\gui_chang_shi\about\make_intro.py` | **2026-10-19 已發**（Claude 透過 Chrome）：<https://www.instagram.com/p/DesOn3kEnGD/>，原比例、AI 標籤開、沒分享到 Threads，帳簿已記。網頁版沒有「釘選到個人檔案」，擁有者 2026-10-19 用手機 app 釘選好了 |
 | 1 ✅ | IG 輪播 | 封面（p10）、10 頁、結尾卡 | `ig/01.jpg` 到 `12.jpg`、`ig/caption.txt` | **2026-10-18 23:3x 已發**：<https://www.instagram.com/p/Deqmn6Bm5Jy/>，原比例、AI 標籤已開（貼文顯示「AI content」）、沒分享到 FB 或 Threads，帳簿已記 |
 | 2 ✅ | Threads | 鉤子加 p8，不放全文 | `threads/01_post_hook.txt`（最後一行改成「……全篇漫畫在 IG。」）、`01_image_p8.jpg` | **2026-10-18 23:37 已發**：<https://www.threads.com/@gui.chang.shi/post/DeqoW1smxte>，主題標籤「鬼故事」；底下自己回一則「漫畫版：」加 IG 連結，串文顯示 1/2、2/2；帳簿已記 |
 | 3 ✅ | Pinterest | 封面釘圖，連到 IG 那則 | `pinterest/00_cover.jpg`、`pinterest/pins.txt` | **2026-10-18 已發**：<https://www.pinterest.com/pin/1107463364654400823/>，公開圖板「鬼唱詩｜台灣怪談漫畫」（沒開分區）、標題和說明照 pins.txt、連結 IG 那則、「Mark as AI-Modified」和「AI-generated person」都勾（釘圖顯示「AI modified」），帳簿已記。第 1 到 3 頁之後三天各釘一張 |

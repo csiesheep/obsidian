@@ -67,9 +67,9 @@ YouTube 和 .com 是 2026-10-17 用 curl 和 DNS 掃的：「已被用」確定�
 | 作品 | 頁數 | 位置 |
 |---|---|---|
 | 〈一個人在家開視訊〉 | 7 | 第一個 session 暫存資料夾的 `data/comic_home` |
-| 〈半夜叫我全名的人〉 | 6 | `C:\Users\sheep\Pictures\ghost_comic\name_call` |
-| 〈跟外甥玩捉迷藏〉 | 7 | `C:\Users\sheep\Pictures\ghost_comic\hide_seek` |
-| 〈阿嬤說我後面跟了三個人〉 | 10 | `C:\Users\sheep\Pictures\ghost_comic\three_behind` |
+| 〈半夜叫我全名的人〉 | 6 | `C:\Users\sheep\Pictures\gui_chang_shi\stories\name_call` |
+| 〈跟外甥玩捉迷藏〉 | 7 | `C:\Users\sheep\Pictures\gui_chang_shi\stories\hide_seek` |
+| 〈阿嬤說我後面跟了三個人〉 | 10 | `C:\Users\sheep\Pictures\gui_chang_shi\stories\three_behind` |
 
 四本就是開站前四週的量。〈阿嬤〉的 p27 手畫反了（變成護理師握阿嬤的手腕），擁有者決定照現狀發，不重畫。
 

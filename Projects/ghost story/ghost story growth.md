@@ -175,7 +175,7 @@ Claude 每週：7 首故事（各寫 3 版選 1）、20 句一句話、2 則文�
 ## 11. 先做的工具（照順序）
 
 1. **口吻修正**（開站前，10/28 以前）：擁有者盲讀三組都認出 AI，差在版面太工整（一段一行、句長整齊、引號多、沒有「...」和阿拉伯數字）。Threads 是文字平台，這是最大的風險。`ghost-story-surface` 分支已經在做，先合進去。
-2. **Reel 輕量版**（2026-10-18 做好，分支 `ghost-comic-reel`，commit `6d1cbc6`，還沒合進 main）：`manga.py reel teaser p8 p9 p10 --handle @gui.chang.shi --logo <頭像圓形版>` 做三格預告；`manga.py reel line --text "…{裡面}…"` 做一句話 Reel。靜音 mp4（1080×1920、30fps），音樂在 IG app 裡挑；另出封面、主頁 3:4 預覽、抽格檢查圖、文案。預告約 25 秒做好，一句話約 7 秒，不用 GPU。測試片在 `Pictures\ghost_comic\three_behind\out\export\reels\` 和 `Pictures\ghost_comic\avatar\out\export\reels\`。
+2. **Reel 輕量版**（2026-10-18 做好，分支 `ghost-comic-reel`，commit `6d1cbc6`，還沒合進 main）：`manga.py reel teaser p8 p9 p10 --handle @gui.chang.shi --logo <頭像圓形版>` 做三格預告；`manga.py reel line --text "…{裡面}…"` 做一句話 Reel。靜音 mp4（1080×1920、30fps），音樂在 IG app 裡挑；另出封面、主頁 3:4 預覽、抽格檢查圖、文案。預告約 25 秒做好，一句話約 7 秒，不用 GPU。測試片在 `Pictures\gui_chang_shi\stories\three_behind\reels\` 和 `Pictures\gui_chang_shi\brand\avatar\out\export\reels\`。
 3. **Threads 配圖**（第 1 週）：每首故事一張圖。有漫畫的用現成格子，沒有的用 Qwen 畫一張單格（約 30 秒）。
 4. **週報**（第 2 週）：從成效表算第 9 節的指標。第二個月接 Meta API 自動抓。
 5. 動態漫（第 6 週）：整本漫畫的推拉版，是 `ghost-reel` 的前身。
