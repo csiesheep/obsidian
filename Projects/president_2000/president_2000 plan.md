@@ -235,6 +235,8 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-18** — #92 交付 e20629a：truth92 5/0/0，但 gamepage66 種子 12 手機英文地圖 274×392 < 290×400（觸發說明多一行）→ 退回；FE 把說明併進面板抬頭（bd93a50），再驗全綠 → #92 land 952e07f（Version a576390c，線上同 244；合併後 npm test 46/46）；truth92 的閘門轉成失敗（62e81ed）。
 - **2026-10-18** — #96 交付 c49f159：tips96 5/0/0、3/0/0；乾淨 localStorage 下 gamepage66／polish30／auto70 被第一局的框蓋住而紅 → orchestrator 裁決框是設計，改儀器：27 支開牌桌的儀器在頁面腳本前寫 p2000.tips off（285ca30），tips96.mjs 不寫。驗的是要 land 的合併 commit 4160c94（16 支儀器＋wrangler 4 支全綠）→ push、Version 36655dda、線上同 244。#93（64b0753）、#94（4295942）合進去 app.js／solo.js 衝突 → 兩位 FE 各自 rebase 中。FE 的 commit 標題寫「Fix #NN」讓 GitHub 提早關掉 #94–#96 → TEAM.md 改成「#NN: …」（2612892）。待查：imgchurn 在 main 上 C 組紅 2（對手動時候選人頭像新建 <img>，疑是 #73 交棒卡）→ 查實是交棒卡的頭像（一次換人一張），照 #44／#47 的前例不算（064c3d7），main 7/7；讓候選人面板的圖每畫一次重建，A、B、C 仍紅。
 - **2026-10-18** — #93 開票夜 rebase 到含 #96 的 main（74ab361），驗的是合併 commit 76b5e20：npm 46/46、靜態 11 支＋wrangler 5 支全綠、兩個缺陷各紅 → push、Version bb432f9a、線上同 246。房間由 FE 自己開兩個真人下到最後驗過。count93 閘門轉失敗（01c83c1）。#94 結局頁（81b0c8d）疊上去 app.js 衝突 → 再 rebase 中。
+- **2026-10-18** — #94 rebase 到含 #93 的 main（de002f8；重看開票的按鈕掛 .e-hero，FE 給報紙圖框加上這個 class），驗合併 commit e835786：node 46/46、靜態 11 支＋wrangler 4 支全綠；checker 自己的探針走「頁面上下完 → 開票夜 → 結局頁 → 重看 → 重新整理」，戰績三次都 1 局；兩個缺陷各紅 → push、Version ccb3c0d7、線上同 246。endpage94 閘門轉失敗（f191edf）。第二波六張（#90–#96）都上線。#97 writer 校對第二波中英文字已派（結局頁「為什麼」的標題、觸發說明、Campaign News／Campaign Daily 是否撞名、用詞一致、註解裡的舊牌名）。
+
 
 polish30 從 v0.8 起就停在「找不到觸發決定」，改找 v0.8 的對應畫面（4865fbe），修好後量到 main 一直有的 360 英文「No reward」溢出 → #95（FE 改成 None）land 8e5a5c0（Version eea441d2，線上同 244）。#93、#94、#96 已派 FE（三位同時，交付前各自 rebase）。下一步：#97 writer 校對第二波中英文字（i18n 由 FE 跨界加的字：#92 triggerNote/gift*/settleNone、#95 None、#93/#94/#96 新字）。
 ## Next steps
