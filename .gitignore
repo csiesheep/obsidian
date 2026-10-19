@@ -3,3 +3,31 @@
 .trash/
 .DS_Store
 .claude/settings.local.json
+
+# Files a Claude Code session copied in from its scratch folder on 2026-10-17 (2 GB of data,
+# 3D models and test images). They live in C:\Users\sheep\code\obsidian_scratch_2026-10-17.
+# Anchored to the vault root so notes inside folders are unaffected.
+/3d_templates_gallery.html
+/boy_mv_skill_check.png
+/data/
+/design-decisions.md
+/dl_sample/
+/examples/
+/face_diagnosis.png
+/ghost/
+/girl_pixal3d_vs_trellis2.png
+/h3_ghost/
+/h3_long_test/
+/jiangshi_skill_result.png
+/oi.json
+/pixal3d_fullbody_test.png
+/pixal3d_single_tuning.png
+/prompts/
+/requirements.txt
+/sim/
+/skilltest/
+/tests/
+/trellis2_tuning.png
+/view/
+/view_server.py
+/wf/
