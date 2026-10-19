@@ -77,6 +77,7 @@ YouTube 和 .com 是 2026-10-17 用 curl 和 DNS 掃的：「已被用」確定�
 
 > [!info] 實際發文
 > 一首故事怎麼變成 Threads、IG、Pinterest 的貼文，第一首的時程和發送前檢查，在 [[ghost story posting]]。
+> 帳號清單、要不要再開 Dcard、PTT 等平台、內容產出節奏和 13 週時程（10/18 開站後提前兩週），在 [[ghost story content plan]]。
 
 > [!warning] 頻率已更新
 > 目標定為 3 個月 1 萬以後，頻率改成 Threads 每週 14 則、IG 每週 8 則（含 4 支 Reels），見 [[ghost story growth]] 第 4 節。下表的格式說明仍然有效。
