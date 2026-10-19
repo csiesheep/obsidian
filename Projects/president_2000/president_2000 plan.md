@@ -237,6 +237,8 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-18** — #93 開票夜 rebase 到含 #96 的 main（74ab361），驗的是合併 commit 76b5e20：npm 46/46、靜態 11 支＋wrangler 5 支全綠、兩個缺陷各紅 → push、Version bb432f9a、線上同 246。房間由 FE 自己開兩個真人下到最後驗過。count93 閘門轉失敗（01c83c1）。#94 結局頁（81b0c8d）疊上去 app.js 衝突 → 再 rebase 中。
 - **2026-10-18** — #94 rebase 到含 #93 的 main（de002f8；重看開票的按鈕掛 .e-hero，FE 給報紙圖框加上這個 class），驗合併 commit e835786：node 46/46、靜態 11 支＋wrangler 4 支全綠；checker 自己的探針走「頁面上下完 → 開票夜 → 結局頁 → 重看 → 重新整理」，戰績三次都 1 局；兩個缺陷各紅 → push、Version ccb3c0d7、線上同 246。endpage94 閘門轉失敗（f191edf）。第二波六張（#90–#96）都上線。#97 writer 校對第二波中英文字已派（結局頁「為什麼」的標題、觸發說明、Campaign News／Campaign Daily 是否撞名、用詞一致、註解裡的舊牌名）。
 - **2026-10-18** — #97 land 749cc0a（Version 40b6f0a8，線上同 246）：結局頁兩種結局都叫「差在哪裡（＋是你多）」；觸發說明「被連當 CP 打出／played by Lien」（英文加長版讓地圖掉到 281×402，退回短的）；英文玩家棋子一律 cube；開票夜 Strategic voting；「七個市」；Campaign News／Campaign Daily 查無同名媒體（最近的是廣告業刊物 Campaign），保留。writer 問到的同票第三條是 orchestrator 的契約錯誤：#94 照四條（含動能）列，v0.8 規則頁與設計稿只有三條 → #98（驗收 1e86bbf：v0.8 三條、舊局第三條叫動能、t9 改 Strategic voting）已派 FE。
+- **2026-10-18** — #98 land beacb2c（Version 9d11f0cf，線上同 246）：v0.8 同票三條（① 票數 ② 領先的縣市 ③ 催票順序），舊局四條、第三條叫動能；t9 英文 Strategic voting。FE 指出舊局「比到順序」那一條沒有測試走到 → orchestrator 補了第三個合成局（14db64d，把 ④ 改 ③ 會紅）。閘門轉失敗（67c3d2d）。**第二波完成**（#90–#98）。下一步候選：第一波剩下的房間韌性（兩個分頁互踢、token、速率限制）與 M5 準備（分享圖、OG、隱私、credit、拿掉 noindex 要 owner 說 go）；第二波沒做的：分享圖片、教學完自動開軍師、首頁導到教學、發表會翻牌對決、小手感（聲音）、手機可讀性、美術統一。
+
 
 
 
