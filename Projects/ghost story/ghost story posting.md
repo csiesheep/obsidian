@@ -129,7 +129,7 @@ AI 輔助創作｜故事純屬虛構
 - **圖板**：一個「鬼唱詩｜台灣怪談漫畫」圖板，每本漫畫一個分區。
 - **標題和說明**：標題 100 字內，前 40 字最重要，放「台灣怪談、鬼故事漫畫、恐怖漫畫」這類搜尋字。說明寫 AI 標示和一句劇情鉤子。
 - **連結**：還沒有網站，先連到 IG 那則輪播。網站做好後改連網站。
-- **AI 標示**：Pinterest 會自己偵測並標「AI modified」；建立釘圖時若有自己標示的選項就勾。
+- **AI 標示**：建立釘圖的表單有「Mark as AI-Modified」開關，打開後才能勾「This Pin includes an AI-generated person」；第 1 首兩個都開，釘圖顯示「AI modified」（2026-10-18 實測）。
 
 ## 2a. 第 1 首改成現在發（2026-10-18 週日晚上，擁有者決定）
 
@@ -139,7 +139,7 @@ AI 輔助創作｜故事純屬虛構
 |---|---|---|---|---|
 | 1 ✅ | IG 輪播 | 封面（p10）、10 頁、結尾卡 | `ig/01.jpg` 到 `12.jpg`、`ig/caption.txt` | **2026-10-18 23:3x 已發**：<https://www.instagram.com/p/Deqmn6Bm5Jy/>，原比例、AI 標籤已開（貼文顯示「AI content」）、沒分享到 FB 或 Threads，帳簿已記 |
 | 2 ✅ | Threads | 鉤子加 p8，不放全文 | `threads/01_post_hook.txt`（最後一行改成「……全篇漫畫在 IG。」）、`01_image_p8.jpg` | **2026-10-18 23:37 已發**：<https://www.threads.com/@gui.chang.shi/post/DeqoW1smxte>，主題標籤「鬼故事」；底下自己回一則「漫畫版：」加 IG 連結，串文顯示 1/2、2/2；帳簿已記 |
-| 3 | Pinterest | 封面釘圖，連到 IG 那則 | `pinterest/00_cover.jpg`、`pinterest/pins.txt` | 先建圖板「鬼唱詩｜台灣怪談漫畫」；第 1 到 3 頁之後三天各釘一張 |
+| 3 ✅ | Pinterest | 封面釘圖，連到 IG 那則 | `pinterest/00_cover.jpg`、`pinterest/pins.txt` | **2026-10-18 已發**：<https://www.pinterest.com/pin/1107463364654400823/>，公開圖板「鬼唱詩｜台灣怪談漫畫」（沒開分區）、標題和說明照 pins.txt、連結 IG 那則、「Mark as AI-Modified」和「AI-generated person」都勾（釘圖顯示「AI modified」），帳簿已記。第 1 到 3 頁之後三天各釘一張 |
 
 - **為什麼先 IG**：Threads 的回覆和 Pinterest 的連結都要指到 IG 那則。
 - **Threads 用鉤子版**：工具切出的 500 字是開頭鋪陳（「手機排版，文筆普通請見諒」），第一句沒有異常；鉤子版直接放阿嬤那句話。之後可以給 `ghost_plan.py post` 加一個指定鉤子段落的選項。
@@ -197,7 +197,7 @@ AI 輔助創作｜故事純屬虛構
 3. **還沒有**：`manga.py export --pinterest`，輸出 1000×1500 的封面和單頁釘圖，加一份標題和說明的文字檔。沒有它，Pinterest 那一列只能手動縮圖。
 4. **還沒有**：`ghost_plan.py post --mode halves`，把故事切成上半首和下半首，各自是一則鉤子加附件，斷在最毛的那一句。沒有它，上下半首只能手動切，或改成一次發完。
 5. ~~合併 PR #12~~：2026-10-18 合併，本機已同步。
-6. **還沒驗證**：social-post 的發文頁面步驟，IG 輪播和 Threads 已在 2026-10-18 實發並寫回它的 `references/platforms.md`；Pinterest、YouTube、TikTok 還沒發過。IG 跨帳號分享到粉專要先在帳號中心開一次。
+6. **還沒驗證**：social-post 的發文頁面步驟，IG 輪播、Threads、Pinterest 已在 2026-10-18 實發並寫回它的 `references/platforms.md`；YouTube、TikTok 還沒發過。IG 跨帳號分享到粉專要先在帳號中心開一次。
 
 ## 7. 待擁有者決定
 
@@ -218,6 +218,7 @@ AI 輔助創作｜故事純屬虛構
 
 ## 歷程
 
+- 2026-10-18：第 1 首 Pinterest 封面釘圖發出，建了公開圖板「鬼唱詩｜台灣怪談漫畫」。三個平台都發完。
 - 2026-10-18：第 1 首發出 IG 輪播和 Threads（鉤子加 p8，回覆 IG 連結）。Threads 一則不能同時有圖和文字附件，有漫畫的故事 Threads 改成只放鉤子帶去 IG。
 - 2026-10-18：擁有者決定先只發 IG、Threads、Pinterest；FB、YouTube、TikTok 暫停。
 - 2026-10-18：加第 0 節標準流程：給定任一首故事和漫畫的指令、D 到 D+5 的時程範本（含 FB、YouTube Shorts、TikTok 交叉發）、每則的順序。工具清單更新為合併後的狀態。
