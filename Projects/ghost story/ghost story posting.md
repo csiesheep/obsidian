@@ -13,17 +13,76 @@ updated: 2026-10-18
 # 鬼唱詩｜發文流程
 
 > [!info] 一句話
-> 一首故事變成三個平台的貼文：Threads 放文字，IG 放漫畫輪播和 Reel，Pinterest 放漫畫頁。檔案都由現有工具產出，發送一律由擁有者決定。第一首是〈阿嬤說我後面跟了三個人〉，10/31 開站。帳號和簡介在 [[ghost story brand]]，頻率和成長目標在 [[ghost story growth]]。
+> 給定一首故事和它的漫畫，照第 0 節的流程做：拿號、產檔、檢查、給擁有者看、擁有者說發才發、記帳簿。主力是 Threads 文字和 IG 漫畫輪播加 Reel；FB 粉專、YouTube Shorts、TikTok 用同一批檔案交叉發，每個多花約 2 分鐘；Pinterest 放漫畫頁。第一首是〈阿嬤說我後面跟了三個人〉，10/31 開站。帳號和簡介在 [[ghost story brand]]，頻率和成長目標在 [[ghost story growth]]。
 
-## 0. 三層（2026-10-18 拆好）
+## 0. 標準流程：給定一首故事和它的漫畫（2026-10-18）
+
+### 0.1 輸入和三層
+
+| 東西 | 位置 |
+|---|---|
+| 故事全文 | `<漫畫資料夾>/story.md`，或 ghost-story 寫出來的檔案 |
+| 漫畫 | `<漫畫資料夾>/`：`board.json`、`choices.json`、`out/pages/` |
+| 品牌檔 | `C:\Users\sheep\Pictures\ghost_comic\brand\brand.json` |
+| 帳簿 | 同資料夾的 `ledger.json` |
 
 | 層 | 在哪 | 負責 |
 |---|---|---|
-| 產檔 | ghost-story `ghost_plan.py post`、ghost-comic `manga.py export`、`reel` | 怎麼畫、怎麼切 |
-| 長相和字句 | `C:\Users\sheep\Pictures\ghost_comic\brand\brand.json` | 顏色、印章、標示、文案範本、「收驚。」 |
-| 編號和紀錄 | social-post skill 的 `ledger.py`，帳簿在 `brand\ledger.json` | 第 N 首是誰、發到哪、哪天 |
+| 產檔 | ghost-story `ghost_plan.py post`、ghost-comic `manga.py export`、`reel`（都已在 main，本機已同步） | 怎麼畫、怎麼切 |
+| 長相和字句 | `brand.json` | 顏色、印章、標示、文案範本、「收驚。」 |
+| 編號和紀錄 | social-post skill 的 `ledger.py`（本機已裝，還沒合併） | 第 N 首是誰、發到哪、哪天 |
 
-每一則都是：`ledger.py reserve <標題>` 拿號 → 三個工具都加 `--brand-file brand.json --number N` 產檔 → 檢查 → 給擁有者看預覽 → 擁有者說發才發 → `ledger.py posted` 記連結。〈阿嬤說我後面跟了三個人〉已登記為第 1 首。
+### 0.2 指令
+
+```bash
+B="C:/Users/sheep/Pictures/ghost_comic/brand/brand.json"
+C="C:/Users/sheep/Pictures/ghost_comic/<漫畫資料夾>"
+S=~/.claude/skills
+
+# 1. 拿號：同一個標題再要一次會拿回同一號，文字和漫畫共用
+N=$(py -X utf8 $S/social-post/scripts/ledger.py --brand-file "$B" reserve "<標題>" --kind comic)
+
+# 2. 產檔
+py -X utf8 $S/ghost-story/scripts/ghost_plan.py post "$C/story.md" --mode attach --brand-file "$B" --number $N > "$C/out/export/threads.txt"
+py -X utf8 $S/ghost-comic/scripts/manga.py --work "$C" export --brand-file "$B" --number $N --cover <封面格>
+py -X utf8 $S/ghost-comic/scripts/manga.py --work "$C" reel teaser <A1> <A2> <A3> --brand-file "$B" --number $N --name teaser_A
+py -X utf8 $S/ghost-comic/scripts/manga.py --work "$C" reel teaser <B1> <B2> <B3> --brand-file "$B" --number $N --name teaser_B
+
+# 3. 每一則發出、打開確認以後
+py -X utf8 $S/social-post/scripts/ledger.py --brand-file "$B" posted $N instagram --url <連結>
+```
+
+**挑格子**：
+- 封面格：不雷，右上角沒有重要的東西，因為直排標題壓在那裡。
+- 預告 A、B：各三格，都在揭露之前，開頭不同。
+- Threads 配圖：一格不雷的格子，從 `out/panels/` 挑。
+
+### 0.3 一首的時程範本（D 是發文日）
+
+| 時間 | 平台 | 貼什麼 | 檔案 | 誰發 |
+|---|---|---|---|---|
+| D 21:00 | IG 輪播 | 封面、全部頁、結尾卡 | `out/export/ig/` 和 `caption.txt` | Claude 透過 Chrome，或擁有者 |
+| D 21:00 | FB 粉專 | 同一則輪播 | IG 發文時自動分享到粉專（帳號中心的「跨帳號分享」，要先開一次） | 自動 |
+| D 21:30、23:00 | Threads | 上半首、下半首，或 23:00 一次發完；配一格 | `threads.txt` 加一張格子圖 | Claude 透過 Chrome |
+| D+1 12:00 | IG 試用 Reel | 預告 A，只給非追蹤者看 | `out/export/reels/teaser_A.mp4` 和它的 caption | 擁有者用手機，在 app 裡加音樂 |
+| D+1 21:00 | IG Reel，同步到 FB | 預告 B | `teaser_B.mp4` | 擁有者用手機 |
+| D+2 | YouTube Shorts | 預告 B，標題「第 N 首｜標題」，說明照品牌 | `teaser_B.mp4`；9:16、3 分鐘內會自動當成 Short | Claude 透過 Chrome，或擁有者 |
+| D+2 | TikTok | 預告 A 或 B | 同上；音樂在 app 裡加 | 擁有者用手機 |
+| D+1 起 5 天 | Pinterest | D+1 封面釘圖，之後每天 2 頁，連到 IG 那則 | 1000×1500 釘圖（工具待補，第 6 節） | Claude 透過 Chrome |
+| D+2 21:00 | 成效 | 48 小時的數字 | [[ghost story social]] 的成效表 | 擁有者和 Claude |
+
+> [!note] 2026-10-18 擁有者決定：先只發 IG、Threads、Pinterest。上表 FB 粉專、YouTube Shorts、TikTok 三列暫停，之後再說；IG 發文時也先不要開「分享到 Facebook」。
+
+FB、YouTube、TikTok 是交叉發，不承諾回留言，時間先留給 IG 和 Threads（[[ghost story growth]] 第 10 節）。之後要開的話，YouTube 的訂閱越早累積，拿分潤時越有底子。
+
+### 0.4 每一則的順序
+
+1. 自己先看：IG 的第 1 張、Reel 的 `_frames.jpg`、`threads.txt` 每則的字數。
+2. 跑第 3 節的檢查清單。
+3. 預覽給擁有者：圖和影片用檔案傳，文案貼原文。
+4. 擁有者說「發」才發，一次同意只算一則。
+5. 發完打開那則確認，複製連結，`ledger.py posted` 記下來。
+6. 第一個小時擁有者回留言；48 小時後填成效表。
 
 ## 1. 一首的流水線
 
@@ -102,7 +161,7 @@ AI 輔助創作｜故事純屬虛構
 | 方式 | 適合 | 代價 |
 |---|---|---|
 | **A. 擁有者自己發**：Claude 準備好檔案和文案，傳到手機 | Reel（要在 app 加音樂）、任何想親手發的 | 每則約 2 分鐘 |
-| **B. Claude 透過 Chrome 發**：每一則先把預覽給擁有者看，擁有者說「發」才按 | Threads、IG 輪播、Pinterest | 每則都要擁有者回一句；做過一輪再寫成 `social-post` skill，像 `social-profile` 那樣 |
+| **B. Claude 透過 Chrome 發**：每一則先把預覽給擁有者看，擁有者說「發」才按 | Threads、IG 輪播、Pinterest、YouTube Shorts | 每則都要擁有者回一句；`social-post` skill 已寫好（本機），發文頁面的步驟要第一次發完再寫實 |
 | **C. 先排程**：Meta Business Suite 能排 IG 和 FB，據第三方說法也能排 Threads（沒查證） | 固定時間的貼文 | 要先在 Business Suite 綁好帳號；Pinterest 要另外排 |
 
 建議：Reel 用 A；Threads、IG 輪播、Pinterest 第一次用 B，確認流程後再決定要不要寫成 skill 或改排程。發文是對外公開的動作，不管哪種方式，每一則都要擁有者說可以。
@@ -115,17 +174,20 @@ AI 輔助創作｜故事純屬虛構
 
 ## 6. 開站前要補的工具（小改）
 
-1. ~~`ghost_plan.py post` 加 `--number N`~~：2026-10-18 做好，`--brand-file brand.json --number N` 自動加「第 N 首｜」和「收驚。」（分支 `ghost-comic-brand`）。
-2. ~~`manga.py export` 的文案改成品牌格式~~：2026-10-18 做好，`export --brand-file brand.json --number N` 連封面、結尾卡、文案一起換（分支 `ghost-comic-brand`）。四本已重出到各自的 `out/export/ig/`；試用 Reel A（第 1 首，p8、p9、p10）在 `three_behind/out/export/reels/teaser_A_p8.mp4`。
-3. `manga.py export --pinterest`：輸出 1000×1500 的封面和單頁釘圖，加一份標題和說明的文字檔。
-4. 合併 PR #12，讓本機的 ghost-comic 有 `reel`。
+1. ~~`ghost_plan.py post` 加 `--number N`~~：2026-10-18 做好並合併（PR #14），`--brand-file brand.json --number N` 自動加「第 N 首｜」和「收驚。」。
+2. ~~`manga.py export` 的文案改成品牌格式~~：2026-10-18 做好並合併（PR #14）。四本已重出到各自的 `out/export/ig/`；試用 Reel A（第 1 首，p8、p9、p10）在 `three_behind/out/export/reels/teaser_A_p8.mp4`。
+3. **還沒有**：`manga.py export --pinterest`，輸出 1000×1500 的封面和單頁釘圖，加一份標題和說明的文字檔。沒有它，Pinterest 那一列只能手動縮圖。
+4. **還沒有**：`ghost_plan.py post --mode halves`，把故事切成上半首和下半首，各自是一則鉤子加附件，斷在最毛的那一句。沒有它，上下半首只能手動切，或改成一次發完。
+5. ~~合併 PR #12~~：2026-10-18 合併，本機已同步。
+6. **還沒驗證**：social-post 的發文頁面步驟（Threads、IG、Pinterest、YouTube、TikTok 都沒實際發過），第一次發完要把實際流程寫回它的 `references/platforms.md`；IG 跨帳號分享到粉專要先在帳號中心開一次。
 
 ## 7. 待擁有者決定
 
 - [ ] 誰按發送（第 4 節）。
 - [ ] Threads 先試哪種：上下半首、附件、串文。
 - [ ] Pinterest 單頁要不要全部釘，還是只釘封面和前 3 頁留懸念。
-- [ ] 第 6 節的三個小工具，要不要開站前做完。
+- [ ] 第 6 節還沒有的兩個工具（Pinterest 釘圖、上下半首），要不要開站前做完。
+- [x] FB 粉專、YouTube Shorts、TikTok：擁有者 2026-10-18 決定**先不發**，先只發 IG、Threads、Pinterest，之後再說。第 0.3 節那三列暫停。
 
 ## 來源（2026-10-18 查）
 
@@ -133,7 +195,12 @@ AI 輔助創作｜故事純屬虛構
 - Pinterest AI modified 標籤：[smallbiztrends](https://smallbiztrends.com/pinterest-gen-ai-content-labels/)、[Nightjar](https://nightjar.so/help-desk/does-pinterest-allow-ai-generated-product-pins)
 - IG 網頁版上傳 Reels、音樂在手機編輯器：[ShortSync](https://shortsync.app/resources/instagram-reels-upload-guide)
 - Threads 排程說法不一：[Nuelink](https://help.nuelink.com/article/234-best-threads-scheduling-tools)、[ShortSync](https://shortsync.app/guides/schedule-threads-posts)
+- YouTube Shorts 3 分鐘、9:16 自動判定：[ShortSync](https://shortsync.app/resources/youtube-shorts-upload-requirements-2026)、[1of10](https://1of10.com/blog/how-to-make-youtube-shorts/)
+- IG 跨帳號分享到 FB 粉專、Reels 需連粉專：[HubSpot](https://blog.hubspot.com/marketing/instagram-to-facebook-company-page)、[socialk.it](https://socialk.it/en/cross-post/instagram-to-facebook)
 
 ## 歷程
+
+- 2026-10-18：擁有者決定先只發 IG、Threads、Pinterest；FB、YouTube、TikTok 暫停。
+- 2026-10-18：加第 0 節標準流程：給定任一首故事和漫畫的指令、D 到 D+5 的時程範本（含 FB、YouTube Shorts、TikTok 交叉發）、每則的順序。工具清單更新為合併後的狀態。
 
 - 2026-10-18：第一版。
