@@ -228,6 +228,9 @@ Phase 0 proposal; the owner confirms it with the first go.
 - **2026-10-18** — #83（新手 level 0，BE）、#85（七張牌改名，writer）、#86（兩張插圖，artist）一起 land（181050f，Version 396ed334）。balance83：新手對新手電腦 陳 39.3 / 宋 38.7 / 連 41.7（各是「人坐那一座」的勝率，三組不同的局，不會加總 100%；owner 問過）；L1–L3 一字不差。
 - **2026-10-18** — #87 land（f3d3137，Version e9a7494b）：單人與房間四級、新手在前、第一次來預設新手；電腦拿到 { humans }。真的單人局新手 陳 46.7 / 宋 36.0 / 連 34.0。首頁改「對四種難度的 AI」。待查：compact29、gamepage66 用頁面隨機種子開局，checker 那輪各紅一條手機英文（4 個議題槽、toast 蓋縣市）重現不出來 → 派 helper 固定種子、掃種子重現。
 - **2026-10-18** — 第二波設計提案（五張手機稿：結局頁當選／落選同票、開票夜、第一局提示、拿對手牌當 CP 的提醒）：https://claude.ai/artifact/FWervdeqDq9QRFL6zKjqNK ，等 owner 看。
+- **2026-10-18** — #88 land（aedddf8）：手機載入（字型 2.2 MB → 15 KB、FCP 2.6 s → 0.7 s）與 iOS 15 退路。#89 land（2e1017e，Version e49a2d87，線上同 241、異 0）：手機英文開局有面板時地圖 ≥ 290×400、浮標跟著縮；桌機候選人名字在畫面上。gamepage66 新手那一輪預設種子改 12（a217364，104 PASS）。
+- **2026-10-18** — owner 看設計稿：「設計圖 可以用 comfyUI 去產生圖」「不對，本來就有當選了的圖，請用原本的」「開票頁，重新設計，像新聞聯播，image generation 用 qwen 2.1 image」「各縣市開票 用台灣地圖」（地圖用遊戲 map.js 的縣市幾何畫，不是 AI 圖）→ 畫布第 19 版。owner：「可以 開工」。
+- **2026-10-18** — 第二波拆單：#90 BE 結局資料（每塊方塊記來源、decidedBy、recap()、moraleOf()；驗收 tests/endfacts90.test.js efd965d：main 1/0/18，探針 19/0/0，12 個缺陷各紅在自己那列）已派；#91 artist 開票夜攝影棚（驗收 art.test.js db67e2e）→ land 72f9d0e（Version 1936a1d6，線上同 243、異 0）。接著：#92 開票夜（FE，驗收 tools/count92.mjs）、CP 送分提醒與畫面說真話、結局頁、第一局提示、文字校對。
 ## Next steps
 - [x] Owner confirms the plan, the open questions and the Phase 0 proposal (first go). 2026-10-13
 - [x] Phase 0: placeholder, `TEAM.md`, first guard seen red. 2026-10-13
