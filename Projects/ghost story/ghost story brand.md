@@ -148,8 +148,9 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 ### 10/19 到 10/21：長相
 
 - [x] 用 ComfyUI 畫頭像三個方向各 3 版（2.3），擁有者選一個。2026-10-18 選定 **B1 硃砂印章**，不是推薦的 A1：擁有者要求字放大、置中、紅底填滿無漸層、紅色暗一點。做法是把 B1 的三個白字抽出來放在純平塗 `#B8322A` 上（字高佔 78%），沒有重畫。定稿在 `C:\Users\sheep\Pictures\ghost_comic\avatar\final\`：`avatar_1024.png`（IG、Threads、FB、TikTok、Pinterest）、`avatar_800_youtube.png`、`avatar_circle_1024.png`（透明圓形版，給網站和結尾卡）。腳本 `avatar_b1_flat.py`。
-- [ ] 把頭像換到六個平台上。IG 已換（2026-10-18，Claude 透過擁有者的 Chrome 上傳 `avatar_1024.png`，IG 顯示 Profile photo added）。Threads 不一定跟著 IG 換，沒換就到 Threads 編輯個人檔案 → 從 Instagram 匯入。FB 粉專、YouTube、TikTok、Pinterest 還沒換。
-- [ ] IG 簡介還是空的（0/150），貼 2.4 的範本。
+- [ ] 把頭像換到六個平台上。2026-10-18 Claude 透過擁有者的 Chrome 換好五個：IG、Threads（沒有跟著 IG 自動換，另外上傳）、FB 粉專（切成粉專身分換完再切回個人帳號）、YouTube（`avatar_800_youtube.png`，Changes published）、Pinterest。**TikTok 還沒換**：Chrome 裡的 TikTok 沒登入，要擁有者在手機換，或先在 Chrome 登入。
+- [x] IG 簡介：2026-10-18 貼上 2.4 的四行範本，個人頁確認顯示正確。
+- [ ] Threads 簡介還是空的，貼 2.4 的 Threads 版。
 - [ ] 顯示名稱改「鬼唱詩｜台灣怪談」，簡介貼 2.4 的範本，IG 連結放 Threads、Threads 連結放 IG。
 - [ ] 做封面卡和結尾卡的模板，加進 `manga.py export`（紅印、「第 N 首」、`@gui.chang.shi`）。
 - [ ] 限動四個分類的封面圖。
@@ -187,4 +188,5 @@ AI 輔助創作，純屬虛構。看完記得收驚。
 - 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
 - 2026-10-18：Threads `@gui.chang.shi` 開好。
 - 2026-10-18：頭像 9 張候選畫好（`Pictures\ghost_comic\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。FB 粉專開好（ID 61595535390663），公開頁帶出的地址和電話同日刪掉，網址 `facebook.com/gui.chang.shi` 設好，IG 也連好。七個平台帳號全開好，10/18 到 19 的「占名」段落除了延後的網域全部完成。
+- 2026-10-18：IG 簡介填好；頭像換到 IG、Threads、FB 粉專、YouTube、Pinterest。TikTok 未登入，沒換。
 - 2026-10-18：頭像定稿：B1 印章改成全紅底 `#B8322A`、白字置中放大，檔案在 `Pictures\ghost_comic\avatar\final\`。
