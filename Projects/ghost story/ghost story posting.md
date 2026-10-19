@@ -15,6 +15,16 @@ updated: 2026-10-18
 > [!info] 一句話
 > 一首故事變成三個平台的貼文：Threads 放文字，IG 放漫畫輪播和 Reel，Pinterest 放漫畫頁。檔案都由現有工具產出，發送一律由擁有者決定。第一首是〈阿嬤說我後面跟了三個人〉，10/31 開站。帳號和簡介在 [[ghost story brand]]，頻率和成長目標在 [[ghost story growth]]。
 
+## 0. 三層（2026-10-18 拆好）
+
+| 層 | 在哪 | 負責 |
+|---|---|---|
+| 產檔 | ghost-story `ghost_plan.py post`、ghost-comic `manga.py export`、`reel` | 怎麼畫、怎麼切 |
+| 長相和字句 | `C:\Users\sheep\Pictures\ghost_comic\brand\brand.json` | 顏色、印章、標示、文案範本、「收驚。」 |
+| 編號和紀錄 | social-post skill 的 `ledger.py`，帳簿在 `brand\ledger.json` | 第 N 首是誰、發到哪、哪天 |
+
+每一則都是：`ledger.py reserve <標題>` 拿號 → 三個工具都加 `--brand-file brand.json --number N` 產檔 → 檢查 → 給擁有者看預覽 → 擁有者說發才發 → `ledger.py posted` 記連結。〈阿嬤說我後面跟了三個人〉已登記為第 1 首。
+
 ## 1. 一首的流水線
 
 | 平台 | 貼什麼 | 怎麼產出 | 現況 |
@@ -105,8 +115,8 @@ AI 輔助創作｜故事純屬虛構
 
 ## 6. 開站前要補的工具（小改）
 
-1. `ghost_plan.py post` 加 `--number N`：自動加「第 N 首｜」和「收驚。」，IG 文案模式也一樣。
-2. ~~`manga.py export` 的文案改成品牌格式~~：2026-10-18 做好，`export --brand 鬼唱詩 --seal <頭像> --number N` 連封面、結尾卡、文案一起換（分支 `ghost-comic-brand`）。四本已重出到各自的 `out/export/ig/`。
+1. ~~`ghost_plan.py post` 加 `--number N`~~：2026-10-18 做好，`--brand-file brand.json --number N` 自動加「第 N 首｜」和「收驚。」（分支 `ghost-comic-brand`）。
+2. ~~`manga.py export` 的文案改成品牌格式~~：2026-10-18 做好，`export --brand-file brand.json --number N` 連封面、結尾卡、文案一起換（分支 `ghost-comic-brand`）。四本已重出到各自的 `out/export/ig/`；試用 Reel A（第 1 首，p8、p9、p10）在 `three_behind/out/export/reels/teaser_A_p8.mp4`。
 3. `manga.py export --pinterest`：輸出 1000×1500 的封面和單頁釘圖，加一份標題和說明的文字檔。
 4. 合併 PR #12，讓本機的 ghost-comic 有 `reel`。
 
