@@ -115,7 +115,15 @@ updated: 2026-10-20
 - **測試**：〈阿嬤〉的輪播重出後和目前逐像素一致（除了封面字條的編號）；第 2 首產出 Pinterest 4 張和配圖。
 - **完成標準**：第 2 首的輪播、Pinterest 圖、配圖都在約定位置、不帶編號。
 
-### 步驟 3：ghost-pack（新，約 1 到 1.5 小時）
+### 步驟 3：ghost-pack（新，約 1 到 1.5 小時）✅ 2026-10-20 完成
+
+> [!done] 做了什麼（skills main c6f227b）
+> - 新 skill `ghost-pack`，一個指令 `pack.py <故事資料夾> --brand-file brand.json --logline "…"`：帳簿拿號（同標題重跑拿回同一號）→ 用 ghost-comic 的程式重畫 `posts/ig/01.jpg` 的字條（和 `export --number N` 畫的一致，只差 JPEG 雜訊）、留 `01_nonumber.jpg` → 用蓋好號的 01.jpg 重做 Pinterest 封面（留 `00_cover_nonumber.jpg`）→ 寫 IG 文案、Threads 鉤子和附件第一行、`posts/threads/link.txt`（第 3 則，新加進約定）、`pins.txt`、`cross_caption.txt` → 更新 README（編號、狀態、一句話）。
+> - `ledger.py` 搬到 ghost-pack（步驟 4 讓 ghost-post 改用這份）。
+> - 文案範本放進 brand.json 的 `threads`、`pinterest`、`cross` 三塊；一句話簡介（Pinterest、YouTube、TikTok、FB 用）由 `--logline` 給，存進 README，重跑沿用。
+> - 第 2 首已正式包裝：帳簿第 2 號、封面蓋「鬼唱詩｜第 2 首」、鉤子 412 字、Pinterest 4 張標題和說明、YouTube 標題 14 字。
+> - `check_story.py` 除了一項全過；那一項是它把「還沒有 IG 連結」當成缺漏（發 IG 前本來就該是 `{ig_link}`），步驟 4 修。
+
 
 - 新 skill，三件事：
   1. **拿號**：`ledger.py reserve "<標題>" --kind comic --folder stories/<短名>`（同標題再要一次拿回同一號）。
@@ -128,6 +136,8 @@ updated: 2026-10-20
 ### 步驟 4：ghost-post（約 30 分鐘）
 
 - `check_story.py` 照約定的檔名檢查，並檢查 01.jpg 和 Pinterest 封面已蓋號（看 `_nonumber` 備份是否存在）。
+- 修 `check_story.py`：`cross_caption.txt` 帶 `{ig_link}` 是發 IG 前的正常狀態，不算缺漏；也檢查 `threads/link.txt`。
+- ghost-post 改用 ghost-pack 的 `ledger.py`，刪掉自己那份。
 - 發 IG 後把 `cross_caption.txt` 和 Threads 第 3 則的 `{ig_link}` 換成連結（發文動作，不算準備）。
 - **測試**：用第 2 首實際發文；YouTube、TikTok、FB 粉專第一次發，發完把實際步驟寫回 `references/platforms.md`。
 - **完成標準**：第 2 首六個平台都發出、帳簿和 README 有連結。
@@ -165,6 +175,7 @@ updated: 2026-10-20
 
 ## 歷程
 
+- 2026-10-20：步驟 3 ghost-pack 完成並合併；第 2 首正式拿號（第 2 首）並包裝。
 - 2026-10-20：步驟 1 ghost-story、步驟 2 ghost-comic 完成並合併。
 - 2026-10-20：步驟 0 約定和清理完成。
 - 2026-10-20：改寫成三部分：分工和順序、共用的資料夾約定、五個 skill 的逐步實作計畫（步驟 0 到 5）。
