@@ -59,9 +59,10 @@ updated: 2026-10-19
 | D-1 | | Claude | 帳簿拿號；做輪播、Reel full（或預告 A 代替）、預告 B、Threads 三則、Pinterest 圖；傳預覽 |
 | D-1 | | 擁有者 | 看預覽，說發不發（10 分鐘） |
 | D | 21:00 | Claude（Chrome） | IG：Reel full、漫畫輪播（AI 標籤開） |
-| D | 21:00 | Claude（Chrome） | YouTube Shorts、TikTok：同一支影片 |
+| D | 21:00 | Claude（Chrome） | YouTube Shorts、TikTok：同一支影片，文案用 brand.json 的 cross_lines（第一行 AI 標示，第二行「全篇漫畫、更多故事：IG 連結」）；YouTube 說明欄的連結可點，TikTok 不能點、靠個人頁的 Instagram 欄位 |
 | D | 21:30 | Claude（Chrome） | Threads：鉤子加一格圖 → 回覆全文附件 → 回覆 IG 連結；標籤「鬼故事」 |
 | D | 自動 | | FB 粉專同步 IG 的輪播和 Reel |
+| D | 21:15 | Claude（Chrome，粉專身分） | FB 粉專：在同步過來的輪播和 Reel 底下各留一則留言，放 IG 那則的連結，再切回個人帳號 |
 | D | 21:00 | Claude（Chrome） | Pinterest：封面加第 1 到 3 頁，4 張一起釘，都連到 IG 輪播（揭露頁之後不釘） |
 | D | 21:00 到 22:30 | 擁有者 | 回 IG、Threads 每一則留言（Claude 起草） |
 | D+1 | 12:00 | 擁有者（手機） | IG 試用 Reel（做好 Reel full 前，是預告 B） |
@@ -182,6 +183,19 @@ C:/Users/sheep/Pictures/gui_chang_shi/
 - [ ] FB 社團、巴哈：第 5 週後再問。
 - [ ] 配音用 Azure 還是自己錄（第 10 週前）。
 
+## 10. 每個平台連回 IG（2026-10-19）
+
+| 平台 | 連回的地方 | 狀態 |
+|---|---|---|
+| YouTube | 每支 Shorts 說明第二行的 IG 連結（可點）；頻道的「連結」欄 | 文案已寫進 brand.json cross_lines；連結欄見下 |
+| TikTok | 個人頁的 Instagram 欄位（TikTok 專用設定）；文案最後一行寫帳號（不能點） | 見下 |
+| FB 粉專 | 同步貼文底下補一則留言放 IG 連結（人工，排在發文日 21:15）；簡介連結欄 | 見下 |
+| Threads | 每首第 3 則回覆是 IG 連結；個人頁連結欄 | 回覆已在流程；連結欄見下 |
+| Pinterest | 每張釘圖連到 IG 輪播；個人頁網站欄 | 釘圖已連；網站欄見下 |
+| IG | 簡介連結欄放 Threads | 見下 |
+
+六個平台的個人頁連結欄 2026-10-19 用 social-profile 查過一次，結果記在 [[ghost story brand]] 2.4。
+
 ## 來源（2026-10-19 查）
 
 - Pinterest 台灣不能直接開廣告帳戶：[Pinterest 說明](https://help.pinterest.com/en/node/821)
@@ -191,6 +205,7 @@ C:/Users/sheep/Pictures/gui_chang_shi/
 
 ## 歷程
 
+- 2026-10-19：加第 10 節各平台連回 IG；brand.json 加 reel.cross_lines；FB 同步貼文補留言排進發文日。
 - 2026-10-19：Pinterest 改成發文日一次釘 4 張（封面加前 3 頁），不分天。
 - 2026-10-19：擁有者更正：每天一套完整組（文字、漫畫、Reel A、B、full）從今天起，不等 11/2；純文字故事另外也發。
 - 2026-10-19：擁有者定案：今天就開始每天一首；FB、YouTube、TikTok 都做；Reel full 晚點做。
