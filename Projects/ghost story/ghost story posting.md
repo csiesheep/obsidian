@@ -185,7 +185,9 @@ AI 輔助創作｜故事純屬虛構
 ### 擁有者要先做的
 
 - [x] Chrome 登入鬼唱詩的 TikTok（10/20）。
-- [ ] 手機 TikTok app：個人頁加 Instagram 連結（網頁版沒有這個欄位）。
+- [x] ~~手機 TikTok app：個人頁加 Instagram 連結~~：app 也沒有這個欄位了（TikTok 據報 2025-11 拿掉 Instagram、YouTube 欄位，只剩要 1,000 粉絲的網站欄位）。改成簡介最後一句「全篇漫畫在 IG @gui.chang.shi」（10/20 Claude 用 Chrome 改，68/80）；發片後再置頂一則同樣的留言（手機）。
+- [x] YouTube 頻道加 Instagram 連結（10/20 Claude 在 Studio 加、已發布，頻道頁簡介下方有可點的「Instagram」）。Shorts 說明裡的連結不能點，靠頻道頁這個連結。
+- [ ] 選做：IG app 個人頁連結加 YouTube 頻道 `https://www.youtube.com/@鬼唱詩`。
 - [x] FB 粉專：用粉專身分直接發，不合併帳號（10/20）。
 - [ ] 開聲音看一次 V3，確認配樂和音效。
 
