@@ -35,7 +35,7 @@ updated: 2026-10-19
 | 內容 | 是什麼 | 主場 | 也放 | 不放 |
 |---|---|---|---|---|
 | **Reel full** | 整本漫畫 30 多格照閱讀順序推鏡，加音效和原創配樂，約 60 到 100 秒；之後加配音 | IG Reels | YouTube Shorts、TikTok、FB 粉專（自動同步） | Pinterest |
-| **漫畫輪播** | 封面、每一頁、結尾卡，3:4，最多 20 張 | IG | FB 粉專（自動同步）；Pinterest 放封面和揭露前的頁 | Threads 只放一格 |
+| **漫畫輪播** | 封面、每一頁、結尾卡，3:4，最多 20 張 | IG | FB 粉專（自動同步）；Pinterest 發文日一起釘封面加前 3 頁，連到 IG | Threads 只放一格 |
 | **文字故事** | 500 字鉤子加全文 | Threads：三則一串（鉤子加一格圖、全文附件、IG 連結） | 第 5 週後 FB 粉專貼全文、FB 社團 | IG |
 | **預告 Reel A、B** | 同一本挑兩組不同的三格當開頭，15 秒 | Reel full 做好前：A 當正式 Reel 發 IG、YouTube、TikTok；做好後 A、B 都改成 IG 試用 Reels（只給非追蹤者看） | | |
 | **一句話鬼故事** | 一到兩句，最後一個詞翻轉 | Threads 每天 1 句 | IG 一句話 Reel 每週 2 支，YouTube、TikTok 同一支 | |
@@ -62,14 +62,12 @@ updated: 2026-10-19
 | D | 21:00 | Claude（Chrome） | YouTube Shorts、TikTok：同一支影片 |
 | D | 21:30 | Claude（Chrome） | Threads：鉤子加一格圖 → 回覆全文附件 → 回覆 IG 連結；標籤「鬼故事」 |
 | D | 自動 | | FB 粉專同步 IG 的輪播和 Reel |
+| D | 21:00 | Claude（Chrome） | Pinterest：封面加第 1 到 3 頁，4 張一起釘，都連到 IG 輪播（揭露頁之後不釘） |
 | D | 21:00 到 22:30 | 擁有者 | 回 IG、Threads 每一則留言（Claude 起草） |
 | D+1 | 12:00 | 擁有者（手機） | IG 試用 Reel（做好 Reel full 前，是預告 B） |
-| D+1 | | Claude | Pinterest 釘封面，連到 IG 輪播 |
 | D+2 | 12:00 | 擁有者（手機） | IG 第二支試用 Reel（有的話） |
-| D+2 | | Claude | Pinterest 第 1 頁 |
 | D+2 | 晚上 | Claude | 填 48 小時成效（觀看、收藏、分享、新追蹤），擁有者看 5 分鐘 |
-| D+3 | | Claude | Pinterest 第 2 頁 |
-| D+4 | | Claude | Pinterest 第 3 頁；發完。試用 Reel 72 小時結果記下來 |
+| D+4 | | Claude | 試用 Reel 72 小時結果記下來；發完 |
 
 Reel full 做好前，D 當天的影片是預告 Reel A，要用手機發（在 app 加音樂）；YouTube、TikTok 那支也是 A。
 
@@ -193,6 +191,7 @@ C:/Users/sheep/Pictures/gui_chang_shi/
 
 ## 歷程
 
+- 2026-10-19：Pinterest 改成發文日一次釘 4 張（封面加前 3 頁），不分天。
 - 2026-10-19：擁有者更正：每天一套完整組（文字、漫畫、Reel A、B、full）從今天起，不等 11/2；純文字故事另外也發。
 - 2026-10-19：擁有者定案：今天就開始每天一首；FB、YouTube、TikTok 都做；Reel full 晚點做。
 - 2026-10-19：重寫成詳細版。Reel full 改成吸人主力，同天放 IG、YouTube、TikTok、FB；預告 A、B 之後全改試用；Threads 全文放附件三則一串；YouTube、TikTok 不再等第三天；FB 粉專放同步的輪播和 Reel。
