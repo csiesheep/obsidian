@@ -155,6 +155,53 @@ AI 輔助創作｜故事純屬虛構
 - **主頁還是空的**：10/28 到 10/30 那 9 則鋪主頁貼文和 Threads 的「第 0 首」自介都還沒發，第 1 首會是主頁第一則。第 0 首可以在第 1 首之前先發在 Threads 並釘選（文案在 [[ghost story brand]] 2.4）。
 - **之後**：明天 12:00 試用 Reel A（`reels/teaser_A_p8.mp4`），擁有者用手機發、在 app 加音樂；10/20 晚上填 48 小時成效。10/31 萬聖節改發第 2 首。
 
+## 2b. 第 2 首〈半夜叫我全名的人〉（計畫，2026-10-20）
+
+建議發文日 **D = 10/21（三）**，今天（10/20）把檔案做齊、擁有者看過。檔案都在 `C:/Users/sheep/Pictures/gui_chang_shi/stories/name_call/`。照 [[ghost story content plan]] 3.1 的時間線：主力是 Reel full（V3 電影感），同一天放 IG、YouTube Shorts、TikTok，FB 從 IG 同步。
+
+### 現在有什麼、缺什麼
+
+| 項目 | 狀態 | 要做的 |
+|---|---|---|
+| 編號 | 帳簿下一號是 2 | `ledger.py reserve "半夜叫我全名的人" --kind comic --folder stories/name_call` |
+| Reel full | V3 電影感 82 秒已打磨完（`reels/full_v3_cinema/`）；V1 漫動畫留著 | 片名卡加「鬼唱詩｜第 2 首」，重出 V3（約 11 分鐘）；選封面 |
+| IG 輪播 | 8 張已輸出（封面、6 頁、結尾卡），文案沒有編號 | `manga.py export --number 2` 重出（封面格建議 p11 營地夜景，或 p17 紗網後的眼睛；不能用 p18 黑影和 p33 結尾），搬到 `posts/ig/` |
+| Threads | 沒有 | `ghost_plan.py post story.md --mode attach --number 2`；鉤子改寫成第一句就是規矩「山上晚上如果聽到有人叫你全名，不管多像我們的聲音，都不要回。」；三則：鉤子加一格圖（p13 帳篷或 p17 眼睛）→ 全文附件 → IG 連結 |
+| 預告 Reel A、B | 沒有 | 選做：`manga.py reel teaser` 兩組三格（A：p12 p13 p14，B：p15 p16 p17），當 IG 試用 Reels |
+| Pinterest | 沒有 | 封面加第 1 到 3 頁縮成 1000×1500（揭露在第 4 頁 p18，第 4 頁起不釘），寫 `pins.txt` |
+| YouTube、TikTok 文案 | 沒有 | 用 brand.json 的 `reel.cross_lines`：標題「第 2 首｜半夜叫我全名的人」，第二行 IG 連結 |
+
+### 擁有者要先做的（不然那個平台當天發不了）
+
+- [ ] 手機 IG：帳號中心開「分享到 Facebook」（FB 粉專才會自動同步）。
+- [ ] Chrome 的 YouTube 切到鬼唱詩頻道（目前是個人頻道）。
+- [ ] Chrome 登入鬼唱詩的 TikTok（目前沒登入）。
+- [ ] 開聲音看一次 V3，確認配樂和音效。
+
+### 時間線
+
+| 時間 | 平台 | 內容 | 誰 |
+|---|---|---|---|
+| 10/20 | | 拿號、重出 V3 和輪播、做 Threads 三則和 Pinterest 圖、寫各平台文案，全部傳給擁有者看 | Claude |
+| 10/20 晚上 | | 擁有者看預覽，每一則說可以或要改 | 擁有者 |
+| 10/21 21:00 | IG | Reel full V3（原創音訊，AI 標籤開）＋漫畫輪播 | Claude（Chrome）；Reel 若網頁版不能選封面就改手機 |
+| 10/21 21:00 | YouTube Shorts、TikTok | 同一支 V3 | Claude（Chrome） |
+| 10/21 21:00 | FB 粉專 | 自動同步輪播和 Reel；21:15 在底下留言放 IG 連結 | 自動＋Claude（粉專身分） |
+| 10/21 21:00 | Pinterest | 封面加第 1 到 3 頁，連到 IG 輪播 | Claude |
+| 10/21 21:30 | Threads | 鉤子加一格圖 → 全文附件 → IG 連結 | Claude |
+| 10/21 21:00 到 22:30 | IG、Threads | 回留言 | 擁有者（Claude 起草） |
+| 10/22、10/23 12:00 | IG 試用 Reels | 預告 A、B（有做的話） | 擁有者手機 |
+| 10/23 晚上 | | 48 小時成效：觀看、完播、收藏、分享、新追蹤；V3 的數字和第 1 首輪播比 | Claude |
+
+每一則發出後記帳簿 `ledger.py posted 2 <平台> --url <連結>`，故事資料夾的 README 補連結。
+
+### 發文前檢查
+
+- [ ] 每則有「第 2 首」和 AI 標示，Threads 標題不是 `[經驗]`。
+- [ ] 封面、Threads 配圖、Pinterest 都沒有用到揭露格（p18 黑影、p33 結尾）。
+- [ ] V3 的字都在安全區、品管通過（已過）。
+- [ ] 連結：Threads 第 3 則、YouTube 說明、FB 留言、Pinterest 都指到 IG 那則輪播或 Reel。
+
 ## 2. 第一首原本的時程（10/31 開站版，已改成 2a）
 
 開站前的 9 則鋪主頁貼文另見 [[ghost story brand]] 第 3 節，這裡只排第一首。
