@@ -102,7 +102,7 @@ AI 輔助寫、人工審，純屬虛構。漫畫版在 IG。
 每晚 11 點，一首台灣怪談。AI 輔助創作，純屬虛構。漫畫在 IG。
 ```
 
-**FB 粉專簡介**（111/255，最後一行是建粉專時就有的 Threads 連結，保留）：
+**FB 粉專簡介**（152/255，倒數第二行是建粉專時就有的 Threads 連結，最後一行是 2026-10-19 加的 IG 連結）：
 
 ```
 料應厭作人間語，愛聽秋墳鬼唱詩。
@@ -110,6 +110,7 @@ AI 輔助寫、人工審，純屬虛構。漫畫版在 IG。
 AI 輔助創作，純屬虛構。看完記得收驚。
 漫畫在 IG，文字在 Threads
 https://www.threads.com/@gui.chang.shi
+https://www.instagram.com/gui.chang.shi/
 ```
 
 **YouTube 頻道說明**（179/1000）：
@@ -158,6 +159,18 @@ https://www.threads.com/@gui.chang.shi
 
 #鬼唱詩 #台灣怪談 #鬼故事 #漫畫 #創作
 ```
+
+
+**各平台連回 IG 的連結欄**（2026-10-19 用 social-profile 查）：
+
+| 平台 | 連結欄 | 狀態 |
+|---|---|---|
+| Threads | 個人頁自動帶 Instagram 連結 | 本來就有 |
+| Pinterest | 設定頁 Website | 已填 IG（公開頁要等 Pinterest 驗證才露出） |
+| FB 粉專 | 簡介最後一行 | 已加 IG 連結 |
+| YouTube | 頻道「連結」欄 | **沒做**：Chrome 的 YouTube Studio 登入的是擁有者個人頻道，不是鬼唱詩 |
+| TikTok | 個人頁的 Instagram 欄位 | **沒做**：Chrome 沒登入鬼唱詩的 TikTok（個人頁顯示 Follow） |
+| IG | 簡介連結欄放 Threads | **沒做**：IG 連結只能在手機 app 改 |
 
 **固定句式**：每則開頭「第 N 首。」，結尾「收驚。」。標題一律 `[創作]`，不用 `[經驗]`。
 
@@ -229,6 +242,7 @@ https://www.threads.com/@gui.chang.shi
 - 2026-10-18：YouTube 頻道 `@鬼唱詩` 開好。
 - 2026-10-18：Threads `@gui.chang.shi` 開好。
 - 2026-10-18：頭像 9 張候選畫好（`Pictures\gui_chang_shi\brand\avatar\out\pick_avatar.png`），推薦 A1 頭像、B1 印章，等擁有者選。Pinterest 開好，使用者名稱改成 `guichangshi`。網域延後到 IG、Threads 做起來再買。TikTok `@guichangshi` 開好。FB 粉專開好（ID 61595535390663），公開頁帶出的地址和電話同日刪掉，網址 `facebook.com/gui.chang.shi` 設好，IG 也連好。七個平台帳號全開好，10/18 到 19 的「占名」段落除了延後的網域全部完成。
+- 2026-10-19：FB 粉專簡介加 IG 連結，Pinterest Website 填 IG。YouTube、TikTok、IG 的連結欄還沒做（見 2.4 的表）。
 - 2026-10-18：簡介改版，第一行改用王士禎「料應厭作人間語，愛聽秋墳鬼唱詩」。用 `social-profile` 貼到六個平台：IG、Threads、TikTok、Pinterest、FB 粉專、YouTube，全部在公開頁確認過。名字出處和第 0 首自介也改成這句。
 - 2026-10-18：換頭像和簡介的流程做成 skill `social-profile`（csiesheep/skills 分支 `social-profile`，本機已裝）。以後換頭像、改簡介，說「用 social-profile 換」即可。
 - 2026-10-18：IG、Threads 簡介填好；頭像換到 IG、Threads、FB 粉專、YouTube、Pinterest、TikTok；TikTok 顯示名稱改成鬼唱詩。六個平台的長相統一。

@@ -21,7 +21,7 @@ updated: 2026-10-19
 |---|---|---|---|
 | Instagram | [@gui.chang.shi](https://www.instagram.com/gui.chang.shi/) | 第 0 首自介（釘選）、第 1 首輪播 | 主場：Reel full、漫畫輪播、試用 Reels、限動 |
 | Threads | [@gui.chang.shi](https://www.threads.com/@gui.chang.shi) | 第 1 首鉤子加圖 | 主場：文字故事全文、互動貼文 |
-| YouTube | @鬼唱詩 | 開好，沒上傳 | Reel full 當 Shorts；之後合集長片；分潤線 |
+| YouTube | @鬼唱詩 | 開好，沒上傳 | 每天 Reel full 當 Shorts；**每週日一支合集長片**（分潤的 4,000 小時靠它）；分潤線 |
 | TikTok | @guichangshi | 開好，沒發文 | Reel full |
 | Facebook 粉專 | [facebook.com/gui.chang.shi](https://www.facebook.com/gui.chang.shi) | 開好，沒發文，已連 IG | 自動同步 IG；第 5 週後進社團用 |
 | Pinterest | [guichangshi](https://www.pinterest.com/guichangshi/) | 1 個圖板、1 張釘圖 | 漫畫頁的搜尋長尾，每週 10 分鐘 |
@@ -69,6 +69,7 @@ updated: 2026-10-19
 | D+2 | 12:00 | 擁有者（手機） | IG 第二支試用 Reel（有的話） |
 | D+2 | 晚上 | Claude | 填 48 小時成效（觀看、收藏、分享、新追蹤），擁有者看 5 分鐘 |
 | D+4 | | Claude | 試用 Reel 72 小時結果記下來；發完 |
+| 每週日 21:00 | | Claude（Chrome） | **YouTube 合集長片**：當週 7 支 Reel full 串成一支（片頭、每首之間一張「第 N 首」字卡、片尾），標題「鬼唱詩｜本週七首台灣怪談（第 N 到 M 首）」，說明放每首的時間點和 IG 連結；放進「每週合集」播放清單 |
 
 Reel full 做好前，D 當天的影片是預告 Reel A，要用手機發（在 app 加音樂）；YouTube、TikTok 那支也是 A。
 
@@ -118,11 +119,11 @@ Reel full 做好前，D 當天的影片是預告 Reel A，要用手機發（在 
 |---|---|---|---|---|
 | 1 | 10/19 到 10/25 | **每天 1 本，從今天起**：10/19 起先發四本存貨〈半夜叫我全名的人〉〈跟外甥玩捉迷藏〉〈阿嬤住院那個禮拜〉〈代班那台電梯一直超載〉（各補 Reel A、B），同時每天寫一首、畫一本新的接上 | Threads 第 0 首自介釘選；第 1 首 Reel A 四處放；IG 開分享到 FB；定固定畫風（前幾本新漫畫先沿用〈阿嬤〉的畫風） | 200 |
 | 2 | 10/26 到 11/1 | 每天 1 本；10/31 萬聖節題材 | 做 Reel full 工具 | 450 |
-| 3 | 11/2 到 11/8 | 每天 1 本 | 第一支 Reel full 四處放；A、B 改成試用 Reels | 800 |
+| 3 | 11/2 到 11/8 | 每天 1 本 | 第一支 Reel full 四處放；A、B 改成試用 Reels；11/8 第一支 YouTube 週合集（之後每週日） | 800 |
 | 4 | 11/9 到 11/15 | 每天 1 本 | **檢查點一 11/15**：追蹤速度、品質、擁有者時間 | 1,500 |
 | 5 | 11/16 到 11/22 | 每天 1 本 | FB 粉專開始貼全文；試 FB 靈異社團；開始私訊合作 | 2,200 |
 | 6 | 11/23 到 11/29 | 新漫畫 | 系列作第一首（大夜班護理師） | 3,000 |
-| 7 | 11/30 到 12/6 | 新漫畫 | 第一次 IG 共同發布；YouTube 第一支合集長片（當週的 Reel full 串起來） | 4,000 |
+| 7 | 11/30 到 12/6 | 新漫畫 | 第一次 IG 共同發布 | 4,000 |
 | 8 | 12/7 到 12/13 | 新漫畫 | **檢查點二 12/13**：要不要付費加熱 | 5,000 |
 | 9 | 12/14 到 12/20 | 冬至題材 | 開讀者投稿 | 6,000 |
 | 10 | 12/21 到 12/27 | 聖誕、一個人過節 | 加配音（Azure 或擁有者錄） | 7,000 |
@@ -151,7 +152,7 @@ Reel full 做好前，D 當天的影片是預告 Reel A，要用手機發（在 
 4. **export --pinterest**（第 2 週）：1000×1500 釘圖加標題說明。
 5. **週報**（第 2 週）：從成效表算指標。
 6. **配音**（第 10 週）：Azure zh-TW 或擁有者自己錄；配音稿從 board.json 的旁白和對白自動抽。
-7. **合集長片**（第 7 週）：當週 Reel full 串成一支加片頭片尾。
+7. **合集長片**（Reel full 做好後的下一週）：`reel weekly`，當週 Reel full 串成一支加片頭、字卡、片尾；擁有者 2026-10-19 要求每週固定出。
 
 ## 7. 資料夾（2026-10-19 已搬好）
 
@@ -187,12 +188,12 @@ C:/Users/sheep/Pictures/gui_chang_shi/
 
 | 平台 | 連回的地方 | 狀態 |
 |---|---|---|
-| YouTube | 每支 Shorts 說明第二行的 IG 連結（可點）；頻道的「連結」欄 | 文案已寫進 brand.json cross_lines；連結欄見下 |
-| TikTok | 個人頁的 Instagram 欄位（TikTok 專用設定）；文案最後一行寫帳號（不能點） | 見下 |
-| FB 粉專 | 同步貼文底下補一則留言放 IG 連結（人工，排在發文日 21:15）；簡介連結欄 | 見下 |
-| Threads | 每首第 3 則回覆是 IG 連結；個人頁連結欄 | 回覆已在流程；連結欄見下 |
-| Pinterest | 每張釘圖連到 IG 輪播；個人頁網站欄 | 釘圖已連；網站欄見下 |
-| IG | 簡介連結欄放 Threads | 見下 |
+| YouTube | 每支 Shorts 說明第二行的 IG 連結（可點）；頻道的「連結」欄 | 文案已寫進 brand.json cross_lines；連結欄沒做：Chrome 登入的是個人頻道 |
+| TikTok | 個人頁的 Instagram 欄位（TikTok 專用設定）；文案最後一行寫帳號（不能點） | 沒做：Chrome 沒登入鬼唱詩的 TikTok |
+| FB 粉專 | 同步貼文底下補一則留言放 IG 連結（人工，排在發文日 21:15）；簡介連結欄 | 簡介已加 IG 連結 |
+| Threads | 每首第 3 則回覆是 IG 連結；個人頁連結欄 | 個人頁本來就有 Instagram 連結 |
+| Pinterest | 每張釘圖連到 IG 輪播；個人頁網站欄 | 網站欄已填 IG |
+| IG | 簡介連結欄放 Threads | 沒做：只能在手機 app 改 |
 
 六個平台的個人頁連結欄 2026-10-19 用 social-profile 查過一次，結果記在 [[ghost story brand]] 2.4。
 
@@ -205,6 +206,7 @@ C:/Users/sheep/Pictures/gui_chang_shi/
 
 ## 歷程
 
+- 2026-10-19：擁有者要求每週 YouTube 合集長片，排在每週日 21:00。
 - 2026-10-19：加第 10 節各平台連回 IG；brand.json 加 reel.cross_lines；FB 同步貼文補留言排進發文日。
 - 2026-10-19：Pinterest 改成發文日一次釘 4 張（封面加前 3 頁），不分天。
 - 2026-10-19：擁有者更正：每天一套完整組（文字、漫畫、Reel A、B、full）從今天起，不等 11/2；純文字故事另外也發。
