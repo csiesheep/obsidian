@@ -23,7 +23,7 @@ updated: 2026-10-19
 | Threads | [@gui.chang.shi](https://www.threads.com/@gui.chang.shi) | 第 1 首鉤子加圖 | 主場：文字故事全文、互動貼文 |
 | YouTube | @鬼唱詩 | 開好，沒上傳 | 每天 Reel full 當 Shorts；**每週日一支合集長片**（分潤的 4,000 小時靠它）；分潤線 |
 | TikTok | @guichangshi | 開好，沒發文 | Reel full |
-| Facebook 粉專 | [facebook.com/gui.chang.shi](https://www.facebook.com/gui.chang.shi) | 開好，沒發文，已連 IG | 自動同步 IG；第 5 週後進社團用 |
+| Facebook 粉專 | [facebook.com/gui.chang.shi](https://www.facebook.com/gui.chang.shi) | 開好，沒發文，已連 IG | Claude 用粉專身分直接發同一支影片和輪播（不合併帳號，10/20 決定）；第 5 週後進社團用 |
 | Pinterest | [guichangshi](https://www.pinterest.com/guichangshi/) | 1 個圖板、1 張釘圖 | 漫畫頁的搜尋長尾，每週 10 分鐘 |
 
 不做：Dcard、PTT（擁有者 2026-10-19 決定）、小紅書、X。觀望：FB 靈異社團（第 5 週後，用粉專身分）、巴哈創作大廳（先查 AI 圖規定）、自有網站（M1 過關買網域後）、方格子、Podcast。
@@ -34,8 +34,8 @@ updated: 2026-10-19
 
 | 內容 | 是什麼 | 主場 | 也放 | 不放 |
 |---|---|---|---|---|
-| **Reel full** | 整本漫畫 30 多格照閱讀順序推鏡，加音效和原創配樂，約 60 到 100 秒；之後加配音 | IG Reels | YouTube Shorts、TikTok、FB 粉專（自動同步） | Pinterest |
-| **漫畫輪播** | 封面、每一頁、結尾卡，3:4，最多 20 張 | IG | FB 粉專（自動同步）；Pinterest 發文日一起釘封面加前 3 頁，連到 IG | Threads 只放一格 |
+| **Reel full** | 整本漫畫 30 多格照閱讀順序推鏡，加音效和原創配樂，約 60 到 100 秒；之後加配音 | IG Reels | YouTube Shorts、TikTok、FB 粉專（粉專身分直接上傳） | Pinterest |
+| **漫畫輪播** | 封面、每一頁、結尾卡，3:4，最多 20 張 | IG | FB 粉專（粉專身分直接上傳）；Pinterest 發文日一起釘封面加前 3 頁，連到 IG | Threads 只放一格 |
 | **文字故事** | 500 字鉤子加全文 | Threads：三則一串（鉤子加一格圖、全文附件、IG 連結） | 第 5 週後 FB 粉專貼全文、FB 社團 | IG |
 | **預告 Reel A、B** | 同一本挑兩組不同的三格當開頭，15 秒 | Reel full 做好前：A 當正式 Reel 發 IG、YouTube、TikTok；做好後 A、B 都改成 IG 試用 Reels（只給非追蹤者看） | | |
 | **一句話鬼故事** | 一到兩句，最後一個詞翻轉 | Threads 每天 1 句 | IG 一句話 Reel 每週 2 支，YouTube、TikTok 同一支 | |
@@ -61,8 +61,7 @@ updated: 2026-10-19
 | D | 21:00 | Claude（Chrome） | IG：Reel full、漫畫輪播（AI 標籤開） |
 | D | 21:00 | Claude（Chrome） | YouTube Shorts、TikTok：同一支影片，文案用 brand.json 的 cross_lines（第一行 AI 標示，第二行「全篇漫畫、更多故事：IG 連結」）；YouTube 說明欄的連結可點，TikTok 不能點、靠個人頁的 Instagram 欄位 |
 | D | 21:30 | Claude（Chrome） | Threads：鉤子加一格圖 → 回覆全文附件 → 回覆 IG 連結；標籤「鬼故事」 |
-| D | 自動 | | FB 粉專同步 IG 的輪播和 Reel |
-| D | 21:15 | Claude（Chrome，粉專身分） | FB 粉專：在同步過來的輪播和 Reel 底下各留一則留言，放 IG 那則的連結，再切回個人帳號 |
+| D | 21:00 | Claude（Chrome，粉專身分） | FB 粉專：上傳同一支影片和輪播，說明放 IG 連結，發完切回個人帳號 |
 | D | 21:00 | Claude（Chrome） | Pinterest：封面加第 1 到 3 頁，4 張一起釘，都連到 IG 輪播（揭露頁之後不釘） |
 | D | 21:00 到 22:30 | 擁有者 | 回 IG、Threads 每一則留言（Claude 起草） |
 | D+1 | 12:00 | 擁有者（手機） | IG 試用 Reel（做好 Reel full 前，是預告 B） |

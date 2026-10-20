@@ -180,13 +180,13 @@ AI 輔助創作｜故事純屬虛構
 | Pinterest | ✅ guichangshi 登入 | Claude 用 Chrome 發 |
 | YouTube | ✅ 鬼唱詩的 Google 帳號已在 Chrome 登入，帳號清單有「鬼唱詩」頻道；目前作用中的是擁有者個人頻道 | 發文時 Claude 切到鬼唱詩，發完切回個人頻道 |
 | TikTok | ✅ 擁有者 10/20 登入後確認：@guichangshi 有「Edit profile」，TikTok Studio 上傳頁有檔案輸入框（網頁版個人頁沒有 Instagram 欄位，要用手機 app 加） | Claude 用 Chrome 發 |
-| FB 粉專同步 IG | ❌ 帳號中心的「分享到 Facebook」要求把一個 Facebook 個人檔案加進鬼唱詩的 Meta 帳號中心；粉專掛在擁有者個人 FB 底下，加進去就把個人 FB 和品牌 IG 綁在一起，和「品牌不併進個人帳號中心」的決定衝突，所以沒按 | 二選一（擁有者決定）：A. Claude 用粉專身分直接在 FB 上傳同一支影片和輪播；B. Meta Business Suite 同時發 IG 和粉專（粉專已連 IG，可排程） |
+| FB 粉專同步 IG | ❌ 帳號中心的「分享到 Facebook」要求把一個 Facebook 個人檔案加進鬼唱詩的 Meta 帳號中心；粉專掛在擁有者個人 FB 底下，加進去就把個人 FB 和品牌 IG 綁在一起，和「品牌不併進個人帳號中心」的決定衝突，所以沒按 | **擁有者 10/20 決定：不合併帳號，Claude 用粉專身分直接在 FB 上傳同一支影片和輪播**，發完切回個人帳號 |
 
 ### 擁有者要先做的
 
 - [x] Chrome 登入鬼唱詩的 TikTok（10/20）。
 - [ ] 手機 TikTok app：個人頁加 Instagram 連結（網頁版沒有這個欄位）。
-- [ ] FB 粉專用 A 還是 B。
+- [x] FB 粉專：用粉專身分直接發，不合併帳號（10/20）。
 - [ ] 開聲音看一次 V3，確認配樂和音效。
 
 ### 時間線
@@ -197,7 +197,7 @@ AI 輔助創作｜故事純屬虛構
 | 10/20 晚上 | | 擁有者看預覽，每一則說可以或要改 | 擁有者 |
 | 10/21 21:00 | IG | Reel full V3（原創音訊，AI 標籤開）＋漫畫輪播 | Claude（Chrome）；Reel 若網頁版不能選封面就改手機 |
 | 10/21 21:00 | YouTube Shorts、TikTok | 同一支 V3 | Claude（Chrome） |
-| 10/21 21:00 | FB 粉專 | 同一支 V3 和輪播（A：Claude 用粉專身分上傳；B：Business Suite 和 IG 一起發）；貼文說明放 IG 連結 | Claude |
+| 10/21 21:00 | FB 粉專 | 同一支 V3 和輪播，Claude 用粉專身分上傳，說明放 IG 連結，發完切回個人帳號 | Claude（Chrome） |
 | 10/21 21:00 | Pinterest | 封面加第 1 到 3 頁，連到 IG 輪播 | Claude |
 | 10/21 21:30 | Threads | 鉤子加一格圖 → 全文附件 → IG 連結 | Claude |
 | 10/21 21:00 到 22:30 | IG、Threads | 回留言 | 擁有者（Claude 起草） |
