@@ -133,7 +133,15 @@ updated: 2026-10-20
 - **測試**：第 2 首包裝後，ghost-post 的 `check_story.py` 全部通過。
 - **完成標準**：第 2 首 `posts/` 底下都是可以直接發的檔案。
 
-### 步驟 4：ghost-post（約 30 分鐘）
+### 步驟 4：ghost-post（約 30 分鐘）🟡 程式部分 2026-10-20 完成，實際發文等擁有者說
+
+> [!done] 做了什麼（skills main 0d1b53a）
+> - `check_story.py`：`cross_caption.txt` 帶 `{ig_link}` 算就緒（發 IG 前的正常狀態），只有既沒有 `{ig_link}` 也沒有 IG 連結才算錯；新增檢查 `posts/threads/link.txt`。
+> - ghost-post 刪掉自己那份 `ledger.py`，SKILL.md 改用 ghost-pack 的；寫明發完 IG 輪播後把連結填進 `cross_caption.txt`、`link.txt`、`pins.txt` 的 `{ig_link}`。
+> - ghost-post 分支 rebase 到 main 後合併，worktree `skills-ghostpost` 和分支已刪。
+> - 第 2 首檢查：全部就緒（Reel full、輪播、Threads、Pinterest、文案）。
+> - 還沒做：實際發文和把 YouTube、TikTok、FB 第一次的步驟寫回 `references/platforms.md`。
+
 
 - `check_story.py` 照約定的檔名檢查，並檢查 01.jpg 和 Pinterest 封面已蓋號（看 `_nonumber` 備份是否存在）。
 - 修 `check_story.py`：`cross_caption.txt` 帶 `{ig_link}` 是發 IG 前的正常狀態，不算缺漏；也檢查 `threads/link.txt`。
@@ -175,6 +183,7 @@ updated: 2026-10-20
 
 ## 歷程
 
+- 2026-10-20：步驟 4 程式部分完成並合併（check_story 的 `{ig_link}`、改用 ghost-pack 的帳簿）；第 2 首檢查全部就緒，發文等擁有者。
 - 2026-10-20：步驟 3 ghost-pack 完成並合併；第 2 首正式拿號（第 2 首）並包裝。
 - 2026-10-20：步驟 1 ghost-story、步驟 2 ghost-comic 完成並合併。
 - 2026-10-20：步驟 0 約定和清理完成。
