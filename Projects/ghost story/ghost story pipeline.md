@@ -4,7 +4,7 @@ tags:
   - project
   - ghost-story
   - pipeline
-status: plan-waiting-for-owner
+status: plan-approved
 created: 2026-10-20
 updated: 2026-10-20
 ---
@@ -12,112 +12,132 @@ updated: 2026-10-20
 # 鬼唱詩｜素材流程與 skill 分工
 
 > [!info] 一句話
-> 三段：**製作**（不帶編號，可以先做、先存、隨時換順序）→ **包裝**（排定日期才拿號，蓋編號、寫各平台文案，只動文案和兩張封面，幾秒鐘，不用重出影片）→ **發文**（只檢查平台、檢查素材、發、記連結，不準備任何素材）。每個 skill 只做一件事：寫故事、畫漫畫、做影片、包裝、發文。擁有者 2026-10-20：ghost-post 只負責 check 平台、素材和 post。發文筆記在 [[ghost story posting]]，內容分配在 [[ghost story content plan]]。
+> 五個 skill，照順序：寫故事 → 畫漫畫 → 做影片 → 包裝（拿號、蓋號、寫文案）→ 發文。前三步做的素材都不帶編號，可以先做好放庫存、隨時換發文順序；編號在決定發文日時才由 ghost-pack 加上。ghost-post 只檢查和發文，不準備任何素材（擁有者 2026-10-20 定）。發文計畫在 [[ghost story posting]]，內容分配在 [[ghost story content plan]]。
 
-## 1. 問題
+## 1. 分工和順序
 
-編號（「第 N 首」）是發文時才決定的：故事可能插隊（爆款規則）、可能延後。如果輪播封面、Reel 片名、Threads 開頭在製作時就寫上編號，製作就被發文排程綁住，順序一改就要重出（Reel full 一支要 11 分鐘）。
-
-## 2. 做法：兩段式
+| 順序 | Skill | 負責產生什麼 | 帶編號嗎 | 狀態 |
+|---|---|---|---|---|
+| 1 | **ghost-story** | 鬼故事全文；Threads 鉤子（500 字內）和全文附件 | 不帶 | 已有，要小改 |
+| 2 | **ghost-comic** | 漫畫頁；IG 輪播（封面、每一頁、結尾卡）；Pinterest 圖（封面加揭露前的頁）；Threads 配圖；預告 Reel A、B | 不帶 | 已有，要加 Pinterest 圖和配圖 |
+| 3 | **ghost-reel** | Reel full V3（整篇影片）；動態片段；每週 YouTube 合集 | 不帶 | 要新建，目前是原型 |
+| 4 | **ghost-pack** | 拿編號；輪播封面和 Pinterest 封面蓋「第 N 首」；各平台文案（IG、Threads 第一行、YouTube 標題和說明、TikTok、FB、Pinterest 標題） | 這一步加上 | 要新建 |
+| 5 | **ghost-post** | 不產生東西：檢查六個平台、檢查素材、發文、記連結 | — | 已建好（csiesheep/skills 的 `ghost-post` 分支） |
 
 ```
-製作（不帶編號，可以提早做好放庫存）
-  ghost-story  ──► story.md、Threads 鉤子與附件（開頭只有標題）
-       │
-  ghost-comic  ──► 漫畫頁 ──► 輪播（封面只有「鬼唱詩」）、Pinterest 圖、預告 Reel A/B
-       │
-  ghost-reel   ──► Reel full V3（片名只有標題）、動態片段、每週合集
-                    （用品牌的配樂和音效庫）
-
-包裝（排定日期時才拿號）
-  ghost-pack   ──► 拿號 → 蓋編號（輪播第 1 張、Pinterest 封面字條）→ 寫各平台文案
-                   → posts/ 底下全部是「可以直接發」的檔案
-
-發文（不準備任何素材）
-  ghost-post   ──► 1 檢查平台 → 2 檢查素材（缺了就停，說該用哪個 skill 補）
-                   → 3 預覽、同意 → 4 依序發 → 5 記連結
+1 ghost-story  寫故事
+      ↓
+2 ghost-comic  畫漫畫 → 輪播、Pinterest 圖、配圖、預告 A/B
+      ↓
+3 ghost-reel   做 Reel full V3
+      ↓        （1 到 3 做完放庫存，都不帶編號）
+4 ghost-pack   決定哪天發時：拿號、蓋號、寫文案
+      ↓
+5 ghost-post   檢查平台 → 檢查素材 → 擁有者同意 → 發文 → 記連結
 ```
 
-**編號放在哪裡**：
+**編號只出現在**：各平台文案、Threads 第一行、YouTube 標題、Pinterest 標題、輪播第 1 張和 Pinterest 封面的下緣字條。**影片畫面裡不放編號**（影片會轉到多個平台，順序也可能變）。
 
-| 地方 | 有沒有編號 | 誰加 |
-|---|---|---|
-| 各平台文案、YouTube 標題、Threads 第一行、Pinterest 標題 | 有 | ghost-pack |
-| 輪播第 1 張下緣字條「鬼唱詩｜第 N 首」、Pinterest 封面字條 | 有 | ghost-pack 蓋上（只改一張圖，PIL 幾秒） |
-| Reel full、預告 Reel 的畫面 | **沒有**，片名卡只寫標題 | 不加：影片會被轉到多個平台、順序也可能變，編號放在文案就夠 |
-| 漫畫頁、結尾卡 | 沒有 | — |
+## 2. 共用的資料夾約定
 
-## 3. 每個 skill 負責什麼
+五個 skill 靠這份約定交接：前一個 skill 寫到這些位置，後一個 skill 從這裡讀。故事資料夾是 `C:/Users/sheep/Pictures/gui_chang_shi/stories/<英文短名>/`。
 
-| Skill | 狀態 | 輸入 | 產出（不帶編號） | 要改的 |
-|---|---|---|---|---|
-| **ghost-story** | 已有 | 題材、口味 | `story.md`；`post` 產生 Threads 鉤子（≤500）和全文附件 | 加「鉤子用哪一段」的選項（第一句就要有異常）；預設不加編號，編號留給 ghost-post |
-| **ghost-comic** | 已有 | `story.md` | 漫畫頁；`export` 輪播；`reel teaser` 預告 A/B | `export` 預設不蓋編號；加 `export --pinterest`（1000×1500 封面加揭露前的頁、`pins.txt`）；Threads 配圖改成 export 一起挑一格不雷的 |
-| **ghost-reel**（新） | 原型在 csiesheep/skills 的 `ghost-comic-reel-full` 分支 | 漫畫資料夾、品牌的配樂和音效庫 | Reel full V3（和 V1）、H3 動態片段、每週 YouTube 合集 | 從原型整理成 skill：分鏡改成每本一份 json、Claude 先自動產生初稿分鏡、自動挑格做 H3 動態、片名卡不帶編號 |
-| **ghost-pack**（新，小） | 還沒有 | 故事資料夾（不帶號的素材）、帳簿 | 帳簿拿號、蓋好編號的輪播封面和 Pinterest 封面、各平台文案（IG、Threads 第一行、YouTube 標題和說明、TikTok、FB、Pinterest 標題），全部放 `posts/` | 新建：`ledger.py reserve` 搬過來，加 `stamp` |
-| **ghost-post** | 剛建（`ghost-post` 分支） | `posts/` 裡可以直接發的檔案 | 貼文、帳簿的發文紀錄和連結 | 拿掉拿號和「缺什麼就做」那段；素材缺了就停下並說該用哪個 skill 補 |
-| **ghost-reply** | 已有 | — | 回覆別人的貼文 | 不用改 |
-| **social-post** | 本機分支，未合併 | — | — | 已被 ghost-post 取代，建議刪掉分支 |
+| 檔案 | 誰寫 | 誰讀 | 帶編號 |
+|---|---|---|---|
+| `story.md` | ghost-story | ghost-comic、ghost-pack | 否 |
+| `posts/threads/hook.txt`（≤500 字）、`attachment.txt`（≤10,000 字） | ghost-story | ghost-pack（補第一行編號）、ghost-post | 包裝後有 |
+| `posts/threads/image.jpg` | ghost-comic | ghost-post | 否 |
+| `posts/ig/01.jpg … NN.jpg` | ghost-comic | ghost-pack（蓋 01.jpg）、ghost-post | 包裝後 01 有 |
+| `posts/pinterest/00_cover.jpg`、`01_page.jpg …`（1000×1500，只到揭露前一頁） | ghost-comic | ghost-pack（蓋封面）、ghost-post | 包裝後封面有 |
+| `reels/teaser_A/`、`teaser_B/` | ghost-comic | ghost-post | 否 |
+| `reels/full_v3_cinema/full_v3_cinema.mp4`（和 V1） | ghost-reel | ghost-post | 否 |
+| `posts/ig/caption.txt`、`posts/pinterest/pins.txt`、`posts/cross_caption.txt`（YouTube、TikTok、FB；IG 連結留 `{ig_link}`） | ghost-pack | ghost-post（發 IG 後把 `{ig_link}` 換成連結） | 有 |
+| `README.md`（編號、狀態、連結） | ghost-pack 建、ghost-post 補連結 | 擁有者 | 有 |
+| 帳簿 `brand/ledger.json` | ghost-pack 拿號；ghost-post 記發文 | 全部 | — |
 
-**要不要再多開 skill**：不用。其他素材都掛在上面四個 skill 底下：
+漫畫的揭露格在 `comic/board.json` 標 `"reveal": true`，ghost-comic 和 ghost-post 都靠它避開（封面、配圖、預告、Pinterest 都不能用到揭露格之後）。
 
-| 素材 | 歸誰 |
-|---|---|
-| Threads 鉤子、附件 | ghost-story `post` |
-| Threads 配圖 | ghost-comic `export`（挑一格不雷的） |
-| 輪播 | ghost-comic `export` |
-| Pinterest 圖 | ghost-comic `export --pinterest`（要加） |
-| 預告 Reel A/B | ghost-comic `reel teaser` |
-| Reel full、動態片段、每週合集 | ghost-reel（要建） |
-| 配樂、音效庫 | ghost-reel 的一次性設定，存在 `brand/music`、`brand/sfx` |
-| 各平台文案、拿號、蓋編號 | ghost-pack（要建） |
+## 3. 逐步實作計畫
 
-新的有兩個：ghost-reel（Reel full 牽涉分鏡、H3、配樂、音效、渲染，份量夠大，塞進 ghost-comic 會太肥）和 ghost-pack（很小，但它是「排程」的事，不屬於任何製作 skill，也不屬於只發文的 ghost-post）。
+每一步在 csiesheep/skills 開一個分支，改完先用現有的故事測（〈阿嬤〉的輸出要和改之前一致），擁有者看過再合併。第 2 首〈半夜叫我全名的人〉當每一步的實際測試。
 
-## 4. 一首故事的順序
+### 步驟 0：約定和清理（約 30 分鐘）
 
-| 階段 | 什麼時候 | Skill | 做什麼 | 擁有者 |
-|---|---|---|---|---|
-| 寫 | D-14 以前 | ghost-story | 寫 3 版挑 1 | 挑一版 |
-| 畫 | D-10 | ghost-comic | 畫漫畫 | 選角色、場景，看全本 |
-| 做素材 | 漫畫畫完當天 | ghost-comic `export`、`reel teaser`、`export --pinterest`；ghost-story `post` | 輪播、預告、Pinterest 圖、Threads 鉤子和附件 | — |
-| 做影片 | 同上 | ghost-reel | Reel full V3 | 看一次（開聲音） |
-| 進庫存 | | | 素材都在故事資料夾，沒有編號 | — |
-| 包裝 | 決定哪天發時 | ghost-pack | 拿號、蓋號、寫各平台文案 | — |
-| 發文前 | D-1 | ghost-post | 檢查平台、檢查素材、傳預覽 | 看預覽、每則說可以 |
-| 發 | D | ghost-post | 依序發六個平台、記帳簿 | 回留言 |
+- 把第 2 節的約定寫進每個相關 skill 的 SKILL.md（一小段，指向同一份清單）。
+- 在 `name_call` 和 `three_behind` 的 `board.json` 標揭露格（p18、p29）。
+- 現有的第 1 首、第 2 首檔案改成約定的檔名（例如 `posts/threads/01_post_hook.txt` → `hook.txt`）。
+- 刪掉 social-post 分支和 `skills-post` worktree（已被 ghost-post 取代；要擁有者點頭）。
+- **完成標準**：兩個故事資料夾都照約定，ghost-post 的 `check_story.py` 改讀這些檔名。
 
-## 5. 第 2 首〈半夜叫我全名的人〉照這個流程
+### 步驟 1：ghost-story（約 30 分鐘）
 
-素材都已做好或快做好，差的是「蓋號」和三樣還沒做的：
+- `post` 預設不加編號（不帶 `--number` 時開頭只有標題和 AI 標示）。
+- 加 `--hook` 選項：指定哪一句或哪一段放在鉤子開頭；預設自動挑「第一個異常」那句，不從鋪陳開始。
+- 加 `--dest <故事資料夾>`：直接寫 `posts/threads/hook.txt` 和 `attachment.txt`。
+- `[經驗]` 自動換掉（已有）。
+- **測試**：第 2 首產出鉤子，第一句是那條規矩；字數在限制內。
+- **完成標準**：第 2 首的 Threads 兩個檔案就位、不帶編號。
 
-| 素材 | 現況 | 怎麼補 |
-|---|---|---|
-| story.md | ✅ 827 字 | — |
-| 漫畫、輪播 | ✅ 8 張（封面沒有編號，正確） | ghost-pack 蓋「第 2 首」 |
-| Reel full V3 | ✅ 82 秒（片名卡寫「鬼唱詩」，不用重出） | — |
-| Threads 鉤子、附件、配圖 | ❌ | ghost-story `post`，鉤子第一句用那條規矩；配圖用 p13 帳篷或 p17 眼睛 |
-| Pinterest 圖 | ❌ | 封面加第 1 到 3 頁（揭露在第 4 頁） |
-| 預告 A、B | ❌（選做） | `reel teaser` |
-| 各平台文案 | ❌ | ghost-pack 產生 |
+### 步驟 2：ghost-comic（約 1.5 到 2 小時）
 
-## 6. 要做的改動（照順序）
+- `export` 預設不蓋編號（封面字條只有「鬼唱詩」），加 `--dest` 直接寫 `posts/ig/`。
+- 新增 `export --pinterest`：封面加揭露前的每一頁，放到 1000×1500 紙色底，寫 `posts/pinterest/`；標題由 ghost-pack 寫，這裡不寫文字。
+- 新增 Threads 配圖：`export` 時一起挑一格（指定 `--threads-panel`，或自動挑揭露前最有張力的格），寫 `posts/threads/image.jpg`。
+- `reel teaser` 加 `--dest` 寫 `reels/teaser_A/`。
+- 讀 `board.json` 的揭露格，自動擋掉用到揭露格的封面、配圖、預告、Pinterest 頁。
+- **測試**：〈阿嬤〉的輪播重出後和目前逐像素一致（除了封面字條的編號）；第 2 首產出 Pinterest 4 張和配圖。
+- **完成標準**：第 2 首的輪播、Pinterest 圖、配圖都在約定位置、不帶編號。
 
-1. 新建 ghost-pack（拿號、蓋兩張封面、產生全部文案）；ghost-post 拿掉拿號和製作那段，`check_story.py` 只檢查可以直接發的檔案。約 1 到 1.5 小時。
-2. ghost-comic：`export` 預設不蓋編號、加 `--pinterest`、一起挑 Threads 配圖。約 1 到 2 小時。
-3. ghost-story：`post` 預設不加編號、加鉤子段落選項。約 30 分鐘。
-4. ghost-reel：從原型整理成 skill（分鏡 json、自動初稿分鏡、自動 H3）。約半天到一天，可以晚一點，先用原型出第 2 首。
-5. 刪掉 social-post 分支（已被 ghost-post 取代）。
+### 步驟 3：ghost-pack（新，約 1 到 1.5 小時）
 
-## 7. 待擁有者決定
+- 新 skill，三件事：
+  1. **拿號**：`ledger.py reserve "<標題>" --kind comic --folder stories/<短名>`（同標題再要一次拿回同一號）。
+  2. **蓋號**：在 `posts/ig/01.jpg` 和 `posts/pinterest/00_cover.jpg` 的下緣字條蓋「鬼唱詩｜第 N 首」，字型和位置跟 ghost-comic 的封面一樣；原圖先備份成 `01_nonumber.jpg`，可以重蓋。
+  3. **寫文案**：全部從 brand.json 的範本產生：IG 文案、Threads 鉤子第一行補「第 N 首｜標題」、Pinterest 每張的標題和說明、`cross_caption.txt`（YouTube 標題「第 N 首｜標題」和說明、TikTok、FB），IG 連結留 `{ig_link}`；建或更新 `README.md`。
+- 可以重跑：換編號（例如插隊）就重跑一次，只動文案和兩張封面。
+- **測試**：第 2 首包裝後，ghost-post 的 `check_story.py` 全部通過。
+- **完成標準**：第 2 首 `posts/` 底下都是可以直接發的檔案。
 
-- [ ] 影片畫面裡不放編號、只放在文案。
-- [ ] 新建 ghost-reel 和 ghost-pack 兩個 skill（其他素材歸現有 skill）。
-- [x] ghost-post 只負責檢查平台、檢查素材、發文（擁有者 2026-10-20）。
-- [ ] 改動的順序：先做 1 到 3，讓第 2 首照新流程發；ghost-reel 之後整理。
-- [ ] social-post 分支刪掉。
+### 步驟 4：ghost-post（約 30 分鐘）
+
+- `check_story.py` 照約定的檔名檢查，並檢查 01.jpg 和 Pinterest 封面已蓋號（看 `_nonumber` 備份是否存在）。
+- 發 IG 後把 `cross_caption.txt` 和 Threads 第 3 則的 `{ig_link}` 換成連結（發文動作，不算準備）。
+- **測試**：用第 2 首實際發文；YouTube、TikTok、FB 粉專第一次發，發完把實際步驟寫回 `references/platforms.md`。
+- **完成標準**：第 2 首六個平台都發出、帳簿和 README 有連結。
+
+### 步驟 5：ghost-reel（新，約半天到一天，可以在第 2 首發出後做）
+
+- 從原型（`ghost-comic-reel-full` 分支、`brand/templates/reel_engine/`）整理成 skill。
+- 分鏡從 Python 檔改成每本漫畫一份 `reels/shots.json`；Claude 先從 `board.json` 自動產生初稿（每格的運鏡、特效、音效、字幕、鉤子、揭露），擁有者或 Claude 再手改。
+- 自動挑要做動態的格（揭露、結尾、開場、張力格），自動裁 9:16、寫 H3 描述、排隊生成，結果放 `reels/clips/`。
+- 片名卡不帶編號；V1 漫動畫和 V3 電影感兩個版本保留，V2 說書快剪先收起來。
+- 配樂和音效庫（`brand/music`、`brand/sfx`）的產生流程寫成一次性的設定步驟。
+- 品管（`qc.py`）每支都跑。
+- **測試**：用 json 分鏡重出第 2 首的 V3，和現在的版本一致；再拿第 1 首〈阿嬤〉做第二本，看自動初稿分鏡要改多少。
+- **完成標準**：給一個漫畫資料夾，一個指令做出 Reel full V3 加品管報告。
+
+### 順序和時間
+
+| 順序 | 步驟 | 為什麼這個順序 | 估時 |
+|---|---|---|---|
+| 1 | 步驟 0 約定和清理 | 後面每一步都靠它 | 30 分鐘 |
+| 2 | 步驟 1 ghost-story | 第 2 首缺 Threads 鉤子 | 30 分鐘 |
+| 3 | 步驟 2 ghost-comic | 第 2 首缺 Pinterest 圖和配圖 | 1.5 到 2 小時 |
+| 4 | 步驟 3 ghost-pack | 第 2 首要拿號、蓋號、文案 | 1 到 1.5 小時 |
+| 5 | 步驟 4 ghost-post | 第 2 首實際發文 | 30 分鐘加發文 |
+| 6 | 步驟 5 ghost-reel | 第 2 首的 V3 已經用原型做好，不卡發文 | 半天到一天 |
+
+步驟 0 到 4 約 4 到 5 小時，做完第 2 首就能照新流程發。
+
+## 4. 待擁有者決定
+
+- [x] 分工：五個 skill，製作不帶號、ghost-pack 包裝、ghost-post 只檢查和發文（2026-10-20）。
+- [x] 影片畫面裡不放編號（2026-10-20，同意計畫）。
+- [ ] 刪掉 social-post 分支和 `skills-post` worktree。
+- [ ] 每一步改完要不要先給擁有者看再合併（建議：要）。
 
 ## 歷程
 
+- 2026-10-20：改寫成三部分：分工和順序、共用的資料夾約定、五個 skill 的逐步實作計畫（步驟 0 到 5）。
 - 2026-10-20：擁有者定 ghost-post 只負責 check 平台、素材和 post；拿號、蓋號、文案移到新的 ghost-pack。
-- 2026-10-20：第一版。擁有者問素材產生順序和編號綁住 skill 的問題；改成兩段式（製作不帶號、發文才蓋號），新 skill 只有 ghost-reel。
+- 2026-10-20：第一版。擁有者問素材產生順序和編號綁住 skill 的問題；改成製作不帶號、發文前才蓋號。
