@@ -79,7 +79,15 @@ updated: 2026-10-20
 - 刪掉 social-post 分支和 `skills-post` worktree（已被 ghost-post 取代；要擁有者點頭）。
 - **完成標準**：兩個故事資料夾都照約定，ghost-post 的 `check_story.py` 改讀這些檔名。
 
-### 步驟 1：ghost-story（約 30 分鐘）
+### 步驟 1：ghost-story（約 30 分鐘）✅ 2026-10-20 完成
+
+> [!done] 做了什麼（skills main 5f93fa3）
+> - `post` 有品牌檔、沒給 `--number` 時，開頭只有標題和 AI 標示。
+> - attach 模式從「鉤子」開始：預設挑故事前三分之一裡分數最高的一句（規矩、叫名字、回頭沒人）；如果前一句也很強（例如「我回頭」回應的那句問話）就從前一句開始。`--hook <句子>` 或 `--hook <段號>` 可以指定，`--hook 1` 等於舊行為。
+> - `--dest <故事資料夾>` 寫 `posts/threads/hook.txt`、`attachment.txt`。
+> - 第 2 首：鉤子第一句是那條規矩，406 字；附件 844 字；沒有編號和 [經驗]。第 1 首自動挑到阿嬤那句問話。另外三篇自動挑到鋪陳，要手動給 `--hook`（SKILL.md 有寫）。
+> - 舊行為不變：帶 `--number` 的 chain、ig 和 `--hook 1` 的 attach 輸出逐字相同。
+
 
 - `post` 預設不加編號（不帶 `--number` 時開頭只有標題和 AI 標示）。
 - 加 `--hook` 選項：指定哪一句或哪一段放在鉤子開頭；預設自動挑「第一個異常」那句，不從鋪陳開始。
@@ -88,7 +96,16 @@ updated: 2026-10-20
 - **測試**：第 2 首產出鉤子，第一句是那條規矩；字數在限制內。
 - **完成標準**：第 2 首的 Threads 兩個檔案就位、不帶編號。
 
-### 步驟 2：ghost-comic（約 1.5 到 2 小時）
+### 步驟 2：ghost-comic（約 1.5 到 2 小時）✅ 2026-10-20 完成
+
+> [!done] 做了什麼（skills main 2bd03d9）
+> - `export --dest <故事資料夾>` 寫 `posts/ig/`（保留 ghost-pack 的 caption.txt）、`posts/threads/image.jpg`；加 `--pinterest` 寫 `posts/pinterest/`（封面 + 揭露頁之前的每一頁，1000×1500 紙色底）。有 `--dest` 時不寫任何文案。
+> - Threads 配圖：`--threads-panel`，或自動挑揭露前嵌字最像鉤子、畫面寬的格；跳過封面、標題格和手機或螢幕格（那種格不看嵌字只是一支空白手機）。配圖保留格子原本的比例，寬 1080。
+> - 揭露格擋下：封面、配圖、預告用到揭露格或之後的格會直接拒絕；Pinterest 停在揭露頁之前。
+> - `reel teaser --dest` 寫 `reels/teaser_A/`（接著 B、C…，`--slot` 指定），不寫文案。
+> - 測試：〈阿嬤〉重出的 12 張輪播、Threads 配圖、Pinterest 7 頁和現在的檔案逐像素一致；Pinterest 封面版面相同、邊界差幾像素（當初手工縮的）。第 2 首輪播和原本一致，Pinterest 4 張，配圖自動挑 p17。單元測試 44 個全過（順便修好原本就壞的 export 測試）。
+> - 給 ghost-pack：Pinterest 封面就是蓋好號的 01.jpg 用 `pin_fit`（邊界 35）縮到 1000×1500，所以蓋號只要蓋 01.jpg，再重做 Pinterest 封面。
+
 
 - `export` 預設不蓋編號（封面字條只有「鬼唱詩」），加 `--dest` 直接寫 `posts/ig/`。
 - 新增 `export --pinterest`：封面加揭露前的每一頁，放到 1000×1500 紙色底，寫 `posts/pinterest/`；標題由 ghost-pack 寫，這裡不寫文字。
@@ -144,10 +161,11 @@ updated: 2026-10-20
 - [x] 分工：五個 skill，製作不帶號、ghost-pack 包裝、ghost-post 只檢查和發文（2026-10-20）。
 - [x] 影片畫面裡不放編號（2026-10-20，同意計畫）。
 - [x] 刪掉 social-post 分支和 `skills-post` worktree（2026-10-20 完成）。
-- [ ] 每一步改完要不要先給擁有者看再合併（建議：要）。
+- [x] 每一步改完先給擁有者看再合併（2026-10-20，步驟 1、2 都照做）。
 
 ## 歷程
 
+- 2026-10-20：步驟 1 ghost-story、步驟 2 ghost-comic 完成並合併。
 - 2026-10-20：步驟 0 約定和清理完成。
 - 2026-10-20：改寫成三部分：分工和順序、共用的資料夾約定、五個 skill 的逐步實作計畫（步驟 0 到 5）。
 - 2026-10-20：擁有者定 ghost-post 只負責 check 平台、素材和 post；拿號、蓋號、文案移到新的 ghost-pack。
