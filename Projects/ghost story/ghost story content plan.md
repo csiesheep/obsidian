@@ -207,6 +207,7 @@ C:/Users/sheep/Pictures/gui_chang_shi/
 
 ## 歷程
 
+- 2026-10-20：ghost-reply skill 合併（csiesheep/skills#15）；排程 `ghost-reply-daily` 每天 17:01 跑：補昨天數字、找 Threads 3 則和 IG 最多 3 則、寫草稿傳給擁有者，不貼文。
 - 2026-10-20：魔神仔那則回覆被 Threads 以「短時間大量動作」移除。改成同平台隔 15 分鐘、每平台每天最多 3 則、每則要貼題。
 - 2026-10-19：回覆別人的貼文改成每天 17:00：Claude 挑貼文、每則寫 3 種風格，擁有者選，Claude 貼。第一次試在 engagement/2026-10-19.md。
 - 2026-10-19：擁有者要求每週 YouTube 合集長片，排在每週日 21:00。
