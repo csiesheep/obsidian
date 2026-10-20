@@ -150,7 +150,14 @@ updated: 2026-10-20
 - **測試**：用第 2 首實際發文；YouTube、TikTok、FB 粉專第一次發，發完把實際步驟寫回 `references/platforms.md`。
 - **完成標準**：第 2 首六個平台都發出、帳簿和 README 有連結。
 
-### 步驟 5：ghost-reel（新，約半天到一天，可以在第 2 首發出後做）
+### 步驟 5：ghost-reel（新，約半天到一天，可以在第 2 首發出後做） 🟡 2026-10-20 建好，等擁有者看〈阿嬤〉的成品再合併
+
+> [!done] 做了什麼（skills 分支 `ghost-reel` 089e502，已安裝）
+> - 新 skill `ghost-reel`：原型從 `ghost-comic/scripts/reel_full` 搬出來。每本漫畫一份 `reels/shots.json`（一格一行、可手改）；`make.py <故事> --version v3` 一個指令出 mp4、封面、frames 圖、10 MB 以下的 720p 版和品管報告；`draft.py` 從 board 寫分鏡初稿；`clips.py plan/run` 挑格、裁 9:16、寫 H3 描述、排隊生成（當機可續跑）。
+> - 品牌印章、帳號、AI 標示改從 brand.json 讀；V3 環境音改由 `v3_beds` 決定（不再寫死山上的風聲）；H3 片段可以 `mono` 去掉跑出來的顏色。
+> - 驗收：用 json 重做第 2 首 V3，畫面平均差 1.05 灰階（編碼雜訊），聲音完全相同。
+> - 第 1 首〈阿嬤〉：初稿偏好對白格、漏掉關鍵旁白，照 SKILL.md 手改成 23 格 85.5 秒；H3 六段五段可用（p28 棉被變水波，保留靜態）；第一次渲染三格裁切沒拍到主角，用座標格線定焦點後重出，品管通過。成品在 `stories/three_behind/reels/full_v3_cinema/`。
+
 
 - 從原型（`ghost-comic-reel-full` 分支、`brand/templates/reel_engine/`）整理成 skill。
 - 分鏡從 Python 檔改成每本漫畫一份 `reels/shots.json`；Claude 先從 `board.json` 自動產生初稿（每格的運鏡、特效、音效、字幕、鉤子、揭露），擁有者或 Claude 再手改。
@@ -183,6 +190,7 @@ updated: 2026-10-20
 
 ## 歷程
 
+- 2026-10-20：步驟 5 ghost-reel 建好（分支 ghost-reel）；用它做出第 1 首〈阿嬤〉的 Reel full V3。
 - 2026-10-20：步驟 4 程式部分完成並合併（check_story 的 `{ig_link}`、改用 ghost-pack 的帳簿）；第 2 首檢查全部就緒，發文等擁有者。
 - 2026-10-20：步驟 3 ghost-pack 完成並合併；第 2 首正式拿號（第 2 首）並包裝。
 - 2026-10-20：步驟 1 ghost-story、步驟 2 ghost-comic 完成並合併。
