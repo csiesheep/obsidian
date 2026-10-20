@@ -61,7 +61,17 @@ updated: 2026-10-20
 
 每一步在 csiesheep/skills 開一個分支，改完先用現有的故事測（〈阿嬤〉的輸出要和改之前一致），擁有者看過再合併。第 2 首〈半夜叫我全名的人〉當每一步的實際測試。
 
-### 步驟 0：約定和清理（約 30 分鐘）
+### 步驟 0：約定和清理（約 30 分鐘）✅ 2026-10-20 完成
+
+> [!done] 做了什麼
+> - 約定寫進 `gui_chang_shi/README.md`（資料夾樹、每個檔案誰寫誰讀、編號只在哪裡出現、不發的東西放 `drafts/`）和 ghost-post 的 SKILL.md。
+> - 〈阿嬤〉：Threads 三個檔改名成 `hook.txt`（內容改成實際發出的版本，最後一行「……全篇漫畫在 IG。」）、`attachment.txt`、`image.jpg`；工具原本切的 500 字移到 `drafts/threads/`；Pinterest 第 8 到 10 頁（揭露在第 8 頁）移到 `drafts/pinterest_after_reveal/`；`teaser_A_p8` 改名 `teaser_A`；兩支測試預告和特效原型移到 `drafts/reels/`。
+> - 〈半夜〉：V2 說書快剪和 V3 第五輪舊版移到 `drafts/reels/`。第 0 首的檢查圖移到 `about/drafts/`。沒有刪除任何檔案。
+> - `board.json` 和 `build_board.py` 標揭露格：〈半夜〉p18、〈阿嬤〉p29。
+> - ghost-post 的 `check_story.py` 改讀約定檔名，並檢查封面是否蓋號（看 ghost-pack 的 `_nonumber` 備份）和 Pinterest 有沒有到揭露頁（ghost-post 分支 4354833）。
+> - 刪掉 social-post 分支（7 個 commit，內容已在 ghost-post）、`skills-post` worktree 和本機安裝的 social-post。
+> - 第 1 首是舊流程做的，封面編號在製作時印上，沒有 `_nonumber` 備份；檢查會顯示「還沒蓋號」，它已發出，不影響。
+
 
 - 把第 2 節的約定寫進每個相關 skill 的 SKILL.md（一小段，指向同一份清單）。
 - 在 `name_call` 和 `three_behind` 的 `board.json` 標揭露格（p18、p29）。
@@ -133,11 +143,12 @@ updated: 2026-10-20
 
 - [x] 分工：五個 skill，製作不帶號、ghost-pack 包裝、ghost-post 只檢查和發文（2026-10-20）。
 - [x] 影片畫面裡不放編號（2026-10-20，同意計畫）。
-- [ ] 刪掉 social-post 分支和 `skills-post` worktree。
+- [x] 刪掉 social-post 分支和 `skills-post` worktree（2026-10-20 完成）。
 - [ ] 每一步改完要不要先給擁有者看再合併（建議：要）。
 
 ## 歷程
 
+- 2026-10-20：步驟 0 約定和清理完成。
 - 2026-10-20：改寫成三部分：分工和順序、共用的資料夾約定、五個 skill 的逐步實作計畫（步驟 0 到 5）。
 - 2026-10-20：擁有者定 ghost-post 只負責 check 平台、素材和 post；拿號、蓋號、文案移到新的 ghost-pack。
 - 2026-10-20：第一版。擁有者問素材產生順序和編號綁住 skill 的問題；改成製作不帶號、發文前才蓋號。
