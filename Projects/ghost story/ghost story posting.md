@@ -179,12 +179,13 @@ AI 輔助創作｜故事純屬虛構
 | Threads | ✅ 鬼唱詩登入，有「New thread」 | Claude 用 Chrome 發 |
 | Pinterest | ✅ guichangshi 登入 | Claude 用 Chrome 發 |
 | YouTube | ✅ 鬼唱詩的 Google 帳號已在 Chrome 登入，帳號清單有「鬼唱詩」頻道；目前作用中的是擁有者個人頻道 | 發文時 Claude 切到鬼唱詩，發完切回個人頻道 |
-| TikTok | ❌ Chrome 沒登入（跳登入頁） | 擁有者先在 Chrome 登入鬼唱詩的 TikTok |
+| TikTok | ✅ 擁有者 10/20 登入後確認：@guichangshi 有「Edit profile」，TikTok Studio 上傳頁有檔案輸入框（網頁版個人頁沒有 Instagram 欄位，要用手機 app 加） | Claude 用 Chrome 發 |
 | FB 粉專同步 IG | ❌ 帳號中心的「分享到 Facebook」要求把一個 Facebook 個人檔案加進鬼唱詩的 Meta 帳號中心；粉專掛在擁有者個人 FB 底下，加進去就把個人 FB 和品牌 IG 綁在一起，和「品牌不併進個人帳號中心」的決定衝突，所以沒按 | 二選一（擁有者決定）：A. Claude 用粉專身分直接在 FB 上傳同一支影片和輪播；B. Meta Business Suite 同時發 IG 和粉專（粉專已連 IG，可排程） |
 
 ### 擁有者要先做的
 
-- [ ] Chrome 登入鬼唱詩的 TikTok。
+- [x] Chrome 登入鬼唱詩的 TikTok（10/20）。
+- [ ] 手機 TikTok app：個人頁加 Instagram 連結（網頁版沒有這個欄位）。
 - [ ] FB 粉專用 A 還是 B。
 - [ ] 開聲音看一次 V3，確認配樂和音效。
 
