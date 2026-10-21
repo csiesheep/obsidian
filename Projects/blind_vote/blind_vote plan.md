@@ -124,4 +124,6 @@ updated: 2026-10-21
   6. 聲音預設關閉
 - [ ] 打分介面原型（手機上 −2～+2 要一手好按）
 - [ ] 猜作者是否會讓玩家分心、降低完成率 → 原型測試
-- [ ] 開 repo、走 Phase 0（TEAM.md、第一個 guard）
+- [x] 開 repo、走 Phase 0（TEAM.md、第一個 guard 紅過四次）；佔位頁上線 <https://games.csiesheep.com/covervote/>（2026-10-21）
+- [x] `/agent-team-delivery init`：所有權表與部署 owner 確認；資料內容歸 writer；候選人名單放獨立檔案（commit 594f899，2026-10-21）
+- [ ] 開 covervote orchestrator session（cwd 必須在 covervote repo），開始 Phase 1
