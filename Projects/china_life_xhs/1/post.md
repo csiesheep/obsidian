@@ -1,5 +1,5 @@
 ---
-title: 生在中國｜小紅書圖文 v2（定稿）
+title: 生在中國｜小紅書 #1（定稿）
 tags: [project, china_life, promotion, xiaohongshu]
 created: 2026-10-21
 ---
