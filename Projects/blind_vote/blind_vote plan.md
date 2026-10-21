@@ -157,4 +157,6 @@ updated: 2026-10-21
       派出 [#1 BE 契合分數引擎](https://github.com/csiesheep/covervote/issues/1)、[#2 writer 台北新北資料](https://github.com/csiesheep/covervote/issues/2)、[#3 FE 首頁到開票](https://github.com/csiesheep/covervote/issues/3)
 - [x] #1 BE 契合分數引擎 land + 部署（cf141fe）；#3 FE 首頁到開票、#4 BE 後端與 11/18 開關 land + 部署（8d94943，D1 已建）
 - [x] **W1 預演（2026-10-21）**：盲猜測試（新讀者只看名單與文字猜作者）——台北 masked 13/14、plain 9/14（語氣洩漏：現任市府新聞稿 vs 挑戰者框架式提案）；新北 masked 4/12。#2 因此退回改寫；四都 brief 加入「同一語氣」規則與盲猜自測
+- [x] #6 BE inPlay + pollBlackoutFrom 驗證 land + 部署（7af4073）
+- [ ] 跟進：部署後數秒內 Cloudflare 邊緣會短暫混送新舊檔（version.txt 已新、cands/ 仍舊）——資料檔改成帶版本的路徑或 FE 以 `?v=<version>` 取，避免題目與開票檔對不上
 - [ ] #2 改寫後重驗（台北 plain ≤ 60%、masked ≤ 70%）；#5 FE 接後端與健康度頁；#6 BE inPlay；#7 桃園台中、#8 台南高雄資料
