@@ -31,65 +31,65 @@ updated: 2026-10-20
 
 ### 1.1 每一篇（由短到長）
 
-| 中文字數 | 年 | 分類 | 文章 | 建議 |
-|---|---|---|---|---|
-| 94 | 2010 | CS | [SyntaxHighter: 在 blogspot 上顯示漂亮的 code ](https://csiesheep.com/2010/09/08/syntaxhighter-在-blogspot-上顯示漂亮的-code-格式/) | 不收錄或刪（太短） |
-| 105 | 2010 | CS | [Python: default value to a constructor](https://csiesheep.com/2010/09/07/python-default-value-to-a-constructor-parameter/) | 不收錄或刪（太短） |
-| 136 | 2011 | CS | [【筆記】如何設定 sudo 權限?](https://csiesheep.com/2011/02/10/如何設定-sudo-權限/) | 不收錄或刪（太短） |
-| 156 | 2011 | Life | [【生活】手機慢慢融入生活](https://csiesheep.com/2011/02/08/手機慢慢融入生活/) | 不收錄或刪（太短） |
-| 163 | 2011 | CS | [【筆記】WordPress 10分鐘安裝](https://csiesheep.com/2011/02/26/wordpress-10分鐘安裝/) | 不收錄或刪（太短） |
-| 168 | 2010 | CS | [其他 highlight code syntax 方法](https://csiesheep.com/2010/09/08/其他-highlight-code-syntax-方法/) | 不收錄或刪（太短） |
-| 186 | 2010 | Uncategorized | [rsync 來備份 mysql database (MyISAM)](https://csiesheep.com/2010/09/01/rsync-來備份-mysql-database-myisam/) | 不收錄或刪（太短） |
-| 194 | 2008 | Uncategorized | [Yahoo interns 午餐聚](https://csiesheep.com/2008/07/06/yahoo-interns-午餐聚/) | 不收錄或刪（太短） |
-| 225 | 2008 | Uncategorized | [Yahoo 1st week](https://csiesheep.com/2008/07/06/yahoo-1st-week/) | 不收錄或刪（太短） |
-| 225 | 2011 | CS | [【筆記】WordPress 固定網址設定](https://csiesheep.com/2011/02/26/wordpress-固定網址設定/) | 不收錄或刪（太短） |
-| 312 | 2012 | CS | [【筆記】Mongodb 特色，缺點，優化](https://csiesheep.com/2012/03/05/mongodb-特色，缺點，優化-筆記/) | 擴寫到 800 字以上，或不收錄 |
-| 324 | 2010 | CS | [SEO: blogspot 自動產生 meta keyword 和 cont](https://csiesheep.com/2010/09/02/seo-blogspot-自動產生-meta-keyword-和-content/) | 擴寫到 800 字以上，或不收錄 |
-| 324 | 2011 | CS | [【筆記】用 Go Daddy 註冊 Domain name 和設定 DNS](https://csiesheep.com/2011/03/15/用-go-daddy-註冊-domain-name-和設定-dns/) | 擴寫到 800 字以上，或不收錄 |
-| 326 | 2011 | Note | [【點子】電影推薦家](https://csiesheep.com/2011/04/21/點子-電影推薦家/) | 擴寫到 800 字以上，或不收錄 |
-| 345 | 2011 | CS | [【筆記】WordPress 同步發文至 Facebook, twitter](https://csiesheep.com/2011/03/05/wordpress-同步發文至-facebook-twitter-plurk-google-buzz-等社群網路/) | 擴寫到 800 字以上，或不收錄 |
-| 345 | 2012 | CS | [【筆記】地圖上的即時問答服務 ex: LocalMind, 面包圈](https://csiesheep.com/2012/02/25/地圖上的即時問答服務/) | 擴寫到 800 字以上，或不收錄 |
-| 361 | 2010 | Life | [【食記】小心上一ㄣˇ (小心上癮) 素食 麻辣火鍋 吃到飽](https://csiesheep.com/2010/09/19/食記-小心上一ㄣˇ-小心上癮-素食-麻辣火鍋-吃到飽/) | 擴寫到 800 字以上，或不收錄 |
-| 385 | 2012 | Book | [【讀書筆記】漫畫統計學](https://csiesheep.com/2012/07/26/讀書筆記-漫畫統計學/) | 擴寫到 800 字以上，或不收錄 |
-| 421 | 2011 | Life | [【開箱】歐姆龍體脂計 Omron HBF-356](https://csiesheep.com/2011/02/19/開箱文-歐姆龍體脂計-omron-hbf-356/) | 擴寫到 800 字以上，或不收錄 |
-| 430 | 2009 | Uncategorized | [面試 如何移動富士山?](https://csiesheep.com/2009/07/23/面試-如何移動富士山/) | 擴寫到 800 字以上，或不收錄 |
-| 450 | 2012 | Movie | [【普好雷】 大藝術家](https://csiesheep.com/2012/04/17/普好雷-大藝術家/) | 擴寫到 800 字以上，或不收錄 |
-| 499 | 2010 | Book | [【讀書筆記】瞬間贏得信任的冷讀術](https://csiesheep.com/2010/04/01/讀書筆記-瞬間贏得信任的冷讀術/) | 擴寫到 800 字以上，或不收錄 |
-| 505 | 2010 | Book | [你管別人怎麼想](https://csiesheep.com/2010/03/07/你管別人怎麼想/) | 擴寫到 800 字以上，或不收錄 |
-| 508 | 2009 | Book | [科技頑童沃茲尼克 iWoz](https://csiesheep.com/2009/07/30/科技頑童沃茲尼克-iwoz/) | 擴寫到 800 字以上，或不收錄 |
-| 508 | 2010 | Book | [【讀書筆記】有錢人的口頭禪 貧窮人的口頭禪](https://csiesheep.com/2010/03/31/讀書筆記-有錢人的口頭禪-貧窮人的口頭禪/) | 擴寫到 800 字以上，或不收錄 |
-| 528 | 2021 | Book | [【讀書筆記】如何利用80/20法則達成非凡的成就?](https://csiesheep.com/2021/01/31/讀書筆記-如何利用80-20法則達成非凡的成就/) | 擴寫到 800 字以上，或不收錄 |
-| 535 | 2009 | Uncategorized | [羊羊騎貘姿勢佳 啾竟回答問題回答的怎麼樣呢?](https://csiesheep.com/2009/07/21/羊羊騎貘姿勢佳-啾竟回答問題回答的怎麼樣呢/) | 擴寫到 800 字以上，或不收錄 |
-| 541 | 2009 | Uncategorized | [Plurk 機器人朋友們~](https://csiesheep.com/2009/07/18/plurk-機器人朋友們/) | 擴寫到 800 字以上，或不收錄 |
-| 549 | 2011 | Game | [【桌遊戰報】Once upon a time 誰能比她慘 牧羊女的一生](https://csiesheep.com/2011/02/20/戰報-once-upon-a-time-誰能比她慘-牧羊女的一生/) | 擴寫到 800 字以上，或不收錄 |
-| 558 | 2012 | Life | [【生活】微波爐對人體的影響?](https://csiesheep.com/2012/05/06/生活-微波爐對人體的影響/) | 擴寫到 800 字以上，或不收錄 |
-| 565 | 2009 | Uncategorized | [【無雷】Honey & Clover (中譯: 蜂蜜與四葉草)](https://csiesheep.com/2009/08/20/日劇-honey-clover-中譯-蜂蜜與四葉草-無雷/) | 擴寫到 800 字以上，或不收錄 |
-| 570 | 2010 | Uncategorized | [運動 vs 減肥](https://csiesheep.com/2010/02/11/運動-vs-減肥/) | 擴寫到 800 字以上，或不收錄 |
-| 579 | 2009 | Uncategorized | [羊羊騎貘姿勢佳 10000朋友突破!](https://csiesheep.com/2009/07/16/羊羊騎貘姿勢佳-10000朋友突破/) | 擴寫到 800 字以上，或不收錄 |
-| 591 | 2010 | Movie | [Man vs Wild 荒野求生秘技](https://csiesheep.com/2010/09/09/man-vs-wild-荒野求生秘技/) | 擴寫到 800 字以上，或不收錄 |
-| 621 | 2017 | Book | [【學習筆記】推薦 羅輯思維，一個隨時學習的好朋友](https://csiesheep.com/2017/03/28/學習筆記-推薦-羅輯思維，一個隨時學習的好朋友/) | 擴寫到 800 字以上，或不收錄 |
-| 622 | 2011 | Uncategorized | [【好雷】魔髮奇緣](https://csiesheep.com/2011/03/27/好雷-迪士尼50-魔髮奇緣/) | 擴寫到 800 字以上，或不收錄 |
-| 630 | 2011 | Game | [【桌遊戰報】Once upon a time 暴發戶廚師的旅程](https://csiesheep.com/2011/02/20/戰報-once-upon-a-time-暴發戶廚師的旅程/) | 擴寫到 800 字以上，或不收錄 |
-| 637 | 2017 | Book | [【學習筆記】一萬小時的努力? 專注力及跳脫舒適圈](https://csiesheep.com/2017/04/08/學習筆記-一萬小時的努力-專注力及跳脫舒適圈/) | 擴寫到 800 字以上，或不收錄 |
-| 676 | 2010 | Book | [漫步華爾街](https://csiesheep.com/2010/02/23/漫步華爾街/) | 擴寫到 800 字以上，或不收錄 |
-| 679 | 2011 | Game | [【桌遊戰報】Once upon a time 小男孩的旅程](https://csiesheep.com/2011/04/04/桌遊戰報-once-upon-a-time-小男孩的旅程/) | 擴寫到 800 字以上，或不收錄 |
-| 681 | 2026 | AI, Game | [【遊戲開發日記】那一夜、殭屍王](https://csiesheep.com/2026/09/05/遊戲開發日記-那一夜、殭屍王/) | 擴寫到 800 字以上，或不收錄 |
-| 776 | 2011 | Note | [【心得】如何規畫時程?](https://csiesheep.com/2011/04/21/心得-如何規畫時程/) | 擴寫到 800 字以上，或不收錄 |
-| 780 | 2017 | Book | [【學習筆記】概率權的概念，如何作出更理性的選擇](https://csiesheep.com/2017/03/31/學習筆記-概率權的概念，如何作出更理性的選擇/) | 擴寫到 800 字以上，或不收錄 |
-| 807 | 2011 | Book | [【讀書筆記】真正的問題是什麼? 你想通了嗎?](https://csiesheep.com/2011/03/29/讀書筆記-真正的問題是什麼-你想通了嗎/) | 保留 |
-| 810 | 2019 | Book | [【讀書筆記】塑造世界經濟的50項偉大發明](https://csiesheep.com/2019/09/29/讀書筆記-塑造世界經濟的50項偉大發明/) | 保留 |
-| 859 | 2010 | Book | [【讀書筆記】孫子兵法](https://csiesheep.com/2010/09/01/讀書筆記-孫子兵法/) | 保留 |
-| 879 | 2026 | AI, Game | [【遊戲開發日記】天地會，一起來反清復明](https://csiesheep.com/2026/09/12/遊戲開發日記-天地會，一起來反清復明/) | 保留 |
-| 907 | 2019 | Movie | [【推薦】You vs Wild，貝爾對戰荒野，命運由你決定](https://csiesheep.com/2019/04/14/推薦-you-vs-wild，貝爺-bear-grylls-對戰荒野，命運由你決定/) | 保留 |
-| 928 | 2026 | AI, Game | [【遊戲開發日記】末班夜車，你能笑到最後嗎?](https://csiesheep.com/2026/09/16/遊戲開發日記-末班夜車，你能笑到最後嗎/) | 保留 |
-| 938 | 2011 | Note | [【心得】如何有效率的討論?](https://csiesheep.com/2011/05/08/心得-如何有效率的討論/) | 保留 |
-| 950 | 2009 | Life | [顏色管理法](https://csiesheep.com/2009/08/11/顏色管理法/) | 保留 |
-| 989 | 2010 | CS | [如何 減少 寫程式 的 風險，作出 較精確的 時程估計](https://csiesheep.com/2010/09/18/如何-減少-寫程式-的-風險，作出-較精確的-時程估計/) | 保留 |
-| 999 | 2026 | AI, Game | [【遊戲開發日記】縱橫：秦滅六國，還是六國合縱?](https://csiesheep.com/2026/09/23/遊戲開發日記-縱橫：秦滅六國，還是六國合縱/) | 保留 |
-| 1005 | 2011 | Movie | [【好雷】告白](https://csiesheep.com/2011/04/04/好雷-告白-松隆子/) | 保留 |
-| 1079 | 2026 | CS, Game | [【AI的奇幻遊程】一個網頁小白，用 AI 幫《山中小屋》桌遊，做了一塊音效](https://csiesheep.com/2026/08/14/ai的奇幻遊程-一個網頁小白，用-ai-幫《山中小屋》桌/) | 保留 |
-| 1152 | 2019 | Movie | [【有雷】天鷹座裂縫之外 Beyond the Aquila Rift，延伸](https://csiesheep.com/2019/04/10/有雷-天鷹座裂縫之外-beyond-the-aquila-rift，一些延伸問題和想法/) | 保留 |
-| 1441 | 2019 | Movie | [【好雷】天鷹座裂縫之外 Beyond the Aquila Rift 劇情](https://csiesheep.com/2019/04/07/小羊看電影好雷-天鷹座裂縫之外-beyond-the-aquila-rift/) | 保留 |
+| 中文字數 | 年    | 分類            | 文章                                                                                                                                  | 建議               |
+| ---- | ---- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| 94   | 2010 | CS            | [SyntaxHighter: 在 blogspot 上顯示漂亮的 code ](https://csiesheep.com/2010/09/08/syntaxhighter-在-blogspot-上顯示漂亮的-code-格式/)                 | 不收錄或刪（太短）        |
+| 105  | 2010 | CS            | [Python: default value to a constructor](https://csiesheep.com/2010/09/07/python-default-value-to-a-constructor-parameter/)         | 不收錄或刪（太短）        |
+| 136  | 2011 | CS            | [【筆記】如何設定 sudo 權限?](https://csiesheep.com/2011/02/10/如何設定-sudo-權限/)                                                                 | 不收錄或刪（太短）        |
+| 156  | 2011 | Life          | [【生活】手機慢慢融入生活](https://csiesheep.com/2011/02/08/手機慢慢融入生活/)                                                                          | 不收錄或刪（太短）        |
+| 163  | 2011 | CS            | [【筆記】WordPress 10分鐘安裝](https://csiesheep.com/2011/02/26/wordpress-10分鐘安裝/)                                                          | 不收錄或刪（太短）        |
+| 168  | 2010 | CS            | [其他 highlight code syntax 方法](https://csiesheep.com/2010/09/08/其他-highlight-code-syntax-方法/)                                        | 不收錄或刪（太短）        |
+| 186  | 2010 | Uncategorized | [rsync 來備份 mysql database (MyISAM)](https://csiesheep.com/2010/09/01/rsync-來備份-mysql-database-myisam/)                              | 不收錄或刪（太短）        |
+| 194  | 2008 | Uncategorized | [Yahoo interns 午餐聚](https://csiesheep.com/2008/07/06/yahoo-interns-午餐聚/)                                                            | 不收錄或刪（太短）        |
+| 225  | 2008 | Uncategorized | [Yahoo 1st week](https://csiesheep.com/2008/07/06/yahoo-1st-week/)                                                                  | 不收錄或刪（太短）        |
+| 225  | 2011 | CS            | [【筆記】WordPress 固定網址設定](https://csiesheep.com/2011/02/26/wordpress-固定網址設定/)                                                          | 不收錄或刪（太短）        |
+| 312  | 2012 | CS            | [【筆記】Mongodb 特色，缺點，優化](https://csiesheep.com/2012/03/05/mongodb-特色，缺點，優化-筆記/)                                                       | 擴寫到 800 字以上，或不收錄 |
+| 324  | 2010 | CS            | [SEO: blogspot 自動產生 meta keyword 和 cont](https://csiesheep.com/2010/09/02/seo-blogspot-自動產生-meta-keyword-和-content/)                | 擴寫到 800 字以上，或不收錄 |
+| 324  | 2011 | CS            | [【筆記】用 Go Daddy 註冊 Domain name 和設定 DNS](https://csiesheep.com/2011/03/15/用-go-daddy-註冊-domain-name-和設定-dns/)                        | 擴寫到 800 字以上，或不收錄 |
+| 326  | 2011 | Note          | [【點子】電影推薦家](https://csiesheep.com/2011/04/21/點子-電影推薦家/)                                                                             | 擴寫到 800 字以上，或不收錄 |
+| 345  | 2011 | CS            | [【筆記】WordPress 同步發文至 Facebook, twitter](https://csiesheep.com/2011/03/05/wordpress-同步發文至-facebook-twitter-plurk-google-buzz-等社群網路/) | 擴寫到 800 字以上，或不收錄 |
+| 345  | 2012 | CS            | [【筆記】地圖上的即時問答服務 ex: LocalMind, 面包圈](https://csiesheep.com/2012/02/25/地圖上的即時問答服務/)                                                   | 擴寫到 800 字以上，或不收錄 |
+| 361  | 2010 | Life          | [【食記】小心上一ㄣˇ (小心上癮) 素食 麻辣火鍋 吃到飽](https://csiesheep.com/2010/09/19/食記-小心上一ㄣˇ-小心上癮-素食-麻辣火鍋-吃到飽/)                                       | 擴寫到 800 字以上，或不收錄 |
+| 385  | 2012 | Book          | [【讀書筆記】漫畫統計學](https://csiesheep.com/2012/07/26/讀書筆記-漫畫統計學/)                                                                         | 擴寫到 800 字以上，或不收錄 |
+| 421  | 2011 | Life          | [【開箱】歐姆龍體脂計 Omron HBF-356](https://csiesheep.com/2011/02/19/開箱文-歐姆龍體脂計-omron-hbf-356/)                                              | 擴寫到 800 字以上，或不收錄 |
+| 430  | 2009 | Uncategorized | [面試 如何移動富士山?](https://csiesheep.com/2009/07/23/面試-如何移動富士山/)                                                                         | 擴寫到 800 字以上，或不收錄 |
+| 450  | 2012 | Movie         | [【普好雷】 大藝術家](https://csiesheep.com/2012/04/17/普好雷-大藝術家/)                                                                            | 擴寫到 800 字以上，或不收錄 |
+| 499  | 2010 | Book          | [【讀書筆記】瞬間贏得信任的冷讀術](https://csiesheep.com/2010/04/01/讀書筆記-瞬間贏得信任的冷讀術/)                                                               | 擴寫到 800 字以上，或不收錄 |
+| 505  | 2010 | Book          | [你管別人怎麼想](https://csiesheep.com/2010/03/07/你管別人怎麼想/)                                                                                | 擴寫到 800 字以上，或不收錄 |
+| 508  | 2009 | Book          | [科技頑童沃茲尼克 iWoz](https://csiesheep.com/2009/07/30/科技頑童沃茲尼克-iwoz/)                                                                    | 擴寫到 800 字以上，或不收錄 |
+| 508  | 2010 | Book          | [【讀書筆記】有錢人的口頭禪 貧窮人的口頭禪](https://csiesheep.com/2010/03/31/讀書筆記-有錢人的口頭禪-貧窮人的口頭禪/)                                                     | 擴寫到 800 字以上，或不收錄 |
+| 528  | 2021 | Book          | [【讀書筆記】如何利用80/20法則達成非凡的成就?](https://csiesheep.com/2021/01/31/讀書筆記-如何利用80-20法則達成非凡的成就/)                                              | 擴寫到 800 字以上，或不收錄 |
+| 535  | 2009 | Uncategorized | [羊羊騎貘姿勢佳 啾竟回答問題回答的怎麼樣呢?](https://csiesheep.com/2009/07/21/羊羊騎貘姿勢佳-啾竟回答問題回答的怎麼樣呢/)                                                   | 擴寫到 800 字以上，或不收錄 |
+| 541  | 2009 | Uncategorized | [Plurk 機器人朋友們~](https://csiesheep.com/2009/07/18/plurk-機器人朋友們/)                                                                     | 擴寫到 800 字以上，或不收錄 |
+| 549  | 2011 | Game          | [【桌遊戰報】Once upon a time 誰能比她慘 牧羊女的一生](https://csiesheep.com/2011/02/20/戰報-once-upon-a-time-誰能比她慘-牧羊女的一生/)                           | 擴寫到 800 字以上，或不收錄 |
+| 558  | 2012 | Life          | [【生活】微波爐對人體的影響?](https://csiesheep.com/2012/05/06/生活-微波爐對人體的影響/)                                                                    | 擴寫到 800 字以上，或不收錄 |
+| 565  | 2009 | Uncategorized | [【無雷】Honey & Clover (中譯: 蜂蜜與四葉草)](https://csiesheep.com/2009/08/20/日劇-honey-clover-中譯-蜂蜜與四葉草-無雷/)                                   | 擴寫到 800 字以上，或不收錄 |
+| 570  | 2010 | Uncategorized | [運動 vs 減肥](https://csiesheep.com/2010/02/11/運動-vs-減肥/)                                                                              | 擴寫到 800 字以上，或不收錄 |
+| 579  | 2009 | Uncategorized | [羊羊騎貘姿勢佳 10000朋友突破!](https://csiesheep.com/2009/07/16/羊羊騎貘姿勢佳-10000朋友突破/)                                                           | 擴寫到 800 字以上，或不收錄 |
+| 591  | 2010 | Movie         | [Man vs Wild 荒野求生秘技](https://csiesheep.com/2010/09/09/man-vs-wild-荒野求生秘技/)                                                          | 擴寫到 800 字以上，或不收錄 |
+| 621  | 2017 | Book          | [【學習筆記】推薦 羅輯思維，一個隨時學習的好朋友](https://csiesheep.com/2017/03/28/學習筆記-推薦-羅輯思維，一個隨時學習的好朋友/)                                               | 擴寫到 800 字以上，或不收錄 |
+| 622  | 2011 | Uncategorized | [【好雷】魔髮奇緣](https://csiesheep.com/2011/03/27/好雷-迪士尼50-魔髮奇緣/)                                                                         | 擴寫到 800 字以上，或不收錄 |
+| 630  | 2011 | Game          | [【桌遊戰報】Once upon a time 暴發戶廚師的旅程](https://csiesheep.com/2011/02/20/戰報-once-upon-a-time-暴發戶廚師的旅程/)                                   | 擴寫到 800 字以上，或不收錄 |
+| 637  | 2017 | Book          | [【學習筆記】一萬小時的努力? 專注力及跳脫舒適圈](https://csiesheep.com/2017/04/08/學習筆記-一萬小時的努力-專注力及跳脫舒適圈/)                                                | 擴寫到 800 字以上，或不收錄 |
+| 676  | 2010 | Book          | [漫步華爾街](https://csiesheep.com/2010/02/23/漫步華爾街/)                                                                                    | 擴寫到 800 字以上，或不收錄 |
+| 679  | 2011 | Game          | [【桌遊戰報】Once upon a time 小男孩的旅程](https://csiesheep.com/2011/04/04/桌遊戰報-once-upon-a-time-小男孩的旅程/)                                     | 擴寫到 800 字以上，或不收錄 |
+| 681  | 2026 | AI, Game      | [【遊戲開發日記】那一夜、殭屍王](https://csiesheep.com/2026/09/05/遊戲開發日記-那一夜、殭屍王/)                                                                 | 擴寫到 800 字以上，或不收錄 |
+| 776  | 2011 | Note          | [【心得】如何規畫時程?](https://csiesheep.com/2011/04/21/心得-如何規畫時程/)                                                                          | 擴寫到 800 字以上，或不收錄 |
+| 780  | 2017 | Book          | [【學習筆記】概率權的概念，如何作出更理性的選擇](https://csiesheep.com/2017/03/31/學習筆記-概率權的概念，如何作出更理性的選擇/)                                                 | 擴寫到 800 字以上，或不收錄 |
+| 807  | 2011 | Book          | [【讀書筆記】真正的問題是什麼? 你想通了嗎?](https://csiesheep.com/2011/03/29/讀書筆記-真正的問題是什麼-你想通了嗎/)                                                     | 保留               |
+| 810  | 2019 | Book          | [【讀書筆記】塑造世界經濟的50項偉大發明](https://csiesheep.com/2019/09/29/讀書筆記-塑造世界經濟的50項偉大發明/)                                                       | 保留               |
+| 859  | 2010 | Book          | [【讀書筆記】孫子兵法](https://csiesheep.com/2010/09/01/讀書筆記-孫子兵法/)                                                                           | 保留               |
+| 879  | 2026 | AI, Game      | [【遊戲開發日記】天地會，一起來反清復明](https://csiesheep.com/2026/09/12/遊戲開發日記-天地會，一起來反清復明/)                                                         | 保留               |
+| 907  | 2019 | Movie         | [【推薦】You vs Wild，貝爾對戰荒野，命運由你決定](https://csiesheep.com/2019/04/14/推薦-you-vs-wild，貝爺-bear-grylls-對戰荒野，命運由你決定/)                        | 保留               |
+| 928  | 2026 | AI, Game      | [【遊戲開發日記】末班夜車，你能笑到最後嗎?](https://csiesheep.com/2026/09/16/遊戲開發日記-末班夜車，你能笑到最後嗎/)                                                      | 保留               |
+| 938  | 2011 | Note          | [【心得】如何有效率的討論?](https://csiesheep.com/2011/05/08/心得-如何有效率的討論/)                                                                      | 保留               |
+| 950  | 2009 | Life          | [顏色管理法](https://csiesheep.com/2009/08/11/顏色管理法/)                                                                                    | 保留               |
+| 989  | 2010 | CS            | [如何 減少 寫程式 的 風險，作出 較精確的 時程估計](https://csiesheep.com/2010/09/18/如何-減少-寫程式-的-風險，作出-較精確的-時程估計/)                                        | 保留               |
+| 999  | 2026 | AI, Game      | [【遊戲開發日記】縱橫：秦滅六國，還是六國合縱?](https://csiesheep.com/2026/09/23/遊戲開發日記-縱橫：秦滅六國，還是六國合縱/)                                                  | 保留               |
+| 1005 | 2011 | Movie         | [【好雷】告白](https://csiesheep.com/2011/04/04/好雷-告白-松隆子/)                                                                               | 保留               |
+| 1079 | 2026 | CS, Game      | [【AI的奇幻遊程】一個網頁小白，用 AI 幫《山中小屋》桌遊，做了一塊音效](https://csiesheep.com/2026/08/14/ai的奇幻遊程-一個網頁小白，用-ai-幫《山中小屋》桌/)                             | 保留               |
+| 1152 | 2019 | Movie         | [【有雷】天鷹座裂縫之外 Beyond the Aquila Rift，延伸](https://csiesheep.com/2019/04/10/有雷-天鷹座裂縫之外-beyond-the-aquila-rift，一些延伸問題和想法/)              | 保留               |
+| 1441 | 2019 | Movie         | [【好雷】天鷹座裂縫之外 Beyond the Aquila Rift 劇情](https://csiesheep.com/2019/04/07/小羊看電影好雷-天鷹座裂縫之外-beyond-the-aquila-rift/)                   | 保留               |
 
 > 字數是自動數的（WordPress 內文 `entry-content` 裡的中文字，英文單字另計不在表內）；以程式碼為主的技術筆記會被低估，處理前打開確認。
 
@@ -125,13 +125,13 @@ updated: 2026-10-20
 
 ### 步驟 3｜把 2026 的開發日記寫長
 
-| 文章 | 現在字數 |
-|---|---|
+| 文章                                                                                                            | 現在字數 |
+| ------------------------------------------------------------------------------------------------------------- | ---- |
 | [【AI的奇幻遊程】一個網頁小白，用 AI 幫《山中小屋》桌遊，做了一塊音效板，順便把小](https://csiesheep.com/2026/08/14/ai的奇幻遊程-一個網頁小白，用-ai-幫《山中小屋》桌/) | 1079 |
-| [【遊戲開發日記】那一夜、殭屍王](https://csiesheep.com/2026/09/05/遊戲開發日記-那一夜、殭屍王/) | 681 |
-| [【遊戲開發日記】天地會，一起來反清復明](https://csiesheep.com/2026/09/12/遊戲開發日記-天地會，一起來反清復明/) | 879 |
-| [【遊戲開發日記】末班夜車，你能笑到最後嗎?](https://csiesheep.com/2026/09/16/遊戲開發日記-末班夜車，你能笑到最後嗎/) | 928 |
-| [【遊戲開發日記】縱橫：秦滅六國，還是六國合縱?](https://csiesheep.com/2026/09/23/遊戲開發日記-縱橫：秦滅六國，還是六國合縱/) | 999 |
+| [【遊戲開發日記】那一夜、殭屍王](https://csiesheep.com/2026/09/05/遊戲開發日記-那一夜、殭屍王/)                                           | 681  |
+| [【遊戲開發日記】天地會，一起來反清復明](https://csiesheep.com/2026/09/12/遊戲開發日記-天地會，一起來反清復明/)                                   | 879  |
+| [【遊戲開發日記】末班夜車，你能笑到最後嗎?](https://csiesheep.com/2026/09/16/遊戲開發日記-末班夜車，你能笑到最後嗎/)                                | 928  |
+| [【遊戲開發日記】縱橫：秦滅六國，還是六國合縱?](https://csiesheep.com/2026/09/23/遊戲開發日記-縱橫：秦滅六國，還是六國合縱/)                            | 999  |
 
 - 每篇補到 1500 字以上：做這款遊戲的動機（已有）＋規則怎麼設計、遇到什麼問題、怎麼驗證、玩家回饋、截圖。
 - 首頁的摘要可以保留「繼續閱讀」，但內文要完整。
