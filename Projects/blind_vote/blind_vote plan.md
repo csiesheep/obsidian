@@ -114,6 +114,14 @@ updated: 2026-10-21
 - [x] 網址 → `games.csiesheep.com/covervote/`，沿用 china_life 的 path-scoped Worker routes 做法
 - [x] repo → 公開 <https://github.com/csiesheep/covervote>，本機 `C:\Users\sheep\code\covervote`（2026-10-21 開，空的）
 - [ ] 確認議題分類表（可參考原版的 7＋特色）
+- [x] 全頁面 UI 設計稿 v0.1 → `ui/covervote-ui.html`，線上版 <https://claude.ai/artifact/HKntc1HVNB1SM335omCNyD>（2026-10-21）；圖與音效在 `ui/assets/`（本機 ComfyUI 產生）
+- [x] 設計稿 E 區的 6 個設計決定全部照建議定案（2026-10-21）：
+  1. 猜作者對錯到開票才揭曉，作答中不給回饋
+  2. 作答時不顯示來源類型（競選／公報／市府），開票後才顯示
+  3. 傾向畫面只放號次與姓名，照抽籤號次排序，不放黨籍與照片
+  4. 分享圖卡預設不放姓名
+  5. 首頁地圖用方格示意圖
+  6. 聲音預設關閉
 - [ ] 打分介面原型（手機上 −2～+2 要一手好按）
 - [ ] 猜作者是否會讓玩家分心、降低完成率 → 原型測試
 - [ ] 開 repo、走 Phase 0（TEAM.md、第一個 guard）
