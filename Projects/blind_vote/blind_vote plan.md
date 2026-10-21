@@ -155,4 +155,6 @@ updated: 2026-10-21
 - [x] `/agent-team-delivery init`：所有權表與部署 owner 確認；資料內容歸 writer；候選人名單放獨立檔案（commit 594f899，2026-10-21）
 - [x] Phase 1 開始（2026-10-21）：原 session 移到 covervote repo 當 orchestrator；驗收先寫並在探針上看過紅綠（9ecef5f、e23583c）；
       派出 [#1 BE 契合分數引擎](https://github.com/csiesheep/covervote/issues/1)、[#2 writer 台北新北資料](https://github.com/csiesheep/covervote/issues/2)、[#3 FE 首頁到開票](https://github.com/csiesheep/covervote/issues/3)
-- [ ] #2 驗收過後，派其餘四都（桃園、台中、台南、高雄）的資料
+- [x] #1 BE 契合分數引擎 land + 部署（cf141fe）；#3 FE 首頁到開票、#4 BE 後端與 11/18 開關 land + 部署（8d94943，D1 已建）
+- [x] **W1 預演（2026-10-21）**：盲猜測試（新讀者只看名單與文字猜作者）——台北 masked 13/14、plain 9/14（語氣洩漏：現任市府新聞稿 vs 挑戰者框架式提案）；新北 masked 4/12。#2 因此退回改寫；四都 brief 加入「同一語氣」規則與盲猜自測
+- [ ] #2 改寫後重驗（台北 plain ≤ 60%、masked ≤ 70%）；#5 FE 接後端與健康度頁；#6 BE inPlay；#7 桃園台中、#8 台南高雄資料
