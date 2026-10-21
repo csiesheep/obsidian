@@ -126,4 +126,6 @@ updated: 2026-10-21
 - [ ] 猜作者是否會讓玩家分心、降低完成率 → 原型測試
 - [x] 開 repo、走 Phase 0（TEAM.md、第一個 guard 紅過四次）；佔位頁上線 <https://games.csiesheep.com/covervote/>（2026-10-21）
 - [x] `/agent-team-delivery init`：所有權表與部署 owner 確認；資料內容歸 writer；候選人名單放獨立檔案（commit 594f899，2026-10-21）
-- [ ] 開 covervote orchestrator session（cwd 必須在 covervote repo），開始 Phase 1
+- [x] Phase 1 開始（2026-10-21）：原 session 移到 covervote repo 當 orchestrator；驗收先寫並在探針上看過紅綠（9ecef5f、e23583c）；
+      派出 [#1 BE 契合分數引擎](https://github.com/csiesheep/covervote/issues/1)、[#2 writer 台北新北資料](https://github.com/csiesheep/covervote/issues/2)、[#3 FE 首頁到開票](https://github.com/csiesheep/covervote/issues/3)
+- [ ] #2 驗收過後，派其餘四都（桃園、台中、台南、高雄）的資料
