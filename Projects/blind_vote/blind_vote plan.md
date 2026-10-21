@@ -171,8 +171,8 @@ updated: 2026-10-21
 | W1 | 遮蔽有證據 | 盲猜（AI 讀者）台北 50%、新北 58%、台中 35%、高雄 52%（隨機 50%）；健康度頁上線，等真實玩家數字 |
 | W2 | 收錄率 | 台北、新北、台中、高雄上線；桃園、台南等 11/12 公報 |
 | W3 | 結果可信 | 分數範圍、段落太少警告、傾向 vs 契合 ✅ |
-| W4 | 隱私 | 無分析腳本、無錄製；只存匯總 ✅（Google Fonts 已在隱私頁註明） |
-| W5 | 效能 ≥ 90 | ❌ 56–57 → #13 進行中 |
+| W4 | 隱私 | 我們的程式碼無分析腳本、無錄製；**但線上 HTML 被 Cloudflare 帳號層級的 Web Analytics 自動注入 beacon.min.js（連 internal=1 也載）**→ #14 試 no-transform；owner 可在 Cloudflare 後台對 /covervote/* 關掉自動注入 |
+| W5 | 效能 ≥ 90 | ✅ 線上 Lighthouse 行動版首頁 96、台北 97（#13，8ba5a89） |
 | W6 | 分享圖卡 | ✅ |
 | W7 | 11/18 自動下架 | ✅ 後端 guard（模擬時間）＋前端靜默期 |
 | 商業 1 | 媒體嵌入版 | ✅ `?embed=1`、給媒體頁 |
@@ -183,5 +183,6 @@ updated: 2026-10-21
 2. 給媒體頁的聯絡信箱（現在是佔位 contact@csiesheep.com）
 3. 11/1 拿掉 noindex 正式上線的 go
 4. 商業化走哪幾條、是否接受媒體品牌露出
+5. Cloudflare Web Analytics 自動注入：要不要在後台對 games.csiesheep.com/covervote/* 關掉（帳號設定，orchestrator 不動）
 - [ ] **W5 不過**（2026-10-21 量 75cff7b）：Lighthouse 行動版效能首頁 56、台北 57（LCP 9–10 s），無障礙 100。主因 Google Fonts 中文字型（CSS 175 KB 擋首次繪製＋十幾個字型分片）與牌背圖 150 KB → #13 FE（等 #11 land，避免兩個 FE 改同一批檔）
 - [ ] #2 改寫後重驗（台北 plain ≤ 60%、masked ≤ 70%）；#5 FE 接後端與健康度頁；#6 BE inPlay；#7 桃園台中、#8 台南高雄資料
