@@ -16,16 +16,17 @@
   --back:#2A2622;        /* card back */
   --back-line:#E9E2D3;
   --ok:#3F6B4E; --warn:#9A6A12;
+  --paper-img:url(assets/paper_texture.webp);
   --f-display:"LXGW WenKai TC","Kaiti TC","STKaiti",serif;
   --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
   --f-num:"IBM Plex Mono",ui-monospace,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --ground:#151413;--paper:#211F1D;--ink:#ECE8E0;--ink-2:#A7A198;--rule:#3A3733;
-  --stamp:#E35A43;--stamp-soft:#3F2420;--back:#0E0D0C;--back-line:#6B6253;--ok:#7FB08F;--warn:#D9A74A;color-scheme:dark}}
+  --stamp:#E35A43;--stamp-soft:#3F2420;--back:#0E0D0C;--back-line:#6B6253;--ok:#7FB08F;--warn:#D9A74A;--paper-img:none;color-scheme:dark}}
 :root[data-theme="dark"]{
   --ground:#151413;--paper:#211F1D;--ink:#ECE8E0;--ink-2:#A7A198;--rule:#3A3733;
-  --stamp:#E35A43;--stamp-soft:#3F2420;--back:#0E0D0C;--back-line:#6B6253;--ok:#7FB08F;--warn:#D9A74A;color-scheme:dark}
+  --stamp:#E35A43;--stamp-soft:#3F2420;--back:#0E0D0C;--back-line:#6B6253;--ok:#7FB08F;--warn:#D9A74A;--paper-img:none;color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
@@ -56,7 +57,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .note b{color:var(--ink);font-weight:500}
 
 /* ---------- phone ---------- */
-.phone{background:var(--paper);border:1px solid var(--rule);border-radius:22px;overflow:hidden;box-shadow:0 1px 0 var(--rule),0 18px 40px -28px rgba(0,0,0,.35)}
+.phone{background:var(--paper) var(--paper-img) 0 0/512px repeat;border:1px solid var(--rule);border-radius:22px;overflow:hidden;box-shadow:0 1px 0 var(--rule),0 18px 40px -28px rgba(0,0,0,.35)}
 .bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 8px;font-size:13px;border-bottom:1px solid var(--rule)}
 .brand{font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:.08em;display:flex;align-items:center;gap:6px}
 .brand i{display:inline-block;width:14px;height:18px;background:var(--back);border-radius:2px;box-shadow:3px -2px 0 -1px var(--paper),3px -2px 0 0 var(--ink)}
@@ -89,11 +90,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 .sw.d{border:1px dashed var(--rule)}
 
 /* card back */
-.cardback{background:var(--back);border-radius:8px;position:relative;
-  background-image:
-    repeating-linear-gradient(45deg,transparent 0 9px,color-mix(in srgb,var(--back-line) 28%,transparent) 9px 10px),
-    repeating-linear-gradient(-45deg,transparent 0 9px,color-mix(in srgb,var(--back-line) 28%,transparent) 9px 10px);
-  box-shadow:inset 0 0 0 5px var(--back),inset 0 0 0 6px color-mix(in srgb,var(--back-line) 60%,transparent)}
+.cardback{background:var(--back) url(assets/card_back.webp) center/cover no-repeat;border-radius:8px;position:relative;box-shadow:0 0 0 1px var(--rule)}
+.illo{display:block;width:100%;height:auto;border-radius:10px;mix-blend-mode:multiply}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .illo{mix-blend-mode:normal;opacity:.92}}
+:root[data-theme="dark"] .illo{mix-blend-mode:normal;opacity:.92}
 .deck{display:flex;gap:10px;justify-content:center;padding:6px 0}
 .deck .cardback{width:64px;height:90px}
 .deck .cardback:nth-child(2){transform:translateY(-6px) rotate(2deg)}
@@ -172,8 +172,12 @@ button{font:inherit;color:inherit;cursor:pointer}
 .src{font-size:12px;color:var(--ink-2);word-break:break-all}
 
 /* share card */
-.og{aspect-ratio:1200/630;width:100%;background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;position:relative;overflow:hidden}
+.og{aspect-ratio:1200/630;width:100%;background:#FBF6EA url(assets/og_bg.webp) center/cover;color:#1F1D1B;border:1px solid var(--rule);border-radius:10px;padding:16px 18px;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;position:relative;overflow:hidden}
 .og h3{font-size:22px;line-height:1.25}
+.og .eyebrow,.og .muted{color:#5E5A54}
+.og h3 span{color:#C4321F!important}
+.soundbtn{border:1.5px solid var(--ink);border-radius:999px;background:transparent;padding:4px 12px;font-size:13px}
+.soundbtn[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .og .ogcards{position:relative}
 .og .ogcards .cardback{position:absolute;width:56px;height:80px}
 
@@ -224,6 +228,7 @@ th{font-weight:500;color:var(--ink-2);font-size:12px}
     <dt>網址</dt><dd class="num">games.csiesheep.com/covervote/</dd>
     <dt>上線</dt><dd>11/1 v1（競選來源）· 11/15 公報版 · 11/18 起靜默期</dd>
     <dt>注意</dt><dd>稿中候選人姓名、政見、數字全部是虛構範例，不代表任何真實候選人。</dd>
+    <dt>音效</dt><dd><button class="soundbtn" id="soundToggle" aria-pressed="false">音效：關</button> 打開後，打分、選擇、翻牌都會出聲</dd>
   </dl>
 </header>
 
@@ -237,6 +242,7 @@ th{font-weight:500;color:var(--ink-2);font-size:12px}
       <div class="phone">
         <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">11/28 投票 · 剩 38 天</span></div>
         <div class="pad">
+          <img class="illo" src="assets/hero.webp" alt="投票桌上一排蓋著的牌，一隻手正翻開其中一張" width="1536" height="864" style="margin:-6px 0 -4px;object-fit:cover;object-position:right;aspect-ratio:16/7">
           <div class="big">名字蓋起來，<br>你還會選同一個人嗎？</div>
           <p class="muted">每輪一個議題，遮住名字給政見打分。最後翻牌，看你契合的是誰。約 4 分鐘。</p>
           <div class="tiles" aria-label="縣市地圖">
@@ -305,7 +311,7 @@ th{font-weight:500;color:var(--ink-2);font-size:12px}
       <div class="phone">
         <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">換縣市</span></div>
         <div class="pad" style="align-items:center;text-align:center">
-          <div class="deck" aria-hidden="true"><div class="cardback" style="opacity:.35"></div><div class="cardback" style="opacity:.35"></div></div>
+          <img class="illo" src="assets/empty_state.webp" alt="" width="768" height="768" style="width:180px">
           <div class="mid">基隆市這次還沒收錄</div>
           <p class="muted">這次只做六都。其他縣市的候選人政見請看中選會選舉公報（11/12 公布）。</p>
           <a class="btn line" style="width:100%;text-decoration:none" href="#">看中選會選舉公報 ↗</a>
@@ -534,11 +540,7 @@ th{font-weight:500;color:var(--ink-2);font-size:12px}
               <h3>名字蓋起來，<br>我契合的<span style="color:var(--stamp)">不是</span><br>我原本想投的人</h3>
               <div class="muted num">猜中 9/12 段 · covervote</div>
             </div>
-            <div class="ogcards" aria-hidden="true">
-              <div class="cardback" style="right:46px;top:10px;transform:rotate(-8deg)"></div>
-              <div class="cardback" style="right:8px;top:22px;transform:rotate(6deg)"></div>
-              <div class="stampmark" style="position:absolute;right:30px;bottom:6px;width:40px;height:40px;font-size:16px">開</div>
-            </div>
+            <div aria-hidden="true"></div>
           </div>
           <label class="opt" style="cursor:pointer"><input type="checkbox" id="showNames"> <span>在圖卡上放出候選人姓名<small>預設不放，分享時比較不會吵架</small></span></label>
           <div class="row"><button class="btn" style="flex:1">傳到 LINE</button><button class="btn ghost" style="flex:1">複製連結</button></div>
@@ -592,7 +594,7 @@ th{font-weight:500;color:var(--ink-2);font-size:12px}
           <div class="verdict">
             <div class="eyebrow">全國：傾向 vs 契合</div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 0">
-              <div class="deck" aria-hidden="true"><div class="cardback"></div><div class="cardback"></div></div>
+              <img class="illo" src="assets/empty_state.webp" alt="" width="768" height="768" style="width:120px">
               <span class="muted">11/28 16:00 投票結束後重新開放</span>
             </div>
           </div>
@@ -688,11 +690,12 @@ th{font-weight:500;color:var(--ink-2);font-size:12px}
         <li>牌（甲乙丙丁）用楷書加圓圈，不用顏色區分，避免任何一張牌看起來像某個黨。</li>
         <li>遮蔽 ▇▇ 是實心墨條，點了會說明遮了幾個字。</li>
         <li>卡片外框 1.5px 墨線；只有政見卡和結果框有外框，其他用細線分隔。</li>
+        <li>牌背、首頁插圖、空票箱、分享圖底圖由本機 ComfyUI（Z-Image-Turbo）產生。生成的印章圖長得像紅十字標誌，沒有採用，印章維持用 CSS 畫的「開」字。</li>
       </ul>
     </div>
     <div class="panel" style="grid-column:1/-1">
       <h3>音效</h3>
-      <p class="muted">預設靜音，喇叭圖示打開後才播放。全部短於 2 秒，音量統一約 −16 LUFS。由本機 ComfyUI（Stable Audio 3）產生。</p>
+      <p class="muted">預設靜音，喇叭圖示打開後才播放。全部短於 2 秒，音量約 −16 到 −17 LUFS（翻牌刻意小聲一點，−19.7）。由本機 ComfyUI（Stable Audio 3）產生；猜對和開票收尾兩個是用兩段生成結果接起來的。</p>
       <div class="tblwrap"><table>
         <tr><th>檔名</th><th>什麼時候</th><th>聽起來</th><th>試聽</th></tr>
         <tr><td class="num">sfx_shuffle</td><td>按「開始」、發第一輪</td><td>洗牌</td><td><button class="sfxbtn" data-sfx="sfx_shuffle" disabled>生成中</button></td></tr>
@@ -722,6 +725,14 @@ th{font-weight:500;color:var(--ink-2);font-size:12px}
 </div>
 
 <script>
+// sound: off by default, like the product
+let soundOn=false;
+const soundBtn=document.getElementById('soundToggle');
+soundBtn.addEventListener('click',()=>{soundOn=!soundOn;soundBtn.setAttribute('aria-pressed',soundOn);soundBtn.textContent=soundOn?'音效：開':'音效：關';if(soundOn)sfx('sfx_shuffle')});
+document.addEventListener('click',e=>{
+  if(e.target.closest('.rate button')) sfx('sfx_stamp');
+  else if(e.target.closest('.chip,.x2,.opt,.toggle button')) sfx('sfx_tap');
+});
 // rating stamps: one choice per card
 document.querySelectorAll('.rate').forEach(r=>r.addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
@@ -744,11 +755,11 @@ document.querySelectorAll('.toggle').forEach(t=>t.addEventListener('click',e=>{
 const flips=[...document.querySelectorAll('#flipgrid .flip')];
 const flipBtn=document.getElementById('flipbtn');
 let open=false;
-function sfx(name){const a=window.__sfx&&window.__sfx[name]; if(a){try{a.currentTime=0;a.play()}catch(_){}}}
+function sfx(name){if(!soundOn) return; const a=window.__sfx&&window.__sfx[name]; if(a){try{a.currentTime=0;a.play().catch(()=>{})}catch(_){}}}
 flipBtn.addEventListener('click',()=>{
   open=!open; flipBtn.textContent=open?'蓋回去':'翻牌';
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(open) sfx('sfx_reveal');
+  if(open) sfx('sfx_reveal'); else sfx('sfx_card_flip');
   flips.forEach((f,i)=>setTimeout(()=>f.classList.toggle('open',open),reduce?0:i*120));
 });
 // sound preview: enabled once the generated files are published next to the page
@@ -757,6 +768,6 @@ document.querySelectorAll('.sfxbtn').forEach(btn=>{
   const name=btn.dataset.sfx; const a=new Audio('assets/'+name+'.mp3');
   a.addEventListener('canplaythrough',()=>{btn.disabled=false;btn.textContent='▶ 播放';window.__sfx[name]=a},{once:true});
   a.addEventListener('error',()=>{btn.textContent='尚未產生'},{once:true});
-  btn.addEventListener('click',()=>{try{a.currentTime=0;a.play()}catch(_){}});
+  btn.addEventListener('click',()=>{try{a.currentTime=0;a.play().catch(()=>{})}catch(_){}});
 });
 </script>
