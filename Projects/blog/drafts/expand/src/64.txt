@@ -1,0 +1,62 @@
+id: 64
+title: SEO: blogspot 自動產生 meta keyword 和 content
+date: 2010-09-02
+categories: CS
+url: https://csiesheep.com/2010/09/02/seo-blogspot-自動產生-meta-keyword-和-content/
+cjk_chars_now: 289
+---
+>meta標籤，必須放在  之中，用於說明網頁的內容
+
+對 Search Engine Optimization (SEO) 來說，一直視為很重要的最佳化項目
+
+而其中最重要的就是兩個
+
+1. description
+
+語法：<meta name="description" content="sheep 的隨手筆記"/>
+
+說明：網頁的內容簡述。
+
+search engine 會抓取 description 來了解網頁的概述，如果沒有，則會抓取網頁內容的最前面幾個字 (ex: 25個字)
+
+2. keywords
+
+語法：<meta name="keywords" content="sheep,note"/>
+
+說明：網頁的關鍵字。最好是以 ",' 來隔開
+
+每個網頁最好都加上此兩種 meta 標籤
+
+而 blogspot 預設是沒有對 meta 作任何的撰寫的
+
+有一個方便的方法來自動的在 blogspot 產生 meta tag
+
+便是從 "設計" -> "修改html"
+
+在 <b:skin/><![CDATA[  之前，加上
+
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+
+<meta expr:content='data:blog.title + data:blog.pageName' name='Description'/>
+
+<meta expr:content='data:blog.title + data:blog.pageName' name='Keywords'/>
+
+</b:if>
+
+如此一來，在你的每一篇blog，都會自動的 產生 以 blog title 和 blog pageName 組成的 meta tag
+
+當然還不夠好的是， 可以再把 keywords 取代以 ",' 作分隔
+
+(只是我不會，有沒有大大可以提供方法(跪求))
+
+"
+
+然仍，此方法對 SEO 到底有多少幫助?
+
+Google 已經公開的提出，不使用 meta keywords 來作 ranking 的依據
+
+原因當然就是因為 keywords 被濫用了
+
+然而，據說在 Yahoo 的 search 還是有用
+
+但是，未來如果跟 Bing 合作了，一切就很難說了

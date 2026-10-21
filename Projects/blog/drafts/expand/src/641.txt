@@ -1,0 +1,84 @@
+id: 641
+title: [遊戲開發日記] 那一夜、殭屍王
+date: 2026-09-05
+categories: AI, Game
+url: https://csiesheep.com/2026/09/05/遊戲開發日記-那一夜、殭屍王/
+cjk_chars_now: 651
+---
+[圖: https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image.png?resize=1024%2C603&#038;ssl=1] (https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image.png?ssl=1)
+
+繼上次幫《山中小屋》做了塊音效板 (https://csiesheep.com/2026/08/14/ai%e7%9a%84%e5%a5%87%e5%b9%bb%e9%81%8a%e7%a8%8b-%e4%b8%80%e5%80%8b%e7%b6%b2%e9%a0%81%e5%b0%8f%e7%99%bd%ef%bc%8c%e7%94%a8-ai-%e5%b9%ab%e3%80%8a%e5%b1%b1%e4%b8%ad%e5%b0%8f%e5%b1%8b%e3%80%8b%e6%a1%8c/)之後，我又手癢了。
+
+這次想試試做遊戲。
+
+原本的念頭是寫個 iOS app，然後我看了看手邊，沒有能用的 Apple 電腦（這種很基本的問題，通常都是想到一半才發現的 orz）。
+
+那 Steam？上架要付上架費。
+錢不是問題，問題是我還不知道這東西有沒有人玩，
+先付一筆錢去換一個未知數，我不太願意。
+
+好吧！先開發網頁版吧！
+
+要做什麼呢？
+我是桌遊控，就作一個像《山中小屋》那樣，一片一片翻開房間、越探越不對勁的遊戲。
+
+點子呢？就來個殭屍吧。
+
+《三更：殭屍 (https://games.csiesheep.com/jiangshi_in_the_pocket/)》就是這麼來的。
+
+[圖: https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image-5.png?resize=1024%2C771&#038;ssl=1] (https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image-5.png?ssl=1)
+
+義莊之夜
+
+場景是一間義莊。
+
+村子邊上放棺材的地方，棺材在這裡等著被送回家鄉下葬。有的等幾個月，有的等幾年。
+
+而其中一口，等得最久，似乎有點太久了。
+
+[圖: https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image-7.png?resize=722%2C265&#038;ssl=1] (https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image-7.png?ssl=1)
+
+今晚，你是看守的人。
+
+你有到三更之前的時間，把他放回土裡。
+
+或者，跟他見上一面。
+
+[圖: https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image-8.png?resize=720%2C263&#038;ssl=1] (https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image-8.png?ssl=1)
+
+怎麼玩
+
+義莊你沒走過。所以你得一格一格走、一間一間翻。
+
+每推開一扇門，就翻開一張新的房間片，你不知道下一間是什麼，也不知道翻開之後會遇到什麼。
+
+裡面有：門廳、淨身房、道士房。。。還有那間停柩房。
+
+推開後門，外面是後門石階、牛棚、竹林。。。以及山坡上的祖墳。
+
+路上你會撿到能用的東西，都是村裡人真的會拿來壓邪的那些
+
+[圖: https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image-6.png?resize=1024%2C607&#038;ssl=1] (https://i0.wp.com/csiesheep.com/wp-content/uploads/2026/09/image-6.png?ssl=1)
+
+而真正在追你的，其實不是那些會跳的東西。
+
+是時間。
+
+這遊戲最漂亮的地方在這裡：房間、殭屍、道具都只是路上的事，
+時鐘才是那個真正的對手。
+你每多探一間房、每多躲一次，指針就往三更靠近一點。
+
+你隨時都在算同一筆帳：
+再翻一間房，會不會來不及？有沒有時間再搜尋一次寶物？現在回頭去埋，是不是太早？
+
+後話
+
+整個開發都是由 Claude code + github + cloudflare 完成的。
+
+Claude code 寫程式，真得很好用，我是用一個 session 當作 orchestrator 負責開 issues 給其他 sessions 像是 frontend / backend / simulator / writer 等，目前運作良好。
+
+一個問題還是 tokens 燒得很快，常常 5小時上限到了，也剛也晚了，只能去睡覺。
+
+另一個問題，Claude code 產生圖片能力很弱，我又懶得接其他 image generator AI，就勉強先用 svg 圖檔，造成圖形效果不太好。
+
+一點筆記，希望大家喜歡!

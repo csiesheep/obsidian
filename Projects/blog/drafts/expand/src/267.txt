@@ -1,0 +1,70 @@
+id: 267
+title: [筆記] 用 Go Daddy 註冊 Domain name 和設定 DNS
+date: 2011-03-15
+categories: CS
+url: https://csiesheep.com/2011/03/15/用-go-daddy-註冊-domain-name-和設定-dns/
+cjk_chars_now: 290
+---
+[圖: https://i0.wp.com/www.honeyfish.org/wp-content/uploads/2009/12/go-daddy1.png.jpg?resize=400%2C200] (https://i0.wp.com/www.honeyfish.org/wp-content/uploads/2009/12/go-daddy1.png.jpg)
+
+Domain name 註冊
+
+Go Daddy (http://www.godaddy.com/) 是一個國外的提供 domain name 註冊的服務
+
+國際性的網域，在 Go Daddy 註冊都很便宜
+
+只是各國家網域就比較貴，還是在地的服務來註冊會比較便宜
+
+一些台灣常見的網域：
+
+.com: 11.99$/year
+
+.net: 9.99$/year
+
+.cc: 19.99$/year
+
+.tw: 39.99$/year
+
+註冊的方式很簡單
+
+直接在首頁查尋你要的網域是否已經被註冊
+
+還會有相似名稱推薦，和其他網域的價錢比較
+
+我是申請 .com 一年
+
+一次申請較長時間並沒有比較便宜
+
+只是可以避免一些風險，像是：網域到期後被搶走、網域租金隨時間調漲，等等
+
+在申請時，Go Daddy 還會很會賺 好心的推薦你 網域組合包
+
+像是 一次申請 .com, .net, .org, .info 就可以有 save 63% 的優惠
+
+DNS 設定
+
+註冊完網域後，再來就是 Domain name system (DNS) server 的設定
+
+DNS 的介紹可以參考鳥哥的 (http://linux.vbird.org/linux_server/0350dns.php) Linux  (http://linux.vbird.org/linux_server/0350dns.php)私房菜 (http://linux.vbird.org/linux_server/0350dns.php)有詳細的解說
+
+Go Daddy 有提供 DNS 服務
+
+我目前沒有太多 sub-domain name 要管理，所以還不需要自已架 DNS server
+
+登入 Go Daddy > My Account > My Products > 點選 Domain Manager > 點選 你的 Domain name
+
+進入 Domain name 的管理頁面 > DNS Manager 區塊 > 點選 launch
+
+進入 Domain name Zone File Editor > 修改自已想要的設定，以下為我的設定
+
+A (Host)
+
+@ IP
+
+www IP
+
+* IP
+
+ CNAME
+
+* IP

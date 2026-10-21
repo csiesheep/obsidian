@@ -1,0 +1,40 @@
+id: 279
+title: [筆記] Mongodb 特色，缺點，優化
+date: 2012-03-05
+categories: CS
+url: https://csiesheep.com/2012/03/05/mongodb-特色，缺點，優化-筆記/
+cjk_chars_now: 278
+---
+[圖: https://i0.wp.com/www.networkworld.com/community/files/imce/img_blogs/mongodb.png?resize=325%2C225]
+
+經由J同事的介紹，第一次聽到 MongoDB
+
+剛好我們的 project 的情況滿適合的(schema會一直變動，每次schema變動，interface都要改，很痛苦)
+
+就試用了一下，也 survey 一些筆記，有錯請指正，謝謝 🙂
+
+MongoDB 特色
+
+(括號：代表網路上 survey 到，還沒有實際體驗)
+
+減少 join：以JSON的格式儲存資料，一個 document 中的資料，以往在 MySQL 中都要存在好幾個 table ，減少 join 速度就快。(當然 MySQL 也可以作 denormalization，只是這也是一門學問啊)
+
+強大的 query 能力
+
+schema-free：不再怕 schema 改變，當資料量一多，多一個 column，也是很花時間的。
+
+(sharding & replication)
+
+(第三方支持豐富)
+
+MongoDB 缺點
+
+需要較多空間：第一：當空間不足時，會預申請大量空間(而且是64M -> 128M -> 256M … -> 2G(max))。第二：json 的 key-value 的形式，key 的值也都會存著，其實是重複的資料。
+
+刪除一筆記錄，不會釋放空間。
+
+MongoDB 優化
+
+將可能變動的key-value，擺在資料的後方：MongoDB 中一筆 document 的key ，是以 a-z 的順序儲存，所以將可能變動的 key-value 排在後方，以減少當資料變動時，搬移整個資料的機會。
+
+減少 key 的長度。

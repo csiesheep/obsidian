@@ -1,0 +1,47 @@
+id: 4
+title: &gt;面試 如何移動富士山?
+date: 2009-07-23
+categories: Uncategorized
+url: https://csiesheep.com/2009/07/23/面試-如何移動富士山/
+cjk_chars_now: 396
+---
+>[圖: https://i0.wp.com/blog.monkeypotion.net/wp-content/uploads/2009/02/interview.jpg?w=1100] (https://i0.wp.com/blog.monkeypotion.net/wp-content/uploads/2009/02/interview.jpg)
+
+最近我們小組在招募新血，主管很美式作風，希望能夠讓組中每個人都跟面試著面談~
+再由大家來決定錄取與否~ 很幸運地，有了第一次面試人的機會~
+
+沒什麼經驗的我，就惡補了一下關於面試的知識~
+
+像是 The Joel on Software 軟體人員面試教戰守則 (http://local.joelonsoftware.com/wiki/The_Joel_on_Software_Translation_Project:%E8%BB%9F%E9%AB%94%E4%BA%BA%E5%93%A1%E9%9D%A2%E8%A9%A6%E6%95%99%E6%88%B0%E5%AE%88%E5%89%87)
+
+也看完了 如何移動富士山
+ (http://www.books.com.tw/exep/prod/booksfile.php?item=0010291163)
+
+以下就是我的一些想法，當然都很初步，看看就好~
+
+回到面試的最原本目的，就是希望找到 能夠聰明的把事情作好的人
+
+把事情作好，代表著有對自已的工作有熱情，而不只是主管要求的工作才作
+
+聰明的作事，代表著能夠不對的學習，找出更有效率，更有品質的作事方法
+
+而我們小組所需要的人才，是能夠具備 研究 以及 實作 能力的~
+那麼，就應該去設計一些問題，來得到面試者是否有此能力~
+
+我會想問的問題：
+
+介紹一下，目前作過最得意的事情?
+
+從過去的參加project中，介紹一個最得意的，以及所扮演的角色?
+
+如果有機會再重作一次project，你最想改善的是什麼?
+
+除了工作以外，是否有自已實作一個project?
+
+程式的基本背景，能力，以及經驗
+
+ex: 物件導向的觀念，c pointer的使用，等
+
+一個奇怪的問題
+
+套一句我同事說的話：面試別人，同時別人也在面試自已啊

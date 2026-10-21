@@ -1,0 +1,46 @@
+id: 5
+title: &gt;科技頑童沃茲尼克 iWoz
+date: 2009-07-30
+categories: Book
+url: https://csiesheep.com/2009/07/30/科技頑童沃茲尼克-iwoz/
+cjk_chars_now: 510
+---
+>
+
+[圖: https://i0.wp.com/www.theage.com.au/ffximage/2006/09/28/stevewozniak_narrowweb__300x365%2C0.jpg?w=1100] (https://i0.wp.com/www.theage.com.au/ffximage/2006/09/28/stevewozniak_narrowweb__300x365%2C0.jpg)
+
+Wozniak(簡稱Woz) 是蘋果電腦的創辦人之一，科技頑童沃茲尼克 iWoz (http://www.books.com.tw/exep/prod/booksfile.php?item=0010373492)這本書就是他的自傳~
+
+[圖: http://www.books.com.tw/exep/lib/image.php?image=http://addons.books.com.tw/G/001/2/0010373492.jpg&width=200&height=280&quality=80] (http://www.books.com.tw/exep/lib/image.php?image=http://addons.books.com.tw/G/001/2/0010373492.jpg&width=200&height=280&quality=80)
+
+Woz的代表作就是apple II電腦 (http://zh.wikipedia.org/wiki/Apple_II)(1977-1992)，是當時全球第一部，擁有彩色螢幕的電腦(而且還可以直接接電視哦! 感覺比我們現在的電腦還方便 XD)~
+
+Apple II也是世界上第一部賣超過一百萬台的電腦，成功的將個人電腦從公司以及實驗室，帶進了家庭中~
+
+其實我也沒經過apple II大紅大紫的時期，但看它的照片 (http://images.google.com.tw/images?q=apple+II&oe=utf-8&rlz=1R1GGGL_zh-TW___TW323&client=firefox-a&um=1&ie=UTF-8&ei=onlwStT1KorUsQPo2PTXCA&sa=X&oi=image_result_group&ct=title&resnum=1)，其實就已經看到現在電腦的雛形了! 不得不佩服Woz對未來的眼光!
+
+回到這本書，最吸引我的地方是，Woz的作事情的態度，以及作事情的理念。
+
+他從小的志願就是當工程師，最大動力，就是發明最新的東西，來改善人們的生活。他也真的作到了!
+
+擁有工程師的熱情，讓他非常喜愛他的工作，可以說是非常投入的在享受他的工作。當然，他也很聰明，也很有眼光，讓他的作品(可以說是發明)一直都在改變人們的生活。
+
+這也是我想作到的，我想擁有能力，以及熱情，來作出一些真的可以讓人們生活更方便的東西。
+
+這本書的文筆，有一種工程師的幽默感，一種冷冷的，感覺好像理所當然的來敘述一件事情。就算這件事其實非常的與眾不同，像是：
+
+熬夜好幾天來作出藍盒子，一個讓你打免費國際電話的東西
+
+自已一個人獨自拼出Apple II的電路板
+
+在Apple II上自已刻出Basic編譯器
+
+設計出劃時代的Apple II電腦原型
+
+等等
+
+整本書讀下來，都不會覺得無聊，也會越來越佩服Woz的態度，熱情，投入，以及眼光。
+
+就像我室友說的：看完之後，真的會很想當工程師!
+
+推薦給大家~

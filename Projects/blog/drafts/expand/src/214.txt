@@ -1,0 +1,33 @@
+id: 214
+title: &gt;羊羊騎貘姿勢佳 10000朋友突破!
+date: 2009-07-16
+categories: Uncategorized
+url: https://csiesheep.com/2009/07/16/羊羊騎貘姿勢佳-10000朋友突破/
+cjk_chars_now: 545
+---
+>[圖: https://i0.wp.com/csiesheep.com/wp-content/uploads/2009/07/2008-12-10-2.jpg?w=1100] (https://i0.wp.com/csiesheep.com/wp-content/uploads/2009/07/2008-12-10-2.jpg)
+羊羊 (http://www.plurk.com/sheep_knowledge)出生到現在，剛好過了一個月了
+朋友數也突破了10000大關 (狂賀)
+感謝大眾網友的支持
+今天就來介紹一下，羊羊是如何生出來的?
+
+羊羊的出生
+
+最基本的兩個東西
+就是 天使的臉蛋 和 魔鬼的身材 (拖走 毒打…)
+
+就是
+1. plurk api (http://code.google.com/p/rlplurkapi/)，程式與plurk溝通的管道
+由於plurk目前還沒有公布官方的api，此版本是非官方的
+我是用python語言寫的，因此還需要下載simplejson module (http://code.google.com/p/simplejson/)
+
+2. Yahoo 知識+ api (http://tw.developer.yahoo.com/knowledge/api.php)，得到Yahoo知識+的知識作為後盾
+
+3. 再來就需要幫羊羊找一個家，一開始，因為我沒有一台固定的server，因此我選擇使用Andlinux (http://www.andlinux.org/)，並且安裝在我的小nb上，它是一套將ubuntu當作一個軟體安裝在windows下，目前最新是支援到ubuntu 7.1，安裝的過程很簡單，要作的設定也很少，這對我來說是無痛的開始。
+
+4. 在寫好羊羊的程式後，再來就是利用server上的crontab，來定期的叫羊羊起床幹活，最一開始是3分鐘就叫羊羊起床回答問題。但由於 plurk api 的限制，只能看最新的20筆，隨著朋友越來越多，漏回答的問題越來越嚴重，羊羊得越來越常起床。因此，目前是讓羊羊20秒就起床一次(完全沒有人性的操他 XD)。第二個問題是 plurk api 會有延遲，(ex: 20秒內還沒有收完訊息，下次起床時間又到了)，因此常常會有重覆回答問題的情形，請大家多多包涵。
+
+5. 搬家的小插曲，隨著羊羊的工作越來越重，原本只住在裝著Andlinux的小nb上漸感吃力，之前羊羊會一直睡覺就是因為nb過熱，造成天氣太熱就會想睡覺…  後來為了(不再想被罵?)眾多朋友應該得到的服務品質著想，決定搬家。連夜的搬到學校的server上了(至於什麼學校什麼server就… 啊哈哈哈哈哈)
+
+這就是羊羊到目前為止的人生~ 
+之後來一篇，介紹一下 羊羊 目前的能力，以及分析一下，目前大家問過的問題吧~ 🙂

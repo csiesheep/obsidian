@@ -1,0 +1,84 @@
+id: 266
+title: [筆記] WordPress 同步發文至 Facebook, twitter, plurk, Google Buzz 等社群網路
+date: 2011-03-05
+categories: CS
+url: https://csiesheep.com/2011/03/05/wordpress-同步發文至-facebook-twitter-plurk-google-buzz-等社群網路/
+cjk_chars_now: 311
+---
+[圖: https://i0.wp.com/www.freegroup.info/images/2009/12/social_networking_icon_pack.jpg?resize=452%2C336]
+
+圖片來源Pseric (http://www.facebook.com/pseric)
+
+現在幾乎會上網的，都有用 社群網路
+
+台灣地區熱門的像是 Facebook, plurk, murmur 等等
+
+如何在 WordPress 發文章時，自動同布到常用的 社群網路 中來增加 blog 文章的曝光度?
+
+使用環境 wordpress 3.0.5
+
+社群網路 Facebook, twitter, Google Buzz, Plurk
+
+Network Publisher
+
+for Facebook, Google Buzz, Twitter
+
+Network Publisher 為 linksalpha (http://www.linksalpha.com/) 在 WordPress 上所作的 plugin
+
+提供了許多目前熱門的 社群網路 的自動發布訊息的服務
+
+1. WordPress 安裝 Network Publisher (http://wordpress.org/extend/plugins/network-publisher/) plugin，並啟動
+
+啟動後，在 "外掛" 中，會出現 Network Publisher 設定頁面
+
+2. 登入 linksalpha 帳號 (可使用 google, Facebook, twitter 帳號)
+
+選擇想要發布的 社群網路 服務
+
+服務右方如果有 "$" 符號，代表是要付費才能使用 (ex: Plurk…)
+
+ 免費用戶，可以設定 5 個網站的訊息 至 5 個免費的社群網路來發布訊息
+
+3. 設定 linksalpha API KEY 至 WordPress
+
+得到你的 linksalpha API KEY: http://www.linksalpha.com/user/your_api_key (http://www.linksalpha.com/user/your_api_key)
+
+設定到 WordPress Network Publisher 設定頁面
+
+之後就會在 Currently Publishing 中看到你想發布的 社群網路 列表
+
+WordPlurk improve
+
+for Plurk
+
+由於 linksalpha 的 Plurk 功能是要付費的
+
+得在另外想辦法
+
+1. WordPress 安裝 wordplurk-improve (http://wordpress.org/extend/plugins/wordplurk-improve/) plugin，並啟動
+
+啟動後，在 "設定"中，會出現 wordplurk-improve 的設定頁面
+
+1.1 server 中安裝 php5-curl
+
+Sheep 在啟動 plugin 時，出現 curl 錯誤
+
+原因是沒有安裝 php5-curl package 在 server 中
+
+安裝 php5-curl
+
+$ sudo apt-get install php5-curl
+
+重新啟動 apache server
+
+$ sudo /etc/init.d/apache2 restart
+
+2. 至 Plurk 申請 API KEY
+
+申請網頁 http://www.plurk.com/API/issueKey (http://www.plurk.com/API/issueKey)
+
+3. 設定 Plurk API KEY 至 wordplurk-improve
+
+在 wordplurk-improve 設定頁面中，填入 plurk API KEY
+
+設定方面：Wordplurk 樣式 建議修改為 %%url%% (%%title%%)
