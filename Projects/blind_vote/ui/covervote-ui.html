@@ -1,0 +1,762 @@
+<title>蓋牌投票 UI</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a design board — flows run left to right as rows of 360px phone screens on a ballot-paper ground, each screen annotated underneath. */
+:root{
+  --ground:#E9E7E1;      /* the board, like the grey of a polling-station table */
+  --paper:#FAF9F5;       /* ballot paper */
+  --ink:#1F1D1B;
+  --ink-2:#5E5A54;
+  --rule:#D3CFC6;
+  --stamp:#C4321F;       /* 圈選章 red, the only accent */
+  --stamp-soft:#F3DCD6;
+  --back:#2A2622;        /* card back */
+  --back-line:#E9E2D3;
+  --ok:#3F6B4E; --warn:#9A6A12;
+  --f-display:"LXGW WenKai TC","Kaiti TC","STKaiti",serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ground:#151413;--paper:#211F1D;--ink:#ECE8E0;--ink-2:#A7A198;--rule:#3A3733;
+  --stamp:#E35A43;--stamp-soft:#3F2420;--back:#0E0D0C;--back-line:#6B6253;--ok:#7FB08F;--warn:#D9A74A;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ground:#151413;--paper:#211F1D;--ink:#ECE8E0;--ink-2:#A7A198;--rule:#3A3733;
+  --stamp:#E35A43;--stamp-soft:#3F2420;--back:#0E0D0C;--back-line:#6B6253;--ok:#7FB08F;--warn:#D9A74A;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;font-weight:700}
+p{margin:0}
+.wrap{max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+:focus-visible{outline:2px solid var(--stamp);outline-offset:2px}
+button{font:inherit;color:inherit;cursor:pointer}
+
+/* ---------- board header ---------- */
+.mast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end}
+.mast h1{font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:.04em}
+.mast h1 .sq{display:inline-block;width:.9em;height:.9em;background:var(--ink);vertical-align:-.06em;margin-inline:.05em;border-radius:2px}
+.mast .lede{color:var(--ink-2);max-width:60ch;margin-top:12px}
+.mast dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:13px}
+.mast dt{color:var(--ink-2)} .mast dd{margin:0}
+@media (max-width:820px){.mast{grid-template-columns:1fr}}
+
+.flow{display:flex;flex-direction:column;gap:20px}
+.flow-head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;border-top:1.5px solid var(--ink);padding-top:12px}
+.flow-head h2{font-size:26px}
+.flow-head p{color:var(--ink-2);font-size:14px;max-width:70ch}
+.screens{display:flex;gap:28px;overflow-x:auto;padding-bottom:12px;align-items:flex-start;scroll-snap-type:x proximity}
+.shot{flex:0 0 360px;max-width:100%;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start}
+.shot-label{font-family:var(--f-num);font-size:12px;letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase}
+.note{font-size:13px;color:var(--ink-2);display:flex;flex-direction:column;gap:4px}
+.note b{color:var(--ink);font-weight:500}
+
+/* ---------- phone ---------- */
+.phone{background:var(--paper);border:1px solid var(--rule);border-radius:22px;overflow:hidden;box-shadow:0 1px 0 var(--rule),0 18px 40px -28px rgba(0,0,0,.35)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 8px;font-size:13px;border-bottom:1px solid var(--rule)}
+.brand{font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:.08em;display:flex;align-items:center;gap:6px}
+.brand i{display:inline-block;width:14px;height:18px;background:var(--back);border-radius:2px;box-shadow:3px -2px 0 -1px var(--paper),3px -2px 0 0 var(--ink)}
+.bar .meta{color:var(--ink-2);font-family:var(--f-num);font-size:12px}
+.pad{padding:18px 16px 20px;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--ink-2)}
+.big{font-family:var(--f-display);font-size:30px;line-height:1.2}
+.mid{font-family:var(--f-display);font-size:21px;line-height:1.3}
+.muted{color:var(--ink-2);font-size:13px}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.btn{display:flex;justify-content:center;align-items:center;gap:8px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:10px;padding:12px 16px;font-weight:700;font-size:16px}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.line{border-color:var(--rule);background:transparent;color:var(--ink);font-weight:500}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--rule);border-radius:999px;padding:5px 12px;font-size:13px;background:transparent}
+.chip.on{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.hr{height:1px;background:var(--rule)}
+.foot{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink-2);padding:12px 16px 16px;border-top:1px solid var(--rule)}
+
+/* tile map */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(9,34px);gap:4px}
+.tile{border-radius:5px;border:1px dashed var(--rule);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink-2);background:transparent}
+.tile.live{border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:700;font-size:12.5px;position:relative}
+.tile.live::after{content:attr(data-cov);position:absolute;right:3px;bottom:1px;font-family:var(--f-num);font-size:9px;font-weight:500;color:var(--ink-2)}
+.tile.pick{background:var(--ink);color:var(--paper)}
+.tile.pick::after{color:var(--paper)}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--ink-2);flex-wrap:wrap}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.sw{width:14px;height:12px;border-radius:3px;border:1.5px solid var(--ink)}
+.sw.d{border:1px dashed var(--rule)}
+
+/* card back */
+.cardback{background:var(--back);border-radius:8px;position:relative;
+  background-image:
+    repeating-linear-gradient(45deg,transparent 0 9px,color-mix(in srgb,var(--back-line) 28%,transparent) 9px 10px),
+    repeating-linear-gradient(-45deg,transparent 0 9px,color-mix(in srgb,var(--back-line) 28%,transparent) 9px 10px);
+  box-shadow:inset 0 0 0 5px var(--back),inset 0 0 0 6px color-mix(in srgb,var(--back-line) 60%,transparent)}
+.deck{display:flex;gap:10px;justify-content:center;padding:6px 0}
+.deck .cardback{width:64px;height:90px}
+.deck .cardback:nth-child(2){transform:translateY(-6px) rotate(2deg)}
+.deck .cardback:nth-child(1){transform:rotate(-3deg)}
+
+/* passage card */
+.pcard{border:1.5px solid var(--ink);border-radius:12px;background:var(--paper);display:flex;flex-direction:column}
+.pcard-head{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.seat{font-family:var(--f-display);font-size:22px;width:34px;height:34px;border:1.5px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.pcard-body{padding:12px;font-size:15px;line-height:1.75}
+.mask{background:var(--ink);color:transparent;border-radius:2px;padding:0 .2em;user-select:none}
+.toggle{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden;font-size:12px}
+.toggle button{border:0;background:transparent;padding:4px 10px}
+.toggle button.on{background:var(--ink);color:var(--paper)}
+
+/* rating stamps */
+.rate{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:0 12px 12px}
+.rate button{border:1px solid var(--rule);background:transparent;border-radius:10px;padding:8px 0 6px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--ink-2);min-height:56px}
+.rate button b{font-family:var(--f-num);font-size:16px;color:var(--ink);font-weight:600}
+.rate button.on{border-color:var(--stamp);background:var(--stamp-soft);color:var(--stamp)}
+.rate button.on b{color:var(--stamp)}
+.guess{margin:0 12px 12px;border-top:1px dashed var(--rule);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.guess .q{font-size:13px;color:var(--ink-2);display:flex;justify-content:space-between}
+.progress{display:flex;gap:4px}
+.progress i{flex:1;height:4px;border-radius:2px;background:var(--rule)}
+.progress i.d{background:var(--ink)} .progress i.c{background:var(--stamp)}
+
+/* stamp mark */
+.stampmark{width:58px;height:58px;border-radius:50%;border:3px solid var(--stamp);color:var(--stamp);display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:26px;transform:rotate(-12deg);opacity:.9}
+
+/* lean picker */
+.opt{display:flex;align-items:center;gap:12px;border:1px solid var(--rule);border-radius:10px;padding:10px 12px;background:transparent;text-align:left;width:100%}
+.opt.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.ava{width:36px;height:36px;border-radius:50%;background:var(--ground);display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:16px;flex:none}
+.opt small{display:block;color:var(--ink-2);font-size:12px}
+.lock{display:flex;gap:8px;font-size:12px;color:var(--ink-2);background:var(--ground);border-radius:8px;padding:8px 10px}
+
+/* issues weight */
+.wt{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--rule);padding:10px 0}
+.wt .x2{font-family:var(--f-num);font-size:12px;border:1px solid var(--rule);border-radius:6px;padding:2px 8px;background:transparent}
+.wt .x2.on{border-color:var(--stamp);color:var(--stamp);background:var(--stamp-soft)}
+
+/* reveal */
+.flipgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;perspective:600px}
+.flip{aspect-ratio:5/7;position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,.7,.2,1)}
+.flip.open{transform:rotateY(180deg)}
+.flip>div{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px}
+.flip .face{transform:rotateY(180deg);background:var(--paper);border:1.5px solid var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px}
+.flip .face b{font-family:var(--f-display);font-size:16px}
+@media (prefers-reduced-motion:reduce){.flip{transition:none}}
+
+/* results */
+.verdict{border:1.5px solid var(--ink);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;text-align:center}
+.vs .who{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--ink-2)}
+.vs .who b{font-family:var(--f-display);font-size:20px;color:var(--ink)}
+.vs .neq{font-family:var(--f-display);font-size:30px;color:var(--stamp)}
+.score{display:grid;grid-template-columns:72px 1fr 44px;gap:8px;align-items:center;font-size:13px}
+.axis{position:relative;height:14px;background:linear-gradient(var(--rule),var(--rule)) center/1px 100% no-repeat}
+.axis .b{position:absolute;top:2px;height:10px;border-radius:2px;background:var(--ink)}
+.axis .b.neg{background:var(--ink-2)}
+.axis .ci{position:absolute;top:6px;height:2px;background:var(--stamp)}
+.conf{font-size:11px;color:var(--warn)}
+.scale-lbl{display:grid;grid-template-columns:72px 1fr 44px;gap:8px;font-family:var(--f-num);font-size:10px;color:var(--ink-2)}
+.scale-lbl span:nth-child(2){display:flex;justify-content:space-between}
+.guessbox{display:flex;align-items:center;gap:14px;border:1px solid var(--rule);border-radius:12px;padding:12px}
+.guessbox .n{font-family:var(--f-num);font-size:30px;font-weight:600}
+.guessbox .n small{font-size:15px;color:var(--ink-2)}
+
+/* detail */
+.det{border:1px solid var(--rule);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.det-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px}
+.det-top b{font-family:var(--f-display);font-size:16px}
+.tag{font-size:11px;border-radius:4px;padding:1px 6px;border:1px solid var(--rule);color:var(--ink-2)}
+.tag.ok{border-color:var(--ok);color:var(--ok)} .tag.no{border-color:var(--stamp);color:var(--stamp)}
+.src{font-size:12px;color:var(--ink-2);word-break:break-all}
+
+/* share card */
+.og{aspect-ratio:1200/630;width:100%;background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;display:grid;grid-template-columns:1.3fr 1fr;gap:10px;position:relative;overflow:hidden}
+.og h3{font-size:22px;line-height:1.25}
+.og .ogcards{position:relative}
+.og .ogcards .cardback{position:absolute;width:56px;height:80px}
+
+/* health */
+.hbar{display:grid;grid-template-columns:1fr 120px 38px;gap:8px;align-items:center;font-size:12px}
+.htrack{height:8px;background:var(--ground);border-radius:4px;position:relative}
+.htrack i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--ink)}
+.htrack i.hot{background:var(--stamp)}
+.htrack::after{content:"";position:absolute;top:-3px;bottom:-3px;left:50%;width:1px;background:var(--ink-2)}
+.flag{font-size:11px;color:var(--stamp)}
+
+/* forms */
+.field{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.field input,.field select,.field textarea{font:inherit;font-size:14px;border:1px solid var(--rule);border-radius:8px;padding:9px 10px;background:var(--paper);color:var(--ink)}
+.banner{border:1.5px dashed var(--warn);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.banner b{color:var(--warn)}
+
+/* system section */
+.sys{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.panel{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel h3{font-size:19px}
+.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.swatch{display:flex;flex-direction:column;gap:4px;font-size:12px}
+.swatch i{height:44px;border-radius:8px;border:1px solid var(--rule)}
+.typespec{display:flex;flex-direction:column;gap:8px}
+.typespec div{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.typespec small{color:var(--ink-2);font-size:12px;white-space:nowrap}
+table{border-collapse:collapse;width:100%;font-size:13px}
+td,th{border-bottom:1px solid var(--rule);padding:7px 6px;text-align:left;vertical-align:top}
+th{font-weight:500;color:var(--ink-2);font-size:12px}
+.tblwrap{overflow-x:auto}
+.sfxbtn{border:1px solid var(--rule);border-radius:6px;background:transparent;padding:2px 8px;font-size:12px}
+.sfxbtn[disabled]{opacity:.45;cursor:default}
+.decisions li{margin-bottom:6px}
+.decisions{padding-left:18px;margin:0;font-size:14px}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div>
+    <div class="eyebrow">COVERVOTE · UI 設計稿 v0.1 · 2026-10-21</div>
+    <h1>蓋<span class="sq" aria-hidden="true"></span>牌投票</h1>
+    <p class="lede">先說你想投誰，再遮住名字給政見打分、猜猜每段是誰寫的。開票時看你傾向的人和你契合的人是不是同一個。下面是全部頁面，手機優先，依玩家走過的順序排列。</p>
+  </div>
+  <dl>
+    <dt>範圍</dt><dd>2026 六都市長（台北、新北、桃園、台中、台南、高雄）</dd>
+    <dt>網址</dt><dd class="num">games.csiesheep.com/covervote/</dd>
+    <dt>上線</dt><dd>11/1 v1（競選來源）· 11/15 公報版 · 11/18 起靜默期</dd>
+    <dt>注意</dt><dd>稿中候選人姓名、政見、數字全部是虛構範例，不代表任何真實候選人。</dd>
+  </dl>
+</header>
+
+<!-- ============ FLOW A ============ -->
+<section class="flow">
+  <div class="flow-head"><h2>A　進場</h2><p>首頁只做一件事：選縣市。沒收錄的縣市照樣畫在地圖上，但標成虛線，誠實交代範圍。</p></div>
+  <div class="screens">
+
+    <div class="shot">
+      <div class="shot-label">A1 · 首頁 /</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">11/28 投票 · 剩 38 天</span></div>
+        <div class="pad">
+          <div class="big">名字蓋起來，<br>你還會選同一個人嗎？</div>
+          <p class="muted">每輪一個議題，遮住名字給政見打分。最後翻牌，看你契合的是誰。約 4 分鐘。</p>
+          <div class="tiles" aria-label="縣市地圖">
+            <div class="tile" style="grid-area:2/1">連江</div>
+            <div class="tile live" data-cov="4/6" style="grid-area:1/5">台北</div>
+            <div class="tile" style="grid-area:1/6">基隆</div>
+            <div class="tile live" data-cov="3/4" style="grid-area:2/4">桃園</div>
+            <div class="tile live pick" data-cov="5/5" style="grid-area:2/5">新北</div>
+            <div class="tile" style="grid-area:3/3">竹市</div>
+            <div class="tile" style="grid-area:3/4">竹縣</div>
+            <div class="tile" style="grid-area:3/5">宜蘭</div>
+            <div class="tile" style="grid-area:4/3">苗栗</div>
+            <div class="tile live" data-cov="3/3" style="grid-area:4/4">台中</div>
+            <div class="tile" style="grid-area:4/5/6/6">花蓮</div>
+            <div class="tile" style="grid-area:5/1">金門</div>
+            <div class="tile" style="grid-area:5/3">彰化</div>
+            <div class="tile" style="grid-area:5/4">南投</div>
+            <div class="tile" style="grid-area:6/3">雲林</div>
+            <div class="tile" style="grid-area:6/4">嘉縣</div>
+            <div class="tile" style="grid-area:6/5/8/6">台東</div>
+            <div class="tile" style="grid-area:7/2">澎湖</div>
+            <div class="tile" style="grid-area:7/3">嘉市</div>
+            <div class="tile live" data-cov="2/3" style="grid-area:7/4">台南</div>
+            <div class="tile live" data-cov="4/5" style="grid-area:8/4">高雄</div>
+            <div class="tile" style="grid-area:9/4">屏東</div>
+          </div>
+          <div class="legend"><span><i class="sw"></i>本次收錄（右下：有政見的候選人／全部）</span><span><i class="sw d"></i>本次未收錄</span></div>
+          <a class="btn" href="#a2" style="text-decoration:none">從新北市開始</a>
+          <p class="muted">已有 <span class="num">12,408</span> 局 · 不收廣告、不收政黨的錢</p>
+        </div>
+        <div class="foot"><span>怎麼算</span><span>遮蔽健康度</span><span>資料來源</span><span>隱私</span><span>回報錯誤</span><span>關於</span></div>
+      </div>
+      <div class="note"><b>地圖是方格示意圖，不是真實地形。</b><span>手機上真實地圖的六都太小、難按；方格讓每個縣市一樣大。點一下格子會選中，按鈕文字跟著換成縣市名。</span><span>首屏只有標語、地圖、開始；其他功能全部收到頁尾。</span></div>
+    </div>
+
+    <div class="shot" id="a2">
+      <div class="shot-label">A2 · 縣市入口 /newtaipei</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">換縣市</span></div>
+        <div class="pad">
+          <div class="eyebrow">2026 縣市長選舉</div>
+          <div class="big">新北市長</div>
+          <div class="deck" aria-hidden="true"><div class="cardback"></div><div class="cardback"></div><div class="cardback"></div></div>
+          <table>
+            <tr><th>候選人</th><td class="num">5 位，5 位有收錄政見</td></tr>
+            <tr><th>題目</th><td class="num">7 個議題 + 1 輪加分題</td></tr>
+            <tr><th>段落</th><td class="num">31 段，平均 94 字</td></tr>
+            <tr><th>遮蔽健康度</th><td><span class="num">猜中率 23%</span>（隨機 20%）<span class="tag ok">良好</span></td></tr>
+            <tr><th>資料截至</th><td class="num">2026-10-20</td></tr>
+          </table>
+          <a class="btn" href="#b1" style="text-decoration:none">開始</a>
+          <details><summary class="muted">怎麼玩</summary>
+            <ol class="muted" style="padding-left:18px;margin:8px 0 0">
+              <li>選填：你目前傾向誰。只存在你的手機。</li>
+              <li>每段政見給 −2 到 +2 分，兩段都不喜歡也可以。</li>
+              <li>想猜的話，猜每段是誰寫的。</li>
+              <li>開票：看契合度，和你的傾向比一比。</li>
+            </ol></details>
+        </div>
+      </div>
+      <div class="note"><b>遮蔽健康度放在入口。</b><span>這是這個遊戲跟其他政見測驗最大的不同，玩之前就讓人看到「名字真的遮住了」的證據。</span><span>表格欄位固定，六都都一樣，方便截圖比較。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">A3 · 未收錄縣市 /keelung</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">換縣市</span></div>
+        <div class="pad" style="align-items:center;text-align:center">
+          <div class="deck" aria-hidden="true"><div class="cardback" style="opacity:.35"></div><div class="cardback" style="opacity:.35"></div></div>
+          <div class="mid">基隆市這次還沒收錄</div>
+          <p class="muted">這次只做六都。其他縣市的候選人政見請看中選會選舉公報（11/12 公布）。</p>
+          <a class="btn line" style="width:100%;text-decoration:none" href="#">看中選會選舉公報 ↗</a>
+          <a class="btn ghost" style="width:100%;text-decoration:none" href="#">改玩六都</a>
+          <p class="muted">想讓你的縣市下次被收錄？<a href="#" style="color:inherit">留個信箱，2028 開放時通知你</a></p>
+        </div>
+      </div>
+      <div class="note"><b>空狀態要有出口。</b><span>導去官方公報，不讓人白跑一趟。插圖之後換成生成的「空票箱」。</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FLOW B ============ -->
+<section class="flow">
+  <div class="flow-head"><h2>B　作答</h2><p>核心循環。每輪：讀 → 打分 → 選填猜作者 → 下一輪。猜的對錯開票時才揭曉，作答中不給任何回饋，以免玩家邊玩邊學會辨識寫法。</p></div>
+  <div class="screens">
+
+    <div class="shot" id="b1">
+      <div class="shot-label">B1 · 傾向（選填）</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>新北市長</span><span class="meta">開始前</span></div>
+        <div class="pad">
+          <div class="mid">你目前比較傾向投給誰？</div>
+          <p class="muted">開票時會拿來和你的契合結果比一比。可以跳過。</p>
+          <div style="display:flex;flex-direction:column;gap:8px" role="radiogroup" aria-label="傾向">
+            <button class="opt" role="radio" aria-checked="false"><span class="ava">林</span><span>林雅文<small>1 號</small></span></button>
+            <button class="opt on" role="radio" aria-checked="true"><span class="ava">陳</span><span>陳志明<small>2 號</small></span></button>
+            <button class="opt" role="radio" aria-checked="false"><span class="ava">王</span><span>王建國<small>3 號</small></span></button>
+            <button class="opt" role="radio" aria-checked="false"><span class="ava">…</span><span>其他 2 位<small>展開</small></span></button>
+            <div class="row"><button class="chip">還沒決定</button><button class="chip">不想說</button></div>
+          </div>
+          <div class="lock"><span aria-hidden="true">🔒</span><span>只存在這支手機，不會送到伺服器。全國統計只收「傾向和契合是否同一人」的匯總次數。</span></div>
+          <button class="btn">下一步</button>
+        </div>
+      </div>
+      <div class="note"><b>只列號次和姓名，不列黨籍和照片。</b><span>排序照抽籤號次，不照民調或筆畫，避免任何人被放在比較好的位置。</span><span>這是整個遊戲唯一出現姓名的作答前畫面。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">B2 · 一輪（打分）</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>新北市長</span><span class="meta num">3 / 8</span></div>
+        <div class="pad">
+          <div class="progress" aria-hidden="true"><i class="d"></i><i class="d"></i><i class="c"></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="row" style="justify-content:space-between;align-items:center"><div class="eyebrow">議題</div><div class="toggle" role="group" aria-label="文字版本"><button class="on">白話</button><button>原文</button></div></div>
+          <div class="mid">托育</div>
+          <div class="pcard" data-card>
+            <div class="pcard-head"><span class="seat">甲</span><span class="muted num">98 字</span></div>
+            <div class="pcard-body">四年內在每個行政區至少新增兩所公共托嬰中心，優先使用國小空教室；同時把準公共托育的家長自付額降到每月 3,000 元以下，<span class="mask">市府品牌名</span>專線一通電話就能查空位。</div>
+            <div class="rate" role="radiogroup" aria-label="甲的分數">
+              <button data-v="-2"><b>−2</b>很不認同</button><button data-v="-1"><b>−1</b>不太認同</button><button data-v="0"><b>0</b>沒意見</button><button data-v="1" class="on"><b>+1</b>還算認同</button><button data-v="2"><b>+2</b>很認同</button>
+            </div>
+            <div class="guess">
+              <div class="q"><span>猜是誰寫的？（選填）</span><span class="num">開票才公布</span></div>
+              <div class="row"><button class="chip">林雅文</button><button class="chip on">陳志明</button><button class="chip">王建國</button><button class="chip">其他</button><button class="chip">猜不到</button></div>
+            </div>
+          </div>
+          <div class="pcard">
+            <div class="pcard-head"><span class="seat">乙</span><span class="muted num">104 字</span></div>
+            <div class="pcard-body">發放 0 到 2 歲育兒津貼每月 5,000 元，不論孩子送托或在家照顧都可以領；托育人員薪資由市府補到每月 3.6 萬元起，留住保母和教保員。</div>
+            <div class="rate" role="radiogroup" aria-label="乙的分數">
+              <button data-v="-2"><b>−2</b>很不認同</button><button data-v="-1"><b>−1</b>不太認同</button><button data-v="0"><b>0</b>沒意見</button><button data-v="1"><b>+1</b>還算認同</button><button data-v="2"><b>+2</b>很認同</button>
+            </div>
+          </div>
+          <button class="btn">下一輪</button>
+          <p class="muted" style="text-align:center">兩段都打完分才能下一輪 · <a href="#" style="color:inherit">這題跳過</a></p>
+        </div>
+      </div>
+      <div class="note"><b>每段各自打分，取代單選。</b><span>五格按鈕高 56px，單手好按；按下去蓋一個紅章（音效：蓋章）。</span><span>字數標在右上，長度統一在 60–120 字。</span><span>▇▇ 是遮掉的姓名、黨名或品牌政策名，點一下會跳出「這裡遮掉了 4 個字」的說明。</span><span>猜作者預設收合在每張卡底下，不猜也不影響分數。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">B3 · 加分題（不計分）</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>新北市長</span><span class="meta num">8 / 8</span></div>
+        <div class="pad">
+          <div class="progress" aria-hidden="true"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="c"></i></div>
+          <div class="eyebrow">加分題 · 不算進契合度</div>
+          <div class="mid">這些政見只有一位候選人提出</div>
+          <p class="muted">議題不同，沒辦法互相比較，所以只打分、不計分。開票時另外列出。</p>
+          <div class="pcard">
+            <div class="pcard-head"><span class="seat">丙</span><span class="tag">捷運延伸</span></div>
+            <div class="pcard-body">爭取捷運三鶯線延伸到八德，2030 年前完成綜合規劃報中央。</div>
+            <div class="rate"><button><b>−2</b>很不認同</button><button><b>−1</b>不太認同</button><button><b>0</b>沒意見</button><button><b>+1</b>還算認同</button><button class="on"><b>+2</b>很認同</button></div>
+          </div>
+          <div class="pcard">
+            <div class="pcard-head"><span class="seat">丁</span><span class="tag">寵物</span></div>
+            <div class="pcard-body">每個行政區設一座公立動物醫院分院，絕育與晶片植入免費。</div>
+            <div class="rate"><button><b>−2</b>很不認同</button><button><b>−1</b>不太認同</button><button class="on"><b>0</b>沒意見</button><button><b>+1</b>還算認同</button><button><b>+2</b>很認同</button></div>
+          </div>
+          <button class="btn">下一步</button>
+        </div>
+      </div>
+      <div class="note"><b>議題標籤公開。</b><span>加分題各自不同議題，所以標籤直接寫出來，玩家才知道在比什麼。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">B4 · 標重要議題</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>新北市長</span><span class="meta">開票前</span></div>
+        <div class="pad">
+          <div class="mid">哪些議題對你特別重要？</div>
+          <p class="muted">勾起來的議題分數算兩倍。可以不勾，開票後也能改。</p>
+          <div>
+            <div class="wt"><span>托育</span><button class="x2 on">×2</button></div>
+            <div class="wt"><span>長照與高齡</span><button class="x2">×2</button></div>
+            <div class="wt"><span>公車與捷運</span><button class="x2 on">×2</button></div>
+            <div class="wt"><span>居住</span><button class="x2">×2</button></div>
+            <div class="wt"><span>校園教育</span><button class="x2">×2</button></div>
+            <div class="wt"><span>行人安全</span><button class="x2">×2</button></div>
+            <div class="wt"><span>治水防災</span><button class="x2">×2</button></div>
+          </div>
+          <button class="btn">開票</button>
+        </div>
+      </div>
+      <div class="note"><b>沿用原版做法。</b><span>×2 用紅章色，跟打分的紅章同一種「我在意」的語言。</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FLOW C ============ -->
+<section class="flow">
+  <div class="flow-head"><h2>C　開票</h2><p>整局唯一的大動畫。牌一張張翻開，接著是結果。結果頁的順序：傾向對照 → 契合分數 → 猜作者成績 → 每段明細。</p></div>
+  <div class="screens">
+
+    <div class="shot">
+      <div class="shot-label">C1 · 翻牌動畫（點一下試試）</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>新北市長</span><span class="meta">開票中</span></div>
+        <div class="pad">
+          <div class="mid" style="text-align:center">翻牌</div>
+          <div class="flipgrid" id="flipgrid">
+            <div class="flip"><div class="cardback"></div><div class="face"><b>陳</b>托育 甲</div></div>
+            <div class="flip"><div class="cardback"></div><div class="face"><b>林</b>托育 乙</div></div>
+            <div class="flip"><div class="cardback"></div><div class="face"><b>王</b>長照 甲</div></div>
+            <div class="flip"><div class="cardback"></div><div class="face"><b>陳</b>長照 乙</div></div>
+            <div class="flip"><div class="cardback"></div><div class="face"><b>林</b>居住 甲</div></div>
+            <div class="flip"><div class="cardback"></div><div class="face"><b>王</b>居住 乙</div></div>
+            <div class="flip"><div class="cardback"></div><div class="face"><b>陳</b>公車 甲</div></div>
+            <div class="flip"><div class="cardback"></div><div class="face"><b>林</b>公車 乙</div></div>
+          </div>
+          <button class="btn ghost" id="flipbtn">翻牌</button>
+          <p class="muted" style="text-align:center">每張間隔 120ms · 總長約 1.5 秒 · 點一下可略過</p>
+        </div>
+      </div>
+      <div class="note"><b>音效：洗牌 → 連續翻牌 → 收尾的木琴。</b><span>開啟「減少動態效果」的人直接看到結果。</span><span>聲音預設關閉，右上角喇叭開啟，記在瀏覽器裡。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">C2 · 結果</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>新北市長</span><span class="meta">開票結果</span></div>
+        <div class="pad">
+          <div class="verdict">
+            <div class="eyebrow">傾向 vs 契合</div>
+            <div class="vs">
+              <div class="who">你傾向<b>陳志明</b></div>
+              <div class="neq" aria-label="不是同一人">≠</div>
+              <div class="who">最契合<b>林雅文</b></div>
+            </div>
+            <p class="muted" style="text-align:center">名字蓋起來，你選的跟原本不一樣。</p>
+            <div class="stampmark" style="position:absolute;right:10px;top:8px;width:44px;height:44px;font-size:18px" aria-hidden="true">開</div>
+          </div>
+          <div>
+            <div class="eyebrow" style="margin-bottom:6px">契合分數（−100 到 +100）</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div class="score"><span>林雅文</span><div class="axis"><i class="b" style="left:50%;width:31%"></i><i class="ci" style="left:66%;width:28%"></i></div><span class="num">+62</span></div>
+              <div class="score"><span>陳志明</span><div class="axis"><i class="b" style="left:50%;width:14%"></i><i class="ci" style="left:52%;width:24%"></i></div><span class="num">+28</span></div>
+              <div class="score"><span>王建國</span><div class="axis"><i class="b neg" style="left:42%;width:8%"></i><i class="ci" style="left:30%;width:24%"></i></div><span class="num">−16</span></div>
+              <div class="score"><span>趙文華<br><span class="conf">只有 2 段</span></span><div class="axis"><i class="b" style="left:50%;width:20%"></i><i class="ci" style="left:44%;width:52%"></i></div><span class="num">+40</span></div>
+              <div class="scale-lbl"><span></span><span><span>−100</span><span>0</span><span>+100</span></span><span></span></div>
+            </div>
+            <p class="muted" style="margin-top:6px">紅線是可能的範圍，段落越少範圍越寬。範圍重疊表示分不出高下。</p>
+          </div>
+          <div class="guessbox">
+            <div class="n">9<small>/12</small></div>
+            <div><b>你猜中 9 段是誰寫的</b><p class="muted">全國平均 4.1 段。猜中越多，代表那幾段遮得越不夠好，我們會拿去改寫。</p></div>
+          </div>
+          <div class="row"><button class="btn" style="flex:1">分享結果</button><button class="btn ghost" style="flex:1">再玩一次</button></div>
+          <a class="btn line" href="#c3" style="text-decoration:none">看每段是誰寫的 ↓</a>
+          <p class="muted">契合分數只代表你這局打的分，不是投票建議。投票前請看完整選舉公報。</p>
+        </div>
+      </div>
+      <div class="note"><b>結果頁第一眼是 ≠ 或 =。</b><span>沒選傾向的人，這塊換成「最契合：林雅文」。</span><span>分數是平均分 ×50，所以 −100～+100；重要議題 ×2。</span><span>段落少於 3 段的候選人標黃字警告。</span></div>
+    </div>
+
+    <div class="shot" id="c3">
+      <div class="shot-label">C3 · 每段明細</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>新北市長</span><span class="meta">翻牌明細</span></div>
+        <div class="pad">
+          <div class="row"><button class="chip on">全部</button><button class="chip">托育</button><button class="chip">長照</button><button class="chip">居住</button><button class="chip">…</button></div>
+          <div class="mid">托育</div>
+          <div class="det">
+            <div class="det-top"><span><b>陳志明</b> · 甲</span><span class="row" style="gap:4px"><span class="tag">你給 +1</span><span class="tag ok">猜對</span></span></div>
+            <p style="font-size:14px">四年內在每個行政區至少新增兩所公共托嬰中心……</p>
+            <p class="src">出處：陳志明競選官網〈托育政策〉· 2026-10-02 · 競選來源</p>
+            <div class="row"><button class="chip">看原文</button><button class="chip">回報錯誤</button></div>
+          </div>
+          <div class="det">
+            <div class="det-top"><span><b>林雅文</b> · 乙</span><span class="row" style="gap:4px"><span class="tag">你給 +2</span><span class="tag no">猜錯（你猜王）</span></span></div>
+            <p style="font-size:14px">發放 0 到 2 歲育兒津貼每月 5,000 元……</p>
+            <p class="src">出處：中選會選舉公報 · 2026-11-12 · 公報</p>
+            <div class="row"><button class="chip">看原文</button><button class="chip">回報錯誤</button></div>
+          </div>
+          <p class="muted">此議題未提出政見：王建國、趙文華、周秀玲</p>
+          <div class="hr"></div>
+          <div class="eyebrow">加分題（不計分）</div>
+          <div class="det"><div class="det-top"><span><b>王建國</b> · 捷運延伸</span><span class="tag">你給 +2</span></div></div>
+        </div>
+      </div>
+      <div class="note"><b>每段標來源類型：競選、公報、市府。</b><span>來源類型開票後才顯示，作答時不顯示，避免「市府計畫」標籤洩漏誰是現任。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">C4 · 分享</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>新北市長</span><span class="meta">分享</span></div>
+        <div class="pad">
+          <div class="mid">分享圖卡</div>
+          <div class="og" aria-label="分享圖預覽">
+            <div style="display:flex;flex-direction:column;justify-content:space-between">
+              <div class="eyebrow">蓋牌投票 · 新北市長</div>
+              <h3>名字蓋起來，<br>我契合的<span style="color:var(--stamp)">不是</span><br>我原本想投的人</h3>
+              <div class="muted num">猜中 9/12 段 · covervote</div>
+            </div>
+            <div class="ogcards" aria-hidden="true">
+              <div class="cardback" style="right:46px;top:10px;transform:rotate(-8deg)"></div>
+              <div class="cardback" style="right:8px;top:22px;transform:rotate(6deg)"></div>
+              <div class="stampmark" style="position:absolute;right:30px;bottom:6px;width:40px;height:40px;font-size:16px">開</div>
+            </div>
+          </div>
+          <label class="opt" style="cursor:pointer"><input type="checkbox" id="showNames"> <span>在圖卡上放出候選人姓名<small>預設不放，分享時比較不會吵架</small></span></label>
+          <div class="row"><button class="btn" style="flex:1">傳到 LINE</button><button class="btn ghost" style="flex:1">複製連結</button></div>
+          <button class="btn line">傳給爸媽（大字版連結）</button>
+        </div>
+      </div>
+      <div class="note"><b>預設不放姓名。</b><span>只講「同一人／不同人」和猜中率，好分享又不像在幫人拉票。</span><span>11/18 起圖卡照樣能分享：這是個人結果，不是民調。</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FLOW D ============ -->
+<section class="flow">
+  <div class="flow-head"><h2>D　透明度與其他頁</h2><p>證明中立的頁面，加上回報、靜默期與方法說明。</p></div>
+  <div class="screens">
+
+    <div class="shot">
+      <div class="shot-label">D1 · 遮蔽健康度 /newtaipei/health</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">遮蔽健康度</span></div>
+        <div class="pad">
+          <div class="mid">名字真的遮住了嗎？</div>
+          <p class="muted">每段政見都讓玩家猜作者。猜中率接近隨機（新北 5 人 = 20%），代表看不出是誰寫的。</p>
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="eyebrow">新北市 · 31 段</span><span class="num">平均 23%</span></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div class="hbar"><span>托育 甲</span><div class="htrack"><i style="width:21%"></i></div><span class="num">21%</span></div>
+            <div class="hbar"><span>托育 乙</span><div class="htrack"><i style="width:18%"></i></div><span class="num">18%</span></div>
+            <div class="hbar"><span>居住 丙</span><div class="htrack"><i style="width:26%"></i></div><span class="num">26%</span></div>
+            <div class="hbar"><span>公車 甲 <span class="flag">已撤下改寫</span></span><div class="htrack"><i class="hot" style="width:58%"></i></div><span class="num">58%</span></div>
+            <div class="hbar"><span>長照 乙</span><div class="htrack"><i style="width:22%"></i></div><span class="num">22%</span></div>
+          </div>
+          <p class="muted">直線是 50% 參考線。超過隨機 20 個百分點、且累積 200 人作答的段落，會自動撤下、改寫後重新計算。</p>
+          <table>
+            <tr><th>縣市</th><th>隨機</th><th>實際</th></tr>
+            <tr><td>台北</td><td class="num">25%</td><td class="num">29%</td></tr>
+            <tr><td>新北</td><td class="num">20%</td><td class="num">23%</td></tr>
+            <tr><td>台中</td><td class="num">33%</td><td class="num">35%</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="note"><b>這頁是給記者和質疑者看的。</b><span>撤下的段落留著紀錄和改寫前後對照，不偷偷消失。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">D2 · 靜默期（11/18 起）</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">11/28 投票 · 剩 6 天</span></div>
+        <div class="pad">
+          <div class="banner"><b>投票前 10 天：全國統計暫停顯示</b><span>依《公職人員選舉罷免法》第 53 條，11/18 到投票結束前，不顯示任何和候選人有關的匯總數字。你自己的結果照常顯示、照常可以分享。</span></div>
+          <div class="verdict">
+            <div class="eyebrow">全國：傾向 vs 契合</div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 0">
+              <div class="deck" aria-hidden="true"><div class="cardback"></div><div class="cardback"></div></div>
+              <span class="muted">11/28 16:00 投票結束後重新開放</span>
+            </div>
+          </div>
+          <p class="muted">遮蔽健康度只跟段落有關、跟候選人支持度無關，照常顯示。</p>
+        </div>
+      </div>
+      <div class="note"><b>伺服器端定時切換，不靠前端。</b><span>11/18 00:00 起 API 直接不回傳候選人相關匯總，前端改顯示這個狀態。上線前請律師確認。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">D3 · 回報資料問題</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">回報</span></div>
+        <div class="pad">
+          <div class="mid">這段有問題？</div>
+          <p class="muted">新北市長 · 托育 · 陳志明 · 段落 0gx6y76</p>
+          <div class="field"><label for="rk">問題類型</label><select id="rk"><option>出處連不到</option><option>原文對不上</option><option>白話版意思跑掉</option><option>遮得不夠，看得出是誰</option><option>漏收了某位候選人的政見</option><option>我是候選人陣營，要更正</option></select></div>
+          <div class="field"><label for="rd">說明</label><textarea id="rd" rows="4">白話版把「三年內」寫成「四年內」。</textarea></div>
+          <div class="field"><label for="re">信箱（選填，要回覆才填）</label><input id="re" type="email" placeholder="you@example.com"></div>
+          <button class="btn">送出</button>
+          <p class="muted">處理紀錄會公開在更新紀錄頁，不會公開你的信箱。</p>
+        </div>
+      </div>
+      <div class="note"><b>從每段明細的「回報錯誤」進來，段落自動帶入。</b><span>「看得出是誰」這一類直接送進遮蔽品質的處理清單。</span></div>
+    </div>
+
+    <div class="shot">
+      <div class="shot-label">D4 · 怎麼算 / 資料 / 隱私</div>
+      <div class="phone">
+        <div class="bar"><span class="brand"><i></i>蓋牌投票</span><span class="meta">方法</span></div>
+        <div class="pad">
+          <div class="row"><button class="chip on">怎麼算</button><button class="chip">資料來源</button><button class="chip">隱私</button><button class="chip">關於</button></div>
+          <div class="mid">契合分數怎麼算</div>
+          <ol style="padding-left:18px;margin:0;display:flex;flex-direction:column;gap:6px;font-size:14px">
+            <li>你給每段 −2 到 +2 分。</li>
+            <li>每位候選人的分數 = 他那幾段的平均分 × 50，所以落在 −100 到 +100。</li>
+            <li>你標成重要的議題，那一段算兩次。</li>
+            <li>加分題不算。跳過的題不算。</li>
+            <li>可能範圍用 bootstrap 算：把你的分數重抽 1,000 次，取中間 80%。</li>
+          </ol>
+          <div class="hr"></div>
+          <div class="mid">我們收集什麼</div>
+          <table>
+            <tr><th>資料</th><th>存哪</th></tr>
+            <tr><td>你的傾向、每段分數</td><td>只在你的瀏覽器</td></tr>
+            <tr><td>每段被猜成誰</td><td>伺服器，不含任何身分</td></tr>
+            <tr><td>傾向＝契合 的次數</td><td>伺服器，只有總數</td></tr>
+            <tr><td>瀏覽量</td><td>匯總計數，不錄製畫面</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="note"><b>隱私表格就是承諾清單。</b><span>不用 Clarity、不用工作階段錄製；分析只有匯總計數。</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SYSTEM ============ -->
+<section class="flow">
+  <div class="flow-head"><h2>E　設計系統</h2><p>選票紙、黑墨、紅色圈選章。紅色只用在「你做了選擇」的地方：打分、×2、開票印章。沒有任何政黨色。</p></div>
+  <div class="sys">
+    <div class="panel">
+      <h3>顏色</h3>
+      <div class="swatches">
+        <div class="swatch"><i style="background:var(--paper)"></i>選票紙 paper</div>
+        <div class="swatch"><i style="background:var(--ink)"></i>墨 ink</div>
+        <div class="swatch"><i style="background:var(--stamp)"></i>圈選章 stamp</div>
+        <div class="swatch"><i style="background:var(--ground)"></i>桌面 ground</div>
+        <div class="swatch"><i style="background:var(--back)"></i>牌背 back</div>
+        <div class="swatch"><i style="background:var(--ink-2)"></i>次要字 ink-2</div>
+      </div>
+      <p class="muted">刻意排除藍、綠、橘、白底淺藍為主色。暗色模式把選票紙換成深灰卡、印章紅提亮。</p>
+    </div>
+    <div class="panel">
+      <h3>字體</h3>
+      <div class="typespec">
+        <div><span style="font-family:var(--f-display);font-size:24px">霞鶩文楷 TC</span><small>標題、議題、牌上的甲乙丙</small></div>
+        <div><span style="font-size:16px">Noto Sans TC</span><small>政見內文、介面</small></div>
+        <div><span class="num" style="font-size:16px">IBM Plex Mono +62</span><small>分數、字數、日期</small></div>
+      </div>
+      <p class="muted">楷書像手寫在選票上的字，親切但不輕浮；內文用黑體，政見長段落才好讀。數字一律等寬，分數上下對齊。</p>
+    </div>
+    <div class="panel">
+      <h3>元件</h3>
+      <div class="row" style="align-items:center;gap:12px">
+        <span class="seat">甲</span>
+        <div class="cardback" style="width:40px;height:56px"></div>
+        <div class="stampmark" style="width:44px;height:44px;font-size:18px">開</div>
+        <span class="mask" style="width:48px">遮</span>
+        <span class="tag ok">猜對</span><span class="tag no">猜錯</span>
+      </div>
+      <ul class="decisions muted">
+        <li>牌（甲乙丙丁）用楷書加圓圈，不用顏色區分，避免任何一張牌看起來像某個黨。</li>
+        <li>遮蔽 ▇▇ 是實心墨條，點了會說明遮了幾個字。</li>
+        <li>卡片外框 1.5px 墨線；只有政見卡和結果框有外框，其他用細線分隔。</li>
+      </ul>
+    </div>
+    <div class="panel" style="grid-column:1/-1">
+      <h3>音效</h3>
+      <p class="muted">預設靜音，喇叭圖示打開後才播放。全部短於 2 秒，音量統一約 −16 LUFS。由本機 ComfyUI（Stable Audio 3）產生。</p>
+      <div class="tblwrap"><table>
+        <tr><th>檔名</th><th>什麼時候</th><th>聽起來</th><th>試聽</th></tr>
+        <tr><td class="num">sfx_shuffle</td><td>按「開始」、發第一輪</td><td>洗牌</td><td><button class="sfxbtn" data-sfx="sfx_shuffle" disabled>生成中</button></td></tr>
+        <tr><td class="num">sfx_card_deal</td><td>每輪的牌滑進來</td><td>三張牌落在桌上</td><td><button class="sfxbtn" data-sfx="sfx_card_deal" disabled>生成中</button></td></tr>
+        <tr><td class="num">sfx_stamp</td><td>按下打分</td><td>橡皮章壓在紙上的悶響</td><td><button class="sfxbtn" data-sfx="sfx_stamp" disabled>生成中</button></td></tr>
+        <tr><td class="num">sfx_tap</td><td>猜作者、×2、切換按鈕</td><td>輕木頭點擊</td><td><button class="sfxbtn" data-sfx="sfx_tap" disabled>生成中</button></td></tr>
+        <tr><td class="num">sfx_card_flip</td><td>開票時每張牌翻開</td><td>單張翻牌</td><td><button class="sfxbtn" data-sfx="sfx_card_flip" disabled>生成中</button></td></tr>
+        <tr><td class="num">sfx_reveal</td><td>開票動畫收尾</td><td>連續翻牌接木琴短句</td><td><button class="sfxbtn" data-sfx="sfx_reveal" disabled>生成中</button></td></tr>
+        <tr><td class="num">sfx_guess_right</td><td>明細頁捲到猜對的段落</td><td>兩音木琴</td><td><button class="sfxbtn" data-sfx="sfx_guess_right" disabled>生成中</button></td></tr>
+        <tr><td class="num">sfx_guess_wrong</td><td>明細頁捲到猜錯的段落</td><td>低沉木魚，不刺耳</td><td><button class="sfxbtn" data-sfx="sfx_guess_wrong" disabled>生成中</button></td></tr>
+      </table></div>
+    </div>
+    <div class="panel" style="grid-column:1/-1">
+      <h3>設計決定（待你確認）</h3>
+      <ol class="decisions">
+        <li><b>猜作者的對錯到開票才揭曉。</b>作答中就公布的話，玩家會邊玩邊學會辨識寫法，後面幾輪就不盲了。</li>
+        <li><b>作答時不顯示來源類型。</b>「市府計畫」「選舉公報」這種標籤本身就會洩漏誰是現任，開票後才顯示。</li>
+        <li><b>傾向畫面不放黨籍和照片</b>，只放號次和姓名，照抽籤號次排序。</li>
+        <li><b>分享圖卡預設不放姓名。</b></li>
+        <li><b>首頁地圖用方格示意圖</b>，六都在手機上才按得到。</li>
+        <li><b>聲音預設關閉。</b></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+// rating stamps: one choice per card
+document.querySelectorAll('.rate').forEach(r=>r.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  r.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+}));
+// chips inside a guess row / filter row act as single-select
+document.querySelectorAll('.guess .row, .pad > .row').forEach(r=>r.addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  r.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));
+}));
+document.querySelectorAll('.x2').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')));
+document.querySelectorAll('[role=radiogroup] .opt').forEach(b=>b.addEventListener('click',()=>{
+  b.parentElement.querySelectorAll('.opt').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-checked',x===b)});
+}));
+document.querySelectorAll('.toggle').forEach(t=>t.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  t.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+}));
+// reveal flip
+const flips=[...document.querySelectorAll('#flipgrid .flip')];
+const flipBtn=document.getElementById('flipbtn');
+let open=false;
+function sfx(name){const a=window.__sfx&&window.__sfx[name]; if(a){try{a.currentTime=0;a.play()}catch(_){}}}
+flipBtn.addEventListener('click',()=>{
+  open=!open; flipBtn.textContent=open?'蓋回去':'翻牌';
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(open) sfx('sfx_reveal');
+  flips.forEach((f,i)=>setTimeout(()=>f.classList.toggle('open',open),reduce?0:i*120));
+});
+// sound preview: enabled once the generated files are published next to the page
+window.__sfx={};
+document.querySelectorAll('.sfxbtn').forEach(btn=>{
+  const name=btn.dataset.sfx; const a=new Audio('assets/'+name+'.mp3');
+  a.addEventListener('canplaythrough',()=>{btn.disabled=false;btn.textContent='▶ 播放';window.__sfx[name]=a},{once:true});
+  a.addEventListener('error',()=>{btn.textContent='尚未產生'},{once:true});
+  btn.addEventListener('click',()=>{try{a.currentTime=0;a.play()}catch(_){}});
+});
+</script>
