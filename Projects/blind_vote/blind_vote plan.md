@@ -211,3 +211,10 @@ updated: 2026-10-21
 5. Cloudflare Web Analytics 自動注入：要不要在後台對 games.csiesheep.com/covervote/* 關掉（帳號設定，orchestrator 不動）
 - [ ] **W5 不過**（2026-10-21 量 75cff7b）：Lighthouse 行動版效能首頁 56、台北 57（LCP 9–10 s），無障礙 100。主因 Google Fonts 中文字型（CSS 175 KB 擋首次繪製＋十幾個字型分片）與牌背圖 150 KB → #13 FE（等 #11 land，避免兩個 FE 改同一批檔）
 - [ ] #2 改寫後重驗（台北 plain ≤ 60%、masked ≤ 70%）；#5 FE 接後端與健康度頁；#6 BE inPlay；#7 桃園台中、#8 台南高雄資料
+
+## 2026-10-21 打磨輪（owner：「你再打磨一下，直到有商業價值，而且沒有bug」）
+- 獨立程式審查 13 項（高 1：網址縣市鍵 XSS）＋線上 QA 11 項（中 5、低 6）。
+- 已 land 並部署：#31 FE 安全（XSS、重複送出、開票後鎖定、台灣時區）、#32 BE 安全（415／403、限速 300/分、body 上限、題目檔順序、validate 一人一議題一段）、#33＋#35 平手 verdict tie 與 QA 前端修正、#34 文案（英文、頁首、11/12 日期）。最新部署 5047893（Cloudflare version 6c31e093）。
+- 測試 60 pass / 0 fail / 2 todo（桃園、臺南等 11/12 公報，#16）。
+- orchestrator 裁決（可被 owner 推翻）：平手含傾向另計 tie 並算進分母；限速每 IP 每分 300（班級共用 IP）；嵌入版新分頁改「玩完整版」，不把作答放進網址。
+- 未驗：真機 iOS／Android、Safari、唸給我聽的實際聲音、滿 50 局統計與 11/18 靜默期畫面、正式環境限速實打。
