@@ -222,3 +222,4 @@ updated: 2026-10-21
 - owner 2026-10-21：「重新設計頁面 show 候選人照片 or comfyUI 生圖 設計3個版本」→ 結果頁三版（https://claude.ai/artifact/GWVyQF6D7oJK9P3gd7QUUk）；接著「重新設計每一頁的 UI 設計三版 可以用顏色或是comfyUI 生圖，表示政黨」→ 每頁三版（https://claude.ai/artifact/7L7MA2W6arBMuyegmmaye3）。owner：「C」（牌桌）。
   - orchestrator 規則（owner 可推翻）：政黨色只在名字公開的頁面（選傾向、開票、結果、明細、資料來源），打分／重要議題頁中性；只分三色（國民黨藍、民進黨綠、其他灰）；不用 AI 畫候選人的臉，不畫政黨標誌。
   - 工單：#37 BE cands/ 加 group；#38 artist 正式牌面／牌背；#39 FE 整站改 C。
+- owner 2026-10-21：「首頁 加上名字 蓋牌投票箱」「每頁上方也加上 小小的 蓋牌投票箱 可以可以連回首頁」→ 併入 #39。orchestrator 解讀：中文品牌改名「蓋牌投票箱」（title、分享卡、關於頁）；每頁頂列左上字標連回首頁；英文 Cover Vote 暫不動。
