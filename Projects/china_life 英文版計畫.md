@@ -1,7 +1,7 @@
 ---
 title: 生在中國｜英文版（Born in China）實作計畫
 tags: [project, china_life, localization, english, plan]
-status: plan-waiting-for-owner-decisions
+status: in-progress（P1 #149、P2 #150 已派工）
 created: 2026-10-23
 ---
 
@@ -93,3 +93,12 @@ P2 完成後，P3、P4、P5 可以平行；P1 是全部的前提。
 - **文化說明**：英文讀者不懂科舉、賤籍、纏足。第一次出現時加一行可點開的小註；時代頁的導讀負責講背景。
 - **敏感內容**：纏足、饑荒、1949 年後的內容照中文版忠實翻譯，不加料、不刪減。
 - **維護成本**：之後每加一句中文都要有英文，「完整」驗收會擋下沒翻的。peer 的派工單要寫明「中英一起交」。
+
+## 7. owner 裁決（2026-10-23）與進度
+
+原文：「1. lang=en 2. Yes 3 no 4 yes 5 all 6 no 7 no one 8 yes 9 yes」。落地寫在 china_life `docs/design.md` §98：
+- 網址改用 `?lang=en`，不開 `/en/` 路徑（上面 §2 的建議作廢）。
+- 第 6 題解讀為開發日誌不翻；第 7 題不找人讀，改由 AI 審稿加自動檢查，沒有真人把關語感（已知風險）。
+- 第 9 題：英文版上線後 APK 改版重送。
+
+進度：驗收先寫好（node 第 98 組、ui 第 98 組，main 5340b83）。P1 骨架派 FE（#149），P2 詞表派 writer（#150），兩條平行。
