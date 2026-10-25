@@ -1,0 +1,14 @@
+{
+  "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/5",
+  "brand": "小羊遊戲間",
+  "series": "開發日記",
+  "slides": [
+    {"title": "把候選人名字蓋起來", "lines": ["第一個洩漏答案的，", "是題目的編號"], "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/5/src/home.png", "crop": [0, 0, 1000, 1500]},
+    {"title": "怎麼玩", "lines": ["每段政見打 -2 到 +2 分，可以猜作者", "開票：你傾向的人，和你契合的人，同一個嗎？"], "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/5/src/play.png", "crop": [0, 0, 1000, 1900]},
+    {"title": "洩漏一：題目編號", "big": "單號甲 雙號乙", "lines": ["段落編號照作者一個一個交替", "改成亂數碼、打亂順序，再加一道自動檢查"]},
+    {"title": "洩漏二：檢查自己", "big": "0 個檔案＝綠燈", "lines": ["沒找到名字，因為一個檔都沒有", "補上「至少要有東西可查」才算數"]},
+    {"title": "洩漏三：不是我寫的", "big": "1 → 0", "lines": ["平台自動塞進網頁的分析腳本", "加一行設定擋掉，前後實測"]},
+    {"title": "四位獨立查核員，60 段", "big": "60 / 60", "lines": ["原文、作者都對", "改寫有 2 段意思錯、15 段小偏差，全修"]},
+    {"title": "名字真的遮住了嗎？", "lines": ["AI 盲猜作者：台北 50%  新北 58%", "台中 35%  高雄 52%（隨機 50%）"], "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/5/src/health.png", "crop": [0, 150, 1000, 1650]}
+  ]
+}
