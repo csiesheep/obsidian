@@ -1,10 +1,76 @@
-{"out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/2", "brand": "小羊遊戲間", "series": "熱門遊戲介紹",
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/2",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
  "slides": [
-  {"title": "台灣人最近都在種花？", "big": "106,762", "lines": ["《Pikmin Bloom》近 30 天台灣手遊聲量第 2", "最常一起出現的詞：花苗（DailyView）"]},
-  {"title": "它怎麼玩", "big": "走路 → 花苗 → 皮克敏", "lines": ["步數把花苗養大，拔出來跟著你走", "走過的地方開出花，留下一條彩色的路"]},
-  {"title": "花苗要走幾步", "big": "10,000", "lines": ["大花苗 10,000 步，長出來會戴飾品", "紅黃藍 1,000｜紫白 3,000｜羽翅岩石冰凍 5,000"]},
-  {"title": "我最喜歡的設計", "big": "走回原點", "lines": ["熟了以後，皮克敏會走回當初撿到花苗的地方", "遊戲記得每一隻是在哪裡撿到的"]},
-  {"title": "那古人一輩子走多遠？", "big": "97.6%", "lines": ["《生在中國》引擎跑了 35 個時期、70,000 生", "一輩子沒離開出生的那一區；搬走的理由只有逃荒"]},
-  {"title": "楊子明，16 歲", "image": "C:/Users/sheep/Pictures/csiesheep_games/reels/china_life/4/rec/life/frames/001614.jpg", "crop": [0, 440, 1080, 1060], "lines": ["元朝平江鬧饑荒，他背起行囊跟著人群逃荒", "20 歲汴梁又鬧饑荒，他又走了一次"]},
-  {"title": "兩趟，直線約 1,300 公里", "image": "C:/Users/sheep/Pictures/csiesheep_games/reels/china_life/4/rec/life/frames/002543.jpg", "lines": ["一步 70 公分算，大約 186 萬步", "大花苗只要 10,000 步。他那一路沒有花。"]}
- ]}
+  {
+   "title": "他走了 186 萬步",
+   "big": "1 萬 vs 186 萬",
+   "lines": [
+    "《Pikmin Bloom》大花苗要走 10,000 步",
+    "《生在中國》裡一個元朝人，逃荒走了約 186 萬步"
+   ]
+  },
+  {
+   "title": "最近很紅的走路遊戲",
+   "big": "走路 → 花苗 → 皮克敏",
+   "lines": [
+    "DailyView 9/25–10/24 熱門手遊聲量第 2",
+    "走過的地方開出花，留下一條彩色的路"
+   ]
+  },
+  {
+   "title": "花苗要走幾步",
+   "big": "10,000",
+   "lines": [
+    "大花苗 10,000 步，可長出飾品皮克敏",
+    "紅黃藍 1,000｜紫白 3,000｜羽翅岩石冰凍 5,000"
+   ]
+  },
+  {
+   "title": "我最喜歡的設計",
+   "big": "走回原點",
+   "lines": [
+    "熟了，皮克敏會回到你撿到它花苗的地方",
+    "帶回禮物，戴上就成了飾品皮克敏"
+   ]
+  },
+  {
+   "title": "那古人一輩子走多遠？",
+   "big": "97.6%",
+   "lines": [
+    "《生在中國》引擎跑了 70,000 生",
+    "一輩子沒離開出生的那一區",
+    "（引擎目前只寫了逃荒這一種搬家）"
+   ]
+  },
+  {
+   "title": "楊子明，16 歲",
+   "image": "C:/Users/sheep/Pictures/csiesheep_games/reels/china_life/4/rec/life/frames/001614.jpg",
+   "crop": [
+    0,
+    440,
+    1080,
+    1060
+   ],
+   "lines": [
+    "元朝平江鬧饑荒，他背起行囊跟著人群逃荒",
+    "20 歲汴梁又鬧饑荒，他又走了一次"
+   ]
+  },
+  {
+   "title": "兩趟，直線約 1,300 公里",
+   "image": "C:/Users/sheep/Pictures/csiesheep_games/reels/china_life/4/rec/life/frames/002543.jpg",
+   "lines": [
+    "一步 70 公分算，大約 186 萬步",
+    "大花苗只要 10,000 步。他那一路沒有花。"
+   ],
+   "crop": [
+    430,
+    150,
+    950,
+    560
+   ]
+  }
+ ]
+}
