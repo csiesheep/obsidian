@@ -3,19 +3,77 @@
  "brand": "小羊遊戲間",
  "series": "熱門遊戲介紹",
  "slides": [
-  {"title": "《燕雲十六聲》的名字", "big": "十六州 × 十六音",
-   "lines": ["一半是割給契丹的「燕雲十六州」", "一半是後周王朴編的「十六音律准」"]},
-  {"title": "最近很紅的武俠開放世界", "big": "1 億",
-   "lines": ["五代十國背景，免費玩", "2026 年 8 月全球累計玩家 1 億（維基百科）"]},
-  {"title": "10/15 新版本：青州", "big": "蒙學考試",
-   "lines": ["禮儀、文學、常識、德行、算數同堂開考", "還能當監考官，抓考生作弊"]},
-  {"title": "我最喜歡的設計", "big": "考生 vs 監考",
-   "lines": ["同一個考場，給兩種身份玩", "還能保留原門派，去文津館訪學"]},
-  {"title": "如果生在燕雲呢？", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/3/src/age15.jpg", "crop": [0, 0, 1080, 920],
-   "lines": ["《生在中國》裡的蕭安石，908 年生在幽州", "15 歲不走讀書應試，去學謀生的本事"]},
-  {"title": "28 歲，幽州歸了遼", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/3/src/age28.jpg", "crop": [0, 0, 1080, 920],
-   "lines": ["遊戲畫面：遼天顯十一年（公元 936 年）", "史實 938 交割，當時還叫契丹"]},
-  {"title": "一輩子沒搬家", "big": "13 次",
-   "lines": ["82 年，畫面上的年號換了 13 次", "實際更多；人名與人生由引擎生成"]}
+  {
+   "title": "《燕雲十六聲》的名字",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/3/src/official/t05.jpg",
+   "lines": [
+    "一半是割給契丹的「燕雲十六州」",
+    "一半是後周王朴編的「十六音律准」",
+    "圖：燕雲十六聲 官方 App Store 截圖"
+   ]
+  },
+  {
+   "title": "最近很紅的武俠開放世界",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/3/src/official/t02.jpg",
+   "lines": [
+    "五代十國背景，免費玩，全球累計玩家 1 億",
+    "（維基百科，至 2026 年 8 月）",
+    "圖：燕雲十六聲 官方 App Store 截圖"
+   ]
+  },
+  {
+   "title": "10/15 新版本：青州",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/3/src/official/t00.jpg",
+   "lines": [
+    "新門派文津館：入門先考蒙學考試",
+    "禮儀、文學、常識、德行、算數同堂開考",
+    "圖：燕雲十六聲 官方 App Store 截圖"
+   ]
+  },
+  {
+   "title": "我最喜歡的設計：考生 vs 監考",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/3/src/official/t01.jpg",
+   "lines": [
+    "同一個考場，給兩種身份玩",
+    "拿書的書生，文津館就是一間書院",
+    "圖：燕雲十六聲 官方 App Store 截圖"
+   ]
+  },
+  {
+   "title": "如果生在燕雲呢？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/3/src/age15.jpg",
+   "crop": [
+    0,
+    0,
+    1080,
+    920
+   ],
+   "lines": [
+    "《生在中國》裡的蕭安石，908 年生在幽州",
+    "15 歲不走讀書應試，去學謀生的本事"
+   ]
+  },
+  {
+   "title": "28 歲，幽州歸了遼",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/3/src/age28.jpg",
+   "crop": [
+    0,
+    0,
+    1080,
+    920
+   ],
+   "lines": [
+    "遊戲畫面：遼天顯十一年（公元 936 年）",
+    "史實 938 交割，當時還叫契丹"
+   ]
+  },
+  {
+   "title": "一輩子沒搬家",
+   "big": "13 次",
+   "lines": [
+    "82 年，畫面上的年號換了 13 次",
+    "實際更多；人名與人生由引擎生成"
+   ]
+  }
  ]
 }
