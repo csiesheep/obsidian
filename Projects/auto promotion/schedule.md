@@ -11,6 +11,7 @@
 |---|---|---|---|---|
 | 每 2 小時 | 每 2 小時 | — | 製作：分享卡補到 2 張 → 貼文池補到 熱門 4＋開發日記 4（brand-post）→ 生在中國 Reel 補到 2 支 → 鬼唱詩補到 2 支 | promo-producer |
 | 23:20–01:00 | 08:20–10:00 | gui.chang.shi | 發鬼唱詩故事（深夜場） | promo-post-ghost-night |
+| 01:10 | 10:10 | 兩個帳號（只讀） | 社群帳號表現：前一天各平台數字 → 每日報告「社群帳號表現」與 social.csv | social-stats-daily |
 | 05:00–06:25 | 14:00–15:25 | gui.chang.shi | 發鬼唱詩故事（早上場） | promo-post-ghost-morning |
 | 06:30–07:25 | 15:30–16:25 | csiesheep.games | 遊戲回覆・早上：找文 | games-replies-morning-2 |
 | 07:30–07:55 | 16:30–16:55 | csiesheep.games | 遊戲回覆・早上：發 | games-replies-morning-2 |
@@ -24,7 +25,7 @@
 | 15:30–16:20 | 00:30–01:20 | gui.chang.shi | 鬼唱詩回覆・晚上：找文 | ghost-reply-daily-0500 |
 | 16:30–17:25 | 01:30–02:25 | csiesheep.games | 遊戲回覆・晚上：找文 | games-replies-evening-2 |
 | 17:30–17:55 | 02:30–02:55 | csiesheep.games | 分享卡 → Threads | promo-post-cards |
-| 18:30–19:25 | 03:30–04:25 | csiesheep.games | 生在中國 Reel → IG、FB、Threads | promo-post-china-reel |
+| 18:30–19:25 | 03:30–04:25 | csiesheep.games | 生在中國 Reel → IG、FB、Threads、YouTube | promo-post-china-reel |
 | 19:30–19:55 | 04:30–04:55 | csiesheep.games | 遊戲回覆・晚上：發 | games-replies-evening-2 |
 | 20:00–20:55 | 05:00–05:55 | csiesheep.games | 熱門遊戲介紹 → Threads、IG、FB | promo-post-popular |
 | 21:00–21:15 | 06:00–06:15 | csiesheep.games | Threads 自己的貼文：一三五「留言生日幫你投胎」、二四六數據小知識（主貼文不放連結，連結在第一則自己的回覆） | promo-threads-2100 |
