@@ -2,7 +2,8 @@
 title: 【推廣日記】我把 Threads 帳號當廣告看板用，結果發的文沒人看得到
 target_chars: 1300+
 category: AI, Game
-status: draft-for-owner-review
+status: published 2026-10-25 (WP post 861, as drafted)
+published_url: https://csiesheep.com/?p=861
 images: 無
 sources:
   - owner 2026-10-25 原話：「濫用 threads 帳號 promote，為我們的遊戲打廣告，沒有用心經營內容，結果 觸擊率變底，發的文章別人都看不到」
