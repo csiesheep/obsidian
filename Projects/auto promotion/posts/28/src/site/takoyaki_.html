@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>たこ焼き作り｜たこ焼きを焼く無料3Dゲーム【ピコピコP】</title>
+<script src="/assets/nozoom.js?v=1"></script>
+<script src="/assets/unmute.js?v=2"></script>
+<meta name="description" content="たこ焼き作りは、ピコピコP（ぴこぴこP）が作った無料の3D料理ゲーム。たこ焼き器に生地を流して、たこを入れて、指でくるっと回して、ソース・マヨ・青のり・かつお節！ 外カリ中トロにできるかな？">
+<meta property="og:title" content="たこ焼き作り — あなたのたこ焼きは何点？">
+<meta property="og:description" content="生地を流して、たこを入れて、指でくるっと！ まんまる？こげこげ？タコなし？">
+<meta property="og:image" content="https://piko2game.com/assets/takoyaki-cover.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:image" content="https://piko2game.com/assets/takoyaki-cover.jpg?v=2">
+<meta property="og:url" content="https://piko2game.com/takoyaki/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://piko2game.com/takoyaki/">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<style>
+  :root { --ink: #2b2b2b; --red: #ff4d5e; --yellow: #ffd23f; --cream: #fff6e3; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body, * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #2a1d16; font-family: system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", sans-serif; color: var(--ink); overscroll-behavior: none; }
+  #c { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; height: 100dvh; display: block; touch-action: none; z-index: 1; }
+  .top { position: fixed; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; align-items: center; gap: 8px; pointer-events: none; z-index: 5; }
+  .pill { pointer-events: auto; background: #fff; border: 3px solid var(--ink); border-radius: 999px; padding: 6px 12px; font-weight: 900; font-size: 14px; text-decoration: none; color: inherit; box-shadow: 2px 2px 0 var(--ink); }
+  #guide { position: fixed; top: 54px; left: 50%; transform: translateX(-50%); width: min(460px, calc(100vw - 20px)); background: rgba(255,255,255,.93); border: 3px solid var(--ink); border-radius: 14px; padding: 7px 10px; font-weight: 800; font-size: 13px; line-height: 1.5; z-index: 5; pointer-events: none; text-align: center; }
+  #guide:empty { display: none; }
+  #toast { position: fixed; left: 50%; top: 116px; transform: translate(-50%, 0); background: rgba(20,20,20,.88); color: #fff; padding: 9px 16px; border-radius: 12px; font-size: 16px; font-weight: 900; opacity: 0; transition: opacity .25s; pointer-events: none; z-index: 20; white-space: nowrap; }
+  #toast.show { opacity: 1; }
+  #panel { position: fixed; left: 50%; bottom: max(10px, env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(460px, calc(100vw - 20px)); background: #fff; border: 4px solid var(--ink); border-radius: 20px; box-shadow: 4px 4px 0 var(--ink); padding: 10px; z-index: 6; }
+  #panel.hide { display: none; }
+  .tools { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-bottom: 8px; }
+  .tool { border: 2.5px solid var(--ink); border-radius: 12px; background: #fffaf0; padding: 4px 0 3px; font: inherit; cursor: pointer; color: var(--ink); }
+  .tool b { display: block; font-size: 22px; line-height: 1.15; }
+  .tool b img { width: 40px; height: 40px; display: block; margin: -2px auto -1px; }
+  .tool span { display: block; font-size: 10px; font-weight: 900; line-height: 1.15; white-space: nowrap; }
+  .tool.on { background: var(--yellow); box-shadow: inset 0 0 0 2px var(--ink); }
+  .tool.joke { background: #f3f0ff; }
+  .tool.joke.on { background: var(--yellow); }
+  .btns { display: flex; gap: 8px; }
+  .btn.pk { flex: 1; } .btn.pk.on { background: #ffd23f; }
+  .btn { flex: 1; border: 3px solid var(--ink); border-radius: 14px; background: #fff; font: inherit; font-weight: 900; font-size: 16px; padding: 11px 6px; box-shadow: 3px 3px 0 var(--ink); color: var(--ink); cursor: pointer; }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+  .btn.go { background: var(--red); color: #fff; }
+  .btn:disabled { opacity: .45; }
+  #heat { display: flex; align-items: center; gap: 6px; font-weight: 900; font-size: 12px; margin: 0 2px 8px; }
+  #heat .hb { flex: 1; border: 2.5px solid var(--ink); border-radius: 10px; background: #fff; font: inherit; font-weight: 900; font-size: 12px; padding: 5px 0; cursor: pointer; }
+  #heat .hb.on { background: #ffb347; }
+  #viewCtl { position: fixed; right: 8px; top: 50%; transform: translateY(-60%); display: flex; flex-direction: column; gap: 6px; z-index: 7; }
+  #viewCtl button { width: 38px; height: 38px; border: 2.5px solid var(--ink); border-radius: 12px; background: rgba(255,255,255,.92); font: inherit; font-weight: 900; font-size: 17px; line-height: 1; color: var(--ink); cursor: pointer; padding: 0; box-shadow: 2px 2px 0 var(--ink); }
+  #viewCtl button:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--ink); }
+  #ghost { position: fixed; left: 0; top: 0; font-size: 22px; pointer-events: none; transform: translate(-50%, -135%); z-index: 30; display: none; opacity: .9; filter: drop-shadow(1px 2px 0 rgba(0,0,0,.25)); }
+  .ov { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 10; }
+  .ov.hide { display: none; }
+  .card { width: min(420px, 100%); background: #fff; border: 4px solid var(--ink); border-radius: 22px; box-shadow: 6px 6px 0 var(--ink); padding: 18px 16px; text-align: center; }
+  .card h1 { margin: 2px 0 6px; font-size: 26px; }
+  .card p { margin: 6px 0; font-weight: 700; font-size: 14px; line-height: 1.55; }
+  .card .stack { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  #title { background: rgba(42,29,22,.45); }
+  #result { align-items: flex-end; padding-bottom: max(12px, env(safe-area-inset-bottom)); pointer-events: none; }
+  #result .card { pointer-events: auto; padding: 12px 14px 14px; }
+  .score { font-size: 40px; font-weight: 900; line-height: 1; margin: 2px 0; }
+  .score small { font-size: 18px; }
+  .rank { display: inline-block; background: var(--yellow); border: 3px solid var(--ink); border-radius: 99px; padding: 3px 12px; font-weight: 900; font-size: 15px; }
+  .comments { text-align: left; margin: 8px 0 2px; padding: 0; list-style: none; max-height: 15vh; overflow: auto; }
+  .comments li { font-weight: 800; font-size: 13.5px; padding: 3px 0; border-bottom: 1px dashed #ddd; }
+  .comments li.bad { color: #d63c3c; }
+  .comments li.good { color: #1d8f4e; }
+  .comments li.made { color: #b8321f; font-weight: 900; }
+  .row3 { display: flex; gap: 8px; margin-top: 10px; }
+  .x { background: #111 !important; color: #fff !important; }
+  .dc { display: inline-block; margin-top: 12px; text-decoration: none; font-weight: 900; font-size: 13px; padding: 7px 14px; border-radius: 99px; background: #5865f2; color: #fff; border: 2.5px solid var(--ink); }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="top">
+  <a class="pill" href="/" style="display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border:2px solid #2e2418;border-radius:99px;background:#fff;color:#2e2418;font-weight:900;font-size:13px;line-height:1.2;text-decoration:none;box-shadow:0 2px 0 #2e2418;white-space:nowrap">ゲーム一覧</a>
+  <div class="pill" id="step">🐙 たこ焼き作り</div>
+</div>
+<div id="guide"></div>
+<div id="toast"></div>
+<div id="ghost"></div>
+<div id="panel" class="hide"></div>
+<div id="viewCtl" style="display:none"><button data-v="l" title="左へまわる">↺</button><button data-v="r" title="右へまわる">↻</button><button data-v="u" title="上から">⤒</button><button data-v="d" title="横から">⤓</button><button data-v="in" title="近づく">＋</button><button data-v="out" title="はなれる">－</button><button data-v="home" title="もとに戻す">⌂</button></div>
+
+<div id="title" class="ov">
+  <div class="card">
+    <div style="font-size:54px;line-height:1">🐙</div>
+    <h1>たこ焼き作り</h1>
+    <p>たこ焼き器に<b>生地を流して</b>、たこを入れて、<b>指でくるっと回して</b>まんまるに！<br>ソース・マヨ・青のり・かつお節をのせたら完成。外カリ中トロにできるかな？</p>
+    <div class="stack">
+      <button class="btn go" id="startBtn">焼く！</button>
+    </div>
+    <a class="dc" href="https://discord.gg/6jcrSzQRyA" target="_blank" rel="noopener">🎮 Discordで自慢する・新作テスト</a>
+  </div>
+</div>
+
+<div id="result" class="ov hide">
+  <div class="card">
+    <div class="rank" id="rankName"></div>
+    <div id="takoName" style="font-weight:900;font-size:17px;line-height:1.35;margin:8px 4px 2px;color:#b8321f"></div>
+    <div class="score" id="scoreNum"></div>
+    <ul class="comments" id="comments" style="display:none"></ul><!-- ハンバーグと同じく、完成はシンプルに(お皿を大きく見せる) -->
+    <div class="row3">
+      <button class="btn x" id="shareBtn">𝕏 でシェア</button>
+      <button class="btn" id="saveBtn">📷 画像</button>
+    </div>
+    <div class="row3">
+      <button class="btn go" id="againBtn">もう一回焼く</button>
+    </div>
+<div data-piko-ad="b320"></div>  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="app.js?v=57"></script>
+<script src="/assets/xshare.js?v=2"></script>
+<script src="/assets/visit.js?v=1" data-game="takoyaki"></script>
+<script src="/ad/ad.js?v=4" defer></script>
+</body>
+</html>

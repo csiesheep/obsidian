@@ -31,3 +31,7 @@
 /view/
 /view_server.py
 /wf/
+
+# Video frame dumps from recording runs (2026-11-02: 23 GB, ~76k files, broke the Obsidian Git push
+# and ate the computer's memory). Moved to C:\Users\sheep\Pictures\auto_promotion\post_frames.
+Projects/auto promotion/posts/**/frames/

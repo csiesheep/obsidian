@@ -1,0 +1,10 @@
+{"out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/16", "brand": "小羊遊戲間", "series": "熱門遊戲介紹",
+"slides": [
+ {"title": "每一行每一列都對，它不算", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/16/src/play/06_nono1.png", "crop": [211,285,851,831], "lines": ["8×8 數織第 1 關：數字全對，沒過關", "圖：Google I/O 2026《Nonogram》網頁遊戲畫面"]},
+ {"title": "對調兩格，Success", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/16/src/play/08_nono_clear.png", "crop": [100,285,960,1140], "lines": ["這題有兩個解，它只認心裡那一張", "圖：Google I/O 2026《Nonogram》網頁遊戲畫面"]},
+ {"title": "一桿進洞，球童說 birdie", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/16/src/play/02_golf.png", "crop": [290,350,770,850], "lines": ["標準桿 2，一桿進＝低於標準桿一桿", "圖：Google I/O 2026《Hole in One》網頁遊戲畫面"]},
+ {"title": "六個字母，拼成一張填字", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/16/src/play/13_word_done.png", "crop": [60,380,1010,860], "lines": ["最後一個直的 D_B__，我按了提示", "圖：Google I/O 2026《Word Wheel》網頁遊戲畫面"]},
+ {"title": "每一關都保證走得完", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/16/src/play/17_cat_mid.png", "crop": [290,70,1010,1080], "lines": ["Gemini 用漢米爾頓路徑寫關卡產生器", "圖：Google I/O 2026《Stretchy Cat》網頁遊戲畫面"]},
+ {"title": "用喊的讓機器人飛", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/16/src/play/21_bot.png", "crop": [55,240,1010,860], "lines": ["聲音越大飛越高，要開麥克風", "圖：Google I/O 2026《Supersonic Bot》網頁遊戲畫面"]},
+ {"title": "出題很快，驗題才是工作", "big": "10 萬世", "lines": ["《生在中國》v17：引擎重跑 10 萬世", "抓到 173 個人的三藩之亂打錯地方", "一個人加 AI 做的，瀏覽器打開就能玩"]}
+]}

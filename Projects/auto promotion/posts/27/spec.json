@@ -1,0 +1,73 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/27",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "我做了一個電梯遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/27/src/landing.png",
+   "crop": [
+    0,
+    150,
+    1080,
+    1400
+   ],
+   "lines": [
+    "Elevator Inc.：經營一棟一直長高的大樓",
+    "大樓越高，你越忙不過來"
+   ]
+  },
+  {
+   "title": "一個旋鈕，不到五天動了四次",
+   "big": "0.5→0.65→0.7→1.0→0.8",
+   "lines": [
+    "人流 = 常數 × 樓層人口 ^ 指數",
+    "每次的理由都一樣：我覺得後期太簡單"
+   ]
+  },
+  {
+   "title": "模擬說 74%，其實是 35%",
+   "big": "74% → 35%",
+   "lines": [
+    "當時排隊滿 160 人，遊戲就不生新乘客",
+    "沒出現的人，不會算進分母"
+   ]
+  },
+  {
+   "title": "上限拉開，送到的人幾乎沒變",
+   "big": "1104 → 1135 人",
+   "lines": [
+    "6 座電梯一秒最多送約 1.6 人",
+    "人流卻是每秒 5.3 人"
+   ]
+  },
+  {
+   "title": "退回 0.8：目標是吃力，不是淹沒",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/27/src/tall90.png",
+   "crop": [
+    0,
+    300,
+    1080,
+    1780
+   ],
+   "lines": [
+    "100 樓、6 座電梯：頂欄「等待 118」",
+    "遊戲畫面截圖"
+   ]
+  },
+  {
+   "title": "想要難，讓玩家自己選",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/27/src/pres2.png",
+   "crop": [
+    0,
+    975,
+    1080,
+    1440
+   ],
+   "lines": [
+    "惡夢、地獄、折磨：人流 ×1.2／×1.5／×2",
+    "在上一級蓋到 100 樓才解鎖"
+   ]
+  }
+ ]
+}

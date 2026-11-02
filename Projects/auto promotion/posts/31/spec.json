@@ -1,0 +1,63 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/31",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "英文網址，在 Reddit 眼裡卻是中文",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/31/src/og.png",
+   "lines": [
+    "Reddit 爬蟲抓 ?lang=en，拿到這張",
+    "標題也是：生在中國｜投胎到中國歷史的人生模擬遊戲"
+   ]
+  },
+  {
+   "title": "為什麼？",
+   "big": "爬蟲不跑 JavaScript",
+   "lines": [
+    "瀏覽器裡的英文，是 JS 載入後才換上的",
+    "預覽卡只讀伺服器回的 <head>"
+   ]
+  },
+  {
+   "title": "應該拿到的是這張",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/31/src/og_en.png",
+   "lines": [
+    "英文標題 Born in China、英文圖",
+    "改法：首頁 ?lang=en 先經過 Worker，換掉 <head>"
+   ]
+  },
+  {
+   "title": "寧可全中文，不要半英文",
+   "big": "11 個標籤 × 恰好 1 次",
+   "lines": [
+    "每個要換的標籤都得剛好找到一次",
+    "少一個、多一個 → 整份退回中文原檔"
+   ]
+  },
+  {
+   "title": "差點踩到的坑",
+   "big": "304 Not Modified",
+   "lines": [
+    "瀏覽器拿中文版的 ETag 來問：有改嗎？",
+    "照轉就會拿中文的驗證碼替英文回「沒改」"
+   ]
+  },
+  {
+   "title": "中文版一個位元組都不能動",
+   "big": "686 → 693",
+   "lines": [
+    "新增 7 條測試；故意拿掉判斷，4 條變紅",
+    "開單到上線約 1 小時"
+   ]
+  },
+  {
+   "title": "還沒修的",
+   "big": "少一條斜線 → 404",
+   "lines": [
+    "/china_life?lang=en 線上還是 404",
+    "所以推廣連結一律寫 /china_life/?lang=en"
+   ]
+  }
+ ]
+}

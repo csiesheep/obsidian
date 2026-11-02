@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>クレープ作り｜生地を流して焼く無料3Dゲーム【ピコピコP】</title>
+<script src="/assets/nozoom.js?v=1"></script>
+<script src="/assets/unmute.js?v=2"></script>
+<meta name="description" content="クレープ作りは、ピコピコP（ぴこぴこP）が作った無料の3D料理ゲーム。お玉で生地をフライパンに流して、取っ手をつかんで傾けて丸く広げる！ ジューっと焼けたら指でひっくり返して、具材をのせよう。焼きすぎると真っ黒こげ。登録なしでスマホのブラウザですぐ遊べる。">
+<meta property="og:title" content="クレープ作り — 生地を流して、傾けて、丸く焼けるか？">
+<meta property="og:description" content="お玉で生地を流して、フライパンを傾けて丸く広げる！ 焼きすぎると真っ黒こげ。">
+<meta property="og:image" content="https://piko2game.com/assets/crepe-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:image" content="https://piko2game.com/assets/crepe-cover.jpg">
+<meta property="og:url" content="https://piko2game.com/crepe/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://piko2game.com/crepe/">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<style>
+  :root { --ink: #2b2b2b; --red: #ff4d5e; --yellow: #ffd23f; --cream: #fff6e3; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body, * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0f0d0b; font-family: system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", sans-serif; color: var(--ink); overscroll-behavior: none; }
+  #c3 { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; height: 100dvh; display: block; touch-action: none; }
+  #lab { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; height: 100dvh; pointer-events: none; }
+  .top { position: fixed; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; align-items: center; gap: 8px; pointer-events: none; z-index: 5; }
+  .pill { pointer-events: auto; background: #fff; border: 3px solid var(--ink); border-radius: 999px; padding: 6px 12px; font-weight: 900; font-size: 14px; text-decoration: none; color: inherit; box-shadow: 2px 2px 0 var(--ink); white-space: nowrap; font-family: inherit; }
+  #guide { position: fixed; top: 54px; left: 50%; transform: translateX(-50%); width: min(460px, calc(100vw - 20px)); background: rgba(255,255,255,.92); border: 3px solid var(--ink); border-radius: 14px; box-shadow: 3px 3px 0 var(--ink); padding: 6px 10px; text-align: center; z-index: 6; pointer-events: none; font-weight: 800; font-size: 13px; line-height: 1.45; }
+  #guide:empty { display: none; }
+  /* お知らせは説明の帯と同じ場所に出す(画面の物に文字がかぶらない) */
+  #toast { position: fixed; left: 50%; top: 54px; transform: translateX(-50%); width: min(460px, calc(100vw - 20px)); background: #2b2b2b; color: #fff; border: 3px solid var(--ink); border-radius: 14px; box-shadow: 3px 3px 0 var(--ink); padding: 6px 10px; font-size: 14px; font-weight: 900; line-height: 1.45; text-align: center; opacity: 0; transition: opacity .15s; pointer-events: none; z-index: 20; }
+  #toast.show { opacity: 1; }
+  #toast.bad { background: #e2394b; font-size: 16px; }
+  body.toasting #guide, body.toasting #topGuide { visibility: hidden; }
+  #panel { position: fixed; left: 50%; bottom: max(10px, env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(460px, calc(100vw - 20px)); background: #fff; border: 4px solid var(--ink); border-radius: 20px; box-shadow: 5px 5px 0 var(--ink); padding: 8px 12px 10px; text-align: center; z-index: 6; }
+  .mrow { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 12.5px; margin-bottom: 7px; }
+  .mrow b { min-width: 52px; text-align: left; }
+  .mrow span { min-width: 64px; text-align: right; }
+  .meter { flex: 1; height: 14px; border: 3px solid var(--ink); border-radius: 99px; overflow: hidden; background: linear-gradient(90deg, #f3e3b6 0%, #e9c27a 30%, #c98a3e 50%, #8a4c1e 70%, #3a2210 85%, #111 100%); position: relative; }
+  .meter i { position: absolute; top: -3px; bottom: -3px; width: 4px; margin-left: -2px; background: #fff; border: 1.5px solid var(--ink); left: 0; }
+  .meter.batter { background: #f1ebe0; }
+  .mrow span#cookT { flex: 1; text-align: right; font-size: 14px; }
+  /* 焼き色メーター: 生 / いい感じ / かんぺき / こげる */
+  .zbar { position: relative; display: flex; height: 26px; border: 3px solid var(--ink); border-radius: 10px; overflow: visible; margin: -2px 0 9px; }
+  .zbar .z { display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 11.5px; white-space: nowrap; overflow: hidden; }
+  .zbar .z0 { background: #f6eedb; color: #8a7a5c; border-radius: 7px 0 0 7px; }
+  .zbar .z1 { background: #f0cf86; color: #6b4a14; }
+  .zbar .z2 { background: #d79a45; color: #fff; box-shadow: inset 0 0 0 2px #ffe36e; }
+  .zbar .z3 { background: linear-gradient(90deg, #8a4c1e, #2a1a0e 55%, #0c0a08); color: #fff; border-radius: 0 7px 7px 0; }
+  .zbar i { position: absolute; top: -9px; bottom: -9px; width: 6px; margin-left: -3px; left: 0; background: #fff; border: 2px solid var(--ink); border-radius: 3px; transition: left .15s linear; }
+  .btns:not(:has(.btn:not(.hide))) { display: none; }
+  .meter.batter i { position: static; display: block; height: 100%; width: 0; margin: 0; border: 0; background: #f2d996; }
+  .btns { display: flex; gap: 8px; }
+  .btn { flex: 1; border: 3px solid var(--ink); border-radius: 14px; background: #fff; font: inherit; font-weight: 900; font-size: 15px; padding: 10px 6px; box-shadow: 3px 3px 0 var(--ink); color: var(--ink); cursor: pointer; }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+  .btn.go { background: var(--red); color: #fff; }
+  .btn.yel { background: var(--yellow); }
+  .btn.hide { display: none; }
+  .btn.on { background: #ff9f1c; color: #fff; }
+  .ov { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 10; }
+  .ov.hide { display: none; }
+  .card { width: min(420px, 100%); background: #fff; border: 4px solid var(--ink); border-radius: 22px; box-shadow: 6px 6px 0 var(--ink); padding: 18px 16px; text-align: center; }
+  .card h1 { margin: 2px 0 6px; font-size: 26px; }
+  .card p { margin: 6px 0; font-weight: 700; font-size: 14px; line-height: 1.55; }
+  .card .stack { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  #title { background: rgba(15,13,11,.45); }
+  /* 具材をのせる画面 */
+  #top { position: fixed; inset: 0; z-index: 7; background: transparent; display: none; touch-action: none; }
+  #top.on { display: block; }
+  #tc { position: absolute; left: 0; top: 0; width: 100%; height: 100%; touch-action: none; }
+  #tools { position: fixed; left: 50%; bottom: max(10px, env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(460px, calc(100vw - 20px)); background: #fff; border: 4px solid var(--ink); border-radius: 20px; box-shadow: 5px 5px 0 var(--ink); padding: 8px 10px 10px; z-index: 8; }
+  .tray { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 8px; }
+  .ing { border: 2.5px solid var(--ink); border-radius: 12px; background: #fffaf0; padding: 4px 0 3px; cursor: pointer; font: inherit; color: inherit; }
+  .ing b { display: block; font-size: 24px; line-height: 40px; pointer-events: none; height: 40px; overflow: hidden; }
+  .ing b img { width: 40px; height: 40px; margin: 0 auto; display: block; object-fit: contain; filter: drop-shadow(0 1px 1px rgba(0,0,0,.25)); }
+  #fin { align-items: flex-end; padding-bottom: max(12px, env(safe-area-inset-bottom)); z-index: 12; pointer-events: none; }
+  #fin .card { pointer-events: auto; padding: 12px 14px 14px; }
+  .rank { display: inline-block; background: var(--yellow); border: 3px solid var(--ink); border-radius: 99px; padding: 3px 14px; font-weight: 900; font-size: 16px; }
+  .x { background: #111 !important; color: #fff !important; }
+  .ing span { display: block; font-size: 10px; font-weight: 900; line-height: 1.15; pointer-events: none; white-space: nowrap; }
+  .ing.sel { background: var(--yellow); box-shadow: inset 0 0 0 2px var(--ink); }
+  #topGuide { position: fixed; top: 54px; left: 50%; transform: translateX(-50%); width: min(460px, calc(100vw - 20px)); text-align: center; font-weight: 900; font-size: 13px; z-index: 8; pointer-events: none; color: #3d2c1c; text-shadow: 0 1px 0 rgba(255,255,255,.7); }
+</style>
+</head>
+<body>
+<canvas id="c3"></canvas>
+<canvas id="lab"></canvas>
+<div class="top">
+  <a class="pill" href="/" style="display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border:2px solid #2e2418;border-radius:99px;background:#fff;color:#2e2418;font-weight:900;font-size:13px;line-height:1.2;text-decoration:none;box-shadow:0 2px 0 #2e2418;white-space:nowrap">ゲーム一覧</a>
+  <div class="pill" id="step">🥞 クレープ作り</div>
+</div>
+<div id="guide"></div>
+<div id="toast"></div>
+<div id="panel">
+  <div class="mrow"><b>🥄 生地</b><div class="meter batter" id="batM"><i></i></div><span id="batT">100%</span></div>
+  <div class="mrow"><b>🔥 焼き色</b><span id="cookT">—</span></div>
+  <div class="zbar" id="cookM">
+    <div class="z z0" style="width:22.9%">生</div><div class="z z1" style="width:14.6%">いい感じ</div><div class="z z2" style="width:16.7%">かんぺき</div><div class="z z3" style="width:45.8%">こげる</div>
+    <i></i>
+  </div>
+  <div class="btns">
+    <button class="btn go hide" id="topBtn">具材をのせる →</button>
+  </div>
+</div>
+
+<div id="top">
+  <canvas id="tc"></canvas>
+  <div id="topGuide">クリームは点線のVの中へ。赤い点線で左右を折ると扇形に！</div>
+  <div id="tools">
+    <div class="tray" id="tray"></div>
+    <div class="btns">
+      <button class="btn" id="undoBtn">↶ 1つ戻す</button>
+      <button class="btn yel" id="foldBtn">👐 たたむ</button>
+      <button class="btn go" id="doneBtn">完成！</button>
+    </div>
+  </div>
+</div>
+
+<div id="fin" class="ov hide">
+  <div class="card">
+    <div class="rank">🎉 完成！</div>
+    <div id="finName" style="font-weight:900;font-size:18px;line-height:1.35;margin:8px 4px 2px;color:#b8321f"></div>
+    <p id="finMsg" style="margin:2px 0 4px"></p>
+    <div class="btns" style="margin-top:8px">
+      <button class="btn x" id="shareBtn">𝕏 でシェア</button>
+      <button class="btn" id="saveBtn">📷 画像</button>
+    </div>
+    <div class="btns" style="margin-top:8px">
+      <button class="btn go" id="againBtn">もう1枚つくる</button>
+      <button class="btn" id="finClose">もう少しのせる</button>
+    </div>
+    <p style="font-size:11px;color:#888;margin:8px 0 0">指でくるっと回せるよ（2本指で拡大）</p>
+<div data-piko-ad="b320"></div>  </div>
+</div>
+
+<div id="title" class="ov">
+  <div class="card">
+    <div style="font-size:54px;line-height:1">🥞</div>
+    <h1>クレープ作り</h1>
+    <p><b>お玉</b>で生地をフライパンに流して、<b>取っ手をつかんで傾けて</b>うすく丸く広げよう！<br>焼けたら<b>指でめくってひっくり返す</b>。焼きすぎると…真っ黒こげ。</p>
+    <div class="stack">
+      <button class="btn go" id="startBtn">焼いてみる！</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="crepe.js?v=49"></script>
+<script src="/assets/xshare.js?v=2"></script>
+<script src="/assets/visit.js?v=1" data-game="crepe"></script>
+<script src="/ad/ad.js?v=4" defer></script>
+</body>
+</html>

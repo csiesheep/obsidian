@@ -1,0 +1,87 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/28",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "只差麵糊倒多少：93 分 vs 39 分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/28/src/pair_93_39.jpg",
+   "lines": [
+    "同一支程式、同樣的料和火，右邊每洞只倒一半",
+    "圖：《たこ焼き作り》遊戲畫面（ぴこぴこP）"
+   ]
+  },
+  {
+   "title": "日本網頁遊戲《たこ焼き作り》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/28/src/tako_cover.jpg",
+   "lines": [
+    "抹油、倒麵糊、放章魚，用手指轉圓",
+    "圖：遊戲官方封面（ぴこぴこP）"
+   ]
+  },
+  {
+   "title": "麵糊要倒到滿出來一點",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/28/src/play_good/01_pour.png",
+   "crop": [
+    0,
+    60,
+    860,
+    1150
+   ],
+   "lines": [
+    "遊戲自己的提示：倒到「少しあふれる」才會圓",
+    "圖：遊戲畫面（ぴこぴこP）"
+   ]
+  },
+  {
+   "title": "一直不翻：42 分「まっくろ」",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/28/src/play_burnt/05_result.png",
+   "crop": [
+    32,
+    180,
+    828,
+    1520
+   ],
+   "lines": [
+    "強火、從頭到尾沒翻：8 顆都焦，端出 8 個碗",
+    "圖：遊戲畫面（ぴこぴこP）"
+   ]
+  },
+  {
+   "title": "每顆加巧克力：92 分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/28/src/play_choco/06_result.png",
+   "crop": [
+    32,
+    180,
+    828,
+    1520
+   ],
+   "lines": [
+    "評語只說「ロシアンたこ焼き」，沒扣分",
+    "圖：遊戲畫面（ぴこぴこP）"
+   ]
+  },
+  {
+   "title": "滿分 100 怎麼分",
+   "big": "顏色 30 ＞ 圓 25",
+   "lines": [
+    "章魚 15、醬料配料 15、裡面熟度 10、天かす蔥紅薑 5",
+    "焦一顆再扣 3、垮一顆扣 2；90 分以上是大阪名店"
+   ]
+  },
+  {
+   "title": "我的遊戲也是程式跑出來的",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/13/src/home_zh.jpg",
+   "crop": [
+    0,
+    0,
+    1080,
+    1300
+   ],
+   "lines": [
+    "《生在中國》：投胎到中國歷史，活完一輩子",
+    "games.csiesheep.com/china_life"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/15",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "11/18 零點，這個數字會自己藏起來",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/15/src/bo_combo.jpg",
+   "lines": [
+    "一直藏到 11/28 下午 4 點投票截止",
+    "圖：蓋牌投票箱結果頁，11/18 之後的樣子（預覽）"
+   ]
+  },
+  {
+   "title": "藏起來的是哪個數字？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/15/src/real_box.jpg",
+   "lines": [
+    "「傾向的人＝契合的人」占幾 %",
+    "一個選區滿 50 局才顯示；今天只有台北滿"
+   ]
+  },
+  {
+   "title": "選罷法第 53 條",
+   "lines": [
+    "投票前 10 天起到投票截止",
+    "民調資料不得發布、報導、評論、引述",
+    "「具民意調查外觀」的資料也算",
+    "我不是律師，所以當成算"
+   ]
+  },
+  {
+   "title": "日期寫在資料裡，還要帶時區",
+   "big": "+08:00",
+   "lines": [
+    "伺服器用世界時間，少打時區就晚 8 小時才藏",
+    "所以沒帶時區的日期，直接上不了線",
+    "讀不懂日期：寧可先藏起來"
+   ]
+  },
+  {
+   "title": "用假時鐘問了四次",
+   "big": "4 次",
+   "lines": [
+    "灌 60 局假資料，問四個時間點",
+    "11/10 有、11/20 沒有、11/28 15:59 沒有、16:01 又有",
+    "藏起來時，回應原文也不能有那幾格資料"
+   ]
+  },
+  {
+   "title": "照常的：你自己那一局",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/15/src/newtaipei_play.png",
+   "crop": [
+    0,
+    0,
+    1030,
+    1400
+   ],
+   "lines": [
+    "打分、猜作者、你的結果和分享都不受影響",
+    "圖：作答頁，名字蓋住、只看政見"
+   ]
+  }
+ ]
+}

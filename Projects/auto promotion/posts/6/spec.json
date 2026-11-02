@@ -1,0 +1,77 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/6",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "《傳說對決》在台灣 10 歲了",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/6/src/official/p02.jpg",
+   "lines": [
+    "2016 年 10 月 14 日在港澳台上線",
+    "圖：傳說對決 官方 App Store 截圖"
+   ]
+  },
+  {
+   "title": "十年了，還在前三",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/6/src/official/p06.jpg",
+   "lines": [
+    "DailyView 手遊聲量第 3（9/25–10/24）",
+    "App Store 約 77 萬則評分、4.4 顆星",
+    "圖：傳說對決 官方 App Store 截圖"
+   ]
+  },
+  {
+   "title": "第 15 分鐘、第 20 分鐘",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/6/src/official/p01.jpg",
+   "lines": [
+    "15 分：三隻巨獸隨機刷一隻",
+    "20 分：巨獸強化巡河道（我猜是給長局收尾）",
+    "圖：傳說對決 官方 App Store 截圖"
+   ]
+  },
+  {
+   "title": "十年的遊戲，舊英雄也會重做",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/6/src/official/p05.jpg",
+   "lines": [
+    "瘟疫騎士普雷塔，照「傳說共創計畫」的回饋重做",
+    "圖：傳說對決 官方 App Store 截圖"
+   ]
+  },
+  {
+   "title": "活過 10 歲，也不容易",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/6/src/birth.jpg",
+   "crop": [
+    0,
+    80,
+    1080,
+    1300
+   ],
+   "lines": [
+    "《生在中國》漢末三國：一萬個孩子，4,433 個沒活到 10 歲",
+    "遊戲畫面：于嬿的戶帖（人名與人生由引擎生成）"
+   ]
+  },
+  {
+   "title": "6 個孩子，走了 3 個",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/6/src/age22.jpg",
+   "crop": [
+    0,
+    0,
+    1080,
+    1020
+   ],
+   "lines": [
+    "于嬿 22 歲：「飯桌上少擺了一雙筷子」",
+    "遊戲畫面：魏正始七年（246）"
+   ]
+  },
+  {
+   "title": "她活到 75 歲",
+   "big": "12 / 4,952",
+   "lines": [
+    "隨機一萬個漢末三國人，女孩 4,952 個",
+    "活到 75 歲以上的只有 12 個；于嬿活到了 75"
+   ]
+  }
+ ]
+}

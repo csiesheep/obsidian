@@ -1,0 +1,21 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/26",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {"title": "我做的蛋包飯：0.0 分", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/26/src/play_c_bug/final.png", "crop": [32,540,798,1600],
+   "lines": ["「黒いフリスビー」：沒折，煎成黑色飛盤", "圖：遊戲畫面（よりみちゲーム）"]},
+  {"title": "倒蛋、攪、等、折、甩鍋", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/26/src/play_a/01_stir.png", "crop": [0,450,766,1362],
+   "lines": ["最後蓋到雞肉飯上，一刀切開", "圖：遊戲畫面（よりみちゲーム）"]},
+  {"title": "攪太久：肉鬆富士山", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/26/src/play_c/final.png", "crop": [32,540,798,1600],
+   "lines": ["攪了 14 秒，5.8 分", "圖：遊戲畫面（よりみちゲーム）"]},
+  {"title": "折太早：蛋的向日葵", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/26/src/play_d/final.png", "crop": [32,540,798,1600],
+   "lines": ["第 3.7 秒就折，1.8 分", "圖：遊戲畫面（よりみちゲーム）"]},
+  {"title": "我玩 7 次，最好 42.6 分", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/26/src/play_e/final.png", "crop": [32,540,798,1600],
+   "lines": ["「想在動湯匙前先拍照」的蛋包飯", "圖：遊戲畫面（よりみちゲーム）"]},
+  {"title": "照作者的做法，只差折的時間", "big": "1.15 秒",
+   "lines": ["第 10.10～11.25 秒折，才有 78 分以上", "遊戲的料理程式跑 6.6 萬份，0 份到 88 分"]},
+  {"title": "我的遊戲也是這樣測的", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/13/src/home_zh.jpg", "crop": [0,0,1080,1300],
+   "lines": ["《生在中國》引擎一次跑 10 萬世", "抓到 173 人的三藩之亂打錯地方，已修好"]}
+ ]
+}

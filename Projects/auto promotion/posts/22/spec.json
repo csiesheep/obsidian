@@ -1,0 +1,93 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/22",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "42.3 公分，正在倒",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/22/src/play/b_42_3_falling.png",
+   "crop": [
+    0,
+    250,
+    860,
+    1325
+   ],
+   "lines": [
+    "我擠過最高的一支",
+    "圖：ソフトクリームシミュレーター 遊戲畫面（nog）"
+   ]
+  },
+  {
+   "title": "按住中間，沿著圓圈轉",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/22/src/play/e_home.png",
+   "crop": [
+    0,
+    500,
+    860,
+    1760
+   ],
+   "lines": [
+    "放手，就算完成",
+    "圖：ソフトクリームシミュレーター 遊戲畫面（nog）"
+   ]
+  },
+  {
+   "title": "倒了，就不算",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/22/src/play/c_32_1_fell.png",
+   "crop": [
+    0,
+    690,
+    860,
+    1765
+   ],
+   "lines": [
+    "32.1 cm：參考高度，不計入紀錄",
+    "那時我的個人最佳還是 19.9"
+   ]
+  },
+  {
+   "title": "38.9 公分，差 1.1 公分五星",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/22/src/play/a_38_9_done.png",
+   "crop": [
+    0,
+    150,
+    860,
+    1225
+   ],
+   "lines": [
+    "17 局裡，完成的最高一支",
+    "圖：ソフトクリームシミュレーター 遊戲畫面（nog）"
+   ]
+  },
+  {
+   "title": "作者 nog 做的網頁遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/22/src/official/og-image.png",
+   "lines": [
+    "作者 nog（野口真吾），10/19 在 X 發表",
+    "圖：遊戲官方分享圖（nog）"
+   ]
+  },
+  {
+   "title": "17 局：9 局站穩，8 局倒掉",
+   "big": "42.3 → 0 ★",
+   "lines": [
+    "我擠最高的三支（42.3、41.8、39.8）全倒了",
+    "完成的局裡，最高只有 38.9"
+   ]
+  },
+  {
+   "title": "我的遊戲，不能自己放手",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/22/src/ours_end_zh.jpg",
+   "crop": [
+    60,
+    80,
+    1020,
+    1280
+   ],
+   "lines": [
+    "《生在中國》：投胎到中國歷史，活完一輩子",
+    "什麼時候結束，不是你決定的"
+   ]
+  }
+ ]
+}

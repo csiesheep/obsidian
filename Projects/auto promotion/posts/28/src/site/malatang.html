@@ -1,0 +1,1321 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>麻辣湯（マーラータン）作り｜3Dで具を選んで煮る無料ゲーム【ピコピコP】</title>
+<meta name="description" content="好きな具を選んで、スープも調味料も自分の手で鍋へ入れて煮る3Dの麻辣湯（マーラータン）作りゲーム。ラー油・唐辛子・花椒は入れ放題、鍋をかたむけて丼に注ごう。汁なしもOK。">
+<meta property="og:title" content="麻辣湯作り｜ピコピコP">
+<meta property="og:description" content="具を選んで、スープも調味料も自分の手で。鍋をかたむけて丼に注ごう。あなたの麻辣湯は何点？">
+<meta property="og:url" content="https://piko2game.com/malatang/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://piko2game.com/assets/malatang-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://piko2game.com/assets/malatang-cover.jpg">
+<link rel="canonical" href="https://piko2game.com/malatang/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌶️</text></svg>">
+<script src="/assets/nozoom.js?v=1"></script>
+<script src="/assets/unmute.js?v=2"></script>
+<style>
+  :root { --bg:#fff1e8; --ink:#3a1f14; --sub:#8a5a44; --line:#3a1f14; --hot:#e0352b; --ok:#1e8449; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; }
+  body { display:flex; flex-direction:column; height:100dvh; overflow:hidden; }
+  .top { flex:none; display:flex; align-items:center; gap:8px; padding:calc(8px + env(safe-area-inset-top)) 12px 4px; }
+  .top a { color:var(--sub); font-weight:800; font-size:13px; text-decoration:none; }
+  .top .st { margin-left:auto; font-weight:900; font-size:14px; background:#fff; border:2px solid var(--line); border-radius:99px; padding:3px 10px; }
+  #guide { flex:none; text-align:center; font-weight:900; font-size:14px; padding:2px 12px 6px; min-height:22px; }
+  #stageBox { flex:1; position:relative; min-height:0; touch-action:none; overflow:hidden; }
+  #stageBox canvas { position:absolute; inset:0; display:block; touch-action:none; }
+  #scale { position:absolute; left:10px; top:8px; z-index:3; background:rgba(255,255,255,.92); border:2px solid var(--line); border-radius:12px; padding:5px 10px; font-weight:900; font-size:14px; line-height:1.3; }
+  #pullHint { position:absolute; left:8%; top:22%; z-index:4; pointer-events:none; text-align:center; background:rgba(224,53,43,.92); color:#fff; font-weight:900; font-size:15px; line-height:1.25; border:3px solid var(--line); border-radius:16px; padding:6px 12px 8px; box-shadow:0 4px 0 var(--line); animation:pullBob .8s ease-in-out infinite alternate; }
+  #pullHint b { display:block; font-size:34px; line-height:1; }
+  @keyframes pullBob { from { transform:translateY(8px); } to { transform:translateY(-10px); } }
+  #scale small { display:block; font-size:11px; color:var(--sub); }
+  #foot { flex:none; position:relative; z-index:5; padding:8px 12px calc(14px + env(safe-area-inset-bottom)); display:flex; flex-direction:column; gap:8px; max-height:52vh; overflow:auto; }
+  .row { display:flex; gap:8px; }
+  .btn { flex:1; border:2px solid var(--line); border-radius:14px; padding:11px 6px; font-size:15px; font-weight:900; background:#fff; color:var(--ink); cursor:pointer; box-shadow:0 3px 0 var(--line); touch-action:manipulation; }
+  .btn:active { transform:translateY(2px); box-shadow:0 1px 0 var(--line); }
+  .btn.go { background:var(--hot); color:#fff; }
+  .btn.on { background:#ffd23f; }
+  .hide { display:none !important; }
+  .grid { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+  .ing { border:2px solid var(--line); border-radius:12px; background:#fff; padding:4px 1px 3px; text-align:center; cursor:pointer; box-shadow:0 2px 0 var(--line); touch-action:manipulation; position:relative; }
+  .ing:active { transform:translateY(2px); box-shadow:none; }
+  .ing b { display:block; font-size:24px; line-height:1.1; }
+  .ing span { font-size:10px; font-weight:800; display:block; white-space:nowrap; overflow:hidden; }
+  .ing i { position:absolute; right:-5px; top:-7px; background:var(--hot); color:#fff; font-style:normal; font-size:11px; font-weight:900; border-radius:99px; min-width:19px; padding:1px 5px; border:2px solid #fff; }
+  .cat { font-size:11px; font-weight:900; color:var(--sub); margin:2px 0 -2px; }
+  .lvl { display:flex; align-items:center; gap:8px; font-weight:900; font-size:14px; }
+  .lvl span:first-child { width:5.5em; }
+  .lvl input { flex:1; accent-color:var(--hot); }
+  .lvl .bar { flex:1; height:14px; background:#fff; border:2px solid var(--line); border-radius:99px; overflow:hidden; }
+  .lvl .bar i { display:block; height:100%; width:0; background:linear-gradient(90deg,#ffe0a3,#e0352b); transition:width .15s; }
+  .grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+  .sea { touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
+  .sea.hold { background:#ffd23f; transform:translateY(2px); box-shadow:none; }
+  .lvl b { min-width:5.2em; text-align:right; font-size:13px; white-space:nowrap; }
+  .meter { position:relative; height:26px; background:#fff; border:2px solid var(--line); border-radius:99px; overflow:hidden; }
+  .meter i { position:absolute; left:0; top:0; bottom:0; width:0; background:linear-gradient(90deg,#ffe0a3,#e0352b); }
+  .meter .zone { position:absolute; top:0; bottom:0; background:rgba(30,132,73,.28); border-left:2px dashed var(--ok); border-right:2px dashed var(--ok); }
+  .meter u { position:absolute; inset:0; text-align:center; line-height:22px; font-weight:900; font-size:13px; text-decoration:none; }
+  #toast { position:fixed; left:50%; top:110px; transform:translateX(-50%); background:rgba(40,20,10,.88); color:#fff; font-weight:900; padding:8px 14px; border-radius:99px; opacity:0; transition:opacity .25s; pointer-events:none; z-index:20; white-space:nowrap; max-width:92vw; overflow:hidden; text-overflow:ellipsis; font-size:14px; }
+  #toast.on { opacity:1; }
+  #res { position:fixed; inset:0; pointer-events:none; display:flex; align-items:flex-end; justify-content:center; z-index:8; padding:12px 12px calc(14px + env(safe-area-inset-bottom)); }
+  #res .card { pointer-events:auto; max-height:52vh; overflow:auto; width:100%; max-width:440px; background:#fff; border:3px solid var(--line); border-radius:20px; padding:14px; box-shadow:0 6px 0 var(--line); text-align:center; }
+  #res .sc { font-size:50px; font-weight:900; line-height:1; } #res .sc small { font-size:20px; }
+  #res .nm { font-size:18px; font-weight:900; color:var(--hot); margin:8px 0 4px; }
+  #res .pr { font-size:13px; font-weight:900; color:var(--sub); }
+  #res ul { text-align:left; margin:8px 0 0; padding:0; list-style:none; font-size:14px; font-weight:800; }
+  #res li { padding:3px 0; border-bottom:1px dashed #e8cbb8; } #res li.bad { color:#c0392b; } #res li.good { color:var(--ok); }
+</style>
+</head>
+<body>
+<div class="top"><a href="/" style="display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border:2px solid #2e2418;border-radius:99px;background:#fff;color:#2e2418;font-weight:900;font-size:13px;line-height:1.2;text-decoration:none;box-shadow:0 2px 0 #2e2418;white-space:nowrap">ゲーム一覧</a><span class="st" id="st">1/6 具をえらぶ</span></div>
+<div id="guide">好きな具をタップしてボウルへ。重さで値段が決まるよ</div>
+<div id="stageBox"><div id="pullHint" class="hide"><b>⬆</b>ひっぱって<br>持ち上げる</div><div id="scale">0 g<small>¥0（100gあたり¥330）</small></div></div>
+<div id="foot">
+  <!-- 1 具をえらぶ -->
+  <div id="f1">
+    <div id="ings"></div>
+    <div class="row" style="margin-top:4px"><button class="btn" id="undo" type="button">↩ 1つもどす</button><button class="btn go" id="to2" type="button">🥣 スープをえらぶ →</button></div>
+  </div>
+  <!-- 2 スープ・辛さ・しびれ -->
+  <div id="f2" class="hide">
+    <div class="cat">👆 まず<b>「スープ」をつかんで鍋に注ごう</b>（入れすぎるとあふれる・注がなければ<b>汁なし</b>）。調味料も同じように鍋の上へ。かたむくと入る（一味・花椒・豆板醤はゆびを小きざみにふると多く出る）</div>
+    <div class="meter"><span class="zone" id="bzone"></span><i id="brothBar"></i><u id="brothTxt">鍋のスープ 0%</u></div>
+    <div class="lvl"><span>🍲 スープ</span><b id="soupT" style="width:auto;flex:1;text-align:left">麻辣（だし）</b></div>
+    <div class="lvl"><span>🌶️ 辛さ</span><div class="bar"><i id="spiceBar"></i></div><b id="spiceT">なし</b></div>
+    <div class="lvl"><span>⚡ しびれ</span><div class="bar"><i id="numbBar"></i></div><b id="numbT">なし</b></div>
+    <div class="row"><button class="btn go" id="to3" type="button">🔥 煮る →</button></div>
+  </div>
+  <!-- 3 煮る -->
+  <div id="f3" class="hide">
+    <div class="meter"><span class="zone" id="zone"></span><i id="cookBar"></i><u id="cookTxt">煮えぐあい 0%</u></div>
+    <div class="row"><button class="btn go" id="lift" type="button">🔥 火を止める！</button></div>
+  </div>
+  <!-- 4 盛りつけ(鍋をかたむけて丼へ注ぐ) -->
+  <div id="f4" class="hide">
+    <div class="meter"><span class="zone" id="pzone"></span><i id="pourBar"></i><u id="pourTxt">丼のスープ 0%</u></div>
+    <div class="row"><button class="btn go" id="to5" type="button">🌿 トッピングへ →</button></div>
+  </div>
+  <!-- 5 トッピング -->
+  <div id="f5" class="hide">
+    <div class="grid" id="tops"></div>
+    <div class="row" style="margin-top:4px"><button class="btn go" id="done" type="button">🍜 完成！</button></div>
+  </div>
+  <div id="f6" class="hide"><div class="row"><button class="btn go" id="again" type="button">もう一回つくる</button></div></div>
+</div>
+<div id="toast"></div>
+<div id="res" class="hide"><div class="card">
+  <div id="resRank" style="font-weight:900"></div><div class="sc" id="resScore"></div><div class="nm" id="resName"></div><div class="pr" id="resPrice"></div>
+  <details><summary style="font-weight:900;font-size:13px;color:var(--sub);cursor:pointer;margin-top:6px">くわしい採点を見る</summary><ul id="resList"></ul></details>
+  <div class="row" style="margin-top:10px"><button class="btn" id="share" type="button">𝕏 でシェア</button><button class="btn go" id="again2" type="button">もう一回つくる</button></div>
+<div data-piko-ad="b320"></div></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="/assets/xshare.js?v=2"></script>
+<script src="/assets/visit.js?v=1" data-game="malatang"></script>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id), rnd = (a, b) => a + Math.random() * (b - a), V = THREE.Vector3;
+  const lin = (h) => new THREE.Color(h).convertSRGBToLinear();
+  let toastT = 0; const toast = (m, ms = 1500) => { const t = $("toast"); t.textContent = m; t.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("on"), ms); };
+  // ---------- 音 ----------
+  let ac = null; const unlock = () => { if (!ac) { try { ac = new (window.AudioContext || window.webkitAudioContext)(); } catch {} } if (ac && ac.state === "suspended") ac.resume(); };
+  const tone = (f, d, type = "sine", v = 0.12, at = 0) => { if (!ac) return; const t = ac.currentTime + at, o = ac.createOscillator(), g = ac.createGain(); o.type = type; o.frequency.setValueAtTime(f, t); g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(0.001, t + d); o.connect(g).connect(ac.destination); o.start(t); o.stop(t + d + 0.02); };
+  let noiseBuf = null; const nbuf = () => { if (!noiseBuf) { noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate); const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; } return noiseBuf; };
+  const burst = (f, q, d, v) => { if (!ac) return; const s = ac.createBufferSource(), bf = ac.createBiquadFilter(), g = ac.createGain(), t = ac.currentTime; s.buffer = nbuf(); bf.type = "bandpass"; bf.frequency.value = f; bf.Q.value = q; g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(0.001, t + d); s.connect(bf).connect(g).connect(ac.destination); s.start(t, Math.random() * 0.8); s.stop(t + d + 0.02); };
+  let flowSnd = null; // 注ぐ音(じょろじょろ): 毎フレーム大きさを決める
+  const flowSound = (v, f) => { if (!ac) return; if (!flowSnd) { const s = ac.createBufferSource(), bf = ac.createBiquadFilter(), g = ac.createGain(); s.buffer = nbuf(); s.loop = true; bf.type = "bandpass"; bf.Q.value = 0.9; g.gain.value = 0; s.connect(bf).connect(g).connect(ac.destination); s.start(); flowSnd = { g, bf }; } flowSnd.g.gain.setTargetAtTime(v, ac.currentTime, 0.05); if (f) flowSnd.bf.frequency.setTargetAtTime(f, ac.currentTime, 0.05); };
+  const plop = () => { tone(rnd(300, 420), 0.09, "sine", 0.12); tone(rnd(160, 220), 0.12, "triangle", 0.06, 0.02); };
+
+  // ---------- 具(1回タップ = 1つかみ・重さg) ----------
+  // cat: veg 野菜 / mush きのこ / prot たんぱく / noodle 麺 / other ねり物など
+  const ING = {
+    hourensou: { n: "ほうれん草", e: "🥬", g: 35, cat: "veg", col: 0x2f7a2a, shape: "leaf", k: 3, t: 0.6 },
+    komatsuna: { n: "小松菜", e: "🌿", g: 35, cat: "veg", col: 0x3f8f30, shape: "leaf", k: 3, t: 0.7 },
+    broccoli: { n: "ブロッコリー", e: "🥦", g: 40, cat: "veg", col: 0x3a8a2e, shape: "broccoli", k: 3, t: 0.9 },
+    corn: { n: "ヤングコーン", e: "🌽", g: 30, cat: "veg", col: 0xf0d470, shape: "corn", k: 3, t: 0.9 },
+    takenoko: { n: "たけのこ", e: "🎋", g: 35, cat: "veg", col: 0xf0e2b4, shape: "bamboo", k: 3, t: 1.0 },
+    potato: { n: "じゃがいも", e: "🥔", g: 45, cat: "veg", col: 0xf0d89a, shape: "disc", k: 3, t: 1.3 },
+    kikurage: { n: "きくらげ", e: "🖤", g: 20, cat: "mush", col: 0x2a1c18, shape: "ear", k: 4, t: 1.0 },
+    enoki: { n: "えのき", e: "🍄", g: 35, cat: "mush", col: 0xf3ead2, shape: "enoki", k: 2, t: 0.8 },
+    shimeji: { n: "しめじ", e: "🍄‍🟫", g: 35, cat: "mush", col: 0xd2bea2, shape: "shimeji", k: 2, t: 0.9 },
+    gyuniku: { n: "牛肉", e: "🥩", g: 50, cat: "prot", col: 0xa8302c, cooked: 0x6e4632, shape: "slice", k: 3, t: 0.8 },
+    butaniku: { n: "豚肉", e: "🥓", g: 50, cat: "prot", col: 0xe58a8a, cooked: 0xdcc6ac, shape: "slice", k: 3, t: 1.0 },
+    ebi: { n: "えび", e: "🦐", g: 40, cat: "prot", col: 0x9ca3a8, cooked: 0xff7a4a, shape: "shrimp", k: 3, t: 0.8 },
+    tofu: { n: "豆腐", e: "⬜", g: 50, cat: "prot", col: 0xf6f1e4, shape: "cube", k: 3, t: 0.9 },
+    uzura: { n: "うずらの卵", e: "🥚", g: 30, cat: "prot", col: 0xf7f3ea, shape: "egg", k: 3, t: 0.7 },
+    harusame: { n: "春雨", e: "🍜", g: 40, cat: "noodle", col: 0xe8eef2, shape: "noodle", k: 1, t: 1.0, clear: true },
+    kanfun: { n: "寛粉", e: "🍜", g: 50, cat: "noodle", col: 0xcfc6b2, shape: "noodle", k: 1, t: 1.3, clear: true },
+    jagaimen: { n: "じゃがいも麺", e: "🍜", g: 50, cat: "noodle", col: 0xe8d8a6, shape: "noodle", k: 1, t: 1.1, clear: true },
+    chuka: { n: "中華麺", e: "🍜", g: 60, cat: "noodle", col: 0xf0d48a, shape: "noodle", k: 1, t: 0.8 },
+    instant: { n: "インスタント麺", e: "🍜", g: 60, cat: "noodle", col: 0xe8c98a, shape: "noodle", k: 1, t: 0.7 },
+    udon: { n: "うどん", e: "🍜", g: 70, cat: "noodle", col: 0xf6f3ea, shape: "noodle", k: 1, t: 0.9 },
+    biifun: { n: "ビーフン", e: "🍜", g: 40, cat: "noodle", col: 0xf6f4ee, shape: "noodle", k: 1, t: 0.7 },
+    kani: { n: "カニ団子", e: "🦀", g: 45, cat: "other", col: 0xf2a07c, shape: "kanidome", k: 3, t: 1.0 },
+    wiener: { n: "ウインナー", e: "🌭", g: 40, cat: "other", col: 0xc0603a, cooked: 0xa84a2a, shape: "wiener", k: 3, t: 0.8 },
+    gyoza: { n: "えびぎょうざ", e: "🥟", g: 45, cat: "other", col: 0xf4ece4, shape: "gyoza", k: 3, t: 1.1, clear: true },
+    chikuwa: { n: "ちくわ", e: "🍢", g: 35, cat: "other", col: 0xd4a060, shape: "chikuwa", k: 3, t: 0.7 },
+  };
+  const CATS = [["veg", "🥬 野菜"], ["mush", "🍄 きのこ"], ["prot", "🥩 たんぱく"], ["noodle", "🍜 麺"], ["other", "🍢 練り物など"]];
+  const PRICE = 3.3; // 円/g
+  const basket = []; // 入れた順の具の名前
+
+  // ---------- 3D ----------
+  const box = $("stageBox"), cv = document.createElement("canvas"); box.appendChild(cv);
+  const renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2)); renderer.outputEncoding = THREE.sRGBEncoding; renderer.shadowMap.enabled = true;
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x2b1d16);
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 200);
+  scene.add(new THREE.HemisphereLight(0xfff2e0, 0x4a3020, 0.55));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.85); sun.position.set(3, 10, 5); sun.castShadow = true; sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6 }); scene.add(sun);
+  // テーブル
+  const woodTex = (() => { const c = document.createElement("canvas"); c.width = 512; c.height = 256; const g = c.getContext("2d"); g.fillStyle = "#6b4630"; g.fillRect(0, 0, 512, 256); for (let i = 0; i < 70; i++) { g.strokeStyle = `rgba(30,15,8,${0.06 + Math.random() * 0.12})`; g.lineWidth = 1 + Math.random() * 2; g.beginPath(); const y = Math.random() * 256; g.moveTo(0, y); for (let x = 0; x <= 512; x += 32) g.lineTo(x, y + Math.sin(x / 60 + i) * 4); g.stroke(); } const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(16, 16); t.encoding = THREE.sRGBEncoding; return t; })();
+  const table = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.MeshStandardMaterial({ map: woodTex, roughness: 0.75 })); table.rotation.x = -Math.PI / 2; table.position.y = -0.02; table.receiveShadow = true; scene.add(table);
+  // 器: 1=ステンレスのボウル(具を入れる) 2=寸胴の鍋(煮る) 3=赤い模様の丼(盛り付け)
+  const R_IN = 2.6, DEPTH = 1.5; // 器の内側の半径・深さ
+  const bowlProfile = (r, d, lip) => { const pts = []; for (let i = 0; i <= 14; i++) { const t = i / 14, a = t * Math.PI / 2; pts.push(new THREE.Vector2(Math.sin(a) * r * (0.62 + 0.38 * t), d - Math.cos(a) * d)); } pts.push(new THREE.Vector2(r + lip * 0.6, d + 0.04)); pts.push(new THREE.Vector2(r + lip, d + 0.02)); pts.push(new THREE.Vector2(r + lip + 0.03, d - 0.06)); for (let i = 14; i >= 3; i--) { const t = i / 14, a = t * Math.PI / 2; pts.push(new THREE.Vector2(Math.sin(a) * (r + 0.12) * (0.62 + 0.38 * t), d - Math.cos(a) * (d + 0.1) - 0.02)); } pts.push(new THREE.Vector2(r * 0.42, -0.02)); pts.push(new THREE.Vector2(r * 0.42, -0.14)); pts.push(new THREE.Vector2(r * 0.36, -0.14)); pts.push(new THREE.Vector2(r * 0.34, -0.06)); pts.push(new THREE.Vector2(0, -0.06)); return pts; }; // 高台(底の輪)つき
+  // 映りこみ用のまわりの景色(明るい窓・天井の照明・暗い店内)
+  { const pm = new THREE.PMREMGenerator(renderer), es = new THREE.Scene(); es.background = new THREE.Color(0x3a2a20);
+    const room = new THREE.Mesh(new THREE.SphereGeometry(30, 32, 16), new THREE.MeshBasicMaterial({ side: THREE.BackSide, vertexColors: true }));
+    { const g = room.geometry, p = g.attributes.position, c = new Float32Array(p.count * 3); for (let i = 0; i < p.count; i++) { const y = p.getY(i) / 30, k = 0.12 + 0.3 * Math.max(0, y); c[i * 3] = k * 1.1; c[i * 3 + 1] = k * 0.95; c[i * 3 + 2] = k * 0.8; } g.setAttribute("color", new THREE.BufferAttribute(c, 3)); }
+    es.add(room);
+    for (const [x, y, z, w, h] of [[0, 28, 0, 2.2, 26], [-9, 27, 0, 1.4, 24], [9, 27, 0, 1.4, 24], [-26, 8, -8, 3, 14], [24, 10, 10, 3, 12], [6, 6, -27, 16, 7], [-14, 4, 24, 10, 5]]) { const l = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: 0xfff4e0, side: THREE.DoubleSide })); l.position.set(x, y, z); l.lookAt(0, 0, 0); es.add(l); }
+    scene.environment = pm.fromScene(es, 0.04).texture; pm.dispose(); }
+  // ヘアライン(細い筋)の入ったステンレス
+  const brushed = ctex(512, 512, (g, w, h) => { g.fillStyle = "#c9cdd2"; g.fillRect(0, 0, w, h); for (let i = 0; i < 900; i++) { const y = Math.random() * h, l = rnd(40, 400); g.strokeStyle = Math.random() < 0.5 ? "rgba(255,255,255,.18)" : "rgba(60,64,70,.14)"; g.lineWidth = rnd(0.5, 1.5); g.beginPath(); g.moveTo(rnd(-50, w), y); g.lineTo(rnd(-50, w) + l, y); g.stroke(); } }, [3, 2]);
+  const steel = new THREE.MeshPhysicalMaterial({ color: 0xc4c9d0, metalness: 1, roughness: 0.2, roughnessMap: brushed, clearcoat: 0.4, clearcoatRoughness: 0.1, envMapIntensity: 1.25, side: THREE.DoubleSide }); // よく磨いたステンレス(細い筋はつやのむらだけ)
+  const bowlTex = (() => { const c = document.createElement("canvas"); c.width = 1024; c.height = 256; const g = c.getContext("2d"); g.fillStyle = "#fbf8f1"; g.fillRect(0, 0, 1024, 256); g.strokeStyle = "#b8231a"; g.lineWidth = 9; for (let k = 0; k < 2; k++) { const y = 26 + k * 18; g.beginPath(); g.moveTo(0, y); g.lineTo(1024, y); g.stroke(); } g.lineWidth = 7; for (let x = 0; x < 1024; x += 56) { g.beginPath(); g.moveTo(x + 8, 92); g.lineTo(x + 8, 146); g.lineTo(x + 46, 146); g.lineTo(x + 46, 106); g.lineTo(x + 22, 106); g.lineTo(x + 22, 132); g.lineTo(x + 34, 132); g.stroke(); } g.lineWidth = 5; g.beginPath(); g.moveTo(0, 178); g.lineTo(1024, 178); g.stroke(); const t = new THREE.CanvasTexture(c); t.wrapS = THREE.RepeatWrapping; t.repeat.set(2, 1); t.encoding = THREE.sRGBEncoding; t.anisotropy = 8; return t; })(); // 雷紋(ラーメン丼の模様)
+  const ceramic = new THREE.MeshPhysicalMaterial({ map: bowlTex, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.05, envMapIntensity: 0.9, side: THREE.DoubleSide });
+  const vessel = new THREE.Mesh(new THREE.LatheGeometry(bowlProfile(R_IN, DEPTH, 0.15), 96), steel); vessel.castShadow = true; vessel.receiveShadow = true; scene.add(vessel);
+  const POT_RO = R_IN + 0.15, POT_H = DEPTH + 0.6, RP = R_IN + 0.1; // 寸胴の外の半径・高さ・内の半径
+  const potRig = new THREE.Group(), pot = new THREE.Group(); { // 寸胴: 厚みのあるかべ・巻いたふち・リベットどめの取っ手・五徳とガスの火
+    const H = DEPTH + 0.6, Ro = R_IN + 0.15;
+    const prof = [[0, 0.02], [Ro - 0.1, 0.02], [Ro, 0.1], [Ro, H - 0.04], [Ro + 0.05, H], [Ro + 0.02, H + 0.05], [Ro - 0.06, H + 0.02], [Ro - 0.06, 0.1], [Ro - 0.14, 0.06], [0, 0.06]].map(([x, y]) => new THREE.Vector2(x, y));
+    const body = new THREE.Mesh(new THREE.LatheGeometry(prof, 96), steel); pot.add(body);
+    const lip = new THREE.Mesh(new THREE.TorusGeometry(Ro + 0.02, 0.045, 10, 96), steel); lip.rotation.x = Math.PI / 2; lip.position.y = H + 0.01; pot.add(lip); // 丸く巻いたふち
+    for (const s of [-1, 1]) {
+      const h = new THREE.Mesh(new THREE.TorusGeometry(0.38, 0.065, 12, 24, Math.PI), steel); h.position.set(s * (Ro + 0.32), H - 0.35, 0); h.rotation.set(Math.PI / 2, 0, s > 0 ? -Math.PI / 2 : Math.PI / 2); pot.add(h);
+      for (const z of [-0.38, 0.38]) { const plate = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.06, 12), steel); plate.rotation.z = Math.PI / 2; plate.position.set(s * (Ro + 0.03), H - 0.35, z); pot.add(plate); }
+    }
+    // ガスコンロの五徳(黒い鉄)と青い火
+    const iron = new THREE.MeshStandardMaterial({ color: 0x1b1b1d, roughness: 0.5, metalness: 0.6 }), stoveBits = [];
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(R_IN * 0.75, 0.07, 8, 48), iron); ring.rotation.x = Math.PI / 2; ring.position.y = -0.12; pot.add(ring);
+    for (let k = 0; k < 5; k++) { const a = k / 5 * 6.283, bar = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.12, 0.1), iron); bar.position.set(Math.cos(a) * R_IN * 0.75, -0.06, Math.sin(a) * R_IN * 0.75); bar.rotation.y = -a; pot.add(bar); stoveBits.push(bar); }
+    const fire = []; const fireMat = new THREE.MeshBasicMaterial({ color: 0x2a5cff, transparent: true, opacity: 0.75, depthWrite: false }); // 明るい台でも白くならない青い火
+    for (let i = 0; i < 40; i++) { const a = i / 40 * 6.283, f = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.45, 6), fireMat); f.position.set(Math.cos(a) * (Ro + 0.12), 0.08, Math.sin(a) * (Ro + 0.12)); f.rotation.z = Math.cos(a) * -0.5; f.rotation.x = Math.sin(a) * 0.5; pot.add(f); fire.push(f); }
+    pot.userData.fire = fire; stoveBits.push(ring, ...fire);
+    // ガスコンロの天板(黒いガラス)とバーナー
+    const top = new THREE.Mesh(new THREE.BoxGeometry(40, 0.12, 40), new THREE.MeshPhysicalMaterial({ color: 0x050506, roughness: 0.35, clearcoat: 1, clearcoatRoughness: 0.12, envMapIntensity: 0.35 })); top.position.y = -0.3; top.receiveShadow = true; pot.add(top);
+    const trim = new THREE.Mesh(new THREE.TorusGeometry(R_IN * 0.95, 0.05, 8, 64), steel); trim.rotation.x = Math.PI / 2; trim.position.y = -0.23; pot.add(trim);
+    const burner = new THREE.Mesh(new THREE.CylinderGeometry(R_IN * 0.55, R_IN * 0.62, 0.14, 40), new THREE.MeshStandardMaterial({ color: 0x2a2a2c, roughness: 0.6, metalness: 0.5 })); burner.position.y = -0.18; pot.add(burner);
+    stoveBits.push(top, trim, burner); pot.userData.stove = stoveBits;
+    pot.traverse((o) => { if (o.isMesh && o.material !== fireMat) { o.castShadow = true; o.receiveShadow = true; } }); pot.visible = false;
+    potRig.add(pot); pot.position.set(-POT_RO, -POT_H, 0); potRig.position.set(POT_RO, POT_H, 0); scene.add(potRig); // 注ぐ時は、丼側のふち(支点)を中心にかたむける
+  }
+  // スープ: 色＋表面に浮くラー油・花椒(山椒の実)・ごまの絵 / さざ波で光がゆれる / 湯気
+  const soupCv = document.createElement("canvas"); soupCv.width = soupCv.height = 512; const soupTex = new THREE.CanvasTexture(soupCv); soupTex.encoding = THREE.sRGBEncoding; soupTex.anisotropy = 4;
+  const ripple = (() => { const S = 256, c = document.createElement("canvas"); c.width = c.height = S; const g = c.getContext("2d"), img = g.createImageData(S, S), hgt = new Float32Array(S * S); // さざ波の高さ → 法線
+    for (let k = 0; k < 14; k++) { const fx = rnd(1, 4), fy = rnd(1, 4), ph = rnd(0, 6.28), a = rnd(0.3, 1); for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) hgt[y * S + x] += Math.sin((x * fx + y * fy) / S * 6.283 * Math.round(rnd(1, 3)) + ph) * a; }
+    for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) { const dx = hgt[y * S + (x + 1) % S] - hgt[y * S + (x + S - 1) % S], dy = hgt[((y + 1) % S) * S + x] - hgt[((y + S - 1) % S) * S + x], i = (y * S + x) * 4; img.data[i] = 128 - dx * 18; img.data[i + 1] = 128 - dy * 18; img.data[i + 2] = 255; img.data[i + 3] = 255; }
+    g.putImageData(img, 0, 0); const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(3, 3); return t; })();
+  const soup = new THREE.Mesh(new THREE.CircleGeometry(1, 96), new THREE.MeshPhysicalMaterial({ map: soupTex, normalMap: ripple, normalScale: new THREE.Vector2(0.3, 0.3), color: 0xd8d8d8, roughness: 0.05, clearcoat: 0.8, clearcoatRoughness: 0.03, envMapIntensity: 0.9, transparent: true, opacity: 0.88 }));
+  soup.rotation.x = -Math.PI / 2; soup.renderOrder = 1; soup.visible = false; scene.add(soup);
+  // 湯気: ふわっと上って消える白いもや
+  const steamTex = ctex(128, 128, (g, w, h) => { const gr = g.createRadialGradient(w / 2, h / 2, 2, w / 2, h / 2, w / 2); gr.addColorStop(0, "rgba(255,255,255,.55)"); gr.addColorStop(0.5, "rgba(255,255,255,.18)"); gr.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = gr; g.fillRect(0, 0, w, h); });
+  const steams = []; for (let i = 0; i < 26; i++) { const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: steamTex, transparent: true, depthWrite: false, opacity: 0 })); sp.userData = { t: rnd(0, 4), life: rnd(2.8, 4.5), x: 0, z: 0 }; sp.visible = false; scene.add(sp); steams.push(sp); }
+  function stepSteam(dt, strong) {
+    for (const sp of steams) {
+      const u = sp.userData; u.t += dt;
+      if (u.t > u.life) { u.t = 0; u.life = rnd(2.8, 4.5); const a = rnd(0, 6.28), r = Math.sqrt(Math.random()) * (R_IN - 0.4); u.x = Math.cos(a) * r; u.z = Math.sin(a) * r; }
+      const k = u.t / u.life; sp.visible = soup.visible;
+      sp.position.set(u.x + Math.sin(u.t * 1.3 + u.x) * 0.25, level + 0.2 + k * 2.6, u.z + Math.cos(u.t + u.z) * 0.2);
+      const s = 0.8 + k * 2.2; sp.scale.set(s, s, 1); sp.material.opacity = Math.sin(k * Math.PI) * (strong ? 0.38 : 0.16);
+    }
+  }
+  // スープのもと(だし)。辛さ・しびれ・色は、自分で入れた調味料で決まる
+  const SOUP = { mala: { n: "麻辣", base: "#a3602a" }, tomato: { n: "トマト", base: "#c2421c" }, baitang: { n: "白湯", base: "#ece0c6" } };
+  let soupType = "mala", spice = 0, numb = 0, extraOil = 0, vinegar = 0;
+  const SEA = { rayu: { n: "ラー油" }, ichimi: { n: "一味唐辛子" }, sansho: { n: "花椒" }, douban: { n: "豆板醤" } };
+  const seaAmt = { rayu: 0, ichimi: 0, sansho: 0, douban: 0, tomato: 0, paitan: 0 }; // スープに落ちた量(さじ)
+  const spiceVal = () => seaAmt.rayu * 0.8 + seaAmt.ichimi + seaAmt.douban * 0.9, numbVal = () => seaAmt.sansho;
+  const dis = { red: 0, dark: 0, tomato: 0, paitan: 0 }; // とけてスープの色になった量
+  let deps = []; // スープに浮いている物・とけていく物 { k, u, v(スープ面の-1〜1), t, f(とけた割合), amt, r, rot, c }
+  let soupDirty = true, soupPaintT = 0, mixBoost = 0; const soupCol = new THREE.Color();
+  function paintSoup() {
+    const g = soupCv.getContext("2d"), S = 512, c = S / 2;
+    const kt = Math.min(1, dis.tomato / 2.5), kp = Math.min(1, dis.paitan / 2.5); // トマト・白湯をとかした分だけ、だしの色が変わる
+    const base = new THREE.Color(SOUP.mala.base).lerp(new THREE.Color(SOUP.tomato.base), kt * (1 - kp * 0.5)).lerp(new THREE.Color(SOUP.baitang.base), kp * (1 - kt * 0.4)), kr = Math.min(1, dis.red / 5) * (1 - kp * 0.25), kd = Math.min(1, dis.dark / 4);
+    const col = base.clone().lerp(new THREE.Color("#a01c06"), kr * 0.72).lerp(new THREE.Color("#561004"), kd * 0.4); if (vinegar) col.lerp(new THREE.Color("#5a2a14"), Math.min(0.25, vinegar * 0.08));
+    soupCol.copy(col);
+    g.fillStyle = "#" + col.getHexString(); g.fillRect(0, 0, S, S);
+    const rg = g.createRadialGradient(c, c, 20, c, c, c); rg.addColorStop(0, "rgba(255,255,255,.07)"); rg.addColorStop(1, "rgba(0,0,0,.18)"); g.fillStyle = rg; g.fillRect(0, 0, S, S);
+    // とけていく豆板醤(赤黒いもやが広がって薄くなる) → 浮いたラー油(赤い油の粒が広がる) → 唐辛子のかけら・花椒の粒
+    for (const d of deps) if (d.k === "tomato" || d.k === "paitan") { const x = (d.u + 1) * c, y = (1 - d.v) * c, r = 10 + 90 * Math.sqrt(d.f), a = (1 - d.f) * 0.8, col = d.k === "tomato" ? "200,48,22" : "246,240,226"; const og = g.createRadialGradient(x, y, 1, x, y, r); og.addColorStop(0, `rgba(${col},${a})`); og.addColorStop(1, `rgba(${col},0)`); g.fillStyle = og; g.beginPath(); g.arc(x, y, r, 0, 6.283); g.fill(); }
+    for (const d of deps) if (d.k === "douban") { const x = (d.u + 1) * c, y = (1 - d.v) * c, r = 7 + 75 * Math.sqrt(d.f), a = (1 - d.f) * 0.75; const og = g.createRadialGradient(x, y, 1, x, y, r); og.addColorStop(0, `rgba(90,14,4,${a})`); og.addColorStop(0.45, `rgba(130,24,8,${a * 0.7})`); og.addColorStop(1, "rgba(130,24,8,0)"); g.fillStyle = og; g.beginPath(); g.arc(x, y, r, 0, 6.283); g.fill(); }
+    for (const d of deps) if (d.k === "rayu") { const x = (d.u + 1) * c, y = (1 - d.v) * c, r = d.r * (0.35 + 0.65 * Math.min(1, d.t / 1.6)); const og = g.createRadialGradient(x - r * 0.3, y - r * 0.3, 1, x, y, r); og.addColorStop(0, "rgba(240,110,40,.6)"); og.addColorStop(0.5, "rgba(190,40,10,.55)"); og.addColorStop(0.9, "rgba(240,90,30,.45)"); og.addColorStop(1, "rgba(200,60,20,0)"); g.fillStyle = og; g.beginPath(); g.arc(x, y, r, 0, 6.283); g.fill(); }
+    for (const d of deps) {
+      const x = (d.u + 1) * c, y = (1 - d.v) * c;
+      if (d.k === "ichimi") { g.fillStyle = d.c; g.save(); g.translate(x, y); g.rotate(d.rot); g.fillRect(-d.r, -1.5, d.r * 2, 3); g.restore(); }
+      else if (d.k === "sansho") { g.fillStyle = "#4a2414"; g.beginPath(); g.arc(x, y, d.r, 0, 6.283); g.fill(); g.fillStyle = "rgba(255,200,150,.35)"; g.beginPath(); g.arc(x - 1, y - 1, 1.2, 0, 6.283); g.fill(); }
+    }
+    soupTex.needsUpdate = true;
+  }
+  function soupUV(wx, wz) {
+    const X = (wx - soup.position.x) / soup.scale.x, Y = -(wz - soup.position.z) / soup.scale.y, a = soup.rotation.z, co = Math.cos(a), si = Math.sin(a);
+    return [X * co + Y * si, -X * si + Y * co];
+  }
+  function addDep(k, wx, wz, amt) {
+    const [u, v] = soupUV(wx, wz); if (u * u + v * v > 0.95) return;
+    const d = { k, u, v, t: 0, f: 0, amt, rot: rnd(0, 6.28) };
+    if (k === "rayu") d.r = rnd(9, 22); else if (k === "ichimi") { d.r = rnd(2, 5); d.c = Math.random() < 0.5 ? "#7a0d05" : "#c4210c"; } else if (k === "sansho") d.r = rnd(2.4, 3.8);
+    deps.push(d); seaAmt[k] = (seaAmt[k] || 0) + amt; soupDirty = true;
+    if (deps.length > 2500) { const i = deps.findIndex((x) => x.k === "ichimi" || x.k === "sansho"); if (i >= 0) deps.splice(i, 1); }
+  }
+  // とける・広がる・流れる(まぜたり煮立てると早い)
+  function stepDeps(dt) {
+    if (!deps.length) return;
+    const boil = stage === 3 && cooking, sp = 1 + mixBoost * 3 + (boil ? 2.5 : 0); let busy = false;
+    for (const d of deps) {
+      d.t += dt;
+      const liq = d.k === "tomato" || d.k === "paitan", lim = d.k === "douban" || liq ? 1 : d.k === "ichimi" ? 0.55 : d.k === "rayu" ? 0.25 : 0, tau = liq ? 2.5 : d.k === "douban" ? 4 : d.k === "ichimi" ? 14 : 9;
+      if (d.f < lim) { const df = Math.min(lim - d.f, dt * sp / tau); d.f += df; if (d.k === "sansho") {} else if (liq) dis[d.k] += df * d.amt; else if (d.k === "douban") { dis.dark += df * d.amt; dis.red += df * d.amt * 0.7; } else dis.red += df * d.amt * (d.k === "rayu" ? 1.3 : 1); busy = true; }
+      if (d.k === "rayu" && d.t < 1.7) busy = true;
+      if (boil) { d.u += rnd(-1, 1) * dt * 0.05; d.v += rnd(-1, 1) * dt * 0.05; const r2 = d.u * d.u + d.v * d.v; if (r2 > 0.9) { d.u *= 0.97; d.v *= 0.97; } busy = true; }
+    }
+    const gone = (d) => (d.k === "douban" || d.k === "tomato" || d.k === "paitan") && d.f >= 0.999;
+    if (deps.some(gone)) deps = deps.filter((d) => !gone(d));
+    if (busy) soupDirty = true;
+  }
+  // ---- 具の見た目(本物っぽく: 形・模様・つや) ----
+  const pieces = []; // { mesh, kind, x, y, z, ... }
+  const mats = {};
+  // キャンバスで模様を描いてテクスチャにする
+  function ctex(w, h, draw, rep) { const c = document.createElement("canvas"); c.width = w; c.height = h; draw(c.getContext("2d"), w, h); const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.anisotropy = 4; if (rep) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rep[0], rep[1]); } return t; }
+  const speck = (g, w, h, n, cols, r0, r1) => { for (let i = 0; i < n; i++) { g.fillStyle = cols[(Math.random() * cols.length) | 0]; g.beginPath(); g.ellipse(Math.random() * w, Math.random() * h, rnd(r0, r1), rnd(r0, r1) * rnd(0.5, 1), rnd(0, 3), 0, 6.283); g.fill(); } };
+  const TEX = {
+    // ほうれん草・小松菜: 葉の形にそった模様(横0〜0.8=葉の左はし〜右はし・0.82〜1=茎 / 下=根もと・上=先)。中央脈・弓なりの側脈・細かい網目・ふちが少し濃い
+    leafD: () => leafTex(false, { a: "#1d5a20", b: "#2f7d2c", rib: "rgba(196,232,160,.85)", vein: "rgba(150,210,120,.5)", st0: "#5e9e40", st1: "#b8566e" }),
+    leafL: () => leafTex(false, { a: "#2f8a2c", b: "#55ad3f", rib: "rgba(226,246,196,.9)", vein: "rgba(200,240,160,.45)", st0: "#86c25e", st1: "#cfe8b4" }),
+    leafDb: () => leafTex(true, { savoy: 1 }), leafLb: () => leafTex(true, { savoy: 0.35 }),
+    broc: () => ctex(256, 256, (g, w, h) => { g.fillStyle = "#2d6b25"; g.fillRect(0, 0, w, h); speck(g, w, h, 1600, ["#1d4f18", "#3f8a31", "#4f9a3a", "#2a5f22"], 2, 5); }, [2, 2]),
+    corn: () => ctex(128, 256, (g, w, h) => { g.fillStyle = "#c9a43a"; g.fillRect(0, 0, w, h); const cw = w / 8, ch = h / 18; for (let j = 0; j < 18; j++) for (let i = 0; i < 8; i++) { const x = i * cw + (j % 2) * cw / 2, y = j * ch; const gr = g.createRadialGradient(x + cw / 2 - 2, y + ch / 2 - 2, 1, x + cw / 2, y + ch / 2, cw / 1.6); gr.addColorStop(0, "#fff2a8"); gr.addColorStop(0.6, "#f0d16a"); gr.addColorStop(1, "#b58f2c"); g.fillStyle = gr; g.beginPath(); g.ellipse(x + cw / 2, y + ch / 2, cw * 0.44, ch * 0.42, 0, 0, 6.283); g.fill(); } }),
+    bamboo: () => ctex(256, 256, (g, w, h) => { g.fillStyle = "#efe2b6"; g.fillRect(0, 0, w, h); g.strokeStyle = "rgba(190,165,100,.75)"; g.lineWidth = 3; for (let i = 0; i < 9; i++) { g.beginPath(); g.ellipse(w / 2, h * 1.05, 20 + i * 15, 30 + i * 22, 0, Math.PI * 1.05, Math.PI * 1.95); g.stroke(); } for (let i = 0; i < 14; i++) { g.beginPath(); const a = Math.PI + i / 13 * Math.PI; g.moveTo(w / 2, h); g.lineTo(w / 2 + Math.cos(a) * w, h + Math.sin(a) * h); g.stroke(); } speck(g, w, h, 150, ["rgba(160,130,70,.2)"], 1, 3); }),
+    potato: () => ctex(256, 256, (g, w, h) => { const gr = g.createRadialGradient(w / 2, h / 2, 10, w / 2, h / 2, w / 2); gr.addColorStop(0, "#fbe9a8"); gr.addColorStop(0.85, "#f2d68a"); gr.addColorStop(1, "#c9a060"); g.fillStyle = gr; g.fillRect(0, 0, w, h); speck(g, w, h, 260, ["rgba(200,160,80,.25)", "rgba(255,250,220,.3)"], 1, 4); }),
+    kikurage: () => ctex(256, 256, (g, w, h) => { const gr = g.createRadialGradient(w / 2, h / 2, 10, w / 2, h / 2, w / 2); gr.addColorStop(0, "#2a1810"); gr.addColorStop(0.75, "#3b2418"); gr.addColorStop(1, "#6a4a36"); g.fillStyle = gr; g.fillRect(0, 0, w, h); speck(g, w, h, 200, ["rgba(0,0,0,.18)", "rgba(110,80,60,.12)"], 3, 12); }),
+    beef: () => ctex(256, 256, (g, w, h) => { g.fillStyle = "#a3241f"; g.fillRect(0, 0, w, h); speck(g, w, h, 120, ["#8a1a16", "#b83a2c"], 6, 18); g.strokeStyle = "rgba(255,240,230,.85)"; for (let i = 0; i < 26; i++) { g.lineWidth = rnd(1, 4); g.beginPath(); let x = rnd(0, w), y = rnd(0, h); g.moveTo(x, y); for (let k = 0; k < 4; k++) { x += rnd(-30, 30); y += rnd(-20, 20); g.lineTo(x, y); } g.stroke(); } g.fillStyle = "#f4e6da"; g.fillRect(0, h - 26, w, 26); }), // 赤身にサシ・ふちに脂
+    pork: () => ctex(256, 256, (g, w, h) => { g.fillStyle = "#f2c4bc"; g.fillRect(0, 0, w, h); speck(g, w, h, 100, ["#eab0a6", "#f8d8d0"], 6, 16); g.fillStyle = "#fbf1ea"; g.fillRect(0, 0, w, 40); g.fillRect(0, h - 30, w, 30); g.strokeStyle = "rgba(255,248,240,.8)"; g.lineWidth = 3; for (let i = 0; i < 8; i++) { g.beginPath(); g.moveTo(0, rnd(40, h - 30)); g.bezierCurveTo(w * 0.3, rnd(0, h), w * 0.7, rnd(0, h), w, rnd(40, h - 30)); g.stroke(); } }), // ばら肉: 脂の層
+    shrimp: () => ctex(256, 64, (g, w, h) => { for (let i = 0; i < 8; i++) { const x = i * w / 8; const gr = g.createLinearGradient(x, 0, x + w / 8, 0); gr.addColorStop(0, "#f7f0e8"); gr.addColorStop(0.45, "#ff9b6a"); gr.addColorStop(0.75, "#ee5a32"); gr.addColorStop(1, "#f7e6dc"); g.fillStyle = gr; g.fillRect(x, 0, w / 8, h); } g.fillStyle = "rgba(255,255,255,.35)"; g.fillRect(0, h * 0.62, w, h * 0.2); g.fillStyle = "#d8361c"; g.fillRect(w * 0.9, 0, w * 0.1, h); }), // 白とオレンジのしま・しっぽは赤
+    tofu: () => ctex(128, 128, (g, w, h) => { g.fillStyle = "#f6f1e3"; g.fillRect(0, 0, w, h); speck(g, w, h, 400, ["rgba(220,210,180,.35)", "rgba(255,255,250,.5)"], 0.5, 1.6); }),
+    egg: () => ctex(128, 128, (g, w, h) => { g.fillStyle = "#fbf7ee"; g.fillRect(0, 0, w, h); speck(g, w, h, 60, ["rgba(230,220,200,.4)"], 2, 6); }),
+    kani: () => ctex(512, 256, (g, w, h) => { g.fillStyle = "#fbf4ec"; g.fillRect(0, 0, w, h); const N = 8; for (let i = 0; i < N; i++) { for (let y = 0; y < h; y += 2) { const v = 1 - y / h, x0 = (i / N + v * 0.22) * w, wd = w / N * 0.5 * (0.55 + 0.45 * Math.min(1, (1 - v) * 1.6)); const gr = g.createLinearGradient(x0, 0, x0 + wd, 0); gr.addColorStop(0, "rgba(245,140,50,.0)"); gr.addColorStop(0.18, "#f39236"); gr.addColorStop(0.82, "#f6a04a"); gr.addColorStop(1, "rgba(245,140,50,0)"); g.fillStyle = gr; g.fillRect(x0, y, wd, 2.5); g.fillRect(x0 - w, y, wd, 2.5); } } speck(g, w, h, 120, ["rgba(255,255,255,.25)"], 1, 3); }), // ねじれたオレンジと白のしま
+    wiener: () => ctex(256, 64, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, "#d27a4a"); gr.addColorStop(0.5, "#b8582e"); gr.addColorStop(1, "#8a3a1c"); g.fillStyle = gr; g.fillRect(0, 0, w, h); g.strokeStyle = "rgba(245,200,160,.9)"; g.lineWidth = 5; for (let i = 1; i < 4; i++) { const x = i * w / 4; g.beginPath(); g.moveTo(x - 10, 0); g.lineTo(x + 10, h * 0.55); g.stroke(); } }), // 切れ目
+    gyoza: () => ctex(256, 256, (g, w, h) => { g.fillStyle = "#f3eee6"; g.fillRect(0, 0, w, h); const gr = g.createRadialGradient(w / 2, h * 0.55, 10, w / 2, h * 0.55, w * 0.38); gr.addColorStop(0, "rgba(255,140,110,.85)"); gr.addColorStop(0.7, "rgba(250,170,140,.45)"); gr.addColorStop(1, "rgba(250,200,180,0)"); g.fillStyle = gr; g.fillRect(0, 0, w, h); }), // すけて見えるえびのピンク
+    chikuwa: () => ctex(256, 128, (g, w, h) => { g.fillStyle = "#f6efe2"; g.fillRect(0, 0, w, h); const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, "rgba(150,90,30,0)"); gr.addColorStop(0.3, "rgba(180,110,40,.95)"); gr.addColorStop(0.55, "rgba(150,85,25,.95)"); gr.addColorStop(0.8, "rgba(190,130,60,.6)"); gr.addColorStop(1, "rgba(150,90,30,0)"); g.fillStyle = gr; g.fillRect(0, 0, w / 2, h); speck(g, w / 2, h, 80, ["rgba(90,45,10,.55)"], 2, 6); }), // 半分だけ焼き色
+    mush: () => ctex(128, 128, (g, w, h) => { g.fillStyle = "#8a7a6a"; g.fillRect(0, 0, w, h); speck(g, w, h, 220, ["#6e5e50", "#a09080", "#5e4e42"], 1, 4); }),
+  };
+  const texCache = {}; const T = (k) => (texCache[k] = texCache[k] || TEX[k]());
+  function leafTex(bump, C) {
+    return ctex(512, 512, (g, w, h) => {
+      const bw = w * 0.8, cx = bw / 2, vy = (v) => h * (1 - v); // v=0 根もと(下) → 1 先(上)
+      if (bump) { g.fillStyle = "#808080"; g.fillRect(0, 0, w, h); for (let i = 0; i < 260 * C.savoy; i++) { const x = rnd(0, bw), y = rnd(0, h), r = rnd(8, 22); const gr = g.createRadialGradient(x, y, 1, x, y, r); gr.addColorStop(0, "rgba(255,255,255,.35)"); gr.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); } } // ちりめんのふくらみ
+      else {
+        const gx = g.createLinearGradient(0, 0, bw, 0); gx.addColorStop(0, C.a); gx.addColorStop(0.5, C.b); gx.addColorStop(1, C.a); g.fillStyle = gx; g.fillRect(0, 0, bw, h);
+        const gy = g.createLinearGradient(0, h, 0, 0); gy.addColorStop(0, "rgba(190,230,140,.22)"); gy.addColorStop(0.4, "rgba(0,0,0,0)"); gy.addColorStop(1, "rgba(0,20,0,.18)"); g.fillStyle = gy; g.fillRect(0, 0, bw, h);
+        speck(g, bw, h, 900, ["rgba(0,30,0,.10)", "rgba(140,200,100,.08)", "rgba(10,50,10,.08)"], 1, 4);
+      }
+      // 細かい網目(葉脈のあいだ)
+      g.lineWidth = 1; g.strokeStyle = bump ? "rgba(40,40,40,.25)" : "rgba(170,220,140,.16)";
+      for (let i = 0; i < 160; i++) { let x = rnd(0, bw), y = rnd(0, h); g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 3; k++) { x += rnd(-14, 14); y += rnd(-14, 14); g.lineTo(x, y); } g.stroke(); }
+      // 側脈: 中央脈から先の方へ弓なりにのびて、ふちの手前で消える
+      for (let i = 0; i < 11; i++) {
+        const v0 = 0.06 + i * 0.082, lw = Math.max(1.2, 4.2 - i * 0.28);
+        for (const sd of [-1, 1]) { g.lineWidth = bump ? lw + 1.5 : lw; g.strokeStyle = bump ? "rgba(30,30,30,.55)" : C.vein; g.beginPath(); g.moveTo(cx, vy(v0)); g.bezierCurveTo(cx + sd * bw * 0.16, vy(v0 + 0.05), cx + sd * bw * 0.3, vy(v0 + 0.1), cx + sd * bw * 0.44, vy(v0 + 0.2)); g.stroke(); }
+      }
+      // 中央脈(根もとが太く、先へ細く)
+      for (let k = 0; k < 40; k++) { const v = k / 40; g.lineWidth = (bump ? 3 : 0) + 11 * (1 - v) + 2; g.strokeStyle = bump ? "rgba(20,20,20,.6)" : C.rib; g.beginPath(); g.moveTo(cx, vy(v)); g.lineTo(cx, vy(v + 1 / 40)); g.stroke(); }
+      // ふちは少し濃く
+      if (!bump) { const ge = g.createLinearGradient(0, 0, bw, 0); ge.addColorStop(0, "rgba(0,25,0,.35)"); ge.addColorStop(0.1, "rgba(0,25,0,0)"); ge.addColorStop(0.9, "rgba(0,25,0,0)"); ge.addColorStop(1, "rgba(0,25,0,.35)"); g.fillStyle = ge; g.fillRect(0, 0, bw, h); }
+      // 茎(上=葉のつけね → 下=切り口。ほうれん草は根もとが赤い)
+      if (bump) { g.fillStyle = "#808080"; g.fillRect(bw, 0, w - bw, h); g.strokeStyle = "rgba(255,255,255,.4)"; for (let x = bw + 6; x < w; x += 9) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, h); g.stroke(); } }
+      else { const gs = g.createLinearGradient(0, 0, 0, h); gs.addColorStop(0, C.st0); gs.addColorStop(0.75, C.st0); gs.addColorStop(1, C.st1); g.fillStyle = gs; g.fillRect(bw, 0, w - bw, h); g.strokeStyle = "rgba(255,255,255,.25)"; g.lineWidth = 2; for (let x = bw + 8; x < w; x += 11) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, h); g.stroke(); } }
+    });
+  }
+  // 材料ごとの材質。raw=生の色味 / cooked=煮えた色味(テクスチャにかける色)
+  const LOOK = {
+    hourensou: { map: "leafD", bump: "leafDb", bs: 0.012, rough: 0.42, clear: 0.55, cooked: 0xc8dcc0 }, komatsuna: { map: "leafL", bump: "leafLb", bs: 0.008, rough: 0.4, clear: 0.55, cooked: 0xc8dcc0 },
+    broccoli: { map: "broc", rough: 0.7, vc: true }, corn: { map: "corn", bump: "corn", rough: 0.4, clear: 0.4 },
+    takenoko: { map: "bamboo", rough: 0.55 }, potato: { map: "potato", rough: 0.6 },
+    kikurage: { map: "kikurage", rough: 0.25, clear: 0.9 }, enoki: { color: 0xf4ecd6, rough: 0.6, vc: true }, shimeji: { color: 0xffffff, rough: 0.55, vc: true },
+    gyuniku: { map: "beef", rough: 0.5, clear: 0.3, cooked: 0x8a6458 }, butaniku: { map: "pork", rough: 0.55, clear: 0.2, raw: 0xffe0dc, cooked: 0xf2e6d8 },
+    ebi: { map: "shrimp", rough: 0.35, clear: 0.6, raw: 0x8a9298, cooked: 0xffffff }, tofu: { map: "tofu", bump: "tofu", rough: 0.75 },
+    uzura: { map: "egg", rough: 0.25, clear: 1 }, harusame: { color: 0xf3f4f2, cooked: 0xe4eef2, rough: 0.08, glass: true, tr: [0.12, 0.82] },
+    kanfun: { color: 0xcbc1ad, cooked: 0xd6d0c4, rough: 0.1, glass: true, tr: [0.1, 0.6] }, jagaimen: { color: 0xe6d49e, cooked: 0xf0e2b2, rough: 0.12, glass: true, tr: [0.06, 0.45] },
+    chuka: { color: 0xeccd80, cooked: 0xf4d885, rough: 0.35, clear: 0.6 }, instant: { color: 0xdcb46e, cooked: 0xf0d088, rough: 0.45, clear: 0.5 },
+    udon: { color: 0xf3efe4, cooked: 0xfbf8f0, rough: 0.3, clear: 0.6 }, biifun: { color: 0xf4f2ea, cooked: 0xf2f2ee, rough: 0.3, clear: 0.5, glass: 0.25, tr: [0.04, 0.3] },
+    kani: { map: "kani", rough: 0.35, clear: 0.7 }, wiener: { map: "wiener", rough: 0.3, clear: 1 },
+    gyoza: { map: "gyoza", rough: 0.2, clear: 0.8, glass: 0.35 }, chikuwa: { map: "chikuwa", rough: 0.5, clear: 0.3 },
+  };
+  function matOf(kind) {
+    if (mats[kind]) return mats[kind];
+    const L = LOOK[kind] || {}, I = ING[kind];
+    const o = { color: lin(L.color || 0xffffff), roughness: L.rough ?? 0.6, metalness: 0, side: THREE.DoubleSide, envMapIntensity: 0.6 };
+    if (L.map) o.map = T(L.map);
+    if (L.bump) { o.bumpMap = T(L.bump); o.bumpScale = L.bs || 0.02; }
+    if (L.clear) { o.clearcoat = L.clear; o.clearcoatRoughness = 0.25; } // ゆでて濡れたつや
+    if (L.vc) o.vertexColors = true;
+    if (I && I.shape === "noodle") { o.morphTargets = true; o.morphNormals = true; } // 固まった形 → ほぐれた形 へ変わる
+    if (L.glass) { o.transmission = typeof L.glass === "number" ? L.glass : 0.75; o.transparent = true; o.opacity = 0.92; o.thickness = 0.3; o.clearcoat = 1; }
+    const m = new THREE.MeshPhysicalMaterial(o);
+    m.userData.raw = lin(L.raw || L.color || 0xffffff); m.userData.cooked = lin(L.cooked || L.raw || L.color || 0xffffff);
+    m.color.copy(m.userData.raw); if (L.tr) { m.userData.tr = L.tr; m.transmission = L.tr[0]; }
+    return (mats[kind] = m);
+  }
+  // 部品をまとめて1つの形に(位置・法線・UV・色)
+  function mergeGeos(list) {
+    const items = list.map((x) => (x.isBufferGeometry ? { g: x, c: null } : x)), anyC = items.some((x) => x.c);
+    let n = 0; const ng = items.map(({ g }) => { const gg = g.index ? g.toNonIndexed() : g; n += gg.attributes.position.count; return gg; });
+    const pos = new Float32Array(n * 3), nor = new Float32Array(n * 3), uv = new Float32Array(n * 2), col = anyC ? new Float32Array(n * 3) : null; let o = 0;
+    ng.forEach((gg, i) => { const cnt = gg.attributes.position.count; pos.set(gg.attributes.position.array, o * 3); if (gg.attributes.normal) nor.set(gg.attributes.normal.array, o * 3); if (gg.attributes.uv) uv.set(gg.attributes.uv.array, o * 2); if (col) { const c = items[i].c ? lin(items[i].c) : new THREE.Color(1, 1, 1); for (let k = 0; k < cnt; k++) { col[(o + k) * 3] = c.r; col[(o + k) * 3 + 1] = c.g; col[(o + k) * 3 + 2] = c.b; } } o += cnt; });
+    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.BufferAttribute(pos, 3)); g.setAttribute("normal", new THREE.BufferAttribute(nor, 3)); g.setAttribute("uv", new THREE.BufferAttribute(uv, 2)); if (col) g.setAttribute("color", new THREE.BufferAttribute(col, 3)); return g;
+  }
+  const extr = (shape, depth) => { const g = new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: true, bevelThickness: 0.012, bevelSize: 0.012, bevelSegments: 2, curveSegments: 14 }); g.translate(0, 0, -depth / 2); g.rotateX(-Math.PI / 2); return g; };
+  const shapeUV = (g, sx, sz) => { const p = g.attributes.position, uv = g.attributes.uv; for (let i = 0; i < p.count; i++) uv.setXY(i, p.getX(i) / sx + 0.5, 0.5 - p.getZ(i) / sz); }; // 上から見た位置で模様をはる
+  const bend = (g, k) => { const p = g.attributes.position; for (let i = 0; i < p.count; i++) p.setY(i, p.getY(i) + (p.getX(i) ** 2 + p.getZ(i) ** 2) * k); g.computeVertexNormals(); return g; };
+  // 葉っぱ1枚(うすい面＋茎)。ほうれん草=先がとがった矢じり形・ちりめん / 小松菜=先が丸いしゃもじ形・つるっと・茎が長く太い。1枚ずつ形がちがう
+  function leafGeo(kind) {
+    const sp = kind === "hourensou", NU = 12, NV = 28, L = (sp ? 0.66 : 0.72) * rnd(0.85, 1.15), W = (sp ? 0.25 : 0.29) * rnd(0.88, 1.12);
+    const fold = rnd(0.1, 0.32), droop = rnd(0.05, 0.3), lift = rnd(0, 0.12), twist = rnd(-0.4, 0.4), side = rnd(-0.18, 0.18), crk = sp ? 0.022 : 0.008, wav = sp ? 0.05 : 0.025, ph = rnd(0, 6.28);
+    const width = (v) => { const b = sp ? Math.pow(Math.sin(Math.PI * Math.pow(v, 0.72)), 0.8) * (1 + 0.18 * Math.exp(-(((v - 0.16) / 0.07) ** 2))) : Math.pow(Math.sin(Math.PI * Math.pow(v, 0.5)), 0.65); return W * Math.max(0.02, b) * (1 + wav * Math.sin(v * 23 + ph)); };
+    const pos = [], uv = [], idx = [];
+    for (let j = 0; j <= NV; j++) {
+      const v = j / NV, w = width(v), ca = Math.cos(twist * v), sa = Math.sin(twist * v);
+      for (let i = 0; i <= NU; i++) {
+        const u = i / NU * 2 - 1, x0 = u * w, a = Math.abs(u);
+        let y = fold * a * w * 1.3 + crk * Math.sin(u * 8 + v * 15 + ph) * Math.sin(v * 9 + ph) * a + 0.012 * Math.sin(v * 31 + u * 5 + ph) * a * a; // 中央脈で折れる・ちりめん・ふちの細かい波
+        y += lift * v - droop * v * v * L * 1.2; // 根もとから少し起きて、先はたれる
+        const x = x0 * ca - y * sa, yy = x0 * sa + y * ca; // 中央脈のまわりにねじれる
+        pos.push(x + side * v * v * L, yy, -L / 2 + v * L); uv.push(0.4 + u * 0.4, v);
+      }
+    }
+    for (let j = 0; j < NV; j++) for (let i = 0; i < NU; i++) { const a = j * (NU + 1) + i, b = a + NU + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
+    const blade = new THREE.BufferGeometry(); blade.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); blade.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2)); blade.setIndex(idx); blade.computeVertexNormals();
+    // 茎: 根もとから外へ、少し曲がって細くなる(切り口のほうが太い)
+    const sl = (sp ? 0.26 : 0.42) * rnd(0.8, 1.2), r0 = sp ? 0.045 : 0.062, bx = rnd(-0.06, 0.06);
+    const curve = new THREE.CatmullRomCurve3([new V(0, 0, -L / 2 + 0.03), new V(bx * 0.5, -0.015, -L / 2 - sl * 0.5), new V(bx, rnd(-0.04, 0.02), -L / 2 - sl)]);
+    const TS = 10, RS = 7, stem = new THREE.TubeGeometry(curve, TS, 1, RS, false), sp2 = stem.attributes.position, suv = stem.attributes.uv, cc = new V();
+    for (let i = 0; i <= TS; i++) { curve.getPointAt(i / TS, cc); const r = r0 * (0.75 + 0.35 * i / TS); for (let k = 0; k <= RS; k++) { const n = i * (RS + 1) + k; sp2.setXYZ(n, cc.x + (sp2.getX(n) - cc.x) * r, cc.y + (sp2.getY(n) - cc.y) * r * 0.8, cc.z + (sp2.getZ(n) - cc.z) * r); suv.setXY(n, 0.83 + 0.15 * k / RS, 1 - i / TS * 0.98); } }
+    stem.computeVertexNormals();
+    const cap = new THREE.CircleGeometry(r0 * 1.1, RS), endP = curve.getPointAt(1), tg = curve.getTangentAt(1); cap.lookAt(tg); cap.translate(endP.x, endP.y, endP.z); { const cu = cap.attributes.uv; for (let i = 0; i < cu.count; i++) cu.setXY(i, 0.9, 0.01); } // 切り口
+    return mergeGeos([blade, stem, cap]);
+  }
+  function geoOf(kind) {
+    const s = ING[kind].shape;
+    if (s === "leaf") return leafGeo(kind);
+    if (s === "broccoli") { // 房(小さなつぶの集まり)＋うす緑の茎
+      const parts = [{ g: new THREE.CylinderGeometry(0.08, 0.1, 0.36, 9).translate(0, -0.14, 0), c: 0x9ccf6a }];
+      for (let i = 0; i < 16; i++) { const a = rnd(0, 6.28), rr = rnd(0, 0.2), r = rnd(0.07, 0.11); parts.push({ g: new THREE.IcosahedronGeometry(r, 1).translate(Math.cos(a) * rr, 0.1 + (0.2 - rr) * 0.5 + rnd(-0.02, 0.03), Math.sin(a) * rr), c: 0xffffff }); }
+      const g = mergeGeos(parts); g.rotateX(0.5); return g;
+    }
+    if (s === "corn") { const g = new THREE.CylinderGeometry(0.04, 0.12, 0.62, 16, 8); const p = g.attributes.position; for (let i = 0; i < p.count; i++) { const y = p.getY(i), k = 1 - 0.25 * Math.pow((y + 0.31) / 0.62, 3); p.setX(i, p.getX(i) * k); p.setZ(i, p.getZ(i) * k); } g.computeVertexNormals(); g.rotateZ(Math.PI / 2); return g; }
+    if (s === "bamboo") { const sh = new THREE.Shape(); sh.moveTo(0, 0.32); sh.quadraticCurveTo(0.34, 0.1, 0.3, -0.28); sh.quadraticCurveTo(0, -0.36, -0.3, -0.28); sh.quadraticCurveTo(-0.34, 0.1, 0, 0.32); const g = extr(sh, 0.06); shapeUV(g, 0.7, 0.7); return g; } // くし形の切り身
+    if (s === "disc") { const g = new THREE.CylinderGeometry(0.34, 0.34, 0.13, 28, 1); const p = g.attributes.position; for (let i = 0; i < p.count; i++) { const k = 1 + 0.05 * Math.sin(Math.atan2(p.getZ(i), p.getX(i)) * 3); p.setX(i, p.getX(i) * k); p.setZ(i, p.getZ(i) * k); } g.computeVertexNormals(); return g; }
+    if (s === "ear") { const g = new THREE.CylinderGeometry(0.42, 0.4, 0.035, 28, 1); const p = g.attributes.position; for (let i = 0; i < p.count; i++) { const x = p.getX(i), z = p.getZ(i), r = Math.hypot(x, z), a = Math.atan2(z, x); const k = 1 + 0.12 * Math.sin(a * 3 + 1) * (r / 0.42); p.setX(i, x * k); p.setZ(i, z * k); p.setY(i, p.getY(i) + (Math.sin(a * 5 + r * 9) * 0.06 + Math.sin(a * 11) * 0.025) * r / 0.42 + r * r * 0.12); } g.computeVertexNormals(); return g; } // くしゃっとした、ひだのある耳の形
+    if (s === "enoki") { const parts = []; for (let i = 0; i < 14; i++) { const ox = rnd(-0.08, 0.08), oz = rnd(-0.08, 0.08), len = rnd(0.75, 0.95), lean = rnd(-0.12, 0.12); const st = new THREE.CylinderGeometry(0.018, 0.022, len, 6); st.rotateZ(lean); st.translate(ox, 0, oz); parts.push({ g: st, c: 0xffffff }); const cap = new THREE.SphereGeometry(0.035, 8, 6); cap.scale(1, 0.75, 1); cap.translate(ox - Math.sin(lean) * len / 2, Math.cos(lean) * len / 2, oz); parts.push({ g: cap, c: 0xfff6dc }); } parts.push({ g: new THREE.CylinderGeometry(0.12, 0.13, 0.16, 12).translate(0, -0.42, 0), c: 0xb79a6a }); const g = mergeGeos(parts); g.rotateZ(Math.PI / 2); return g; } // 細い軸の束＋根元
+    if (s === "shimeji") { const parts = []; for (let i = 0; i < 6; i++) { const a = i / 6 * 6.28, ox = Math.cos(a) * 0.07, oz = Math.sin(a) * 0.07, h = rnd(0.3, 0.45), lean = rnd(-0.25, 0.25); const st = new THREE.CylinderGeometry(0.03, 0.04, h, 7); st.rotateZ(lean); st.translate(ox, h / 2 - 0.2, oz); parts.push({ g: st, c: 0xf6f2ea }); const cap = new THREE.SphereGeometry(0.075, 12, 6, 0, Math.PI * 2, 0, Math.PI / 2); cap.scale(1, 0.75, 1); cap.translate(ox - Math.sin(lean) * h, h - 0.2, oz); parts.push({ g: cap, c: 0x7a6656 }); } parts.push({ g: new THREE.CylinderGeometry(0.1, 0.12, 0.1, 10).translate(0, -0.22, 0), c: 0xe6dccc }); const g = mergeGeos(parts); g.rotateZ(Math.PI / 2); return g; } // 茶色いかさの株
+    if (s === "slice") { const sh = new THREE.Shape(); sh.moveTo(-0.48, -0.26); for (let i = 1; i <= 8; i++) sh.lineTo(-0.48 + i * 0.12, -0.28 + rnd(-0.03, 0.03)); sh.quadraticCurveTo(0.56, 0, 0.48, 0.28); for (let i = 1; i <= 8; i++) sh.lineTo(0.48 - i * 0.12, 0.29 + rnd(-0.03, 0.03)); sh.quadraticCurveTo(-0.56, 0, -0.48, -0.26); const g = extr(sh, 0.045); shapeUV(g, 1.0, 0.6); const p = g.attributes.position; for (let i = 0; i < p.count; i++) p.setY(i, p.getY(i) + Math.sin(p.getX(i) * 6) * 0.05 + Math.cos(p.getZ(i) * 5) * 0.03); g.computeVertexNormals(); return g; } // うすくて波うつ肉
+    if (s === "shrimp") { // むきえび: 頭側が太く、しっぽへ細くなる＋しっぽの扇
+      const pts = []; for (let i = 0; i <= 20; i++) { const a = -0.4 + i / 20 * 3.9; pts.push(new V(Math.cos(a) * 0.22, Math.sin(i / 20 * 3.1) * 0.03, Math.sin(a) * 0.22)); }
+      const curve = new THREE.CatmullRomCurve3(pts), g = new THREE.TubeGeometry(curve, 40, 0.1, 12), p = g.attributes.position, uv = g.attributes.uv;
+      for (let i = 0; i < p.count; i++) { const u = uv.getX(i), c = curve.getPointAt(u), k = 1.05 - 0.6 * u; p.setXYZ(i, c.x + (p.getX(i) - c.x) * k, c.y + (p.getY(i) - c.y) * k * 0.85, c.z + (p.getZ(i) - c.z) * k); }
+      g.computeVertexNormals();
+      const end = curve.getPointAt(1), tail = new THREE.ConeGeometry(0.09, 0.16, 4); tail.scale(1, 1, 0.3); tail.rotateZ(Math.PI / 2); tail.translate(end.x - 0.05, end.y, end.z);
+      const tu = tail.attributes.uv; for (let i = 0; i < tu.count; i++) tu.setXY(i, 0.95, 0.5);
+      return mergeGeos([g, tail]);
+    }
+    if (s === "cube") { const g = new THREE.BoxGeometry(0.55, 0.42, 0.55, 6, 6, 6), p = g.attributes.position, r = 0.06, hx = 0.275 - r, hy = 0.21 - r; for (let i = 0; i < p.count; i++) { const x = p.getX(i), y = p.getY(i), z = p.getZ(i), cx = Math.max(-hx, Math.min(hx, x)), cy = Math.max(-hy, Math.min(hy, y)), cz = Math.max(-hx, Math.min(hx, z)); const d = new V(x - cx, y - cy, z - cz); if (d.lengthSq() > 1e-8) d.setLength(r); p.setXYZ(i, cx + d.x, cy + d.y, cz + d.z); } g.computeVertexNormals(); return g; } // 角が少し丸い豆腐
+    if (s === "egg") { const g = new THREE.SphereGeometry(0.2, 20, 14), p = g.attributes.position; for (let i = 0; i < p.count; i++) { const y = p.getY(i); p.setY(i, y * 1.3); const k = 1 - 0.12 * (y / 0.2); p.setX(i, p.getX(i) * k); p.setZ(i, p.getZ(i) * k); } g.computeVertexNormals(); g.rotateZ(Math.PI / 2); return g; } // たまご形
+    if (s === "kanidome") { // しずく形(玉ねぎ形)のカニ団子: 下はふっくら、上はねじれてとがる
+      const prof = [[0, 0], [0.2, 0.005], [0.29, 0.05], [0.33, 0.13], [0.32, 0.22], [0.27, 0.31], [0.19, 0.4], [0.11, 0.48], [0.045, 0.55], [0.012, 0.6], [0, 0.61]].map(([x, y]) => new THREE.Vector2(x, y));
+      const g = new THREE.LatheGeometry(prof, 40), p = g.attributes.position; for (let i = 0; i < p.count; i++) { const y = p.getY(i), a = y * 1.4, x = p.getX(i), z = p.getZ(i), k = 1 + 0.035 * Math.sin(Math.atan2(z, x) * 8 + y * 8) * Math.min(1, y * 4); p.setX(i, (x * Math.cos(a) - z * Math.sin(a)) * k); p.setZ(i, (x * Math.sin(a) + z * Math.cos(a)) * k); } g.computeVertexNormals(); return g;
+    }
+    if (s === "ball") { const g = new THREE.SphereGeometry(0.28, 22, 16), p = g.attributes.position; for (let i = 0; i < p.count; i++) { const v = new V(p.getX(i), p.getY(i), p.getZ(i)), k = 1 + 0.06 * Math.sin(v.x * 30) * Math.sin(v.y * 27) * Math.sin(v.z * 33); p.setXYZ(i, v.x * k, v.y * k * 0.92, v.z * k); } g.computeVertexNormals(); return g; } // 少しでこぼこの団子
+    if (s === "wiener") { const prof = []; for (let i = 0; i <= 16; i++) { const a = -Math.PI / 2 + i / 16 * Math.PI; prof.push(new THREE.Vector2(Math.max(0.001, Math.cos(a) * 0.14), Math.sin(a) * 0.14 + (i > 8 ? 0.26 : -0.26))); } const g = new THREE.LatheGeometry(prof, 20); const p = g.attributes.position; for (let i = 0; i < p.count; i++) p.setX(i, p.getX(i) + Math.pow(p.getY(i) / 0.4, 2) * 0.06); g.computeVertexNormals(); g.rotateZ(Math.PI / 2); return g; } // 丸い両はし・少し曲がる
+    if (s === "gyoza") { const g = new THREE.SphereGeometry(0.32, 26, 14), p = g.attributes.position; for (let i = 0; i < p.count; i++) { let x = p.getX(i), y = p.getY(i), z = p.getZ(i); if (y < 0) y *= 0.3; z *= 0.62; if (y > 0.08) { const pleat = Math.max(0, Math.sin(x * 34)) * 0.04 * (y / 0.32); z += Math.sign(z || 1) * pleat; y += pleat * 0.6; } p.setXYZ(i, x, y * 0.85, z); } g.computeVertexNormals(); return g; } // ひだのある、すけた皮
+    if (s === "chikuwa") { const g = new THREE.LatheGeometry([[0.085, -0.25], [0.19, -0.26], [0.205, -0.2], [0.21, 0.2], [0.19, 0.26], [0.085, 0.25], [0.085, -0.25]].map(([x, y]) => new THREE.Vector2(x, y)), 24); g.rotateZ(Math.PI / 2); return g; }
+    if (s === "noodle") return noodleGeo(kind);
+    return new THREE.SphereGeometry(0.3, 10, 8);
+  }
+  // ---- 麺: 乾いて固まった形(四角いかたまり) と、ゆでてほぐれて広がった形 を同じ点の数で作り、ゆで具合でまぜる ----
+  // n=本数 r=太さ P=折り返し(うどんは3回) bx,by,bz=かたまりの大きさ f,a=ちぢれ cr=細かいちぢれ L=ほぐれた長さ curl=曲がり la,lf=ほぐれても残るウェーブ
+  const NOODLE = {
+    harusame: { n: 26, r: 0.016, P: 1, bx: 0.85, by: 0.16, bz: 0.5, f: 8, a: 0.035, cr: 0.012, L: 2.1, curl: 0.5, la: 0.015, lf: 6 },
+    kanfun: { n: 12, r: 0.045, P: 2, bx: 0.9, by: 0.16, bz: 0.42, f: 0.6, a: 0.02, cr: 0, L: 2.0, curl: 0.3, la: 0, lf: 0 },
+    jagaimen: { n: 14, r: 0.034, P: 2, bx: 0.7, by: 0.2, bz: 0.46, f: 1.5, a: 0.03, cr: 0, L: 1.9, curl: 0.4, la: 0, lf: 0 },
+    chuka: { n: 18, r: 0.024, P: 1, bx: 0.8, by: 0.2, bz: 0.56, f: 6, a: 0.05, cr: 0.006, L: 1.9, curl: 0.5, la: 0.035, lf: 9 },
+    instant: { n: 28, r: 0.02, P: 1, bx: 0.72, by: 0.28, bz: 0.72, f: 13, a: 0.045, cr: 0.004, L: 1.9, curl: 0.5, la: 0.045, lf: 14 },
+    udon: { n: 10, r: 0.055, P: 3, bx: 0.7, by: 0.2, bz: 0.6, f: 0.3, a: 0.01, cr: 0, L: 2.2, curl: 0.25, la: 0, lf: 0 },
+    biifun: { n: 34, r: 0.011, P: 1, bx: 0.8, by: 0.14, bz: 0.5, f: 11, a: 0.03, cr: 0.014, L: 1.9, curl: 0.6, la: 0.02, lf: 12 },
+  };
+  // 線(点の列)のまわりに管を巻く。輪の向きは上(Y)を基準にそろえる → 2つの形をまぜても管がつぶれない
+  function tubeInto(pos, nor, o, pts, r, R) {
+    const n = pts.length;
+    for (let i = 0; i < n; i++) {
+      const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)]; let tx = b.x - a.x, ty = b.y - a.y, tz = b.z - a.z; const tl = Math.hypot(tx, ty, tz) || 1; tx /= tl; ty /= tl; tz /= tl;
+      let sx = -tz, sy = 0, sz = tx; if (Math.hypot(sx, sz) < 0.2) { sx = 0; sy = tz; sz = -ty; } const sl = Math.hypot(sx, sy, sz) || 1; sx /= sl; sy /= sl; sz /= sl;
+      const ux = sy * tz - sz * ty, uy = sz * tx - sx * tz, uz = sx * ty - sy * tx, rr = r * (i === 0 || i === n - 1 ? 0.7 : 1), c = pts[i];
+      for (let j = 0; j < R; j++) { const th = j / R * Math.PI * 2, cs = Math.cos(th), sn = Math.sin(th), dx = cs * sx + sn * ux, dy = cs * sy + sn * uy, dz = cs * sz + sn * uz, q = (o + i * R + j) * 3; pos[q] = c.x + dx * rr; pos[q + 1] = c.y + dy * rr; pos[q + 2] = c.z + dz * rr; nor[q] = dx; nor[q + 1] = dy; nor[q + 2] = dz; }
+    }
+  }
+  function noodleGeo(kind) {
+    const N = NOODLE[kind], S = 60, R = 6, per = (S + 1) * R, tot = N.n * per;
+    const pos0 = new Float32Array(tot * 3), nor0 = new Float32Array(tot * 3), pos1 = new Float32Array(tot * 3), nor1 = new Float32Array(tot * 3), pos2 = new Float32Array(tot * 3), nor2 = new Float32Array(tot * 3), uv = new Float32Array(tot * 2), idx = [];
+    const hm = rnd(0, 6.28); // ほどけた麺の流れる向き
+    for (let k = 0; k < N.n; k++) {
+      // 乾いた形: 四角いかたまりの中で、ちぢれながら行ったり来たり
+      const yk = rnd(-1, 1) * (N.by / 2 - N.r), zs = N.P > 1 ? N.r * 2.3 * N.P : 0, zk = rnd(-1, 1) * Math.max(0, N.bz / 2 - zs / 2 - N.a - N.r), ph = rnd(0, 6.28), ph2 = rnd(0, 6.28);
+      const t0 = [];
+      for (let i = 0; i <= 40; i++) { const t = i / 40;
+        const x = N.P > 1 ? -Math.cos(Math.PI * N.P * t) * N.bx / 2 : (t - 0.5) * N.bx * rnd(0.97, 1);
+        let z = zk + (t - 0.5) * zs + Math.sin(Math.PI * 2 * N.f * t + ph) * N.a + rnd(-1, 1) * N.cr, y = yk + Math.sin(Math.PI * 2 * N.f * 0.7 * t + ph2) * N.a * 0.4 + rnd(-1, 1) * N.cr;
+        z = Math.max(-N.bz / 2, Math.min(N.bz / 2, z)); y = Math.max(-N.by / 2, Math.min(N.by / 2, y)); t0.push(new V(x, y, z)); }
+      // ゆでた形: ほどけた麺が、ゆるい束になってS字にうねりながら流れる(丸くまとめると輪っか・円盤に見えるので、だいたい同じ向きにそろえる)
+      // 2つめ(ゆらゆら用)は、うねりを少しずらした形。ぐつぐつの間、2つの間をゆっくり行き来する
+      const L1 = N.L * rnd(0.85, 1.05), A = rnd(2.2, 3.4) * (0.7 + N.curl * 0.6), lam = rnd(0.8, 1.3), ph3 = rnd(0, 6.28), h0 = hm + rnd(-0.35, 0.35), q = rnd(-0.38, 0.38), s0 = -L1 / 2 + rnd(-0.25, 0.25), yb = yk * 0.5, yp = rnd(0, 6.28);
+      const loose = (dv) => {
+        const cw = []; let h = h0, px = Math.cos(hm) * s0 - Math.sin(hm) * q, pz = Math.sin(hm) * s0 + Math.cos(hm) * q; const st = L1 / 40;
+        for (let i = 0; i <= 40; i++) { cw.push([px, pz, h]); h += A * (1 + dv * 0.2) * Math.sin(Math.PI * 2 * i * st / lam + ph3 + dv * 0.8) * st; px += Math.cos(h) * st; pz += Math.sin(h) * st; }
+        return cw.map((c, i) => { const t = i / 40, w = N.la ? Math.sin(Math.PI * 2 * N.lf * t + ph) * N.la : 0;
+          return new V(c[0] - Math.sin(c[2]) * w, yb + Math.sin(t * 7 + yp + dv * 0.8) * 0.05 + Math.sin(t * 2.3 + k) * 0.03, c[1] + Math.cos(c[2]) * w); }); // 上下にも少しうねる(ほかの麺の上をこえたり下をくぐったり)
+      };
+      const t1 = loose(0), t2 = loose(1);
+      const r = N.r * rnd(0.85, 1.1), o = k * per;
+      tubeInto(pos0, nor0, o, new THREE.CatmullRomCurve3(t0).getPoints(S), r, R);
+      tubeInto(pos1, nor1, o, new THREE.CatmullRomCurve3(t1).getPoints(S), r * 1.25, R);
+      tubeInto(pos2, nor2, o, new THREE.CatmullRomCurve3(t2).getPoints(S), r * 1.25, R);
+      for (let i = 0; i <= S; i++) for (let j = 0; j < R; j++) { uv[(o + i * R + j) * 2] = i / S; uv[(o + i * R + j) * 2 + 1] = j / R; }
+      for (let i = 0; i < S; i++) for (let j = 0; j < R; j++) { const a = o + i * R + j, b = o + i * R + (j + 1) % R, c = a + R, d = b + R; idx.push(a, c, b, b, c, d); }
+    }
+    // 乾いた形のまん中を原点に(ほぐれた形も同じだけずらす)
+    const lo = [9, 9, 9], hi = [-9, -9, -9]; for (let i = 0; i < tot; i++) for (let a = 0; a < 3; a++) { const v = pos0[i * 3 + a]; if (v < lo[a]) lo[a] = v; if (v > hi[a]) hi[a] = v; }
+    for (let i = 0; i < tot; i++) for (let a = 0; a < 3; a++) { const c = (lo[a] + hi[a]) / 2; pos0[i * 3 + a] -= c; pos1[i * 3 + a] -= c; pos2[i * 3 + a] -= c; }
+    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.BufferAttribute(pos0, 3)); g.setAttribute("normal", new THREE.BufferAttribute(nor0, 3)); g.setAttribute("uv", new THREE.BufferAttribute(uv, 2)); g.setIndex(idx);
+    g.morphAttributes.position = [new THREE.BufferAttribute(pos1, 3), new THREE.BufferAttribute(pos2, 3)]; g.morphAttributes.normal = [new THREE.BufferAttribute(nor1, 3), new THREE.BufferAttribute(nor2, 3)];
+    g.computeBoundingSphere(); g.boundingBox = new THREE.Box3().setFromBufferAttribute(g.attributes.position); // 当たりと写真の大きさは固まった形で(見えるかの判定は広がった形もふくむ)
+    g.center = () => g; // もうまん中にある(ずらすと2つの形がずれる)
+    return g;
+  }
+  // 麺の当たりの大きさを、ほぐれぐあい u で、かたまり→広がった形へ
+  function noodleBody(p) {
+    const g = p.mesh.geometry, bb = new THREE.Box3().setFromBufferAttribute(g.morphAttributes.position[0]), sx = bb.max.x - bb.min.x, sy = bb.max.y - bb.min.y, sz = bb.max.z - bb.min.z, hh = Math.max(0.03, sy / 2);
+    p.b0 = { hh: p.hh, rh: p.rh, half: p.half.slice(), cy: p.cy, rb: p.rb };
+    p.b1 = { hh, rh: Math.max(p.rh, 0.45), // すき間だらけの麺は、ほかの具がまざりこめる(押し合う大きさは小さめ)
+       half: [sx / 2, hh, sz / 2], cy: (bb.max.y + bb.min.y) / 2, rb: Math.min(1.35, Math.hypot(sx, sz) / 2 + 0.05) }; // ほぐれた麺は鍋のかべを突き抜けないよう、広がった大きさで当たる
+    p.u = 0; p.uj = rnd(0.9, 1.15); p.sw = 0; p.swp = rnd(0, 6.28);
+  }
+  function setNoodle(p, u) { // sw=ゆらゆら(2つめの形へのよりぐあい)
+    p.u = u; const mi = p.mesh.morphTargetInfluences; if (mi) { mi[0] = u * (1 - p.sw); mi[1] = u * p.sw; } const a = p.b0, b = p.b1, L = (x, y) => x + (y - x) * u;
+    p.hh = L(a.hh, b.hh); p.rh = L(a.rh, b.rh); p.cy = L(a.cy, b.cy); p.rb = L(a.rb, b.rb); for (let i = 0; i < 3; i++) p.half[i] = L(a.half[i], b.half[i]); p.half[1] = p.hh;
+  }
+  const geoCache = {};
+  function addPieces(kind) {
+    const I = ING[kind], n = I.k;
+    for (let i = 0; i < n; i++) {
+      const geo = I.shape === "noodle" || I.shape === "leaf" ? geoOf(kind).center() : (geoCache[kind] = geoCache[kind] || geoOf(kind).center()); // 形のまん中を回転の中心に(回っても宙に浮いたり、かべの外にはみ出さない)
+      const m = new THREE.Mesh(geo, matOf(kind)); m.castShadow = true; m.receiveShadow = true;
+      const a = rnd(0, 6.28), r = Math.sqrt(Math.random()) * (R_IN - 0.7);
+      const p = { mesh: m, kind, x: Math.cos(a) * r, z: Math.sin(a) * r, y: DEPTH + 1.6 + i * 0.35, vx: rnd(-0.6, 0.6), vy: 0, vz: rnd(-0.6, 0.6), av: new V(rnd(-2, 2), rnd(-1.5, 1.5), rnd(-2, 2)), ph: rnd(0, 6.28), rot: new THREE.Euler(rnd(-0.08, 0.08), rnd(0, 6.28), rnd(-0.08, 0.08)) };
+      m.rotation.copy(p.rot); bodyOf(p); if (I.shape === "noodle") noodleBody(p); scene.add(m); pieces.push(p);
+    }
+  }
+  function removeLast() {
+    const kind = basket.pop(); if (!kind) return;
+    let n = ING[kind].k; for (let i = pieces.length - 1; i >= 0 && n > 0; i--) if (pieces[i].kind === kind) { scene.remove(pieces[i].mesh); if (ING[kind].shape === "noodle" || ING[kind].shape === "leaf") pieces[i].mesh.geometry.dispose(); pieces.splice(i, 1); n--; }
+  }
+  // ---- 物理(かけら = 横の半径rh・高さの半分hh の筒として、重力・浮力・器・押し合い) ----
+  const PROF = bowlProfile(R_IN, DEPTH, 0.15).slice(0, 15); // 器の内側の線(中心→ふち)
+  let vesselKind = "bowl"; // bowl=ボウル/丼 pot=寸胴
+  function floorY(r) { // 半径rの所の器の内側の高さ
+    if (vesselKind === "pot") return 0.03;
+    for (let i = 1; i < PROF.length; i++) { const a = PROF[i - 1], b = PROF[i]; if (r <= b.x) return a.y + (b.y - a.y) * (r - a.x) / Math.max(1e-6, b.x - a.x); }
+    return 99;
+  }
+  function radiusAtY(y) { // 高さyの所の器の内側の半径
+    if (vesselKind === "pot") return R_IN + 0.1;
+    if (y <= 0) return 0.01;
+    for (let i = 1; i < PROF.length; i++) { const a = PROF[i - 1], b = PROF[i]; if (y <= b.y) return a.x + (b.x - a.x) * (y - a.y) / Math.max(1e-6, b.y - a.y); }
+    return R_IN;
+  }
+  const DENS = { kanidome: 0.96, leaf: 0.9, ear: 0.92, enoki: 0.85, shimeji: 0.86, slice: 0.97, cube: 0.92, egg: 0.97, ball: 0.96, disc: 0.98, broccoli: 0.88, corn: 0.94, bamboo: 0.95, shrimp: 0.97, wiener: 0.93, gyoza: 0.96, chikuwa: 0.8, noodle: 0.95 }; // ほとんどの具はスープにぷかぷか(少しだけ顔を出す) // スープより重い(>1)と沈みぎみ
+  function bodyOf(p) { // 形の大きさから、当たりの筒の大きさを決める
+    const g = p.mesh.geometry; if (!g.boundingBox) g.computeBoundingBox(); const bb = g.boundingBox, sx = bb.max.x - bb.min.x, sy = bb.max.y - bb.min.y, sz = bb.max.z - bb.min.z;
+    const FLAT = { leaf: 0.03, slice: 0.035, ear: 0.03, bamboo: 0.04 }; // うすい具は、波うちぶんを入れずに本当の厚みで重ねる(すき間が空いて浮いて見えない)
+    p.hh = FLAT[ING[p.kind].shape] || Math.max(0.03, sy / 2); p.rh = Math.max(0.08, Math.hypot(sx, sz) / 2 * 0.62); p.half = [sx / 2, p.hh, sz / 2]; p.cy = (bb.max.y + bb.min.y) / 2; if (!g.boundingSphere) g.computeBoundingSphere(); p.rb = Math.min(0.9, g.boundingSphere.radius * 0.95); p.dens = DENS[ING[p.kind].shape] || 1;
+  }
+  const _rm = new THREE.Matrix4(), ROUND = new Set(["ball", "egg", "wiener", "corn", "chikuwa", "shrimp", "broccoli"]), _dq = new THREE.Quaternion(), _qf = new THREE.Quaternion(), _ax = new V(), _e = new THREE.Euler();
+  function physics(dt, t) {
+    const G = 9, boil = stage === 3 && cooking, n = pieces.length;
+    for (const p of pieces) {
+      const sub = soup.visible ? Math.max(0, Math.min(1, (level - (p.y - p.hh)) / (2 * p.hh))) : 0;
+      p.vy += (-G + G * sub / p.dens) * dt;
+      if (sub > 0) { const k = Math.max(0, 1 - dt * 5 * sub); p.vx *= k; p.vy *= k; p.vz *= k; }
+      if (boil && sub > 0.3) { p.vy += Math.random() < dt * 3 ? rnd(0.3, 0.9) : 0; p.vx += (-p.z * 0.07 + rnd(-0.35, 0.35)) * dt; p.vz += (p.x * 0.07 + rnd(-0.35, 0.35)) * dt; } // ぐつぐつ: 泡で少し持ち上がり、ほんの少しだけ流れる
+      p.x += p.vx * dt; p.y += p.vy * dt; p.z += p.vz * dt;
+      // 器の床(坂ならまん中へすべる)とかべ
+      let r = Math.hypot(p.x, p.z);
+      // 回った向きでの、いちばん下までの高さ(縦に立った葉や肉が底を突き抜けない)
+      const e = _rm.makeRotationFromQuaternion(p.mesh.quaternion).elements, ey = Math.max(p.hh, Math.abs(e[1]) * p.half[0] + Math.abs(e[5]) * p.half[1] + Math.abs(e[9]) * p.half[2]);
+      const yb = floorY(Math.min(R_IN, r + p.rh * 0.5)) + (ey - p.hh);
+      p.ground = false;
+      if (p.y - p.hh < yb) {
+        if (p.vy < -1.2) { const k = Math.min(5, -p.vy) * (sub > 0 ? 0.15 : 1); p.av.x += rnd(-1, 1) * k * 1.3; p.av.z += rnd(-1, 1) * k * 1.3; p.av.y += rnd(-1, 1) * k * 0.7; p.vx += rnd(-1, 1) * k * 0.25; p.vz += rnd(-1, 1) * k * 0.25; } // ぶつかってはねる・回る
+        p.y = yb + p.hh; if (p.vy < 0) p.vy = p.vy < -2.5 && sub === 0 ? -p.vy * 0.18 : 0; p.ground = true;
+        const fr = Math.max(0, 1 - dt * (sub > 0 ? 3 : 7)); p.vx *= fr; p.vz *= fr;
+        let sl = 0; if (vesselKind === "bowl" && r > 0.05) { sl = (floorY(Math.min(R_IN, r + 0.05)) - floorY(Math.max(0, r - 0.05))) / 0.1; p.vx -= p.x / r * sl * G * 0.35 * dt; p.vz -= p.z / r * sl * G * 0.35 * dt; }
+        if (sub === 0 && sl < 0.6 && Math.hypot(p.vx, p.vz) < 0.25) { p.vx = 0; p.vz = 0; } // 止まりかけたら、その場で止まる
+      }
+      { // 乾いた器の中で0.8秒じっとしていたら、何かがぶつかるまで動かない(山がいつまでもくずれ続けない)
+        const still = sub === 0 && (p.ground || p.g2) && Math.hypot(p.vx, p.vz) < 0.3 && Math.abs(p.vy) < 0.5 && p.av.length() < 0.6;
+        p.rest = still ? (p.rest || 0) + dt : 0; if (p.rest > 0.8) { p.vx = p.vz = 0; p.av.set(0, 0, 0); }
+      }
+      const rmax = Math.max(0.05, radiusAtY(Math.max(0.01, p.y - p.hh * 0.6)) - (p.rb || p.rh) - 0.04); // かべとは、回っても角が突き抜けない大きさ(外接球)で当たる
+      if (r > rmax) { p.x *= rmax / r; p.z *= rmax / r; const vr = (p.vx * p.x + p.vz * p.z) / (rmax || 1); if (vr > 0) { p.vx -= p.x / rmax * vr; p.vz -= p.z / rmax * vr; } }
+    }
+    // かけら同士: 横に重なっていたら、上下(のせる)か横(ずらす)の近い方へ押し離す
+    for (let i = 0; i < n; i++) {
+      const a = pieces[i];
+      for (let j = i + 1; j < n; j++) {
+        const b = pieces[j]; if (a.rest > 0.8 && b.rest > 0.8) continue; // どちらも止まっていれば押し合わない
+        if (a.u > 0.3 && b.u > 0.3) continue; // ほぐれた麺どうしは、からまり合って重なる
+        const dx = b.x - a.x, dz = b.z - a.z, d = Math.hypot(dx, dz), rr = a.rh + b.rh;
+        if (d >= rr) continue;
+        const dy = b.y - a.y, oy = a.hh + b.hh - Math.abs(dy); if (oy <= 0) continue;
+        const oh = rr - d;
+        const inSoup = soup.visible && Math.min(a.y - a.hh, b.y - b.hh) < level + 0.25;
+        if (oy < oh * (inSoup ? 0.08 : 1.4)) { // 上にのせる(スープの中では積み上がらず、横へ広がる)
+          const up = dy >= 0 ? b : a, dn = up === b ? a : b;
+          if (!inSoup && up.vy - dn.vy < -1.2) { const k = Math.min(4, dn.vy - up.vy); up.av.x += rnd(-1, 1) * k; up.av.z += rnd(-1, 1) * k; up.vx += (up.x - dn.x) * k * 0.6; up.vz += (up.z - dn.z) * k * 0.6; } // 上に落ちると転がり落ちる
+          up.y += oy * 0.8; dn.y -= oy * 0.2; if (up.vy < dn.vy) up.vy = dn.vy; up.ground = true;
+          // 上にのった具は、まん中からずれているほど、すべって横に落ちる(ぴったり真上でないと乗っていられない)
+          const ex = up.x - dn.x, ez = up.z - dn.z, ed = Math.hypot(ex, ez) || 0.001, slip = soup.visible ? 2.5 * Math.max(0.1, ed / rr) : 5 * Math.max(0, ed / rr - 0.5);
+          up.vx += ex / ed * slip * (1 / 60); up.vz += ez / ed * slip * (1 / 60); if (ed < 0.02 && soup.visible) { up.vx += rnd(-0.4, 0.4); up.vz += rnd(-0.4, 0.4); }
+        } else { // 横にずらす
+          const nx = d > 1e-4 ? dx / d : Math.cos(i), nz = d > 1e-4 ? dz / d : Math.sin(i);
+          const k = inSoup ? 0.3 : 0.5; a.x -= nx * oh * k; a.z -= nz * oh * k; b.x += nx * oh * k; b.z += nz * oh * k;
+        }
+      }
+    }
+    for (const p of pieces) {
+      p.g2 = p.ground; // 床か、ほかの具の上にのっていた(次のステップの「じっとしているか」に使う)
+      p.mesh.position.set(p.x, p.y - p.cy, p.z);
+      // 向き: 丸い具は転がる・平たい具は回ってからぱたっと平らに落ちつく
+      const round = ROUND.has(ING[p.kind].shape), wet = soup.visible && p.y - p.hh < level;
+      if (round && p.ground && !wet && Math.hypot(p.vx, p.vz) > 0.08) { const rr = Math.max(0.2, p.hh); p.av.x += (p.vz / rr - p.av.x) * Math.min(1, dt * 8); p.av.z += (-p.vx / rr - p.av.z) * Math.min(1, dt * 8); }
+      p.av.multiplyScalar(Math.max(0, 1 - dt * (wet ? 6 : p.ground ? (round ? 4 : 6) : 0.3))); { const wl = p.av.length(); if (wl > 6) p.av.multiplyScalar(6 / wl); else if (wl < 0.12 && (wet || p.ground)) p.av.set(0, 0, 0); }
+      const w = p.av.length(); if (w > 1e-4) { _dq.setFromAxisAngle(_ax.copy(p.av).divideScalar(w), w * dt); p.mesh.quaternion.premultiply(_dq); }
+      if (!round && w < 1.2 && (p.ground || wet)) { _e.setFromQuaternion(p.mesh.quaternion, "YXZ"); _qf.setFromEuler(_e.set(p.rot.x + (wet ? Math.sin(t / 900 + p.ph) * 0.06 : 0), _e.y, p.rot.z + (wet ? Math.cos(t / 1100 + p.ph) * 0.06 : 0), "YXZ")); p.mesh.quaternion.slerp(_qf, Math.min(1, dt * 4)); }
+    }
+  }
+  // ---- 液体の流れ(上から下へ・細くなる)。点の列からチューブを毎フレーム作り直す ----
+  function makeStream() { const m = new THREE.Mesh(new THREE.BufferGeometry(), new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.08, clearcoat: 1, clearcoatRoughness: 0.05, transparent: true, opacity: 0.93, envMapIntensity: 1 })); m.visible = false; m.renderOrder = 2; scene.add(m); return m; }
+  function setStream(m, pts, r0, r1, col) {
+    if (!pts || pts.length < 2 || r0 < 0.004) { m.visible = false; return; }
+    const curve = new THREE.CatmullRomCurve3(pts), tub = Math.min(48, Math.max(6, pts.length * 2)), RS = 8, geo = new THREE.TubeGeometry(curve, tub, 1, RS, false), pa = geo.attributes.position, cc = new V();
+    for (let i = 0; i <= tub; i++) { curve.getPointAt(i / tub, cc); const r = r0 + (r1 - r0) * (i / tub) + Math.sin(i * 1.7 + performance.now() / 60) * r0 * 0.08; for (let j = 0; j <= RS; j++) { const k = i * (RS + 1) + j; pa.setXYZ(k, cc.x + (pa.getX(k) - cc.x) * r, cc.y + (pa.getY(k) - cc.y) * r, cc.z + (pa.getZ(k) - cc.z) * r); } }
+    m.geometry.dispose(); m.geometry = geo; m.material.color.copy(col).convertSRGBToLinear(); m.visible = true;
+  }
+  const brothStream = makeStream(), seaStream = makeStream(), pourStream = makeStream();
+  // ---- 調味料のびん・スプーン(口がまん中。0=立てた向き → かたむけると口が下を向く) ----
+  const glass = (c, o) => new THREE.MeshPhysicalMaterial({ color: lin(c), roughness: 0.06, clearcoat: 1, clearcoatRoughness: 0.04, transparent: true, opacity: o, envMapIntensity: 1.2 });
+  const solid = (c, r = 0.4) => new THREE.MeshPhysicalMaterial({ color: lin(c), roughness: r, clearcoat: 0.5 });
+  function lathe(pts, mat) { return new THREE.Mesh(new THREE.LatheGeometry(pts.map(([x, y]) => new THREE.Vector2(x, y)), 28), mat); }
+  const seaModel = {};
+  { // ラー油: 赤い油の入ったガラスびん
+    const g = new THREE.Group(), r = 0.36, h = 1.25;
+    g.add(lathe([[0.001, -h - 0.35], [r, -h - 0.35], [r, -0.5], [r * 0.55, -0.25], [r * 0.36, -0.2], [r * 0.36, 0]], glass(0xf4f4f4, 0.32)));
+    g.add(lathe([[0.001, -h - 0.33], [r * 0.92, -h - 0.33], [r * 0.92, -0.62], [0.001, -0.62]], solid(0xb3260c, 0.12)));
+    const lb = new THREE.Mesh(new THREE.CylinderGeometry(r + 0.01, r + 0.01, h * 0.42, 28, 1, true), solid(0xffd23f, 0.6)); lb.position.y = -h * 0.55 - 0.35; g.add(lb);
+    seaModel.rayu = g;
+  }
+  for (const [k, body, cap] of [["ichimi", 0xc0261a, 0x2a2a2a], ["sansho", 0x6b4a2b, 0x2e7d32]]) { // 一味・花椒: ふたに穴のあいた小びん
+    const g = new THREE.Group(), r = 0.3, h = 0.95;
+    g.add(lathe([[0.001, -h - 0.25], [r, -h - 0.25], [r, -0.32], [r * 0.85, -0.2], [0.001, -0.2]], glass(body, 0.95)));
+    g.add(lathe([[0.001, -0.22], [r * 0.82, -0.22], [r * 0.86, -0.02], [0.001, 0]], solid(cap, 0.35)));
+    const lb = new THREE.Mesh(new THREE.CylinderGeometry(r + 0.01, r + 0.01, h * 0.45, 24, 1, true), solid(0xfff3d6, 0.7)); lb.position.y = -h * 0.55 - 0.25; g.add(lb);
+    seaModel[k] = g;
+  }
+  { // 豆板醤: スプーンに赤黒いみそ
+    const g = new THREE.Group(), cup = new THREE.Mesh(new THREE.SphereGeometry(0.3, 20, 10, 0, 6.283, Math.PI / 2, Math.PI / 2), steel); cup.scale.set(1, 0.45, 1.35); g.add(cup);
+    const hd = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.06, 1.6, 10), steel); hd.position.set(0, -0.15, -1.15); hd.rotation.x = -1.35; g.add(hd);
+    const paste = new THREE.Mesh(new THREE.SphereGeometry(0.24, 14, 8), solid(0x6e1608, 0.5)); paste.scale.set(1, 0.55, 1.2); paste.position.y = -0.02; g.add(paste); g.userData.paste = paste;
+    seaModel.douban = g;
+  }
+  { // トマト: 口のあいた缶(赤いラベル)に、トマトピューレ
+    const g = new THREE.Group(), r = 0.42, h = 0.95, tin = new THREE.MeshPhysicalMaterial({ color: 0xd8dde2, metalness: 1, roughness: 0.25, side: THREE.DoubleSide });
+    g.add(lathe([[0.001, -h], [r, -h], [r + 0.02, -h + 0.04], [r, -h + 0.08], [r, -0.06], [r + 0.02, -0.02], [r, 0], [r - 0.03, 0]], tin));
+    const lb = new THREE.Mesh(new THREE.CylinderGeometry(r + 0.012, r + 0.012, h * 0.68, 28, 1, true), new THREE.MeshPhysicalMaterial({ map: ctex(256, 64, (g2, w, hh) => { g2.fillStyle = "#c8261a"; g2.fillRect(0, 0, w, hh); g2.fillStyle = "#2f7d32"; g2.fillRect(0, hh * 0.78, w, hh * 0.22); g2.fillStyle = "#fff"; g2.font = "bold 30px sans-serif"; g2.fillText("TOMATO", 30, 40); g2.fillStyle = "#ff6a4a"; for (let i = 0; i < 4; i++) { g2.beginPath(); g2.arc(150 + i * 26, 24, 9, 0, 6.283); g2.fill(); } }), roughness: 0.4, clearcoat: 0.6 })); lb.position.y = -h * 0.5; g.add(lb);
+    const pure = new THREE.Mesh(new THREE.CircleGeometry(r - 0.03, 24), solid(0xb8240f, 0.3)); pure.rotation.x = -Math.PI / 2; pure.position.y = -0.12; g.add(pure);
+    seaModel.tomato = g;
+  }
+  { // 白湯: 白いミルクピッチャーに、白くにごったスープ
+    const g = new THREE.Group(), r = 0.4, h = 1.0, cer = new THREE.MeshPhysicalMaterial({ color: 0xf6f3ee, roughness: 0.15, clearcoat: 1, side: THREE.DoubleSide });
+    g.add(lathe([[0.001, -h], [r * 0.8, -h], [r, -h * 0.6], [r * 0.95, -0.15], [r * 1.05, 0], [r, 0.01]], cer));
+    const hd = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.045, 8, 16, Math.PI), cer); hd.position.set(-r - 0.02, -h * 0.5, 0); hd.rotation.z = Math.PI / 2; g.add(hd);
+    const milk = new THREE.Mesh(new THREE.CircleGeometry(r * 0.93, 24), solid(0xf1e8d6, 0.25)); milk.rotation.x = -Math.PI / 2; milk.position.y = -0.18; g.add(milk);
+    seaModel.paitan = g;
+  }
+  { // スープ: 大きなステンレスのピッチャーに、こはく色のだし
+    const g = new THREE.Group(), r = 0.58, h = 1.35;
+    g.add(lathe([[0.001, -h], [r * 0.85, -h], [r, -h * 0.8], [r, -0.12], [r * 1.08, 0], [r * 1.03, 0.02]], steel));
+    const hd = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.06, 10, 20, Math.PI), steel); hd.position.set(-r - 0.02, -h * 0.45, 0); hd.rotation.z = Math.PI / 2; g.add(hd);
+    const broth = new THREE.Mesh(new THREE.CircleGeometry(r * 0.96, 28), new THREE.MeshPhysicalMaterial({ color: lin(0xb07a3e), roughness: 0.1, clearcoat: 1 })); broth.rotation.x = -Math.PI / 2; broth.position.y = -0.2; g.add(broth);
+    seaModel.dashi = g;
+  }
+  // コンロの手前に並べる(鍋の前に弧をえがいて)。名札つき
+  const SEA_ORDER = ["dashi", "tomato", "paitan", "rayu", "ichimi", "sansho", "douban"], SEA_NAME = { dashi: "スープ", tomato: "トマト", paitan: "白湯", rayu: "ラー油", ichimi: "一味", sansho: "花椒", douban: "豆板醤" };
+  const STOVE_Y = -0.24, seaRest = {}, seaHit = [], seaLabel = {};
+  const label = (tx) => { const t = ctex(256, 72, (g, w, h) => { g.fillStyle = "rgba(255,255,255,.95)"; g.strokeStyle = "#3a1f14"; g.lineWidth = 6; const r = 30; g.beginPath(); g.moveTo(r, 4); g.arcTo(w - 4, 4, w - 4, h - 4, r); g.arcTo(w - 4, h - 4, 4, h - 4, r); g.arcTo(4, h - 4, 4, 4, r); g.arcTo(4, 4, w - 4, 4, r); g.fill(); g.stroke(); g.fillStyle = "#3a1f14"; g.font = "900 40px sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(tx, w / 2, h / 2 + 2); }); const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, depthTest: false, transparent: true })); sp.scale.set(1.15, 0.33, 1); sp.renderOrder = 5; return sp; };
+  SEA_ORDER.forEach((k, i) => {
+    const m = seaModel[k]; m.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+    const bb = new THREE.Box3().setFromObject(m), a = (i / (SEA_ORDER.length - 1) - 0.5) * 2.2; // 鍋の前の弧
+    seaRest[k] = new V(Math.sin(a) * (R_IN + 1.25), STOVE_Y - bb.min.y, Math.cos(a) * (R_IN + 1.25));
+    m.position.copy(seaRest[k]); m.rotation.y = -a * 0.3; m.visible = false; scene.add(m);
+    const hit = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.62, 2.2, 10), new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false })); hit.position.set(seaRest[k].x, STOVE_Y + 0.9, seaRest[k].z); hit.userData.k = k; hit.visible = false; scene.add(hit); seaHit.push(hit); // つかみやすい当たり
+    const lb = label(SEA_NAME[k]); lb.position.set(seaRest[k].x, STOVE_Y + (bb.max.y - bb.min.y) + 0.35, seaRest[k].z); lb.visible = false; scene.add(lb); seaLabel[k] = lb;
+  });
+  const showSeas = (on) => { for (const k of SEA_ORDER) { seaModel[k].visible = on; seaLabel[k].visible = on; seaHit[SEA_ORDER.indexOf(k)].visible = on; if (on) { seaModel[k].position.copy(seaRest[k]); seaModel[k].rotation.z = 0; } } };
+  // 落ちていく粒(唐辛子・花椒・豆板醤のかたまり)
+  const GN = 3000, grainIM = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ roughness: 0.55 }), GN); grainIM.setColorAt(0, new THREE.Color()); grainIM.count = 0; grainIM.castShadow = true; /* 色の入れ物は「その時の数」で作られるので、数を0にする前に作る */ scene.add(grainIM);
+  let grains = [], seaHold = null;
+  const _gm = new THREE.Matrix4(), _gq = new THREE.Quaternion(), _ge = new THREE.Euler(), _gc = new THREE.Color();
+  const SEA_POUR = { dashi: 1.75, rayu: 2.2, tomato: 1.9, paitan: 1.85, douban: 2.0, ichimi: 2.75, sansho: 2.75 }; // かたむける角度
+  const SEA_LIQ = { dashi: ["#c48a4c", 0.19, 0.06, 380], rayu: ["#c8320e", 0.045, 0.07, 1400], tomato: ["#c0301a", 0.11, 0.07, 500], paitan: ["#efe6d4", 0.1, 0.07, 650] }; // 液体: 色・筋の太さ・1回の量・音
+  function stepSea(dt, t) {
+    const H = seaHold; updBroth(); if (oilPools.length && !isDry()) oilToSoup();
+    for (const k of SEA_ORDER) { if (H && H.k === k) continue; const m = seaModel[k]; if (!m.visible) continue; m.position.lerp(seaRest[k], Math.min(1, dt * 9)); m.rotation.z += (0 - m.rotation.z) * Math.min(1, dt * 9); } // はなすと元の場所へ戻る
+    if (H) {
+      const m = seaModel[H.k], over = Math.hypot(H.x, H.z) < R_IN - 0.35; // 鍋の上にある時だけかたむいて入る
+      let px = H.x, pz = H.z; if (over) { const rr = Math.hypot(px, pz), lim = R_IN - 0.75; if (rr > lim) { px *= lim / rr; pz *= lim / rr; } }
+      H.sx += (px - H.sx) * Math.min(1, dt * 14); H.sz += (pz - H.sz) * Math.min(1, dt * 14);
+      H.shake = Math.max(0, H.shake - dt * 2.5);
+      const shaker = H.k === "ichimi" || H.k === "sansho", tgt = over ? SEA_POUR[H.k] : 0.25;
+      H.a += (tgt - H.a) * Math.min(1, dt * 7);
+      const jig = shaker || H.k === "douban" ? Math.sin(t / 40) * 0.25 * Math.min(1, H.shake) : 0;
+      const hy = level + (H.k === "douban" ? 0.9 : H.k === "tomato" || H.k === "paitan" ? 1.5 : 1.7);
+      m.position.set(H.sx, hy + (shaker ? Math.sin(t / 40) * 0.12 * Math.min(1, H.shake) : 0), H.sz); m.rotation.z = H.a + jig;
+      const pouring = over && H.a > tgt - 0.35;
+      // ふるほど(ゆびを小きざみに動かすほど)たくさん出る。液体はかたむけるだけで流れる
+      H.acc += pouring ? dt * (SEA_LIQ[H.k] ? 1 : H.k === "douban" ? 1 + Math.min(1.5, H.shake) : 0.35 + 1.0 * Math.min(1.5, H.shake)) : 0; // 豆板醤はかたむけるだけでぼとっと落ちる
+      const Lq = SEA_LIQ[H.k];
+      if (Lq) {
+        if (pouring) {
+          const y0 = m.position.y; setStream(seaStream, [new V(H.sx, y0, H.sz), new V(H.sx + 0.03, (y0 + level) / 2, H.sz), new V(H.sx + 0.05, level, H.sz)], Lq[1], Lq[1] * 0.7, new THREE.Color(Lq[0]));
+          while (H.acc > Lq[2]) { H.acc -= Lq[2]; if (H.k === "dashi") { level += 0.02; soup.visible = true; } else if (H.k === "rayu" && isDry()) { coatAdd("rayu", Lq[2]); oilPour(H.sx + rnd(-0.1, 0.1), H.sz + rnd(-0.1, 0.1), Lq[2]); } /* 汁なし: 鍋の底に油がたまる */ else { addDep(H.k, H.sx + rnd(-0.15, 0.15), H.sz + rnd(-0.15, 0.15), Lq[2]); if (H.k !== "rayu") { level += 0.006; if (level > 0.05) soup.visible = true; } } } // スープ・トマト・白湯は量がふえる
+          if (level > POT_RIM) { potOverflow(level - POT_RIM); level = POT_RIM; } // ふちを越えた分はあふれる
+          if (Math.random() < dt * 25) bubbles.push({ x: H.sx + rnd(-0.2, 0.2), z: H.sz + rnd(-0.2, 0.2), t: 0 });
+          flowSound(H.k === "rayu" ? 0.07 : H.k === "dashi" ? 0.2 : 0.14, Lq[3] + (H.k === "dashi" ? level * 120 : 0));
+        } else { seaStream.visible = false; flowSound(0, 0); }
+      } else {
+        seaStream.visible = false;
+        const per = H.k === "douban" ? 0.45 : H.k === "ichimi" ? 0.03 : 0.04, amt = H.k === "douban" ? 0.4 : H.k === "ichimi" ? 0.033 : 0.045;
+        while (H.acc > per && grains.length < GN) { H.acc -= per; grains.push({ k: H.k, amt, x: H.sx + rnd(-0.08, 0.08), y: m.position.y - 0.05, z: H.sz + rnd(-0.08, 0.08), vx: rnd(-0.5, 0.5), vy: H.k === "douban" ? -0.5 : rnd(-1, 0.3), vz: rnd(-0.5, 0.5), rx: rnd(0, 6), ry: rnd(0, 6), s: H.k === "douban" ? [0.3, 0.17, 0.26] : H.k === "ichimi" ? [rnd(0.05, 0.1), 0.014, rnd(0.03, 0.05)] : [0.06, 0.055, 0.06], c: H.k === "douban" ? 0x6e1608 : H.k === "ichimi" ? (Math.random() < 0.5 ? 0x8a1006 : 0xc8240e) : 0x4a2414 }); }
+        if (shaker && pouring && (H.sh = (H.sh || 0) + dt * (0.5 + H.shake)) > 0.09) { H.sh = 0; burst(rnd(4200, 6200), 2, 0.05, 0.03 + 0.03 * Math.min(1, H.shake)); } // シャカシャカ
+        flowSound(0, 0);
+      }
+    } else { seaStream.visible = false; }
+    // 粒が落ちる → スープ面に着いたら、浮く・とける
+    const dry = isDry();
+    for (const g of grains) {
+      g.vy -= 9 * dt; g.x += g.vx * dt; g.y += g.vy * dt; g.z += g.vz * dt; g.rx += dt * 6;
+      if (dry) { // スープがない: いちばん上の具に当たったらくっつく。具がない所は鍋の底へ
+        let hit = null; for (const p of pieces) { if (Math.hypot(g.x - p.x, g.z - p.z) < p.rh + 0.06 && g.y <= p.y + p.hh + 0.02 && g.y > p.y - p.hh - 0.15 && (!hit || p.y > hit.y)) hit = p; }
+        if (hit || g.y <= 0.08) { g.done = true; coatAdd(g.k, g.amt); if (hit) stickSpeck(hit, g); else floorSpeck(g); if (g.k === "douban") plop(); }
+      } else if (g.y <= level) { g.done = true; addDep(g.k, g.x, g.z, g.amt); if (g.k === "douban") plop(); }
+    }
+    if (grains.some((g) => g.done)) grains = grains.filter((g) => !g.done);
+    grainIM.count = grains.length;
+    grains.forEach((g, i) => { _gq.setFromEuler(_ge.set(g.rx, g.ry, g.rx * 0.5)); _gm.compose(_gv.set(g.x, g.y, g.z), _gq, _gs.set(g.s[0], g.s[1], g.s[2])); grainIM.setMatrixAt(i, _gm); grainIM.setColorAt(i, _gc.set(g.c).convertSRGBToLinear()); });
+    grainIM.instanceMatrix.needsUpdate = true; if (grainIM.instanceColor) grainIM.instanceColor.needsUpdate = true;
+  }
+  const _gv = new V(), _gs = new V();
+  // 鍋からあふれる: ふちから外側を伝って流れ落ち、コンロに水たまり・火にかかってジュワッ
+  const POT_RIM = POT_H - 0.1, brothGood = () => [0.78, 1.3].map((k) => POT_V0 / (Math.PI * RP * RP) * k / POT_RIM); // ちょうどいい量(鍋の高さに対する割合)
+  let potSpill = 0, boiledOver = false, spillT = 0, spillToast = 0;
+  // あふれる場所はいつも同じ(鍋の手前・少し左): 水平な鍋は、注ぐ向きに関係なく同じ所からあふれる
+  const SPILL_ANG = Math.PI / 2 + 0.35;
+  // ふちを越えて外側を伝う、うすいスープの膜(すじ模様が下へ流れる)
+  const spillAlpha = ctex(128, 256, (g, w, h) => {
+    g.fillStyle = "#000"; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 26; i++) { const x = rnd(0, w), sw = rnd(3, 14), a = rnd(0.45, 1); const gr = g.createLinearGradient(x - sw, 0, x + sw, 0); gr.addColorStop(0, "rgba(255,255,255,0)"); gr.addColorStop(0.5, `rgba(255,255,255,${a})`); gr.addColorStop(1, "rgba(255,255,255,0)"); g.fillStyle = gr; g.fillRect(x - sw, 0, sw * 2, h); }
+    for (let i = 0; i < 40; i++) { g.fillStyle = `rgba(0,0,0,${rnd(0.2, 0.6)})`; g.fillRect(rnd(0, w), rnd(0, h), rnd(2, 8), rnd(10, 40)); } // すじの切れ目
+  }, [1, 2]);
+  spillAlpha.encoding = THREE.LinearEncoding;
+  const spillMat = new THREE.MeshPhysicalMaterial({ color: 0x8a4a20, roughness: 0.08, clearcoat: 1, clearcoatRoughness: 0.05, transparent: true, opacity: 0, alphaMap: spillAlpha, depthWrite: false, side: THREE.DoubleSide });
+  const spillSheet = (() => {
+    const prof = new THREE.CatmullRomCurve3([[RP - 0.3, POT_H - 0.04], [POT_RO - 0.03, POT_H + 0.055], [POT_RO + 0.075, POT_H - 0.06], [POT_RO + 0.065, POT_H - 0.6], [POT_RO + 0.06, 0.35], [POT_RO + 0.09, 0.0], [POT_RO + 0.2, STOVE_Y + 0.02]].map(([r, y]) => new V(r, y, 0)));
+    const NU = 22, NV = 40, pos = [], uv = [], idx = [], c = new V();
+    for (let j = 0; j <= NV; j++) {
+      const sv = j / NV; prof.getPointAt(sv, c); const half = 0.32 * (1 - 0.5 * sv); // 下ほど細くまとまる
+      for (let i = 0; i <= NU; i++) { const u = i / NU, a = SPILL_ANG + (u - 0.5) * 2 * half; pos.push(Math.cos(a) * c.x, c.y, Math.sin(a) * c.x); uv.push(u, 1 - sv); }
+    }
+    for (let j = 0; j < NV; j++) for (let i = 0; i < NU; i++) { const a = j * (NU + 1) + i, b = a + NU + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
+    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals();
+    const m = new THREE.Mesh(g, spillMat); m.renderOrder = 2; m.visible = false; scene.add(m); return m;
+  })();
+  // コンロの水たまり: ふちがでこぼこの形。鍋の足もとから手前へ広がる
+  const potPuddleMat = new THREE.MeshPhysicalMaterial({ color: 0x8a4a20, roughness: 0.04, clearcoat: 1, transparent: true, opacity: 0.8, depthWrite: false });
+  const potPuddle = (() => {
+    const sh = new THREE.Shape(), ph = [rnd(0, 6), rnd(0, 6), rnd(0, 6)];
+    for (let i = 0; i <= 64; i++) { const a = i / 64 * 6.283, r = 1 + 0.16 * Math.sin(3 * a + ph[0]) + 0.09 * Math.sin(5 * a + ph[1]) + 0.05 * Math.sin(9 * a + ph[2]); const x = Math.cos(a) * r * 1.35, y = Math.sin(a) * r * 0.85; i ? sh.lineTo(x, y) : sh.moveTo(x, y); }
+    const m = new THREE.Mesh(new THREE.ShapeGeometry(sh, 2), potPuddleMat); m.rotation.set(-Math.PI / 2, 0, -(SPILL_ANG - Math.PI / 2)); // 鍋のふちにそって横長
+    m.visible = false; m.renderOrder = 1; scene.add(m); return m;
+  })();
+  function potOverflow(amt) {
+    potSpill += amt; spillT = Math.min(0.8, spillT + 0.25);
+    if (performance.now() - spillToast > 2500) { spillToast = performance.now(); toast(stage === 3 ? "ふきこぼれた〜！" : "あふれた〜！火が…！", 1400); tone(240, 0.3, "triangle", 0.12); }
+  }
+  function stepSpill(dt) {
+    // 煮立つと泡で持ち上がる: 入れすぎだと吹きこぼれて、スープがへる
+    if (stage === 3 && cooking && level > POT_RIM - 0.3) { const d = Math.min(level - (POT_RIM - 0.3), dt * 0.12); level -= d; boiledOver = true; potOverflow(d); if (Math.random() < dt * 40) bubbles.push({ x: rnd(-R_IN + 0.4, R_IN - 0.4), z: rnd(0, R_IN - 0.4), t: 0 }); }
+    const fire = pot.userData.fire, fm = fire[0].material, on = pot.visible && stage <= 3;
+    spillT = Math.max(0, spillT - dt);
+    const k = on ? Math.min(1, spillT / 0.35) : 0; // 注ぐのをやめると、膜はすっと消える
+    spillSheet.visible = k > 0.01; if (spillSheet.visible) { spillMat.opacity = 0.9 * k; spillMat.color.copy(soupCol).convertSRGBToLinear(); spillAlpha.offset.y += dt * 1.6; } // すじが下へ流れる
+    if (potSpill > 0.02 && on) {
+      potPuddle.visible = true; potPuddleMat.color.copy(soupCol).convertSRGBToLinear().multiplyScalar(0.85);
+      const sc = Math.min(1.9, 0.35 + Math.sqrt(potSpill) * 0.8), d = POT_RO + 0.15 + sc * 0.55;
+      potPuddle.position.set(Math.cos(SPILL_ANG) * d, STOVE_Y + 0.008, Math.sin(SPILL_ANG) * d); potPuddle.scale.setScalar(sc);
+    } else potPuddle.visible = false;
+    if (k > 0.05) { if (Math.random() < dt * 9 * k) burst(rnd(2200, 4200), 0.7, rnd(0.15, 0.35), 0.09); fm.color.setHex(0xff8a2a); } // ジュワッ・火にかかって赤くなる
+    else fm.color.setHex(0x2a5cff);
+  }
+  function updBroth() {
+    if (stage !== 2) return; const r = level / POT_RIM;
+    $("brothBar").style.width = Math.min(100, r * 100) + "%"; $("brothTxt").textContent = potSpill > 0.02 ? `あふれた！（${Math.round(r * 100)}%）` : `鍋のスープ ${Math.round(r * 100)}%`;
+  }
+  // ---- 汁なしの味つけ: 具にからんだ量(赤み・油) と、具にくっついた粒 ----
+  const coat = { red: 0, oil: 0 }, isDry = () => !soup.visible || level < 0.25;
+  // 汁なしのラー油: 鍋の底に赤い油だまり。同じ所に注ぐと広がり、別の所なら別の油だまり。あとからスープを注ぐと油はスープの上に浮く
+  const oilPools = [], oilMat = new THREE.MeshPhysicalMaterial({ color: lin(0xb8280c), roughness: 0.04, clearcoat: 1, clearcoatRoughness: 0.03, transparent: true, opacity: 0.9, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2 });
+  const oilGeo = (() => { const sh = new THREE.Shape(), ph = [rnd(0, 6), rnd(0, 6)]; for (let i = 0; i <= 48; i++) { const a = i / 48 * 6.283, r = 1 + 0.1 * Math.sin(3 * a + ph[0]) + 0.06 * Math.sin(7 * a + ph[1]); const x = Math.cos(a) * r, y = Math.sin(a) * r; i ? sh.lineTo(x, y) : sh.moveTo(x, y); } const g = new THREE.ShapeGeometry(sh, 2); g.rotateX(-Math.PI / 2); return g; })();
+  function oilPour(x, z, amt) {
+    let o = oilPools.find((q) => Math.hypot(q.x - x, q.z - z) < q.r * 0.8 + 0.25);
+    if (!o && oilPools.length >= 14) o = oilPools.reduce((b, q) => (Math.hypot(q.x - x, q.z - z) < Math.hypot(b.x - x, b.z - z) ? q : b));
+    if (!o) { const m = new THREE.Mesh(oilGeo, oilMat); m.rotation.y = rnd(0, 6.28); m.renderOrder = 1; pot.add(m); o = { x, z, v: 0, r: 0, m }; oilPools.push(o); }
+    o.v += amt; o.r = Math.min(RP - 0.15, 0.2 + Math.sqrt(o.v) * 0.6); // 量がふえると広がる(鍋の底いっぱいまで)
+    const d = Math.hypot(o.x, o.z), lim = RP - 0.1 - o.r; if (d > Math.max(0, lim)) { const k = Math.max(0, lim) / (d || 1); o.x *= k; o.z *= k; } // かべで止まって、まん中へ寄る
+    o.m.position.set(o.x, 0.072 + oilPools.indexOf(o) * 0.0005, o.z); o.m.scale.setScalar(o.r);
+  }
+  function oilToSoup() { // スープが入ったら、油だまりはスープの上に浮く(ラー油の粒に)
+    for (const o of oilPools) { for (let i = 0; i < Math.min(30, 6 + o.v * 30); i++) { const a = rnd(0, 6.28), r = Math.sqrt(Math.random()) * o.r, [u, v] = soupUV(o.x + Math.cos(a) * r, o.z + Math.sin(a) * r); if (u * u + v * v < 0.92) deps.push({ k: "rayu", u, v, t: 0, f: 0.25, amt: 0, r: rnd(8, 20), rot: 0 }); } pot.remove(o.m); }
+    oilPools.length = 0; soupDirty = true;
+  }
+  const COAT_W = { ichimi: 1, douban: 1.3, rayu: 0.7, sansho: 0.15 };
+  function coatAdd(k, amt) { seaAmt[k] = (seaAmt[k] || 0) + amt; coat.red += amt * (COAT_W[k] || 0); if (k === "rayu") coat.oil += amt; }
+  const SPECK = { ichimi: [new THREE.BoxGeometry(0.075, 0.014, 0.045), 0xb4180a], sansho: [new THREE.SphereGeometry(0.032, 6, 4), 0x4a2414], douban: [new THREE.SphereGeometry(0.075, 8, 5), 0x6e1608] };
+  const speckMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.45 }), speckDirty = new Set(), floorSpk = {}, _sq = new THREE.Quaternion(), _sm = new THREE.Matrix4(), _se = new THREE.Euler();
+  let speckT = 0;
+  function speckAdd(h, parent, k, pos, sc) { h.sp = h.sp || { list: [], mesh: null, parent }; h.sp.list.push({ k, pos, rot: [rnd(0, 6), rnd(0, 6), rnd(0, 6)], sc }); speckDirty.add(h); }
+  function speckFlush() { // くっついた粒を、具ごとに1つの形へまとめ直す(0.12秒に1回)
+    for (const h of speckDirty) {
+      const sp = h.sp, items = sp.list.map((q) => { const g = SPECK[q.k][0].clone(); g.applyMatrix4(_sm.compose(q.pos, _sq.setFromEuler(_se.set(q.rot[0], q.rot[1], q.rot[2])), q.sc)); return { g, c: SPECK[q.k][1] }; });
+      const geo = mergeGeos(items); for (const it of items) it.g.dispose();
+      if (sp.mesh) { sp.mesh.geometry.dispose(); sp.mesh.geometry = geo; } else { sp.mesh = new THREE.Mesh(geo, speckMat); sp.mesh.castShadow = true; sp.parent.add(sp.mesh); }
+    }
+    speckDirty.clear();
+  }
+  function stickSpeck(p, g) { speckAdd(p, p.mesh, g.k, p.mesh.worldToLocal(new V(g.x, p.y + p.hh * 0.85, g.z)), g.k === "douban" ? new V(1.2, 0.45, 1) : new V(1, 1, 1)); }
+  function floorSpeck(g) { speckAdd(floorSpk, pot, g.k, new V(g.x, 0.075, g.z), g.k === "douban" ? new V(1.3, 0.35, 1.1) : new V(1, 1, 1)); } // 具のない所に落ちた粒は、鍋の底に残る
+  function updSeaUI() {
+    const sv = spiceVal(), nv = numbVal(); spice = Math.round(sv); numb = Math.round(nv);
+    $("spiceT").textContent = spice < SP.length ? SP[spice] : `${spice >= 15 ? "火山級" : spice >= 10 ? "人間やめた辛さ" : "極限の辛さ"} Lv.${spice}`;
+    $("numbT").textContent = numb < NB.length ? NB[numb] : `${numb >= 15 ? "宇宙しびれ" : numb >= 10 ? "口が消えた" : "感覚がない"} Lv.${numb}`;
+    const bar = (el, v) => { el.style.width = Math.min(100, v / 6 * 100) + "%"; el.style.background = v > 6.5 ? `linear-gradient(90deg,#e0352b,#7a0d05 ${Math.max(10, 100 - (v - 6) * 6)}%,#2a0300)` : ""; };
+    bar($("spiceBar"), sv); bar($("numbBar"), nv);
+    soupType = seaAmt.tomato >= 1 && seaAmt.tomato >= seaAmt.paitan ? "tomato" : seaAmt.paitan >= 1 ? "baitang" : "mala"; // いちばん多く入れたもとで決まる
+    $("soupT").textContent = soupType === "mala" ? "麻辣（だし）" : soupType === "tomato" ? `トマト（${seaAmt.tomato.toFixed(1)}）` : `白湯（${seaAmt.paitan.toFixed(1)}）`;
+  }
+  const grabRay = new THREE.Raycaster(), _gp = new THREE.Plane(new V(0, 1, 0), 0), _gh = new V();
+  const ndc = (e) => { const r = box.getBoundingClientRect(); return { x: (e.clientX - r.left) / r.width * 2 - 1, y: -(e.clientY - r.top) / r.height * 2 + 1 }; };
+  const planeAt = (e, h) => { grabRay.setFromCamera(ndc(e), camera); _gp.constant = -h; return grabRay.ray.intersectPlane(_gp, _gh) ? _gh.clone() : null; };
+  box.addEventListener("pointerdown", (e) => {
+    if (stage !== 2 || seaHold) return; grabRay.setFromCamera(ndc(e), camera); const hit = grabRay.intersectObjects(seaHit, false)[0]; if (!hit) return;
+    e.stopImmediatePropagation(); unlock(); if (fill && fill.t < 1) { toast("スープを張ってるよ…"); return; }
+    const k = hit.object.userData.k;
+    const m = seaModel[k], p = planeAt(e, level + 1.2) || m.position;
+    seaHold = { k, id: e.pointerId, x: p.x, z: p.z, sx: m.position.x, sz: m.position.z, a: 0, acc: 0, shake: 0, lx: e.clientX, ly: e.clientY, lt: performance.now() }; seaLabel[k].visible = false;
+    if (k === "douban") seaModel.douban.userData.paste.scale.set(1, 0.55, 1.2); tone(700, 0.05, "sine", 0.05);
+    try { box.setPointerCapture(e.pointerId); } catch {}
+  }, { capture: true });
+  box.addEventListener("pointermove", (e) => {
+    const H = seaHold; if (!H || H.id !== e.pointerId) return; e.stopImmediatePropagation();
+    const p = planeAt(e, level + 1.2); if (p) { const rr = Math.hypot(p.x, p.z); if (rr > 6) { p.x *= 6 / rr; p.z *= 6 / rr; } H.x = p.x; H.z = p.z; }
+    const now = performance.now(), dtm = Math.max(8, now - H.lt), sp = Math.hypot(e.clientX - H.lx, e.clientY - H.ly) / dtm * 1000; // ゆびの速さ(px/秒) → ふっている強さ
+    H.shake = Math.min(2, H.shake + Math.max(0, sp - 250) / 2500); H.lx = e.clientX; H.ly = e.clientY; H.lt = now;
+  }, { capture: true });
+  const seaEnd = (e) => { if (!seaHold || seaHold.id !== e.pointerId) return; e.stopImmediatePropagation(); seaLabel[seaHold.k].visible = stage === 2; seaHold = null; seaStream.visible = false; flowSound(0, 0); };
+  box.addEventListener("pointerup", seaEnd, { capture: true }); box.addEventListener("pointercancel", seaEnd, { capture: true });
+  // ---- 4: 盛りつけ(寸胴をかたむけて丼に注ぐ) ----
+  // 丼の内側の形から「高さ→スープの量」の表を作る(注いだ量で、丼のスープの高さが決まる)
+  const bowlR = (y) => { if (y <= 0) return 0.01; for (let i = 1; i < PROF.length; i++) { const a = PROF[i - 1], b = PROF[i]; if (y <= b.y) return a.x + (b.x - a.x) * (y - a.y) / Math.max(1e-6, b.y - a.y); } return R_IN; };
+  const BV = [0]; for (let i = 1; i <= 200; i++) { const r = bowlR(DEPTH * (i - 0.5) / 200); BV.push(BV[i - 1] + Math.PI * r * r * DEPTH / 200); }
+  const bvAt = (fr) => BV[Math.round(Math.max(0, Math.min(1, fr)) * 200)];
+  const yOfBV = (v) => { if (v <= 0) return 0; for (let i = 1; i <= 200; i++) if (BV[i] >= v) return DEPTH * (i - 1 + (v - BV[i - 1]) / Math.max(1e-6, BV[i] - BV[i - 1])) / 200; return DEPTH; };
+  const BOWL_GOOD = [0.68, 0.88], BOWL_FULL = 0.96;
+  const POT_V0 = bvAt(0.8) * 1.5; // 寸胴のスープは、丼にちょうどいい量の1.5倍(全部注ぐとあふれる → ちょうどいい所で止める)
+  const PIVOT = new V(-R_IN * 0.3, DEPTH + POT_H + 0.35, 0), POT_START = new V(POT_RO, POT_H, 0);
+  const potSoup = new THREE.Mesh(soup.geometry, soup.material); potSoup.rotation.x = -Math.PI / 2; potSoup.renderOrder = 1; potSoup.visible = false; scene.add(potSoup);
+  const puddleMat = new THREE.MeshPhysicalMaterial({ color: 0x9a2a10, roughness: 0.05, clearcoat: 1, transparent: true, opacity: 0.85 }), puddle = new THREE.Mesh(new THREE.CircleGeometry(1, 40), puddleMat); puddle.rotation.x = -Math.PI / 2; puddle.position.set(-R_IN - 0.6, 0.015, 0.8); puddle.visible = false; scene.add(puddle);
+  let pour = null, potPieces = [];
+  function startPour() {
+    potPieces = pieces.splice(0); for (const p of potPieces) { p.lx = p.x; p.ly = p.y; p.lz = p.z; pot.add(p.mesh); } // 具は鍋といっしょに動く
+    for (const o of pot.userData.stove) o.visible = false;
+    pour = { lift: 0, tilt: 0, tgt: 0, tl: 0, tlv: 0, potV: Math.PI * RP * RP * level, bowlV: 0, spill: 0, over: false, drag: null, left: 0, splashT: 0 };
+    vesselKind = "bowl"; vessel.material = ceramic; vessel.visible = true; vessel.position.x = 9; table.visible = true; soup.visible = false; level = 0; potSoup.visible = true;
+    $("pzone").style.left = BOWL_GOOD[0] * 100 + "%"; $("pzone").style.width = (BOWL_GOOD[1] - BOWL_GOOD[0]) * 100 + "%";
+    show(4, "4/6 盛りつけ", noSoup ? "鍋を上へひっぱって、大きくかたむけて具を丼へ（はなすと戻る）" : "鍋を上へひっぱって、かたむけて丼に注ごう（はなすと戻る）"); placeCam();
+  }
+  function releasePiece(p, toss) {
+    const w = new V(); if (toss) p.mesh.getWorldPosition(w); else pot.localToWorld(w.set(RP + 0.15, POT_H + 0.06 + p.hh, Math.max(-0.7, Math.min(0.7, p.lz)))); scene.attach(p.mesh);
+    p.x = w.x; p.y = w.y + p.cy; p.z = w.z; p.vx = toss ? rnd(-0.5, 0.5) : rnd(1.0, 1.8); p.vy = toss ? 0 : 0.4; p.vz = rnd(-0.4, 0.4); p.av.set(rnd(-1, 1), rnd(-0.6, 0.6), rnd(-1, 1));
+    potPieces.splice(potPieces.indexOf(p), 1); pieces.push(p); if (Math.random() < 0.4) plop();
+  }
+  const _lip = new V(), _ax0 = new V();
+  // 液体の帯: 点の列にそって、横はば(W)と厚み(T)が変わる断面。頂点の数は固定で、毎フレーム位置だけ書きかえる
+  const streamAlpha = spillAlpha.clone(); streamAlpha.needsUpdate = true; streamAlpha.repeat.set(1, 3);
+  function makeRibbon(NP, RS) {
+    const n = NP * (RS + 1), g = new THREE.BufferGeometry(), idx = [];
+    g.setAttribute("position", new THREE.BufferAttribute(new Float32Array(n * 3), 3)); g.setAttribute("uv", new THREE.BufferAttribute(new Float32Array(n * 2), 2));
+    for (let i = 0; i < NP - 1; i++) for (let j = 0; j < RS; j++) { const a = i * (RS + 1) + j, b = a + RS + 1; idx.push(a, b, a + 1, a + 1, b, b + 1); }
+    g.setIndex(idx);
+    const m = new THREE.Mesh(g, new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.05, clearcoat: 1, clearcoatRoughness: 0.03, transparent: true, opacity: 0.92, alphaMap: streamAlpha, side: THREE.DoubleSide, depthWrite: false, envMapIntensity: 1.2 }));
+    m.userData = { NP, RS }; m.frustumCulled = false; m.visible = false; m.renderOrder = 3; scene.add(m); return m;
+  }
+  const _rc = new V(), _rt = new V(), _rn = new V(), _rs = new V(0, 0, 1);
+  function setRibbon(m, pts, wF, tF, col, wob) {
+    if (!pts || pts.length < 2) { m.visible = false; return; }
+    const { NP, RS } = m.userData, curve = new THREE.CatmullRomCurve3(pts), pa = m.geometry.attributes.position, ua = m.geometry.attributes.uv, len = curve.getLength(), now = performance.now() / 1000;
+    for (let i = 0; i < NP; i++) {
+      const t = i / (NP - 1); curve.getPointAt(t, _rc); curve.getTangentAt(t, _rt); _rn.crossVectors(_rt, _rs).normalize();
+      const W = wF(t), T = tF(t), wz = wob ? Math.sin(now * 9 + i * 0.8) * wob * t : 0;
+      for (let j = 0; j <= RS; j++) { const a = j / RS * 6.283, k = i * (RS + 1) + j, cs = Math.cos(a) * W, sn = Math.sin(a) * T; pa.setXYZ(k, _rc.x + _rn.x * sn, _rc.y + _rn.y * sn, _rc.z + cs + wz); ua.setXY(k, j / RS, t * len / 1.2); }
+    }
+    pa.needsUpdate = true; ua.needsUpdate = true; m.geometry.computeVertexNormals(); m.geometry.computeBoundingSphere();
+    m.material.color.copy(col).convertSRGBToLinear(); m.visible = true;
+  }
+  const pourRib = makeRibbon(40, 12), dribRib = makeRibbon(16, 8);
+  // しぶき・しずく(小さな玉)と、丼の面に広がる波紋
+  const DN = 260, dropIM = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 8, 6), new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.05, clearcoat: 1 }), DN); dropIM.count = 0; dropIM.frustumCulled = false; scene.add(dropIM);
+  let drops = []; const _dm = new THREE.Matrix4(), _dropQ = new THREE.Quaternion(), _dv = new V(), _ds = new V();
+  const rings = []; for (let i = 0; i < 10; i++) { const r = new THREE.Mesh(new THREE.RingGeometry(0.82, 1, 40), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0, depthWrite: false })); r.rotation.x = -Math.PI / 2; r.visible = false; r.renderOrder = 2; scene.add(r); rings.push({ m: r, t: 9 }); }
+  function ringAt(x, z, big) { const r = rings.reduce((a, b) => (b.t > a.t ? b : a)); r.t = 0; r.x = x; r.z = z; r.big = big; }
+  function dropSurf(x, z) { const rr = Math.hypot(x, z); return rr < R_IN + 0.1 ? { y: Math.max(level, floorYBowl(rr)), inB: true } : { y: 0, inB: false }; }
+  function stepDrops(dt) {
+    for (const d of drops) { d.vy -= 9.8 * dt; d.x += d.vx * dt; d.y += d.vy * dt; d.z += d.vz * dt; const sf = dropSurf(d.x, d.z); if (d.y <= sf.y) { d.done = true; if (sf.inB && level > 0.05 && d.s > 0.035 && Math.random() < 0.5) ringAt(d.x, d.z, false); if (d.drip && Math.random() < 0.6) tone(rnd(1100, 1600), 0.05, "sine", 0.025); } }
+    if (drops.some((d) => d.done)) drops = drops.filter((d) => !d.done);
+    dropIM.count = drops.length; dropIM.material.color.copy(soupCol).convertSRGBToLinear();
+    drops.forEach((d, i) => { const sp = Math.min(2.2, 1 + Math.hypot(d.vx, d.vy, d.vz) * 0.08); _dm.compose(_dv.set(d.x, d.y, d.z), _dropQ, _ds.set(d.s, d.s * sp, d.s)); dropIM.setMatrixAt(i, _dm); }); dropIM.instanceMatrix.needsUpdate = true;
+    for (const r of rings) { r.t += dt; const life = r.big ? 0.75 : 0.5, k = r.t / life; r.m.visible = k < 1 && level > 0.05; if (!r.m.visible) continue; const sc = (r.big ? 0.25 : 0.1) + k * (r.big ? 1.3 : 0.55); r.m.scale.setScalar(sc); r.m.position.set(r.x, level + 0.015, r.z); r.m.material.opacity = 0.42 * (1 - k); }
+  }
+  function stepPour(dt) {
+    const P = pour;
+    if (P.lift < 1) { // 鍋を持ち上げて丼の左上へ・丼がすべってくる
+      P.lift = Math.min(1, P.lift + dt / 0.9); const e = P.lift * P.lift * (3 - 2 * P.lift);
+      potRig.position.lerpVectors(POT_START, PIVOT, e); vessel.position.x = 9 * (1 - e);
+    }
+    const ready = P.lift >= 1, tgt = ready && P.drag ? P.tgt : 0;
+    P.tilt += (tgt - P.tilt) * Math.min(1, dt * 9); potRig.rotation.z = -P.tilt;
+    const acc = (P.tilt - P.tl) * 70 - P.tlv * 6; P.tlv += acc * dt; P.tl += P.tlv * dt; // 中のスープは少しおくれて、ゆらっとゆれる
+    // かたむいた筒の中の液面: 量が同じなら、まん中の高さは変わらない。下がわのふちを越えた分が流れ出る
+    const ha = P.potV / (Math.PI * RP * RP), head = ha + RP * Math.tan(Math.max(0, Math.min(1.3, P.tl))) - (POT_H - 0.05);
+    let Q = head > 0 && P.potV > 0.001 ? 11 * Math.pow(head, 1.5) + 0.4 : 0; Q = Math.min(Q, P.potV / Math.max(dt, 1e-3));
+    P.potV = Math.max(0, P.potV - Q * dt);
+    const fl = Math.min(1, Math.sqrt(Q / 14)), now = performance.now() / 1000;
+    if (Q > 0.02) {
+      // 鍋の中の液面 → ふちを越える(広い膜) → 落ちながら細い流れにまとまる(放物線)
+      const start = pot.localToWorld(new V(RP - 0.28, POT_H - 0.04, 0)), over = pot.localToWorld(new V(RP + 0.04, POT_H + 0.05, 0));
+      pot.localToWorld(_lip.set(RP + 0.12, POT_H + 0.02, 0));
+      const v0 = 0.5 + Math.sqrt(2 * 9 * Math.max(0, head)) * 0.75, a = -P.tilt * 0.6, pts = [start, over];
+      let x = _lip.x, y = _lip.y, vx = v0 * Math.cos(a), vy = v0 * Math.sin(a), landIn = true;
+      for (let i = 0; i < 60; i++) {
+        pts.push(new V(x, y, 0)); const ddt = 0.025; vy -= 9.8 * ddt; x += vx * ddt; y += vy * ddt;
+        const r = Math.abs(x), inB = r < R_IN + 0.1, bot = inB ? Math.max(level, floorYBowl(r)) : 0;
+        if (y <= bot) { pts.push(new V(x, bot, 0)); landIn = inB; break; }
+      }
+      const W0 = 0.14 + 0.5 * fl, r = 0.03 + 0.11 * fl, e = (t) => Math.exp(-Math.max(0, t - 0.1) * 7);
+      setRibbon(pourRib, pts, (t) => r + (W0 - r) * e(t), (t) => 0.014 + (r - 0.014) * (1 - e(t)), soupCol, 0.03 + 0.04 * fl);
+      streamAlpha.offset.y -= dt * (2 + 3 * fl); // すじが流れる
+      const land = pts[pts.length - 1];
+      if (landIn) P.bowlV += Q * dt; else P.spill += Q * dt;
+      // しぶき(勢いがあるほど多く高く)・波紋・あわ
+      P.dropAcc = (P.dropAcc || 0) + dt * (10 + 60 * fl);
+      while (P.dropAcc > 1 && drops.length < DN) { P.dropAcc -= 1; const sp = 0.6 + 1.6 * fl; drops.push({ x: land.x + rnd(-0.1, 0.1), y: land.y + 0.02, z: land.z + rnd(-0.1, 0.1), vx: rnd(-1, 1) * sp, vy: rnd(0.8, 2.2) * sp, vz: rnd(-1, 1) * sp, s: rnd(0.02, 0.05) * (0.7 + fl * 0.6) }); }
+      if ((P.ringT = (P.ringT || 0) - dt) < 0) { P.ringT = 0.11; if (landIn) ringAt(land.x, land.z, true); }
+      if ((P.splashT -= dt) < 0) { P.splashT = 0.04; bubbles.push({ x: land.x + rnd(-0.25, 0.25), z: rnd(-0.3, 0.3), t: 0 }); }
+      flowSound(Math.min(0.32, 0.06 + Q * 0.025), 380 + 500 * (1 - Math.min(1, level / DEPTH)));
+      P.after = 1;
+    } else { pourRib.visible = false; flowSound(0, 0); P.after = Math.max(0, (P.after || 0) - dt / 1.6); }
+    pourStream.visible = false;
+    // ゆっくり注ぐと、スープが鍋の外がわを伝って、底のふちからぽたぽた落ちる(止めたあとも少し)
+    const fd = Q > 0.02 ? Math.max(0, 1 - Q / 2.5) * 0.9 : (P.after || 0) * 0.7;
+    if (fd > 0.03 && P.lift >= 1) {
+      const lp = [[POT_RO + 0.03, POT_H + 0.03], [POT_RO + 0.06, POT_H - 0.18], [POT_RO + 0.05, POT_H * 0.5], [POT_RO + 0.03, 0.2], [POT_RO - 0.05, -0.01]].map(([lx, ly]) => pot.localToWorld(new V(lx, ly, 0)));
+      const w = 0.03 + 0.08 * fd; setRibbon(dribRib, lp, (t) => w * (1 - 0.45 * t), () => 0.012, soupCol, 0);
+      P.dripAcc = (P.dripAcc || 0) + dt * (1 + 7 * fd);
+      while (P.dripAcc > 1 && drops.length < DN) { P.dripAcc -= 1; const b = lp[lp.length - 1]; drops.push({ x: b.x + rnd(-0.04, 0.04), y: b.y - 0.03, z: b.z + rnd(-0.05, 0.05), vx: rnd(-0.1, 0.1), vy: -0.2, vz: 0, s: rnd(0.03, 0.05), drip: true }); }
+      if (Q <= 0.02 && Math.random() < dt * 5 * fd && drops.length < DN) { pot.localToWorld(_lip.set(RP + 0.12, POT_H + 0.02, rnd(-0.1, 0.1))); drops.push({ x: _lip.x, y: _lip.y, z: _lip.z, vx: 0.2, vy: 0, vz: 0, s: rnd(0.03, 0.045), drip: true }); } // 口からもぽたっ
+    } else dribRib.visible = false;
+    stepDrops(dt);
+    // 丼からあふれる
+    const cap = bvAt(BOWL_FULL); if (P.bowlV > cap) { P.spill += P.bowlV - cap; P.bowlV = cap; if (!P.over) { P.over = true; toast("あふれた〜！"); tone(260, 0.25, "triangle", 0.12); } }
+    if (P.spill > 0.05) { puddle.visible = true; puddleMat.color.copy(soupCol).convertSRGBToLinear(); puddle.scale.setScalar(Math.min(4.5, 0.4 + Math.sqrt(P.spill) * 1.1)); puddle.position.x = P.over ? R_IN + 0.9 : -R_IN - 0.6; }
+    level = yOfBV(P.bowlV); soup.visible = P.bowlV > 0.02;
+    // 鍋の中のスープ面(いつも水平。かたむいた筒の切り口=だ円)
+    potSoup.visible = P.potV > 0.02;
+    if (potSoup.visible) {
+      const tt = Math.tan(Math.max(0.001, Math.min(1.3, P.tilt))), xl = Math.max(-RP, -ha / tt), xh = Math.min(RP, (POT_H - 0.02 - ha) / tt), xc = (xl + xh) / 2, a = Math.max(0, (xh - xl) / 2), c = Math.max(0.3, Math.cos(P.tilt)); // 液面は、反対がわのかべ(か底)から、丼がわのかべ(か鍋の口)まで。口から外へはみ出さない
+      if (a < 0.03) potSoup.visible = false;
+      pot.localToWorld(_ax0.set(xc, 0.06 + ha + xc * tt, 0)); potSoup.position.copy(_ax0); potSoup.scale.set(a / c, Math.sqrt(Math.max(0.01, RP * RP - xc * xc)), 1);
+    }
+    // 鍋の中の具: スープに浮いて、流れといっしょに口の方へ → 注ぎ口から丼へ
+    const tn = Math.tan(Math.max(0, Math.min(1.3, P.tl)));
+    for (const p of [...potPieces]) {
+      const lim = RP - p.rh * 0.7 - 0.05, wet = P.potV > 0.02;
+      p.lx += (Q * 0.55 + Math.max(0, P.tilt - 0.6) * 3) * dt * (0.7 + 0.3 * Math.sin(p.ph)); p.lz *= 1 - Math.min(0.5, dt * Q * 0.12); // 流れ・かたむきで丼がわのかべへ寄る
+      const rr = Math.hypot(p.lx, p.lz); if (rr > lim) { p.lx *= lim / rr; p.lz *= lim / rr; }
+      const atWall = p.lx > lim * 0.8;
+      p.wall = atWall ? (p.wall || 0) + dt * Math.max(0, P.tilt - 1.25) * 4 : Math.max(0, (p.wall || 0) - dt * 2); // 鍋が横だおし近くまでかたむくと、かべが下り坂になって口へすべる
+      const floatY = wet ? ha + p.lx * tn + p.hh * 0.2 : 0, tgtY = Math.min(POT_H - 0.02, Math.max(0.08 + p.hh, floatY, 0.08 + p.hh + p.wall)); // 鍋の外へは出ない
+      p.ly += (tgtY - p.ly) * Math.min(1, dt * 6);
+      p.mesh.position.set(p.lx, p.ly - p.cy, p.lz);
+      if (atWall && p.ly > POT_H - 0.35 && (Q > 0.3 || P.tilt > 1.25) && Math.random() < dt * (4 + Q)) releasePiece(p); // 口まで来たら、ふちから丼へ
+    }
+    $("pullHint").classList.toggle("hide", !(P.lift >= 1 && !P.drag && (potPieces.length || P.potV > 0.02)));
+    const pct = level / DEPTH; $("pourBar").style.width = Math.min(100, pct * 100) + "%"; $("pourTxt").textContent = noSoup ? "汁なし（具だけ丼へ）" : P.over ? `あふれた！（${Math.round(pct * 100)}%）` : `丼のスープ ${Math.round(pct * 100)}%`;
+  }
+  function floorYBowl(r) { for (let i = 1; i < PROF.length; i++) { const a = PROF[i - 1], b = PROF[i]; if (r <= b.x) return a.y + (b.x === a.x ? 0 : (b.y - a.y) * (r - a.x) / (b.x - a.x)); } return DEPTH; }
+  // ---- カメラ(ななめ上から。完成したらくるっと回る) ----
+  const orbit = { yaw: 0, pitch: 1.05, dist: 11, auto: false, on: false };
+  function placeCam() {
+    const W = box.clientWidth, H = box.clientHeight; if (!W || !H) return;
+    renderer.setSize(W, H, false); cv.style.width = W + "px"; cv.style.height = H + "px"; camera.aspect = W / H;
+    if (stage === 4 && !orbit.on) { const th = Math.tan(THREE.MathUtils.degToRad(20)), dd = Math.min(36, Math.max(4.5 / (th * camera.aspect), 4.4 / th)), cx = -1.55, cy = 2.9, pc = 0.45; camera.position.set(cx, cy + Math.sin(pc) * dd, Math.cos(pc) * dd); camera.lookAt(cx, cy, 0); camera.clearViewOffset(); camera.updateProjectionMatrix(); return; }
+    const h = Math.tan(THREE.MathUtils.degToRad(20)) * Math.min(1, camera.aspect), d = Math.min(24, (R_IN + 0.9) / h);
+    if (!orbit.on) { orbit.dist = d * (stage === 2 ? 1.42 : pot.visible ? 1.12 : 1); orbit.pitch = stage === 2 ? 0.9 : pot.visible ? 0.82 : 1.05; orbit.yaw = 0; } // 煮る時は少し横から(鍋の側面が見える)
+    const cp = Math.cos(orbit.pitch), sp = Math.sin(orbit.pitch);
+    camera.position.set(Math.sin(orbit.yaw) * cp * orbit.dist, DEPTH * 0.5 + sp * orbit.dist, Math.cos(orbit.yaw) * cp * orbit.dist);
+    const lz = stage === 2 && !orbit.on ? 1.3 : 0; camera.position.z += lz; camera.lookAt(0, DEPTH * 0.5 - (lz ? 0.6 : 0), lz);
+    if (orbit.on) camera.setViewOffset(W, H, 0, H * 0.18, W, H); else camera.clearViewOffset();
+    camera.updateProjectionMatrix();
+  }
+  addEventListener("resize", placeCam);
+  // ドラッグで回す(完成後)
+  const touches = new Map();
+  // 鍋の中をお玉でまぜる(スープ・煮る画面): なぞった向きに具が流れて、くるっと回る
+  const stirRay = new THREE.Raycaster(), stirPlane = new THREE.Plane(new V(0, 1, 0), 0), stirHit = new V();
+  let stir = null;
+  const ladle = new THREE.Group(); { const bowlL = new THREE.Mesh(new THREE.SphereGeometry(0.42, 20, 10, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2), steel); ladle.add(bowlL); const hd = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 3.4, 10), steel); hd.position.set(0.9, 1.3, 0.7); hd.rotation.set(0.55, 0, -0.55); ladle.add(hd); ladle.visible = false; scene.add(ladle); }
+  function stirAt(x, y) {
+    const r = box.getBoundingClientRect(); stirRay.setFromCamera({ x: (x - r.left) / r.width * 2 - 1, y: -(y - r.top) / r.height * 2 + 1 }, camera);
+    stirPlane.constant = -level; if (!stirRay.ray.intersectPlane(stirPlane, stirHit)) return null;
+    const rr = Math.hypot(stirHit.x, stirHit.z), lim = R_IN - 0.5; if (rr > lim) { stirHit.x *= lim / rr; stirHit.z *= lim / rr; } return stirHit.clone();
+  }
+  box.addEventListener("pointerdown", (e) => { if (orbit.on || !pot.visible || stage < 2 || stage > 3) return; unlock(); const p = stirAt(e.clientX, e.clientY); if (!p) return; stir = { id: e.pointerId, p, t: performance.now() }; ladle.visible = true; ladle.position.set(p.x, level - 0.15, p.z); try { box.setPointerCapture(e.pointerId); } catch {} });
+  box.addEventListener("pointermove", (e) => {
+    if (!stir || stir.id !== e.pointerId) return; const p = stirAt(e.clientX, e.clientY); if (!p) return;
+    const now = performance.now(), dt = Math.max(0.008, (now - stir.t) / 1000), vx = (p.x - stir.p.x) / dt, vz = (p.z - stir.p.z) / dt;
+    for (const q of pieces) { const d = Math.hypot(q.x - p.x, q.z - p.z); if (d > 1.1) continue; const k = (1 - d / 1.1) * 0.5; q.vx += (vx * k - q.vx) * 0.5; q.vz += (vz * k - q.vz) * 0.5; q.vy -= 0.6 * k; q.av.y += (vx * (q.z - p.z) - vz * (q.x - p.x)) * 0.08; q.av.x += rnd(-1, 1) * k * 0.5; q.av.z += rnd(-1, 1) * k * 0.5; } // おされて流れ・少し沈む
+    if (Math.hypot(vx, vz) > 3 && Math.random() < 0.3) tone(rnd(180, 260), 0.06, "sine", 0.04); // ちゃぷっ
+    if (deps.length) { const [u0, v0] = soupUV(stir.p.x, stir.p.z), [u1, v1] = soupUV(p.x, p.z); for (const d of deps) { const dd = Math.hypot(d.u - u1, d.v - v1); if (dd < 0.32) { const k = (1 - dd / 0.32) * 0.8; d.u += (u1 - u0) * k; d.v += (v1 - v0) * k; const r2 = Math.hypot(d.u, d.v); if (r2 > 0.94) { d.u *= 0.94 / r2; d.v *= 0.94 / r2; } } } mixBoost = 1; soupDirty = true; }
+    stir.p = p; stir.t = now; ladle.position.set(p.x, level - 0.15, p.z);
+  });
+  box.addEventListener("pointerdown", (e) => { if (stage !== 4 || !pour || pour.lift < 1) return; unlock(); pour.drag = { id: e.pointerId, x: e.clientX, y: e.clientY }; pour.tgt = 0; try { box.setPointerCapture(e.pointerId); } catch {} });
+  box.addEventListener("pointermove", (e) => { if (!pour || !pour.drag || pour.drag.id !== e.pointerId) return; pour.tgt = Math.max(0, Math.min(1.75, ((pour.drag.y - e.clientY) + (e.clientX - pour.drag.x) * 0.5) / (box.clientHeight * 0.5) * 1.15)); });
+  const pourEnd = (e) => { if (pour && pour.drag && pour.drag.id === e.pointerId) pour.drag = null; };
+  box.addEventListener("pointerup", pourEnd); box.addEventListener("pointercancel", pourEnd);
+  const stirEnd = (e) => { if (stir && stir.id === e.pointerId) { stir = null; ladle.visible = false; } };
+  box.addEventListener("pointerup", stirEnd); box.addEventListener("pointercancel", stirEnd);
+  box.addEventListener("pointerdown", (e) => { if (!orbit.on) return; unlock(); touches.set(e.pointerId, [e.clientX, e.clientY]); orbit.auto = false; try { box.setPointerCapture(e.pointerId); } catch {} });
+  box.addEventListener("pointermove", (e) => {
+    if (!orbit.on || !touches.has(e.pointerId)) return; const prev = touches.get(e.pointerId);
+    if (touches.size >= 2) { const a = [...touches.values()], d0 = Math.hypot(a[0][0] - a[1][0], a[0][1] - a[1][1]); touches.set(e.pointerId, [e.clientX, e.clientY]); const b = [...touches.values()], d1 = Math.hypot(b[0][0] - b[1][0], b[0][1] - b[1][1]); if (d0 && d1) orbit.dist = Math.max(5, Math.min(26, orbit.dist * d0 / d1)); }
+    else { orbit.yaw -= (e.clientX - prev[0]) * 0.008; orbit.pitch = Math.max(0.15, Math.min(1.45, orbit.pitch + (e.clientY - prev[1]) * 0.006)); touches.set(e.pointerId, [e.clientX, e.clientY]); }
+    placeCam();
+  });
+  const upT = (e) => touches.delete(e.pointerId); box.addEventListener("pointerup", upT); box.addEventListener("pointercancel", upT);
+  box.addEventListener("wheel", (e) => { if (!orbit.on) return; e.preventDefault(); orbit.auto = false; orbit.dist = Math.max(5, Math.min(26, orbit.dist * (e.deltaY > 0 ? 1.1 : 0.9))); placeCam(); }, { passive: false });
+
+  // ---------- 状態 ----------
+  let stage = 1, cook = 0, cooking = false, cookStop = -1, level = 0, bubbles = [];
+  const toppings = {};
+  const TOP = {
+    pakuchi: { n: "パクチー", e: "🌿", col: 0x3f9a2e }, goma: { n: "ごま", e: "⚪", col: 0xf1dfb0 }, peanut: { n: "ピーナッツ", e: "🥜", col: 0xc8955a },
+    negi: { n: "ねぎ", e: "🧅", col: 0x7cc25a }, ninniku: { n: "にんにく", e: "🧄", col: 0xf4e7c0 }, rayu: { n: "ラー油", e: "🌶️", col: 0xd02a10 },
+    kurozu: { n: "黒酢", e: "🫗", col: 0x3a1a0c },
+  };
+  const topMeshes = [];
+  // ---- 1: 具の棚 ----
+  const thumbs = {};
+  function makeThumbs() {
+    try {
+      const W = 120, rr = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true }); rr.setSize(W, W); rr.outputEncoding = THREE.sRGBEncoding;
+      const sc = new THREE.Scene(); sc.add(new THREE.HemisphereLight(0xffffff, 0x6a5040, 0.9)); const dl = new THREE.DirectionalLight(0xffffff, 0.9); dl.position.set(2, 5, 3); sc.add(dl);
+      const cam = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
+      for (const k in ING) {
+        const I = ING[k], grp = new THREE.Group(), n = Math.min(3, I.k);
+        for (let i = 0; i < n; i++) { const m = new THREE.Mesh(I.shape === "noodle" || I.shape === "leaf" ? geoOf(k).center() : (geoCache[k] = geoCache[k] || geoOf(k).center()), matOf(k)); m.position.set((i - (n - 1) / 2) * 0.32, i * 0.06, (i % 2) * 0.2 - 0.1); m.rotation.y = i * 1.3 + 0.4; grp.add(m); }
+        sc.add(grp); const bb = new THREE.Box3().setFromObject(grp), c = bb.getCenter(new V()), sz = bb.getSize(new V()).length();
+        cam.position.set(c.x, c.y + sz * 1.25, c.z + sz * 1.45); cam.lookAt(c); rr.render(sc, cam);
+        thumbs[k] = rr.domElement.toDataURL(); sc.remove(grp);
+      }
+      rr.dispose();
+    } catch (e) {}
+  }
+  function buildShelf() {
+    makeThumbs();
+    const el = $("ings"); el.innerHTML = "";
+    const CC = { veg: "#e9f7e1", mush: "#f3ebe2", prot: "#fde8e4", noodle: "#fff6d6", other: "#f1ecfb" }; // 種類ごとの色(凡例は下)
+    const g = document.createElement("div"); g.className = "grid"; el.appendChild(g);
+    const leg = document.createElement("div"); leg.className = "cat"; leg.style.margin = "4px 0 0"; leg.innerHTML = CATS.map(([c, l]) => `<span style="background:${CC[c]};border-radius:6px;padding:0 5px;margin-right:4px">${l}</span>`).join(""); el.appendChild(leg);
+    for (const [cat] of CATS) {
+      const ks = Object.keys(ING).filter((k) => ING[k].cat === cat);
+      for (const k of ks) { const I = ING[k], b = document.createElement("button"); b.type = "button"; b.className = "ing"; b.dataset.k = k; b.style.background = CC[cat]; b.innerHTML = `${thumbs[k] ? `<img src="${thumbs[k]}" alt="" style="width:40px;height:40px;display:block;margin:0 auto">` : `<b>${I.e}</b>`}<span>${I.n}</span>`; b.onclick = () => { unlock(); if (weight() + I.g > 900) { toast("ボウルがいっぱい！（900gまで）"); return; } basket.push(k); addPieces(k); plop(); updScale(); }; g.appendChild(b); }
+    }
+  }
+  const weight = () => basket.reduce((a, k) => a + ING[k].g, 0);
+  function updScale() {
+    const w = weight(); $("scale").innerHTML = `${w} g<small>¥${Math.round(w * PRICE).toLocaleString()}（100gあたり¥${Math.round(PRICE * 100)}）</small>`;
+    const cnt = {}; for (const k of basket) cnt[k] = (cnt[k] || 0) + 1;
+    for (const b of document.querySelectorAll(".ing[data-k]")) { const n = cnt[b.dataset.k] || 0; let i = b.querySelector("i"); if (n) { if (!i) { i = document.createElement("i"); b.appendChild(i); } i.textContent = n; } else if (i) i.remove(); }
+  }
+  $("undo").onclick = () => { removeLast(); updScale(); };
+  // ---- 2: スープ ----
+  const SP = ["なし", "ひかえめ", "ピリ辛", "中辛", "大辛", "激辛", "地獄の辛さ"], NB = ["なし", "ほんのり", "ふつう", "しびしび", "ビリビリ", "激しびれ", "地獄のしびれ"];
+  function updSoup() { updSeaUI(); soupDirty = true; }
+  function show(n, label, guide) {
+    stage = n; for (let i = 1; i <= 6; i++) $("f" + i).classList.toggle("hide", i !== n); $("st").textContent = label; $("guide").textContent = guide;
+  }
+  $("to2").onclick = () => {
+    unlock(); if (!basket.length) { toast("具をえらんでね"); return; }
+    // ボウルから寸胴へ: スープを張って、具を入れる
+    vessel.visible = false; pot.visible = true; table.visible = false; soup.visible = false; level = 0; $("scale").classList.add("hide"); vesselKind = "pot";
+    for (const p of pieces) { p.y = 0.6 + rnd(0.6, 2.2); p.vx = p.vy = p.vz = 0; } // 空の寸胴にどぼん → スープは自分で注ぐ
+    const bg = brothGood(); $("bzone").style.left = bg[0] * 100 + "%"; $("bzone").style.width = (bg[1] - bg[0]) * 100 + "%";
+    show(2, "2/6 スープ", "「スープ」をつかんで鍋に注ごう（汁なしなら注がずに調味料へ）"); updSoup(); showSeas(true); placeCam();
+  };
+  // ---- 3: 煮る(ちょうどいい所で引きあげる) ----
+  // 具ごとに煮える早さがちがう(もやし・うずらは早い、じゃがいも・肉団子はおそい)。目安(緑)は入れた具の平均
+  let ZONE = [0.72, 0.9], fill = null, noSoup = false;
+  $("to3").onclick = () => {
+    unlock(); if (seaHold) return; noSoup = level < 0.25; if (noSoup) toast("汁なしで作るよ！", 1500); updSeaUI(); showSeas(false); show(3, "3/6 煮る", noSoup ? "汁なし：具に火を通そう。鍋をなぞってまぜて、緑の所で「火を止める！」" : "ぐつぐつ…鍋をなぞってまぜよう。緑の所で「火を止める！」");
+    const tm = basket.reduce((a, k) => a + ING[k].t, 0) / basket.length; ZONE = [0.74 * tm, 0.88 * tm].map((v) => Math.min(1.15, v));
+    const zone = $("zone"); zone.style.left = ZONE[0] / 1.2 * 100 + "%"; zone.style.width = (ZONE[1] - ZONE[0]) / 1.2 * 100 + "%";
+    cook = 0; cooking = true; cookStop = -1;
+  };
+  $("lift").onclick = () => {
+    if (!cooking) return; cooking = false; cookStop = cook;
+    const ok = cook >= ZONE[0] && cook <= ZONE[1];
+    toast(ok ? "ちょうどいい煮えぐあい！" : cook < ZONE[0] ? "ちょっと早かった…（まだかたい）" : "煮すぎた…（麺がのびた）", 1800);
+    tone(ok ? 880 : 300, 0.2, "sine", 0.14);
+    setTimeout(startPour, 650); // 次は鍋をかたむけて丼へ
+  };
+  $("to5").onclick = () => {
+    unlock(); if (!pour || pour.lift < 1) return;
+    pour.left = potPieces.length; for (const p of [...potPieces]) { releasePiece(p, true); p.x = rnd(-1.2, 1.2); p.z = rnd(-1.2, 1.2); p.y = DEPTH + rnd(0.8, 2); } // 残った具は、おたまで丼へ
+    if (pour.left) toast(`鍋に残った具（${pour.left}個）はおたまで移したよ`, 1800);
+    pour.drag = null; pourStream.visible = false; flowSound(0, 0); potRig.visible = false; potSoup.visible = false; $("pullHint").classList.add("hide"); pourRib.visible = false; dribRib.visible = false;
+    show(5, "5/6 トッピング", "トッピングをタップしてのせよう（何回でも）"); buildTops(); placeCam();
+  };
+  // ---- 4: トッピング ----
+  function buildTops() {
+    const el = $("tops"); el.innerHTML = "";
+    for (const k in TOP) { const T = TOP[k], b = document.createElement("button"); b.type = "button"; b.className = "ing"; b.dataset.t = k; b.innerHTML = `<b>${T.e}</b><span>${T.n}</span>`; b.onclick = () => { unlock(); addTopping(k); }; el.appendChild(b); }
+  }
+  function addTopping(k) {
+    toppings[k] = (toppings[k] || 0) + 1; plop();
+    const b = document.querySelector(`.ing[data-t="${k}"]`); if (b) { let i = b.querySelector("i"); if (!i) { i = document.createElement("i"); b.appendChild(i); } i.textContent = toppings[k]; }
+    if (k === "rayu" && noSoup) { extraOil++; coat.oil += 0.5; coat.red += 0.35; return; } // 汁なしは具にかかって、さらに赤くつやつや
+    if (k === "rayu") { extraOil++; for (let i = 0; i < 16; i++) { const a = rnd(0, 6.28), r = Math.sqrt(Math.random()) * 0.85, d = { k: "rayu", u: Math.cos(a) * r, v: Math.sin(a) * r, t: 0, f: 0.25, amt: 0, r: rnd(8, 20) }; deps.push(d); } dis.red += 0.25; soupDirty = true; return; }
+    if (k === "kurozu") { vinegar++; soupDirty = true; return; }
+    const col = lin(TOP[k].col), n = k === "goma" ? 70 : k === "pakuchi" ? 12 : k === "negi" ? 18 : k === "ninniku" ? 20 : 10;
+    for (let i = 0; i < n; i++) {
+      let geo, mat;
+      if (k === "pakuchi") { // パクチー: 3つにわかれた丸い葉(ぎざぎざ)
+        const sh = new THREE.Shape(); for (let j = 0; j <= 36; j++) { const a = j / 36 * 6.283, lobe = 0.11 + 0.05 * Math.abs(Math.sin(a * 1.5)) + 0.012 * Math.sin(a * 18); const x = Math.cos(a) * lobe, y = Math.sin(a) * lobe; j ? sh.lineTo(x, y) : sh.moveTo(x, y); }
+        geo = extr(sh, 0.012); bend(geo, -0.4); mat = topMat("pakuchi", () => new THREE.MeshPhysicalMaterial({ color: lin(0x3c8a2a), roughness: 0.45, clearcoat: 0.5, side: THREE.DoubleSide }));
+      } else if (k === "negi") { geo = new THREE.TorusGeometry(0.07, 0.022, 8, 16); geo.rotateX(Math.PI / 2); mat = topMat("negi", () => new THREE.MeshPhysicalMaterial({ color: lin(0x8cc860), roughness: 0.4, clearcoat: 0.6 })); } // 小口切りのねぎ(輪)
+      else if (k === "goma") { geo = new THREE.SphereGeometry(0.035, 8, 5); geo.scale(1.7, 0.6, 1); mat = topMat("goma", () => new THREE.MeshStandardMaterial({ color: lin(0xf0dcaa), roughness: 0.5 })); }
+      else if (k === "peanut") { geo = new THREE.SphereGeometry(0.075, 12, 8); geo.scale(1, 0.55, 1.45); mat = topMat("peanut", () => new THREE.MeshPhysicalMaterial({ color: lin(0xc98f52), roughness: 0.45, clearcoat: 0.6 })); } // 半分に割ったピーナッツ
+      else if (k === "ninniku") { geo = new THREE.SphereGeometry(0.06, 10, 6); geo.scale(1, 0.5, 1); mat = topMat("ninniku", () => new THREE.MeshStandardMaterial({ color: lin(0xf2e6c4), roughness: 0.6 })); } // みじん切り
+      else { geo = new THREE.SphereGeometry(0.07, 7, 5); geo.scale(1, 0.7, 1.2); mat = new THREE.MeshStandardMaterial({ color: col, roughness: 0.5 }); }
+      const m = new THREE.Mesh(geo, mat); m.castShadow = true;
+      const a = rnd(0, 6.28), r = Math.sqrt(Math.random()) * (R_IN - 0.6); m.position.set(Math.cos(a) * r, level + 2, Math.sin(a) * r); m.rotation.y = rnd(0, 6.28);
+      m.userData.y = level + 0.05 + rnd(0, 0.04); scene.add(m); topMeshes.push(m);
+    }
+  }
+  const topMats = {}; const topMat = (k, mk) => (topMats[k] = topMats[k] || mk());
+  // ---- 5: 採点 ----
+  $("done").onclick = () => {
+    unlock();
+    const list = []; let sc = 0;
+    const cats = {}; for (const k of basket) cats[ING[k].cat] = (cats[ING[k].cat] || 0) + 1;
+    const kinds = new Set(basket).size, w = weight();
+    const near = (v, best, wd) => Math.max(0, 1 - Math.abs(v - best) / wd);
+    // 具のバランス(30)
+    for (const [c, label] of [["veg", "野菜"], ["mush", "きのこ"], ["prot", "たんぱく質"], ["noodle", "麺"]]) { if (cats[c]) { sc += 6; } else list.push(["bad", `${label}が入ってない`]); }
+    sc += Math.min(6, Math.max(0, kinds - 2)); list.push([kinds >= 8 ? "good" : "", `具の種類 ${kinds}種`]);
+    if (cats.veg && cats.mush && cats.prot && cats.noodle) list.push(["good", "野菜・きのこ・たんぱく・麺のバランスがいい"]);
+    // 量(15): 350〜550gくらいがちょうどいい
+    const q = w >= 350 && w <= 550 ? 1 : near(w, 450, 300); sc += q * 15;
+    list.push([q >= 0.8 ? "good" : "bad", w < 350 ? `ちょっと少なめ（${w}g）` : w > 650 ? `大盛りすぎ（${w}g）` : `ちょうどいい量（${w}g）`]);
+    // 煮えぐあい(25)
+    // 具それぞれの煮えぐあい(ちょうどいい=0.81)。早く煮える具とおそい具をまぜると、ぜんぶ完ぺきにはならない
+    let ckSum = 0, hard = [], soft = [];
+    for (const k of basket) { const c = cookStop < 0 ? 0 : cookStop / ING[k].t; ckSum += near(c, 0.81, 0.32); if (c < 0.62) hard.push(ING[k].n); else if (c > 1.02) soft.push(ING[k].n); }
+    const ck = ckSum / basket.length; sc += ck * 25;
+    if (ck >= 0.8) list.push(["good", "煮えぐあいばっちり"]);
+    if (hard.length) list.push(["bad", `まだかたい：${[...new Set(hard)].join("・")}`]);
+    if (soft.length) list.push(["bad", `煮すぎ：${[...new Set(soft)].join("・")}`]);
+    // スープ(15): 辛さとしびれのバランス(麻辣は両方あると本場っぽい)
+    let s = 15 - Math.max(0, Math.abs(spice - numb) - 1) * 3;
+    if (soupType === "mala" && (spice === 0 || numb === 0)) { s -= 4; list.push(["", "麻辣なのに" + (spice === 0 ? "辛くない" : "しびれない")]); }
+    if (spice + numb >= 9) { s -= 3; list.push(["", numb >= 4 && spice >= 4 ? "激辛激しびれ…食べられる？" : spice >= 4 ? "辛すぎ…食べられる？" : "しびれすぎ…口がビリビリ"]); }
+    if (potSpill > 0.05) { s -= 3; list.push(["bad", boiledOver ? "鍋がふきこぼれた" : "鍋からスープがあふれた"]); }
+    sc += Math.max(0, s); if (s >= 13) list.push(["good", "辛さとしびれのバランスがいい"]);
+    // 盛りつけ(10): 丼のスープの量・こぼさない・具を鍋に残さない
+    const fillR = level / DEPTH; let ps = 10;
+    if (noSoup) list.push(["good", "汁なし麻辣湯（よくまぜて食べてね）"]);
+    else if (fillR < 0.15) { ps = 1; list.push(["bad", "スープがほとんど入ってない"]); }
+    else if (fillR < BOWL_GOOD[0]) { ps -= 4; list.push(["bad", "スープが少なめ"]); }
+    else if (fillR <= BOWL_GOOD[1] && !pour.over) list.push(["good", "スープの量ぴったり"]);
+    else if (!pour.over) { ps -= 2; list.push(["", "スープなみなみ（ふちギリギリ）"]); }
+    if (pour.spill > 0.3 || pour.over) { ps -= Math.min(6, 2 + pour.spill * 0.6); list.push(["bad", pour.over ? "丼からあふれた" : "スープをこぼした"]); }
+    if (pour.left) { ps -= Math.min(4, pour.left * 0.5); list.push(["bad", `具が鍋に残った（${pour.left}個）`]); }
+    sc += Math.max(0, ps);
+    // トッピング(15)
+    const tk = Object.keys(toppings).length, tn = Object.values(toppings).reduce((a, b) => a + b, 0);
+    const t = tk === 0 ? 0 : tk <= 4 ? 10 + Math.min(5, tk * 1.5) : Math.max(5, 15 - (tk - 4) * 3); sc += t;
+    if (!tk) list.push(["bad", "トッピングなし"]); else if (tk > 5) list.push(["", "トッピングのせすぎ"]); else list.push(["good", "トッピングがいい感じ"]);
+    if (toppings.kurozu >= 3) { sc -= 4; list.push(["bad", "黒酢入れすぎてすっぱい"]); }
+    if (toppings.ninniku >= 4) list.push(["", "にんにくマシマシ"]);
+    sc = Math.max(0, Math.min(100, Math.round(sc * 100 / 110)));
+    // 名前
+    const hot = spice >= 15 ? "火山級" : spice >= 10 ? "地獄辛" : spice + (toppings.rayu || 0) >= 5 ? "激辛" : spice >= 3 ? "辛口" : spice === 0 ? "マイルド" : "";
+    const sib = numb >= 10 ? "超しびれ" : numb >= 4 ? "しびれ" : "";
+    const many = cats.noodle >= 2 ? "麺多め" : (cats.veg || 0) >= 5 ? "野菜たっぷり" : (cats.prot || 0) >= 5 ? "肉たっぷり" : "";
+    const tsuyu = noSoup || fillR < 0.15 ? "汁なし" : pour.over ? "つゆだく" : "";
+    const name = `${tsuyu}${many ? many + "の" : ""}${hot}${sib}${soupType === "mala" ? "" : SOUP[soupType].n}麻辣湯`;
+    const RANKS = [[95, "S 本場の味"], [85, "A 行列のできる店"], [70, "B おいしい麻辣湯"], [50, "C まあ麻辣湯"], [0, "D これは…スープ？"]];
+    const rank = RANKS.find((x) => sc >= x[0])[1];
+    $("resRank").textContent = rank; $("resScore").innerHTML = `${sc}<small>点</small>`; $("resName").textContent = `「${name}」`;
+    $("resPrice").textContent = `${w}g ・ お会計 ¥${Math.round(w * PRICE).toLocaleString()}`;
+    $("resList").innerHTML = list.map(([c, tx]) => `<li class="${c}">${c === "good" ? "◎" : c === "bad" ? "×" : "・"} ${tx}</li>`).join("");
+    $("res").classList.remove("hide"); show(6, "🍜 完成", "👆 ドラッグでぐるっと回せる・2本指（ホイール）で近づける");
+    orbit.on = true; orbit.auto = true; orbit.pitch = 1.0; placeCam();
+    tone(660, 0.12, "sine", 0.14); tone(880, 0.12, "sine", 0.14, 0.12); tone(1320, 0.3, "sine", 0.14, 0.24);
+    // Xでシェア: 作った麻辣湯の画像をサイトに置いて(Xのカードに出る)、Xアプリの投稿画面をそのまま開く
+    const tx = `🌶️麻辣湯作りで「${name}」ができた！ ${sc}点（${rank}）\n${w}g ¥${Math.round(w * PRICE)}\n#麻辣湯作り #ぴこぴこゲーム\n`;
+    let shareUrl = null; const sharing = (async () => { // 結果が出たらすぐ用意(押した瞬間にアプリを開けるように)
+      try { await new Promise((r) => setTimeout(r, 700)); const blob = await shareCard(sc, rank, name, w); if (!blob) return; const res = await fetch("/api/malatang/share", { method: "POST", body: blob, headers: { "Content-Type": "image/jpeg" } }); const d = await res.json(); if (d && d.ok) shareUrl = `https://piko2game.com/malatang/s/${d.id}`; } catch (e) {}
+    })();
+    $("share").onclick = async () => { unlock(); if (!shareUrl && !isPhone) await sharing; xOpen(tx, shareUrl || "https://piko2game.com/malatang/"); };
+  };
+  $("again").onclick = $("again2").onclick = () => location.reload();
+  // ---- Xでシェア ----
+  const UA = navigator.userAgent, isAnd = /Android/i.test(UA), isIOS = /iPhone|iPad|iPod/i.test(UA) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1), isPhone = isAnd || isIOS;
+  function xOpen(text, url) { // スマホはXアプリの投稿画面を直接ひらく(入っていなければWebのX)
+    const enc = encodeURIComponent, web = "https://x.com/intent/post?text=" + enc(text) + "&url=" + enc(url);
+    if (isAnd) { location.href = "intent://x.com/intent/post?text=" + enc(text) + "&url=" + enc(url) + "#Intent;scheme=https;package=com.twitter.android;S.browser_fallback_url=" + enc(web) + ";end"; return; }
+    if (isIOS) {
+      let left = false; const away = () => { left = true; }; document.addEventListener("visibilitychange", away, { once: true }); window.addEventListener("pagehide", away, { once: true });
+      location.href = "twitter://post?message=" + enc(text + url); // Xアプリの投稿画面
+      setTimeout(() => { if (!left && document.visibilityState === "visible") location.href = web; }, 1600); // アプリが開かなかった時だけWebへ
+      return;
+    }
+    const win = window.open(web, "_blank", "noopener"); if (!win) location.href = web;
+  }
+  // シェア用の画像(1200x630): 右に完成した丼(3D)、左に点数・ランク・名前
+  async function shareCard(sc, rank, name, w) {
+    try {
+      renderer.render(scene, camera); // 描いた直後に写す(同じタイミングなら画面の絵が取れる)
+      const W = 1200, H = 630, c = document.createElement("canvas"); c.width = W; c.height = H; const g = c.getContext("2d");
+      const sw = cv.width, sh = cv.height, sq = Math.min(sw, sh * 0.82), sx = (sw - sq) / 2, sy = Math.max(0, (sh * 0.82 - sq) / 2);
+      g.fillStyle = "#6b4630"; g.fillRect(0, 0, W, H); g.drawImage(cv, sx, sy, sq, sq, W - H - 10, 0, H + 10, H + 10);
+      const gr = g.createLinearGradient(0, 0, W * 0.62, 0); gr.addColorStop(0, "rgba(255,241,232,.97)"); gr.addColorStop(0.78, "rgba(255,241,232,.9)"); gr.addColorStop(1, "rgba(255,241,232,0)"); g.fillStyle = gr; g.fillRect(0, 0, W * 0.62, H);
+      const cx = 290; g.textAlign = "center"; g.textBaseline = "middle"; g.fillStyle = "#3a1f14";
+      g.font = "900 44px system-ui, sans-serif"; g.fillText("🌶️ 麻辣湯作り", cx, 62);
+      g.font = "900 30px system-ui, sans-serif"; const rw = g.measureText(rank).width + 48; g.fillStyle = "#ffd23f"; g.strokeStyle = "#3a1f14"; g.lineWidth = 4; g.beginPath(); g.roundRect(cx - rw / 2, 108, rw, 52, 26); g.fill(); g.stroke(); g.fillStyle = "#3a1f14"; g.fillText(rank, cx, 135);
+      g.font = "900 150px system-ui, sans-serif"; const tw = g.measureText(String(sc)).width; g.fillText(String(sc), cx - 22, 255); g.font = "900 46px system-ui, sans-serif"; g.fillText("点", cx - 22 + tw / 2 + 30, 292);
+      g.fillStyle = "#c0261a"; let fs = 40; const lines = (f) => { g.font = `900 ${f}px system-ui, sans-serif`; const out = []; let cur = ""; for (const ch of `「${name}」`) { if (g.measureText(cur + ch).width > 520) { out.push(cur); cur = ch; } else cur += ch; } if (cur) out.push(cur); return out; };
+      let L = lines(fs); while (L.length > 3 && fs > 24) { fs -= 3; L = lines(fs); } L.slice(0, 3).forEach((t, i) => g.fillText(t, cx, 380 + i * fs * 1.25));
+      g.fillStyle = "#8a5a44"; g.font = "800 28px system-ui, sans-serif"; g.fillText(`${w}g ・ お会計 ¥${Math.round(w * PRICE).toLocaleString()}`, cx, 520);
+      g.font = "800 24px system-ui, sans-serif"; g.fillText("piko2game.com/malatang  #麻辣湯作り", cx, 585);
+      return await new Promise((r) => c.toBlob(r, "image/jpeg", 0.86));
+    } catch (e) { return null; }
+  }
+
+  // ---------- 毎フレーム ----------
+  let last = performance.now();
+  function frame(t) {
+    const dt = Math.max(0, Math.min(0.033, (t - last) / 1000)); last = t;
+    if (cooking) { cook = Math.min(1.2, cook + dt / 11); $("cookBar").style.width = Math.min(100, cook / 1.2 * 100) + "%"; $("cookTxt").textContent = cook > 1.05 ? "のびのび…！" : `煮えぐあい ${Math.round(cook * 100)}%`; }
+    // スープ面
+    if (soup.visible) { const r = vesselKind === "pot" ? R_IN + 0.12 : radiusAtY(level) + 0.04; soup.scale.setScalar(Math.max(0.5, r)); soup.position.y = level; soup.rotation.z += dt * 0.02; ripple.offset.x += dt * (stage === 3 && cooking ? 0.09 : 0.015); ripple.offset.y += dt * (stage === 3 && cooking ? 0.06 : 0.01); }
+    stepSteam(dt, stage === 3 && cooking);
+    // スープを張る(上からだしが流れこんで、水かさが上がる)
+    if (fill && fill.t < 1) {
+      fill.t = Math.min(1, fill.t + dt / 1.9); level = fill.to * fill.t;
+      setStream(brothStream, [new V(-1.1, 9, -0.7), new V(-1.08, (9 + level) / 2, -0.7), new V(-1.05, level, -0.7)], 0.2, 0.15, soupCol); flowSound(0.2, 420);
+      if (Math.random() < dt * 30) bubbles.push({ x: -1.05 + rnd(-0.4, 0.4), z: -0.7 + rnd(-0.4, 0.4), t: 0 });
+      if (fill.t >= 1) { brothStream.visible = false; flowSound(0, 0); $("guide").textContent = "調味料をゆびでつかんで鍋の上へ（鍋をなぞるとまぜられる）"; }
+    }
+    stepSea(dt, t); stepDeps(dt); stepSpill(dt); if ((speckT -= dt) <= 0 && speckDirty.size) { speckT = 0.12; speckFlush(); } mixBoost = Math.max(0, mixBoost - dt * 0.8);
+    if (stage === 2 && (seaHold || grains.length)) updSeaUI();
+    if (stage === 4 && pour) stepPour(dt); else if (drops.length || rings.some((r) => r.m.visible)) stepDrops(dt); // 盛りつけのあとも、しずくは落ちきる
+    if ((soupPaintT -= dt) <= 0 && soupDirty) { paintSoup(); soupDirty = false; soupPaintT = 0.08; }
+    // 火(煮ている時はぐつぐつ)
+    if (pot.visible) for (let i = 0; i < pot.userData.fire.length; i++) pot.userData.fire[i].scale.y = 0.8 + 0.4 * Math.sin(t / 70 + i * 1.7);
+    // 具: 重力・浮力・器・押し合い(3回に分けて安定させる)
+    const boil = stage === 3 && cooking;
+    for (let k = 0; k < 3; k++) physics(dt / 3, t);
+    // 麺: お湯の中で、ゆでるほど固まりがほどけて広がる(太い麺ほどゆっくり。混ぜるとほぐれやすい)
+    if (stage >= 3) { const kn = cookStop >= 0 ? cookStop : cook;
+      for (const p of pieces) if (p.b0) { const tm = ING[p.kind].t * p.uj, x = Math.max(0, Math.min(1, (kn - 0.08 * tm) / (0.8 * tm))), want = x * x * (3 - 2 * x);
+        if (boil) p.sw = 0.5 + 0.5 * Math.sin(t / 1000 * (stir ? 2.6 : 1.1) + p.swp); // ぐつぐつの間は、ほぐれた麺がお湯の中でゆらゆら
+        setNoodle(p, want > p.u + 0.002 ? Math.min(want, p.u + dt * (stir ? 0.7 : 0.35)) : p.u); } }
+    // 煮えると色が変わる(肉は白っぽく)
+    if (stage >= 2) {
+      const k = stage >= 3 ? Math.min(1, cookStop >= 0 ? cookStop : cook) : 0, kc = Math.min(0.7, coat.red * 0.14 + coat.oil * 0.22), ko = Math.min(1, coat.oil * 0.8);
+      for (const kk in mats) { const m = mats[kk]; if (m.userData.cc0 === undefined) { m.userData.cc0 = m.clearcoat; m.userData.r0 = m.roughness; }
+        m.color.copy(m.userData.raw).lerp(m.userData.cooked, Math.min(1, k * 1.1)); if (kc > 0) m.color.lerp(COAT_RED, kc); // 唐辛子・ラー油がからんで赤く
+        m.clearcoat = Math.max(m.userData.cc0, ko); m.roughness = m.userData.r0 * (1 - ko * 0.6); // ラー油でつやつや
+        if (m.userData.tr) m.transmission = m.userData.tr[0] + (m.userData.tr[1] - m.userData.tr[0]) * Math.min(1, k * 1.2); } // 乾いた春雨は白く、ゆでるとすきとおる
+    }
+    // 泡
+    if (boil && soup.visible && Math.random() < dt * 14) bubbles.push({ x: rnd(-R_IN + 0.4, R_IN - 0.4), z: rnd(-R_IN + 0.4, R_IN - 0.4), t: 0 });
+    bubbles = bubbles.filter((b) => (b.t += dt) < 0.6);
+    bubIM.count = bubbles.length; const M = new THREE.Matrix4(), q0 = new THREE.Quaternion();
+    bubbles.forEach((b, i) => { const s = Math.sin(b.t / 0.6 * Math.PI) * 0.18; M.compose(new V(b.x, level + 0.02, b.z), q0, new V(s, s * 0.5, s)); bubIM.setMatrixAt(i, M); }); bubIM.instanceMatrix.needsUpdate = true;
+    // トッピングは上から落ちて、スープの上にのる
+    for (const m of topMeshes) { if (m.position.y > m.userData.y) m.position.y = Math.max(m.userData.y, m.position.y - dt * 6); else m.position.y = m.userData.y + Math.sin(t / 700 + m.id) * 0.01; }
+    // 完成後はゆっくり回る
+    if (orbit.on && orbit.auto) { orbit.yaw += dt * 0.25; placeCam(); }
+    // 画面サイズの変化に追いつく
+    if (Math.abs(cv.clientWidth - box.clientWidth) > 1 || Math.abs(cv.clientHeight - box.clientHeight) > 1) placeCam();
+    renderer.render(scene, camera);
+    requestAnimationFrame(frame);
+  }
+  const COAT_RED = lin(0xcc4a12); // ラー油の赤だいだい
+  const bubIM = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 10, 6), new THREE.MeshStandardMaterial({ color: 0xffd0a0, roughness: 0.2, transparent: true, opacity: 0.7 }), 80); bubIM.count = 0; scene.add(bubIM);
+  // 画面の高さを実際の見えている高さに
+  const fitH = () => { const h = (window.visualViewport && visualViewport.height) || innerHeight; document.body.style.height = h + "px"; placeCam(); };
+  fitH(); addEventListener("resize", fitH); if (window.visualViewport) visualViewport.addEventListener("resize", fitH);
+  buildShelf(); updScale(); paintSoup(); placeCam(); requestAnimationFrame(frame);
+})();
+</script>
+<script src="/ad/ad.js?v=4" defer></script>
+</body>
+</html>

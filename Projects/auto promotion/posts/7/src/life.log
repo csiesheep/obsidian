@@ -1,0 +1,300 @@
+rec_start {}
+tap {"label":"start","x":128.4814453125,"y":514.880859375}
+card_ready {}
+tap {"label":"begin","x":202.5,"y":523.5322265625}
+begin tap ignored, retry
+tap {"label":"begin","x":202.5,"y":523.5322265625}
+age {"age":"0"}
+row {"text":"0歲嘉慶二十五年你還不會說話，只會用哭聲和笑臉，跟身邊的人講道理。","cls":"daily enter"}
+age {"age":"1"}
+row {"text":"1歲道光元年你開始長牙，看到什麼都想咬一口，大人的手指也不放過。","cls":"daily enter"}
+row {"text":"1歲道光元年大人嚼碎了東西餵你，你吃得滿臉都是。","cls":"daily enter"}
+age {"age":"2"}
+row {"text":"2歲道光二年你今年學會了翻身，接著學會了坐，大人們比你還高興。","cls":"daily enter"}
+row {"text":"2歲道光二年屋外的雞叫、狗叫，是你最早聽懂的聲音。","cls":"daily enter"}
+age {"age":"3"}
+row {"text":"3歲道光三年春天風箏滿天，你的風箏斷了線，一路追著它跑到了田裡。","cls":"daily enter"}
+age {"age":"4"}
+row {"text":"4歲道光四年小米粥配鹹菜，是北方人家的早飯，你喝著熱粥，手心都暖了。","cls":"daily enter"}
+age {"age":"5"}
+row {"text":"5歲道光五年你蹲在牆角看螞蟻搬東西，一看就是大半個下午。","cls":"daily enter"}
+row {"text":"5歲道光五年宗祠裡供著祖先的牌位，族規掛在牆上，每一條都有人違反過。","cls":"daily enter"}
+age {"age":"6"}
+row {"text":"6歲道光六年一年到頭吃得最好的一頓是殺年豬的那天，全村人圍著鍋，你分到了一碗熱騰騰的肉湯。","cls":"daily enter"}
+age {"age":"7"}
+decision {"title":"纏不纏足"}
+tap {"label":"option","x":202.5,"y":557.1591796875}
+row {"text":"7歲道光七年纏不纏足　→　忍著疼，讓她們纏","cls":"choice enter"}
+row {"text":"7歲道光七年到了節日，你換上全家最好的那件衣服，連走路都變得規規矩矩。","cls":"daily enter"}
+row {"text":"7歲道光七年夜裡腳又疼起來，你把腳伸出被子外頭涼著，疼才稍微輕了一點。","cls":"daily enter"}
+age {"age":"8"}
+row {"text":"8歲道光八年騾子在北方是主要的牲口，力氣大，耐力好，卻有一副倔脾氣。","cls":"daily enter"}
+row {"text":"8歲道光八年元日一早，鞭炮聲把你吵醒，穿上新衣給長輩磕頭，口袋裡很快鼓了起來。","cls":"daily enter"}
+row {"text":"8歲道光八年中秋這天，月餅是用麵皮包著糖和果仁，你一口氣吃了半個。","cls":"daily enter"}
+age {"age":"9"}
+row {"text":"9歲道光九年你家的狗跟著你上山下河，你到哪牠到哪，連你睡覺牠都守在門口。","cls":"daily enter"}
+row {"text":"9歲道光九年漢人家的女孩小小年紀就要纏足，母親用長布條一層層裹緊，夜裡你疼得睡不著。","cls":"daily enter"}
+age {"age":"10"}
+row {"text":"10歲道光十年除夕前一天，家家貼春聯，紅紙黑字，一時間整條街都換了顏色。","cls":"daily enter"}
+row {"text":"10歲道光十年家裡糧倉裡的存糧夠吃好幾年，你從來不必為下一頓飯操心。","cls":"daily enter"}
+row {"text":"10歲道光十年","cls":"image enter"}
+age {"age":"11"}
+row {"text":"11歲道光十一年你家的院子大，你小時候以為整個世界就那麼大。","cls":"daily enter"}
+age {"age":"12"}
+row {"text":"12歲道光十二年除夕守歲，你撐著眼皮不肯睡，終於在爆竹聲裡睡著，醒來已是初一。","cls":"daily enter"}
+row {"text":"12歲道光十二年纏得難受，你和姊妹偷偷把布條放鬆一點，被母親發現，挨了一頓罵。","cls":"daily enter"}
+age {"age":"13"}
+row {"text":"13歲道光十三年你是個好繡工，一方帕子繡了半年，賣給繡莊換回幾百文，夠家裡添一頓肉。","cls":"daily enter"}
+row {"text":"13歲道光十三年你在家紡紗織布，晚上點著油燈，一個月織出幾匹布，是家裡不可缺的進項。","cls":"daily enter"}
+age {"age":"14"}
+row {"text":"14歲道光十四年紙糊的窗戶透著光，風一吹就發出嘩嘩的聲響，你小時候最愛用手指戳破它。","cls":"daily enter"}
+row {"text":"14歲道光十四年山東人好客，家裡來了人，先上茶，再上酒，最後才談正事。","cls":"daily enter"}
+age {"age":"15"}
+row {"text":"15歲道光十五年北方人愛吃麵，饅頭、麵條、餃子輪著做，你最喜歡過年時那一鍋餃子。","cls":"daily enter"}
+row {"text":"15歲道光十五年冬天你穿棉襖，裡頭是新彈的棉絮，外頭是自織的粗布，暖得很。","cls":"daily enter"}
+age {"age":"16"}
+row {"text":"16歲道光十六年纏過足的腳走不遠，你出門都要有人攙著，趕集時只能坐在路邊等。","cls":"daily enter"}
+row {"text":"16歲道光十六年女孩們結伴去廟裡燒香，這是一年裡少數能名正言順離家的日子。","cls":"daily enter"}
+age {"age":"17"}
+row {"text":"17歲道光十七年17歲（清道光十七年），成了家，對方22歲。兩個人頭一回坐在同一張桌前吃飯，誰也沒多說什麼。","cls":"family enter"}
+row {"text":"17歲道光十七年端午節，家家門前插艾草，小孩們戴著香囊，一出門就是一股藥草香。","cls":"daily enter"}
+row {"text":"17歲道光十七年上門來求你家幫忙的人不少，你學會了分辨哪些是真有難處。","cls":"daily enter"}
+row {"text":"17歲道光十七年你不是最快的那一個，卻是最不容易出錯的那一個，這也算一種本事。","cls":"daily enter"}
+age {"age":"18"}
+decision {"title":"要不要進城謀生"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"18歲道光十八年18歲，你留在臨淄的鄉里，沒有進城。","cls":"choice "}
+decision {"title":"嫁妝厚薄"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"18歲道光十八年嫁妝厚薄　→　量力而為，不再添了","cls":"choice enter"}
+row {"text":"18歲道光十八年18歲（清道光十八年），家裡添了一個男孩。夜裡哭聲一響，整個屋子都跟著醒了。","cls":"family enter"}
+row {"text":"18歲道光十八年元宵夜，街上的燈籠扎成各種模樣，有龍、有鳳、有魚，一盞比一盞精巧。","cls":"daily enter"}
+row {"text":"18歲道光十八年你和枕邊人吵了一架，為了什麼，過兩天誰也想不起來。","cls":"daily enter"}
+age {"age":"19"}
+row {"text":"19歲道光十九年山東的棉田一望無際，秋天棉桃裂開，白花花一片，全家人都出動採棉。","cls":"daily enter"}
+age {"age":"20"}
+row {"text":"20歲道光二十年20歲（清道光二十年），一個女孩出生了。你抱著那團小小的、熱熱的身子，不知道手該往哪裡放。","cls":"family enter"}
+row {"text":"20歲道光二十年清代也有寡婦再嫁的，只是族裡老人話多，你聽著，不敢辯。","cls":"daily enter"}
+row {"text":"20歲道光二十年鄉下的婚宴擺在院子裡，一桌八碗菜，有肉有魚，你吃撐了還想再夾一筷。","cls":"daily enter"}
+row {"text":"20歲道光二十年","cls":"image enter"}
+age {"age":"21"}
+row {"text":"21歲道光二十一年孩子們鬧起來的時候，整個屋子都是他們的聲音，你嘴上抱怨，心裡卻踏實。","cls":"daily enter"}
+row {"text":"21歲道光二十一年你的身體正是最好的時候，彷彿怎麼用都不會壞。","cls":"daily enter"}
+age {"age":"22"}
+decision {"title":"農閒時學門手藝"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"22歲道光二十二年農閒時學門手藝　→　農閒就歇著，守好本分","cls":"choice enter"}
+row {"text":"22歲道光二十二年22歲（清道光二十二年），家裡四歲的兒子沒能留住。孩子的小衣裳被收進了箱底，很久沒有人去翻。","cls":"family enter"}
+row {"text":"22歲道光二十二年歉年裡炊煙一家比一家淡，你站在門口看了一會兒，才回屋去。","cls":"daily enter"}
+age {"age":"23"}
+row {"text":"23歲道光二十三年23歲（清道光二十三年），家裡多了一張嘴，是個男孩。日子比從前更緊，心裡也比從前更有盼頭。","cls":"family enter"}
+row {"text":"23歲道光二十三年家裡人多、規矩多，你很早就學會了在什麼場合說什麼話。","cls":"daily enter"}
+row {"text":"23歲道光二十三年你的孩子今天學會了一件新的事，你比他還高興。","cls":"daily enter"}
+row {"text":"23歲道光二十三年丈夫常年在外，你一個人撐著一個家，田裡、灶上和孩子身上都要顧。","cls":"daily enter"}
+age {"age":"24"}
+row {"text":"24歲道光二十四年24歲（清道光二十四年），添了一個男孩。鄰里上門道喜，你忙著回禮，心裡想的卻是要怎麼把孩子養大。","cls":"family enter"}
+row {"text":"24歲道光二十四年24歲（清道光二十四年），還沒滿周歲的兒子夭折了。屋裡少了哭聲和笑聲，安靜得讓人不習慣。","cls":"family enter"}
+row {"text":"24歲道光二十四年鄉里敬重守節的寡婦，官府給了牌坊，你看著上面的字，不知該羨慕還是該害怕。","cls":"daily enter"}
+row {"text":"24歲道光二十四年孩子半夜發了點熱，你整夜沒睡，天亮時才確定沒事。","cls":"daily enter"}
+row {"text":"24歲道光二十四年過節時你有了一點能力，帶了東西回家，家人把它擺在最顯眼的地方。","cls":"daily enter"}
+age {"age":"25"}
+decision {"title":"手頭有餘錢，置不置田"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"25歲道光二十五年手頭有餘錢，置不置田　→　錢留在手上，不動","cls":"choice enter"}
+row {"text":"25歲道光二十五年冬天一閒下來就是白白耗糧，當年農閒沒學那門手藝，這筆帳這時算清了。","cls":"payoff enter"}
+row {"text":"25歲道光二十五年25歲（清道光二十五年），家裡添了一個女孩。夜裡哭聲一響，整個屋子都跟著醒了。","cls":"family enter"}
+row {"text":"25歲道光二十五年你開始有自己的主意，也開始為這些主意付出代價。","cls":"daily enter"}
+row {"text":"25歲道光二十五年你的衣服總是整齊乾淨，這一點，你出了門才知道並不尋常。","cls":"daily enter"}
+row {"text":"25歲道光二十五年廟會這天，戲班子在台上唱，台下的人邊嗑瓜子邊聊，吃喝玩樂都在一處。","cls":"daily enter"}
+age {"age":"26"}
+row {"text":"26歲道光二十六年出門辦點小事，你來回要比別人多花一倍的工夫，家人也就不再叫你跑腿。","cls":"daily enter"}
+age {"age":"27"}
+row {"text":"27歲道光二十七年沒進城的你在鄉里站得穩，族親有事都先想到你。","cls":"payoff enter"}
+row {"text":"27歲道光二十七年27歲（清道光二十七年），一個男孩出生了。你抱著那團小小的、熱熱的身子，不知道手該往哪裡放。","cls":"family enter"}
+row {"text":"27歲道光二十七年27歲（清道光二十七年），失去了還沒滿周歲的兒子。沒有人多說什麼，只是飯桌上少擺了一雙筷子。","cls":"family enter"}
+row {"text":"27歲道光二十七年你拖了幾天才肯承認自己病了，拖到站不穩，才被家人硬按回床上。","cls":"daily enter"}
+age {"age":"28"}
+row {"text":"28歲道光二十八年端午節，家家門前插艾草，小孩們戴著香囊，一出門就是一股藥草香。","cls":"daily enter"}
+age {"age":"29"}
+row {"text":"29歲道光二十九年29歲（清道光二十九年），家裡多了一張嘴，是個男孩。日子比從前更緊，心裡也比從前更有盼頭。","cls":"family enter"}
+row {"text":"29歲道光二十九年29歲（清道光二十九年），四歲的女兒走了。你照常做事，只是夜裡常常醒來，側耳聽屋裡有沒有動靜。","cls":"family enter"}
+row {"text":"29歲道光二十九年丈夫回來得晚，你把飯菜熱了又熱，他進門時只說了聲辛苦。","cls":"daily enter"}
+age {"age":"30"}
+row {"text":"30歲道光三十年你的繡鞋小巧好看，旁人誇的時候，你把腳往裙下縮了縮，沒有答話。","cls":"daily enter"}
+row {"text":"30歲道光三十年","cls":"image enter"}
+age {"age":"31"}
+decision {"title":"分家"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"31歲咸豐元年分家　→　再忍忍，還是一家人","cls":"choice enter"}
+row {"text":"31歲咸豐元年31歲（清咸豐元年），添了一個女孩。鄰里上門道喜，你忙著回禮，心裡想的卻是要怎麼把孩子養大。","cls":"family enter"}
+row {"text":"31歲咸豐元年31歲（清咸豐元年），家裡兩歲的兒子沒能留住。孩子的小衣裳被收進了箱底，很久沒有人去翻。","cls":"family enter"}
+row {"text":"31歲咸豐元年你們兩人一起把日子過成了習慣，連沉默也是習慣。","cls":"daily enter"}
+age {"age":"32"}
+row {"text":"32歲咸豐二年蝗蟲飛過的田埂只剩光禿禿的稈，雞鴨趕去撿遺穗，吃得又肥又快。","cls":"daily enter"}
+row {"text":"32歲咸豐二年你和枕邊人吵了一架，為了什麼，過兩天誰也想不起來。","cls":"daily enter"}
+row {"text":"32歲咸豐二年你家是一座青磚瓦房，大門上方有石刻的匾，老輩人的臉面都在這裡。","cls":"daily enter"}
+age {"age":"33"}
+row {"text":"33歲咸豐三年你家倉裡有糧、棚裡有牛，鄰居見了你，說話都比往常客氣些。","cls":"daily enter"}
+age {"age":"34"}
+row {"text":"34歲咸豐四年當年沒買田，省下的糧這回派上了用場，鄰里有難，你家接濟了一把。","cls":"payoff enter"}
+row {"text":"34歲咸豐四年34歲（清咸豐四年），家裡添了一個男孩。夜裡哭聲一響，整個屋子都跟著醒了。","cls":"family enter"}
+row {"text":"34歲咸豐四年你記得丈夫愛吃什麼，所以哪一天他回來，飯食裡總有一樣是他喜歡的。","cls":"daily enter"}
+row {"text":"34歲咸豐四年家裡有孩子，你吃飯總是最後一個，碗裡剩下的才輪到自己。","cls":"daily enter"}
+age {"age":"35"}
+decision {"title":"手頭有餘錢，置不置田"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"35歲咸豐五年手頭有餘錢，置不置田　→　錢留在手上，不動","cls":"choice enter"}
+row {"text":"35歲咸豐五年你和同輩的親戚比來比去，嘴上不說，心裡都記著。","cls":"daily enter"}
+age {"age":"36"}
+row {"text":"36歲咸豐六年中秋夜，一家人在院子裡擺上月餅與瓜果，小孩搶著要拜月，長輩拍著他的頭笑。","cls":"daily enter"}
+age {"age":"37"}
+row {"text":"37歲咸豐七年村口的圩寨修得又高又厚，聽說有兵過境，大家就趕緊躲進去。","cls":"daily enter"}
+age {"age":"38"}
+decision {"title":"雙親老了"}
+tap {"label":"option","x":202.5,"y":569.4052734375}
+row {"text":"38歲咸豐八年雙親老了　→　接到身邊，親自奉養","cls":"choice enter"}
+row {"text":"38歲咸豐八年38歲（清咸豐八年），一個男孩出生了。你抱著那團小小的、熱熱的身子，不知道手該往哪裡放。","cls":"family enter"}
+row {"text":"38歲咸豐八年38歲（清咸豐八年），還沒滿周歲的兒子夭折了。屋裡少了哭聲和笑聲，安靜得讓人不習慣。","cls":"family enter"}
+row {"text":"38歲咸豐八年灶前灶後站了一天，腳底又麻又痛，到了晚上，你得把腳泡在熱水裡好半天。","cls":"daily enter"}
+row {"text":"38歲咸豐八年一年到頭靠地裡那點收成，豐年有餘、歉年就緊，你偶爾想，當年要是肯學門手藝就好了。","cls":"daily enter"}
+age {"age":"39"}
+row {"text":"39歲咸豐九年丈夫回來得晚，你把飯菜熱了又熱，他進門時只說了聲辛苦。","cls":"daily enter"}
+row {"text":"39歲咸豐九年廟會熱鬧，戲台前人擠人，唱的是地方戲，你聽不懂詞，卻跟著人群叫好。","cls":"daily enter"}
+age {"age":"40"}
+row {"text":"40歲咸豐十年當年沒分家，妯娌吵得厲害，家裡不得安寧。","cls":"payoff enter"}
+row {"text":"40歲咸豐十年雙親最後的日子是在你家過的，送終時你都在身邊。","cls":"payoff enter"}
+row {"text":"40歲咸豐十年你肩上的擔子一年比一年重，卻也一年比一年習慣。","cls":"daily enter"}
+row {"text":"40歲咸豐十年集上賣的洋布顏色鮮艷，比土布便宜、花樣多，但穿起來薄，你拿不定主意買不買。","cls":"daily enter"}
+row {"text":"40歲咸豐十年","cls":"image enter"}
+age {"age":"41"}
+row {"text":"41歲咸豐十一年婆婆管著灶房的鑰匙，你每天先問安，再進廚房，一碗粥也要先問過。","cls":"daily enter"}
+age {"age":"42"}
+row {"text":"42歲同治元年你們兩人一起把日子過成了習慣，連沉默也是習慣。","cls":"daily enter"}
+age {"age":"43"}
+row {"text":"43歲同治二年你的繡鞋小巧好看，旁人誇的時候，你把腳往裙下縮了縮，沒有答話。","cls":"daily enter"}
+row {"text":"43歲同治二年夜裡你家點的是菜油燈，燈芯一撥，一燈如豆，天黑就睡了。","cls":"daily enter"}
+age {"age":"44"}
+row {"text":"44歲同治三年當年省下的糧救了急，鄰里都記著你家這份情。","cls":"payoff enter"}
+row {"text":"44歲同治三年你一直沒離開過鄉里，田裡的活、鄰里的人情樣樣熟，只是偶爾會想，城裡到底什麼樣子。","cls":"daily enter"}
+row {"text":"44歲同治三年孩子拉著你一起玩，你推辭不過，玩著玩著才發現自己也在笑。","cls":"daily enter"}
+row {"text":"44歲同治三年媳婦跟你說起娘家的事，你聽著，想起自己剛嫁過來那幾年，也是這樣一句話都不敢多說。","cls":"daily enter"}
+age {"age":"45"}
+decision {"title":"替兒子捐個功名"}
+tap {"label":"option","x":202.5,"y":569.4052734375}
+row {"text":"45歲同治四年替兒子捐個功名　→　花一筆錢，替兒子捐個監生","cls":"choice enter"}
+row {"text":"45歲同治四年捐納的銀子交上去，兒子得了監生的名頭，你在族裡臉上有光。","cls":"payoff enter"}
+row {"text":"45歲同治四年北方的毛驢瘦瘦的，拉磨、馱貨、載人，一頭驢頂得上一個壯勞力。","cls":"daily enter"}
+age {"age":"46"}
+row {"text":"46歲同治五年洋人在口岸做生意，帶來了布和油，也帶來了讓人不安的新規矩。","cls":"daily enter"}
+age {"age":"47"}
+row {"text":"47歲同治六年你腳上是一雙自己納底的布鞋，一年要換三四雙，底子磨穿了就補。","cls":"daily enter"}
+row {"text":"47歲同治六年你開始教孩子一樣本事，教到一半才發現自己也沒學透。","cls":"daily enter"}
+age {"age":"48"}
+decision {"title":"孩子的婚事"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"48歲同治七年孩子的婚事　→　由孩子自己拿主意","cls":"choice enter"}
+row {"text":"48歲同治七年兵過境之後，村裡的雞鴨牛羊少了一大半，剩下的那頭牛，你夜裡牽進屋裡守著。","cls":"daily enter"}
+row {"text":"48歲同治七年孩子們鬧起來的時候，整個屋子都是他們的聲音，你嘴上抱怨，心裡卻踏實。","cls":"daily enter"}
+row {"text":"48歲同治七年村口的圩寨修得又高又厚，聽說有兵過境，大家就趕緊躲進去。","cls":"daily enter"}
+age {"age":"49"}
+row {"text":"49歲同治八年孩子離家那天，你沒有送到路口，在家裡把門檻擦了三遍。","cls":"daily enter"}
+row {"text":"49歲同治八年你家的米價三天一變，主婦出門買米，回來第一句話總是「又漲了」。","cls":"daily enter"}
+age {"age":"50"}
+row {"text":"50歲同治九年丈夫今天難得多說了幾句話，你聽得仔細，說的都是外面的事。","cls":"daily enter"}
+row {"text":"50歲同治九年灶前灶後站了一天，腳底又麻又痛，到了晚上，你得把腳泡在熱水裡好半天。","cls":"daily enter"}
+row {"text":"50歲同治九年","cls":"image enter"}
+age {"age":"51"}
+row {"text":"51歲同治十年你的衣服總是整齊乾淨，這一點，你出了門才知道並不尋常。","cls":"daily enter"}
+age {"age":"52"}
+row {"text":"52歲同治十一年你住的地方被你打理成最舒服的樣子，連一個板凳的位置都有道理。","cls":"daily enter"}
+age {"age":"53"}
+row {"text":"53歲同治十二年你家的飯食裡常有肉，你到很晚才發現別人家並不是這樣。","cls":"daily enter"}
+row {"text":"53歲同治十二年全家還是一起幹活、一起吃飯，有事大家扛，只是誰多出一分力、誰少出一分，心裡都有本帳。","cls":"daily enter"}
+age {"age":"54"}
+row {"text":"54歲同治十三年夜裡你家點的是菜油燈，燈芯一撥，一燈如豆，天黑就睡了。","cls":"daily enter"}
+row {"text":"54歲同治十三年上門來求你家幫忙的人不少，你學會了分辨哪些是真有難處。","cls":"daily enter"}
+age {"age":"55"}
+row {"text":"55歲光緒元年兒女的婚事沒有經過媒人，閒話在臨淄傳了好一陣。","cls":"payoff enter"}
+row {"text":"55歲光緒元年臘月二十三祭灶，糖瓜黏了灶王爺的嘴，小孩們趁機偷吃了兩塊。","cls":"daily enter"}
+row {"text":"55歲光緒元年你吃得越來越清淡，年輕時最愛的那幾樣，現在看看就夠了。","cls":"daily enter"}
+row {"text":"55歲光緒元年你家倉裡有糧、棚裡有牛，鄰居見了你，說話都比往常客氣些。","cls":"daily enter"}
+age {"age":"56"}
+row {"text":"56歲光緒二年饑荒丁戊奇荒。山西河南大旱，地裡顆粒無收，賣兒鬻女，路邊的死人沒人埋。 史實丁戊奇荒（1876〜1879）","cls":"event enter"}
+row {"text":"56歲光緒二年養雞是婦人家的外快，雞蛋拿到集上賣，換回的錢攢起來貼補家用。","cls":"daily enter"}
+age {"age":"57"}
+decision {"title":"病來了，怎麼辦"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"57歲光緒三年病來了，怎麼辦　→　不吭聲，硬撐著過去","cls":"choice "}
+decision {"title":"身後的事"}
+tap {"label":"option","x":202.5,"y":569.4052734375}
+row {"text":"57歲光緒三年身後的事　→　花錢預備壽材","cls":"choice enter"}
+row {"text":"57歲光緒三年一大家子人都住在同一個院子裡，輩分排得清清楚楚，說話都得照規矩。","cls":"daily enter"}
+row {"text":"57歲光緒三年夜裡你點的是菜油燈，捻子一撥，亮一點，油也費一點。","cls":"daily enter"}
+age {"age":"58"}
+row {"text":"58歲光緒四年你記得丈夫愛吃什麼，所以哪一天他回來，飯食裡總有一樣是他喜歡的。","cls":"daily enter"}
+age {"age":"59"}
+row {"text":"59歲光緒五年你守了一輩子的田，沒有別的本事傍身，好在地不欺人，種多少，收多少。","cls":"daily enter"}
+age {"age":"60"}
+row {"text":"60歲光緒六年當年硬撐過了那場病，反倒練得結實，少有頭疼腦熱。","cls":"payoff enter"}
+row {"text":"60歲光緒六年家裡添了媳婦，你學著當一個不太嚴的婆婆，免得她想起自己當年的婆婆。","cls":"daily enter"}
+row {"text":"60歲光緒六年你家是一座青磚瓦房，大門上方有石刻的匾，老輩人的臉面都在這裡。","cls":"daily enter"}
+row {"text":"60歲光緒六年","cls":"image enter"}
+age {"age":"61"}
+row {"text":"61歲光緒七年洋人在口岸做生意，帶來了布和油，也帶來了讓人不安的新規矩。","cls":"daily enter"}
+row {"text":"61歲光緒七年你不舒服的時候，枕邊人守在一旁，一句話也不說，只是遞水。","cls":"daily enter"}
+age {"age":"62"}
+row {"text":"62歲光緒八年當年備的壽材放了幾年，漆裂了，又花錢重新上漆。","cls":"payoff enter"}
+row {"text":"62歲光緒八年家裡人多、規矩多，你很早就學會了在什麼場合說什麼話。","cls":"daily enter"}
+age {"age":"63"}
+row {"text":"63歲光緒九年廟會熱鬧，戲台前人擠人，唱的是地方戲，你聽不懂詞，卻跟著人群叫好。","cls":"daily enter"}
+row {"text":"63歲光緒九年你不再下地，每天在院子裡餵雞、摘菜，一天就這麼過去。","cls":"daily enter"}
+age {"age":"64"}
+row {"text":"64歲光緒十年你家的飯食裡常有肉，你到很晚才發現別人家並不是這樣。","cls":"daily enter"}
+row {"text":"64歲光緒十年上了年紀，連走到院門口曬太陽都要人攙著，旁人說你命好，你只是笑笑。","cls":"daily enter"}
+age {"age":"65"}
+row {"text":"65歲光緒十一年你起得越來越早，睡得越來越短，天沒亮就坐在床邊等天亮。","cls":"daily enter"}
+age {"age":"66"}
+row {"text":"66歲光緒十二年米價漲到三四兩銀子一石，主婦買米的時候，掂量的是每一勺。","cls":"daily enter"}
+age {"age":"67"}
+row {"text":"67歲光緒十三年天災黃河在鄭州決口，大水幾乎淹了河南東部，一路漫入安徽和江蘇。逃難的人在高地上搭棚，等了一個月才有船。 ","cls":"event enter"}
+row {"text":"67歲光緒十三年你住在兒孫的屋子裡，每天由他們端飯送水，你說自己不用，他們不聽。","cls":"daily enter"}
+row {"text":"67歲光緒十三年別人都在過節，你也跟著過，只是心不在上面。","cls":"daily enter"}
+row {"text":"67歲光緒十三年你們結婚那一年的事，兩個人記得的版本不一樣，爭了這麼多年也沒爭出結果。","cls":"daily enter"}
+age {"age":"68"}
+decision {"title":"病來了，怎麼辦"}
+tap {"label":"option","x":202.5,"y":569.4052734375}
+row {"text":"68歲光緒十四年病來了，怎麼辦　→　燒香拜神，求個平安","cls":"choice enter"}
+row {"text":"68歲光緒十四年孩子們長大後各走各的路，你站在門口看著，既欣慰又失落。","cls":"daily enter"}
+row {"text":"68歲光緒十四年你拄著一根棍子走路，慢是慢，但每一步都還穩。","cls":"daily enter"}
+row {"text":"68歲光緒十四年村裡的狗夜裡叫了幾聲，接著全村的狗都叫起來，你翻了個身，又睡了。","cls":"daily enter"}
+age {"age":"69"}
+row {"text":"69歲光緒十五年你守了一輩子的田，沒有別的本事傍身，好在地不欺人，種多少，收多少。","cls":"daily enter"}
+row {"text":"69歲光緒十五年郎中給你把脈，開了幾味草藥，煎出一碗黑黑的湯，你屏著氣一口喝下。","cls":"daily enter"}
+age {"age":"70"}
+row {"text":"70歲光緒十六年家裡添了媳婦，你學著當一個不太嚴的婆婆，免得她想起自己當年的婆婆。","cls":"daily enter"}
+row {"text":"70歲光緒十六年煎餅卷大蔥是山東人的早餐，你一邊走一邊嚼，滿口都是蔥味。","cls":"daily enter"}
+row {"text":"70歲光緒十六年","cls":"image enter"}
+age {"age":"71"}
+row {"text":"71歲光緒十七年那場病當年沒有好好醫，如今一入冬就犯。","cls":"payoff enter"}
+row {"text":"71歲光緒十七年北方人窩頭鹹菜過日子，玉米麵蒸得又黃又硬，你嚥了十幾年也沒嚥膩。","cls":"daily enter"}
+age {"age":"72"}
+row {"text":"72歲光緒十八年72歲（清光緒十八年），身邊的人過世了。屋裡的東西都還在原來的地方，人卻不在了。","cls":"family enter"}
+row {"text":"72歲光緒十八年一大家子人都住在同一個院子裡，輩分排得清清楚楚，說話都得照規矩。","cls":"daily enter"}
+row {"text":"72歲光緒十八年北方的毛驢瘦瘦的，拉磨、馱貨、載人，一頭驢頂得上一個壯勞力。","cls":"daily enter"}
+age {"age":"73"}
+row {"text":"73歲光緒十九年洋油燈取代了菜油燈，亮得多，只是洋油貴，每晚只點一小會兒。","cls":"daily enter"}
+row {"text":"73歲光緒十九年年紀大了，纏過的腳愈發不聽使喚，你出門要扶著牆，院子就是你的天地。","cls":"daily enter"}
+age {"age":"74"}
+row {"text":"74歲光緒二十年你這一陣子常覺得沒力氣，做一點事就要歇一歇。","cls":"daily enter"}
+row {"text":"74歲光緒二十年臘八的粥煮了一大鍋，豆與米熬得稠稠的，鄰居互相送了一碗又一碗。","cls":"daily enter"}
+age {"age":"75"}
+row {"text":"75歲光緒二十一年戰亂日軍從榮成灣登陸，從背後奪了威海衛的炮台。北洋水師剩下的軍艦被困在劉公島，提督丁汝昌拒降自殺，艦隊","cls":"event "}
+decision {"title":"兵荒馬亂"}
+tap {"label":"option","x":202.5,"y":661.1337890625}
+row {"text":"75歲光緒二十一年兵荒馬亂　→　留在家裡，聽天由命","cls":"choice enter"}
+row {"text":"75歲光緒二十一年打仗的消息傳到了臨淄，你心裡明白這一回很難躲過去。","cls":"dying enter"}
+row {"text":"75歲光緒二十一年炮火打到了臨淄附近，你帶著家人躲在地窖裡，不敢出聲。","cls":"dying enter"}
+row {"text":"75歲光緒二十一年清光緒二十一年，兵荒馬亂之中，你再沒能走出臨淄一帶，75歲。","cls":"death enter"}
+ending {}
+card {"fmt":"story","w":1080,"h":1920}
+rec_stop {}

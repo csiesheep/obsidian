@@ -1,0 +1,77 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/18",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "一天 8 張版面單，一半在這頁",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/18/src/before_1280.jpg",
+   "crop": [
+    140,
+    0,
+    980,
+    860
+   ],
+   "lines": [
+    "修之前：桌機版卡靠左、右邊一片空",
+    "「接著活」被底部那一列蓋住"
+   ]
+  },
+  {
+   "title": "一句話，一張單",
+   "lines": [
+    "「分享卡，live again 歪掉」",
+    "「fix the overlap」",
+    "「the layout is broken」",
+    "「分享圖都是置中」",
+    "……從第一張單到最後一版：7.5 小時"
+   ]
+  },
+  {
+   "title": "一把尺量 144 個版面",
+   "big": "36 × 4",
+   "lines": [
+    "480 到 1100 每 20px，再加 4 個桌機寬",
+    "× 夭折頁／一般頁 × 中文／英文",
+    "量：字有沒有被截、有沒有重疊、有沒有置中"
+   ]
+  },
+  {
+   "title": "綠燈只代表量過的地方沒壞",
+   "lines": [
+    "每張單先寫一條自動檢查，先讓它紅",
+    "AI 修完，檢查變綠，才合進主線",
+    "有兩個問題回頭量舊版：一直都在",
+    "只是那幾個寬度，沒有一條檢查在量"
+   ]
+  },
+  {
+   "title": "兩欄合進去 24 分鐘，就被我推翻",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/18/src/twocol_1280.jpg",
+   "crop": [
+    140,
+    0,
+    1140,
+    860
+   ],
+   "lines": [
+    "第 209 號做的兩欄：卡在左、按鈕在右",
+    "24 分鐘後我說「分享圖都是置中」，改單欄"
+   ]
+  },
+  {
+   "title": "最後一刀是刪掉",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/18/src/after_1280.jpg",
+   "crop": [
+    220,
+    0,
+    1060,
+    860
+   ],
+   "lines": [
+    "夭折頁改成跟一般頁一樣，拿掉「接著活」",
+    "檢查寫的行數，是改的程式的 7 倍多"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{"out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/7", "brand": "小羊遊戲間", "series": "開發日記",
+ "slides": [
+  {"title": "一連串的夭折，是亂數壞了嗎？", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/7/src/cards/card_7414190_post.png", "crop": [0, 0, 1080, 1000],
+   "lines": ["玩家回報的問題，我去查了", "遊戲畫面：楊二妞，未滿周歲（人物由引擎生成）"]},
+  {"title": "亂數沒壞，真隨機本來就會連", "big": "1.4%",
+   "lines": ["2 萬世裡，未滿周歲就走的 24.1%", "連續 5 世有 4 世沒滿周歲：約 1.4%"]},
+  {"title": "我先說不加保底，然後改口",
+   "lines": ["「維持史實的嬰兒死亡率，", "不加保底」", "↓ 沒多久", "「夭折率太高了，調到35%」"]},
+  {"title": "不改史料，只改 5 歲以前", "big": "0.85 次方",
+   "lines": ["5 歲前就走：38.9% → 34.3%", "每年活下來的機率開 0.85 次方；5 歲以後不動"]},
+  {"title": "調的只有「你」", "big": "34.3% vs 37.9%",
+   "lines": ["你自己 5 歲前走：34.3%", "你的孩子（仍照史料）：37.9%"]},
+  {"title": "同一年，添了一個男孩，又走了", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/7/src/age24.jpg", "crop": [0, 520, 1080, 1060],
+   "lines": ["湯蘭芝，清中期臨淄：10 個孩子，走了 6 個", "遊戲畫面：24 歲（1844）；人物由引擎生成"]},
+  {"title": "她活到 75 歲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/7/src/life/end_card.png", "crop": [0, 0, 1080, 1300],
+   "lines": ["生一次清朝，看看你能不能長大", "games.csiesheep.com/china_life"]}
+ ]}

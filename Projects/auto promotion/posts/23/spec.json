@@ -1,0 +1,19 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/23",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {"title": "以前：她死的那一刻，畫面自己暗掉", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/23/src/old_fade.png", "crop": [0, 560, 1080, 1400],
+   "lines": ["停 1 秒、1.2 秒淡成墨色，然後自己跳走", "韓招弟，清康熙五十八年，36 歲，霍亂"]},
+  {"title": "現在：停在這裡，等你按", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/23/src/new_dead.png", "crop": [0, 560, 1080, 1910],
+   "lines": ["同一個人，同三行字；多一個「卒」，一顆鍵", "按「看這一生 →」或 Enter，才進結局頁"]},
+  {"title": "死的那一刻，我改了三次", "big": "3 秒 → 2.2 秒 → 等你按",
+   "lines": ["「停 3 秒」上線 57 分鐘就被我換掉", "「1 秒＋變暗」用了 13 天"]},
+  {"title": "這次我先要設計稿", "big": "我選 B",
+   "lines": ["「show a button to confirm……Show me the design first」", "AI 畫了三版，我選 B"]},
+  {"title": "舊的檢查，全部要學會按鍵", "big": "每 150 毫秒",
+   "lines": ["檢查頁頭多一個小幫手：看到鍵就按", "新的那組不准按，最長等 10.5 秒看它停住"]},
+  {"title": "按下去，才是這一生", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/23/src/new_end.png", "crop": [0, 130, 1080, 1480],
+   "lines": ["《生在中國》：投胎到中國歷史，活完一輩子", "什麼時候看結局，現在由你按"]}
+ ]
+}

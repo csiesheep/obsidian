@@ -1,0 +1,94 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/14",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "表定 17:30，我 19:57 才下班",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/14/src/play/fab_end0.png",
+   "crop": [
+    330,
+    40,
+    750,
+    750
+   ],
+   "lines": [
+    "被叫住 5 次，加班 2 小時 27 分",
+    "圖：《fab24hr》網頁遊戲畫面（結算圖卡）"
+   ]
+  },
+  {
+   "title": "晶圓廠的晚班：下班未遂",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/14/src/play/fab_seat.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1340
+   ],
+   "lines": [
+    "照你打開的時間排班，32 個位子",
+    "圖：《fab24hr》網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "往上報，只能留三行",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/14/src/play/fab_report2.png",
+   "crop": [
+    0,
+    560,
+    1080,
+    1190
+   ],
+   "lines": [
+    "六格挑三格，有一格寫著「新人小安」",
+    "圖：《fab24hr》網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "小事，還是危險？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/14/src/play/doc_04.png",
+   "crop": [
+    180,
+    290,
+    1200,
+    900
+   ],
+   "lines": [
+    "醫院夜班，只能從護理師一句話判斷",
+    "圖：《我熱愛值班》網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "我沒走到床邊，它還是教我",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/14/src/play/doc_end.png",
+   "crop": [
+    312,
+    200,
+    752,
+    700
+   ],
+   "lines": [
+    "看到有人抽搐：讓他側躺，不要塞東西到嘴裡",
+    "圖：《我熱愛值班》網頁遊戲結算畫面"
+   ]
+  },
+  {
+   "title": "房仲公司，也做了一款",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/14/src/play/fz_01.png",
+   "lines": [
+    "30 天簽 6 件委託，一天體力夠跑三位屋主",
+    "圖：《房仲菜鳥大冒險》網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "他們模擬一天，我模擬一輩子",
+   "big": "一天 ／ 一輩子",
+   "lines": [
+    "《生在中國》：朝代、家世，都用抽的",
+    "一個人加 AI 做的、一樣在瀏覽器裡",
+    "你的工作做成遊戲，第一關是什麼？"
+   ]
+  }
+ ]
+}

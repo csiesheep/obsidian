@@ -1,0 +1,11 @@
+import * as L from './logic.mjs';
+const t0=Date.now();
+const base={knob:0.55,lowAt:6,stir:[0.2,5.0],foldAt:10.5,flicks:[{gap:0.12,push:0.35,v:6},{gap:0.12,push:0.35,v:4.3}]};
+const show=(n,p)=>{const r=L.simulate({...base,...p});console.log(n,r.kind,r.score,r.name,'|',r.cause,'| H',r.H.toFixed(2),'cookT',r.cookT?.toFixed(1));};
+show('author plan0',{});
+show('no lower',{lowAt:null});
+show('stir forever',{stir:[0.2,14],foldAt:15});
+show('fold at 1.8',{stir:[0.2,1.6],foldAt:1.8});
+show('high heat',{knob:1});
+show('no stir',{stir:[0,0]});
+console.log('ms',Date.now()-t0);

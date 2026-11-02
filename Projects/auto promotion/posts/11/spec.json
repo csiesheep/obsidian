@@ -1,0 +1,98 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/11",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "表哥：這台檔車借你騎",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/11/src/play/p23.png",
+   "crop": [
+    0,
+    0,
+    1500,
+    1200
+   ],
+   "lines": [
+    "我坐在一台搶來的轎車裡，剛闖紅燈被照相",
+    "圖：《臺北狂飆》官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "有民眾撥打 110 報案！",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/11/src/play/p21.png",
+   "crop": [
+    20,
+    0,
+    1500,
+    1180
+   ],
+   "lines": [
+    "西門町忠孝西路二段，強盜搶車案",
+    "嫌犯是我（開場不到 3 分鐘）",
+    "圖：《臺北狂飆》官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "瀏覽器打開，就是臺北",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/11/src/official/og_taipei.jpg",
+   "lines": [
+    "免費、免下載，原名「臺北GTA」",
+    "報導：AI token 花了超過 1 萬美元",
+    "圖：《臺北狂飆》官方分享圖"
+   ]
+  },
+  {
+   "title": "一個月，9 座城市",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/11/src/play/city_pick.png",
+   "crop": [
+    418,
+    170,
+    1504,
+    1032
+   ],
+   "lines": [
+    "錢包共用：NT$500，在東京顯示 ¥2,500",
+    "圖：《臺北狂飆》官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "改名換網址，存檔怎麼辦？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/11/src/play/title_zh.png",
+   "crop": [
+    0,
+    0,
+    1300,
+    1200
+   ],
+   "lines": [
+    "舊網址先把存檔打包，帶去新網址",
+    "兩邊都有存檔？留進度多的那份",
+    "圖：《臺北狂飆》官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "開一間你的店，蓋進遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/11/src/play/contest.png",
+   "crop": [
+    210,
+    163,
+    1710,
+    1036
+   ],
+   "lines": [
+    "遊戲內公告：慶祝 500 萬人次遊玩",
+    "10/24–10/31，選 10 家蓋進遊戲展 30 天",
+    "圖：《臺北狂飆》官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "他做今天的臺北，我做兩千年前的中國",
+   "big": "今天 ／ 兩千年前",
+   "lines": [
+    "投胎進去、活完一生：《生在中國》",
+    "一樣用 AI 做、一樣在瀏覽器裡",
+    "一樣怕：改版之後，你的舊東西不見"
+   ]
+  }
+ ]
+}

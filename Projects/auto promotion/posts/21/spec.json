@@ -1,0 +1,80 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/21",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "說書人不准說「牌」",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/21/src/report_ch6.png",
+   "crop": [
+    0,
+    0,
+    520,
+    330
+   ],
+   "lines": [
+    "縱橫：玩完一局，AI 說書人把它寫成章回演義",
+    "這是真實一局的第六回"
+   ]
+  },
+  {
+   "title": "一句話，一張禁字表",
+   "lines": [
+    "「不要用 打出，記分 等等字眼，內容像在詳述真實歷史」",
+    "→ 打出、手牌、棄牌、記分、得分、回合、骰……",
+    "含「牌」的詞全部不行；72 張牌的遊戲，戰報裡 0 個「牌」"
+   ]
+  },
+  {
+   "title": "說了，就退回",
+   "big": "退回 → 重寫",
+   "lines": [
+    "zh chapter 4 paragraph 2: game words \"回合\"",
+    "退回不是丟掉，是把問題一條條列給它重寫",
+    "還不過換備用模型；一局最多 3 輪，一天最多 100 份"
+   ]
+  },
+  {
+   "title": "第一份真實戰報，五個毛病",
+   "lines": [
+    "把一年的紀錄從頭唸到尾",
+    "條列「甲地易手」，沒有場景",
+    "每回都「話說」「欲知後事如何」",
+    "回目先講了之後幾年才發生的事",
+    "滿篇都是「勢力」"
+   ]
+  },
+  {
+   "title": "它抄的，是我餵給它的字",
+   "lines": [
+    "「勢力」「以X為先」——",
+    "原來是我們自己的戰況紀要裡的字",
+    "改源頭：紀要先列「本年要事」最多五件",
+    "說書人挑三、四件寫成場景"
+   ]
+  },
+  {
+   "title": "連頁面自己都得改口",
+   "lines": [
+    "頁首原本寫「第 7 回合」",
+    "改成「楚勝 · 稱帝 · 第七年」",
+    "英文版：一句只講一國",
+    "「Qin lost Daliang. Chu won Handan.」"
+   ]
+  },
+  {
+   "title": "縱橫：秦連橫，楚合縱",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/21/src/og-zongheng.jpg",
+   "crop": [
+    150,
+    0,
+    1050,
+    630
+   ],
+   "lines": [
+    "寫進 prompt 是許願，寫成檢查才是規定",
+    "縱橫：兩人戰國卡牌策略，八年約一小時｜圖為 AI 繪製"
+   ]
+  }
+ ]
+}

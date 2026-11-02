@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7324942207554929" crossorigin="anonymous"></script><!-- Google AdSense(審査・サイト確認用) -->
+<title>ぴこぴこゲーム｜ピコピコPの無料Webゲーム（炎上シミュレーター・ハンバーグ作り）</title>
+<script src="/assets/nozoom.js?v=1"></script>
+<meta name="description" content="ピコピコP（ぴこぴこP）が作った無料のWebゲーム置き場。何を投稿しても炎上する「炎上シミュレーター」、3Dで作る「ハンバーグ作り」、お絵かきチャット「みんなのらくがき」など。登録なし・スマホのブラウザですぐ遊べる。">
+<meta property="og:title" content="ぴこぴこゲーム">
+<meta property="og:description" content="ぴこぴこPが作ったおもろいWebゲーム。登録なし・スマホでそのまま遊べる！">
+<meta property="og:image" content="https://piko2game.com/assets/og.png">
+<meta property="og:url" content="https://piko2game.com/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://piko2game.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@piko2_p">
+<link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #fff6d6; --card: #ffffff; --ink: #2b2b2b; --sub: #6b6257;
+    --red: #ff4d5e; --yellow: #ffd23f; --line: #2b2b2b;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    background-image: radial-gradient(#ffe48a 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+    color: var(--ink);
+    font-family: "M PLUS Rounded 1c", system-ui, -apple-system, "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 20px 0 8px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 56px; height: 56px; border-radius: 50%; border: 3px solid var(--line); background: #fff; }
+  .brand b { display: block; font-size: 24px; font-weight: 900; letter-spacing: .02em; }
+  .brand small { display: block; font-size: 13px; color: var(--sub); font-weight: 700; }
+  .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .xbtn { display: inline-flex; align-items: center; gap: 6px; background: #111; color: #fff; text-decoration: none; font-weight: 800; font-size: 14px; padding: 9px 14px; border-radius: 999px; white-space: nowrap; }
+
+  .hero { margin: 18px 0 26px; background: var(--card); border: 3px solid var(--line); border-radius: 22px; padding: 22px 20px; box-shadow: 6px 6px 0 var(--line); }
+  .hero h1 { margin: 0 0 6px; font-size: clamp(22px, 5.4vw, 32px); font-weight: 900; line-height: 1.35; }
+  .hero h1 span { background: linear-gradient(transparent 60%, var(--yellow) 60%); }
+  .hero h1 .nw { white-space: nowrap; font-weight: inherit; }
+  .hero p { margin: 0; color: var(--sub); font-weight: 700; font-size: 15px; }
+
+  h2 { font-size: 20px; font-weight: 900; margin: 16px 0 14px; display: flex; align-items: center; gap: 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; margin-bottom: 36px; }
+  .card { background: var(--card); border: 3px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: 5px 5px 0 var(--line); display: flex; flex-direction: column; transition: transform .12s, box-shadow .12s; text-decoration: none; }
+  a.card:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--line); }
+  a.card:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--line); }
+  .thumb { position: relative; aspect-ratio: 16 / 9; border-bottom: 3px solid var(--line); background: #fff8e1; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .steamb { position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 5px; background: #171a21; color: #fff; font-weight: 900; font-size: 12px; padding: 4px 10px 4px 7px; border-radius: 999px; border: 2px solid #66c0f4; box-shadow: 0 2px 8px rgba(0,0,0,.35); }
+  .steamb svg { width: 15px; height: 15px; fill: #66c0f4; }
+  .badge { position: absolute; top: 10px; left: 10px; background: var(--red); color: #fff; font-weight: 900; font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 2px solid var(--line); }
+  .live { position: absolute; bottom: 10px; right: 10px; background: rgba(255,255,255,.95); font-weight: 800; font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 2px solid var(--line); display: none; align-items: center; gap: 6px; }
+  .live i { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; box-shadow: 0 0 0 3px rgba(46,204,113,.25); }
+  .body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .body h3 { margin: 0; font-size: 19px; font-weight: 900; }
+  .body p { margin: 0; color: var(--sub); font-size: 14px; font-weight: 700; flex: 1; }
+  .played { font-size: 13px; font-weight: 900; color: var(--red); min-height: 1.2em; margin-top: -4px; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tags span { font-size: 11px; font-weight: 800; background: #fff1b8; border: 2px solid var(--line); border-radius: 999px; padding: 1px 8px; }
+  .play { margin-top: 4px; display: block; text-align: center; background: var(--red); color: #fff; font-weight: 900; font-size: 17px; padding: 11px; border-radius: 14px; border: 3px solid var(--line); }
+  .soon { border-style: dashed; box-shadow: none; background: rgba(255,255,255,.6); }
+  .soon .thumb { display: flex; align-items: center; justify-content: center; font-size: 44px; background: repeating-linear-gradient(45deg, #fff8e1 0 14px, #fff1c4 14px 28px); }
+  .soon .play { background: #111; }
+
+  footer { padding: 10px 0 40px; text-align: center; color: var(--sub); font-size: 13px; font-weight: 700; }
+  /* スマホでもゲームを横に2つ並べる(一覧で見比べやすく) */
+  @media (max-width: 620px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .card { border-radius: 16px; box-shadow: 4px 4px 0 var(--line); }
+    .badge { top: 6px; left: 6px; font-size: 10px; padding: 1px 7px; }
+    .live { bottom: 6px; right: 6px; font-size: 10px; padding: 2px 7px; }
+    .body { padding: 10px 10px 12px; gap: 6px; }
+    .body h3 { font-size: 15px; line-height: 1.3; }
+    .body p { font-size: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex: none; }
+    .played { font-size: 11px; margin-top: 0; }
+    .tags { display: none; }
+    .play { font-size: 14px; padding: 8px; border-radius: 12px; margin-top: auto; }
+  }
+  @media (max-width: 420px) {
+    .xbtn .t { display: none; }
+    .brand b { font-size: 21px; }
+  }
+  .comm { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: #fff; border: 3px solid #2b2b2b; border-radius: 18px; box-shadow: 4px 4px 0 #2b2b2b; padding: 12px 14px; margin: 4px 0 18px; }
+  .comm-t { display: flex; flex-direction: column; min-width: 0; flex: 1 1 260px; }
+  .comm-t b { font-size: 16px; }
+  .comm-t span { font-size: 12.5px; color: #6b6257; font-weight: 700; line-height: 1.5; }
+  .comm-b { display: flex; gap: 8px; flex-wrap: wrap; }
+  .comm-b a { text-decoration: none; font-weight: 900; font-size: 14px; border-radius: 12px; padding: 9px 14px; border: 3px solid #2b2b2b; white-space: nowrap; }
+  .comm-b .dc { background: #5865f2; color: #fff; }
+  .comm-b .xf { background: #111; color: #fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="head">
+      <a class="brand" href="/">
+        <img src="/assets/logo.svg" alt="">
+        <span><b>ぴこぴこゲーム</b><small>by ぴこぴこP</small></span>
+      </a>
+      <a class="xbtn" href="https://x.com/piko2_p" target="_blank" rel="noopener">𝕏 <span class="t">@piko2_p</span></a>
+    </div>
+  </header>
+
+  <div class="comm">
+    <div class="comm-t"><b>🎮 ぴこぴこゲーム部（Discord）</b><span>新作の先行テスト・要望・ゲーム好きなら誰でも、一緒に遊ぶ仲間募集</span></div>
+    <div class="comm-b"><a class="dc" href="https://discord.gg/6jcrSzQRyA" target="_blank" rel="noopener">Discordに参加</a><a class="xf" href="https://x.com/piko2_p" target="_blank" rel="noopener">𝕏 フォロー</a></div>
+  </div>
+
+  <h2>🕹️ ゲーム一覧</h2>
+  <div class="grid" id="games"></div>
+  <div data-piko-ad="r300" style="margin:20px auto 4px"></div>
+
+  <footer>© ぴこぴこP ・ 新作はXと<a href="https://discord.gg/6jcrSzQRyA" target="_blank" rel="noopener">Discord</a>でお知らせしてます<br><a href="/about/">運営者情報・お問い合わせ</a> ・ <a href="/privacy/">プライバシーポリシー</a></footer>
+</div>
+
+<script>
+  // ゲームを増やすときはここに1つ足すだけ
+  const GAMES = [
+    {
+      slug: "pizza",
+      title: "ピザ作り",
+      desc: "生地を指でのばして好きな形に。おたまでソースをぬって、サラミやフルーツをのせたら、石窯に押しこんで焼こう！ ケチャップでらくがきして、ピザカッターで切ったら、人に食べさせてみて。こげすぎや味のこすぎには「おえっ」！？",
+      cover: "/assets/pizza-cover.jpg",
+      tags: ["3D", "料理", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "photocook",
+      title: "写真クッキング",
+      desc: "好きな写真がお料理に！ フライパンで焼いたり、衣をつけてからあげみたいに揚げたり、カレーやおでんで煮込んだり。包丁でスパッと切って、ケチャップやホイップ、くだものでトッピング。あなたの写真は何料理になる？ 写真はスマホの中だけで使います。",
+      cover: "/assets/photocook-cover.jpg",
+      tags: ["3D", "料理", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "cake",
+      title: "ケーキ作り（フォロワー2万人記念）",
+      desc: "好きな形のケーキを作ろう！ 自分で形をかくこともできる。チョコ・いちご・抹茶・ふつうのクリームを指でぬって、ふちにホイップ。いちご・キウイ・みかん・チョコ・ポッキーをのせたり、チョコペンで字や絵をかいたり。ぴこぴこP フォロワー2万人記念！",
+      cover: "/assets/cake-cover.jpg",
+      tags: ["3D", "スイーツ", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "okonomiyaki",
+      title: "お好み焼き作り",
+      desc: "ボウルで生地とキャベツをまぜて、鉄板に好きな形でかいて焼こう。焼き色を見ながら、ヘラで自分の手でひっくり返す！ 生だとぐちゃっと崩れるよ。お皿にうつしたら、ソース・マヨ・青のり・かつお節で仕上げ。ケチャップでお皿にらくがきもできる。",
+      cover: "/assets/okonomiyaki-cover.jpg",
+      tags: ["3D", "料理", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "parfait",
+      title: "パフェ作り",
+      desc: "背の高いグラスに、コーンフレークやくだもの、ソースを入れて層を作ろう。アイスはアイスボックスから指でくるくるすくって、ホイップは指でなぞってしぼる。いちごやポッキーをのせたら完成！ あなたのパフェは何点？",
+      cover: "/assets/parfait-cover.jpg",
+      tags: ["3D", "スイーツ", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "malatang",
+      title: "麻辣湯作り",
+      desc: "好きな具を選んで、スープも調味料も自分の手で鍋へ！ ラー油・唐辛子・花椒は入れ放題。煮えたら鍋をかたむけて丼に注ごう。入れすぎるとあふれるし、汁なしもOK。あなたの麻辣湯は何点？",
+      cover: "/assets/malatang-cover.jpg",
+      tags: ["3D", "料理", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "katanuki",
+      title: "型抜き",
+      desc: "自分で描いた絵が、お祭りの型抜きの型になる！ 爪楊枝で溝を少しずつ削って、割らずに取り出そう。削りすぎるとひびが入って…パキッ。きれいさを点数で判定するよ。",
+      cover: "/assets/katanuki-cover.jpg",
+      tags: ["お絵かき", "お祭り", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "kaoshoot",
+      title: "顔シューティング",
+      desc: "自分の顔(ペットの写真もOK)が乗り物に乗って飛んでくる!? スマホを向けて撃ち落とせ！ 顔がぐにゃっと動いて、ステージ3までクリアをめざそう。写真はサーバーに送らないよ。",
+      cover: "/assets/kaoshoot-cover.jpg",
+      tags: ["カメラ", "シューティング", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "crepe",
+      title: "クレープ作り",
+      desc: "お玉で生地を流して、フライパンを傾けて丸く広げる！ 焼けたら指でひっくり返して、いちごやホイップをのせて、指でつまんで扇形にたたもう。焼きすぎると真っ黒こげ。",
+      cover: "/assets/crepe-cover.jpg",
+      tags: ["3D", "料理", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "curry",
+      title: "カレー作り",
+      desc: "にんじん・じゃがいも・たまねぎを包丁で好きに切って、牛肉と炒めて、水とルウで煮込む！ ごはんを盛ってルーをかけたら完成。チョコやいちごの隠し味も？ あなたのカレーは何点？",
+      cover: "/assets/curry-cover.jpg",
+      tags: ["3D", "料理", "物理"],
+      isNew: true,
+    },
+    {
+      slug: "tunnel",
+      title: "地下道零時 NIGHT BELOW",
+      desc: "懐中電灯ひとつで、真夜中の地下通路を歩く。発電機を直して出口へ…何かが追ってくる。🌙 深夜0〜3時と ☀️ 昼12〜13時だけ遊べる。",
+      cover: "/assets/tunnel-cover.jpg",
+      tags: ["ホラー", "時間限定", "3D"],
+      steam: true,
+      isNew: true,
+      night: true,
+    },
+    {
+      slug: "koma",
+      title: "都道府県コマバトル",
+      desc: "自分の県をえらぶと、その県の形のコマが回り出す！ 指で動かして⚡アタックで削り合って、はじき出したら勝ち。勝ち数は都道府県ランキングに。",
+      cover: "/assets/koma-cover.jpg",
+      tags: ["対戦", "都道府県", "ランキング"],
+      isNew: true,
+    },
+    {
+      slug: "kotoba",
+      title: "ことばつなぎ",
+      desc: "「いつ・どこで・だれが・なにをした」のどれか1つだけ書くと、残りはほかの誰かの言葉がランダムでつながる！ どんな文章になるかは完成するまでヒミツ。",
+      cover: "/assets/kotoba-cover.svg",
+      tags: ["みんなで", "ことば", "ネタ"],
+      isNew: true,
+    },
+    {
+      slug: "takoyaki",
+      title: "たこ焼き作り",
+      desc: "たこ焼き器に生地を流して、たこを入れて、指でくるっと回す！ 下の面だけ焼けるから、まんべんなく回さないとこげる。ソース・マヨ・かつお節で仕上げて採点。",
+      cover: "/assets/takoyaki-cover.jpg?v=2",
+      tags: ["3D", "料理", "NEW"],
+      isNew: true,
+    },
+    {
+      slug: "hamburg",
+      title: "ハンバーグ作り",
+      desc: "玉ねぎを切って、材料をボウルへ、こねて、ペチペチ空気をぬいて、焼く！ 全部3Dでリアルな物理。いちご入り？肉なし？ あなたのハンバーグは何点？",
+      cover: "/assets/hamburg-cover.jpg",
+      tags: ["3D", "料理", "物理"],
+      isNew: true,
+    },
+    {
+      slug: "enjou",
+      title: "炎上シミュレーター",
+      desc: "何を投稿しても即大炎上するニセSNS。「あ」って書くだけでコメント欄が総ツッコミ。あなたの投稿もみんなのタイムラインに流れるよ。",
+      cover: "/assets/enjou-cover.svg",
+      tags: ["みんなで", "ネタ", "SNS風"],
+      isNew: true,
+    },
+    {
+      slug: "rakugaki",
+      title: "みんなのらくがき",
+      desc: "お絵かきチャット！ルームを作ってURLを送るだけで、友だちとリアルタイムに描ける＆話せる。キック・投票キックで荒らし対策も。",
+      cover: "/assets/rakugaki-cover.svg",
+      tags: ["お絵かきチャット", "リアルタイム", "ルーム"],
+      isNew: true,
+      online: "/rakugaki/online",
+    },
+    {
+      slug: "endo",
+      title: "円度（えんど）",
+      desc: "一筆で円を描いて、どれだけ真円に近いかを％で競う。ズレた所は赤く光る。全国ランキングで1位を目指そう。",
+      cover: "/assets/endo-cover.svg",
+      tags: ["一筆", "全国ランキング", "すぐ遊べる"],
+      isNew: true,
+    },
+    {
+      slug: "drive",
+      title: "らくがきドライブ",
+      desc: "描いた乗り物がそのまま走り出す！丸を描けばタイヤになる。四角や丸だけならくるくる転がる。自分だけの乗り物でゴールを目指そう。",
+      cover: "/assets/drive-cover.svg",
+      tags: ["描いて遊ぶ", "物理", "タイムアタック"],
+      isNew: true,
+    },
+    {
+      slug: "sunahama",
+      title: "砂浜に名前を書こう",
+      desc: "指で砂浜に名前を書くと、ときどき波がやってきて消していく。波の音つき。消される瞬間を動画で保存できるよ。",
+      cover: "/assets/sunahama-cover.svg",
+      tags: ["ひとりで", "エモい", "動画で保存"],
+      isNew: true,
+    },
+  ];
+
+  const grid = document.getElementById("games");
+  for (const g of GAMES) {
+    const a = document.createElement("a");
+    a.className = "card"; a.href = `/${g.slug}/`;
+    a.innerHTML = `
+      <div class="thumb">
+        <img src="${g.cover}" alt="">
+        ${g.isNew ? '<span class="badge">NEW</span>' : ""}
+        ${g.steam ? '<span class="steamb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-9.96 9.04l5.35 2.21a2.83 2.83 0 0 1 1.6-.49h.16l2.38-3.45v-.05a3.77 3.77 0 1 1 3.77 3.77h-.09l-3.4 2.43v.13a2.84 2.84 0 0 1-5.62.58L2.36 14.6A10 10 0 1 0 12 2zM8.28 17.17l-1.23-.51a2.13 2.13 0 1 0 1.17-2.87l1.27.53a1.57 1.57 0 1 1-1.21 2.85zm9.42-7.71a2.51 2.51 0 1 0-2.51 2.51 2.51 2.51 0 0 0 2.51-2.51zm-4.39 0a1.89 1.89 0 1 1 1.88 1.89 1.89 1.89 0 0 1-1.88-1.89z"/></svg>Steam版 準備中！</span>' : ""}
+        <span class="live" data-online="${g.online || ""}"><i></i><span></span></span>
+      </div>
+      <div class="body">
+        <h3>${g.title}</h3>
+        <div class="played" data-slug="${g.slug}"></div>
+        <p>${g.desc}</p>
+        <div class="tags">${g.tags.map((t) => `<span>${t}</span>`).join("")}</div>
+        <span class="play"${g.night ? ' data-night="1"' : ""}>▶ あそぶ</span>
+      </div>`;
+    grid.appendChild(a);
+  }
+  // 時間限定(日本時間 0:00〜3:00 と 12:00〜13:00)のゲームは、時間外なら「あと何時間」を出す
+  function nightLabel() {
+    const j = new Date(Date.now() + 9 * 3600e3), h = j.getUTCHours(), m = j.getUTCMinutes();
+    for (const el of document.querySelectorAll('.play[data-night]')) {
+      if (h < 3) { el.textContent = "▶ あそぶ（3時まで）"; el.style.background = ""; }
+      else if (h === 12) { el.textContent = "▶ あそぶ（昼の特別公開・13時まで）"; el.style.background = ""; }
+      else { const nh = h < 12 ? 12 : 24, left = (nh - h) * 60 - m, hh = Math.floor(left / 60), mm = left % 60; el.textContent = `${h < 12 ? "☀️ 昼12時" : "🌙 深夜0時"}に開く（あと${hh ? hh + "時間" : ""}${mm}分）`; el.style.background = "#222"; }
+    }
+  }
+  nightLabel(); setInterval(nightLabel, 30000);
+  // 次回作の予告カード
+  const soon = document.createElement("a");
+  soon.className = "card soon"; soon.href = "https://x.com/piko2_p"; soon.target = "_blank"; soon.rel = "noopener";
+  soon.innerHTML = `
+    <div class="thumb">🔨</div>
+    <div class="body">
+      <h3>次のゲーム、作ってます…</h3>
+      <p>新作ができたらXでお知らせするよ。フォローして待っててね！</p>
+      <span class="play">𝕏 フォローする</span>
+    </div>`;
+  grid.appendChild(soon);
+
+  // 「今◯人が遊んでる」
+  async function refreshOnline() {
+    for (const el of document.querySelectorAll(".live[data-online]")) {
+      const url = el.dataset.online; if (!url) continue;
+      try {
+        const r = await fetch(url, { cache: "no-store" });
+        const { n } = await r.json();
+        el.style.display = n > 0 ? "inline-flex" : "none";
+        el.lastElementChild.textContent = `${n}人が遊んでる`;
+      } catch {}
+    }
+  }
+  refreshOnline();
+  setInterval(() => { if (!document.hidden) refreshOnline(); }, 60000); // 見ていない(裏タブ)間は聞かない
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshOnline(); });
+
+  // 「◯回あそばれた」(ページが開かれた回数。同じ人は1日1回まで)
+  // サーバーの記録係が入れかわる一瞬は失敗することがあるので、少し待って何回かやり直す
+  (function loadVisits(tries) {
+    fetch("/api/visits?m=" + Math.floor(Date.now() / 60000) + "&t=" + tries, { cache: "no-store" }).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((c) => {
+      for (const el of document.querySelectorAll(".played[data-slug]")) {
+        const n = c[el.dataset.slug];
+        if (typeof n === "number" && n > 0) el.textContent = `👀 ${n.toLocaleString()}回あそばれた`;
+      }
+    }).catch(() => { if (tries < 5) setTimeout(() => loadVisits(tries + 1), 1200 * (tries + 1)); });
+  })(0);
+</script>
+<script src="/ad/ad.js?v=4" defer></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/24",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "月租 17.3 萬，附雲霄飛車",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/24/src/play_a/h1_flyer.png",
+   "crop": [
+    20,
+    140,
+    840,
+    960
+   ],
+   "lines": [
+    "我在 Madori 蓋的第二棟房子",
+    "圖：Madori 遊戲畫面（se-n.com）"
+   ]
+  },
+  {
+   "title": "吊車上的房間，點一下放下",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/24/src/play_c/h1_mid.png",
+   "crop": [
+    0,
+    0,
+    860,
+    1000
+   ],
+   "lines": [
+    "8 間放完，房仲幫你寫成傳單",
+    "圖：Madori 遊戲畫面（se-n.com）"
+   ]
+  },
+  {
+   "title": "15 棟裡，8 棟蓋到隔壁",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/24/src/play_c/h1_flyer.png",
+   "crop": [
+    20,
+    140,
+    840,
+    960
+   ],
+   "lines": [
+    "「4間房超出基地。詳洽隔壁鄰居」",
+    "圖：Madori 遊戲畫面（se-n.com）"
+   ]
+  },
+  {
+   "title": "繁中版，換的是笑點",
+   "big": "拉麵攤 → 鹹酥雞攤",
+   "lines": [
+    "釣魚池 → 釣蝦場、二世代 → 三代同堂",
+    "出自遊戲繁中語言檔裡作者的註解"
+   ]
+  },
+  {
+   "title": "業主：「不要有應說明事項」",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/24/src/play_b/h1_flyer.png",
+   "crop": [
+    20,
+    40,
+    840,
+    880
+   ],
+   "lines": [
+    "蓋出來：【凶宅】，不符需求",
+    "圖：Madori 遊戲畫面（se-n.com）"
+   ]
+  },
+  {
+   "title": "稀有房間 72 種",
+   "big": "50% → 3.3%",
+   "lines": [
+    "一般的房子，一半會抽到稀有房間",
+    "抽到 4 間的，大約 30 棟才一棟"
+   ]
+  },
+  {
+   "title": "我上週只做到「翻對」",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/13/src/end_en.jpg",
+   "lines": [
+    "《生在中國》英文版 10/25 上線",
+    "五輪審稿，必修的錯 38 → 17 → 10 → 3 → 0"
+   ]
+  }
+ ]
+}

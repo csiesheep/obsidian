@@ -1,0 +1,81 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/29",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "一萬個人的最後一行",
+   "big": "第 9 名：霍亂",
+   "lines": [
+    "311 個人死於「霍亂」",
+    "其中 273 個不是今天的霍亂（遊戲抽的病名）"
+   ]
+  },
+  {
+   "title": "1719 年的霍亂",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/29/src/zh_old.png",
+   "crop": [
+    0,
+    560,
+    1080,
+    910
+   ],
+   "lines": [
+    "韓招弟，36 歲，死在開封",
+    "病名出處：急性吐瀉（古義，非今日霍亂）"
+   ]
+  },
+  {
+   "title": "1847 年，同一句話",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/29/src/zh_new.png",
+   "crop": [
+    0,
+    560,
+    1080,
+    900
+   ],
+   "lines": [
+    "李銀鳳，35 歲，廣州府",
+    "這次才是霍亂弧菌"
+   ]
+  },
+  {
+   "title": "分界線是 1820",
+   "big": "1820",
+   "lines": [
+    "古書的霍亂：突然上吐下瀉",
+    "霍亂弧菌約 1820 年才從海路傳入中國"
+   ]
+  },
+  {
+   "title": "英文版差點寫錯",
+   "big": "cholera proper",
+   "lines": [
+    "1684 年死的人，英文寫成「真正的霍亂」",
+    "當時旁邊的註解自己寫著：古義不是霍亂 orz"
+   ]
+  },
+  {
+   "title": "修好之後",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/29/src/en_old.png",
+   "crop": [
+    0,
+    520,
+    1080,
+    1120
+   ],
+   "lines": [
+    "每一列病名給自己的翻譯，不再看名字",
+    "1820 前：huoluan；1820 起才叫 cholera"
+   ]
+  },
+  {
+   "title": "古今同名，不一定同病",
+   "big": "腳氣 ≠ 香港腳",
+   "lines": [
+    "古書的腳氣是維生素 B1 缺乏",
+    "遊戲的病名表 74 列，每列都寫今名和出處"
+   ]
+  }
+ ]
+}

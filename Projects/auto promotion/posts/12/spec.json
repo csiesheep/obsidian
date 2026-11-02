@@ -1,0 +1,71 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/12",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "我的遊戲把三藩之亂搬到了武昌",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/12/src/v16_1673.jpg",
+   "crop": [
+    0,
+    470,
+    1080,
+    1400
+   ],
+   "lines": [
+    "1673 年，住武昌的高子敬家裡牲口被牽走",
+    "圖：生在中國 v16 的遊戲畫面"
+   ]
+  },
+  {
+   "title": "兵荒馬亂：走，還是守著家？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/12/src/v16_decision.jpg",
+   "crop": [
+    0,
+    1130,
+    1080,
+    1880
+   ],
+   "lines": [
+    "遊戲還問他：武昌一帶傳來兵馬逼近的消息",
+    "但吳三桂 1673 年冬天才在雲南起兵"
+   ]
+  },
+  {
+   "title": "武昌其實沒打仗",
+   "big": "173 世",
+   "lines": [
+    "10 萬世裡 173 人的三藩被拿掉",
+    "武昌 88、襄陽 46、荊州 39，v17 都拿掉",
+    "清軍是從荊州、武昌渡江去打他的"
+   ]
+  },
+  {
+   "title": "族長之位，問了女人",
+   "big": "48.6%",
+   "lines": [
+    "v16 問「爭不爭族長」，近一半是女人",
+    "10 萬世裡 4,818 個女人、5,099 個男人",
+    "v17 起只問男人"
+   ]
+  },
+  {
+   "title": "回了娘家的寡婦，過繼自己兄弟的兒子？",
+   "big": "990 人",
+   "lines": [
+    "立嗣要從丈夫同宗、輩分相當的姪子裡找",
+    "回娘家的寡婦、一輩子沒嫁的女人，v17 不再問",
+    "10 萬世少問了 990 個女人"
+   ]
+  },
+  {
+   "title": "修了史實，舊連結不能變",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/12/src/pair.jpg",
+   "lines": [
+    "同一個種子：舊連結 77 歲、在武昌遇上三藩",
+    "今天重開，他逃荒去了西安，活到 78",
+    "所以分享連結會記住版本，v16 整版凍結"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,93 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/30",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "「賭博的錢，一毛都不能碰。」",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/30/src/q1961/25_sec_口頭禪.png",
+   "crop": [
+    0,
+    0,
+    860,
+    750
+   ],
+   "lines": [
+    "1961 年生的李美惠，1990 年把錢賠在大家樂",
+    "圖：《生在台灣》遊戲畫面（作者 PD @lieroliu）"
+   ]
+  },
+  {
+   "title": "台灣網頁遊戲《生在台灣》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/30/src/og.png",
+   "lines": [
+    "挑 1961–2010 年其中一年，照統計投胎",
+    "圖：《生在台灣》官方封面"
+   ]
+  },
+  {
+   "title": "1961–2021，享年 59 歲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/30/src/q1961/30_endtop.png",
+   "crop": [
+    0,
+    0,
+    860,
+    600
+   ],
+   "lines": [
+    "台中縣鄉下的女孩，做到資深作業員",
+    "圖：《生在台灣》遊戲畫面"
+   ]
+  },
+  {
+   "title": "你活到了今天",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/30/src/q1988/13_today.png",
+   "crop": [
+    0,
+    990,
+    860,
+    1780
+   ],
+   "lines": [
+    "過去是真的年代，往下是還沒發生的人生",
+    "圖：《生在台灣》遊戲畫面"
+   ]
+  },
+  {
+   "title": "你這一屆：真的數字",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/30/src/q1961/30_endtop.png",
+   "crop": [
+    0,
+    870,
+    860,
+    1690
+   ],
+   "lines": [
+    "1961 年全台出生 42.3 萬人，2008 年 19.9 萬",
+    "圖：《生在台灣》遊戲畫面"
+   ]
+  },
+  {
+   "title": "程式裡的年代檢查",
+   "big": "AI 不會早於 2023",
+   "lines": [
+    "手機 1993、網路 1995、MSN 1998",
+    "LINE、臉書 2009，短影片 2018"
+   ]
+  },
+  {
+   "title": "同一個起點，我換成中國歷史",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/13/src/home_zh.jpg",
+   "crop": [
+    0,
+    0,
+    1080,
+    1300
+   ],
+   "lines": [
+    "《生在中國》：投胎到中國歷史，活完一輩子",
+    "games.csiesheep.com/china_life"
+   ]
+  }
+ ]
+}

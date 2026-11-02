@@ -1,0 +1,49 @@
+{
+ "plan": {
+  "heat": 1,
+  "pour": 1.15,
+  "oil": true,
+  "tako": 0,
+  "gu": [
+   "tenkasu",
+   "negi",
+   "beni"
+  ],
+  "extra": [],
+  "roll": "smart",
+  "target": 1,
+  "maxCook": 120,
+  "sauce": 3,
+  "mayo": true,
+  "nori": true,
+  "katsuo": true,
+  "noRoll": false
+ },
+ "res": {
+  "rank": "人気の屋台",
+  "name": "「こんがりねぎ紅しょうが焼き」",
+  "score": "77点",
+  "comments": [
+   "× タコが入っていない…（ただの『焼き』）",
+   "◎ まんまる！ 回すのがうまい",
+   "◎ 焼き色がきれいなきつね色",
+   "◎ 天かす・ねぎ・紅しょうがで本格的",
+   "◎ かつお節がゆらゆら踊ってる",
+   "◎ 油をしっかりひいた"
+  ]
+ },
+ "log": [
+  "oil [1,1,1,1,1,1,1,1]",
+  "fill [1.19,1.16,1.18,1.31,1.17,1.16,1.17,1.17]",
+  "items [{\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tenkasu\":1,\"negi\":1,\"beni\":1}] t 16.7",
+  "first turn at 26.2 [0.64,0.6,0.57,0.54,0.5,0.46,0.43,0.4]",
+  "rolled 11 rounds; cook 66 s",
+  "state [{\"un\":0.07,\"ov\":0.09,\"sec0\":0.65,\"ff\":1,\"avg\":1,\"mx\":1.82,\"lo\":0.38,\"round\":1,\"started\":true},{\"un\":0.01,\"ov\":0.02,\"sec0\":0.63,\"ff\":1,\"avg\":0.98,\"mx\":1.51,\"lo\":0.38,\"round\":1,\"started\":true},{\"un\":0.03,\"ov\":0.01,\"sec0\":0.6,\"ff\":1,\"avg\":0.97,\"mx\":1.41,\"lo\":0.37,\"round\":1,\"started\":true},{\"un\":0.05,\"ov\":0.01,\"sec0\":0.58,\"ff\":1,\"avg\":0.95,\"mx\":1.38,\"lo\":0.37,\"round\":1,\"started\":true},{\"un\":0.07,\"ov\":0.01,\"sec0\":0.56,\"ff\":1,\"avg\":0.93,\"mx\":1.4,\"lo\":0.37,\"round\":1,\"started\":true},{\"un\":0.06,\"ov\":0.01,\"sec0\":0.53,\"ff\":1,\"avg\":0.92,\"mx\":1.35,\"lo\":0.36,\"round\":1,\"started\":true},{\"un\":0.06,\"ov\":0,\"sec0\":0.51,\"ff\":1,\"avg\":0.91,\"mx\":1.31,\"lo\":0.36,\"round\":1,\"started\":true},{\"un\":0.04,\"ov\":0,\"sec0\":0.49,\"ff\":1,\"avg\":0.9,\"mx\":1.24,\"lo\":0.35,\"round\":1,\"started\":true}]",
+  "carryBtn true carry",
+  "plateXY [193.00000000000003,581.444648977348]",
+  "onPlate [[true,false],[true,false],[true,false],[true,false],[true,false],[true,false],[true,false],[true,false]]",
+  "stage top",
+  "sauce [0.17,0.35,0.19,0.13,0.19,0,0.13,0.14]",
+  "RESULT {\"rank\":\"人気の屋台\",\"name\":\"「こんがりねぎ紅しょうが焼き」\",\"score\":\"77点\",\"comments\":[\"× タコが入っていない…（ただの『焼き』）\",\"◎ まんまる！ 回すのがうまい\",\"◎ 焼き色がきれいなきつね色\",\"◎ 天かす・ねぎ・紅しょうがで本格的\",\"◎ かつお節がゆらゆら踊ってる\",\"◎ 油をしっかりひいた\"]}"
+ ]
+}

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<script data-sn-ga>(function () {
+  var RATE = 0.3; // 自動イベント（config）を送るブラウザの割合
+  var EVENT_RATE = 0.15; // ゲームのイベントも送るブラウザの割合（RATE 以下。同じ乱数なので RATE の人の一部）
+  var DROP = ['cut', 'place', 'stage_try', 'again', 'stage_wrong', 'loop_judge'];
+  var w = typeof window !== 'undefined' ? window : globalThis;
+
+  function bucket() {
+    try {
+      var v = w.localStorage.getItem('sn_ga_b');
+      var n = v == null ? NaN : Number(v);
+      if (!(n >= 0 && n < 1)) { n = Math.random(); w.localStorage.setItem('sn_ga_b', String(n)); }
+      return n;
+    } catch (e) { return Math.random(); }
+  }
+  var b = bucket();
+  var on = b < RATE;
+  var events = b < EVENT_RATE;
+
+  var mem = {};
+  function first(key) {
+    try {
+      var o = JSON.parse(w.sessionStorage.getItem('sn_ga_once') || '{}') || {};
+      if (o[key]) return false;
+      o[key] = 1;
+      w.sessionStorage.setItem('sn_ga_once', JSON.stringify(o));
+      return true;
+    } catch (e) {
+      if (mem[key]) return false;
+      mem[key] = 1;
+      return true;
+    }
+  }
+
+  function allow(args) {
+    if (!on) return false;
+    if (args[0] !== 'event') return true; // js / config / set
+    if (!events) return false;
+    var name = String(args[1]);
+    if (DROP.indexOf(name) >= 0) return false;
+    var p = args[2] || {};
+    var game = p.game != null ? String(p.game) : String((w.location && w.location.pathname) || '/').split('/')[1] || '';
+    return first(name + '|' + game);
+  }
+
+  var inner = null;
+  function gated() { if (inner && allow(arguments)) return inner.apply(this, arguments); }
+  try {
+    Object.defineProperty(w, 'gtag', {
+      configurable: true,
+      enumerable: true,
+      get: function () { return inner ? gated : undefined; },
+      set: function (f) { inner = typeof f === 'function' ? f : null; },
+    });
+  } catch (e) { /* 包めなければ従来どおり */ }
+  w.__snGa = { on: on, events: events, rate: RATE, eventRate: EVENT_RATE, drop: DROP.slice() };
+})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>se-n.com — ブラウザですぐ遊べるゲーム</title>
+<meta name="description" content="インストール不要、スマホのブラウザですぐ遊べるミニゲーム集。">
+<meta name="theme-color" content="#05060d">
+<link rel="canonical" href="https://se-n.com/">
+<link rel="icon" href="/tamatsuki/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="se-n.com — ブラウザですぐ遊べるゲーム">
+<meta property="og:description" content="インストール不要、スマホのブラウザですぐ遊べるミニゲーム集。">
+<meta property="og:url" content="https://se-n.com/">
+<meta property="og:image" content="https://se-n.com/tamatsuki/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/hub.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X1ZYKXK8WP"></script>
+<script>if(location.hostname==="se-n.com"){window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config","G-X1ZYKXK8WP",{content_group:"hub"})}</script>
+</head>
+<body>
+<header><h1>se-n.com</h1><p>ブラウザですぐ遊べるゲーム</p></header>
+<a class="nazo-link" href="/nazo/"><b>謎解き「ダン謎」</b><small>全7作</small></a>
+<main class="games">
+<a class="game" href="/dotmoji/" data-slug="dotmoji">
+  <span class="media"><video muted loop playsinline preload="none" poster="/dotmoji/thumb.jpg" data-src="/dotmoji/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ドットモジ</span>
+</a>
+<a class="game" href="/nagashiri/" data-slug="nagashiri">
+  <span class="media"><video muted loop playsinline preload="none" poster="/nagashiri/thumb.jpg" data-src="/nagashiri/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ナガシリ</span>
+</a>
+<a class="game" href="/tsugihagi/" data-slug="tsugihagi">
+  <span class="media"><video muted loop playsinline preload="none" poster="/tsugihagi/thumb.jpg" data-src="/tsugihagi/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ツギハギ</span>
+</a>
+<a class="game" href="/ikkaku/" data-slug="ikkaku">
+  <span class="media"><video muted loop playsinline preload="none" poster="/ikkaku/thumb.jpg" data-src="/ikkaku/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">イッカク</span>
+</a>
+<a class="game" href="/bunmawashi/" data-slug="bunmawashi">
+  <span class="media"><video muted loop playsinline preload="none" poster="/bunmawashi/thumb.jpg" data-src="/bunmawashi/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ブンマワシ</span>
+</a>
+<a class="game" href="/wabisabi/" data-slug="wabisabi">
+  <span class="media"><video muted loop playsinline preload="none" poster="/wabisabi/thumb.jpg" data-src="/wabisabi/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ワビサビ</span>
+</a>
+<a class="game" href="/kojitsuke/" data-slug="kojitsuke">
+  <span class="media"><video muted loop playsinline preload="none" poster="/kojitsuke/thumb.jpg" data-src="/kojitsuke/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">コジツケ</span>
+</a>
+<a class="game" href="/moyori/" data-slug="moyori">
+  <span class="media"><img src="/moyori/og.png" alt="" width="1200" height="630" loading="lazy"><span class="marks"></span></span>
+  <span class="name">モヨリ</span>
+</a>
+<a class="game" href="/shukujitsu/" data-slug="shukujitsu">
+  <span class="media"><video muted loop playsinline preload="none" poster="/shukujitsu/thumb.jpg" data-src="/shukujitsu/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">シュクジツ</span>
+</a>
+<a class="game" href="/mazemeshi/" data-slug="mazemeshi">
+  <span class="media"><img src="/mazemeshi/og.png" alt="" width="1200" height="630" loading="lazy"><span class="marks"></span></span>
+  <span class="name">マゼメシ</span>
+</a>
+<a class="game" href="/giriiro/" data-slug="giriiro">
+  <span class="media"><img src="/giriiro/og.png" alt="" width="1200" height="630" loading="lazy"><span class="marks"></span></span>
+  <span class="name">ギリイロ</span>
+</a>
+<a class="game" href="/gomoku/" data-slug="gomoku">
+  <span class="media"><video muted loop playsinline preload="none" poster="/gomoku/thumb.jpg" data-src="/gomoku/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ゴモク</span>
+</a>
+<a class="game" href="/nikukiri/" data-slug="nikukiri">
+  <span class="media"><img src="/nikukiri/og.png" alt="" width="1200" height="630" loading="lazy"><span class="marks"></span></span>
+  <span class="name">ニクキリ</span>
+</a>
+<a class="game" href="/piece/" data-slug="piece">
+  <span class="media"><video muted loop playsinline preload="none" poster="/piece/thumb.jpg" data-src="/piece/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ピース</span>
+</a>
+<a class="game" href="/rusuban/" data-slug="rusuban">
+  <span class="media"><video muted loop playsinline preload="none" poster="/rusuban/thumb.jpg" data-src="/rusuban/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ルスバン</span>
+</a>
+<a class="game" href="/kidokusuru/" data-slug="kidokusuru">
+  <span class="media"><video muted loop playsinline preload="none" poster="/kidokusuru/thumb.jpg" data-src="/kidokusuru/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">キドクスルー</span>
+</a>
+<a class="game" href="/madori/" data-slug="madori">
+  <span class="media"><video muted loop playsinline preload="none" poster="/madori/thumb.jpg" data-src="/madori/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">マドリ</span>
+</a>
+<a class="game" href="/genten/" data-slug="genten">
+  <span class="media"><video muted loop playsinline preload="none" poster="/genten/thumb.jpg" data-src="/genten/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ゲンテン</span>
+</a>
+<a class="game" href="/mushikui/" data-slug="mushikui">
+  <span class="media"><video muted loop playsinline preload="none" poster="/mushikui/thumb.jpg" data-src="/mushikui/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ムシクイ</span>
+</a>
+<a class="game" href="/orikomi/" data-slug="orikomi">
+  <span class="media"><video muted loop playsinline preload="none" poster="/orikomi/thumb.jpg" data-src="/orikomi/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">オリコミ</span>
+</a>
+<a class="game" href="/umaredoshi/" data-slug="umaredoshi">
+  <span class="media"><video muted loop playsinline preload="none" poster="/umaredoshi/thumb.jpg" data-src="/umaredoshi/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ウマレドシ</span>
+</a>
+<a class="game" href="/tenkey/" data-slug="tenkey">
+  <span class="media"><video muted loop playsinline preload="none" poster="/tenkey/thumb.jpg" data-src="/tenkey/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">テンキー</span>
+</a>
+<a class="game" href="/tateyomi/" data-slug="tateyomi">
+  <span class="media"><video muted loop playsinline preload="none" poster="/tateyomi/thumb.jpg" data-src="/tateyomi/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">タテヨミ</span>
+</a>
+<a class="game" href="/sabuibo/" data-slug="sabuibo">
+  <span class="media"><video muted loop playsinline preload="none" poster="/sabuibo/thumb.jpg" data-src="/sabuibo/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">サブイボ</span>
+</a>
+<a class="game" href="/moguragawa/" data-slug="moguragawa">
+  <span class="media"><video muted loop playsinline preload="none" poster="/moguragawa/thumb.jpg" data-src="/moguragawa/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">モグラガワ</span>
+</a>
+<a class="game" href="/kagiban/" data-slug="kagiban">
+  <span class="media"><video muted loop playsinline preload="none" poster="/kagiban/thumb.jpg" data-src="/kagiban/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">カギバン</span>
+</a>
+<a class="game" href="/kurorekishi/" data-slug="kurorekishi">
+  <span class="media"><video muted loop playsinline preload="none" poster="/kurorekishi/thumb.jpg" data-src="/kurorekishi/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">クロレキシ</span>
+</a>
+<a class="game" href="/horipedia/" data-slug="horipedia">
+  <span class="media"><video muted loop playsinline preload="none" poster="/horipedia/thumb.jpg" data-src="/horipedia/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ホリペディア</span>
+</a>
+<a class="game" href="/hajimaranai/" data-slug="hajimaranai">
+  <span class="media"><video muted loop playsinline preload="none" poster="/hajimaranai/thumb.jpg" data-src="/hajimaranai/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">ハジマラナイ</span>
+</a>
+<a class="game" href="/tamatsuki/" data-slug="tamatsuki">
+  <span class="media"><video muted loop playsinline preload="none" poster="/tamatsuki/thumb.jpg" data-src="/tamatsuki/thumb.mp4" width="400" height="500"></video><span class="marks"></span></span>
+  <span class="name">タマツキ</span>
+</a>
+</main>
+<script type="module">
+// What this browser has not played today first (common/played.js), with a small label.
+import { ranked, returning, badge } from '/common/played.js';
+import { playClips } from '/common/clips.js';
+const main = document.querySelector('.games');
+const ret = returning(null);
+for (const g of ranked(null, { quiet: true })) {
+  const a = main.querySelector(`[data-slug="${g.slug}"]`);
+  if (!a) continue;
+  const b = badge(g, ret);
+  if (b) a.querySelector('.marks').insertAdjacentHTML('beforeend', `<em>${b}</em>`);
+  a.dataset.why = g.why;
+  main.append(a);
+}
+playClips(main);
+document.querySelector('.nazo-link').addEventListener('click', () => globalThis.gtag?.('event', 'more_click', { to: 'nazo', placement: 'hub' }));
+main.addEventListener('click', (e) => {
+  const a = e.target.closest('[data-slug]');
+  if (a) globalThis.gtag?.('event', 'more_click', { to: a.dataset.slug, placement: 'hub', why: a.dataset.why });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+ "plan": {
+  "heat": 1,
+  "pour": 0.55,
+  "oil": true,
+  "tako": 1,
+  "gu": [
+   "tenkasu",
+   "negi",
+   "beni"
+  ],
+  "extra": [],
+  "roll": "smart",
+  "target": 1,
+  "maxCook": 120,
+  "sauce": 4,
+  "mayo": true,
+  "nori": true,
+  "katsuo": true,
+  "noRoll": false
+ },
+ "res": {
+  "rank": "見習いたこ焼き職人",
+  "name": "「こんがりねぎ紅しょうがたこ焼き」",
+  "score": "39点",
+  "comments": [
+   "× 形がくずれ気味…（生地は少しあふれるくらい・固まってから回す）",
+   "× 6個こげこげ…",
+   "◎ 全部にたこ入り",
+   "◎ 天かす・ねぎ・紅しょうがで本格的",
+   "◎ かつお節がゆらゆら踊ってる",
+   "◎ 油をしっかりひいた"
+  ]
+ },
+ "log": [
+  "oil [1,1,1,1,1,1,1,1]",
+  "fill [0.56,0.57,0.59,0.7,0.56,0.57,0.56,0.56]",
+  "items [{\"tako\":1,\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tako\":1,\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tako\":1,\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tako\":1,\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tako\":1,\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tako\":1,\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tako\":1,\"tenkasu\":1,\"negi\":1,\"beni\":1},{\"tako\":1,\"tenkasu\":1,\"negi\":1,\"beni\":1}] t 11.9",
+  "first turn at 21.4 [0.5,0.49,0.47,0.46,0.44,0.43,0.41,0.4]",
+  "rolled 12 rounds; cook 84 s",
+  "state [{\"un\":0.39,\"ov\":0.26,\"sec0\":0.51,\"ff\":1,\"avg\":0.96,\"mx\":2.45,\"lo\":0.04,\"round\":0.49,\"started\":true},{\"un\":0.39,\"ov\":0.24,\"sec0\":0.51,\"ff\":1,\"avg\":0.93,\"mx\":2.3,\"lo\":0.03,\"round\":0.51,\"started\":true},{\"un\":0.34,\"ov\":0.3,\"sec0\":0.51,\"ff\":0.95,\"avg\":0.98,\"mx\":2.33,\"lo\":0.01,\"round\":0.53,\"started\":true},{\"un\":0.35,\"ov\":0.22,\"sec0\":0.51,\"ff\":0.96,\"avg\":1.02,\"mx\":3.39,\"lo\":0.01,\"round\":0.72,\"started\":true},{\"un\":0.37,\"ov\":0.25,\"sec0\":0.5,\"ff\":0.95,\"avg\":0.96,\"mx\":2.64,\"lo\":0.04,\"round\":0.49,\"started\":true},{\"un\":0.34,\"ov\":0.24,\"sec0\":0.5,\"ff\":0.95,\"avg\":0.98,\"mx\":2.39,\"lo\":0.01,\"round\":0.51,\"started\":true},{\"un\":0.39,\"ov\":0.23,\"sec0\":0.5,\"ff\":1,\"avg\":0.91,\"mx\":2.36,\"lo\":0.02,\"round\":0.49,\"started\":true},{\"un\":0.42,\"ov\":0.23,\"sec0\":0.49,\"ff\":1,\"avg\":0.89,\"mx\":2.55,\"lo\":0.04,\"round\":0.49,\"started\":true}]",
+  "carryBtn true carry",
+  "plateXY [193.00000000000003,581.444648977348]",
+  "onPlate [[true,false],[true,false],[true,false],[true,false],[true,false],[true,false],[true,false],[true,false]]",
+  "stage top",
+  "sauce [0.23,0.33,0.27,0.23,0.27,0.3,0.25,0.37]",
+  "RESULT {\"rank\":\"見習いたこ焼き職人\",\"name\":\"「こんがりねぎ紅しょうがたこ焼き」\",\"score\":\"39点\",\"comments\":[\"× 形がくずれ気味…（生地は少しあふれるくらい・固まってから回す）\",\"× 6個こげこげ…\",\"◎ 全部にたこ入り\",\"◎ 天かす・ねぎ・紅しょうがで本格的\",\"◎ かつお節がゆらゆら踊ってる\",\"◎ 油をしっかりひいた\"]}"
+ ]
+}

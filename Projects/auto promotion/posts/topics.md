@@ -1,0 +1,22 @@
+# 熱門遊戲介紹：題目清單
+
+小羊 2026-10-26：優先介紹近期網頁爆紅、AI 做的遊戲（例如《江湖千萬人》）；不要介紹《傳說對決》。
+製作排程寫「熱門遊戲介紹」時，從上往下拿第一個「待寫」的題目，寫完把狀態改成貼文編號（例如「#8」）。清單用完再自己找新的（同樣的優先順序），並補進這裡。每篇照 brand-post 的規則：查一手來源、用該遊戲的官方圖並標出處、說法有出入就寫出來，不要替一方背書。
+
+| 順序 | 遊戲 | 為什麼選 | 已知來源（寫之前再查證） | 狀態 |
+|---|---|---|---|---|
+| 1 | 《江湖千萬人》 | 武俠版人生模擬，致敬《80 億分之 1》，用 Claude 約三天做出來；和生在中國同一類，最好接 | [官網](https://yanyu-life.novastargame.net/)、[Paradaily](https://news.para-daily.com/2026/10/21/jianghu-million-lives-claude-ai/)（官網寫 NovaStar Game，報導寫台灣遊戲人「飛鳥」，開發者說法不一，要寫清楚；查證：飛鳥就是星宿科技總經理，兩邊一致） | #8 |
+| 2 | 《80 億分之 1》 | 韓國獨立開發者用 AI 約 4 小時做的人生模擬，生在中國的靈感來源 | [ETtoday](https://www.ettoday.net/news/20261019/3257222.htm)、[數位時代](https://www.bnext.com.tw/article/92647/1in8b-life-simulation-game) | #9 |
+| 3 | 《去臺北狂飆》（台北 GTA） | 台灣開發者用 AI 做的瀏覽器 3D 開放世界，西門町、台北車站；據報花了超過一萬美元的 token | [TechNews](https://technews.tw/2026/09/30/taipei-gta/)、[abmedia](https://abmedia.io/taiwan-ai-token-taipei-gta-game)（「120 萬人同時遊玩」只有媒體轉述，沒有官方數字，不要照抄） | #11 |
+| 4 | 台灣 AI 網頁小遊戲合集（房仲菜鳥大冒險、台股小鎮、台中槍城…） | 一次介紹幾款台灣人用 AI 做的網頁遊戲，順帶我們自己的 | [iqmore 整理](https://iqmore.tw/2026-taiwan-ai-online-web-game)（寫成「上班遊戲」：fab24hr、我熱愛值班、房仲菜鳥大冒險；輔導室的 artifact 連結已失效） | #14 |
+| 5 | Google 用 Gemini 做的 5 款小遊戲 | 大公司也在做 AI 小遊戲，對照獨立開發者 | [電腦王阿達](https://www.kocpc.com.tw/archives/633473)、[Google 開發者部落格](https://developers.googleblog.com/en/how-we-built-the-google-io-2026-save-the-date-experience/) | #16 |
+| 6 | 《台灣三寶模擬器》 | Threads 爆紅的台灣網頁駕駛遊戲（國道台北→屏東、垃圾車〈給愛麗絲〉）；作者開發日誌十天十四版、照玩家回報改、改畫面不動規則 | [遠見](https://www.gvm.com.tw/article/133824)、[作者開發日誌](https://apps.app.charonyu.cc/devlog/)（遠見寫作者 @aihub.tw，作者網站寫 @your.engineer.ben，帳號不同；遠見說的「AI 協作」無法對到這位作者，貼文不寫） | #17 |
+| 7 | 《凍蒜！直轄市長選舉模擬器》 | 小羊 2026-10-28 指定為下一篇。台灣直轄市長選舉諷刺模擬，三方競選、六都，免費、瀏覽器手機可玩；itch.io 頁面的 AI 揭露寫程式和文字有用 AI；和我們的蓋牌投票箱同是選舉題材 | [itch.io](https://jep129.itch.io/dongsuan)（作者 JEP129；上架約 10/24，頁面沒寫確切日期，寫之前查證；有沒有媒體報導要另查；查證：itch 上架 2026-10-23 01:34 UTC，10/28 搜尋沒有媒體報導） | #19 |
+| 8 | 《吉娃娃模擬器》 | 清單用完後自選（2026-10-29 producer）：Threads 10/20 爆紅的 3D 網頁遊戲，作者 @yuya_323_ 那篇 62.6 萬瀏覽；DailyView、udn 10/23 都列入 | [遊戲](https://chihuahua-sim.pages.dev/)、[作者貼文](https://www.threads.com/@yuya_323_/post/DetR9pbExWc)、[DailyView](https://dailyview.tw/popular/detail/33855)（沒有任何來源說是 AI 做的，免責聲明只寫「個人或獨立開發」，貼文不寫 AI） | #20 |
+| 9 | 《霜淇淋模擬器》（ソフトクリームシミュレーター） | 清單用完後自選（2026-10-30 producer）：Threads 10 月洗版的日本網頁遊戲，udn 報導有網友貼成品問能否應徵全家、該貼 170 萬瀏覽；作者 nog（野口真吾，AWS Japan，首頁寫和孩子們一起做遊戲） | [遊戲](https://softserve.nog.cc/)、[作者首頁](https://nog.cc/)、[udn](https://tech.udn.com/tech/amp/story/123154/9832939)、[DailyView](https://dailyview.tw/popular/detail/33855)（沒有來源說是 AI 做的，貼文不寫 AI） | #22 |
+| 10 | 《Madori》（マドリ，se-n.com） | 清單用完後自選（2026-10-30 producer）：日本網頁蓋房子遊戲，Yahoo 10/22 報導在台灣 Threads、PTT 爆紅，繁中版把拉麵攤換成鹹酥雞攤 | [遊戲](https://se-n.com/madori/)、[Yahoo](https://tw.news.yahoo.com/%E6%97%A5%E6%9C%AC%E5%85%8D%E8%B2%BB%E5%B0%8F%E9%81%8A%E6%88%B2%E8%93%8B%E5%8F%B0%E7%81%A3%E5%BB%BA%E6%A1%88%E7%88%86%E7%B4%85%EF%BC%81%E9%99%84%E3%80%8C%E9%B9%B9%E9%85%A5%E9%9B%9E%E6%94%A4%E3%80%8D%E5%AE%B5%E5%A4%9C%E4%B8%8D%E7%94%A8%E6%84%81%E7%B6%B2%E7%AC%91%E7%BF%BB-095704540.html)（作者ダンボーイ，報導寫 10/21 在 X 公開；沒有來源說是 AI 做的，貼文不寫 AI） | #24 |
+| 11 | 《蛋包飯模擬器》（オムライスシミュレーター，よりみちゲーム） | 清單用完後自選（2026-10-31 producer）：Threads 10 月料理小遊戲潮，udn 10/23、DailyView 都列入；日本個人網站 10/17 公開、只有日文，頁面瀏覽 244 萬（站上第二名 81 萬） | [遊戲](https://yorimichi-games.com/omurice/)、[udn](https://tech.udn.com/tech/amp/story/123154/9832939)、[DailyView](https://dailyview.tw/popular/detail/33855)（沒有來源說是 AI 做的，貼文不寫 AI） | #26 |
+| 12 | 《たこ焼き作り》（章魚燒，ぴこぴこゲーム） | 清單用完後自選（2026-11-01 producer）：Threads 10 月網頁小遊戲潮，新假期 10/21、造咖、JUKSY 10/22 都列入；日本個人作者ぴこぴこP，站上計數 77 萬（同一人一天算一次），同站還有可麗餅 61 萬、麻辣湯 36 萬 | [遊戲](https://piko2game.com/takoyaki/)、[作者頁](https://piko2game.com/about/)、[造咖](https://cava.tw/topic/news/267918)、[JUKSY](https://chill.juksy.com/article/153424)（沒有來源說是 AI 做的，貼文不寫 AI；同站可麗餅、麻辣湯可當之後的題目） | #28 |
+| 13 | 《生在台灣》（taiwanese-simulator.tw，PD @lieroliu） | 清單用完後自選（2026-11-01 晚 producer）：台灣網頁人生模擬，挑 1961–2010 一年依統計投胎；受《80億分之1》啟發，和生在中國同一類；中時 10/23 列入 Threads 爆紅清單，作者寫 4 天開發 5 天上線、20 萬人 | [遊戲](https://taiwanese-simulator.tw/)、[作者 Threads](https://www.threads.com/@lieroliu)、[中時](https://www.chinatimes.com/realtimenews/20261023000014-260404)（沒有來源說是 AI 做的，貼文不寫 AI） | #30 |
+
+不選：AI 反編譯、移植的商業遊戲網頁版（Halo、GTA Vice City 等，有著作權問題）；《傳說對決》（小羊不要）。

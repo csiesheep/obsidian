@@ -1,0 +1,83 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/10",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "這張牌太強，我把它刪了",
+   "big": "23 分鐘",
+   "lines": [
+    "天地會的天時牌「熄燈」",
+    "寫進程式 23 分鐘後，我親手刪掉"
+   ]
+  },
+  {
+   "title": "天地會：兄弟裡藏著密探",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/10/src/landing.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1000
+   ],
+   "lines": [
+    "5～10 人，五趟任務，先拿三趟的一方贏",
+    "一個人對機器人，或開房跟朋友玩"
+   ]
+  },
+  {
+   "title": "每回合抽一張天時牌",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/10/src/laidup.png",
+   "crop": [
+    0,
+    110,
+    1080,
+    1180
+   ],
+   "lines": [
+    "掛彩：這一趟，老刀派不出去",
+    "密令、畫押、輕裝……每張只管一回合"
+   ]
+  },
+  {
+   "title": "公不公平？叫機器人打",
+   "big": "12,000 局",
+   "lines": [
+    "6 種人數，各打 2,000 局，約 30 秒",
+    "機器人會把所有可能的密探組合都算一遍",
+    "10 人桌最多 210 種"
+   ]
+  },
+  {
+   "title": "熄燈：投票不公開",
+   "big": "少贏 5～9 點",
+   "lines": [
+    "單獨量它，5～10 人每一種都一樣",
+    "兄弟少贏 5～9 個百分點",
+    "整副牌裡最強的一張"
+   ]
+  },
+  {
+   "title": "拿掉之後",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/10/src/chart.png",
+   "lines": [
+    "7 張牌平均起來，跟不抽牌差不多",
+    "但 5 人桌兄弟變強、6 人桌變弱，還沒調平"
+   ]
+  },
+  {
+   "title": "你會想加哪一張？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/10/src/setup.png",
+   "crop": [
+    0,
+    620,
+    1080,
+    1400
+   ],
+   "lines": [
+    "設定裡勾「天時牌」就能抽",
+    "留言你最想加進遊戲的規則"
+   ]
+  }
+ ]
+}

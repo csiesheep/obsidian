@@ -1,0 +1,97 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/8",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "58 歲那道傷，5 年後要了她的命",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/8/src/play/a_04_end.png",
+   "crop": [
+    0,
+    40,
+    1075,
+    1110
+   ],
+   "lines": [
+    "我這一局：江映雪，63 歲，舊傷復發",
+    "圖：江湖千萬人 官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "一個人、Claude、大約三天",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/8/src/official/og.png",
+   "lines": [
+    "台灣遊戲人飛鳥做的免費網頁遊戲",
+    "致敬《80億分之1》，世界觀來自《煙雨江湖》",
+    "圖：江湖千萬人 官方"
+   ]
+  },
+  {
+   "title": "客棧夥計家的女兒",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/8/src/play/a_02_reveal.png",
+   "crop": [
+    0,
+    120,
+    1075,
+    1040
+   ],
+   "lines": [
+    "赤貧、大旱、稀有脈序「梵我合一」",
+    "同一刻，江湖上還有四個人出生",
+    "圖：江湖千萬人 官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "首頁自己在玩",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/8/src/play/a_01_intro.png",
+   "crop": [
+    0,
+    1380,
+    1075,
+    2300
+   ],
+   "lines": [
+    "一打開，引擎就在你的瀏覽器裡跑人生",
+    "兩個數字：踏入江湖的人、死於非命的人",
+    "圖：江湖千萬人 官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "主線來了，要慢慢看嗎？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/8/src/play/a_03_life_8.png",
+   "crop": [
+    0,
+    1410,
+    1075,
+    2330
+   ],
+   "lines": [
+    "跑到主線，它會問要不要改回 1 倍速",
+    "我開 4 倍速、交給命運，一生大約 3 分鐘",
+    "圖：江湖千萬人 官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "種下的因，結出的果",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/8/src/play/a_05_end_full.png",
+   "crop": [
+    0,
+    7480,
+    1075,
+    8280
+   ],
+   "lines": [
+    "每個「果」都寫出是哪一歲的哪個「因」",
+    "圖：江湖千萬人 官方網頁遊戲畫面"
+   ]
+  },
+  {
+   "title": "同年出生的四個人",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/8/src/cl_peers.png",
+   "lines": [
+    "我們的《生在中國》結局頁也有一樣的設計",
+    "我們是跟《80億分之1》學的"
+   ]
+  }
+ ]
+}

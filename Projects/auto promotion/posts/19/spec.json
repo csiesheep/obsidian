@@ -1,0 +1,100 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/19",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "我選台南市長，落選了",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/19/src/play/r12.png",
+   "crop": [
+    0,
+    330,
+    975,
+    1520
+   ],
+   "lines": [
+    "第 2 名，差 2.4 個百分點；在急診室看開票",
+    "圖：《凍蒜！》網頁遊戲畫面（JEP129）"
+   ]
+  },
+  {
+   "title": "六都 × 四陣營，從選前 180 天打起",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/19/src/official/itch_1.png",
+   "crop": [
+    0,
+    0,
+    960,
+    960
+   ],
+   "lines": [
+    "免費、免下載，手機打開就能玩",
+    "圖：《凍蒜！》itch.io 官方截圖（JEP129）"
+   ]
+  },
+  {
+   "title": "AI 影片，「反正有小字」？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/19/src/play/r02.png",
+   "crop": [
+    0,
+    760,
+    975,
+    1700
+   ],
+   "lines": [
+    "我撤掉了；結算說這是我最關鍵的一步",
+    "圖：《凍蒜！》網頁遊戲畫面（JEP129）"
+   ]
+  },
+  {
+   "title": "台南的菜，會不會太甜？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/19/src/play/r06.png",
+   "crop": [
+    0,
+    820,
+    975,
+    1750
+   ],
+   "lines": [
+    "說實話要擲骰：骰到 14，老闆笑了",
+    "圖：《凍蒜！》網頁遊戲畫面（JEP129）"
+   ]
+  },
+  {
+   "title": "急診室，隔壁床",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/19/src/play/r08.png",
+   "crop": [
+    0,
+    735,
+    975,
+    1700
+   ],
+   "lines": [
+    "昏倒送醫，抽到稀有隱藏劇情",
+    "圖：《凍蒜！》網頁遊戲畫面（JEP129）"
+   ]
+  },
+  {
+   "title": "選舉帳本",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/19/src/play/r12_full.png",
+   "crop": [
+    0,
+    2340,
+    975,
+    3040
+   ],
+   "lines": [
+    "補助款每票 30 元，保證金退還；風險值 0",
+    "圖：《凍蒜！》網頁遊戲畫面（JEP129）"
+   ]
+  },
+  {
+   "title": "遊戲裡的規則，我的遊戲要真的守",
+   "big": "11/18",
+   "lines": [
+    "《凍蒜！》：選前 10 天民調封關",
+    "《蓋牌投票箱》：玩過的人裡，傾向＝契合占幾 %",
+    "這一格 11/18 零點起藏起來，投票結束才打開"
+   ]
+  }
+ ]
+}

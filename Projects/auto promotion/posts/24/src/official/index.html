@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<script data-sn-ga>(function () {
+  var RATE = 0.3; // 自動イベント（config）を送るブラウザの割合
+  var EVENT_RATE = 0.15; // ゲームのイベントも送るブラウザの割合（RATE 以下。同じ乱数なので RATE の人の一部）
+  var DROP = ['cut', 'place', 'stage_try', 'again', 'stage_wrong', 'loop_judge'];
+  var w = typeof window !== 'undefined' ? window : globalThis;
+
+  function bucket() {
+    try {
+      var v = w.localStorage.getItem('sn_ga_b');
+      var n = v == null ? NaN : Number(v);
+      if (!(n >= 0 && n < 1)) { n = Math.random(); w.localStorage.setItem('sn_ga_b', String(n)); }
+      return n;
+    } catch (e) { return Math.random(); }
+  }
+  var b = bucket();
+  var on = b < RATE;
+  var events = b < EVENT_RATE;
+
+  var mem = {};
+  function first(key) {
+    try {
+      var o = JSON.parse(w.sessionStorage.getItem('sn_ga_once') || '{}') || {};
+      if (o[key]) return false;
+      o[key] = 1;
+      w.sessionStorage.setItem('sn_ga_once', JSON.stringify(o));
+      return true;
+    } catch (e) {
+      if (mem[key]) return false;
+      mem[key] = 1;
+      return true;
+    }
+  }
+
+  function allow(args) {
+    if (!on) return false;
+    if (args[0] !== 'event') return true; // js / config / set
+    if (!events) return false;
+    var name = String(args[1]);
+    if (DROP.indexOf(name) >= 0) return false;
+    var p = args[2] || {};
+    var game = p.game != null ? String(p.game) : String((w.location && w.location.pathname) || '/').split('/')[1] || '';
+    return first(name + '|' + game);
+  }
+
+  var inner = null;
+  function gated() { if (inner && allow(arguments)) return inner.apply(this, arguments); }
+  try {
+    Object.defineProperty(w, 'gtag', {
+      configurable: true,
+      enumerable: true,
+      get: function () { return inner ? gated : undefined; },
+      set: function (f) { inner = typeof f === 'function' ? f : null; },
+    });
+  } catch (e) { /* 包めなければ従来どおり */ }
+  w.__snGa = { on: on, events: events, rate: RATE, eventRate: EVENT_RATE, drop: DROP.slice() };
+})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#f5f3ee">
+<title>マドリ — 部屋を落として家を建てる</title>
+<meta name="description" content="クレーンから部屋を落として家を建てると、不動産屋がチラシにしてくれる。トイレに扉が3つ、謎の空間あり。ブラウザですぐ遊べる。">
+<meta name="build" content="v0.5.212">
+<link rel="canonical" href="https://se-n.com/madori/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="se-n.com">
+<meta property="og:title" content="マドリ — 部屋を落として家を建てる">
+<meta property="og:description" content="部屋を落として家を建てると、不動産屋がチラシにしてくれる。">
+<meta property="og:url" content="https://se-n.com/madori/">
+<meta property="og:image" content="https://se-n.com/madori/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div id="hud">
+    <div id="ask"><b id="bname"></b><p id="req"></p><div id="left"></div></div>
+    <div id="next"><span data-t="next">つぎ</span><b></b></div>
+  </div>
+  <div id="stage">
+    <canvas id="c" aria-label="敷地" data-t-aria="stage"></canvas>
+    <p id="hint" class="hint" hidden data-t="hint">タップで落とす</p>
+    <p id="rain" class="rain" hidden>リビングの雨</p>
+  </div>
+  <ol id="cap" hidden></ol>
+</div>
+
+<div id="title" class="panel">
+  <div class="box">
+    <h1 data-t="title">マドリ</h1>
+    <p class="sub" data-t="sub">部屋を落として、家を建てる</p>
+    <button id="go" type="button" class="primary big" data-t="go">はじめる</button>
+    <p class="zk"><button id="t-zukan" type="button" class="link" hidden><span data-t="zukan">レア部屋の図鑑</span> <span id="tz-count"></span></button></p>
+    <div id="title-guide"></div>
+    <label class="lang" id="lang-box" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4a14 14 0 0 1 1.9 4h-3.8A14 14 0 0 1 12 4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3zm.8 2h2.9a15.7 15.7 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16zM8 8H5.1a8 8 0 0 1 4.3-3.6A15.7 15.7 0 0 0 8 8zm4 12a14 14 0 0 1-1.9-4h3.8A14 14 0 0 1 12 20zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.3 5.6a15.7 15.7 0 0 0 1.4-3.6h2.9a8 8 0 0 1-4.3 3.6zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4z"/></svg><span id="lang-name"></span><select id="lang" aria-label="言語" data-t-aria="lang"></select></label>
+  </div>
+</div>
+
+<div id="zukan" class="panel" hidden>
+  <div class="box">
+    <p class="big"><span data-t="zukan">レア部屋の図鑑</span> <span id="z-count"></span></p>
+    <ul id="z-list"></ul>
+    <button id="z-close" type="button" class="big" data-t="close">とじる</button>
+  </div>
+</div>
+
+<div id="result" class="panel" hidden>
+  <div class="box wide">
+    <div id="sheet">
+      <p class="f-top"><span class="f-new" data-t="newBuild">新築</span><span id="f-limited" class="f-limited" data-t="limited" hidden>期間限定</span><b id="f-name"></b></p>
+      <p id="f-req"></p>
+      <p id="f-theme" class="f-theme" hidden></p>
+      <p id="f-head"></p>
+      <canvas id="plan" aria-label="間取り図" data-t-aria="plan"></canvas>
+      <p class="f-spec"><b id="f-madori"></b><span class="f-rentbox"><span id="f-rent0">家賃</span><b id="f-rent" class="red"></b><span id="f-rent1">万円</span></span></p>
+      <p id="f-sub" class="f-sub"></p>
+      <ul id="f-bul"></ul>
+    </div>
+    <canvas id="flyer" hidden></canvas>
+    <div id="r-mine">
+      <div class="row">
+        <a id="r-post" class="button x" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.9 1.2h3.7l-8 9.1 9.4 12.5h-7.4l-5.8-7.6-6.6 7.6H.5l8.6-9.8L0 1.2h7.6l5.2 6.9 6.1-6.9Zm-1.3 19.4h2L6.5 3.3H4.3l13.3 17.3Z"/></svg><span data-t="post">でポスト</span></a>
+        <button id="r-img" type="button" data-t="save">画像を保存</button>
+      </div>
+      <div id="r-row"></div>
+      <button id="again" type="button" class="primary big" data-t="again">もう一度</button>
+    </div>
+    <div id="r-theirs" hidden>
+      <button id="mine" type="button" class="primary big" data-t="mine">自分も建てる</button>
+      <button id="watch" type="button" data-t="watch">住んでみる</button>
+    </div>
+    <p class="zk"><button id="r-zukan" type="button" class="link"><span data-t="zukan">レア部屋の図鑑</span> <span id="zk-count"></span></button><span id="zk-new" class="new" hidden></span></p>
+    <div id="r-after"></div>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

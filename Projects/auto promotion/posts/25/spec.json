@@ -1,0 +1,19 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/25",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {"title": "名字公開的頁：藍、綠、灰", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/25/src/lean.png", "crop": [0, 240, 1080, 1460],
+   "lines": ["《蓋牌投票箱》選傾向的那一頁", "這頁名字本來就公開，顏色可以上"]},
+  {"title": "打分的頁：一點藍綠都沒有", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/25/src/play.png", "crop": [0, 240, 1080, 1660],
+   "lines": ["兩張一樣的牌背，甲、乙兩段政見", "這頁要是有顏色，等於提前開牌"]},
+  {"title": "我只說：設計三版，用顏色表示政黨", "big": "我選 C",
+   "lines": ["A 選舉公報、B 開票夜、C 牌桌", "AI 自己加一條規則：顏色只在名字公開後出現"]},
+  {"title": "AI 畫的牌面，只准暖色", "big": "綠、藍 不准比紅多",
+   "lines": ["生圖後每個像素：綠、藍不能比紅多", "政黨色由網頁疊上去，圖裡沒有顏色"]},
+  {"title": "其他政黨（含無黨籍），同一個灰", "big": "只有 3 組",
+   "lines": ["後端只送 藍／綠／其他，不送細黨名", "不替小黨挑色，免得挑錯；色塊每人一樣大"]},
+  {"title": "翻牌之後，顏色才出來", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/25/src/reveal.png", "crop": [0, 250, 1080, 1450],
+   "lines": ["我全打 0 分，翻開看每段是誰寫的", "名字蓋起來，你還會選同一個人嗎？"]}
+ ]
+}
