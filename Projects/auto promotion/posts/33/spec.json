@@ -1,0 +1,87 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/33",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "名人堂，生涯薪資 1 億 2,302 萬",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/33/src/hof.png",
+   "crop": [
+    0,
+    0,
+    1640,
+    860
+   ],
+   "lines": [
+    "我在遊戲裡的小羊 #18，種子 2dpfsgns",
+    "圖：《棒球人生模擬器 YaKyoLife》結算圖（最先生）"
+   ]
+  },
+  {
+   "title": "台灣網頁遊戲《棒球人生模擬器》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/33/src/og.png",
+   "lines": [
+    "高中 → 選秀・旅日・旅美 → 國際賽 → 引退",
+    "圖：YaKyoLife 官方封面（最先生 Mr.TheMost）"
+   ]
+  },
+  {
+   "title": "每一題都有成功率",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/33/src/choice.png",
+   "crop": [
+    0,
+    1080,
+    860,
+    1720
+   ],
+   "lines": [
+    "35%、50%、70%：越穩的選項，加成越小",
+    "圖：《棒球人生模擬器》遊戲畫面"
+   ]
+  },
+  {
+   "title": "同一個種子，23 歲引退，48 萬",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/33/src/amateur.png",
+   "crop": [
+    0,
+    0,
+    1640,
+    720
+   ],
+   "lines": [
+    "選法一樣，只把骰子全點在最上面兩項能力",
+    "圖：《棒球人生模擬器 YaKyoLife》結算圖"
+   ]
+  },
+  {
+   "title": "同一個種子、同一套選法，16 次",
+   "big": "8 次名人堂",
+   "lines": [
+    "1 次明星球員、4 次每日球員",
+    "3 次 24、26、28 歲就引退"
+   ]
+  },
+  {
+   "title": "玩家回報：中職一季 102 轟",
+   "big": "真實紀錄 39 轟",
+   "lines": [
+    "高國輝 2015；作者量了 8,200 個球季",
+    "加上天花板後，單季最多 62 轟（更新日誌）"
+   ]
+  },
+  {
+   "title": "我也在做「一輩子」的遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/13/src/home_zh.jpg",
+   "crop": [
+    0,
+    0,
+    1080,
+    1300
+   ],
+   "lines": [
+    "《生在中國》：投胎到中國歷史，活完一輩子",
+    "games.csiesheep.com/china_life"
+   ]
+  }
+ ]
+}
