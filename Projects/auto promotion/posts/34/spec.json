@@ -1,0 +1,21 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/34",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {"title": "這款手機能玩嗎？人看過的 91 款", "big": "87 vs 86",
+   "lines": ["全部猜「手機能玩」：對 87 款", "AI 一款一款看截圖：對 86 款"]},
+  {"title": "第一招：讓程式自己點點看", "big": "8 款對 3 款",
+   "lines": ["自動點擊判斷能不能玩，試 8 款只對 3 款", "改成手機、電腦各開一次、各截一張，AI 親眼看"]},
+  {"title": "判錯「手機可玩」最傷", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/34/src/cl.png", "crop": [0, 380, 1000, 1915],
+   "lines": ["手機玩家點進去黑畫面，回來按「不好玩」", "所以規則寫死：拿不準就寫「看不出來」"]},
+  {"title": "名單從哪裡來", "big": "每 10 秒一頁",
+   "lines": ["網頁遊戲目錄 4388.fun 的熱門榜，條款不准大量抓", "放慢抓：約 920 頁、約 2.5 小時；名稱介紹自己寫"]},
+  {"title": "我在審核頁一款一款按", "big": "98 → 695 → 1,513",
+   "lines": ["900 款候選上 597 款；第三批 1,117 款上 817 款", "擋掉 61 款：加密貨幣宣傳、仿登入頁、不是遊戲"]},
+  {"title": "1,513 款裡，手機能玩的", "big": "966",
+   "lines": ["只能用電腦 523 款（三分之一）、只能用手機 19 款", "還有 5 款，到現在都看不出來"]},
+  {"title": "小羊遊戲間：滑著玩", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/34/src/search.png", "crop": [0, 0, 1000, 1540],
+   "lines": ["搜「做菜」有 65 款，卡上標好手機能不能玩", "games.csiesheep.com"]}
+ ]
+}
