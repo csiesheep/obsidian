@@ -4,10 +4,10 @@
  "series": "開發日記",
  "slides": [
   {
-   "title": "所有 API 都回同一行：error code: 1101",
-   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/38/src/og.jpg",
+   "title": "資料請求都回同一行",
+   "big": "error code: 1101",
    "lines": [
-    "蓋牌投票箱，10/22 台灣深夜",
+    "蓋牌投票箱，10/22 深夜",
     "幾分鐘後，它自己好了"
    ]
   },
@@ -53,7 +53,7 @@
   },
   {
    "title": "老實說",
-   "big": "根因：還不知道",
+   "big": "根因：還沒查到",
    "lines": [
     "Worker 沒起來、平台出錯，還是會 1101",
     "遇過的朋友，請指正 :p"
