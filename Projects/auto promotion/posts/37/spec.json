@@ -1,0 +1,87 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/37",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "一發奧義，帳單跳了 352 億",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/37/src/taozhu_ult.png",
+   "crop": [
+    400,
+    0,
+    1440,
+    860
+   ],
+   "lines": [
+    "打到信義區那棟扭轉的豪宅，它還歪著站",
+    "圖：《機甲大戰·台北》遊戲畫面（我的第 7 次）"
+   ]
+  },
+  {
+   "title": "《機甲大戰·台北》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/37/src/keyart.jpg",
+   "lines": [
+    "免費網頁遊戲：開機甲打怪，打壞的樓照實價登錄賠",
+    "圖：官方主視覺（遊戲小島 fish.ryantsai.com）"
+   ]
+  },
+  {
+   "title": "程式裡，這棟一戶算 9 億",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/37/src/taozhu.png",
+   "crop": [
+    300,
+    0,
+    1340,
+    860
+   ],
+   "lines": [
+    "2026 年 6 月一筆實登 9.4 億，扣車位 × 40 戶 = 360 億",
+    "圖：《機甲大戰·台北》遊戲畫面"
+   ]
+  },
+  {
+   "title": "臺北101：帳單 2,600 億",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/37/src/t101.png",
+   "crop": [
+    380,
+    0,
+    1420,
+    880
+   ],
+   "lines": [
+    "從 101 腳下出發，3 次裡有 2 次把它打掉",
+    "圖：《機甲大戰·台北》遊戲畫面"
+   ]
+  },
+  {
+   "title": "程式碼裡的價目表",
+   "big": "一坪 200 萬",
+   "lines": [
+    "信義計畫區。大安 109 萬、萬華 63 萬",
+    "五樓以下老公寓打 75 折，一台機車 7 萬"
+   ]
+  },
+  {
+   "title": "開發中測試版，打開網址就能玩",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/37/src/menu.png",
+   "crop": [
+    280,
+    0,
+    1320,
+    880
+   ],
+   "lines": [
+    "戰役、無盡、戰鬥、漫遊，電腦玩最順",
+    "圖：《機甲大戰·台北》主選單"
+   ]
+  },
+  {
+   "title": "更多點了就玩的網頁小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/37/src/hub.png",
+   "lines": [
+    "都在小羊遊戲間，免下載",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
