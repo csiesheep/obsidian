@@ -1,0 +1,81 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/39",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "第 7 盤：100 分，炒飯之神",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/39/src/result_god.png",
+   "crop": [
+    0,
+    60,
+    720,
+    680
+   ],
+   "lines": [
+    "甩太大力的兩盤，飯飛掉一半",
+    "圖：《鍋氣炒飯》遊戲畫面（我的第 7 盤）"
+   ]
+  },
+  {
+   "title": "《鍋氣炒飯》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/39/src/preview-v2.jpg",
+   "lines": [
+    "免費 3D 網頁遊戲，放什麼就變什麼炒飯",
+    "圖：官方預覽圖（sherrygamestudio.com）"
+   ]
+  },
+  {
+   "title": "甩太大力，飯會飛出鍋外",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/39/src/toss_hard.png",
+   "crop": [
+    0,
+    330,
+    720,
+    950
+   ],
+   "lines": [
+    "火開到大，甩鍋才有鍋氣；但手勢太大，飯就變流星雨",
+    "圖：《鍋氣炒飯》遊戲畫面（我的第 6 盤）"
+   ]
+  },
+  {
+   "title": "海水炒飯，78 分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/39/src/result_salty.png",
+   "crop": [
+    0,
+    60,
+    720,
+    680
+   ],
+   "lines": [
+    "飯飛掉一半，鹽還是 3 撮，就太鹹了",
+    "圖：《鍋氣炒飯》遊戲畫面（我的第 6 盤）"
+   ]
+  },
+  {
+   "title": "程式碼裡的 100 分",
+   "big": "小火：鍋氣 1.9 / 15",
+   "lines": [
+    "粒粒分明、調味、鍋氣各 15 分，一共 10 項",
+    "完全沒焦，焦香只拿一半；我小火那盤總分 85"
+   ]
+  },
+  {
+   "title": "10 天，5 道菜",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/39/src/steak.jpg",
+   "lines": [
+    "炒飯、夜市牛排、超長蛋塔、霉豆腐、沙威瑪",
+    "圖：《夜市牛排》官方預覽圖（雪莉小遊戲）"
+   ]
+  },
+  {
+   "title": "更多點了就玩的網頁小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/39/src/hub.png",
+   "lines": [
+    "鍋氣炒飯也在小羊遊戲間，免下載",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
