@@ -1,0 +1,63 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/38",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "所有 API 都回同一行：error code: 1101",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/38/src/og.jpg",
+   "lines": [
+    "蓋牌投票箱，10/22 台灣深夜",
+    "幾分鐘後，它自己好了"
+   ]
+  },
+  {
+   "title": "1101 是什麼？",
+   "big": "沒接住的例外",
+   "lines": [
+    "程式丟錯沒人接，就回一頁錯誤",
+    "那時 Worker 入口沒有任何 try/catch"
+   ]
+  },
+  {
+   "title": "猜：資料庫暫時壞掉？",
+   "big": "桃園不碰資料庫",
+   "lines": [
+    "桃園還沒收錄政見，不會讀資料庫",
+    "它也 1101 → 這個猜測說不通"
+   ]
+  },
+  {
+   "title": "根因不知道，先把傷口包好",
+   "big": "503 + 一行 log",
+   "lines": [
+    "任何例外都回 503 和一段 JSON",
+    "log 遮掉 IP、段落編號、候選人名字"
+   ]
+  },
+  {
+   "title": "壞的時候，不能寫一半",
+   "big": "一次 batch",
+   "lines": [
+    "一局所有計數一起寫：全成功或全不算",
+    "舊路：第二筆失敗時，第一筆已經寫進去"
+   ]
+  },
+  {
+   "title": "測試先紅再綠",
+   "big": "7 紅 → 0 紅",
+   "lines": [
+    "舊程式 7 條都印「就是 1101」",
+    "再做 5 次證偽，每次只拿掉一個保護"
+   ]
+  },
+  {
+   "title": "老實說",
+   "big": "根因：還不知道",
+   "lines": [
+    "Worker 沒起來、平台出錯，還是會 1101",
+    "遇過的朋友，請指正 :p"
+   ]
+  }
+ ]
+}
