@@ -1,0 +1,63 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/44",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "英文版首頁，這四行我沒翻",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/44/src/en_now.png",
+   "lines": [
+    "Born in China 的首頁",
+    "朝代歌還是中文，一樣直排往上捲"
+   ]
+  },
+  {
+   "title": "本來翻成英文的樣子（重現）",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/44/src/en_old.png",
+   "lines": [
+    "10/23 第一版：四行橫排",
+    "不會動，高度從 260px 變 102px"
+   ]
+  },
+  {
+   "title": "最長的一行：秦漢魏晉南北朝",
+   "big": "7 字 → 51 字母",
+   "lines": [
+    "Qin, Han, Wei, Jin,",
+    "Northern and Southern Dynasties"
+   ]
+  },
+  {
+   "title": "還有一個小坑",
+   "big": "Tang 出現兩次",
+   "lines": [
+    "「唐虞」的唐是唐堯，不是唐朝",
+    "英文讀者看到的是兩個 Tang"
+   ]
+  },
+  {
+   "title": "10/16 那天，這四行改了四次",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/44/src/zh_m.png",
+   "lines": [
+    "每行 26–34 秒一圈、起點錯開",
+    "為了 iPhone 首屏，高度 360 → 260px"
+   ]
+  },
+  {
+   "title": "寬螢幕：8 行",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/44/src/zh_d.png",
+   "lines": [
+    "寬 860px 以上就重複一輪",
+    "手機維持 4 行不動"
+   ]
+  },
+  {
+   "title": "10/25 改回中文",
+   "big": "20 分鐘",
+   "lines": [
+    "14:05 先寫一條會紅的檢查",
+    "14:25 上線，程式改 12 行（+5 / -7）"
+   ]
+  }
+ ]
+}
