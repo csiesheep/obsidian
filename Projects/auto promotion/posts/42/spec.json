@@ -1,0 +1,63 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/42",
+ "brand": "小羊遊戲間",
+ "series": "開發日記",
+ "slides": [
+  {
+   "title": "一款遊戲的名字，被砍到只剩",
+   "big": "A Refrigerator",
+   "lines": [
+    "原名：To Put Your Childhood",
+    "Sweetheart Into A Refrigerator"
+   ]
+  },
+  {
+   "title": "卡片名稱的規則",
+   "big": "最多 16 個字",
+   "lines": [
+    "中文 16 個字，夠放一個完整的名字",
+    "英文 16 個字母，常常連三個字都放不下"
+   ]
+  },
+  {
+   "title": "改法（11/1）",
+   "big": "英文字母算半個",
+   "lines": [
+    "中日韓字算 1，半形英數和空白算 0.5",
+    "英文名可以到約 32 個字母"
+   ]
+  },
+  {
+   "title": "6 個 AI 寫手改回來的名字",
+   "big": "96 個",
+   "lines": [
+    "Killmulator → Dating Killmulator",
+    "Crossword → Stealth Crossword"
+   ]
+  },
+  {
+   "title": "1,513 款裡，1,148 款名字全是半形",
+   "big": "315 款",
+   "lines": [
+    "名字超過 16 個字元的",
+    "照舊規則，全部要砍"
+   ]
+  },
+  {
+   "title": "現在那張卡",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/42/src/g551.png",
+   "lines": [
+    "寬剛好 16，留到 Sweetheart 為止",
+    "這次換冰箱沒擠進去"
+   ]
+  },
+  {
+   "title": "My Buddy → 這樣",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/42/src/g115.png",
+   "lines": [
+    "名字只能留 16 格的話",
+    "你會留哪幾個字？"
+   ]
+  }
+ ]
+}
