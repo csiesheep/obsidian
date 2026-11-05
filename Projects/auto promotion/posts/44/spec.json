@@ -4,7 +4,7 @@
  "series": "開發日記",
  "slides": [
   {
-   "title": "英文版首頁，這四行我沒翻",
+   "title": "英文版首頁，這四行改回中文",
    "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/44/src/en_now.png",
    "lines": [
     "Born in China 的首頁",
@@ -48,7 +48,7 @@
    "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/44/src/zh_d.png",
    "lines": [
     "寬 860px 以上就重複一輪",
-    "手機維持 4 行不動"
+    "手機維持 4 行"
    ]
   },
   {
