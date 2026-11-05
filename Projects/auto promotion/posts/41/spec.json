@@ -1,0 +1,87 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/41",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "第一鍋：7 顆黑炭球",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/41/src/fixed_receipt.png",
+   "crop": [
+    0,
+    190,
+    720,
+    810
+   ],
+   "lines": [
+    "第 8 顆跳出油鍋，去追尋夢想了",
+    "圖：《地瓜球》遊戲畫面（我的程式炸的第一鍋）"
+   ]
+  },
+  {
+   "title": "《地瓜球》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/41/src/og-main.jpg",
+   "lines": [
+    "免費網頁遊戲，從選地瓜開始，一共 11 步",
+    "圖：《地瓜球》官方預覽圖（jiguaqiu.pages.dev）"
+   ]
+  },
+  {
+   "title": "作者的註解：固定節奏機器人",
+   "big": "SS：22% → 1%",
+   "lines": [
+    "10/29 把 SS 門檻從 92 分提到 95 分",
+    "同一行寫著：熟練玩家拿 SS 約 49%"
+   ]
+  },
+  {
+   "title": "大火：10 秒，0 分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/41/src/big_bowl.png",
+   "crop": [
+    0,
+    330,
+    720,
+    950
+   ],
+   "lines": [
+    "8 顆全是「鐵殼球」，外殼一秒變盔甲",
+    "圖：《地瓜球》遊戲畫面（我的大火那鍋）"
+   ]
+  },
+  {
+   "title": "同一支程式改小火：95 分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/41/src/small_fry.png",
+   "crop": [
+    0,
+    330,
+    720,
+    950
+   ],
+   "lines": [
+    "中火 63 分，小火 95、87、77 分",
+    "圖：《地瓜球》遊戲畫面（小火，油炸中）"
+   ]
+  },
+  {
+   "title": "水加太多：解散地瓜團",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/41/src/water_bowl.png",
+   "crop": [
+    0,
+    330,
+    720,
+    950
+   ],
+   "lines": [
+    "下鍋三秒就宣布解散，大家各自發展去了",
+    "圖：《地瓜球》遊戲畫面（我的水加太多那鍋）"
+   ]
+  },
+  {
+   "title": "更多點了就玩的網頁小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/41/src/hub.png",
+   "lines": [
+    "地瓜球也在小羊遊戲間，免下載",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
