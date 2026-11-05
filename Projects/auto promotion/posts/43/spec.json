@@ -1,0 +1,21 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/43",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {"title": "同一顆蛋，先敲再剝 142.66 秒", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/43/src/tap_result.png", "crop": [0, 920, 860, 1700],
+   "lines": ["敲 10 下，前 81 片一片一片剝", "圖：《剝茶葉蛋》遊戲畫面（我的程式剝的）"]},
+  {"title": "《剝茶葉蛋》", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/43/src/og.png",
+   "lines": ["超商櫃檯小遊戲，免費，手機瀏覽器就能玩", "圖：《剝茶葉蛋》官方預覽圖（tea-egg.pages.dev）"]},
+  {"title": "先搓一遍：裂成細網", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/43/src/cracked.png", "crop": [0, 700, 860, 1680],
+   "lines": ["搓過的殼，膜連著，一拉就是十幾片", "圖：《剝茶葉蛋》遊戲畫面"]},
+  {"title": "搓過再剝：22.50 秒", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/43/src/rub_result.png", "crop": [0, 920, 860, 1700],
+   "lines": ["完整度 100%，稱號「超商十年老店員」", "圖：《剝茶葉蛋》遊戲畫面（我的程式剝的）"]},
+  {"title": "拉太快：膜斷了 170 次", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/43/src/yank_result.png", "crop": [0, 920, 860, 1700],
+   "lines": ["61.52 秒，完整度 46.6%：月球表面製造機", "圖：《剝茶葉蛋》遊戲畫面（我的程式剝的）"]},
+  {"title": "同一個地方一直敲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/43/src/hammer_result.png", "crop": [0, 920, 860, 1700],
+   "lines": ["3.1 秒就爛了：這顆拿去做蛋沙拉", "圖：《剝茶葉蛋》遊戲畫面（我的程式敲的）"]},
+  {"title": "更多點了就玩的網頁小遊戲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/43/src/hub.png",
+   "lines": ["剝茶葉蛋也在小羊遊戲間，免下載", "games.csiesheep.com"]}
+ ]
+}
