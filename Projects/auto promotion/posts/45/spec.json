@@ -1,0 +1,99 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/45",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "一顆馬鈴薯，拉到 323.4 公分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/45/src/r323.png",
+   "crop": [
+    230,
+    1350,
+    870,
+    2200
+   ],
+   "lines": [
+    "我的程式切了 97 秒，「傳說級」",
+    "圖：《螺旋薯塔製造機》遊戲畫面（我的程式切的）"
+   ]
+  },
+  {
+   "title": "《螺旋薯塔製造機》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/45/src/open.png",
+   "crop": [
+    0,
+    200,
+    860,
+    1500
+   ],
+   "lines": [
+    "把整顆馬鈴薯切成一長條，比誰拉得長",
+    "圖：《ぐるぐるポテトメーカー》遊戲畫面（トドネロ）"
+   ]
+  },
+  {
+   "title": "按住才會轉，手往下刀才往下",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/45/src/cutting.png",
+   "crop": [
+    0,
+    200,
+    860,
+    1500
+   ],
+   "lines": [
+    "每轉一圈，刀至少要下 0.1 公分，不然就斷",
+    "圖：《螺旋薯塔製造機》遊戲畫面"
+   ]
+  },
+  {
+   "title": "手不動：一圈就斷",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/45/src/r3_3.png",
+   "crop": [
+    0,
+    700,
+    860,
+    1720
+   ],
+   "lines": [
+    "3.3 公分，16 級裡最低的「プチ」",
+    "圖：《螺旋薯塔製造機》遊戲畫面（我的程式切的）"
+   ]
+  },
+  {
+   "title": "一刀到底：15.6 公分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/45/src/r15_6.png",
+   "crop": [
+    0,
+    700,
+    860,
+    1720
+   ],
+   "lines": [
+    "切得快，圈數少，反而最短",
+    "圖：《螺旋薯塔製造機》遊戲畫面（我的程式切的）"
+   ]
+  },
+  {
+   "title": "每圈 0.13 公分：280.6",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/45/src/r280.png",
+   "crop": [
+    0,
+    300,
+    860,
+    1720
+   ],
+   "lines": [
+    "84 秒，一樣是「傳說級」",
+    "圖：《螺旋薯塔製造機》遊戲畫面（我的程式切的）"
+   ]
+  },
+  {
+   "title": "更多點了就玩的網頁小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/45/src/hub.png",
+   "lines": [
+    "螺旋薯塔也在小羊遊戲間，免下載",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
