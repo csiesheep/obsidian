@@ -3,9 +3,9 @@
  "brand": "小羊遊戲間",
  "series": "開發日記",
  "slides": [
-  {"title": "少了一條斜線", "big": "?lang=en", "lines": ["/china_life?lang=en 一直是 404", "/china_life/?lang=en 就正常"]},
+  {"title": "少了一條斜線", "big": "?lang=en", "lines": ["修好前 /china_life?lang=en 一直是 404", "/china_life/?lang=en 就正常"]},
   {"title": "為什麼會 404", "big": "精確路由", "lines": ["遊戲只掛 /china_life 和 /china_life/*", "帶參數又沒斜線的，掉到遊戲站手上"]},
-  {"title": "誰會踩到", "big": "沒斜線＋參數", "lines": ["?internal=1 自己人的標記", "?lang=en 英文版，一律 404"]},
+  {"title": "誰會踩到", "big": "沒斜線＋參數", "lines": ["?internal=1 自己人的標記", "沒斜線的 ?lang=en，以前一律 404"]},
   {"title": "改法（11/3）", "big": "12 個路徑", "lines": ["一個一個精確比對，不用萬用字元", "301 轉到 /china_life/，參數原樣"]},
   {"title": "測試自己的洞", "big": "一字不差", "lines": ["原本的測試參數重組後沒變", "加 flag、%20、~ 才抓得到"]},
   {"title": "11/3 下午", "big": "14 分鐘", "lines": ["15:46 先寫會紅的檢查", "16:00 上線，程式 +21 行、-2 行"]},
