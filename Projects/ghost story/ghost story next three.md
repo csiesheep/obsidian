@@ -305,3 +305,9 @@
 - 結果：
 
 相關：[[ghost story pipeline]]、[[ghost story content plan]]
+
+### 2026-11-06 T8 FL2VA 試跑（第 2→3 頁）
+- 一段 5 秒，頭幀用 f2_9，尾幀用 f3_5 裁成直式。頭尾兩張都對上了，色調一路維持暗、暖黃對冷藍，臉也大致一致。
+- 問題：約 2.5 秒處像跳接，房間突然換了角度（上下鋪跑到左邊）。原因是 5 秒裡塞了三個動作。
+- T8 可以給尾幀（task_type FL2VA，接 last_frame）。但一張 graph 的尾幀會套到每一段的最後一格，所以不能每段各給一張。要每段各有一張尾幀，就得逐段送：每段一個 job，頭幀用上一段的最後一格。另外 persistent_identity 在第 0 段會被忽略，FL2VA 接續段也不能再加 ref_images。
+- 檔案：clips/fl2va_p2p3_v1.mp4、clips/fl2va_p2p3_v1_strip.png
