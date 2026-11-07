@@ -1,0 +1,100 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/50",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "DSE 5 分，98 歲身家 $1,928 萬",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/50/src/end.png",
+   "crop": [
+    0,
+    60,
+    780,
+    1060
+   ],
+   "lines": [
+    "《七百萬分之一》我跑完的一世",
+    "截圖：《七百萬分之一》遊戲頁面（選擇為遊戲自動揀）"
+   ]
+  },
+  {
+   "title": "七百萬分之一：喺香港隨機活一次",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/50/src/home.png",
+   "crop": [
+    0,
+    230,
+    780,
+    1250
+   ],
+   "lines": [
+    "首頁寫已有 100,029 條命出世，網頁免費玩",
+    "截圖：《七百萬分之一》首頁（11/7）"
+   ]
+  },
+  {
+   "title": "另一世，6 歲：小學之路",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/50/src/mid20.png",
+   "crop": [
+    24,
+    336,
+    756,
+    1344
+   ],
+   "lines": [
+    "校網派位、搏名校、直資，三選一",
+    "截圖：《七百萬分之一》遊戲頁面"
+   ]
+  },
+  {
+   "title": "18 歲 DSE：最佳五科 5 分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/50/src/auto30.png",
+   "crop": [
+    0,
+    935,
+    780,
+    1185
+   ],
+   "lines": [
+    "未達入大學門檻（遊戲寫 3322）",
+    "截圖：《七百萬分之一》遊戲頁面"
+   ]
+  },
+  {
+   "title": "另一世（1981）：同秒出生的四人",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/50/src/same.png",
+   "crop": [
+    0,
+    500,
+    780,
+    1600
+   ],
+   "lines": [
+    "家庭月入 $2,000 到 $4,100",
+    "截圖：《七百萬分之一》「同秒」頁籤"
+   ]
+  },
+  {
+   "title": "結局頁，先看兩個百分比",
+   "big": "41% · 77%",
+   "lines": [
+    "出身高過 41% 香港家庭",
+    "壽命長過 77% 同年出世的人",
+    "98 歲 · 89 分 · 身家排 2,541／5,001（小羊整理，數字取自結局頁）"
+   ]
+  },
+  {
+   "title": "更多點了就玩的網頁小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/50/src/hub.png",
+   "crop": [
+    0,
+    0,
+    860,
+    1500
+   ],
+   "lines": [
+    "想投胎到歷史上，玩《生在中國》",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
