@@ -142,6 +142,15 @@
 
 用在鬼身上：留八九成像人，只放一兩個不對的地方，而且要放在讀者第一眼會看的臉上。
 
+### 第三輪（恐怖谷線索）與 uncensored 模型
+
+- 第三輪 `out/ghosts_3.jpg`：C 出現腹語娃娃的嘴角直線、太多牙、不眨的眼；B 還是可愛少女。擁有者：「都不行」。
+- 擁有者問是不是用 uncensored 模型：不是。manga.py 一直用一般版 `qwen_image_2.1_int8_convrot`。
+- 本機的 ComfyUI 有存好的 uncensored workflow：`qwen_image_2_1_UC_t2i_gguf.json`（模型 `qwen-image-2.1-UC-Q8_0.gguf`，用 UnetLoaderGGUF 載入，沒有 QwenImage21Cache）和 `qwen_image_2_1_UC_multi_image_edit_gguf.json`。
+  - 我第一次只看了 `code/ComfyUI/models`，那不是正在跑的那個，所以漏看了。要問正在跑的伺服器（`/object_info`、`/api/userdata?dir=workflows`）才準。
+- 試畫：`drafts/restyle/uc.py` 把主模型換成 UC 版，同一段提示詞重畫 B、C，結果在 `out/ghosts_uc/`，對照圖 `out/ghosts_uc_vs.jpg`。
+- 結果：跟一般版幾乎一樣，B 一樣可愛，C 一樣是大眼咧嘴。UC 版放寬的是內容限制，不是畫風和臉的偏好。
+
 ### 圖庫（擁有者 2026-11-06 提議）
 
 好的人物、場景、鬼的範本存成圖庫，之後的漫畫和影片可以從裡面挑、或拿來改。
