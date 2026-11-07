@@ -28,3 +28,8 @@
 | 21 | 《夜市牛排》（sherrygamestudio.com/steak/，雪莉小遊戲 @sherry.game.maker） | 清單用完後自選（2026-11-06 晚 producer）：NOWnews 11/4 列 4388 近 7 日點擊第 2（約 8,900 次）、41 種結局；4388 頁面 25,600 次遊玩、87% 好玩；同作者的鍋氣炒飯是 #39，這篇主打三色豆扣分與結局；小羊遊戲間已收錄（id 3458）。洗地毯、乾杯！居酒屋查過：沒有媒體報導，先不選 | [遊戲](https://sherrygamestudio.com/steak/)、[NOWnews](https://www.nownews.com/news/6889407)、[4388](https://4388.fun/g/3458) | #46 |
 
 不選：AI 反編譯、移植的商業遊戲網頁版（Halo、GTA Vice City 等，有著作權問題）；《傳說對決》（小羊不要）。
+
+## 候選（2026-11-07 21:58 producer 查到，未寫；來源不足，寫前要再查作者）
+- 《塗鴉過山車／Doodle Coaster》https://rakugaki-coaster.pages.dev/ （頁面原始碼有 og.png 官方圖、說明「畫一條線變成雲霄飛車、第一人稱乘坐」；頁面碼出現 @kikuchitls 但搜尋找不到作者資料；星島頭條 2026-10-23 列為 Threads 爆紅小遊戲 https://www.stheadline.com/ohpama/3629174 ）
+- 《金鐘站擠爆車廂大作戰》https://admiraltyisveryshit.netlify.app/ 、《搣紙巾》https://tissuetissue.netlify.app/ 港產，同篇報導，作者未載
+- 《削蘋果大作戰》https://ringo-no-kawamuki.pages.dev/ 、《堆疊雪糕球》https://scoop-tower-game.vercel.app 、《唧牙膏》https://hedorobomb.com/game/hamigaki-game/
