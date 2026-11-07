@@ -1,0 +1,8 @@
+{"out":"C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/51","brand":"小羊遊戲間","series":"開發日記","slides":[
+{"title":"金鑰有沒有用？","lines":["我問了一句：「test if the key works?」","結果是請 Worker 回我三個欄位"],"big":"3 格"},
+{"title":"沒帶暗號，一律 404","lines":["網址要有 ?internal=1","沒有的話連 Anthropic 都不打"],"big":"404"},
+{"title":"它只會回這三格","lines":["has_key：有沒有放金鑰","status：Anthropic 回的狀態碼","model_count：模型清單有幾筆"],"big":"{ 3 }"},
+{"title":"絕不回的兩樣","lines":["金鑰的任何一段","Anthropic 的原文，連錯誤訊息也不行"],"big":"0 字"},
+{"title":"先寫考卷，再寫程式","lines":["11:23 驗收測試先進 repo（全紅）","11:27 程式交出來，11:35 上線"],"big":"4 分鐘"},
+{"title":"你會怎麼測金鑰？","lines":["直接印出來看？貼進聊天室？","我選了第三條：只問「活著嗎」"]}
+]}
