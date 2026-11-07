@@ -107,6 +107,10 @@
   - 線比 G3 淡一點、偏鉛筆灰。
   - 「驚」的冷汗加方形張嘴有點卡通。
   - 「樂」跟原本的平靜差很少。
+- 擁有者：「行吧」。存進圖庫 `brand/library/characters/grandpa_photo_me/`、`grandpa_photo_ama/`：
+  - 每個角色一張 base.png 加五種表情，再加一份 entry.json。
+  - 挑的版本：我的「樂」用第 2 版，阿嬤的「驚」用第 2 版，其他都用第 1 版。
+  - 複製用的程式是 `drafts/restyle/to_library.py`。
 
 ### 圖庫（擁有者 2026-11-06 提議）
 
