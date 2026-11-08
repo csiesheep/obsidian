@@ -1,0 +1,100 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/52",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "50 公尺，這週第一名 10.80 秒",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/52/src/og.jpg",
+   "crop": [
+    0,
+    0,
+    1200,
+    630
+   ],
+   "lines": [
+    "我用 90 秒，只走了 35 公尺",
+    "圖片來源：《おうまパカパカ》官方（つやっと）"
+   ]
+  },
+  {
+   "title": "4 條腿，4 個鍵：Q W O P",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/52/src/start.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1250
+   ],
+   "lines": [
+    "按住＝抬腿向前，放開＝落地蹬回來",
+    "截圖：《おうまパカパカ》遊戲頁面；馬模型 Mohammed.Dael.Alshogaa（CC BY 4.0，改）"
+   ]
+  },
+  {
+   "title": "官方提示：兩條腿一組，快速交替",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/52/src/m40.png",
+   "crop": [
+    0,
+    150,
+    1080,
+    1250
+   ],
+   "lines": [
+    "四條一起動，反動會讓馬晃",
+    "截圖：《おうまパカパカ》遊戲頁面（跑到 10 m 時）"
+   ]
+  },
+  {
+   "title": "倒了，就躺到你按 R",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/52/src/fall.png",
+   "crop": [
+    0,
+    150,
+    1080,
+    1250
+   ],
+   "lines": [
+    "「起き上がる」才會站起來；兩腳站太久也會倒",
+    "截圖：《おうまパカパカ》遊戲頁面"
+   ]
+  },
+  {
+   "title": "本週前五名，全都不到 12 秒",
+   "big": "10.80 秒",
+   "lines": [
+    "第 2～5 名：11.16 到 11.78 秒",
+    "約 16.7 km/h（50 公尺除以 10.80 秒，小羊算的）",
+    "來源：遊戲頁排行榜「この1週間」"
+   ]
+  },
+  {
+   "title": "我的成績：90 秒、35 公尺、倒 2 次",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/52/src/end.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1090
+   ],
+   "lines": [
+    "時間到，離終點還差 15 公尺",
+    "截圖：《おうまパカパカ》遊戲頁面（小羊用腳本按鍵跑的）"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/52/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間：16 類、不用註冊",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
