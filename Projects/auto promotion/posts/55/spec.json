@@ -1,0 +1,94 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/55",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "畫一條線，它就變成雲霄飛車",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/55/src/og.png",
+   "crop": [
+    0,
+    0,
+    1200,
+    630
+   ],
+   "lines": [
+    "我畫的回環在下一張：最高 21.7 G",
+    "圖片來源：らくがきコースター官方（@kikuchitls）"
+   ]
+  },
+  {
+   "title": "一筆畫完，按「スタート」",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/55/src/loop_drawn.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1350
+   ],
+   "lines": [
+    "我畫的：爬升、俯衝、回環、上坡收尾",
+    "截圖：《らくがきコースター》遊戲頁面"
+   ]
+  },
+  {
+   "title": "然後你自己坐上去（第一人稱）",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/55/src/loop_climb.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1350
+   ],
+   "lines": [
+    "293.75 公尺，19.2 秒，最高 129 km/h",
+    "截圖：《らくがきコースター》遊戲頁面"
+   ]
+  },
+  {
+   "title": "畫太陡爬不上去？它不讓你卡住",
+   "big": "10 m/s",
+   "lines": [
+    "掉到 10 m/s 以下就被拉著走（喀喀聲）",
+    "出站後才開始算；最後 14 公尺自動煞車",
+    "出處：遊戲頁面程式碼（小羊讀的）"
+   ]
+  },
+  {
+   "title": "回環會往旁邊偏一點，跟真的一樣",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/55/src/loop_side.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1350
+   ],
+   "lines": [
+    "程式註解寫：loops drift sideways",
+    "截圖：《らくがきコースター》遊戲頁面"
+   ]
+  },
+  {
+   "title": "是我回環畫太小嗎？",
+   "big": "21.7 G",
+   "lines": [
+    "波浪那趟最高 8.0 G，回環那趟 21.7 G",
+    "遊戲內部估算的 G 值，畫面不顯示"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/55/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間：16 類、不用註冊",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

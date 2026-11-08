@@ -33,6 +33,6 @@
 不選：AI 反編譯、移植的商業遊戲網頁版（Halo、GTA Vice City 等，有著作權問題）；《傳說對決》（小羊不要）。
 
 ## 候選（2026-11-07 21:58 producer 查到，未寫；來源不足，寫前要再查作者）
-- 《塗鴉過山車／Doodle Coaster》https://rakugaki-coaster.pages.dev/ （頁面原始碼有 og.png 官方圖、說明「畫一條線變成雲霄飛車、第一人稱乘坐」；頁面碼出現 @kikuchitls 但搜尋找不到作者資料；星島頭條 2026-10-23 列為 Threads 爆紅小遊戲 https://www.stheadline.com/ohpama/3629174 ）
+- #55 《塗鴉過山車／Doodle Coaster》https://rakugaki-coaster.pages.dev/ （頁面原始碼有 og.png 官方圖、說明「畫一條線變成雲霄飛車、第一人稱乘坐」；頁面碼出現 @kikuchitls 但搜尋找不到作者資料；星島頭條 2026-10-23 列為 Threads 爆紅小遊戲 https://www.stheadline.com/ohpama/3629174 ）
 - 《金鐘站擠爆車廂大作戰》https://admiraltyisveryshit.netlify.app/ 、《搣紙巾》https://tissuetissue.netlify.app/ 港產，同篇報導，作者未載
 - 《削蘋果大作戰》https://ringo-no-kawamuki.pages.dev/ 、《堆疊雪糕球》https://scoop-tower-game.vercel.app 、《唧牙膏》https://hedorobomb.com/game/hamigaki-game/
