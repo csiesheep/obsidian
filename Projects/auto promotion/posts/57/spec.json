@@ -1,0 +1,100 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/57",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "洗了 4 輪，漆黑變回波斯地毯",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/57/src/y_compare.png",
+   "crop": [
+    170,
+    110,
+    880,
+    820
+   ],
+   "lines": [
+    "《漆黑地毯清洗店》遊戲裡的洗前／洗後",
+    "截圖：Asobi Lounge《まっくろじゅうたん洗い屋》"
+   ]
+  },
+  {
+   "title": "老奶奶推來的，長這樣",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/57/src/h_work0.png",
+   "crop": [
+    90,
+    140,
+    1340,
+    670
+   ],
+   "lines": [
+    "吸塵器、泡沫、刷子、抽洗機，一輪一輪來",
+    "截圖：Asobi Lounge《まっくろじゅうたん洗い屋》"
+   ]
+  },
+  {
+   "title": "看起來乾淨了，放大鏡說還沒",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/57/src/o_mag_480.png",
+   "crop": [
+    150,
+    140,
+    1000,
+    720
+   ],
+   "lines": [
+    "「紅紫色……帶著淡淡的水果香」＝紅酒",
+    "截圖：Asobi Lounge《まっくろじゅうたん洗い屋》"
+   ]
+  },
+  {
+   "title": "第一張地毯，我抽了多少髒水",
+   "big": "105 公升",
+   "lines": [
+    "4 輪清洗，20 公升汙水箱倒了 5 次",
+    "畫面上沒有「乾淨度」的數字",
+    "數字：小羊腳本實洗記錄（11/9）"
+   ]
+  },
+  {
+   "title": "5 顆星，黑光燈下還是會發光",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/57/src/x_result.png",
+   "crop": [
+    140,
+    80,
+    1370,
+    880
+   ],
+   "lines": [
+    "4 輪＋3 種藥劑＋烘乾：5 星、3,000 金幣",
+    "截圖：Asobi Lounge《まっくろじゅうたん洗い屋》"
+   ]
+  },
+  {
+   "title": "同一張只洗 1 輪就交",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/57/src/z2_result.png",
+   "crop": [
+    60,
+    40,
+    1380,
+    860
+   ],
+   "lines": [
+    "1 顆星、0 金幣、8 條問題",
+    "截圖：Asobi Lounge《まっくろじゅうたん洗い屋》"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/57/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間：16 類、不用註冊",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
