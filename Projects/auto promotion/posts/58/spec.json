@@ -1,0 +1,96 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/58",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "我的腳本，第 3 天卡在炸雞塊",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/58/src/d3_wait.png",
+   "crop": [
+    270,
+    55,
+    1010,
+    620
+   ],
+   "lines": [
+    "左邊那位在等炸雞塊，耐心條已經紅了",
+    "截圖：《乾杯！居酒屋》遊戲畫面"
+   ]
+  },
+  {
+   "title": "《乾杯！居酒屋》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/58/src/og.jpg",
+   "crop": [
+    0,
+    0,
+    1200,
+    630
+   ],
+   "lines": [
+    "巷子裡的小居酒屋，打開網頁就玩",
+    "圖片來源：《乾杯！居酒屋》官方"
+   ]
+  },
+  {
+   "title": "第 1 天：啤酒、毛豆、雞肉串",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/58/src/d1_play.png",
+   "crop": [
+    170,
+    60,
+    1100,
+    615
+   ],
+   "lines": [
+    "拿起來、點客人，就送到了",
+    "截圖：《乾杯！居酒屋》遊戲畫面"
+   ]
+  },
+  {
+   "title": "什麼都不做：0 顆星",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/58/src/d1_idle_end.png",
+   "crop": [
+    320,
+    0,
+    945,
+    505
+   ],
+   "lines": [
+    "9 位客人全氣走，還跳出彩蛋",
+    "截圖：《乾杯！居酒屋》遊戲畫面"
+   ]
+  },
+  {
+   "title": "同一個第 1 天，只差手速",
+   "big": "0.3 秒 vs 4 秒",
+   "lines": [
+    "0.3 秒點一下：32 位、¥22,000 ★★★",
+    "1.5 秒：24 位、¥14,380 ★★★",
+    "4 秒：11 位、2 位生氣、¥6,710 ★★",
+    "數字：小羊腳本實測（11/9）"
+   ]
+  },
+  {
+   "title": "這款遊戲自己也一直在「補」",
+   "big": "663 次提交",
+   "lines": [
+    "10/21 上線到 11/9",
+    "463 次標了 Co-Authored-By: Claude",
+    "來源：作者公開的 GitHub repo"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/58/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間：16 類、不用註冊",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
