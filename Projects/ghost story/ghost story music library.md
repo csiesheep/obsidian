@@ -18,3 +18,30 @@ Sad or bouncy tracks don't fit daily life: 「不要是 sad 的音樂」、「�
 | 靜默 | Just before a scare, a far sound | no music | |
 
 A hit at a reveal is a sound effect (stinger), not music.
+
+## 音效庫（待選，2026-11-09）
+
+These are the stock effects the brand reuses across videos, such as the 「登登」 drum hits. They are separate from a scene's own sounds (footsteps, a door, rain), which come with each H3 clip. Nothing is chosen yet. ghost-reel's `sfx.py` has synthetic stinger, knock, heartbeat, riser, whoosh and drone, which these would replace.
+
+| 類別 | 音效 | 用在 |
+|---|---|---|
+| 重擊 | 低頻單發重擊 (boom / impact) | The reveal, the ghost's first full view |
+| 重擊 | 雙擊鼓「登登」 | A turn in the story, a chapter change, after the hook |
+| 重擊 | 弦樂尖刺 (violin screech) | A jump scare |
+| 重擊 | 鋼琴不和諧重音 (piano cluster) | Something wrong is noticed |
+| 上升 | 反向鈸／反向吸氣 (reverse cymbal, reverse whoosh) | 1–2 s before a hit |
+| 上升 | 弦樂漸強 (string riser) | 3–6 s of build before a reveal |
+| 轉場 | 快速 whoosh | A cut to a new place, the title flying in |
+| 轉場 | 低沉 swoosh | A slow transition, a time jump |
+| 抽空 | 吸走聲 (suck-out)、突然全靜 | The moment before silence, then the scare |
+| 鋪底 | 低頻嗡鳴 (drone) | Long tense stretches, under the narration |
+| 鋪底 | 耳鳴高頻 (tinnitus) | Shock, after a scare |
+| 鋪底 | 心跳 | Hiding, holding still |
+| 鋪底 | 緊張呼吸 | Hiding, close-ups |
+| 故障 | 訊號干擾、靜電 (glitch, static) | The 訊號干擾 title, a video or phone screen |
+| 故障 | 磁帶慢下 (tape stop) | Time stops, the turn into a twist |
+| 人聲 | 低語 (whisper)，聽不清 | Something is in the room |
+| 人聲 | 女聲哼唱、小孩笑聲 | A ghost presence that is never shown |
+| 節奏 | 時鐘滴答 | Waiting, the minutes before midnight |
+| 品牌 | 鐘聲／鈴 (bell toll)，一聲 | The cold open or the end card, as the 鬼唱詩 sound |
+| 品牌 | 字幕出現的輕 tick | A comic reel's captions, the end card text |
