@@ -365,3 +365,11 @@ Open / possible next:
   - Live: the cartoon sample was refused in 3.8 s; the adult 3 views passed.
   - The six uncensored reference runs were re-recorded with an adult test character, so tests use adults only.
   - Open: the gate does not cover 3-view uncensored or the uncensored img2img workflows.
+
+- **2026-11-10 Friend page (#49 / #50, main 108241b)** — public at https://pc.curlew-mountain.ts.net:10000/ (Tailscale Funnel, port 10000 only).
+  - Text-to-image only, Qwen Image 2.1 **standard** model (owner's pick), same workflow as the studio's (25 steps, cfg 3.5). About 90 s a picture.
+  - Name + password login (`python friend.py add-user <name>` prints the password once). 400 pictures a day (owner: 上限400張一天), one at a time; refused while the owner's ComfyUI is busy.
+  - Qwen 3.8 checks every prompt (minors, sexual, real people, gore); fails closed. A friend sees only their own pictures.
+  - Off switch: `tailscale funnel --https=10000 off`, then `stop-friend.bat`. No start-at-logon.
+  - Incident: a temperature-0 request crashed Qwen's llama-server (GGML_ASSERT t_start > 0), 23:44–23:47; friend check now uses the studio's sampling.
+  - Also: the studio got its own start-at-logon task "Comfy Studio (start at logon)" (90 s delay, 3 retries) after it stayed down after the Oct 29 reboot.
