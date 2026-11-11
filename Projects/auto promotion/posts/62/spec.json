@@ -1,0 +1,9 @@
+{"out":"C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/62","brand":"小羊遊戲間","series":"熱門遊戲介紹","slides":[
+{"title":"刀心偏了半徑 1/10，還是「好朋友」","image":"C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/62/src/off8.png","crop":[0,100,1008,1360],"lines":["8 個人：最大塊 14.8%，最小塊 10.3%","截圖：遊戲畫面（小羊用腳本切）"]},
+{"title":"《隨心裝飾蛋糕，再公平地切給朋友們吧》","image":"C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/62/src/og.jpg","crop":[0,0,1200,630],"lines":["日本「こす.くま」做的網頁遊戲，有繁中","圖片來源：遊戲官方分享圖（kosukuma）"]},
+{"title":"照數學切 8 刀：100 分","image":"C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/62/src/exact8.png","crop":[0,100,1008,1360],"lines":["每塊 12.48%～12.52%，「最佳好友」","截圖：遊戲畫面（小羊用腳本切）"]},
+{"title":"公平度怎麼算？","big":"只看最偏的那一塊","lines":["公平度 ＝ 100 減「最偏那塊差了幾 %」","100 分：每塊都要差不到 0.5%","草莓不算，只算蛋糕面積","數字：遊戲程式碼（11/11）"]},
+{"title":"手抖幾度，100 就沒了","big":"200 次，0 次 100 分","lines":["8 人份，每刀偏約 1 度：平均 94.5","每刀偏約 2 度：平均 89.5","模擬：用遊戲自己的評分程式"]},
+{"title":"長條平均切 4 塊：78 分","image":"C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/62/src/strips4.png","crop":[0,100,1008,1360],"lines":["中間兩塊 30.4%，旁邊兩塊 19.6%","截圖：遊戲畫面（小羊用腳本切）"]},
+{"title":"更多點了就玩的小遊戲","image":"C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/62/src/hub_m.png","crop":[0,1050,860,1850],"lines":["小羊遊戲間：16 類、不用註冊","games.csiesheep.com"]}
+]}
