@@ -1,0 +1,10 @@
+{"out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/66", "brand": "小羊遊戲間", "series": "熱門遊戲介紹",
+ "slides": [
+  {"title": "每秒按 10 下，按滿 30 秒", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/66/src/result_10.png", "crop": [60, 420, 1020, 1500], "lines": ["1,868 戶，只到 25 關裡的第 11 關", "截圖：遊戲畫面（小羊本機副本，腳本在按）"]},
+  {"title": "《固咕固》", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/66/src/start.png", "crop": [0, 120, 1080, 1700], "lines": ["一顆按鈕、30 秒、25 個香港場景", "截圖：固咕固 遊戲開始畫面（作者未具名）"]},
+  {"title": "第 8 關吵的不是住戶", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/66/src/oceanpark.png", "crop": [0, 520, 1080, 1760], "lines": ["海洋公園：熊貓、企鵝、海獅、海豹", "截圖：遊戲畫面（小羊本機副本，腳本在按）"]},
+  {"title": "每秒幾下，吵醒幾戶", "lines": ["全港 25 關一共 33,382 戶", "每秒 5 下 → 705 戶（第 8 關）", "每秒 10 下 → 1,868 戶（第 11 關）", "每秒 16 下 → 3,302 戶（第 13 關）", "每秒 50 下 → 10,345 戶（第 19 關）", "每秒 196 下 → 全部吵醒"]},
+  {"title": "最後一關：維多利亞港", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/66/src/harbour.png", "crop": [0, 520, 1080, 1760], "lines": ["腳本每秒送 250 下，剩 2 秒全亮", "截圖：遊戲畫面（小羊本機副本，腳本在按）"]},
+  {"title": "33,382 戶，25 / 25 關", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/66/src/result_250.png", "crop": [60, 420, 1020, 1500], "lines": ["30 秒裡有 22.8 秒是在飛去下一關", "截圖：遊戲畫面（小羊本機副本，腳本在按）"]},
+  {"title": "更多點了就玩的小遊戲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/66/src/hub_m.png", "crop": [0, 1050, 860, 1850], "lines": ["小羊遊戲間：16 類、不用註冊", "games.csiesheep.com"]}
+ ]}

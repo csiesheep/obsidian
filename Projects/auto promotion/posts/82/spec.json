@@ -1,0 +1,99 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/82",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "兩指一拉紙兩半",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/82/src/ready.png",
+   "crop": [
+    0,
+    170,
+    800,
+    945
+   ],
+   "lines": [
+    "歪過一毫不過關",
+    "截圖：《搣紙巾》遊戲畫面"
+   ]
+  },
+  {
+   "title": "撕得開，還要撕得正",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/82/src/mid.png",
+   "crop": [
+    0,
+    170,
+    800,
+    1120
+   ],
+   "lines": [
+    "紙寬 120 mm，平均偏離中線要小於 1 mm",
+    "截圖：《搣紙巾》遊戲畫面"
+   ]
+  },
+  {
+   "title": "拉太快，整張撕爆",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/82/src/broken.png",
+   "crop": [
+    0,
+    170,
+    800,
+    945
+   ],
+   "lines": [
+    "0.15 秒內撕完：12 回只過 1 回、撕爆 11 回",
+    "截圖：《搣紙巾》遊戲畫面"
+   ]
+  },
+  {
+   "title": "同一拉，慢一點",
+   "big": "48 回 48 過",
+   "lines": [
+    "撕完花 0.2～1.5 秒，偏離 0.2～0.5 mm",
+    "實測：小羊 11/21，第一關、滑鼠左右拉一樣長"
+   ]
+  },
+  {
+   "title": "起手歪 6 個像素",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/82/src/off6.png",
+   "crop": [
+    0,
+    170,
+    800,
+    1120
+   ],
+   "lines": [
+    "約 2.8 mm：偏離 3.6 mm 未過關；歪 3 像素、6 像素各 8 回 0 過",
+    "截圖：《搣紙巾》遊戲畫面"
+   ]
+  },
+  {
+   "title": "第三關，一分為四",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/82/src/quarters.png",
+   "crop": [
+    0,
+    170,
+    800,
+    1300
+   ],
+   "lines": [
+    "四塊各約 25%，10 回全過",
+    "截圖：《搣紙巾》遊戲畫面"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/82/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

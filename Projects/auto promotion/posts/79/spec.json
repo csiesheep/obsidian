@@ -1,0 +1,107 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/79",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "月台百客十秒限",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/79/src/dance_mid.png",
+   "crop": [
+    0,
+    330,
+    800,
+    1015
+   ],
+   "lines": [
+    "大袖一甩入車廂",
+    "截圖：《金鐘站》遊戲畫面"
+   ]
+  },
+  {
+   "title": "月台上擠了上百人",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/79/src/ready.png",
+   "crop": [
+    0,
+    660,
+    800,
+    1140
+   ],
+   "lines": [
+    "一般關 84～104 人，車廂裡先站了 30～36 人",
+    "截圖：《金鐘站》遊戲畫面"
+   ]
+  },
+  {
+   "title": "一甩一片，人潮就走",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/79/src/crowd_mid.png",
+   "crop": [
+    0,
+    270,
+    800,
+    955
+   ],
+   "lines": [
+    "桌面用滑鼠、手機用手指，朝車門掃過去",
+    "截圖：《金鐘站》遊戲畫面"
+   ]
+  },
+  {
+   "title": "大力甩過去",
+   "big": "28 回 28 勝",
+   "lines": [
+    "一般關各甩 52～81 下，剩 7.2～8.1 秒",
+    "實測：小羊 11/21，全數上車、車門口淨空"
+   ]
+  },
+  {
+   "title": "同一條路，拆成 24 小段",
+   "big": "6 回 0 勝",
+   "lines": [
+    "只進 75～84 人，卡門口 5 回、行李 1 回",
+    "實測：小羊 11/21（只改出手方式，路線相同）"
+   ]
+  },
+  {
+   "title": "請勿靠近車門",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/79/src/win.png",
+   "crop": [
+    0,
+    150,
+    800,
+    835
+   ],
+   "lines": [
+    "104 / 104，剩 7.8 秒（這一回的畫面）",
+    "截圖：《金鐘站》遊戲畫面"
+   ]
+  },
+  {
+   "title": "隱藏關：爭吵、彈琴、跳舞",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/79/src/dance_ready.png",
+   "crop": [
+    0,
+    310,
+    800,
+    730
+   ],
+   "lines": [
+    "爭吵 4/4、跳舞 1/5、彈琴 0/7",
+    "截圖：《金鐘站》遊戲畫面（跳舞關）"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/79/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

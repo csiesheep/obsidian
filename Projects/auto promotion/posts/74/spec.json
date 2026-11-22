@@ -1,0 +1,21 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/74",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {"title": "不進貨撐十六天", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/74/src/og.png", "crop": [0, 0, 1200, 630],
+   "lines": ["短片爆紅接四位", "圖片來源：嫲嫲愛泡茶 官方"]},
+  {"title": "第 1 天：淨賺 $68.5", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/74/src/day1.png", "crop": [0, 250, 800, 1400],
+   "lines": ["接待 10 位，17 位沒等到飲料", "截圖：遊戲畫面"]},
+  {"title": "第 3 天：短片突然爆紅", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/74/src/viral.png", "crop": [0, 330, 800, 1520],
+   "lines": ["32 位客人上門，只接住 4 位", "截圖：遊戲畫面"]},
+  {"title": "一粒貨不進", "big": "16 天",
+   "lines": ["第 4 天起每天 0 杯、淨收入 -$42", "結業時現金 -$17.7", "實測：小羊 11/18"]},
+  {"title": "這間店，先告一段落", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/74/src/closed.png", "crop": [0, 250, 800, 1450],
+   "lines": ["嫲嫲：收好帳本，休息一下", "截圖：遊戲畫面"]},
+  {"title": "珍奶每杯毛利", "big": "$1.7",
+   "lines": ["成本 $9.6；熱咖啡毛利 $8.7", "另有寶瓶座、天蠍座等星座茶", "資料：遊戲畫面與公開程式 11/18"]},
+  {"title": "更多點了就玩的小遊戲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/74/src/hub_m.png", "crop": [0, 1050, 860, 1850],
+   "lines": ["小羊遊戲間", "games.csiesheep.com"]}
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/70",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "擠牙膏塔：一門奇功",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/70/src/og_hamigaki.jpg",
+   "lines": [
+    "按住擠，疊牙刷，比誰高",
+    "圖片來源：HedoroBomb 官方"
+   ]
+  },
+  {
+   "title": "站著不動，8.9 公分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/70/src/best89.png",
+   "crop": [
+    100,
+    80,
+    700,
+    1250
+   ],
+   "lines": [
+    "稱號「牙膏塔」，一個月的份",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "按一秒就放開，1.3 公分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/70/src/flat13.png",
+   "crop": [
+    100,
+    80,
+    700,
+    1250
+   ],
+   "lines": [
+    "稱號「扁扁的」，江湖笑之",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "大幅慢晃，7.1 公分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/70/src/s71.png",
+   "crop": [
+    100,
+    80,
+    700,
+    1250
+   ],
+   "lines": [
+    "牙膏如鐘擺，慢半拍跟上",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "在下實測 10 次",
+   "big": "1.3 到 8.9 cm",
+   "lines": [
+    "站著不動：5.4、8.9",
+    "大幅慢晃：7.1、5.5",
+    "小幅晃：6.0、5.4",
+    "快晃：5.7、3.6",
+    "按一秒：1.3、1.3"
+   ]
+  },
+  {
+   "title": "閣下欲練更多奇功",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/70/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間：16 類、不用註冊",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

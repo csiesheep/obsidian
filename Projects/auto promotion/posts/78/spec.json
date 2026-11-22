@@ -1,0 +1,108 @@
+{
+"out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/78",
+"brand": "小羊遊戲間",
+"series": "熱門遊戲介紹",
+"slides": [
+{
+"title": "九則秒回稱魔人",
+"image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/78/src/og.png",
+"lines": [
+"一句晚安變罪人",
+"圖片來源：已讀不回（se-n.com）官方"
+]
+},
+{
+"title": "媽媽：畫隻倉鼠",
+"image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/78/src/draw_ask.png",
+"crop": [
+0,
+220,
+800,
+1000
+],
+"lines": [
+"要用在賀年卡上，對方轉身前畫完",
+"截圖：遊戲畫面"
+]
+},
+{
+"title": "同一張笑臉，畫遍天下",
+"image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/78/src/end_good.png",
+"crop": [
+0,
+0,
+800,
+600
+],
+"lines": [
+"爸爸的肖像、貓、班服，同一張笑臉全收下",
+"截圖：遊戲畫面"
+]
+},
+{
+"title": "23:58 最後一則",
+"image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/78/src/final_msg.png",
+"crop": [
+0,
+0,
+800,
+900
+],
+"lines": [
+"美緒：「已讀就好」「不用回」",
+"截圖：遊戲畫面"
+]
+},
+{
+"title": "回了一句晚安",
+"image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/78/src/end_reply.png",
+"crop": [
+0,
+0,
+800,
+600
+],
+"lines": [
+"稱號：叫你別回還回的人",
+"截圖：遊戲畫面"
+]
+},
+{
+"title": "晚安回不回，差很多",
+"big": "4,211 → 3,555",
+"lines": [
+"各實測 4 回的平均（小羊 11/20）",
+"多回一句晚安，少了約 660 分",
+"晚安不回 4,040～4,272；回了 3,514～3,603"
+]
+},
+{
+"title": "完全不碰手機",
+"image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/78/src/end_idle.png",
+"crop": [
+0,
+0,
+800,
+560
+],
+"lines": [
+"4 回都在 8:05 結束，0 分",
+"截圖：遊戲畫面"
+]
+},
+{
+"title": "更多點了就玩的小遊戲",
+"image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/78/src/hub_m.png",
+"crop": [
+0,
+1050,
+860,
+1850
+],
+"lines": [
+"小羊遊戲間",
+"games.csiesheep.com"
+]
+}
+]
+}

@@ -1,0 +1,101 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/80",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "能煎得圓圓的嗎？",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/80/src/cover.jpg",
+   "lines": [
+    "《クレープ作り》做可麗餅",
+    "圖片來源：ぴこぴこP《クレープ作り》官方封面"
+   ]
+  },
+  {
+   "title": "倒一勺麵糊，鍋子不動",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/80/src/s1_poured.png",
+   "crop": [
+    0,
+    400,
+    800,
+    1180
+   ],
+   "lines": [
+    "麵糊落在鍋心，成一團葫蘆形",
+    "截圖：《クレープ作り》遊戲畫面"
+   ]
+  },
+  {
+   "title": "約 19 秒：きれいなきつね色",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/80/src/s1_fox.png",
+   "crop": [
+    0,
+    400,
+    800,
+    1180
+   ],
+   "lines": [
+    "遊戲裡的評語：きれいなきつね色",
+    "截圖：《クレープ作り》遊戲畫面"
+   ]
+  },
+  {
+   "title": "約 65 秒：真っ黒",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/80/src/s1_black.png",
+   "crop": [
+    0,
+    400,
+    800,
+    1180
+   ],
+   "lines": [
+    "煙先冒出來，評語變「真っ黒」",
+    "截圖：《クレープ作り》遊戲畫面"
+   ]
+  },
+  {
+   "title": "鍋子不動，單面的火候",
+   "big": "19 → 45 → 65 秒",
+   "lines": [
+    "きつね色 → こんがり → 真っ黒",
+    "實測：小羊 11/22，不動四回差不到 2 秒，自倒完麵糊起算"
+   ]
+  },
+  {
+   "title": "傾斜攤開，面積變 2 倍",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/80/src/t1_poured.png",
+   "crop": [
+    0,
+    400,
+    800,
+    1180
+   ],
+   "lines": [
+    "面積 1.29 → 2.54，黑炭平均只早 6 秒",
+    "截圖：《クレープ作り》遊戲畫面"
+   ]
+  },
+  {
+   "title": "沒有分數，只有名字",
+   "big": "ちっちゃくたたんだ",
+   "lines": [
+    "折法、具材、焼き色合起來取名",
+    "出處：遊戲公開程式與說明"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/80/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

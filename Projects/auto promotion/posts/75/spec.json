@@ -1,0 +1,16 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/75",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {"title": "臭豆可樂米芝蓮", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/75/src/og.jpg", "lines": ["身價不及蛋炒飯", "圖片來源：地獄廚神 官方"]},
+  {"title": "地獄米芝蓮：只賣 4 ¢", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/75/src/slow_mich_result.png", "crop": [0, 820, 800, 1560], "lines": ["慢煮機＋老干媽、臭豆腐、可樂，油炸", "截圖：遊戲畫面"]},
+  {"title": "蛋炒飯：勉強合格，賣 23 ¢", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/75/src/fried_rice_result.png", "crop": [0, 900, 800, 1460], "lines": ["「食得落，但我唔會同朋友提起。」", "截圖：遊戲畫面"]},
+  {"title": "生吃檸檬配醋：毒舌差評", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/75/src/raw_lemon_vinegar_result.png", "crop": [0, 820, 800, 1600], "lines": ["「我食過紙皮都比呢碟有層次」", "截圖：遊戲畫面"]},
+  {"title": "家用爐灶、2～3 樣食材", "big": "0 / 383,240", "lines": ["沒有任何加成：一道地獄米芝蓮都沒有", "換慢煮機：4,185 道", "資料：遊戲公開程式 11/18"]},
+  {"title": "開局唯一神作：番茄牛肉滑蛋", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/75/src/tomato_beef_result.png", "crop": [0, 920, 800, 1500], "lines": ["開局食材 23,400 種配法，唯一「意外神作」", "截圖：遊戲畫面"]},
+  {"title": "更多點了就玩的小遊戲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/75/src/hub_m.png", "crop": [0, 1050, 860, 1850], "lines": ["小羊遊戲間", "games.csiesheep.com"]}
+ ]
+}
+
+

@@ -1,0 +1,12 @@
+{"out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/64", "brand": "小羊遊戲間", "series": "熱門遊戲介紹",
+ "slides": [
+  {"title": "削得越慢，皮越長", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/64/src/sage.png", "crop": [30, 20, 830, 780], "lines": ["每秒削 2.5 公分：一條 2m66cm，1 分 57 秒", "截圖：遊戲畫面（小羊本機副本，腳本操作）"]},
+  {"title": "《りんごの皮むき》", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/64/src/og.png", "lines": ["往右滑轉蘋果削皮，一條不斷，看能削多長", "圖片來源：遊戲官方分享圖"]},
+  {"title": "往右滑，蘋果就轉", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/64/src/mid.png", "crop": [0, 200, 860, 1600], "lines": ["慢一點皮就薄，太急就斷", "截圖：遊戲畫面（小羊本機副本，腳本操作）"]},
+  {"title": "每秒削幾公分？", "lines": ["同一顆蘋果，固定速度削到底", "12 → 斷成 13 條（實機）", "8 → 斷成 2～3 條", "7 → 一條 125 公分，20 秒", "5 → 一條 161 公分，36 秒（實機）", "2.5 → 一條 266 公分，2 分鐘（實機）", "1 → 一條 5.2 公尺，9 分半"]},
+  {"title": "太急：みじん切り", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/64/src/shred.png", "crop": [30, 20, 830, 780], "lines": ["每秒 12 公分，10 秒削完，最長一條 16 公分", "截圖：遊戲畫面（小羊本機副本，腳本操作）"]},
+  {"title": "斷不斷，看手指", "big": "一秒一顆蘋果寬", "lines": ["手指一秒滑過大約一整顆蘋果的寬度，皮就開始斷", "一樣的平均速度，快快一段一段滑：斷 6～8 條；穩穩滑：一條"]},
+  {"title": "更多點了就玩的小遊戲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/64/src/hub_m.png", "crop": [0, 1050, 860, 1850], "lines": ["小羊遊戲間：16 類、不用註冊", "games.csiesheep.com"]}
+ ]}
+
+

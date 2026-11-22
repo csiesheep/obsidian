@@ -146,3 +146,25 @@ owner：「一天兩篇其中一篇，改成短篇故事，影片壓在45秒／�
 
   停用：12:40（1320）、20:30（2218）、21:30（2253）、22:30（2230）。
 - 為什麼：48 小時的用量裡，每組回覆約 0.8%，製作任務 11%，鬼唱詩畫風那個長對話約 44%（建議換新對話，owner 自己決定）。
+
+## 2026-11-13 小羊遊戲間 Threads 停用（小羊：「disable csiesheep.games threads posts」→ 選「貼文＋回覆全部停」）
+
+- 停用（只做 Threads 的）：promo-threads-2100、promo-threads-1330、games-replies-hub-1530、games-replies-night-2200、games-replies-post-1355、hub-creator-notes。
+- 多平台任務加「## Threads 停用」一節，Threads 跳過、IG／FB／YouTube 照發：promo-post-cards、promo-post-china-reel、-1430、promo-post-popular、hub-daily-challenge、hub-new-games-post、games-replies-morning-2／lunch-2／evening-2、games-replies-post-0730／1200／1800／1930。
+- hub-threads-scout 照樣在 Threads 讀文找新遊戲（只讀），不再回覆或通知作者。
+- 鬼唱詩的 Threads 不受影響。恢復：打開停用的任務、刪掉各任務的「## Threads 停用」那一節。
+
+## 2026-11-13 Threads 改用 @csiesheep（同日稍晚）
+
+owner：「let's re-start the tasks of csiesheep.games on thread but another account csiesheep」
+
+- 小羊遊戲間的 Threads 工作全部恢復，但發文帳號改成本人的 **@csiesheep**（Tao-yang Fu，11/13 時 0 追蹤）。
+- @csiesheep 只登入在原本的 Chrome（deviceId fc855be5-907f-4a04-a09e-9dc01649a6a7）；Threads 那一下鎖 Chrome 後選這個瀏覽器，IG／FB／YouTube 照舊用 csiesheep.games Chrome（ad2977e1…）。
+- 重新啟用：promo-threads-2100、promo-threads-1330、games-replies-hub-1530、games-replies-night-2200、games-replies-post-1355。hub-creator-notes 維持停用（原本只排到 11/9）。
+- 19 個任務的「## Threads 停用」換成「## Threads 改用 @csiesheep」：發文前確認帳號是 csiesheep；用做遊戲的人的第一人稱寫（「我做的」），不用「小羊遊戲間／我們」；11/13 前 csiesheep.games 的舊貼文不再回。
+- 還沒改：social-stats-daily 仍讀 csiesheep.games 的 Threads 數字。
+- 安全規則（owner：「加強 threads csiesheep 的 post 安全性，不要寫任何可能會 ban 帳號的東西，像是 小孩死亡等」）：19 個任務的 @csiesheep 段加了禁寫主題（死亡尤其小孩、自殘、暴力、性、饑荒疫病、政治、時事悲劇、拉讚拉追蹤）；18 歲前死亡或畫面有死亡的分享卡／Reel 不上 Threads；回覆只回輕鬆的貼文；每則發前跑 `auto_promotion/scripts/threads_safety.py`，BLOCK 改寫一次，仍 BLOCK 就不發 Threads（記 未發：安全規則）。
+
+## 2026-11-14 任務做完要關 Chrome 分頁
+
+owner：「修改 scheduled tasks，在開了 chrome tab 後，task 作完，把 tab 關掉」。36 個用 Chrome 的任務（含 2 個已停用的開發日記、1 個停用的作者通知）加了「## 關分頁」：每個 burst 做完先關自己開的分頁再放 Chrome 鎖；結束前 tabs_context_mcp 檢查並關掉剩下的；不動 owner 原本開著的分頁；擋住的分頁不按 Leave／Discard，改開新分頁並在進度紀錄寫「分頁沒關：…」。

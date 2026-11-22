@@ -1,0 +1,94 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/67",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "手機大小的畫面，畫一條落差",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/67/src/phone_drop.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1960
+   ],
+   "lines": [
+    "63 公尺、時速 121 公里、谷底 15 G",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "《塗鴉過山車》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/67/src/og.png",
+   "lines": [
+    "一筆畫出軌道，再用第一人稱坐上去",
+    "圖片來源：らくがきコースター 官方（@kikuchitls）"
+   ]
+  },
+  {
+   "title": "坐上去是第一人稱",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/67/src/pov_top.png",
+   "crop": [
+    0,
+    0,
+    1080,
+    1700
+   ],
+   "lines": [
+    "畫面上沒有任何數字",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "同一個 63 公尺落差",
+   "lines": [
+    "寬 25 公尺 → 谷底 15 G",
+    "寬 100 公尺 → 谷底 4.4 G",
+    "時速都是 121～122 公里，G 值差 3.5 倍",
+    "程式裡 1 公尺 = 10 像素、重力 9.81"
+   ]
+  },
+  {
+   "title": "拉寬 4 倍，G 值剩不到三分之一",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/67/src/wide_drop.png",
+   "crop": [
+    0,
+    0,
+    2100,
+    1200
+   ],
+   "lines": [
+    "100 公尺寬的同一個落差：4.4 G",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "回到車站",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/67/src/result.png",
+   "crop": [
+    0,
+    1100,
+    1080,
+    2160
+   ],
+   "lines": [
+    "整條軌道存在分享網址裡",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/67/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間：16 類、不用註冊",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

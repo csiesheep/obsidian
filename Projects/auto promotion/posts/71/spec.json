@@ -1,0 +1,80 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/71",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "榜上英雄零摔車",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/71/src/og_touge.png",
+   "lines": [
+    "繩尾部長摔五回",
+    "圖片來源：大市こんにゃく 官方"
+   ]
+  },
+  {
+   "title": "9 點開會，巴士已開走",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/71/src/title.png",
+   "crop": [
+    0,
+    0,
+    800,
+    1000
+   ],
+   "lines": [
+    "辦公椅綁部長，衝下山去",
+    "截圖：遊戲畫面（只有日文）"
+   ]
+  },
+  {
+   "title": "「被拖著走，也是工作的一部分」",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/71/src/run_009.png",
+   "crop": [
+    0,
+    0,
+    800,
+    1000
+   ],
+   "lines": [
+    "部長被甩出椅子，照樣被拖",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "退職坂，坡度 40%",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/71/src/run_081.png",
+   "crop": [
+    0,
+    0,
+    800,
+    1000
+   ],
+   "lines": [
+    "部長曰：「這裡辭職的人很多。」",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "官方榜前 100 名",
+   "big": "綁在後面的部長，全摔過",
+   "lines": [
+    "自己摔車：0 次",
+    "部長摔 3 次 4 人、4 次 30 人、5 次 66 人",
+    "資料：官方排行榜 11/16"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/71/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間也收了這款",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

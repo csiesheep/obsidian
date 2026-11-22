@@ -1,0 +1,93 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/68",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "輪點四格竟得乙",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/68/src/result.png",
+   "crop": [
+    180,
+    440,
+    900,
+    1620
+   ],
+   "lines": [
+    "實測 5 分鐘：2060 分、答 44 題、猜中 33，成績「乙」",
+    "截圖：遊戲成績單"
+   ]
+  },
+  {
+   "title": "《台語高手攏知影》",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/68/src/og_word.png",
+   "lines": [
+    "話說江湖有奇功：看台語詞，四選一",
+    "圖片來源：台灣 Guessr 官方"
+   ]
+  },
+  {
+   "title": "此門派不只台語",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/68/src/home.png",
+   "crop": [
+    0,
+    80,
+    1080,
+    1720
+   ],
+   "lines": [
+    "另有食品、品牌、客語、房價、捷運",
+    "截圖：taiwanguessr.com 首頁"
+   ]
+  },
+  {
+   "title": "不聽發音，100 分",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/68/src/help.png",
+   "crop": [
+    50,
+    430,
+    1030,
+    1740
+   ],
+   "lines": [
+    "聽了 80、第二次 60、第三次 30",
+    "截圖：遊戲說明"
+   ]
+  },
+  {
+   "title": "猜錯一次，例句才現身",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/68/src/wrong_once.png",
+   "crop": [
+    0,
+    380,
+    1080,
+    1640
+   ],
+   "lines": [
+    "例句用台語漢字，那個詞挖空",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "最短選項，慘吃虧",
+   "big": "9% ／ 20%",
+   "lines": [
+    "最短選項若唯一，選它對 9%",
+    "最長對 20%；亂猜 25%"
+   ]
+  },
+  {
+   "title": "更多奇功，點開即練",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/68/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間也收了這款：16 類、不用註冊",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

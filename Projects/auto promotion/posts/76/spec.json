@@ -1,0 +1,102 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/76",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "直擠青藍得一星",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/76/src/og.jpg",
+   "lines": [
+    "名畫上限兩千萬",
+    "圖片來源：油畫修補師（SMALLDESIRE）官方"
+   ]
+  },
+  {
+   "title": "缺了一塊的湖",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/76/src/hole.png",
+   "crop": [
+    0,
+    360,
+    800,
+    1600
+   ],
+   "lines": [
+    "十二色顏料、四種筆，調出缺口的顏色",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "青藍直接擠上去：70.4%",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/76/src/tube_cyan_result.png",
+   "crop": [
+    0,
+    540,
+    800,
+    1200
+   ],
+   "lines": [
+    "一顆星，報酬 NT$ 4,300",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "青藍、草綠、四次鈦白、再青藍",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/76/src/mix_best_result.png",
+   "crop": [
+    0,
+    540,
+    800,
+    1200
+   ],
+   "lines": [
+    "94.9%・三顆星・NT$ 15,500",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "同一片湖，換個沾色順序",
+   "big": "87.4 → 94.9",
+   "lines": [
+    "先沾四次白 87.4%｜照食譜 89.1%",
+    "最後補一筆青藍 94.9%",
+    "實測：小羊 11/18，一樓第一幅"
+   ]
+  },
+  {
+   "title": "二樓名畫的報酬上限",
+   "big": "NT$ 20,000,000",
+   "lines": [
+    "梵谷《向日葵》舊摹；一樓這片湖 24,000",
+    "資料：遊戲公開程式 11/18"
+   ]
+  },
+  {
+   "title": "修補師阿芹",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/76/src/gallery.png",
+   "crop": [
+    0,
+    160,
+    800,
+    1600
+   ],
+   "lines": [
+    "「當修補師還得先找得到自己的筆」",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/76/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}

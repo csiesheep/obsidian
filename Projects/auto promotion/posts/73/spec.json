@@ -1,0 +1,95 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/73",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "不動如山二點八",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/73/src/stall.png",
+   "crop": [
+    0,
+    400,
+    800,
+    1500
+   ],
+   "lines": [
+    "亂舞自垮一點七",
+    "截圖：トルコアイス3D 遊戲畫面"
+   ]
+  },
+  {
+   "title": "一動不動：2.8 秒",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/73/src/idle_result.png",
+   "crop": [
+    40,
+    330,
+    760,
+    1230
+   ],
+   "lines": [
+    "10 局全是 2.8 秒，分毫不差",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "亂舞：1.7 秒，攤子先垮",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/73/src/wreck.png",
+   "crop": [
+    0,
+    450,
+    800,
+    1550
+   ],
+   "lines": [
+    "冰淇淋還在，甜筒滿天飛（那局 2.9 秒）",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "亂舞 10 局",
+   "big": "最好 6.3 秒",
+   "lines": [
+    "平均 4.1 秒，5 局不到 3 秒",
+    "一動不動：10 局全是 2.8 秒",
+    "實測：小羊 11/17"
+   ]
+  },
+  {
+   "title": "千分之一：黃金冰淇淋",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/73/src/gold.png",
+   "crop": [
+    200,
+    560,
+    760,
+    1260
+   ],
+   "lines": [
+    "每局 0.1% 機率（另有祕技必出）",
+    "截圖：遊戲畫面"
+   ]
+  },
+  {
+   "title": "客人出手速度",
+   "big": "2.4 → 6.5 m/s",
+   "lines": [
+    "每被閃一次快 0.13 m/s",
+    "閃過 6 次會轉彎，8 次起有假動作",
+    "資料：遊戲公開程式 11/17"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/73/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間也收了這款",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
