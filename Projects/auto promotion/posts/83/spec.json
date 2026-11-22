@@ -1,0 +1,21 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/83",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {"title": "爬行一歲才學步", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/83/src/thumb.png",
+   "lines": ["二十逢階步步艱", "圖片來源：《人生ウォーカー》官方／ゾウノアシゲームズ"]},
+  {"title": "只有一個按鈕", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/83/src/age0.jpg", "crop": [0, 40, 810, 960],
+   "lines": ["按一下，左右腳換一步", "截圖：《人生ウォーカー》遊戲畫面"]},
+  {"title": "年紀是走出來的", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/83/src/age12.jpg", "crop": [0, 40, 810, 960],
+   "lines": ["年紀看走的距離，不看時間", "0～18 歲只佔全程 24%，走完 77% 才 70 歲", "截圖：《人生ウォーカー》遊戲畫面"]},
+  {"title": "二十歲，開始爬樓梯", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/83/src/age20.jpg", "crop": [0, 40, 810, 960],
+   "lines": ["固定節奏連點：0～18 歲約 155 秒", "卡在 20 歲 65 秒，沒長大一歲", "截圖：《人生ウォーカー》遊戲畫面"]},
+  {"title": "七十歲，拄拐杖", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/83/src/age70.jpg", "crop": [0, 40, 810, 960],
+   "lines": ["70 歲起步幅變小、手拿拐杖", "截圖：《人生ウォーカー》遊戲畫面"]},
+  {"title": "八十五歲，換輪椅", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/83/src/age88.jpg", "crop": [0, 40, 810, 960],
+   "lines": ["改成連點推輪椅，不會再跌倒", "90 歲鏡頭停下，看背影漸漸變白", "截圖：《人生ウォーカー》遊戲畫面"]},
+  {"title": "更多點了就玩的小遊戲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/83/src/hub_m.png", "crop": [0, 0, 860, 1300],
+   "lines": ["games.csiesheep.com", "截圖：小羊遊戲間手機畫面"]}
+ ]
+}
