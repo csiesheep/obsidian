@@ -1,0 +1,91 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/86",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "慢削一刀皮不斷",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/86/src/ogp.png",
+   "lines": [
+    "手快一抖碎滿桌",
+    "圖片來源：《りんごの皮むき》官方"
+   ]
+  },
+  {
+   "title": "手指一轉，皮一圈圈長",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/86/src/mid.png",
+   "crop": [
+    560,
+    330,
+    1840,
+    1560
+   ],
+   "lines": [
+    "削越慢，皮越薄、越長",
+    "星島頭條 10/23 收錄的爆紅網頁小遊戲",
+    "截圖：《りんごの皮むき》遊戲畫面"
+   ]
+  },
+  {
+   "title": "全力快拖，碎成 28 段",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/86/src/fast.png",
+   "crop": [
+    380,
+    20,
+    1780,
+    1760
+   ],
+   "lines": [
+    "4 回都碎成 24～29 段，最長一段 8～13 cm",
+    "約 6～8 秒削完，皮加起來才 96～99 cm",
+    "截圖：《りんごの皮むき》遊戲畫面"
+   ]
+  },
+  {
+   "title": "放慢到約 30 秒",
+   "big": "6 / 11 回不斷",
+   "lines": [
+    "一氣呵成的皮長 138～149 cm",
+    "實測：小羊 11/22，滑鼠拖曳，用遊戲自己的讀數"
+   ]
+  },
+  {
+   "title": "一本むき成功",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/86/src/one.png",
+   "crop": [
+    400,
+    20,
+    1700,
+    1740
+   ],
+   "lines": [
+    "一條 1 m 41 cm，用時 27 秒",
+    "離程式裡的「名人」門檻 170 cm 還差 29 cm",
+    "截圖：《りんごの皮むき》遊戲畫面"
+   ]
+  },
+  {
+   "title": "程式裡的門檻",
+   "big": "170 / 240 cm",
+   "lines": [
+    "不斷的皮 170 cm 封「皮むき名人」",
+    "240 cm 封「りんご仙人」",
+    "在下最長 149 cm"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/86/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
