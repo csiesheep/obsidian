@@ -1,0 +1,86 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/87",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "蛋白打泡九十七",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/87/src/card.png",
+   "lines": [
+    "飯涼三分八十三",
+    "圖片來源：《TKG道》官方（N.K. Works）"
+   ]
+  },
+  {
+   "title": "盛飯、打蛋、淋醬油",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/87/src/title.png",
+   "crop": [
+    12,
+    20,
+    828,
+    1260
+   ],
+   "lines": [
+    "一碗生蛋拌飯，滿分 100，沒有儀表",
+    "全靠眼睛和聲音",
+    "截圖：《TKG道》遊戲畫面"
+   ]
+  },
+  {
+   "title": "炊飯器、三顆蛋、七種調味",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/87/src/play0.png",
+   "crop": [
+    12,
+    0,
+    828,
+    1260
+   ],
+   "lines": [
+    "蛋最多 3 顆，調味料 7 種",
+    "先盛飯，再決定蛋怎麼處理",
+    "截圖：《TKG道》遊戲畫面"
+   ]
+  },
+  {
+   "title": "同一顆蛋，兩種打法",
+   "big": "85.5 vs 97.4",
+   "lines": [
+    "整顆打下、撒鹽 5 下：85.5",
+    "蛋白打泡、蛋黃另放：97.4",
+    "各取多組調味的最高分，30 秒內做完"
+   ]
+  },
+  {
+   "title": "放涼三分鐘",
+   "big": "97.4 → 82.6",
+   "lines": [
+    "放涼的名人，輸給趁熱的 85.5",
+    "第一勺飯起算 180 秒；整顆打下 85.5→70.9",
+    "約 50 秒起扣溫度分，約 3 分鐘扣光"
+   ]
+  },
+  {
+   "title": "蛋加到三顆，鹽不變",
+   "big": "85.5 → 68.9",
+   "lines": [
+    "味道分 25 掉到 9.6",
+    "蛋多了，味道就要跟著補",
+    "遊戲公開程式的計分"
+   ]
+  },
+  {
+   "title": "更多點了就玩的小遊戲",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/87/src/hub_m.png",
+   "crop": [
+    0,
+    1050,
+    860,
+    1850
+   ],
+   "lines": [
+    "小羊遊戲間",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
