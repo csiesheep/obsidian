@@ -6,6 +6,12 @@ One line per day: date | area | topic | source | post id | outcome (private / pu
 |---|---|---|---|---|---|
 | 2026-11-21 | vibe coding | "Promoted into architects" (HN 543 pts) vs our hub workflow | https://news.ycombinator.com/item?id=50579331 | 931 | private, waiting for owner |
 | 2026-11-22 | games | 沒有分數的 Stullensimulator（HN 357 pts）vs 生在中國分享連結打不開同一世 | https://news.ycombinator.com/item?id=50594911 | 936 | private, waiting for owner |
+| 2026-11-23 | tech | 〈Assume People Are Not Interested in Your Blog Post〉（HN 253 pts）vs 我們 16 篇文章的開頭（0 篇說明寫給誰） | https://news.ycombinator.com/item?id=50603143 | 939 | private, waiting for owner |
+
+## Other candidates seen 2026-11-23 (not used)
+
+- "Show HN: I built a game where you are an LLM's subagent" worker755 (HN 341): strong hook with our orchestrator and checker workflow, but overlaps post 931 on managing AI; use a new angle such as "how often is the manager wrong".
+- "GLM-5.4" (HN 415) and "Beginner's Guide to Local AI" (HN 608): possible local-model angle with our ComfyUI pipeline; not checked yet.
 
 ## Other candidates seen 2026-11-22 (not used)
 
