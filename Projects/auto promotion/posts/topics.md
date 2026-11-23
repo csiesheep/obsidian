@@ -63,6 +63,6 @@
 ## 候選（2026-11-07 21:58 producer 查到，未寫；來源不足，寫前要再查作者）
 - （已寫 #67）《塗鴉過山車／Doodle Coaster》https://rakugaki-coaster.pages.dev/ （頁面原始碼有 og.png 官方圖、說明「畫一條線變成雲霄飛車、第一人稱乘坐」；頁面碼出現 @kikuchitls 但搜尋找不到作者資料；星島頭條 2026-10-23 列為 Threads 爆紅小遊戲 https://www.stheadline.com/ohpama/3629174 ）
 - 《金鐘站擠爆車廂大作戰》（已寫 #79）、《搣紙巾》（已寫 #82）https://tissuetissue.netlify.app/ 港產，同篇報導，作者未載
-- 《削蘋果大作戰》https://ringo-no-kawamuki.pages.dev/ 、《堆疊雪糕球》https://scoop-tower-game.vercel.app 、《唧牙膏》https://hedorobomb.com/game/hamigaki-game/
+- 《削蘋果大作戰》（已寫 #86）https://ringo-no-kawamuki.pages.dev/ 、《堆疊雪糕球》https://scoop-tower-game.vercel.app 、《唧牙膏》https://hedorobomb.com/game/hamigaki-game/
 
 - 《今天也要平安下班／老師，今天能平安下班嗎？》（2026-11-22 producer 再查：只在 claude.ai artifact，Cloudflare 機器人驗證擋下、拿不到畫面，仍未寫；2026-11-16 producer 查到，未寫）國中老師情境生存網頁遊戲，約120題，Threads 爆紅；原版曾下架，作者另出《輔導室：今天也不能倒下》《笑鼠會議》。來源：https://www.mnews.tw/story/mm-20261016-229edi-121535 、https://cava.tw/money/workforce/267738 、https://iqmore.tw/junior-high-school-teacher-school-affairs-meeting-web-game 、https://flipedu.parenting.com.tw/article/011125 。注意：牽涉校事會議制度爭議，中時提醒遊戲不等於實際制度，寫時不替任何一方背書；中時原文連結 404、作者帳號未確認。
