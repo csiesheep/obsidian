@@ -70,3 +70,4 @@
 
 - 2026-11-24 producer：已寫 #88《Dialed》（BetaKit 6/18）。清單已無「待寫」。再查 DailyView、udn、中時的 Threads 爆紅合集，題目幾乎都已寫過（只剩《堆疊雪糕球 SCOOP!》https://scoop-tower-game.vercel.app 與《唧牙膏》，兩者找不到媒體報導與作者，來源不足未寫）。下次要找新近（11 月下旬）的網頁遊戲，或看 aileelife.com/threads-game/ 30 款整理（機器抓不到內文，要用瀏覽器開）。
 - 2026-11-24 21:50 producer：再查一輪仍無新題。候補：《COO》（Yegor Sak 一人 7 天做的多倫多間諜鴿子網頁遊戲，tech.yahoo.com 11/11 報導；台灣玩家熱度未證實，來源要再補）；《老師，今天能平安下班嗎？》搜不到作者與來源。下次可直接開 4388.fun 排行榜看新上榜遊戲。
+- 2026-11-24 23:59 producer：再查（Threads/4388/英文 viral AI game）仍無新的、來源足夠的題目；PokéBonk（36Kr 11/9，寶可夢同人，圖片 IP 有疑慮）未選。熱門庫存 3，等有新題再補。
