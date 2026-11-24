@@ -7,6 +7,13 @@ One line per day: date | area | topic | source | post id | outcome (private / pu
 | 2026-11-21 | vibe coding | "Promoted into architects" (HN 543 pts) vs our hub workflow | https://news.ycombinator.com/item?id=50579331 | 931 | private, waiting for owner |
 | 2026-11-22 | games | 沒有分數的 Stullensimulator（HN 357 pts）vs 生在中國分享連結打不開同一世 | https://news.ycombinator.com/item?id=50594911 | 936 | private, waiting for owner |
 | 2026-11-23 | tech | 〈Assume People Are Not Interested in Your Blog Post〉（HN 253 pts）vs 我們 16 篇文章的開頭（0 篇說明寫給誰） | https://news.ycombinator.com/item?id=50603143 | 939 | private, waiting for owner |
+| 2026-11-24 | vibe coding / games | Simon Willison〈The October inflection point for vibe game development〉 vs 小羊遊戲間「好玩嗎」票（160 票 71 好玩；生在中國 6/15） | https://simonwillison.net/2026/Oct/28/vibe-game-development/ | 946 | private, waiting for owner |
+
+## Other candidates seen 2026-11-24 (not used)
+
+- "2035 Came Early" fzakaria (HN 454): Linux/Nix in the browser via unkernel (wasm), LLMs pulled Atwood's law forward; weak first-hand hook (our games are plain web pages).
+- "LLM agents work for their parent companies, not for you" (HN 183): possible angle with our agent-team rules on what agents may do; not read yet.
+- itch.io reportedly removing a large volume of AI-generated games (seen in search only, not verified): good fit with our AI-made games if a primary source is found.
 
 ## Other candidates seen 2026-11-23 (not used)
 
