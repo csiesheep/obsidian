@@ -1,0 +1,85 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/89",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "一日十九萬次看",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/89/src/og-cover.png",
+   "lines": [
+    "名字入場化陀螺",
+    "圖片來源：姓名戰鬥陀螺 官方網站"
+   ]
+  },
+  {
+   "title": "每個字都有重穩攻防",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/89/src/wide.png",
+   "crop": [
+    440,
+    800,
+    1160,
+    1100
+   ],
+   "lines": [
+    "金（第二次打開）：重 43、穩 95、攻 64、防 49",
+    "圖片來源：姓名戰鬥陀螺 官方網站"
+   ]
+  },
+  {
+   "title": "怎麼紅的",
+   "big": "19 萬次",
+   "lines": [
+    "漫畫家薪鹽在 Threads 發文",
+    "說男友用 AI 做了名字打架的陀螺遊戲",
+    "一天瀏覽破 19 萬次（NOWnews 報導）"
+   ]
+  },
+  {
+   "title": "男友是誰",
+   "big": "張文韋",
+   "lines": [
+    "《文字遊戲》製作人、獨立團隊 Team9 總製作人",
+    "《文字遊戲》獲日本遊戲大賞 2026 遊戲設計師大獎",
+    "遊戲免費、不用登入（NOWnews 報導）"
+   ]
+  },
+  {
+   "title": "字會碰撞、旋轉、斷裂",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/89/src/fight.jpg",
+   "crop": [
+    185,
+    175,
+    605,
+    595
+   ],
+   "lines": [
+    "官方介紹：依字形切成節點，碰撞時偏重、旋轉、斷裂",
+    "圖片來源：姓名戰鬥陀螺 官方網站"
+   ]
+  },
+  {
+   "title": "筆畫多就最強嗎",
+   "big": "不一定",
+   "lines": [
+    "官方說明：筆畫多可能更重",
+    "但重心、外圈輪廓、結構連接、細頸位置都會影響",
+    "同一個「金」，兩次打開數值還差 1 點"
+   ]
+  },
+  {
+   "title": "點開就能玩",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/89/src/setup.png",
+   "crop": [
+    0,
+    230,
+    1040,
+    1000
+   ],
+   "lines": [
+    "lpm1.live，免費、不用登入",
+    "你名字哪個字最強？留言告訴小羊",
+    "圖片來源：姓名戰鬥陀螺 官方網站"
+   ]
+  }
+ ]
+}
