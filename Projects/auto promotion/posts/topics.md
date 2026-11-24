@@ -68,4 +68,4 @@
 
 - 《今天也要平安下班／老師，今天能平安下班嗎？》（2026-11-22 producer 再查：只在 claude.ai artifact，Cloudflare 機器人驗證擋下、拿不到畫面，仍未寫；2026-11-16 producer 查到，未寫）國中老師情境生存網頁遊戲，約120題，Threads 爆紅；原版曾下架，作者另出《輔導室：今天也不能倒下》《笑鼠會議》。來源：https://www.mnews.tw/story/mm-20261016-229edi-121535 、https://cava.tw/money/workforce/267738 、https://iqmore.tw/junior-high-school-teacher-school-affairs-meeting-web-game 、https://flipedu.parenting.com.tw/article/011125 。注意：牽涉校事會議制度爭議，中時提醒遊戲不等於實際制度，寫時不替任何一方背書；中時原文連結 404、作者帳號未確認。
 
-- 2026-11-24 producer：清單已無「待寫」。再查 DailyView、udn、中時的 Threads 爆紅合集，題目幾乎都已寫過（只剩《堆疊雪糕球 SCOOP!》https://scoop-tower-game.vercel.app 與《唧牙膏》，兩者找不到媒體報導與作者，來源不足未寫）。下次要找新近（11 月下旬）的網頁遊戲，或看 aileelife.com/threads-game/ 30 款整理（機器抓不到內文，要用瀏覽器開）。
+- 2026-11-24 producer：已寫 #88《Dialed》（BetaKit 6/18）。清單已無「待寫」。再查 DailyView、udn、中時的 Threads 爆紅合集，題目幾乎都已寫過（只剩《堆疊雪糕球 SCOOP!》https://scoop-tower-game.vercel.app 與《唧牙膏》，兩者找不到媒體報導與作者，來源不足未寫）。下次要找新近（11 月下旬）的網頁遊戲，或看 aileelife.com/threads-game/ 30 款整理（機器抓不到內文，要用瀏覽器開）。

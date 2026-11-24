@@ -1,0 +1,79 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/88",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "六時敲出八千行",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/88/src/home.png",
+   "crop": [
+    60,
+    370,
+    860,
+    1360
+   ],
+   "lines": [
+    "兩千六百萬局玩",
+    "圖片來源：Dialed.gg 官方網站"
+   ]
+  },
+  {
+   "title": "看一眼顏色，再憑記憶調回來",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/88/src/color.png",
+   "crop": [
+    0,
+    0,
+    860,
+    1120
+   ],
+   "lines": [
+    "一共五個顏色，用色相、飽和、亮度三條滑桿調",
+    "圖片來源：Dialed.gg 官方網站"
+   ]
+  },
+  {
+   "title": "六小時做完",
+   "lines": [
+    "設計師 Geoff Teehan，2 月中旬用 AI 工具約六小時寫出第一版",
+    "第一版是單一個約 8,000 行的 HTML 檔",
+    "用到 Claude、Cursor、Figma（BetaKit 報導）"
+   ],
+   "big": "6 小時"
+  },
+  {
+   "title": "怎麼爆的",
+   "lines": [
+    "他在 Threads 發一篇貼文",
+    "幾天內約 50 萬次遊玩",
+    "後來加上兒子 Sam，一整套 Dialed 累計超過 2,600 萬局、239 個國家，沒有買廣告（BetaKit，6 月）"
+   ],
+   "big": "2,600 萬局"
+  },
+  {
+   "title": "各家說法不同",
+   "lines": [
+    "BetaKit（6 月）：2,600 萬局完成遊玩",
+    "Fast Company：近 3,000 萬次",
+    "兩家數字不同，本篇以 BetaKit 為準"
+   ],
+   "big": "2,600 vs 3,000 萬"
+  },
+  {
+   "title": "出了一整套",
+   "lines": [
+    "color、sound、time、shape、tempo、pattern，最新還有猜拍賣車價的 cars",
+    "BetaKit：每 1 至 2 週出一款；官網賣去廣告方案與周邊",
+    "Geoff：「我們真的不知道自己在做什麼。」"
+   ]
+  },
+  {
+   "title": "點開就能玩",
+   "lines": [
+    "dialed.gg，網頁免費，英文介面",
+    "你的顏色記憶力幾分？留言告訴小羊",
+    "更多點了就玩的網頁小遊戲：小羊遊戲間",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
