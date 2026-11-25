@@ -8,6 +8,13 @@ One line per day: date | area | topic | source | post id | outcome (private / pu
 | 2026-11-22 | games | 沒有分數的 Stullensimulator（HN 357 pts）vs 生在中國分享連結打不開同一世 | https://news.ycombinator.com/item?id=50594911 | 936 | private, waiting for owner |
 | 2026-11-23 | tech | 〈Assume People Are Not Interested in Your Blog Post〉（HN 253 pts）vs 我們 16 篇文章的開頭（0 篇說明寫給誰） | https://news.ycombinator.com/item?id=50603143 | 939 | private, waiting for owner |
 | 2026-11-24 | vibe coding / games | Simon Willison〈The October inflection point for vibe game development〉 vs 小羊遊戲間「好玩嗎」票（160 票 71 好玩；生在中國 6/15） | https://simonwillison.net/2026/Oct/28/vibe-game-development/ | 946 | private, waiting for owner |
+| 2026-11-25 | vibe coding | 〈Fable 5.2 Tries Less on Some Hard Tasks When a Shortcut is Available〉（HN 64 分，Goodhart Labs）vs 我們「AI 不准改 tests/」的規則與 china_life #111 關鍵字表誤判 | https://goodhartlabs.com/blog/fable-5-2-tries-less-on-some-hard-tasks-when-a-shortcut-is-available | 948 | private, waiting for owner |
+
+## Other candidates seen 2026-11-25 (not used)
+
+- itch.io deleted "a couple terabytes of AI slop" (2026-11-02, X post; PC Gamer / GamesRadar) and added a No-AI filter; new game pages doubled in two months without more downloads. Good fit with our AI-made hub games, but the hub vote angle was just used in post 946; pick a different first-hand angle.
+- "Bypassing iOS Safari's 60 FPS Limit to Build Web Applications That Feel Native" (HN 294): web game angle; would need our own frame-rate measurement on a phone.
+- "Button Sounds" collection by Josh Comeau (HN 558): possible angle with china_life year sounds (ui group 69 mute row); weak first-hand hook.
 
 ## Other candidates seen 2026-11-24 (not used)
 
