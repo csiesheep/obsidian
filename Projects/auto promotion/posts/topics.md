@@ -73,3 +73,4 @@
 - 2026-11-24 23:59 producer：再查（Threads/4388/英文 viral AI game）仍無新的、來源足夠的題目；PokéBonk（36Kr 11/9，寶可夢同人，圖片 IP 有疑慮）未選。熱門庫存 3，等有新題再補。
 - 2026-11-25 producer：已寫 #89《姓名戰鬥陀螺》（lpm1.live；NOWnews 2026-09-30、4Gamers；《文字遊戲》製作人張文韋用 Claude 做，薪鹽 Threads 貼文一天破 19 萬瀏覽）。實測對戰在瀏覽器跑太慢，沒有勝負結果，文中已誠實寫明。
 - 2026-11-25 08:50 producer：再搜「網頁小遊戲 爆紅 Threads 11月」，只得已寫過的（鍋氣炒飯、炸地瓜球、擠雪糕等），仍無新題。熱門庫存 3。
+- 2026-11-25 09:10 producer：第三輪仍無新題。JUKSY 10/22 十款、NOWnews 11/4、台北 GTA、機甲、HK 星島整理全已寫（只剩《擠冰淇淋 softserve.nog.cc》#22 已涵蓋、《堆疊雪糕球》《唧牙膏》《COO》來源不足）。下次須用瀏覽器開 aileelife.com/threads-game/ 或 Threads 本身找 11 月下旬新題；熱門 3／4 暫缺一篇。
