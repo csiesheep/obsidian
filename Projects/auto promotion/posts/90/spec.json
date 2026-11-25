@@ -1,0 +1,21 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/90",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {"title": "叉燒燒鵝一刀斬", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/90/src/cover.jpg",
+   "lines": ["蘸料一錯客開罵", "圖片來源：《快刀燒臘》官方（怪奇口袋小遊戲）"]},
+  {"title": "每條肉由 48 小段組成", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/90/src/chop.jpg",
+   "lines": ["客人要 8 件，就把肉斬成 8 件", "厚薄差 13% 內算綠，差過 34% 算紅", "圖片來源：《快刀燒臘》官方遊戲畫面"]},
+  {"title": "蘸料給錯，只扣 4 分", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/90/src/scoop.jpg",
+   "lines": ["罵詞卻是專屬訂製", "「我要的是酸梅醬，你給我芥末？」", "圖片來源：《快刀燒臘》官方遊戲畫面"]},
+  {"title": "醬汁量表停在綠色區", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/90/src/sauce.jpg",
+   "lines": ["少汁、標準汁、多汁，客人點哪種就淋哪種", "客人說「走青」就別放菜", "圖片來源：《快刀燒臘》官方遊戲畫面"]},
+  {"title": "刀工 40，速度只 15", "big": "40+20+25+15",
+   "lines": ["刀工 40、擺盤 20、醬汁 25、速度 15", "慢工出細活：切準比搶快值錢", "遊戲公開程式；不是手玩成績"]},
+  {"title": "連兩盒好評，開旺場", "big": "上限 800",
+   "lines": ["連兩盒 4 星以上，下一盒 ×1.5", "一檔 6 位客人；最低評價「今天先收檔吧」", "遊戲公開程式；不是手玩成績"]},
+  {"title": "更多點了就玩的小遊戲", "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/90/src/hub_m.png", "crop": [0, 1050, 860, 1850],
+   "lines": ["小羊遊戲間", "games.csiesheep.com"]}
+ ]
+}
