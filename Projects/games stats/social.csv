@@ -276,9 +276,19 @@ date,account,platform,followers,followers_delta,posts,views,views_7d,nonfollower
 2026-11-23,gui.chang.shi,Pinterest,1,0,,,,,,,,,,,,,主頁 43.9k 月瀏覽
 2026-11-23,gui.chang.shi,Threads,89,6,,,,,,,,,,,,,近期 349K views；30天 views 338356、淨追蹤 +79；單日沒讀
 2026-11-23,gui.chang.shi,YouTube,,,,,,,,,,,,,,,Studio 儀表板；訂閱數讀值 10 與前次 17 不符，未採用；單日瀏覽沒讀
+2026-11-24,csiesheep.games,Facebook,,,,535,,,,,2,1,,,,,
 2026-11-24,csiesheep.games,Threads,,,,,,,,,7,2,,,,,讀不到：threads.com/@csiesheep.games 顯示頁面不存在
 2026-11-24,csiesheep.games,YouTube,4,0,,,,,,,,,,,,,28天 views 4.1K；單日沒讀
-2026-11-24,gui.chang.shi,Instagram,387,3,,,,,,,,,,,,,主頁 130 posts；洞察沒讀
+2026-11-24,gui.chang.shi,Facebook,,,,234,,,,,,,,,,,
+2026-11-24,gui.chang.shi,Instagram,387,3,,,,,,,,,,10,2,0,主頁 130 posts；洞察沒讀
 2026-11-24,gui.chang.shi,Pinterest,1,0,,,,,,,,,,,,,月瀏覽 44.6k
-2026-11-24,gui.chang.shi,Threads,95,6,,,,,,,,,,,,,近期 484K views；單日沒讀
+2026-11-24,gui.chang.shi,Threads,95,6,,,,,,,,,,11,6,1,近期 484K views；單日沒讀
 2026-11-24,gui.chang.shi,YouTube,18,1,,,,,,,,,,,,,28天 views 6.9K；單日沒讀
+2026-11-25,csiesheep.games,Facebook,6,1,,,,,,,0,0,,,,,D 日（太平洋）尚未結算；Business Suite 追蹤者圖表顯示 4，主頁顯示 6，採主頁
+2026-11-25,csiesheep.games,Threads,60,47,,,,,,,1,1,7,,,,"@csiesheep 近期 6,270 views；無洞察"
+2026-11-25,csiesheep.games,YouTube,4,0,3,,,,,,,,,,,,28天 views 4K；單日沒讀；Instagram 已移除不收
+2026-11-25,gui.chang.shi,Facebook,41,0,,,,,,,,,,,,,D 日（太平洋）尚未結算，D-1 數字在 backfill；30天 瀏覽 2.3 萬
+2026-11-25,gui.chang.shi,Instagram,393,6,5,,4460,,,,,,6,,,,"30天 views 25,174、profile visits 2,071、外連 6；7天 viewers 1,784，非追蹤者 70.4%"
+2026-11-25,gui.chang.shi,Pinterest,1,0,,,,,,,,,,,,,月瀏覽 45.3k
+2026-11-25,gui.chang.shi,Threads,97,2,6,,,,,,,,16,,,,"近期 510K views；30天 views 509,636、淨追蹤 +91；單日沒有數字"
+2026-11-25,gui.chang.shi,YouTube,18,0,4,,,,,,,,,,,,28天 views 7K；單日表格頁出錯（Oops）沒讀到
