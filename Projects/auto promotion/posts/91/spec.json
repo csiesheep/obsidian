@@ -1,0 +1,72 @@
+{
+ "out": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/91",
+ "brand": "小羊遊戲間",
+ "series": "熱門遊戲介紹",
+ "slides": [
+  {
+   "title": "一人七日築全城",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/91/src/title.png",
+   "crop": [
+    20,
+    20,
+    760,
+    780
+   ],
+   "lines": [
+    "機鴿凌空盜情報",
+    "《COO》免費網頁遊戲",
+    "圖片來源：COO 官方網站（載入畫面）"
+   ]
+  },
+  {
+   "title": "官網更新欄",
+   "image": "C:/Users/sheep/code/obsidian/Projects/auto promotion/posts/91/src/loading.png",
+   "crop": [
+    825,
+    40,
+    1235,
+    400
+   ],
+   "lines": [
+    "11/22 更新欄列出 10 處新地標",
+    "圖片來源：COO 官方網站（載入畫面）"
+   ]
+  },
+  {
+   "title": "七天做完",
+   "big": "7 天",
+   "lines": [
+    "作者 Yegor Sak：最多 10 條 AI 工作線同時跑",
+    "用 JavaScript、不用遊戲引擎",
+    "（Gizmodo、AUTOMATON 報導）"
+   ]
+  },
+  {
+   "title": "多倫多整座搬進瀏覽器",
+   "big": "630 km²",
+   "lines": [
+    "作者自稱約 GTA5 地圖的 9 倍",
+    "438,819 棟建築、約 5,700 公里街（Dexerto）",
+    "作者說的數字，非獨立查證"
+   ]
+  },
+  {
+   "title": "你是一隻機械鴿",
+   "big": "8 個任務",
+   "lines": [
+    "主角 P-7：偷隨身碟、駭手機、竊聽目標",
+    "行動可疑，路人注意條會滿；學鴿子咕咕叫能降下來",
+    "沒電要停在電線上充電（AUTOMATON）"
+   ]
+  },
+  {
+   "title": "點開就能玩",
+   "lines": [
+    "coo.mx，免費，英文介面",
+    "若鴿子任你飛，會先飛去哪個地標？留言告訴小羊",
+    "更多點了就玩的網頁小遊戲：小羊遊戲間",
+    "games.csiesheep.com"
+   ]
+  }
+ ]
+}
