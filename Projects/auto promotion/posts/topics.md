@@ -74,3 +74,4 @@
 - 2026-11-25 producer：已寫 #89《姓名戰鬥陀螺》（lpm1.live；NOWnews 2026-09-30、4Gamers；《文字遊戲》製作人張文韋用 Claude 做，薪鹽 Threads 貼文一天破 19 萬瀏覽）。實測對戰在瀏覽器跑太慢，沒有勝負結果，文中已誠實寫明。
 - 2026-11-25 08:50 producer：再搜「網頁小遊戲 爆紅 Threads 11月」，只得已寫過的（鍋氣炒飯、炸地瓜球、擠雪糕等），仍無新題。熱門庫存 3。
 - 2026-11-25 09:10 producer：第三輪仍無新題。JUKSY 10/22 十款、NOWnews 11/4、台北 GTA、機甲、HK 星島整理全已寫（只剩《擠冰淇淋 softserve.nog.cc》#22 已涵蓋、《堆疊雪糕球》《唧牙膏》《COO》來源不足）。下次須用瀏覽器開 aileelife.com/threads-game/ 或 Threads 本身找 11 月下旬新題；熱門 3／4 暫缺一篇。
+- 2026-11-25 producer：寫了 #90《快刀燒臘》（play.cybernatsume.org/g/chop_chop_siu_mei/，怪奇口袋小遊戲、作者「夏目」自介喜歡用 AI 做小遊戲；4388 最熱門榜 4.0k 次、78%／40 票），4 回合 judge 7.7，狀態「退回」（沒有手玩成績、全靠讀公開程式，故事項 7、卡片 2–4 截圖相近）。找題法：4388.fun 首頁「最熱門」榜有未寫過的（快刀燒臘 19781），作者站 play.cybernatsume.org 有 44 款（官方封面 /cover/<id>.webp 與 /shot/<id>/*.webp 可抓），其中料理類：水餃職人、鍋貼職人、滷肉飯專家、爆米花大師、寶島烤肉王、亂加泡麵研究所、燒肉中模擬器、台北機車瀑布、麻雀幫都沒寫過。下次若要避免「全靠讀程式」：先用 headless Chrome 真的玩一檔（window.__siu 暴露 world、start、state），拿實測分數。另有《港式台牌》（hk-taiwan-mahjong.pages.dev，4388 /g/3850，近博弈題材未選）。
