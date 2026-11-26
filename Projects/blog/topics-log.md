@@ -9,6 +9,13 @@ One line per day: date | area | topic | source | post id | outcome (private / pu
 | 2026-11-23 | tech | 〈Assume People Are Not Interested in Your Blog Post〉（HN 253 pts）vs 我們 16 篇文章的開頭（0 篇說明寫給誰） | https://news.ycombinator.com/item?id=50603143 | 939 | private, waiting for owner |
 | 2026-11-24 | vibe coding / games | Simon Willison〈The October inflection point for vibe game development〉 vs 小羊遊戲間「好玩嗎」票（160 票 71 好玩；生在中國 6/15） | https://simonwillison.net/2026/Oct/28/vibe-game-development/ | 946 | private, waiting for owner |
 | 2026-11-25 | vibe coding | 〈Fable 5.2 Tries Less on Some Hard Tasks When a Shortcut is Available〉（HN 64 分，Goodhart Labs）vs 我們「AI 不准改 tests/」的規則與 china_life #111 關鍵字表誤判 | https://goodhartlabs.com/blog/fable-5-2-tries-less-on-some-hard-tasks-when-a-shortcut-is-available | 948 | private, waiting for owner |
+| 2026-11-26 | tech | 〈Smart people who give a shit use tools〉（HN 348 分，Ian K. Duncan）vs china_life／hub 考卷比產品長（tests 18,289 行 vs 產品 11,078 行） | https://www.iankduncan.com/engineering/2026-11-19-smart-people-who-give-a-shit-use-tools | 952 | private, waiting for owner |
+
+## Other candidates seen 2026-11-26 (not used)
+
+- "Porting Rockbox to an undocumented $9 AliExpress MP3 player with LLMs" (HN 261): AI coding on hardware; our hook would be weak (no hardware work), but a good "how far can LLMs go" story.
+- "The New York Times warns photographers not to update Photoshop over AI features" (HN 480, 398 comments): AI and creative work; possible angle with our ink portraits (no AI label rule) — check carefully before using.
+- "Show HN: Synth Patch Hero" (HN 87): small web game; games area if we can compare with our own hub games.
 
 ## Other candidates seen 2026-11-25 (not used)
 
