@@ -292,11 +292,19 @@ date,account,platform,followers,followers_delta,posts,views,views_7d,nonfollower
 2026-11-25,gui.chang.shi,Pinterest,1,0,,,,,,,,,,,,,月瀏覽 45.3k
 2026-11-25,gui.chang.shi,Threads,97,2,6,,,,,,,,16,,,,"近期 510K views；30天 views 509,636、淨追蹤 +91；單日沒有數字"
 2026-11-25,gui.chang.shi,YouTube,18,0,4,,,,,,,,,,,,28天 views 7K；單日表格頁出錯（Oops）沒讀到
-2026-11-26,csiesheep.games,Facebook,,,5,,,,,,1,1,,,,,Business Suite 追蹤者圖表 5，與主頁數不一致未採用；D 日尚未結算
+2026-11-26,csiesheep.games,Facebook,,,5,405,,,,,1,1,,,,,Business Suite 追蹤者圖表 5，與主頁數不一致未採用；D 日尚未結算
 2026-11-26,csiesheep.games,Threads,60,0,5,,,,,,3,2,0,,,,@csiesheep；無洞察；IG csiesheep.games 已移除不收
 2026-11-26,csiesheep.games,YouTube,4,0,2,,,,,,,,,,,,28天 views 4K；單日沒讀
-2026-11-26,gui.chang.shi,Facebook,93,52,0,,,,,,,,,,,,追蹤數取 Business Suite 追蹤者（11/25 太平洋日 +52）；D 日尚未結算，D-1 在 backfill
+2026-11-26,gui.chang.shi,Facebook,93,52,0,4732,,,,,,,,,,,追蹤數取 Business Suite 追蹤者（11/25 太平洋日 +52）；D 日尚未結算，D-1 在 backfill
 2026-11-26,gui.chang.shi,Instagram,403,10,0,,4687,71.6,375,1,,,9,,,,"7天：views 4,687、viewers 1,791、profile visits 375、外連 1；主頁 135 posts"
 2026-11-26,gui.chang.shi,Pinterest,1,0,0,,,,,,,,,,,,月瀏覽 45.9k
 2026-11-26,gui.chang.shi,Threads,97,0,0,,,,,,,,22,,,,"30天 views 521,209、淨追蹤 +94；單日沒有數字；D 日沒有自己的貼文"
 2026-11-26,gui.chang.shi,YouTube,19,1,0,,,,,,,,,,,,28天 views 7K；單日表格頁仍 Oops 沒讀到；第 63 首（1/4）Studio 標示 Blocked
+2026-11-27,csiesheep.games,Facebook,5,-1,,,,,,,0,0,0,,,,Business Suite 追蹤者圖表 5；D 日尚未結算
+2026-11-27,csiesheep.games,Threads,61,1,,,,,,,1,1,9,,,,"@csiesheep；近期 7,311 views（30 天）；IG csiesheep.games 已移除不收"
+2026-11-27,csiesheep.games,YouTube,4,0,,,,,,,,,0,,,,28天 views 4K；單日沒讀
+2026-11-27,gui.chang.shi,Facebook,105,12,,,,,,,,,0,,,,Business Suite 追蹤者 30 天 105；D 日（太平洋）尚未結算，D-1 在 backfill
+2026-11-27,gui.chang.shi,Instagram,408,5,1,,4016,70.7,323,1,,,15,,,,"7天：views 4,016、viewers 1,518；Reel 第 7 部可能在 11/28 凌晨發，D 日只計第 64 首輪播"
+2026-11-27,gui.chang.shi,Pinterest,1,0,,,,,,,,,0,,,,月瀏覽 46.7k
+2026-11-27,gui.chang.shi,Threads,104,7,2,,,,,,,,28,,,,"30天 views 529,229、淨追蹤 +96；單日沒有數字（圖表不可讀）"
+2026-11-27,gui.chang.shi,YouTube,19,0,0,,,,,,,,0,,,,28天 views 7K；單日表格頁 Oops 沒讀到
