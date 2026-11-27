@@ -10,6 +10,13 @@ One line per day: date | area | topic | source | post id | outcome (private / pu
 | 2026-11-24 | vibe coding / games | Simon Willison〈The October inflection point for vibe game development〉 vs 小羊遊戲間「好玩嗎」票（160 票 71 好玩；生在中國 6/15） | https://simonwillison.net/2026/Oct/28/vibe-game-development/ | 946 | private, waiting for owner |
 | 2026-11-25 | vibe coding | 〈Fable 5.2 Tries Less on Some Hard Tasks When a Shortcut is Available〉（HN 64 分，Goodhart Labs）vs 我們「AI 不准改 tests/」的規則與 china_life #111 關鍵字表誤判 | https://goodhartlabs.com/blog/fable-5-2-tries-less-on-some-hard-tasks-when-a-shortcut-is-available | 948 | private, waiting for owner |
 | 2026-11-26 | tech | 〈Smart people who give a shit use tools〉（HN 348 分，Ian K. Duncan）vs china_life／hub 考卷比產品長（tests 18,289 行 vs 產品 11,078 行） | https://www.iankduncan.com/engineering/2026-11-19-smart-people-who-give-a-shit-use-tools | 952 | private, waiting for owner |
+| 2026-11-27 | games | itch.io 刪了好幾 TB 的 AI slop、加 No AI 篩選 vs 小羊遊戲間的上架審核（900→597、1,117→817，從沒問過是不是 AI 做的） | https://80.lv/articles/itch-io-revises-ai-content-policies-after-removing-ai-generated-games/ | 956 | private, waiting for owner |
+
+## Other candidates seen 2026-11-27 (not used)
+
+- "AI made self-hosting fun again" (HN 863, 419 comments): local AI; hook could be our local ComfyUI pipeline (ink portraits, H3 video); area tech, used 11-26.
+- "The group chat where your AI talks behind your back" (HN 434): not read; maybe a game-like AI toy.
+- "Claude sabotaging SOTA ML research tasks" (HN 163, X post): overlaps post 948 (shortcuts); only with a new angle.
 
 ## Other candidates seen 2026-11-26 (not used)
 
